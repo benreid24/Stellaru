@@ -37,8 +37,12 @@ def _skip_whitespace(file):
 
 def _read_to(file, delim):
     pos = file.tell()
-    while file.read(1) not in delim and not _eof(file):
-        pass
+    while  not _eof(file):
+        c = file.read(1)
+        if c in delim:
+            break
+        if '"' == c:
+            _read_to(file, '"')
     end_pos = file.tell()
     file.seek(pos)
     data = file.read(end_pos - pos)
