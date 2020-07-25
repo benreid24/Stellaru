@@ -11,11 +11,14 @@ class Watcher:
         self.latest_write = 0
         self.latest_read = 0
         self.latest_file = ''
-        refresh()
+        self.refresh()
         self.new_data = False
 
     def refresh(self):
-        file_list = glob.glob(f'{self.directory}*.sav')
+        file_list = [
+            os.path.join(self.directory, filename)
+            for filename in os.listdir(self.directory)
+        ]
 
         update = False
         for file in file_list:
@@ -32,6 +35,9 @@ class Watcher:
                 self.latest_file = file
 
         return update
+
+    def get_name(self):
+        return self.name
 
     def time(self):
         return max(self.latest_read, self.latest_write)
