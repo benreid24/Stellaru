@@ -174,7 +174,12 @@ def build_snapshot(state, empire):
 
     snapshot = {
         'name': state['country'][empire]['name'],
-        'leaders': _get_leaders(state, empire)
+        'active_empires': len(get_empires(state).keys()),
+        'edict_count': len(state['country'][empire]['edicts']),
+        'leaders': _get_leaders(state, empire),
+        'standing': _get_standing(state, empire),
+        'war': _get_wars(state, empire),
+        'systems': _get_systems(state, empire)
     }
     return snapshot
 
@@ -226,3 +231,48 @@ def _get_leaders(state, empire):
         'percent_male': sum([1 for leader in leaders if leader['gender'] == 'male']) / len(leaders)
     }
     return {**breakdown, **leader_info}
+
+
+def _get_standing(state, empire):
+    return {
+        'victory_rank': state['country'][empire]['victory_rank'],
+        'tech_power': state['country'][empire]['tech_power'],
+        'economy_power': state['country'][empire]['economy_power'],
+        'military_power': state['country'][empire]['military_power']
+    }
+
+
+def _get_wars(state, empire):
+    active_wars = [war for key, war in state['war'].items() if isinstance(war, dict)]
+    offense_wars = sum([
+        1 for war in active_wars if empire in
+            [attacker['country'] for attacker in war['attackers']]
+    ])
+    defense_wars = sum([
+        1 for war in active_wars if empire in
+            [defender['country'] for defender in war['defenders']]
+    ])
+    return {
+        'total': len(active_wars),
+        'participation': offense_wars + defense_wars,
+        'attacker': offense_wars,
+        'defender': defense_wars
+    }
+
+
+def _get_systems(state, empire):
+    surveyed_ids = state['country'][empire]['surveyed']
+    surveyed_stars = sum([
+        1 for sid in surveyed_ids
+        if sid in state['galactic_object'] and state['galactic_object'][sid]['type'] == 'star'
+    ])
+    owned = [
+        base for bid, base in state['starbase_mgr']['starbases'].items()
+        if isinstance(base, dict) and base['owner'] == empire]
+    upgraded = sum(1 for base in owned if base['level'] != 'starbase_level_outpost')
+    return {
+        'surveyed_objects': len(surveyed_ids),
+        'surveyed_systems': surveyed_stars,
+        'owned': len(owned),
+        'starbases': upgraded
+    }
