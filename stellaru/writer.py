@@ -2,6 +2,10 @@ import os
 import json
 
 
+def _make_safe(name):
+    return name.replace('"', '')
+
+
 def _recursive(d):
     if not isinstance(d, dict):
         return False
@@ -21,6 +25,8 @@ def write(state, folder):
         if _recursive(state[key]):
             write(state[key], os.path.join(folder, key))
         else:
-            f = open(os.path.join(folder, f'{key}.json'), 'w')
-            f.write(json.dumps(state[key], indent=4))
-            f.close()
+            try:
+                with open(os.path.join(folder, f'{_make_safe(key)}.json'), 'w') as f:
+                    f.write(json.dumps(state[key], indent=4))
+            except:
+                pass
