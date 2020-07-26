@@ -1,4 +1,39 @@
 EXAMPLE_SNAPSHOT = {
+    'name': 'The Raviscidian Ravagers',
+    'active_empires': 8,
+    'edict_count': 14,
+    'unity': {
+        'output': 1000,
+        'traditions': 40,
+        'ascension_perks': 8,
+    },
+    'systems': {
+        'surveyed': 600,
+        'owned': 100,
+        'starbases': 29
+    },
+    'wars': {
+        'total': 3,
+        'participating': 1
+    },
+    'federation': {
+        'members': 3, # 0 = not in one
+        'cohesion': 100,
+        'monthly_cohesion': 1
+    },
+    'leaders': {
+        'total': 18,
+        'scientist': 5,
+        'general': 0,
+        'governor': 1,
+        'admiral': 12
+    },
+    'standing': {
+        'victory_rank': 1,
+        'military_power': 4000000,
+        'tech_power': 31000,
+        'economy_power': 31000
+    },
     'economy': {
         'resource name': {
             'net': 200,
@@ -128,3 +163,6 @@ def get_empires(state):
     }
 
 
+def build_snapshot(state, empire):
+    if empire not in state['country']:
+        print(f'Invalid empire: {empire}')

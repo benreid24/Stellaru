@@ -10,3 +10,12 @@ Each visualization has both a snapshot view as well as a time series view. Suppo
 5. Number of pops, as well as species and job drilldowns
 6. Army count, type breakdown, and total strength. Maybe will add concentration as well
 7. Science output and breakdown and the total number of completed and available techs
+8. Unity output and tradition/ascension perk counts
+9. Number of active wars, both galactic total and those being participated in
+10. Federation membership, member count, level, cohesion
+11. Leader count and type breakdown
+12. Number of surveyed systems and owned systems
+13. Starbase count
+14. Tech, economy, military power, and victory rank
+15. Total number of empires
+16. Number of active edicts
