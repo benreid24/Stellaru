@@ -84,11 +84,8 @@ def _parse_object(file):
 def parse_save(file):
     meta_file, state_file = _open_save(file)
 
+    # TODO - consider writing a grammar and using a real parser
     meta = _parse_dict(meta_file)
-    state = None
-    try:
-        state = _parse_dict(state_file)
-    except:
-        pass
+    state = _parse_dict(state_file)
 
     return meta, state
