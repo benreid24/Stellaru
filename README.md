@@ -13,7 +13,7 @@ Each visualization has both a snapshot view as well as a time series view. Suppo
 8. Unity output and tradition/ascension perk counts
 9. Number of active wars, both galactic total and those being participated in
 10. Federation membership, member count, level, cohesion
-11. Leader count and type breakdown
+11. Leader count and type breakdown. Average and max leader age
 12. Number of surveyed systems and owned systems
 13. Starbase count
 14. Tech, economy, military power, and victory rank

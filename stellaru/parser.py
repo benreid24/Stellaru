@@ -47,6 +47,8 @@ def _parse_dict(file):
     values = {}
     while not file.eof():
         name = file.readto('=')
+        if name.isnumeric():
+            name = int(name)
         value = _parse_object(file)
         if name in values:
             if isinstance(values[name], list):

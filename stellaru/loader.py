@@ -1,3 +1,6 @@
+DAYS_PER_MONTH = 30
+DAYS_PER_YEAR = DAYS_PER_MONTH * 12
+
 EXAMPLE_SNAPSHOT = {
     'name': 'The Raviscidian Ravagers',
     'active_empires': 8,
@@ -26,7 +29,9 @@ EXAMPLE_SNAPSHOT = {
         'scientist': 5,
         'general': 0,
         'governor': 1,
-        'admiral': 12
+        'admiral': 12,
+        'avg_age': 140,
+        'max_age': 288
     },
     'standing': {
         'victory_rank': 1,
@@ -166,3 +171,58 @@ def get_empires(state):
 def build_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
+
+    snapshot = {
+        'name': state['country'][empire]['name'],
+        'leaders': _get_leaders(state, empire)
+    }
+    return snapshot
+
+
+def _parse_date(date_str):
+    comps = date_str.split('.')
+    if len(comps) != 3:
+        return {'y': 0, 'm': 0, 'd': 0}
+    return {
+        'y': int(comps[0]),
+        'm': int(comps[1]),
+        'd': int(comps[2])
+    }
+
+
+def _date_diff_days(future, past):
+    year_diff = future['y'] - past['y']
+    month_diff = future['m'] + (12 - past['m'])
+    day_diff = future['d'] + (DAYS_PER_MONTH - past['d'])
+    return year_diff * DAYS_PER_YEAR + month_diff * DAYS_PER_MONTH + day_diff
+
+
+def _get_leaders(state, empire):
+    date = _parse_date(state['date'])
+    leader_ids = state['country'][empire]['owned_leaders']
+    leader_pool = state['leaders']
+    leaders = [leader_pool[lid] for lid in leader_ids if lid in leader_pool]
+    classes = set([leader['class'] for leader in leaders])
+    leaders = [
+        {
+            **leader,
+            'actual_age': leader['age'] + _date_diff_days(date, _parse_date(leader['date'])) / DAYS_PER_YEAR
+        }
+        for leader in leaders
+    ]
+
+    breakdown = {
+        ltype: len([leader for leader in leaders if leader['class'] == ltype])
+        for ltype in classes
+    }
+    leader_info = {
+        'total': len(leaders),
+        'max_age': max(leader['actual_age'] for leader in leaders),
+        'avg_age': sum(leader['actual_age'] for leader in leaders) / len(leaders),
+        'avg_hire_age': sum([leader['age'] for leader in leaders]) / len(leaders),
+        'max_hire_age': max([leader['age'] for leader in leaders]),
+        'avg_level': sum([leader['level'] for leader in leaders]) / len(leaders),
+        'max_level': max([leader['level'] for leader in leaders]),
+        'percent_male': sum([1 for leader in leaders if leader['gender'] == 'male']) / len(leaders)
+    }
+    return {**breakdown, **leader_info}
