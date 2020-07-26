@@ -20,9 +20,11 @@ def _parse_value(file):
     else:
         value_str = file.readto(WHITESPACE)
     if not value_str.isnumeric():
-        return value_str
-    if '.' in value_str:
-        return float(value_str)
+        try:
+            fval = float(value_str)
+            return fval
+        except ValueError:
+            return value_str
     return int(value_str)
 
 

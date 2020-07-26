@@ -1,10 +1,81 @@
 DAYS_PER_MONTH = 30
 DAYS_PER_YEAR = DAYS_PER_MONTH * 12
 
+EC_SB = 'Starbases'
+EC_SB_BASE = 'Base'
+EC_SB_BUILDINGS = 'Buildings'
+EC_SB_MODULES = 'Modules'
+EC_TRADE = 'Trade'
+EC_MEGA = 'Megastructures'
+EC_STATIONS = 'Stations'
+EC_SHIPS = 'Ships'
+EC_SHIPS_BASE = 'Base'
+EC_SHIPS_COMP = 'Components'
+EC_PLANETS = 'Planets'
+EC_PLANETS_DISTRICTS = 'Districts'
+EC_PLANETS_BUILDINGS = 'Buildings'
+EC_PLANET_POPS = 'Pops'
+EC_PLANETS_JOBS = 'Jobs'
+EC_LEADERS = 'Leaders'
+EC_ARMIES = 'Armies'
+EC_BASE = 'Base'
+
+ECONOMY_CLASSES = {
+    'trade_routes': [EC_TRADE],
+    'megastructures': [EC_MEGA],
+    'ships': [EC_SHIPS, EC_SHIPS_BASE],
+    'ship_components': [EC_SHIPS, EC_SHIPS_COMP],
+    'station_gatherers': [EC_SB, EC_SB_BUILDINGS],
+    'station_researchers': [EC_SB, EC_SB_BUILDINGS],
+    'starbase_stations': [EC_SB, EC_SB_BASE],
+    'starbase_buildings': [EC_SB, EC_SB_BUILDINGS],
+    'starbase_modules': [EC_SB, EC_SB_MODULES],
+    'planet_buildings': [EC_PLANETS, EC_PLANETS_BUILDINGS],
+    'planet_buildings_strongholds': [EC_PLANETS, EC_PLANETS_BUILDINGS],
+    'planet_districts': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_districts_cities': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_energy': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_research': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_mining': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_trade': [EC_PLANETS, EC_PLANETS_DISTRICTS],
+    'planet_pop_assemblers': [EC_PLANETS, EC_PLANETS_JOBS, 'Assemblers'],
+    'planet_farmers': [EC_PLANETS, EC_PLANETS_JOBS, 'Farmers'],
+    'planet_miners': [EC_PLANETS, EC_PLANETS_JOBS, 'Miners'],
+    'planet_technician': [EC_PLANETS, EC_PLANETS_JOBS, 'Technicians'],
+    'planet_administrators': [EC_PLANETS, EC_PLANETS_JOBS, 'Administrators'],
+    'planet_bureaucrats': [EC_PLANETS, EC_PLANETS_JOBS, 'Bureaucrats'],
+    'planet_researchers': [EC_PLANETS, EC_PLANETS_JOBS, 'Researchers'],
+    'planet_metallurgists': [EC_PLANETS, EC_PLANETS_JOBS, 'Metallurgists'],
+    'planet_culture_workers': [EC_PLANETS, EC_PLANETS_JOBS, 'Culture Workers'],
+    'planet_entertainers': [EC_PLANETS, EC_PLANETS_JOBS, 'Entertainers'],
+    'planet_enforcers': [EC_PLANETS, EC_PLANETS_JOBS, 'Enforcers'],
+    'planet_doctors': [EC_PLANETS, EC_PLANETS_JOBS, 'Doctors'],
+    'planet_refiners': [EC_PLANETS, EC_PLANETS_JOBS, 'Refiners'],
+    'planet_translucers': [EC_PLANETS, EC_PLANETS_JOBS, 'Translucers'],
+    'planet_chemists': [EC_PLANETS, EC_PLANETS_JOBS, 'Chemists'],
+    'planet_artisans': [EC_PLANETS, EC_PLANETS_JOBS, 'Artisans'],
+    'pop_category_robot': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
+    'pop_category_slaves': [EC_PLANETS, EC_PLANET_POPS, 'Slaves'],
+    'pop_category_workers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
+    'pop_category_specialists': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
+    'pop_category_rulers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
+    'planet_deposits': [EC_PLANETS, 'Other'],
+    'orbital_mining_deposits': [EC_STATIONS],
+    'orbital_research_deposits': [EC_STATIONS],
+    'armies': [EC_ARMIES],
+    'leader_admirals': [EC_LEADERS],
+    'leader_generals': [EC_LEADERS],
+    'leader_scientists': [EC_LEADERS],
+    'leader_governors': [EC_LEADERS],
+    'pop_factions': [EC_PLANETS, EC_PLANET_POPS, 'Factions'],
+    'country_base': [EC_BASE]
+}
+
 EXAMPLE_SNAPSHOT = {
     'name': 'The Raviscidian Ravagers',
     'active_empires': 8,
     'edict_count': 14,
+    'sprawl': 1500,
     'unity': {
         'output': 1000,
         'traditions': 40,
@@ -20,9 +91,12 @@ EXAMPLE_SNAPSHOT = {
         'participating': 1
     },
     'federation': {
-        'members': 3, # 0 = not in one
-        'cohesion': 100,
-        'monthly_cohesion': 1
+        'name': '',
+        'members': 0,
+        'cohesion': 0,
+        'xp': 0,
+        'level': 0,
+        'leader': False
     },
     'leaders': {
         'total': 18,
@@ -39,8 +113,16 @@ EXAMPLE_SNAPSHOT = {
         'tech_power': 31000,
         'economy_power': 31000
     },
+    'construction': {
+        'queue_count': 200,
+        'queued_items': 400,
+        'avg_queue size': 2,
+        'max_queue_size': 100,
+        # TODO - type breakdown?
+    },
     'economy': {
         'resource name': {
+            'stockpile': 10000,
             'net': 200,
             'income': {
                 'total': 1000,
@@ -179,7 +261,10 @@ def build_snapshot(state, empire):
         'leaders': _get_leaders(state, empire),
         'standing': _get_standing(state, empire),
         'war': _get_wars(state, empire),
-        'systems': _get_systems(state, empire)
+        'systems': _get_systems(state, empire),
+        'federation': _get_federation(state, empire),
+        'unity': _get_unity(state, empire),
+        'economy': _get_economy(state, empire)
     }
     return snapshot
 
@@ -269,10 +354,100 @@ def _get_systems(state, empire):
     owned = [
         base for bid, base in state['starbase_mgr']['starbases'].items()
         if isinstance(base, dict) and base['owner'] == empire]
-    upgraded = sum(1 for base in owned if base['level'] != 'starbase_level_outpost')
+    upgraded = state['country'][empire]['num_upgraded_starbase']
     return {
         'surveyed_objects': len(surveyed_ids),
         'surveyed_systems': surveyed_stars,
         'owned': len(owned),
         'starbases': upgraded
+    }
+
+
+def _get_federation(state, empire):
+    if 'federation' not in state['country'][empire] or not isinstance(state['country'][empire]['federation'], int):
+        return {
+            'name': '',
+            'members': 0,
+            'cohesion': 0,
+            'xp': 0,
+            'level': 0,
+            'leader': False
+        }
+    federation = state['federation'][state['country'][empire]['federation']]
+    return {
+        'name': federation['name'],
+        'members': len(federation['members']),
+        'cohesion': federation['federation_progression']['cohesion'],
+        'xp': federation['federation_progression']['experience'],
+        'level': federation['federation_progression']['levels'],
+        'leader': federation['leader'] == empire
+    }
+
+
+def _get_unity(state, empire):
+    ap_count = len(state['country'][empire]['ascension_perks'])
+    tradition_count = len(state['country'][empire]['traditions'])
+    unity_income = sum([
+        iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
+        if 'unity' in iset
+    ])
+    return {
+        'traditions': tradition_count,
+        'acension_perks': ap_count,
+        'unity': unity_income
+    }
+
+
+def _classify_resource_producer(name):
+    if name in ECONOMY_CLASSES:
+        return ECONOMY_CLASSES[name]
+    
+    if 'planet' in name:
+        if 'district' in name:
+            return [EC_PLANETS, EC_PLANETS_DISTRICTS]
+        if 'pop' in name:
+            return [EC_PLANETS, EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
+        return [EC_PLANETS, EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
+    if 'orbital' in name:
+        return [EC_STATIONS]
+    if 'starbase' in name or 'station' in name:
+        return [EC_SB, 'Other']
+    if 'ship' in name:
+        return [EC_SHIPS, 'Other']
+    return ['Other (unknown)']
+
+
+def _build_resource_breakdown(budget):
+    breakdown = {}
+    for producer, resources in budget.items():
+        if not resources:
+            continue
+        classes = _classify_resource_producer(producer)
+        for resource, amount in resources.items():
+            if resource not in breakdown:
+                breakdown[resource] = {
+                    'total': amount
+                }
+            else:
+                breakdown[resource]['total'] += amount
+            rb = breakdown[resource]
+            for class_name in classes:
+                if class_name not in rb:
+                    rb[class_name] = {
+                        'total': amount
+                    }
+                else:
+                    rb[class_name]['total'] += amount
+                rb = rb[class_name]
+    return breakdown
+
+
+def _get_economy(state, empire):
+    resources = state['country'][empire]['modules']['standard_economy_module']['resources']
+    resource_names = [name for name in resources.keys()]
+    budgets = state['country'][empire]['budget']['current_month']
+    return {
+        'stockpile': resources,
+        'income': _build_resource_breakdown(budgets['income']),
+        'spending': _build_resource_breakdown(budgets['expenses'])
     }
