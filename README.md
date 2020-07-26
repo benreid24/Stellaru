@@ -1,5 +1,5 @@
 # Stellaru
-Stellaru is a data visualization suite for the game Stellaris. It is meant to be run alongside the game and provides realtime snapshots and historical data from the game. It works by monitoring and parsing the autosaves while you play. The historical data is saved in raw json files inside of the folder of the game save that is being monitored
+Stellaru is a data visualization suite for the game Stellaris. It is meant to be run alongside the game and provides realtime snapshots and historical data from the game. It works by monitoring and parsing the autosaves while you play. The historical data is saved in raw json files inside of the folder of the game save that is being monitored. It currently only works on Windows for single player games or multiplayer games for the host only.
 
 ## Visualizations
 Each visualization has both a snapshot view as well as a time series view. Supported visualizations and metrics planned are:
