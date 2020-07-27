@@ -254,6 +254,7 @@ def build_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
 
+    planets, pops = _get_planets_and_pops(state, empire)
     snapshot = {
         'name': state['country'][empire]['name'],
         'active_empires': len(get_empires(state).keys()),
@@ -268,7 +269,8 @@ def build_snapshot(state, empire):
         'economy': _get_economy(state, empire),
         'construction': _get_construction(state, empire),
         'tech': _get_tech(state, empire),
-        'planets': _get_planets(state, empire)
+        'planets': planets,
+        'pops': pops
     }
     return snapshot
 
@@ -547,11 +549,12 @@ def _get_tech(state, empire):
     }
 
 
-def _get_planets(state, empire):
-    planets = [
-        planet for pid, planet in state['planets']['planet'].items()
+def _get_planets_and_pops(state, empire):
+    planet_dict = {
+        pid: planet for pid, planet in state['planets']['planet'].items()
         if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
-    ]
+    }
+    planets = [planet for pid, planet in planet_dict.items()]
     now = _parse_date(state['date'])
     for planet in planets:
         days = _date_diff_days(now, _parse_date(planet['colonize_date']))
@@ -572,7 +575,7 @@ def _get_planets(state, empire):
         else:
             type_sums[tp] += 1
 
-    return {
+    planet_stats = {
         'total': len(planets),
         'types': type_sums,
         'districts': _basic_stats([len(planet['district']) for planet in planets]),
@@ -585,3 +588,36 @@ def _get_planets(state, empire):
         'age_days': _basic_stats([planet['age_days'] for planet in planets]),
         'age': _basic_stats([planet['age'] for planet in planets])
     }
+
+    pop_ids = []
+    for planet in planets:
+        pop_ids.extend(planet['pop'])
+    pops = [state['pop'][pid] for pid in pop_ids if isinstance(state['pop'][pid], dict)]
+    jobs = {
+        pop['job']: ' '.join(word.capitalize() for word in pop['job'].split('_'))
+        for pop in pops
+    }
+
+    species_sums = {}
+    job_sums = {}
+    for pop in pops:
+        species = state['species'][pop['species_index']]['name'] \
+            if pop['species_index'] < len(state['species']) else 'Unknown'
+        if species not in species_sums:
+            species_sums[species] = 1
+        else:
+            species_sums[species] += 1
+        
+        job = jobs[pop['job']]
+        if job not in job_sums:
+            job_sums[job] = 1
+        else:
+            job_sums[job] += 1
+
+    pop_stats = {
+        'total': len(pops),
+        'jobs': job_sums,
+        'species': species_sums
+    }
+
+    return planet_stats, pop_stats
