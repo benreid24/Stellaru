@@ -1,0 +1,988 @@
+{
+    "name": "The Rascividian Ravagers",
+    "active_empires": 29,
+    "edict_count": 21,
+    "sprawl": 1570,
+    "leaders": {
+        "general": 1,
+        "admiral": 12,
+        "governor": 1,
+        "envoy": 5,
+        "scientist": 5,
+        "ruler": 2,
+        "total": 26,
+        "max_age": 314.60833333333335,
+        "avg_age": 176.0998931623931,
+        "avg_hire_age": 37.23076923076923,
+        "max_hire_age": 49,
+        "avg_level": 5.461538461538462,
+        "max_level": 10,
+        "percent_male": 0.46153846153846156
+    },
+    "standing": {
+        "victory_rank": 1,
+        "tech_power": 214885.00057,
+        "economy_power": 31145.83197,
+        "military_power": 3844591.88015
+    },
+    "war": {
+        "total": 1,
+        "participation": 0,
+        "attacker": 0,
+        "defender": 0
+    },
+    "systems": {
+        "surveyed_objects": 2404,
+        "surveyed_systems": 335,
+        "owned": 78,
+        "starbases": 29
+    },
+    "federation": {
+        "name": "The Enlightened Reclaimers",
+        "members": 3,
+        "cohesion": 41.6,
+        "xp": 18000,
+        "level": 5,
+        "leader": true
+    },
+    "unity": {
+        "adopted_trees": 7,
+        "finished_trees": 7,
+        "traditions": 35,
+        "acension_perks": 8,
+        "unity": 2036.392
+    },
+    "economy": {
+        "stockpile": {
+            "energy": 100000,
+            "minerals": 65000,
+            "food": 65000,
+            "society_research": 516.25548,
+            "influence": 710.89579,
+            "unity": 1538358.5257,
+            "alloys": 11358.81508,
+            "consumer_goods": 65000,
+            "volatile_motes": 10531.70852,
+            "exotic_gases": 13925.94135,
+            "rare_crystals": 11440.98533,
+            "sr_dark_matter": 6070.57769,
+            "minor_artifacts": 5
+        },
+        "net_income": {
+            "society_research": 2868.0860000000002,
+            "energy": 2265.7740200000026,
+            "minerals": 2109.8439999999996,
+            "food": 555.8199999999997,
+            "physics_research": 2862.11,
+            "engineering_research": 2757.148,
+            "influence": 10.89579,
+            "unity": 2036.392,
+            "alloys": 130.82119999999986,
+            "consumer_goods": 178.30100000000016,
+            "volatile_motes": 12.591999999999999,
+            "rare_crystals": 8.771999999999991,
+            "exotic_gases": 6.131999999999991,
+            "sr_dark_matter": 4
+        },
+        "income": {
+            "society_research": {
+                "total": 2868.0860000000002,
+                "breakdown": {
+                    "Other (unknown)": {
+                        "total": 8,
+                        "breakdown": {}
+                    },
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 2500.0860000000002,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 2500.0860000000002,
+                                "breakdown": {
+                                    "Researchers": {
+                                        "total": 2255.898,
+                                        "breakdown": {}
+                                    },
+                                    "Culture Workers": {
+                                        "total": 244.188,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 50,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "energy": {
+                "total": 11032.79002,
+                "breakdown": {
+                    "Base": {
+                        "total": 19,
+                        "breakdown": {}
+                    },
+                    "Trade": {
+                        "total": 6212.52202,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 3800,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 669.568,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 631.568,
+                                "breakdown": {
+                                    "Technicians": {
+                                        "total": 631.568,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Other": {
+                                "total": 38,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 331.7,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "minerals": {
+                "total": 5009.4439999999995,
+                "breakdown": {
+                    "Base": {
+                        "total": 26.6,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 2660,
+                        "breakdown": {}
+                    },
+                    "Starbases": {
+                        "total": 7.98,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 7.98,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Planets": {
+                        "total": 1551.584,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 1551.584,
+                                "breakdown": {
+                                    "Miners": {
+                                        "total": 1551.584,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 763.28,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "food": {
+                "total": 3271.72,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Starbases": {
+                        "total": 33,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 33,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Planets": {
+                        "total": 3228.72,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 3228.72,
+                                "breakdown": {
+                                    "Farmers": {
+                                        "total": 3228.72,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "physics_research": {
+                "total": 2862.11,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 2430.11,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 2430.11,
+                                "breakdown": {
+                                    "Researchers": {
+                                        "total": 2430.11,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 122,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "engineering_research": {
+                "total": 2757.148,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 2381.148,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 2381.148,
+                                "breakdown": {
+                                    "Researchers": {
+                                        "total": 2381.148,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 66,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "influence": {
+                "total": 11.39579,
+                "breakdown": {
+                    "Base": {
+                        "total": 9,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 1.89579,
+                        "breakdown": {
+                            "Pops": {
+                                "total": 1.89579,
+                                "breakdown": {
+                                    "Factions": {
+                                        "total": 1.89579,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Other (unknown)": {
+                        "total": 0.5,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "unity": {
+                "total": 2036.392,
+                "breakdown": {
+                    "Base": {
+                        "total": 10.5,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 450,
+                        "breakdown": {}
+                    },
+                    "Starbases": {
+                        "total": 3,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 3,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Planets": {
+                        "total": 1572.892,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 1572.892,
+                                "breakdown": {
+                                    "Administrators": {
+                                        "total": 566.676,
+                                        "breakdown": {}
+                                    },
+                                    "Bureaucrats": {
+                                        "total": 176.766,
+                                        "breakdown": {}
+                                    },
+                                    "Culture Workers": {
+                                        "total": 343.638,
+                                        "breakdown": {}
+                                    },
+                                    "Entertainers": {
+                                        "total": 294.38,
+                                        "breakdown": {}
+                                    },
+                                    "Enforcers": {
+                                        "total": 191.432,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "alloys": {
+                "total": 1198.846,
+                "breakdown": {
+                    "Base": {
+                        "total": 5,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 1182.646,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 1182.646,
+                                "breakdown": {
+                                    "Metallurgists": {
+                                        "total": 1182.646,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 11.2,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "consumer_goods": {
+                "total": 1874.476,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Planets": {
+                        "total": 1864.476,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 1864.476,
+                                "breakdown": {
+                                    "Artisans": {
+                                        "total": 1864.476,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volatile_motes": {
+                "total": 123.992,
+                "breakdown": {
+                    "Planets": {
+                        "total": 120.792,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 118.792,
+                                "breakdown": {
+                                    "Miners": {
+                                        "total": 6.12,
+                                        "breakdown": {}
+                                    },
+                                    "Chemists": {
+                                        "total": 112.672,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Other": {
+                                "total": 2,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 3.2,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "rare_crystals": {
+                "total": 121.472,
+                "breakdown": {
+                    "Planets": {
+                        "total": 111.872,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 109.872,
+                                "breakdown": {
+                                    "Miners": {
+                                        "total": 6.036,
+                                        "breakdown": {}
+                                    },
+                                    "Translucers": {
+                                        "total": 103.836,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Other": {
+                                "total": 2,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 9.6,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "exotic_gases": {
+                "total": 67.63199999999999,
+                "breakdown": {
+                    "Planets": {
+                        "total": 58.032,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 56.032,
+                                "breakdown": {
+                                    "Refiners": {
+                                        "total": 56.032,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Other": {
+                                "total": 2,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 9.6,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "sr_dark_matter": {
+                "total": 4,
+                "breakdown": {
+                    "Stations": {
+                        "total": 4,
+                        "breakdown": {}
+                    }
+                }
+            }
+        },
+        "spending": {
+            "energy": {
+                "total": 8767.015999999998,
+                "breakdown": {
+                    "Megastructures": {
+                        "total": 485,
+                        "breakdown": {}
+                    },
+                    "Ships": {
+                        "total": 4988.816,
+                        "breakdown": {
+                            "Base": {
+                                "total": 651.2,
+                                "breakdown": {}
+                            },
+                            "Components": {
+                                "total": 4337.616,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Starbases": {
+                        "total": 681,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 330,
+                                "breakdown": {}
+                            },
+                            "Base": {
+                                "total": 177,
+                                "breakdown": {}
+                            },
+                            "Modules": {
+                                "total": 174,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Planets": {
+                        "total": 2485.0,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 1371.6999999999998,
+                                "breakdown": {}
+                            },
+                            "Districts": {
+                                "total": 691.2,
+                                "breakdown": {}
+                            },
+                            "Jobs": {
+                                "total": 230.3,
+                                "breakdown": {
+                                    "Researchers": {
+                                        "total": 218.3,
+                                        "breakdown": {}
+                                    },
+                                    "Enforcers": {
+                                        "total": 12,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Pops": {
+                                "total": 191.8,
+                                "breakdown": {
+                                    "Robots": {
+                                        "total": 191.8,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Armies": {
+                        "total": 93,
+                        "breakdown": {}
+                    },
+                    "Leaders": {
+                        "total": 34.2,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "alloys": {
+                "total": 1068.0248000000001,
+                "breakdown": {
+                    "Ships": {
+                        "total": 1003.6248,
+                        "breakdown": {
+                            "Base": {
+                                "total": 216,
+                                "breakdown": {}
+                            },
+                            "Components": {
+                                "total": 787.6248,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Planets": {
+                        "total": 64.4,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 50,
+                                "breakdown": {}
+                            },
+                            "Jobs": {
+                                "total": 14.4,
+                                "breakdown": {
+                                    "Assemblers": {
+                                        "total": 14.4,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volatile_motes": {
+                "total": 111.4,
+                "breakdown": {
+                    "Planets": {
+                        "total": 111.4,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 95.2,
+                                "breakdown": {}
+                            },
+                            "Districts": {
+                                "total": 16.2,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "exotic_gases": {
+                "total": 61.5,
+                "breakdown": {
+                    "Planets": {
+                        "total": 61.5,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 52.5,
+                                "breakdown": {}
+                            },
+                            "Districts": {
+                                "total": 9,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "rare_crystals": {
+                "total": 112.7,
+                "breakdown": {
+                    "Planets": {
+                        "total": 112.7,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 94.7,
+                                "breakdown": {}
+                            },
+                            "Districts": {
+                                "total": 18,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "consumer_goods": {
+                "total": 1696.175,
+                "breakdown": {
+                    "Planets": {
+                        "total": 1696.175,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 738.0,
+                                "breakdown": {
+                                    "Bureaucrats": {
+                                        "total": 79.1,
+                                        "breakdown": {}
+                                    },
+                                    "Researchers": {
+                                        "total": 442.9,
+                                        "breakdown": {}
+                                    },
+                                    "Culture Workers": {
+                                        "total": 102,
+                                        "breakdown": {}
+                                    },
+                                    "Entertainers": {
+                                        "total": 74,
+                                        "breakdown": {}
+                                    },
+                                    "Doctors": {
+                                        "total": 40,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Pops": {
+                                "total": 958.175,
+                                "breakdown": {
+                                    "Robots": {
+                                        "total": 958.175,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "minerals": {
+                "total": 2899.6,
+                "breakdown": {
+                    "Planets": {
+                        "total": 2899.6,
+                        "breakdown": {
+                            "Jobs": {
+                                "total": 2899.6,
+                                "breakdown": {
+                                    "Metallurgists": {
+                                        "total": 955.8,
+                                        "breakdown": {}
+                                    },
+                                    "Refiners": {
+                                        "total": 100,
+                                        "breakdown": {}
+                                    },
+                                    "Translucers": {
+                                        "total": 355,
+                                        "breakdown": {}
+                                    },
+                                    "Chemists": {
+                                        "total": 398,
+                                        "breakdown": {}
+                                    },
+                                    "Artisans": {
+                                        "total": 1090.8,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "food": {
+                "total": 2715.9,
+                "breakdown": {
+                    "Planets": {
+                        "total": 2715.9,
+                        "breakdown": {
+                            "Pops": {
+                                "total": 2715.9,
+                                "breakdown": {
+                                    "Robots": {
+                                        "total": 2715.9,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "influence": {
+                "total": 0.5,
+                "breakdown": {
+                    "Other (unknown)": {
+                        "total": 0.5,
+                        "breakdown": {}
+                    }
+                }
+            }
+        }
+    },
+    "construction": {
+        "queue_count": 559,
+        "queued_items": 0,
+        "avg_queue_size": 0.0,
+        "max_queue_size": 0,
+        "breakdown": {
+            "planet": {
+                "queue_count": 239,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
+            },
+            "army": {
+                "queue_count": 239,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
+            },
+            "starbase": {
+                "queue_count": 78,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
+            },
+            "shipyard": {
+                "queue_count": 3,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
+            }
+        }
+    },
+    "tech": {
+        "output": {
+            "society": 2868.0860000000002,
+            "physics": 2862.11,
+            "engineering": 2757.148,
+            "total": 8487.344000000001
+        },
+        "completed_techs": 330,
+        "available_techs": {
+            "society": 7,
+            "physics": 5,
+            "engineering": 7
+        }
+    },
+    "planets": {
+        "total": 31,
+        "types": {
+            "Ring World Section": 7,
+            "Tundra": 11,
+            "City": 1,
+            "Habitat": 12
+        },
+        "districts": {
+            "avg": 10.419354838709678,
+            "min": 2,
+            "max": 26,
+            "total": 323
+        },
+        "buildings": {
+            "avg": 13.064516129032258,
+            "min": 8,
+            "max": 16,
+            "total": 405
+        },
+        "sizes": {
+            "avg": 10.67741935483871,
+            "min": 5,
+            "max": 25,
+            "total": 331
+        },
+        "stability": {
+            "avg": 79.4723806451613,
+            "min": 65.108,
+            "max": 100,
+            "total": 2463.6438000000003
+        },
+        "housing": {
+            "avg": 10.419354838709678,
+            "min": 0,
+            "max": 114,
+            "total": 323
+        },
+        "crime": {
+            "avg": 0.0,
+            "min": 0,
+            "max": 0,
+            "total": 0
+        },
+        "pops": {
+            "avg": 91.09677419354838,
+            "min": 37,
+            "max": 233,
+            "total": 2824
+        },
+        "age_days": {
+            "avg": 86769.0,
+            "min": 21489,
+            "max": 131229,
+            "total": 2689839
+        },
+        "age": {
+            "avg": 241.02499999999998,
+            "min": 59.69166666666667,
+            "max": 364.525,
+            "total": 7471.775
+        }
+    },
+    "pops": {
+        "total": 2824,
+        "jobs": {
+            "Head Researcher": 3,
+            "Administrator": 96,
+            "Researcher": 213,
+            "Artisan": 185,
+            "Enforcer": 99,
+            "Foundry": 217,
+            "Clerk": 998,
+            "Merchant": 152,
+            "Bureaucrat": 82,
+            "Translucer": 38,
+            "Farmer": 151,
+            "Entertainer": 74,
+            "Crystal Miner": 2,
+            "Gas Plant Engineer": 8,
+            "Miner": 127,
+            "Healthcare": 40,
+            "Technician": 66,
+            "Chemist": 42,
+            "Odd Factory Worker": 1,
+            "Culture Worker": 51,
+            "Soldier": 165,
+            "Dimensional Portal Researcher": 3,
+            "Roboticist": 6,
+            "Mote Harvester": 2,
+            "Gas Refiner": 2,
+            "Servant": 1
+        },
+        "species": {
+            "Raviscid": 2555,
+            "Robot": 269
+        }
+    },
+    "fleets": {
+        "total": 13,
+        "fleet_power": {
+            "avg": 327287.73408250004,
+            "min": 82860.92889,
+            "max": 393631.02325,
+            "total": 3927452.8089900007
+        },
+        "ships": {
+            "avg": 98.07692307692308,
+            "min": 1,
+            "max": 250,
+            "total": 1275
+        },
+        "ship_types": {
+            "Destroyer": 153,
+            "Corvette": 894,
+            "Cruiser": 107,
+            "Titan": 15,
+            "Battleship": 104,
+            "Juggernaut": 1,
+            "Colossus": 1
+        },
+        "avg_ship_exp": 394.42996078431344
+    },
+    "armies": {
+        "total": 696,
+        "types": {
+            "Defense Army": 661,
+            "Gene Warrior Army": 30,
+            "Robotic Defense Army": 2,
+            "Titanic Assault Army": 3
+        }
+    }
+}
