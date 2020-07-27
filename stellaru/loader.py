@@ -270,7 +270,8 @@ def build_snapshot(state, empire):
         'construction': _get_construction(state, empire),
         'tech': _get_tech(state, empire),
         'planets': planets,
-        'pops': pops
+        'pops': pops,
+        'fleets': _get_fleets(state, empire)
     }
     return snapshot
 
@@ -621,3 +622,48 @@ def _get_planets_and_pops(state, empire):
     }
 
     return planet_stats, pop_stats
+
+
+def _is_transport_fleet(state, fleet):
+    for ship_id in fleet['ships']:
+        if ship_id not in state['ships']:
+            continue
+        if 'army' in state['ships'][ship_id]:
+            return True
+    return False
+
+
+def _get_fleets(state, empire):
+    fleets = [
+        fleet for fid, fleet in state['fleet'].items()
+        if isinstance(fleet, dict) and
+           fleet['owner'] == empire and
+           ('civilian' not in fleet or fleet['civilian'] == 'no') and
+           ('station' not in fleet or fleet['station'] == 'no') and
+           not _is_transport_fleet(state, fleet)
+    ]
+
+    power = _basic_stats([fleet['military_power'] for fleet in fleets if fleet['military_power'] > 0])
+    ships = _basic_stats([len(fleet['ships']) for fleet in fleets])
+    ship_types = {}
+    ship_exp = 0
+    for fleet in fleets:
+        for ship_id in fleet['ships']:
+            stype = 'Unknown'
+            if ship_id in state['ships']:
+                ship = state['ships'][ship_id]
+                ship_exp += ship['experience'] if 'experience' in ship else 0
+                if ship['ship_design'] in state['ship_design']:
+                    design = state['ship_design'][ship['ship_design']]
+                    stype = design['ship_size'].capitalize()
+                    if stype not in ship_types:
+                        ship_types[stype] = 1
+                    else:
+                        ship_types[stype] += 1
+    return {
+        'total': len(fleets),
+        'fleet_power': power,
+        'ships': ships,
+        'ship_types': ship_types,
+        'avg_ship_exp': ship_exp / ships['total']
+    }
