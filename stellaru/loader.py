@@ -266,7 +266,8 @@ def build_snapshot(state, empire):
         'federation': _get_federation(state, empire),
         'unity': _get_unity(state, empire),
         'economy': _get_economy(state, empire),
-        'construction': _get_construction(state, empire)
+        'construction': _get_construction(state, empire),
+        'tech': _get_tech(state, empire)
     }
     return snapshot
 
@@ -502,4 +503,35 @@ def _get_construction(state, empire):
         'avg_queue_size': total_items / len(build_queues),
         'max_queue_size': max_size,
         'breakdown': breakdown
+    }
+
+
+def _get_tech(state, empire):
+    research = {
+        'society': sum([
+            prod['society_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'society_research' in prod
+        ]),
+        'physics': sum([
+            prod['physics_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'physics_research' in prod
+        ]),
+        'engineering': sum([
+            prod['engineering_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'engineering_research' in prod
+        ])
+    }
+    research['total'] = sum([amt for i, amt in research.items()])
+    completed = len(state['country'][empire]['tech_status']['technology'])
+    options = {
+        stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
+        for stype in research.keys() if stype != 'total'
+    }
+    return {
+        'output': research,
+        'completed_techs': completed,
+        'available_techs': options
     }
