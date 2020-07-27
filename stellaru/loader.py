@@ -79,6 +79,13 @@ def get_empires(state):
     }
 
 
+def get_player_empire(state):
+    players = state['player']
+    if len(players) >= 1:
+        return players[0]['country']
+    return None
+
+
 def build_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
@@ -86,6 +93,8 @@ def build_snapshot(state, empire):
     planets, pops = _get_planets_and_pops(state, empire)
     snapshot = {
         'name': state['country'][empire]['name'],
+        'date': state['date'],
+        'date_components': _parse_date(state['date']),
         'active_empires': len(get_empires(state).keys()),
         'edict_count': len(state['country'][empire]['edicts']),
         'sprawl': state['country'][empire]['empire_size'],

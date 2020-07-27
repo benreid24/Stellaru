@@ -11,14 +11,8 @@ def main():
     
     meta, state = parser.parse_save(watcher.get_file())
     empires = loader.get_empires(state)
-    for empire_id, empire in empires.items():
-        print(f'{empire_id}: {empire}')
-    cid = input('Empire to load: ')
-    if cid not in empires:
-        print('Invalid empire, goodbye')
-        return
-
-    # TODO - get resource breakdowns
+    player_empire = loader.get_player_empire(state)
+    breakdown = loader.build_snapshot(state, player_empire)
 
 
 if __name__ == '__main__':
