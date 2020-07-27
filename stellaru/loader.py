@@ -267,9 +267,19 @@ def build_snapshot(state, empire):
         'unity': _get_unity(state, empire),
         'economy': _get_economy(state, empire),
         'construction': _get_construction(state, empire),
-        'tech': _get_tech(state, empire)
+        'tech': _get_tech(state, empire),
+        'planets': _get_planets(state, empire)
     }
     return snapshot
+
+
+def _basic_stats(values):
+    return {
+        'avg': sum(values) / len(values) if len(values) > 0 else 0,
+        'min': min(values) if len(values) > 0 else 0,
+        'max': max(values) if len(values) > 0 else 0,
+        'total': sum(values) if len(values) > 0 else 0
+    }
 
 
 def _parse_date(date_str):
@@ -534,4 +544,44 @@ def _get_tech(state, empire):
         'output': research,
         'completed_techs': completed,
         'available_techs': options
+    }
+
+
+def _get_planets(state, empire):
+    planets = [
+        planet for pid, planet in state['planets']['planet'].items()
+        if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
+    ]
+    now = _parse_date(state['date'])
+    for planet in planets:
+        days = _date_diff_days(now, _parse_date(planet['colonize_date']))
+        planet['age_days'] = days
+        planet['age'] = days / DAYS_PER_YEAR
+
+    types = {
+        planet['planet_class']: planet['planet_class'].split('_')[-1].capitalize()
+        for planet in planets
+    }
+    type_sums = {}
+    for planet in planets:
+        tp = types[planet['planet_class']]
+        if tp == 'Habitable':
+            tp = 'Ring World Section'
+        if tp not in type_sums:
+            type_sums[tp] = 1
+        else:
+            type_sums[tp] += 1
+
+    return {
+        'total': len(planets),
+        'types': type_sums,
+        'districts': _basic_stats([len(planet['district']) for planet in planets]),
+        'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
+        'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
+        'stability': _basic_stats([planet['stability'] for planet in planets]),
+        'housing': _basic_stats([planet['free_housing'] for planet in planets]),
+        'crime': _basic_stats([planet['crime'] for planet in planets]),
+        'pops': _basic_stats([len(planet['pop']) for planet in planets]),
+        'age_days': _basic_stats([planet['age_days'] for planet in planets]),
+        'age': _basic_stats([planet['age'] for planet in planets])
     }
