@@ -1,5 +1,6 @@
 import os
-import glob
+
+from . import datastore
 
 
 class Watcher:
@@ -18,6 +19,7 @@ class Watcher:
         file_list = [
             os.path.join(self.directory, filename)
             for filename in os.listdir(self.directory)
+            if filename != datastore.SAVE_FILE
         ]
 
         update = False
@@ -48,3 +50,6 @@ class Watcher:
     def get_file(self):
         self.new_data = False
         return self.latest_file
+
+    def get_directory(self):
+        return self.directory
