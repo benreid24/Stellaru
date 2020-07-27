@@ -264,7 +264,8 @@ def build_snapshot(state, empire):
         'systems': _get_systems(state, empire),
         'federation': _get_federation(state, empire),
         'unity': _get_unity(state, empire),
-        'economy': _get_economy(state, empire)
+        'economy': _get_economy(state, empire),
+        'construction': _get_construction(state, empire)
     }
     return snapshot
 
@@ -386,13 +387,24 @@ def _get_federation(state, empire):
 
 def _get_unity(state, empire):
     ap_count = len(state['country'][empire]['ascension_perks'])
-    tradition_count = len(state['country'][empire]['traditions'])
     unity_income = sum([
         iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
         if 'unity' in iset
     ])
+    adopted_trees = 0
+    finished_trees = 0
+    traditions = 0
+    for trad in state['country'][empire]['traditions']:
+        if 'adopt' in trad:
+            adopted_trees += 1
+        elif 'finish' in trad:
+            finished_trees += 1
+        else:
+            traditions += 1
     return {
-        'traditions': tradition_count,
+        'adopted_trees': adopted_trees,
+        'finished_trees': finished_trees,
+        'traditions': traditions,
         'acension_perks': ap_count,
         'unity': unity_income
     }
@@ -450,4 +462,27 @@ def _get_economy(state, empire):
         'stockpile': resources,
         'income': _build_resource_breakdown(budgets['income']),
         'spending': _build_resource_breakdown(budgets['expenses'])
+    }
+
+
+def _get_construction(state, empire):
+    build_queues = [
+        {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
+        if queue['owner'] == empire
+    ]
+    total_items = 0
+    max_size = 0
+    for queue in build_queues:
+        queue['size'] = sum([
+            1 for iid,item in state['construction']['item_mgr']['items'].items()
+            if isinstance(item, dict) and item['queue'] == queue['id']
+        ])
+        total_items += queue['size']
+        if queue['size'] > max_size:
+            max_size = queue['size']
+    return {
+        'queue_count': len(build_queues),
+        'queued_items': total_items,
+        'avg_queue_size': total_items / len(build_queues),
+        'max_queue_size': max_size
     }
