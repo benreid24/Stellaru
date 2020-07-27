@@ -271,7 +271,8 @@ def build_snapshot(state, empire):
         'tech': _get_tech(state, empire),
         'planets': planets,
         'pops': pops,
-        'fleets': _get_fleets(state, empire)
+        'fleets': _get_fleets(state, empire),
+        'armies': _get_armies(state, empire)
     }
     return snapshot
 
@@ -666,4 +667,22 @@ def _get_fleets(state, empire):
         'ships': ships,
         'ship_types': ship_types,
         'avg_ship_exp': ship_exp / ships['total']
+    }
+
+
+def _get_armies(state, empire):
+    armies = [
+        army for aid, army in state['army'].items()
+        if isinstance(army, dict) and army['owner'] == empire
+    ]
+    type_counts = {}
+    for army in armies:
+        atype = ' '.join([word.capitalize() for word in army['type'].split('_')])
+        if atype not in type_counts:
+            type_counts[atype] = 1
+        else:
+            type_counts[atype] += 1
+    return {
+        'total': len(armies),
+        'types': type_counts
     }
