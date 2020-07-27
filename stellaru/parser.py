@@ -20,9 +20,11 @@ def _parse_value(file):
     else:
         value_str = file.readto(WHITESPACE)
     if not value_str.isnumeric():
-        return value_str
-    if '.' in value_str:
-        return float(value_str)
+        try:
+            fval = float(value_str)
+            return fval
+        except ValueError:
+            return value_str
     return int(value_str)
 
 
@@ -47,6 +49,8 @@ def _parse_dict(file):
     values = {}
     while not file.eof():
         name = file.readto('=')
+        if name.isnumeric():
+            name = int(name)
         value = _parse_object(file)
         if name in values:
             if isinstance(values[name], list):
@@ -84,11 +88,8 @@ def _parse_object(file):
 def parse_save(file):
     meta_file, state_file = _open_save(file)
 
+    # TODO - consider writing a grammar and using a real parser
     meta = _parse_dict(meta_file)
-    state = None
-    try:
-        state = _parse_dict(state_file)
-    except:
-        pass
+    state = _parse_dict(state_file)
 
     return meta, state
