@@ -258,6 +258,7 @@ def build_snapshot(state, empire):
         'name': state['country'][empire]['name'],
         'active_empires': len(get_empires(state).keys()),
         'edict_count': len(state['country'][empire]['edicts']),
+        'sprawl': state['country'][empire]['empire_size'],
         'leaders': _get_leaders(state, empire),
         'standing': _get_standing(state, empire),
         'war': _get_wars(state, empire),
@@ -472,6 +473,7 @@ def _get_construction(state, empire):
     ]
     total_items = 0
     max_size = 0
+    type_queues = {}
     for queue in build_queues:
         queue['size'] = sum([
             1 for iid,item in state['construction']['item_mgr']['items'].items()
@@ -480,9 +482,24 @@ def _get_construction(state, empire):
         total_items += queue['size']
         if queue['size'] > max_size:
             max_size = queue['size']
+        if queue['type'] not in type_queues:
+            type_queues[queue['type']] = [queue]
+        else:
+            type_queues[queue['type']].append(queue)
+
+    breakdown = {
+        qtype: {
+            'queue_count': len(qlist),
+            'queued_items': sum([queue['size'] for queue in qlist]),
+            'avg_queue_size': sum([queue['size'] for queue in qlist]) / len(qlist),
+            'max_queue_size': max([queue['size'] for queue in qlist])
+        } for qtype, qlist in type_queues.items()
+    }
+        
     return {
-        'queue_count': len(build_queues),
+        'queue_count': len(build_queues), # TODO - consider taking into acccount simultaneous queues
         'queued_items': total_items,
         'avg_queue_size': total_items / len(build_queues),
-        'max_queue_size': max_size
+        'max_queue_size': max_size,
+        'breakdown': breakdown
     }
