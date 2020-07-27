@@ -1,6 +1,7 @@
 from stellaru import finder
 from stellaru import parser
 from stellaru import loader
+from stellaru import datastore
 
 
 def main():
@@ -11,14 +12,11 @@ def main():
     
     meta, state = parser.parse_save(watcher.get_file())
     empires = loader.get_empires(state)
-    for empire_id, empire in empires.items():
-        print(f'{empire_id}: {empire}')
-    cid = input('Empire to load: ')
-    if cid not in empires:
-        print('Invalid empire, goodbye')
-        return
+    player_empire = loader.get_player_empire(state)
+    breakdown = loader.build_snapshot(state, player_empire)
 
-    # TODO - get resource breakdowns
+    store = datastore.Datastore(watcher.get_directory())
+    store.add_snapshot(snap)
 
 
 if __name__ == '__main__':
