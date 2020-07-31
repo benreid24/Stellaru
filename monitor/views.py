@@ -3,4 +3,12 @@ from django.http import HttpResponse
 
 
 def choose_save(request):
-    return HttpResponse("Display game saves here")
+    context = {}
+    return render(request, 'monitor/save_chooser.html', context)
+
+
+def monitor(request):
+    context = {
+        'game_name': 'The Felnolli Purifiers'
+    }
+    return render(request, 'monitor/monitor.html', context)
