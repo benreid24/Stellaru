@@ -1,7 +1,6 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    path('', views.choose_save, name='choose_save'),
-    path('monitor/', views.monitor, name='monitor')
+    re_path(r'^', views.index, name="all")
 ]
