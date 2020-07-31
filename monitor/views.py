@@ -1,14 +1,13 @@
-from django.shortcuts import render
+import os
+
 from django.http import HttpResponse
+from django.conf import settings
 
 
-def choose_save(request):
-    context = {}
-    return render(request, 'monitor/save_chooser.html', context)
-
-
-def monitor(request):
-    context = {
-        'game_name': 'The Felnolli Purifiers'
-    }
-    return render(request, 'monitor/monitor.html', context)
+def index(request):
+    print(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html'))
+    try:
+        with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
+            return HttpResponse(f.read())
+    except:
+        return HttpResponse('React frontend not found', status=501)
