@@ -1,0 +1,50 @@
+.saveChooser {
+    padding: 30px;
+}
+
+.saveChooseHeader {
+    padding-bottom: 50px;
+    font-size: 45pt;
+}
+
+.methodName {
+    color: #ecdecc;
+}
+
+.saveCardDiv {
+    padding: 0px;
+    background-color: #212121 !important;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.saveCardDiv:hover {
+    background-color: #303030 !important;
+}
+
+.saveCardDiv:active {
+    background-color: #252525 !important;
+}
+
+.saveName {
+    color: #aaddff;
+}
+
+.saveGameDate {
+    float: left;
+    color: #ededed;
+}
+
+.saveFileDatetime {
+    float: right;
+}
+
+.saveFileTime {
+    color: #c0c0c0;
+    padding-left: 6pt;
+}
+
+.saveFileDate {
+    color: #c0c0c0;
+}
