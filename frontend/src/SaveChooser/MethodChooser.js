@@ -73,4 +73,7 @@ class MethodChooser extends React.Component {
     }
 }
 
-export default MethodChooser;
+export {
+    Methods,
+    MethodChooser
+};
