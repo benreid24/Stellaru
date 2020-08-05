@@ -29,7 +29,7 @@ function SaveSelector(props) {
     for (let i = 0; i<props.saves.length; i += 1) {
         const save = props.saves[i];
         saveCards.push(
-            <div className="col-3" key={save.name} style={{paddingBottom: "25px"}}>
+            <div className="col-3" key={save.name+save.gameDate} style={{paddingBottom: "25px"}}>
                 <SaveCard save={save} onClick={() => {props.onchoose(save);}}/>
             </div>
         );
