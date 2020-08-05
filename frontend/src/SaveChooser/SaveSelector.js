@@ -3,6 +3,8 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
+const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: true});
+
 function SaveCard(props) {
     const save = props.save;
     const onClick = props.onClick;
@@ -13,8 +15,8 @@ function SaveCard(props) {
                     <div>
                         <p className="saveGameDate noselect">{save.gameDate}</p>
                         <p className="saveFileDatetime noselect">
-                            <span className="saveFileDate">{save.fileDate}</span>
-                            <span className="saveFileTime">{save.fileTime}</span>
+                            <span className="saveFileDate">{save.fileDatetime.toDateString()}</span>
+                            <span className="saveFileTime">{save.fileDatetime.toLocaleString('en-US', TimeConfig)}</span>
                         </p>
                     </div>
             </CardContent>

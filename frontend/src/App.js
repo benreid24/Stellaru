@@ -26,15 +26,13 @@ class App extends React.Component {
             {
                 file: 'C:/Steam/saves/ravagers.sav',
                 name: 'The Ravisciadian Ravagers',
-                fileDate: 'Aug 1 2020',
-                fileTime: '10:30 PM', // TODO use datetime and strftime
+                fileDatetime: new Date(2020, 7, 4, 20, 45),
                 gameDate: '2245.2.12'
             },
             {
                 file: 'C:/Steam/saves/fellnoli.sav',
                 name: 'The Fellnoli Purifiers',
-                fileDate: 'Aug 4 2020',
-                fileTime: '7:43 PM', // TODO use datetime and strftime
+                fileDatetime: new Date(2020, 7, 1, 22, 23),
                 gameDate: '2345.6.19'
             }
         ]; // TODO- get from backend
