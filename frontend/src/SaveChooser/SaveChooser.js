@@ -8,6 +8,7 @@ import './SaveChooser.css';
 const State = Object.freeze({'chooseMethod': 0, 'waitSave': 1, 'chooseSave': 2});
 
 function selectLatestSave(saves) {
+    console.log(saves);
     let ld = saves[0].fileDatetime;
     let ls = saves[0];
     for (let i = 1; i<saves.length; i += 1) {
@@ -25,9 +26,31 @@ class SaveChooser extends React.Component {
 
         this.state = {
             state: State.chooseMethod,
-            saves: props.saves,
+            saves: [],
             onChoose: props.onChoose
         };
+    }
+
+    componentDidMount() {
+        fetch('api/saves')
+            .then(response => response.json())
+            .then(data => {
+                const saves = data['saves'];
+                for (let i = 0; i<saves.length; i += 1) {
+                    saves[i].fileDatetime = new Date(saves[i].fileDatetime);
+                }
+                saves.sort((a,b) => {
+                    if (a.fileDatetime < b.fileDatetime)
+                        return 1;
+                    if (a.fileDatetime > b.fileDatetime)
+                        return -1;
+                    return 0;
+                });
+                this.setState({
+                    state: this.state.state,
+                    saves: saves
+                });
+            });
     }
 
     methodChose(method) {

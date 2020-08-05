@@ -85,6 +85,11 @@ def _parse_object(file):
     return _parse_value(file)
 
 
+def load_meta(file):
+    meta_file, state_file = _open_save(file)
+    return _parse_dict(meta_file)
+
+
 def parse_save(file):
     meta_file, state_file = _open_save(file)
 

@@ -42,7 +42,7 @@ class Watcher:
         return self.name
 
     def time(self):
-        return max(self.latest_read, self.latest_write)
+        return max(self.latest_read, self.latest_write) # TODO - convert to real time
 
     def new_data_available(self):
         return self.new_data

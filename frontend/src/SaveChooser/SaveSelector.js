@@ -24,35 +24,25 @@ function SaveCard(props) {
     );
 }
 
-class SaveSelector extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            saves: props.saves,
-            onChoose: props.onchoose
-        };
-    }
-
-    render() {
-        let saveCards = [];
-        for (let i = 0; i<this.state.saves.length; i += 1) {
-            const save = this.state.saves[i];
-            saveCards.push(
-                <div className="col-3" key={save.name}>
-                    <SaveCard save={save} onClick={() => {this.state.onChoose(save);}}/>
-                </div>
-            );
-        }
-
-        return (
-            <div>
-                <h1 className="saveChooseHeader">Choose Game Save</h1>
-                <div className="row">
-                    {saveCards}
-                </div>
+function SaveSelector(props) {
+    let saveCards = [];
+    for (let i = 0; i<props.saves.length; i += 1) {
+        const save = props.saves[i];
+        saveCards.push(
+            <div className="col-3" key={save.name} style={{paddingBottom: "25px"}}>
+                <SaveCard save={save} onClick={() => {props.onchoose(save);}}/>
             </div>
         );
     }
+
+    return (
+        <div>
+            <h1 className="saveChooseHeader">Choose Game Save</h1>
+            <div className="row">
+                {saveCards}
+            </div>
+        </div>
+    );
 }
 
 export default SaveSelector;

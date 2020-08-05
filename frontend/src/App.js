@@ -21,25 +21,8 @@ const darkTheme = createMuiTheme({
 class App extends React.Component {
     constructor(props) {
         super(props);
-
-        let saves = [
-            {
-                file: 'C:/Steam/saves/ravagers.sav',
-                name: 'The Ravisciadian Ravagers',
-                fileDatetime: new Date(2020, 7, 4, 20, 45),
-                gameDate: '2245.2.12'
-            },
-            {
-                file: 'C:/Steam/saves/fellnoli.sav',
-                name: 'The Fellnoli Purifiers',
-                fileDatetime: new Date(2020, 7, 1, 22, 23),
-                gameDate: '2345.6.19'
-            }
-        ]; // TODO- get from backend
-
         this.state = {
             state: State.chooseSave,
-            saves: saves
         };
     }
 

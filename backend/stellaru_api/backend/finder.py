@@ -50,7 +50,7 @@ def _get_docs_save_dir():
     return os.path.join(str(docs_path.value), PATH_SUFFIX)
 
 
-def get_save_dirs():
+def _get_save_dirs():
     save_dirs = []
 
     steam_dir = _find_steam()
@@ -65,6 +65,19 @@ def get_save_dirs():
     
     save_dirs.append(_get_docs_save_dir())
     return save_dirs
+
+
+def find_saves():
+    save_folders = []
+    for f in _get_save_dirs():
+        save_folders.extend(
+            os.path.join(f, file) for file in os.listdir(f)
+        )
+    watchers = [
+        Watcher(Path(folder).stem.split('_')[0], folder) 
+        for folder in save_folders if len(folder.split('_')) > 0
+    ]
+    return watchers
 
 
 def find_save(folders, wait_for_save):
