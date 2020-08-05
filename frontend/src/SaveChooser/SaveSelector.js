@@ -28,6 +28,8 @@ function SaveSelector(props) {
     let saveCards = [];
     for (let i = 0; i<props.saves.length; i += 1) {
         const save = props.saves[i];
+        if (props.prevOnly && !save.history)
+            continue;
         saveCards.push(
             <div className="col-3" key={save.name+save.gameDate} style={{paddingBottom: "25px"}}>
                 <SaveCard save={save} onClick={() => {props.onchoose(save);}}/>

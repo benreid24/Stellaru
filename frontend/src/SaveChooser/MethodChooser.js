@@ -3,16 +3,18 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const Methods = Object.freeze({'wait': 'wait', 'choose': 'choose', 'latest': 'latest'});
+const Methods = Object.freeze({wait: 'wait', choose: 'choose', chooseExisting: 'chooseExisting', latest: 'latest'});
 const MethodTitles = Object.freeze({
     [Methods.wait]: 'Wait for New Save',
     [Methods.latest]: 'Select Most Recent Save',
-    [Methods.choose]: 'Choose Save Manually'
+    [Methods.choose]: 'Choose Save Manually',
+    [Methods.chooseExisting]: 'Choose Previous Saves'
 });
 const MethodDescs = Object.freeze({
     [Methods.wait]: 'Waits for a new save file to be created then selects it. Also works for resuming existing saves once an autosave occurs',
     [Methods.latest]: 'Selects the most recent save file',
-    [Methods.choose]: 'Shows all found saves and allows manual selection'
+    [Methods.choose]: 'Shows all found saves and allows manual selection',
+    [Methods.chooseExisting]: 'Shows saves that have been previously loaded in Stellaru'
 });
 
 class MethodCard extends React.Component {
@@ -47,7 +49,7 @@ class MethodChooser extends React.Component {
 
     renderMethod(method) {
         return (
-            <div className="row" key={method} onClick={() => {this.state.chooseCb(method);}}>
+            <div className="row" key={method} onClick={() => {this.state.chooseCb(Methods[method]);}}>
                 <div className="col-4"></div>
                 <div className="col-4">
                 <MethodCard

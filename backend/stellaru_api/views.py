@@ -14,12 +14,14 @@ def get_saves(request):
             {
                 'meta': parser.load_meta(save.get_file()),
                 'file': save.get_file(),
-                'time': save.time()
-            } for save in save_files
+                'time': save.time(),
+                'history': save.has_history
+            } for save in save_files if save.valid
         ]
         saves = [
             {
                 'file': save['file'],
+                'history': save['history'],
                 'name': save['meta']['name'],
                 'gameDate': save['meta']['date'],
                 'fileDatetime': datetime.fromtimestamp(save['time'])

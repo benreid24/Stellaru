@@ -5,7 +5,8 @@ import SaveSelector from './SaveSelector';
 
 import './SaveChooser.css';
 
-const State = Object.freeze({'chooseMethod': 0, 'waitSave': 1, 'chooseSave': 2});
+const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choosePrevSave: 3});
+// TODO - support showing saves currently being watched
 
 function selectLatestSave(saves) {
     console.log(saves);
@@ -65,6 +66,9 @@ class SaveChooser extends React.Component {
             case Methods.latest:
                 this.selectSave(selectLatestSave(this.state.saves));
                 break;
+            case Methods.chooseExisting:
+                this.setState({state: State.choosePrevSave});
+                break;
             default:
                 console.log('Unknown state: ', method);
                 break;
@@ -81,8 +85,12 @@ class SaveChooser extends React.Component {
                 {this.state.state === State.chooseMethod &&
                     <MethodChooser onchoose={(method) => {this.methodChose(method);}}/>
                 }
-                {this.state.state === State.chooseSave &&
-                    <SaveSelector onchoose={(save) => {this.selectSave(save);}} saves={this.state.saves}/>
+                {(this.state.state === State.chooseSave || this.state.state === State.choosePrevSave) &&
+                    <SaveSelector
+                        onchoose={(save) => {this.selectSave(save);}}
+                        saves={this.state.saves}
+                        prevOnly={this.state.state === State.choosePrevSave}
+                    />
                 }
             </div>
         );
