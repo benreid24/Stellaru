@@ -7,6 +7,18 @@ import './SaveChooser.css';
 
 const State = Object.freeze({'chooseMethod': 0, 'waitSave': 1, 'chooseSave': 2});
 
+function selectLatestSave(saves) {
+    let ld = saves[0].fileDatetime;
+    let ls = saves[0];
+    for (let i = 1; i<saves.length; i += 1) {
+        if (saves[i].fileDatetime > ld) {
+            ld = saves[i].fileDatetime;
+            ls = saves[i];
+        }
+    }
+    return ls;
+}
+
 class SaveChooser extends React.Component {
     constructor(props) {
         super(props);
@@ -28,7 +40,7 @@ class SaveChooser extends React.Component {
                 this.setState({state: State.chooseSave});
                 break;
             case Methods.latest:
-                this.selectSave(this.state.saves[0]); // TODO - order by datetime
+                this.selectSave(selectLatestSave(this.state.saves));
                 break;
             default:
                 console.log('Unknown state: ', method);
