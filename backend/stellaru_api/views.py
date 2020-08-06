@@ -1,9 +1,10 @@
 from datetime import datetime
 import os
+import json
 
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from .backend import finder
 from .backend import parser
@@ -12,7 +13,7 @@ from .backend import datastore
 
 
 def _make_error(error):
-    return JsonResponse({'error': repr(error)})
+    return JsonResponse({'error': repr(error)}, status=400)
 
 
 def get_saves(request):
@@ -40,12 +41,20 @@ def get_saves(request):
         return _make_error(err)
 
 
+@csrf_exempt
 def get_empires(request):
+    file = None
+    try:
+        parsed = json.loads(request.body)
+        if 'file' not in parsed:
+            return _make_error('"file" parameter not set in POST')
+        file = parsed['file']
+    except Exception as err:
+        return _make_error('Bad request body')
     if 'id' not in request.session:
         return _make_error('No session id')
-    if 'file' not in request.POST:
-        return _make_error('"file" parameter not set in POST')
-    folder = os.path.dirname(request.POST['file'])
+
+    folder = os.path.dirname(file)
     watcher = Watcher(folder)
     if not watcher.valid:
         return _make_error('Invalid directory')
@@ -53,8 +62,8 @@ def get_empires(request):
     save = datastore.load_and_add_save(watcher, request.session['id'])
     empires = [{
         'id': empire_id,
-        'name': save['empires'][empire_id]['snaps'][-1]['name']
-    } for empire_id in save['empires']]
+        'name': save['snaps'][-1]['empires'][empire_id]['name']
+    } for empire_id in save['snaps'][-1]['empires']]
     return JsonResponse({
         'folder': folder,
         'empires': empires

@@ -92,28 +92,31 @@ def _build_empire_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
 
-    planets, pops = _get_planets_and_pops(state, empire)
-    snapshot = {
-        'name': state['country'][empire]['name'],
-        'date': state['date'],
-        'date_components': _parse_date(state['date']),
-        'active_empires': len(get_empires(state).keys()),
-        'edict_count': len(state['country'][empire]['edicts']),
-        'sprawl': state['country'][empire]['empire_size'],
-        'leaders': _get_leaders(state, empire),
-        'standing': _get_standing(state, empire),
-        'war': _get_wars(state, empire),
-        'systems': _get_systems(state, empire),
-        'federation': _get_federation(state, empire),
-        'unity': _get_unity(state, empire),
-        'economy': _get_economy(state, empire),
-        'construction': _get_construction(state, empire),
-        'tech': _get_tech(state, empire),
-        'planets': planets,
-        'pops': pops,
-        'fleets': _get_fleets(state, empire),
-        'armies': _get_armies(state, empire)
-    }
+    try:
+        planets, pops = _get_planets_and_pops(state, empire)
+        snapshot = {
+            'name': state['country'][empire]['name'],
+            'date': state['date'],
+            'date_components': _parse_date(state['date']),
+            'active_empires': len(get_empires(state).keys()),
+            'edict_count': _get_edicts(state, empire),
+            'sprawl': _get_empire_size(state, empire),
+            'leaders': _get_leaders(state, empire),
+            'standing': _get_standing(state, empire),
+            'war': _get_wars(state, empire),
+            'systems': _get_systems(state, empire),
+            'federation': _get_federation(state, empire),
+            'unity': _get_unity(state, empire),
+            'economy': _get_economy(state, empire),
+            'construction': _get_construction(state, empire),
+            'tech': _get_tech(state, empire),
+            'planets': planets,
+            'pops': pops,
+            'fleets': _get_fleets(state, empire),
+            'armies': _get_armies(state, empire)
+        }
+    except Exception as err:
+        print(repr(err))
     return snapshot
 
 
@@ -122,10 +125,8 @@ def build_snapshot(state):
     return {
         'date': state['date'],
         'empires': {
-            empire_id: {
-                'empire_name': empire,
-                'snapshot': _build_empire_snapshot(state, empire_id)
-            } for empire_id, empire in empires.items()
+            empire_id: _build_empire_snapshot(state, empire_id)
+            for empire_id in empires
         }
     }
 
@@ -162,126 +163,158 @@ def _date_diff_days(future, past):
     return year_diff * DAYS_PER_YEAR + month_diff * DAYS_PER_MONTH + day_diff
 
 
-def _get_leaders(state, empire):
-    date = _parse_date(state['date'])
-    leader_ids = state['country'][empire]['owned_leaders']
-    leader_pool = state['leaders']
-    leaders = [leader_pool[lid] for lid in leader_ids if lid in leader_pool]
-    classes = set([leader['class'] for leader in leaders])
-    leaders = [
-        {
-            **leader,
-            'actual_age': leader['age'] + _date_diff_days(date, _parse_date(leader['date'])) / DAYS_PER_YEAR
-        }
-        for leader in leaders
-    ]
+def _get_edicts(state, empire):
+    try:
+        return len(state['country'][empire]['edicts'])
+    except:
+        return 0
 
-    breakdown = {
-        ltype: len([leader for leader in leaders if leader['class'] == ltype])
-        for ltype in classes
-    }
-    leader_info = {
-        'total': len(leaders),
-        'max_age': max(leader['actual_age'] for leader in leaders),
-        'avg_age': sum(leader['actual_age'] for leader in leaders) / len(leaders),
-        'avg_hire_age': sum([leader['age'] for leader in leaders]) / len(leaders),
-        'max_hire_age': max([leader['age'] for leader in leaders]),
-        'avg_level': sum([leader['level'] for leader in leaders]) / len(leaders),
-        'max_level': max([leader['level'] for leader in leaders]),
-        'percent_male': sum([1 for leader in leaders if leader['gender'] == 'male']) / len(leaders)
-    }
-    return {**breakdown, **leader_info}
+
+def _get_empire_size(state, empire):
+    try:
+        return state['country'][empire]['empire_size']
+    except:
+        return 0
+
+
+def _get_leaders(state, empire):
+    try:
+        date = _parse_date(state['date'])
+        leader_ids = state['country'][empire]['owned_leaders']
+        leader_pool = state['leaders']
+        leaders = [leader_pool[lid] for lid in leader_ids if lid in leader_pool]
+        classes = set([leader['class'] for leader in leaders])
+        leaders = [
+            {
+                **leader,
+                'actual_age': leader['age'] + _date_diff_days(date, _parse_date(leader['date'])) / DAYS_PER_YEAR
+            }
+            for leader in leaders
+        ]
+
+        breakdown = {
+            ltype: len([leader for leader in leaders if leader['class'] == ltype])
+            for ltype in classes
+        }
+        leader_info = {
+            'total': len(leaders),
+            'max_age': max(leader['actual_age'] for leader in leaders),
+            'avg_age': sum(leader['actual_age'] for leader in leaders) / len(leaders),
+            'avg_hire_age': sum([leader['age'] for leader in leaders]) / len(leaders),
+            'max_hire_age': max([leader['age'] for leader in leaders]),
+            'avg_level': sum([leader['level'] for leader in leaders]) / len(leaders),
+            'max_level': max([leader['level'] for leader in leaders]),
+            'percent_male': sum([1 for leader in leaders if leader['gender'] == 'male']) / len(leaders)
+        }
+        return {**breakdown, **leader_info}
+    except:
+        return {}
 
 
 def _get_standing(state, empire):
-    return {
-        'victory_rank': state['country'][empire]['victory_rank'],
-        'tech_power': state['country'][empire]['tech_power'],
-        'economy_power': state['country'][empire]['economy_power'],
-        'military_power': state['country'][empire]['military_power']
-    }
+    try:
+        return {
+            'victory_rank': state['country'][empire]['victory_rank'],
+            'tech_power': state['country'][empire]['tech_power'],
+            'economy_power': state['country'][empire]['economy_power'],
+            'military_power': state['country'][empire]['military_power']
+        }
+    except:
+        return {}
 
 
 def _get_wars(state, empire):
-    active_wars = [war for key, war in state['war'].items() if isinstance(war, dict)]
-    offense_wars = sum([
-        1 for war in active_wars if empire in
-            [attacker['country'] for attacker in war['attackers']]
-    ])
-    defense_wars = sum([
-        1 for war in active_wars if empire in
-            [defender['country'] for defender in war['defenders']]
-    ])
-    return {
-        'total': len(active_wars),
-        'participation': offense_wars + defense_wars,
-        'attacker': offense_wars,
-        'defender': defense_wars
-    }
+    try:
+        active_wars = [war for key, war in state['war'].items() if isinstance(war, dict)]
+        offense_wars = sum([
+            1 for war in active_wars if empire in
+                [attacker['country'] for attacker in war['attackers']]
+        ])
+        defense_wars = sum([
+            1 for war in active_wars if empire in
+                [defender['country'] for defender in war['defenders']]
+        ])
+        return {
+            'total': len(active_wars),
+            'participation': offense_wars + defense_wars,
+            'attacker': offense_wars,
+            'defender': defense_wars
+        }
+    except:
+        return {}
 
 
 def _get_systems(state, empire):
-    surveyed_ids = state['country'][empire]['surveyed']
-    surveyed_stars = sum([
-        1 for sid in surveyed_ids
-        if sid in state['galactic_object'] and state['galactic_object'][sid]['type'] == 'star'
-    ])
-    owned = [
-        base for bid, base in state['starbase_mgr']['starbases'].items()
-        if isinstance(base, dict) and base['owner'] == empire]
-    upgraded = state['country'][empire]['num_upgraded_starbase']
-    return {
-        'surveyed_objects': len(surveyed_ids),
-        'surveyed_systems': surveyed_stars,
-        'owned': len(owned),
-        'starbases': upgraded
-    }
+    try:
+        surveyed_ids = state['country'][empire]['surveyed']
+        surveyed_stars = sum([
+            1 for sid in surveyed_ids
+            if sid in state['galactic_object'] and state['galactic_object'][sid]['type'] == 'star'
+        ])
+        owned = [
+            base for bid, base in state['starbase_mgr']['starbases'].items()
+            if isinstance(base, dict) and base['owner'] == empire]
+        upgraded = state['country'][empire]['num_upgraded_starbase']
+        return {
+            'surveyed_objects': len(surveyed_ids),
+            'surveyed_systems': surveyed_stars,
+            'owned': len(owned),
+            'starbases': upgraded
+        }
+    except:
+        return {}
 
 
 def _get_federation(state, empire):
-    if 'federation' not in state['country'][empire] or not isinstance(state['country'][empire]['federation'], int):
+    try:
+        if 'federation' not in state['country'][empire] or not isinstance(state['country'][empire]['federation'], int):
+            return {
+                'name': '',
+                'members': 0,
+                'cohesion': 0,
+                'xp': 0,
+                'level': 0,
+                'leader': False
+            }
+        federation = state['federation'][state['country'][empire]['federation']]
         return {
-            'name': '',
-            'members': 0,
-            'cohesion': 0,
-            'xp': 0,
-            'level': 0,
-            'leader': False
+            'name': federation['name'],
+            'members': len(federation['members']),
+            'cohesion': federation['federation_progression']['cohesion'],
+            'xp': federation['federation_progression']['experience'],
+            'level': federation['federation_progression']['levels'],
+            'leader': federation['leader'] == empire
         }
-    federation = state['federation'][state['country'][empire]['federation']]
-    return {
-        'name': federation['name'],
-        'members': len(federation['members']),
-        'cohesion': federation['federation_progression']['cohesion'],
-        'xp': federation['federation_progression']['experience'],
-        'level': federation['federation_progression']['levels'],
-        'leader': federation['leader'] == empire
-    }
+    except:
+        return {}
 
 
 def _get_unity(state, empire):
-    ap_count = len(state['country'][empire]['ascension_perks'])
-    unity_income = sum([
-        iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
-        if 'unity' in iset
-    ])
-    adopted_trees = 0
-    finished_trees = 0
-    traditions = 0
-    for trad in state['country'][empire]['traditions']:
-        if 'adopt' in trad:
-            adopted_trees += 1
-        elif 'finish' in trad:
-            finished_trees += 1
-        else:
-            traditions += 1
-    return {
-        'adopted_trees': adopted_trees,
-        'finished_trees': finished_trees,
-        'traditions': traditions,
-        'acension_perks': ap_count,
-        'unity': unity_income
-    }
+    try:
+        ap_count = len(state['country'][empire]['ascension_perks'])
+        unity_income = sum([
+            iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
+            if 'unity' in iset
+        ])
+        adopted_trees = 0
+        finished_trees = 0
+        traditions = 0
+        for trad in state['country'][empire]['traditions']:
+            if 'adopt' in trad:
+                adopted_trees += 1
+            elif 'finish' in trad:
+                finished_trees += 1
+            else:
+                traditions += 1
+        return {
+            'adopted_trees': adopted_trees,
+            'finished_trees': finished_trees,
+            'traditions': traditions,
+            'acension_perks': ap_count,
+            'unity': unity_income
+        }
+    except:
+        return {}
 
 
 def _classify_resource_producer(name):
@@ -331,168 +364,181 @@ def _build_resource_breakdown(budget):
 
 
 def _get_economy(state, empire):
-    resources = state['country'][empire]['modules']['standard_economy_module']['resources']
-    resource_names = [name for name in resources.keys()]
-    budgets = state['country'][empire]['budget']['current_month']
-    income = _build_resource_breakdown(budgets['income'])
-    spending = _build_resource_breakdown(budgets['expenses'])
-    nets = {}
-    for resource in income.keys():
-        net = income[resource]['total']
-        if resource in spending:
-            net -= spending[resource]['total']
-        nets[resource] = net
+    try:
+        resources = state['country'][empire]['modules']['standard_economy_module']['resources']
+        resource_names = [name for name in resources.keys()]
+        budgets = state['country'][empire]['budget']['current_month']
+        income = _build_resource_breakdown(budgets['income'])
+        spending = _build_resource_breakdown(budgets['expenses'])
+        nets = {}
+        for resource in income.keys():
+            net = income[resource]['total']
+            if resource in spending:
+                net -= spending[resource]['total']
+            nets[resource] = net
 
-    return {
-        'stockpile': resources,
-        'net_income': nets,
-        'income': income,
-        'spending': spending
-    }
+        return {
+            'stockpile': resources,
+            'net_income': nets,
+            'income': income,
+            'spending': spending
+        }
+    except:
+        return {}
 
 
 def _get_construction(state, empire):
-    build_queues = [
-        {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
-        if queue['owner'] == empire
-    ]
-    total_items = 0
-    max_size = 0
-    type_queues = {}
-    for queue in build_queues:
-        queue['size'] = sum([
-            1 for iid,item in state['construction']['item_mgr']['items'].items()
-            if isinstance(item, dict) and item['queue'] == queue['id']
-        ])
-        total_items += queue['size']
-        if queue['size'] > max_size:
-            max_size = queue['size']
-        if queue['type'] not in type_queues:
-            type_queues[queue['type']] = [queue]
-        else:
-            type_queues[queue['type']].append(queue)
+    try:
+        build_queues = [
+            {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
+            if queue['owner'] == empire
+        ]
+        total_items = 0
+        max_size = 0
+        type_queues = {}
+        for queue in build_queues:
+            queue['size'] = sum([
+                1 for iid,item in state['construction']['item_mgr']['items'].items()
+                if isinstance(item, dict) and item['queue'] == queue['id']
+            ])
+            total_items += queue['size']
+            if queue['size'] > max_size:
+                max_size = queue['size']
+            if queue['type'] not in type_queues:
+                type_queues[queue['type']] = [queue]
+            else:
+                type_queues[queue['type']].append(queue)
 
-    breakdown = {
-        qtype: {
-            'queue_count': len(qlist),
-            'queued_items': sum([queue['size'] for queue in qlist]),
-            'avg_queue_size': sum([queue['size'] for queue in qlist]) / len(qlist),
-            'max_queue_size': max([queue['size'] for queue in qlist])
-        } for qtype, qlist in type_queues.items()
-    }
-        
-    return {
-        'queue_count': len(build_queues), # TODO - consider taking into acccount simultaneous queues
-        'queued_items': total_items,
-        'avg_queue_size': total_items / len(build_queues),
-        'max_queue_size': max_size,
-        'breakdown': breakdown
-    }
+        breakdown = {
+            qtype: {
+                'queue_count': len(qlist),
+                'queued_items': sum([queue['size'] for queue in qlist]),
+                'avg_queue_size': sum([queue['size'] for queue in qlist]) / len(qlist),
+                'max_queue_size': max([queue['size'] for queue in qlist])
+            } for qtype, qlist in type_queues.items()
+        }
+            
+        return {
+            'queue_count': len(build_queues), # TODO - consider taking into acccount simultaneous queues
+            'queued_items': total_items,
+            'avg_queue_size': total_items / len(build_queues),
+            'max_queue_size': max_size,
+            'breakdown': breakdown
+        }
+    except:
+        return {}
 
 
 def _get_tech(state, empire):
-    research = {
-        'society': sum([
-            prod['society_research'] for pid, prod
-            in state['country'][empire]['budget']['current_month']['income'].items()
-            if isinstance(prod, dict) and 'society_research' in prod
-        ]),
-        'physics': sum([
-            prod['physics_research'] for pid, prod
-            in state['country'][empire]['budget']['current_month']['income'].items()
-            if isinstance(prod, dict) and 'physics_research' in prod
-        ]),
-        'engineering': sum([
-            prod['engineering_research'] for pid, prod
-            in state['country'][empire]['budget']['current_month']['income'].items()
-            if isinstance(prod, dict) and 'engineering_research' in prod
-        ])
-    }
-    research['total'] = sum([amt for i, amt in research.items()])
-    completed = len(state['country'][empire]['tech_status']['technology'])
-    options = {
-        stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
-        for stype in research.keys() if stype != 'total'
-    }
-    return {
-        'output': research,
-        'completed_techs': completed,
-        'available_techs': options
-    }
+    try:
+        research = {
+            'society': sum([
+                prod['society_research'] for pid, prod
+                in state['country'][empire]['budget']['current_month']['income'].items()
+                if isinstance(prod, dict) and 'society_research' in prod
+            ]),
+            'physics': sum([
+                prod['physics_research'] for pid, prod
+                in state['country'][empire]['budget']['current_month']['income'].items()
+                if isinstance(prod, dict) and 'physics_research' in prod
+            ]),
+            'engineering': sum([
+                prod['engineering_research'] for pid, prod
+                in state['country'][empire]['budget']['current_month']['income'].items()
+                if isinstance(prod, dict) and 'engineering_research' in prod
+            ])
+        }
+        research['total'] = sum([amt for i, amt in research.items()])
+        completed = len(state['country'][empire]['tech_status']['technology'])
+        options = {
+            stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
+            for stype in research.keys() if stype != 'total'
+        }
+        return {
+            'output': research,
+            'completed_techs': completed,
+            'available_techs': options
+        }
+    except:
+        return {}
 
 
 def _get_planets_and_pops(state, empire):
-    planet_dict = {
-        pid: planet for pid, planet in state['planets']['planet'].items()
-        if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
-    }
-    planets = [planet for pid, planet in planet_dict.items()]
-    now = _parse_date(state['date'])
-    for planet in planets:
-        days = _date_diff_days(now, _parse_date(planet['colonize_date']))
-        planet['age_days'] = days
-        planet['age'] = days / DAYS_PER_YEAR
+    try:
+        planet_dict = {
+            pid: planet for pid, planet in state['planets']['planet'].items()
+            if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
+        }
+        planets = [planet for pid, planet in planet_dict.items()]
+        now = _parse_date(state['date'])
+        for planet in planets:
+            days = _date_diff_days(now, _parse_date(planet['colonize_date']))
+            planet['age_days'] = days
+            planet['age'] = days / DAYS_PER_YEAR
 
-    types = {
-        planet['planet_class']: planet['planet_class'].split('_')[-1].capitalize()
-        for planet in planets
-    }
-    type_sums = {}
-    for planet in planets:
-        tp = types[planet['planet_class']]
-        if tp == 'Habitable':
-            tp = 'Ring World Section'
-        if tp not in type_sums:
-            type_sums[tp] = 1
-        else:
-            type_sums[tp] += 1
+        types = {
+            planet['planet_class']: planet['planet_class'].split('_')[-1].capitalize()
+            for planet in planets
+        }
+        type_sums = {}
+        for planet in planets:
+            tp = types[planet['planet_class']]
+            if tp == 'Habitable':
+                tp = 'Ring World Section'
+            if tp not in type_sums:
+                type_sums[tp] = 1
+            else:
+                type_sums[tp] += 1
 
-    planet_stats = {
-        'total': len(planets),
-        'types': type_sums,
-        'districts': _basic_stats([len(planet['district']) for planet in planets]),
-        'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
-        'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
-        'stability': _basic_stats([planet['stability'] for planet in planets]),
-        'housing': _basic_stats([planet['free_housing'] for planet in planets]),
-        'crime': _basic_stats([planet['crime'] for planet in planets]),
-        'pops': _basic_stats([len(planet['pop']) for planet in planets]),
-        'age_days': _basic_stats([planet['age_days'] for planet in planets]),
-        'age': _basic_stats([planet['age'] for planet in planets])
-    }
+        planet_stats = {
+            'total': len(planets),
+            'types': type_sums,
+            'districts': _basic_stats([len(planet['district']) for planet in planets]),
+            'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
+            'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
+            'stability': _basic_stats([planet['stability'] for planet in planets]),
+            'housing': _basic_stats([planet['free_housing'] for planet in planets]),
+            'crime': _basic_stats([planet['crime'] for planet in planets]),
+            'pops': _basic_stats([len(planet['pop']) for planet in planets]),
+            'age_days': _basic_stats([planet['age_days'] for planet in planets]),
+            'age': _basic_stats([planet['age'] for planet in planets])
+        }
 
-    pop_ids = []
-    for planet in planets:
-        pop_ids.extend(planet['pop'])
-    pops = [state['pop'][pid] for pid in pop_ids if isinstance(state['pop'][pid], dict)]
-    jobs = {
-        pop['job']: ' '.join(word.capitalize() for word in pop['job'].split('_'))
-        for pop in pops
-    }
+        pop_ids = []
+        for planet in planets:
+            pop_ids.extend(planet['pop'])
+        pops = [state['pop'][pid] for pid in pop_ids if isinstance(state['pop'][pid], dict)]
+        jobs = {
+            pop['job']: ' '.join(word.capitalize() for word in pop['job'].split('_'))
+            for pop in pops
+        }
 
-    species_sums = {}
-    job_sums = {}
-    for pop in pops:
-        species = state['species'][pop['species_index']]['name'] \
-            if pop['species_index'] < len(state['species']) else 'Unknown'
-        if species not in species_sums:
-            species_sums[species] = 1
-        else:
-            species_sums[species] += 1
-        
-        job = jobs[pop['job']]
-        if job not in job_sums:
-            job_sums[job] = 1
-        else:
-            job_sums[job] += 1
+        species_sums = {}
+        job_sums = {}
+        for pop in pops:
+            species = state['species'][pop['species_index']]['name'] \
+                if pop['species_index'] < len(state['species']) else 'Unknown'
+            if species not in species_sums:
+                species_sums[species] = 1
+            else:
+                species_sums[species] += 1
+            
+            job = jobs[pop['job']]
+            if job not in job_sums:
+                job_sums[job] = 1
+            else:
+                job_sums[job] += 1
 
-    pop_stats = {
-        'total': len(pops),
-        'jobs': job_sums,
-        'species': species_sums
-    }
+        pop_stats = {
+            'total': len(pops),
+            'jobs': job_sums,
+            'species': species_sums
+        }
 
-    return planet_stats, pop_stats
+        return planet_stats, pop_stats
+
+    except:
+        return {}, {}
 
 
 def _is_transport_fleet(state, fleet):
@@ -505,54 +551,60 @@ def _is_transport_fleet(state, fleet):
 
 
 def _get_fleets(state, empire):
-    fleets = [
-        fleet for fid, fleet in state['fleet'].items()
-        if isinstance(fleet, dict) and
-           fleet['owner'] == empire and
-           ('civilian' not in fleet or fleet['civilian'] == 'no') and
-           ('station' not in fleet or fleet['station'] == 'no') and
-           not _is_transport_fleet(state, fleet)
-    ]
+    try:
+        fleets = [
+            fleet for fid, fleet in state['fleet'].items()
+            if isinstance(fleet, dict) and
+            fleet['owner'] == empire and
+            ('civilian' not in fleet or fleet['civilian'] == 'no') and
+            ('station' not in fleet or fleet['station'] == 'no') and
+            not _is_transport_fleet(state, fleet)
+        ]
 
-    power = _basic_stats([fleet['military_power'] for fleet in fleets if fleet['military_power'] > 0])
-    ships = _basic_stats([len(fleet['ships']) for fleet in fleets])
-    ship_types = {}
-    ship_exp = 0
-    for fleet in fleets:
-        for ship_id in fleet['ships']:
-            stype = 'Unknown'
-            if ship_id in state['ships']:
-                ship = state['ships'][ship_id]
-                ship_exp += ship['experience'] if 'experience' in ship else 0
-                if ship['ship_design'] in state['ship_design']:
-                    design = state['ship_design'][ship['ship_design']]
-                    stype = design['ship_size'].capitalize()
-                    if stype not in ship_types:
-                        ship_types[stype] = 1
-                    else:
-                        ship_types[stype] += 1
-    return {
-        'total': len(fleets),
-        'fleet_power': power,
-        'ships': ships,
-        'ship_types': ship_types,
-        'avg_ship_exp': ship_exp / ships['total']
-    }
+        power = _basic_stats([fleet['military_power'] for fleet in fleets if fleet['military_power'] > 0])
+        ships = _basic_stats([len(fleet['ships']) for fleet in fleets])
+        ship_types = {}
+        ship_exp = 0
+        for fleet in fleets:
+            for ship_id in fleet['ships']:
+                stype = 'Unknown'
+                if ship_id in state['ships']:
+                    ship = state['ships'][ship_id]
+                    ship_exp += ship['experience'] if 'experience' in ship else 0
+                    if ship['ship_design'] in state['ship_design']:
+                        design = state['ship_design'][ship['ship_design']]
+                        stype = design['ship_size'].capitalize()
+                        if stype not in ship_types:
+                            ship_types[stype] = 1
+                        else:
+                            ship_types[stype] += 1
+        return {
+            'total': len(fleets),
+            'fleet_power': power,
+            'ships': ships,
+            'ship_types': ship_types,
+            'avg_ship_exp': ship_exp / ships['total']
+        }
+    except:
+        return {}
 
 
 def _get_armies(state, empire):
-    armies = [
-        army for aid, army in state['army'].items()
-        if isinstance(army, dict) and army['owner'] == empire
-    ]
-    type_counts = {}
-    for army in armies:
-        atype = ' '.join([word.capitalize() for word in army['type'].split('_')])
-        if atype not in type_counts:
-            type_counts[atype] = 1
-        else:
-            type_counts[atype] += 1
-    return {
-        'total': len(armies),
-        'types': type_counts
-    }
+    try:
+        armies = [
+            army for aid, army in state['army'].items()
+            if isinstance(army, dict) and army['owner'] == empire
+        ]
+        type_counts = {}
+        for army in armies:
+            atype = ' '.join([word.capitalize() for word in army['type'].split('_')])
+            if atype not in type_counts:
+                type_counts[atype] = 1
+            else:
+                type_counts[atype] += 1
+        return {
+            'total': len(armies),
+            'types': type_counts
+        }
+    except:
+        return {}

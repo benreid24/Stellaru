@@ -55,7 +55,6 @@ class SaveChooser extends React.Component {
     }
 
     methodChose(method) {
-        console.log(method);
         switch (method) {
             case Methods.wait:
                 this.setState({state: State.waitSave});

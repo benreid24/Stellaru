@@ -31,6 +31,13 @@ class App extends React.Component {
             choosenSave: save,
             state: State.monitor
         });
+        fetch(
+            'api/empires', {
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({file: save.file, test: 'value'})
+            }
+        ).then(response => response.json()).then(data => console.log(data));
     }
 
     render() {
