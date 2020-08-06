@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('monitor.urls'))
+    path('api/', include('stellaru_api.urls')),
+    path('', views.index, name="react_app")
 ]

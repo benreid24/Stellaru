@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'monitor',
+    'stellaru_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,8 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, os.path.realpath('../frontend'))
 
 STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build'),
     os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]

@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {createMuiTheme} from '@material-ui/core'
+import {ThemeProvider} from '@material-ui/core'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import SaveChooser from './SaveChooser/SaveChooser';
+
+const State = Object.freeze({
+    chooseSave: 0,
+    monitor: 1
+});
+
+const darkTheme = createMuiTheme({
+    palette: {
+        type: 'dark',
+    },
+});
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            state: State.chooseSave,
+        };
+    }
+
+    onSaveChoose(save) {
+        this.setState({
+            choosenSave: save,
+            state: State.monitor
+        });
+    }
+
+    render() {
+        return (
+            <ThemeProvider theme={darkTheme}>
+                <div className="App">
+                    {this.state.state === State.chooseSave && 
+                        <SaveChooser saves={this.state.saves} onChoose={(save) => {this.onSaveChoose(save);}}/>
+                    }
+                    {this.state.state === State.monitor && <p>Watching save: {this.state.choosenSave.name}</p>}
+                </div>
+            </ThemeProvider>
+        );
+    }
 }
 
 export default App;

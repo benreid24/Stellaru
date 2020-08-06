@@ -12,15 +12,20 @@ class Watcher:
         self.latest_write = 0
         self.latest_read = 0
         self.latest_file = ''
+        self.valid = False
         self.refresh()
         self.new_data = False
 
     def refresh(self):
+        dir_files = os.listdir(self.directory)
         file_list = [
             os.path.join(self.directory, filename)
-            for filename in os.listdir(self.directory)
+            for filename in dir_files
             if filename != datastore.SAVE_FILE
+            and '.sav' in filename
         ]
+        self.valid = len(file_list) > 0
+        self.has_history = datastore.SAVE_FILE in dir_files
 
         update = False
         for file in file_list:
@@ -46,8 +51,11 @@ class Watcher:
 
     def new_data_available(self):
         return self.new_data
-    
+
     def get_file(self):
+        return self.latest_file
+    
+    def get_file_for_read(self):
         self.new_data = False
         return self.latest_file
 
