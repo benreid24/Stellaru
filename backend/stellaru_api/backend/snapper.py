@@ -1,3 +1,5 @@
+from . import parser
+
 DAYS_PER_MONTH = 30
 DAYS_PER_YEAR = DAYS_PER_MONTH * 12
 
@@ -86,7 +88,7 @@ def get_player_empire(state):
     return None
 
 
-def build_snapshot(state, empire):
+def _build_empire_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
 
@@ -113,6 +115,24 @@ def build_snapshot(state, empire):
         'armies': _get_armies(state, empire)
     }
     return snapshot
+
+
+def build_snapshot(state):
+    empires = get_empires(state)
+    return {
+        'date': state['date'],
+        'empires': {
+            empire_id: {
+                'empire_name': empire,
+                'snapshot': _build_empire_snapshot(state, empire_id)
+            } for empire_id, empire in empires.items()
+        }
+    }
+
+
+def build_snapshot_from_watcher(watcher):
+    meta, state = parser.parse_save(watcher.get_file_for_read())
+    return build_snapshot(state)
 
 
 def _basic_stats(values):

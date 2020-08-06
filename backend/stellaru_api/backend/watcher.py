@@ -51,8 +51,11 @@ class Watcher:
 
     def new_data_available(self):
         return self.new_data
-    
+
     def get_file(self):
+        return self.latest_file
+    
+    def get_file_for_read(self):
         self.new_data = False
         return self.latest_file
 
