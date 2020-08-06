@@ -27,7 +27,8 @@ def _load_save(watcher, session_id):
         'name': snaps[0]['name'],
         'watcher': watcher,
         'sessions': [session_id],
-        'snaps': snaps
+        'snaps': snaps,
+        'updater': Updater(watcher)
     }
 
 
@@ -46,9 +47,14 @@ def load_and_add_save(watcher, session_id):
         save_lock.acquire()
         monitored_saves[folder] = _load_save(watcher)
         save_lock.release()
-        updater = Updater(watcher)
-        updater.start()
     session_saves[session_id] = folder
+    return monitored_saves[folder]
+
+
+def activate_save(folder):
+    if folder in monitored_saves:
+        if not monitored_saves[folder]['updater'].is_alive():
+            monitored_saves[folder]['updater'].start()
 
 
 def append_save(watcher, snapshot):
@@ -107,6 +113,7 @@ class Updater(Thread):
                 break
 
             # Refresh
+            save['watcher'].refresh()
             if save['watcher'].new_data_available():
                 snap = snapper.build_snapshot_from_watcher(save['watcher'])
                 save['snaps'].append(snap)

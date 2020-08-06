@@ -4,10 +4,7 @@ from . import datastore
 
 
 class Watcher:
-    def __init__(self, name, directory):
-        print(f'Watching save {name} at: {directory}')
-
-        self.name = name
+    def __init__(self, directory):
         self.directory = directory
         self.latest_write = 0
         self.latest_read = 0
@@ -42,9 +39,6 @@ class Watcher:
                 self.latest_file = file
 
         return update
-
-    def get_name(self):
-        return self.name
 
     def time(self):
         return max(self.latest_read, self.latest_write)

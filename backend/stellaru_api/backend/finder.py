@@ -1,7 +1,6 @@
 import ctypes
 from ctypes import wintypes
 from ctypes import windll
-from pathlib import Path
 import string
 import time
 import os
@@ -74,7 +73,7 @@ def find_saves():
             os.path.join(f, file) for file in os.listdir(f)
         )
     watchers = [
-        Watcher(Path(folder).stem.split('_')[0], folder) 
+        Watcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     return watchers
@@ -90,7 +89,7 @@ def find_save(folders, wait_for_save):
     print(f'Found {len(save_folders)} saves')
 
     watchers = [
-        Watcher(Path(folder).stem.split('_')[0], folder) 
+        Watcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     start_time = time.time()
