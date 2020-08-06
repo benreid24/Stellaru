@@ -7,6 +7,7 @@ TIMEOUT = 300
 
 SESSION_TEMPLATE = {
     'id': '<session-id>',
+    'empire': '<empire_id>',
     'endpoint': '<notification-url',
     'timeout': '<timeout time>'
 }
@@ -29,10 +30,17 @@ def register_session(session):
     session_time = time.time()
     sessions[session_id] = {
         'id': session_id,
+        'empire': None,
         'time': session_time,
         'endpoint': 'TODO' # TODO - how to do this?
     }
     return session_id
+
+
+def set_session_empire(session, empire):
+    global sessions
+    if session in sessions:
+        sessions[session]['empire'] = empire
 
 
 def session_expired(session):
@@ -57,6 +65,9 @@ def notify_session(session, payload):
     global sessions
     if session not in sessions:
         return False
+    if 'empires' in payload:
+        if sessions[session]['empire'] in payload['empires']:
+            payload = payload['empire'][sessions[session]['empire']]
     # TODO - send payload and reset timer if sent
     sessions[session]['time'] = time.time()
     return True
