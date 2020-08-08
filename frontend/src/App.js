@@ -6,10 +6,12 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SaveChooser from './SaveChooser/SaveChooser';
+import EmpireChooser from './EmpireChooser/EmpireChooser';
 
 const State = Object.freeze({
     chooseSave: 0,
-    monitor: 1
+    chooseEmpire: 1,
+    monitor: 2
 });
 
 const darkTheme = createMuiTheme({
@@ -28,16 +30,9 @@ class App extends React.Component {
 
     onSaveChoose(save) {
         this.setState({
-            choosenSave: save,
-            state: State.monitor
+            chosenSave: save,
+            state: State.chooseEmpire
         });
-        fetch(
-            'api/empires', {
-                method: 'post',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({file: save.file, test: 'value'})
-            }
-        ).then(response => response.json()).then(data => console.log(data));
     }
 
     render() {
@@ -47,6 +42,7 @@ class App extends React.Component {
                     {this.state.state === State.chooseSave && 
                         <SaveChooser saves={this.state.saves} onChoose={(save) => {this.onSaveChoose(save);}}/>
                     }
+                    {this.state.state === State.chooseEmpire && <EmpireChooser file={this.state.chosenSave}/>}
                     {this.state.state === State.monitor && <p>Watching save: {this.state.choosenSave.name}</p>}
                 </div>
             </ThemeProvider>
