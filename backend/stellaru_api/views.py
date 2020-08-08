@@ -62,7 +62,8 @@ def get_empires(request):
     save = datastore.load_and_add_save(watcher, request.session['id'])
     empires = [{
         'id': empire_id,
-        'name': save['snaps'][-1]['empires'][empire_id]['name']
+        'name': save['snaps'][-1]['empires'][empire_id]['name'],
+        'player': save['snaps'][-1]['empires'][empire_id]['is_player']
     } for empire_id in save['snaps'][-1]['empires']]
     return JsonResponse({
         'folder': folder,
