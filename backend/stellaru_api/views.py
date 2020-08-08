@@ -6,10 +6,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .backend import finder
-from .backend import parser
-from .backend.watcher import Watcher
-from .backend import datastore
+from engine import sessions
+from engine import finder
+from engine import parser
+from engine.watcher import Watcher
+from engine import datastore
 
 
 def _make_error(error):
@@ -17,6 +18,7 @@ def _make_error(error):
 
 
 def get_saves(request):
+    sessions.touch_session(request.session)
     try:
         save_files = finder.find_saves()
         saves = [
@@ -43,6 +45,7 @@ def get_saves(request):
 
 @csrf_exempt
 def get_empires(request):
+    sessions.touch_session(request.session)
     file = None
     try:
         parsed = json.loads(request.body)

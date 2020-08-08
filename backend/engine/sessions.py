@@ -34,6 +34,7 @@ def register_session(session):
         'time': session_time,
         'endpoint': 'TODO' # TODO - how to do this?
     }
+    session['id'] = session_id
     return session_id
 
 
@@ -71,3 +72,10 @@ def notify_session(session, payload):
     # TODO - send payload and reset timer if sent
     sessions[session]['time'] = time.time()
     return True
+
+
+def touch_session(session):
+    global sessions
+    if 'id' in session:
+        if session['id'] in sessions:
+            sessions[session['id']]['time'] = time.time()
