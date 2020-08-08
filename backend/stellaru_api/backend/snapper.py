@@ -81,8 +81,12 @@ def get_empires(state):
     }
 
 
-def get_player_empires(state):
-    return [player['country'] for player in state['player']]
+def get_player_name(state, empire):
+    players = {player['country']: player['name'] for player in state['player']}
+    print(players)
+    if empire in players:
+        return players[empire] if players[empire] != 'unknown' else 'Player'
+    return 'AI'
 
 
 def _build_empire_snapshot(state, empire):
@@ -93,7 +97,7 @@ def _build_empire_snapshot(state, empire):
         planets, pops = _get_planets_and_pops(state, empire)
         snapshot = {
             'name': state['country'][empire]['name'],
-            'is_player': empire in get_player_empires(state),
+            'player_name': get_player_name(state, empire),
             'date': state['date'],
             'date_components': _parse_date(state['date']),
             'active_empires': len(get_empires(state).keys()),

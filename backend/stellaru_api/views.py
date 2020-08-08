@@ -52,7 +52,7 @@ def get_empires(request):
     except Exception as err:
         return _make_error('Bad request body')
     if 'id' not in request.session:
-        return _make_error('No session id')
+        return _make_error('Session expired')
 
     folder = os.path.dirname(file)
     watcher = Watcher(folder)
@@ -63,7 +63,7 @@ def get_empires(request):
     empires = [{
         'id': empire_id,
         'name': save['snaps'][-1]['empires'][empire_id]['name'],
-        'player': save['snaps'][-1]['empires'][empire_id]['is_player']
+        'player': save['snaps'][-1]['empires'][empire_id]['player_name']
     } for empire_id in save['snaps'][-1]['empires']]
     return JsonResponse({
         'folder': folder,

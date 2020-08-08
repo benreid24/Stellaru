@@ -42,7 +42,7 @@ class App extends React.Component {
                     {this.state.state === State.chooseSave && 
                         <SaveChooser saves={this.state.saves} onChoose={(save) => {this.onSaveChoose(save);}}/>
                     }
-                    {this.state.state === State.chooseEmpire && <EmpireChooser file={this.state.chosenSave}/>}
+                    {this.state.state === State.chooseEmpire && <EmpireChooser file={this.state.chosenSave.file}/>}
                     {this.state.state === State.monitor && <p>Watching save: {this.state.choosenSave.name}</p>}
                 </div>
             </ThemeProvider>
