@@ -1,58 +1,29 @@
-import ctypes
-from ctypes import wintypes
-from ctypes import windll
-import string
 import time
 import os
+import sys
 
 from .watcher import Watcher
-
-CSIDL_PERSONAL = 5       # My Documents
-SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+if sys.platform == 'windows':
+    from . import windows_finder as os_finder
+elif sys.platform == 'darwin':
+    from . import osx_finder as os_finder
+elif sys.platform == 'linux':
+    from . import linux_finder as os_finder
+else:
+    raise Exception(f'Unsupported operating system: {sys.platform}')
 
 PATH_SUFFIX = 'Paradox Interactive/Stellaris/save games' 
 TIMEOUT = 300
 
-STEAM_DIRS = [
-    'Steam',
-    'Program Files/Steam',
-    'Program Files (x86)/Steam'
-]
 STEAM_USERDATA = 'userdata'
 STELLARIS_ID = '281990'
 CLOUD_SAVE_SUFFIX = 'remote/save games'
 
 
-def _get_drives():
-    drives = []
-    bitmask = windll.kernel32.GetLogicalDrives()
-    for letter in string.ascii_uppercase:
-        if bitmask & 1:
-            drives.append(letter)
-        bitmask >>= 1
-    return drives
-
-
-def _find_steam():
-    drives = [f'{drive}:\\' for drive in _get_drives()]
-    for drive in drives:
-        for folder in STEAM_DIRS:
-            path = os.path.join(drive, folder)
-            if os.path.isdir(path):
-                return path
-    return None
-
-
-def _get_docs_save_dir():
-    docs_path = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
-    ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, docs_path)
-    return os.path.join(str(docs_path.value), PATH_SUFFIX)
-
-
 def _get_save_dirs():
     save_dirs = []
 
-    steam_dir = _find_steam()
+    steam_dir = os_finder.find_steam()
     if steam_dir:
         user_path = os.path.join(steam_dir, STEAM_USERDATA)
         users = os.listdir(user_path)
@@ -62,7 +33,7 @@ def _get_save_dirs():
     else:
         print('Failed to find Steam install, only local saves will be searched')
     
-    save_dirs.append(_get_docs_save_dir())
+    save_dirs.extend(os_finder.get_os_specific_save_dirs())
     return save_dirs
 
 
