@@ -1,4 +1,4 @@
-.App {
+.Stellaru {
   background-color: #292929;
   text-align: center;
 }
@@ -7,7 +7,6 @@ body {
   color: #fcfcfc !important;
   background-color: #292929 !important;
   min-height: 100%;
-  overflow: hidden;
   text-align: center;
 }
 
@@ -23,4 +22,8 @@ body {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.error {
+  color: #de3344;
 }

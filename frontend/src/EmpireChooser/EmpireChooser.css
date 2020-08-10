@@ -1,0 +1,40 @@
+.empireChooserRow {
+    width: 95%;
+    padding-left: 5%;
+}
+
+.empireCardDiv {
+    padding-bottom: 25px;
+}
+
+.empireCard {
+    height: 100%;
+    background-color: #444444 !important;
+}
+
+.empireCard:hover {
+    background-color: #777777 !important;
+    cursor: pointer;
+}
+
+.empireCard:active {
+    background-color: #232323 !important;
+    cursor: pointer;
+}
+
+.playerCardText{
+    color: #22ee33;
+    padding-bottom: 5px;
+}
+
+.aiCardText {
+    color: #ee3322;
+}
+
+.empirePlayer {
+   position: absolute;
+   bottom: 10%;
+   left: 50%;
+   transform: translateX(-50%);
+   color: #55c5c0;
+}

@@ -9,7 +9,7 @@ from . import sessions
 SAVE_FILE = 'stellaru.json'
 
 session_saves = {}
-monitored_saves = []
+monitored_saves = {}
 save_lock = Lock()
 
 
@@ -18,16 +18,19 @@ def _load_save(watcher, session_id):
     snaps = []
     if os.path.isfile(os.path.join(folder, SAVE_FILE)):
         with open(os.path.join(folder, SAVE_FILE), 'r') as f:
-            snaps = json.loads(f.read())
+            try:
+                snaps = json.loads(f.read())
+            except:
+                snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
     if not snaps or snaps[-1]['date'] != snap['date']:
         snaps.append(snap)
     return {
         'directory': folder,
-        'name': snaps[0]['name'],
         'watcher': watcher,
         'sessions': [session_id],
-        'snaps': snaps
+        'snaps': snaps,
+        'updater': Thread(target=_watch_save, args=(watcher))
     }
 
 
@@ -44,11 +47,16 @@ def load_and_add_save(watcher, session_id):
     folder = os.path.dirname(watcher.get_file())
     if folder not in monitored_saves:
         save_lock.acquire()
-        monitored_saves[folder] = _load_save(watcher)
+        monitored_saves[folder] = _load_save(watcher, session_id)
         save_lock.release()
-        updater = Updater(watcher)
-        updater.start()
     session_saves[session_id] = folder
+    return monitored_saves[folder]
+
+
+def activate_save(folder):
+    if folder in monitored_saves:
+        if not monitored_saves[folder]['updater'].is_alive():
+            monitored_saves[folder]['updater'].start()
 
 
 def append_save(watcher, snapshot):
@@ -82,35 +90,33 @@ def get_session_save(session_id):
     return session_saves[session_id] if session_id in session_saves else None
 
 
-class Updater(Thread):
-    def __init__(self, watcher):
-        super.__init__()
-        self.folder = os.path.dirname(watcher.get_file())
+def _watch_save(watcher):
+    global monitored_saves
+    folder = os.path.dirname(watcher.get_file())
 
-    def run(self):
-        global monitored_saves
-        while True:
-            # Check deleted
-            if self.folder not in monitored_saves:
-                break
-            save = monitored_saves[self.folder]
+    while True:
+        # Check deleted
+        if folder not in monitored_saves:
+            break
+        save = monitored_saves[folder]
 
-            # Check sessions expired
-            save['sessions'] = [
-                session for session in save['sessions']
-                if not sessions.session_expired(session)
-            ]
-            if not save['sessions']:
-                save_lock.acquire()
-                monitored_saves.pop(self.folder)
-                save_lock.release()
-                break
+        # Check sessions expired
+        save['sessions'] = [
+            session for session in save['sessions']
+            if not sessions.session_expired(session)
+        ]
+        if not save['sessions']:
+            save_lock.acquire()
+            monitored_saves.pop(folder)
+            save_lock.release()
+            break
 
-            # Refresh
-            if save['watcher'].new_data_available():
-                snap = snapper.build_snapshot_from_watcher(save['watcher'])
-                save['snaps'].append(snap)
-                for session in save['sessions']:
-                    sessions.notify_session(session, snap)
+        # Refresh
+        save['watcher'].refresh()
+        if save['watcher'].new_data_available():
+            snap = snapper.build_snapshot_from_watcher(save['watcher'])
+            save['snaps'].append(snap)
+            for session in save['sessions']:
+                sessions.notify_session(session, snap)
 
-            time.sleep(1)        
+        time.sleep(1)        

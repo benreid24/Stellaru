@@ -1,11 +1,9 @@
-from pathlib import Path
-import string
 import time
 import os
 import sys
 
 from .watcher import Watcher
-if sys.platform == 'windows':
+if sys.platform == 'win32':
     from . import windows_finder as os_finder
 elif sys.platform == 'darwin':
     from . import osx_finder as os_finder
@@ -14,7 +12,6 @@ elif sys.platform == 'linux':
 else:
     raise Exception(f'Unsupported operating system: {sys.platform}')
 
-PATH_SUFFIX = 'Paradox Interactive/Stellaris/save games' 
 TIMEOUT = 300
 
 STEAM_USERDATA = 'userdata'
@@ -46,7 +43,7 @@ def find_saves():
             os.path.join(f, file) for file in os.listdir(f)
         )
     watchers = [
-        Watcher(Path(folder).stem.split('_')[0], folder) 
+        Watcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     return watchers
@@ -62,7 +59,7 @@ def find_save(folders, wait_for_save):
     print(f'Found {len(save_folders)} saves')
 
     watchers = [
-        Watcher(Path(folder).stem.split('_')[0], folder) 
+        Watcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     start_time = time.time()

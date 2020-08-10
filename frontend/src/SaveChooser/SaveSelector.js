@@ -12,7 +12,7 @@ function SaveCard(props) {
         <Card className="saveCardDiv" onClick={onClick}>
             <CardContent>
                 <h2 className="saveName noselect">{save.name}</h2>
-                    <div>
+                    <div className="saveCardBottomDiv">
                         <p className="saveGameDate noselect">{save.gameDate}</p>
                         <p className="saveFileDatetime noselect">
                             <span className="saveFileDate">{save.fileDatetime.toDateString()}</span>

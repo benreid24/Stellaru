@@ -2,6 +2,7 @@ import ctypes
 from ctypes import wintypes
 from ctypes import windll
 import os
+import string
 
 CSIDL_PERSONAL = 5       # My Documents
 SHGFP_TYPE_CURRENT = 0   # Get current, not default value
@@ -11,6 +12,7 @@ STEAM_DIRS = [
     'Program Files/Steam',
     'Program Files (x86)/Steam'
 ]
+PATH_SUFFIX = 'Paradox Interactive/Stellaris/save games' 
 
 
 def _get_drives():

@@ -17,6 +17,7 @@
     cursor: pointer;
     width: 100%;
     height: 100%;
+    min-height: 120px;
 }
 
 .saveCardDiv:hover {
@@ -34,10 +35,12 @@
 .saveGameDate {
     float: left;
     color: #ededed;
+    transform: translateX(25%);
 }
 
 .saveFileDatetime {
     float: right;
+    transform: translateX(-10%);
 }
 
 .saveFileTime {
@@ -47,4 +50,12 @@
 
 .saveFileDate {
     color: #c0c0c0;
+}
+
+.saveCardBottomDiv {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
