@@ -38,10 +38,6 @@ function EmpireChooser(props) {
         ).then(response => response.json()).then(data => setEmpires(data));
     }, [props.file]);
 
-    const handleEmpireClick = (empireId) => {
-        console.log(empireId);
-    }
-
     const empireSortCmp = (a, b) => {
         if (a.player !== 'AI' && b.player === 'AI')
             return -1;
@@ -59,7 +55,7 @@ function EmpireChooser(props) {
         const key = `${empire.name}${rnd}`;
         return (
             <div className='col-3 empireCardDiv' key={key}>
-                <EmpireCard empire={empire} onClick={handleEmpireClick} />
+                <EmpireCard empire={empire} onClick={() => {props.onChoose(empire);}} />
             </div>
         );
     }

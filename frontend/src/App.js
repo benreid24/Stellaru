@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {createMuiTheme} from '@material-ui/core'
 import {ThemeProvider} from '@material-ui/core'
 
@@ -20,34 +20,30 @@ const darkTheme = createMuiTheme({
     },
 });
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            state: State.chooseSave,
-        };
+function App(props) {
+    const [state, setState] = useState(State.chooseSave);
+    const [chosenSave, setChosenSave] = useState(null);
+    const [chosenEmpire, setChosenEmpire] = useState(null);
+
+    const onSaveChoose = (save) => {
+        setState(State.chooseEmpire);
+        setChosenSave(save);
+    };
+
+    const onEmpireChoose = (empire) => {
+        setChosenEmpire(empire);
+        setState(State.monitor);
     }
 
-    onSaveChoose(save) {
-        this.setState({
-            chosenSave: save,
-            state: State.chooseEmpire
-        });
-    }
-
-    render() {
-        return (
-            <ThemeProvider theme={darkTheme}>
-                <div className="App">
-                    {this.state.state === State.chooseSave && 
-                        <SaveChooser saves={this.state.saves} onChoose={(save) => {this.onSaveChoose(save);}}/>
-                    }
-                    {this.state.state === State.chooseEmpire && <EmpireChooser file={this.state.chosenSave.file}/>}
-                    {this.state.state === State.monitor && <p>Watching save: {this.state.choosenSave.name}</p>}
-                </div>
-            </ThemeProvider>
-        );
-    }
+    return (
+        <ThemeProvider theme={darkTheme}>
+            <div className="App">
+                {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
+                {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
+                {state === State.monitor && <p>Watching save: {chosenSave.name} - {chosenEmpire.name}</p>}
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
