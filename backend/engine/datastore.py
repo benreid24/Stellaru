@@ -18,7 +18,10 @@ def _load_save(watcher, session_id):
     snaps = []
     if os.path.isfile(os.path.join(folder, SAVE_FILE)):
         with open(os.path.join(folder, SAVE_FILE), 'r') as f:
-            snaps = json.loads(f.read())
+            try:
+                snaps = json.loads(f.read())
+            except:
+                snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
     if not snaps or snaps[-1]['date'] != snap['date']:
         snaps.append(snap)

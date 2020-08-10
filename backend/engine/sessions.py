@@ -5,12 +5,6 @@ import time
 sessions = {}
 TIMEOUT = 300
 
-SESSION_TEMPLATE = {
-    'id': '<session-id>',
-    'empire': '<empire_id>',
-    'endpoint': '<notification-url',
-    'timeout': '<timeout time>'
-}
 
 def _get_session_id(session):
     if not isinstance(session, str):
