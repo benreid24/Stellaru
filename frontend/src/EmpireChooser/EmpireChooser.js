@@ -55,8 +55,10 @@ function EmpireChooser(props) {
     }
 
     const renderEmpire = (empire) => {
+        const rnd = Math.floor(Math.random() * 1000);
+        const key = `${empire.name}${rnd}`;
         return (
-            <div className='col-3 empireCardDiv' key={empire.name}>
+            <div className='col-3 empireCardDiv' key={key}>
                 <EmpireCard empire={empire} onClick={handleEmpireClick} />
             </div>
         );
