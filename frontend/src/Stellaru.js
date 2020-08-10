@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {createMuiTheme} from '@material-ui/core'
 import {ThemeProvider} from '@material-ui/core'
 
-import './App.css';
+import './Stellaru.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SaveChooser from './SaveChooser/SaveChooser';
@@ -20,7 +20,7 @@ const darkTheme = createMuiTheme({
     },
 });
 
-function App(props) {
+function Stellaru(props) {
     const [state, setState] = useState(State.chooseSave);
     const [chosenSave, setChosenSave] = useState(null);
     const [chosenEmpire, setChosenEmpire] = useState(null);
@@ -37,7 +37,7 @@ function App(props) {
 
     return (
         <ThemeProvider theme={darkTheme}>
-            <div className="App">
+            <div className="Stellaru">
                 {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
                 {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
                 {state === State.monitor && <p>Watching save: {chosenSave.name} - {chosenEmpire.name}</p>}
@@ -46,4 +46,4 @@ function App(props) {
     );
 }
 
-export default App;
+export default Stellaru;
