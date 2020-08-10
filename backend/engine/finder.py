@@ -3,7 +3,7 @@ import os
 import sys
 
 from .watcher import Watcher
-if sys.platform == 'windows':
+if sys.platform == 'win32':
     from . import windows_finder as os_finder
 elif sys.platform == 'darwin':
     from . import osx_finder as os_finder
@@ -12,7 +12,6 @@ elif sys.platform == 'linux':
 else:
     raise Exception(f'Unsupported operating system: {sys.platform}')
 
-PATH_SUFFIX = 'Paradox Interactive/Stellaris/save games' 
 TIMEOUT = 300
 
 STEAM_USERDATA = 'userdata'

@@ -28,7 +28,8 @@ class SaveChooser extends React.Component {
         this.state = {
             state: State.chooseMethod,
             saves: [],
-            onChoose: props.onChoose
+            onChoose: props.onChoose,
+            error: null
         };
     }
 
@@ -36,21 +37,28 @@ class SaveChooser extends React.Component {
         fetch('api/saves')
             .then(response => response.json())
             .then(data => {
-                const saves = data['saves'];
-                for (let i = 0; i<saves.length; i += 1) {
-                    saves[i].fileDatetime = new Date(saves[i].fileDatetime);
+                if ('saves' in data) {
+                    const saves = data['saves'];
+                    for (let i = 0; i<saves.length; i += 1) {
+                        saves[i].fileDatetime = new Date(saves[i].fileDatetime);
+                    }
+                    saves.sort((a,b) => {
+                        if (a.fileDatetime < b.fileDatetime)
+                            return 1;
+                        if (a.fileDatetime > b.fileDatetime)
+                            return -1;
+                        return 0;
+                    });
+                    this.setState({
+                        state: this.state.state,
+                        saves: saves
+                    });
                 }
-                saves.sort((a,b) => {
-                    if (a.fileDatetime < b.fileDatetime)
-                        return 1;
-                    if (a.fileDatetime > b.fileDatetime)
-                        return -1;
-                    return 0;
-                });
-                this.setState({
-                    state: this.state.state,
-                    saves: saves
-                });
+                else {
+                    this.setState({
+                        error: data['error']
+                    });
+                }
             });
     }
 
@@ -79,6 +87,15 @@ class SaveChooser extends React.Component {
     }
 
     render() {
+        if (this.state.error) {
+            return (
+                <div className="saveChooser">
+                    <h1 class='error'>Error</h1>
+                    <p class='error'>{this.state.error}</p>
+                </div>
+            );
+        }
+
         return (
             <div className="saveChooser">
                 {this.state.state === State.chooseMethod &&
