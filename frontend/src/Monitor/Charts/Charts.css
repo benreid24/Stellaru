@@ -1,0 +1,8 @@
+.chart {
+    background-color: #383838;
+    border: 1px solid #545454;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 6px 6px #121212;
+}

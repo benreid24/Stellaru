@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SaveChooser from './SaveChooser/SaveChooser';
 import EmpireChooser from './EmpireChooser/EmpireChooser';
+import Monitor from './Monitor/Monitor';
 
 const State = Object.freeze({
     chooseSave: 0,
@@ -40,7 +41,7 @@ function Stellaru(props) {
             <div className="Stellaru">
                 {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
                 {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
-                {state === State.monitor && <p>Watching save: {chosenSave.name} - {chosenEmpire.name}</p>}
+                {state === State.monitor && <Monitor save={chosenSave} empire={chosenEmpire}/>}
             </div>
         </ThemeProvider>
     );
