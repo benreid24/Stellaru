@@ -13,10 +13,13 @@ function Monitor(props) {
             <h1 className='empireName'>
                 {empire.name}<span className='playerName'>({empire.player})</span>
             </h1>
-            <div className='row'>
-                <div className='col-3'/>
-                <div className='col-6'>
-                    <StellaruLines/>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-3'/>
+                    <div className='col-6'>
+                        <StellaruLines/>
+                    </div>
+                    <div className='col-3'/>
                 </div>
             </div>
         </div>
