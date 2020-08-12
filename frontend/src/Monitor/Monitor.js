@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState, useEffect} from 'react';
 
 import StellaruLines from './Charts/StellaruLines';
 
@@ -7,6 +8,20 @@ import './Monitor.css';
 function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
+
+    const [gameData, setGameData] = useState([]);
+
+    useEffect(() => {
+        fetch(
+            'api/data', {
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({empire: empire.id, file: save.file})
+            }
+        ).then(response => response.json()).then(data => {
+            setGameData([data]);
+        });
+    }, [save, empire]);
 
     return (
         <div>

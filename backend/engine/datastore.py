@@ -23,7 +23,7 @@ def _load_save(watcher, session_id):
             except:
                 snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
-    if not snaps or snaps[-1]['date'] != snap['date']:
+    if not snaps or snaps[-1]['date'] != snap['date']: # TODO - verify time only forward
         snaps.append(snap)
     return {
         'directory': folder,
@@ -79,8 +79,7 @@ def add_save_watcher(watcher, session_id):
         save_lock.release()
 
 
-def get_save(watcher):
-    folder = os.path.dirname(watcher.get_file())
+def get_save(folder):
     if folder in monitored_saves:
         return monitored_saves[folder]
     return None
