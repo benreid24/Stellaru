@@ -91,7 +91,8 @@ def get_session_save(session_id):
 
 
 def _debug_watcher_update(save, folder, watcher):
-    pass
+    for session in save['sessions']:
+        sessions.notify_session(session, {'message': 'test'})
 
 
 def _watcher_update(save, folder, watcher):
