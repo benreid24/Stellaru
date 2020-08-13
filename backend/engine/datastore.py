@@ -10,7 +10,6 @@ SAVE_FILE = 'stellaru.json'
 WAITING_MESSAGE = {'status': 'WAITING'}
 LOADING_MESSAGE = {'status': 'LOADING'}
 
-session_saves = {}
 monitored_saves = {}
 save_lock = Lock()
 
@@ -36,30 +35,17 @@ def _load_save(watcher, session_id):
     }
 
 
-def get_save_watcher(save_file):
-    folder = os.path.dirname(save_file)
-    if folder in monitored_saves:
-        return monitored_saves[folder]['watcher']
-    return None
-
-
 def load_and_add_save(watcher, session_id):
     global monitored_saves
-    global session_saves
     folder = os.path.dirname(watcher.get_file())
     if folder not in monitored_saves:
         save_lock.acquire()
         monitored_saves[folder] = _load_save(watcher, session_id)
         save_lock.release()
         monitored_saves[folder]['updater'].start()
-    session_saves[session_id] = folder
+    else:
+        add_save_watcher(watcher, session_id)
     return monitored_saves[folder]
-
-
-def activate_save(folder):
-    if folder in monitored_saves:
-        if not monitored_saves[folder]['updater'].is_alive():
-            monitored_saves[folder]['updater'].start()
 
 
 def append_save(watcher, snapshot):
@@ -68,6 +54,7 @@ def append_save(watcher, snapshot):
     if folder in monitored_saves:
         save_lock.acquire()
         monitored_saves[folder]['snaps'].append(snapshot)
+        _flush_save(monitored_saves[folder])
         save_lock.release()
         return True
     return False
@@ -88,8 +75,10 @@ def get_save(folder):
     return None
 
 
-def get_session_save(session_id):
-    return session_saves[session_id] if session_id in session_saves else None
+def _flush_save(save):
+    folder = save['directory']
+    with open(f'{folder}/{SAVE_FILE}', 'w') as f:
+        f.write(json.dumps(save['snaps']))
 
 
 def _send_to_sessions(save, payload):
