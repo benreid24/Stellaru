@@ -18,7 +18,6 @@ def _make_error(error):
 
 
 def get_saves(request):
-    sessions.touch_session(request.session)
     try:
         save_files = finder.find_saves()
         saves = [
@@ -45,7 +44,6 @@ def get_saves(request):
 
 @csrf_exempt
 def get_empires(request):
-    sessions.touch_session(request.session)
     file = None
     try:
         parsed = json.loads(request.body)
@@ -72,3 +70,29 @@ def get_empires(request):
         'folder': folder,
         'empires': empires
     })
+
+
+@csrf_exempt
+def get_data(request):
+    try:
+        parsed = json.loads(request.body)
+        if 'file' not in parsed:
+            return _make_error('"folder" parameter not set in POST')
+        if 'empire' not in parsed:
+            return _make_error('"empire" parameter not set in POST')
+        folder = os.path.dirname(parsed['file'])
+        empire = parsed['empire']
+        save = datastore.get_save(folder)
+        if not save:
+            return _make_error(f'Invalid save: {folder}')
+        if empire not in save['snaps'][-1]['empires']:
+            return _make_error(f'Empire {empire} not in save {folder}')
+        sessions.set_session_empire(request.session['id'], empire)
+        snaps = [snap['empires'][empire] for snap in save['snaps']]
+        return JsonResponse({
+            'folder': folder,
+            'empire': empire,
+            'snaps': snaps
+        })
+    except Exception as err:
+        return _make_error(f'Bad request body: {repr(err)}')
