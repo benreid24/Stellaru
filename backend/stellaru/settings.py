@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'stellaru_api',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,3 +126,5 @@ STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build'),
     os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
+
+ASGI_APPLICATION = 'stellaru.routing.application'

@@ -1,6 +1,26 @@
 asgiref==3.2.10
+attrs==19.3.0
+autobahn==20.7.1
+Automat==20.2.0
+cffi==1.14.1
+channels==2.4.0
+constantly==15.1.0
+cryptography==3.0
 cx-Freeze==6.2
+daphne==2.5.0
 Django==3.0.8
+hyperlink==20.0.1
 idna==2.10
+incremental==17.5.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycparser==2.20
+PyHamcrest==2.0.2
+pyOpenSSL==19.1.0
 pytz==2020.1
+service-identity==18.1.0
+six==1.15.0
 sqlparse==0.3.1
+Twisted @ file:///C:/Users/Ben/Downloads/Twisted-20.3.0-cp38-cp38-win_amd64.whl
+txaio==20.4.1
+zope.interface==5.1.0

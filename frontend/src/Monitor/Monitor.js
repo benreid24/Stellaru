@@ -8,8 +8,14 @@ import './Monitor.css';
 function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
-
+    const subscription = props.socket;
     const [gameData, setGameData] = useState([]);
+
+    const onNewData = (event) => {
+        const data = event.data;
+        console.log(`Received data from backend: ${data}`);
+    };
+    subscription.onmessage = onNewData;
 
     useEffect(() => {
         fetch(
