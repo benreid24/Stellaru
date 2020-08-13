@@ -7,6 +7,8 @@ from . import snapper
 from . import sessions
 
 SAVE_FILE = 'stellaru.json'
+WAITING_MESSAGE = {'status': 'WAITING'}
+LOADING_MESSAGE = {'status': 'LOADING'}
 
 session_saves = {}
 monitored_saves = {}
@@ -90,6 +92,11 @@ def get_session_save(session_id):
     return session_saves[session_id] if session_id in session_saves else None
 
 
+def _send_to_sessions(save, payload):
+    for session in save['sessions']:
+        sessions.notify_session(session, payload)
+
+
 def _debug_watcher_update(save, folder, watcher):
     for session in save['sessions']:
         sessions.notify_session(session, {'message': 'test'})
@@ -98,10 +105,10 @@ def _debug_watcher_update(save, folder, watcher):
 def _watcher_update(save, folder, watcher):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
+        _send_to_sessions(save, LOADING_MESSAGE)
         snap = snapper.build_snapshot_from_watcher(save['watcher'])
         save['snaps'].append(snap)
-        for session in save['sessions']:
-            sessions.notify_session(session, snap)
+        _send_to_sessions(save, snap)
 
 
 def _watch_save(watcher):
@@ -129,4 +136,5 @@ def _watch_save(watcher):
         # Refresh
         _watcher_update(save, folder, watcher)
 
+        _send_to_sessions(save, WAITING_MESSAGE)
         time.sleep(1)

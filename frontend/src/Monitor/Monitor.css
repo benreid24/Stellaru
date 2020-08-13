@@ -7,3 +7,40 @@
     padding-left: 10px;
     font-size: 70%;
 }
+
+.statusIndicator {
+    padding: 30px;
+}
+
+.statusIndicatorGood {
+    border: 1px solid #00fa00;
+    background-color: #006a00;
+    border-radius: 5px;
+    color: #33ff33;
+}
+
+.statusIndicatorGoodText {
+    color: #33ff33;
+}
+
+.statusIndicatorLoading {
+    border: 1px solid #eef108;
+    background-color: #abad00;
+    border-radius: 5px;
+    color: #d3dad9;
+}
+
+.statusIndicatorLoadingText {
+    color: #d3dad9;
+}
+
+.statusIndicatorError {
+    border: 1px solid #ff2323;
+    background-color: #8a0000;
+    border-radius: 5px;
+    color: #ff8b8b;
+}
+
+.statusIndicatorErrorText {
+    color: #ff8b8b;
+}
