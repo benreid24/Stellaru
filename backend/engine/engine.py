@@ -104,6 +104,7 @@ def _send_to_sessions(save, payload):
 
 def _debug_watcher_update(save, folder, watcher):
     _send_to_sessions(save, LOADING_MESSAGE)
+    time.sleep(5)
     last_snap = save['snaps'][-1]
     fake = faker.fake_snap(last_snap)
     append_save(watcher, fake)
