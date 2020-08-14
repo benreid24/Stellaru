@@ -1,4 +1,4 @@
-import json
+import pickle
 import os
 import time
 from threading import Thread, Lock
@@ -6,7 +6,7 @@ from threading import Thread, Lock
 from . import snapper
 from . import sessions
 
-SAVE_FILE = 'stellaru.json'
+SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
 LOADING_MESSAGE = {'status': 'LOADING'}
 
@@ -17,12 +17,11 @@ save_lock = Lock()
 def _load_save(watcher, session_id):
     folder = os.path.dirname(watcher.get_file())
     snaps = []
-    if os.path.isfile(os.path.join(folder, SAVE_FILE)):
-        with open(os.path.join(folder, SAVE_FILE), 'r') as f:
-            try:
-                snaps = json.loads(f.read())
-            except:
-                snaps = []
+    try:
+        with open(os.path.join(folder, SAVE_FILE), 'rb') as f:
+            snaps = pickle.loads(f.read())
+    except:
+        snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
     if not snaps or snaps[-1]['date'] != snap['date']: # TODO - verify time only forward
         snaps.append(snap)
@@ -77,8 +76,8 @@ def get_save(folder):
 
 def _flush_save(save):
     folder = save['directory']
-    with open(f'{folder}/{SAVE_FILE}', 'w') as f:
-        f.write(json.dumps(save['snaps']))
+    with open(os.path.join(folder, SAVE_FILE), 'wb') as f:
+        f.write(pickle.dumps(save['snaps']))
 
 
 def _send_to_sessions(save, payload):
