@@ -26,7 +26,7 @@ function Monitor(props) {
     const empire = props.empire;
     const subscription = props.socket;
     const [gameData, setGameData] = useState([]);
-    const [status, setStatus] = useState('WAITING');
+    const [status, setStatus] = useState(subscription.readyState === 1 ? 'WAITING' : 'Disconnected');
 
     const onNewData = (event) => {
         const data = JSON.parse(event.data);
@@ -42,6 +42,7 @@ function Monitor(props) {
     };
     subscription.onmessage = onNewData;
     subscription.onerror = () => setStatus('Error');
+    subscription.onclose = () => setStatus('Disconnected');
 
     useEffect(() => {
         fetch(

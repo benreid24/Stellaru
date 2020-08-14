@@ -2,7 +2,7 @@ import sys
 import random
 
 from backend.engine.watcher import Watcher
-from backend.engine import datastore
+from backend.engine import engine
 from backend.engine import snapper
 from backend.engine import faker
 
@@ -26,7 +26,7 @@ def main():
         snaps.append(faker.fake_snap(snaps[-1]))
 
     print(f'Saving new data')
-    datastore._flush_save({'snaps': snaps, 'directory': folder})
+    engine._flush_save({'snaps': snaps, 'directory': folder})
 
 
 if __name__ == '__main__':

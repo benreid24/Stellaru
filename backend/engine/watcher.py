@@ -1,6 +1,6 @@
 import os
 
-from . import datastore
+from . import engine
 
 
 class Watcher:
@@ -18,11 +18,11 @@ class Watcher:
         file_list = [
             os.path.join(self.directory, filename)
             for filename in dir_files
-            if filename != datastore.SAVE_FILE
+            if filename != engine.SAVE_FILE
             and '.sav' in filename
         ]
         self.valid = len(file_list) > 0
-        self.has_history = datastore.SAVE_FILE in dir_files
+        self.has_history = engine.SAVE_FILE in dir_files
 
         update = False
         for file in file_list:
