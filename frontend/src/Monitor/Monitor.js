@@ -55,7 +55,7 @@ function Monitor(props) {
     }, [save, empire]);
 
     return (
-        <div>
+        <div className='container-fluid'>
             <div className='row'>
                 <div className='col-3'></div>
                 <div className='col-6'>
@@ -68,17 +68,15 @@ function Monitor(props) {
                     <StatusIndicator status={status}/>
                 </div>
             </div>
-            <div className='container-fluid'>
-                <div className='row'>
-                    <div className='col-3'/>
-                    <div className='col-6'>
-                        <StellaruLines data={gameData}/>
-                    </div>
-                    <div className='col-3'/>
+            <div className='row'>
+                <div className='col-3'/>
+                <div className='col-6'>
+                    <StellaruLines data={gameData}/>
                 </div>
+                <div className='col-3'/>
             </div>
         </div>
-    )
+    );
 }
 
 export default Monitor;
