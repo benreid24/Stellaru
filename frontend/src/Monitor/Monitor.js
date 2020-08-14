@@ -75,7 +75,7 @@ function Monitor(props) {
                 <div className='row'>
                     <div className='col-3'/>
                     <div className='col-6'>
-                        <StellaruLines/>
+                        <StellaruLines data={gameData}/>
                     </div>
                     <div className='col-3'/>
                 </div>

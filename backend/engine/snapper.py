@@ -99,6 +99,7 @@ def _build_empire_snapshot(state, empire):
             'player_name': get_player_name(state, empire),
             'date': state['date'],
             'date_components': parse_date(state['date']),
+            'date_days': date_days(state['date']),
             'active_empires': len(get_empires(state).keys()),
             'edict_count': _get_edicts(state, empire),
             'sprawl': _get_empire_size(state, empire),
@@ -126,6 +127,7 @@ def build_snapshot(state):
     return {
         'date': state['date'],
         'date_components': parse_date(state['date']),
+        'date_days': date_days(state['date']),
         'empires': {
             empire_id: _build_empire_snapshot(state, empire_id)
             for empire_id in empires
@@ -156,6 +158,11 @@ def parse_date(date_str):
         'm': int(comps[1]),
         'd': int(comps[2])
     }
+
+
+def date_days(date_str):
+    comps = parse_date(date_str)
+    return comps['y'] * DAYS_PER_YEAR + comps['m'] * DAYS_PER_MONTH + comps['d']
 
 
 def _date_diff_days(future, past):

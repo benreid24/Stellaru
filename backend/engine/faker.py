@@ -8,6 +8,8 @@ def fake_field(date, date_str, name, value):
         return date_str
     if name == 'date_components':
         return date
+    if name == 'date_days':
+        return value + 30
     if isinstance(value, str) or isinstance(value, int):
         return value
     if isinstance(value, dict):

@@ -14,19 +14,12 @@ monitored_saves = {}
 save_lock = Lock()
 
 
-def date_le(left, right):
-    ld = 30 * 12 * left['y'] + 30 * left['m'] + left['d']
-    rd = 30 * 12 * right['y'] + 30 * right['m'] + right['d']
-    return ld < rd
-
-
 def insert_snap(snaps, snap):
     for i in range(0, len(snaps)):
         oldsnap = snaps[i]
-        if date_le(oldsnap['date_components'],
-         snap['date_components']):
+        if oldsnap['date_days'] < snap['date_days']:
             continue
-        if snap['date'] == oldsnap['date']:
+        if snap['date_days'] == oldsnap['date_days']:
             return False
         snaps.insert(i, snap)
         return True
