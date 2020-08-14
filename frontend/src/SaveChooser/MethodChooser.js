@@ -17,25 +17,15 @@ const MethodDescs = Object.freeze({
     [Methods.chooseExisting]: 'Shows saves that have been previously loaded in Stellaru'
 });
 
-class MethodCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: props.title,
-            desc: props.desc
-        };
-    }
-
-    render() {
-        return (
-            <Card className="saveCardDiv">
-                <CardContent style={{textAlign: "center"}}>
-                    <h2 className="methodName noselect">{this.props.title}</h2>
-                    <p className="noselect">{this.props.desc}</p>
-                </CardContent>
-            </Card>
-        );
-    }
+function MethodCard(props) {
+    return (
+        <Card className="saveCardDiv" onClick={props.onClick}>
+            <CardContent style={{textAlign: "center"}}>
+                <h2 className="methodName noselect">{props.title}</h2>
+                <p className="noselect">{props.desc}</p>
+            </CardContent>
+        </Card>
+    );
 }
 
 class MethodChooser extends React.Component {
@@ -49,10 +39,11 @@ class MethodChooser extends React.Component {
 
     renderMethod(method) {
         return (
-            <div className="row" key={method} onClick={() => {this.state.chooseCb(Methods[method]);}}>
+            <div className="row" key={method}>
                 <div className="col-4"></div>
                 <div className="col-4">
                 <MethodCard
+                    onClick={() => {this.state.chooseCb(Methods[method]);}}
                     title={MethodTitles[method]}
                     desc={MethodDescs[method]}
                 />
