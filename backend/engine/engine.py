@@ -5,6 +5,7 @@ from threading import Thread, Lock
 
 from . import snapper
 from . import sessions
+from . import faker
 
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
@@ -98,8 +99,12 @@ def _send_to_sessions(save, payload):
 
 
 def _debug_watcher_update(save, folder, watcher):
-    for session in save['sessions']:
-        sessions.notify_session(session, {'message': 'test'})
+    _send_to_sessions(save, LOADING_MESSAGE)
+    time.sleep(3)
+    last_snap = save['snaps'][-1]
+    fake = faker.fake_snap(last_snap)
+    append_save(watcher, fake)
+    _send_to_sessions(save, fake)
 
 
 def _watcher_update(save, folder, watcher):
@@ -107,7 +112,7 @@ def _watcher_update(save, folder, watcher):
     if save['watcher'].new_data_available():
         _send_to_sessions(save, LOADING_MESSAGE)
         snap = snapper.build_snapshot_from_watcher(save['watcher'])
-        save['snaps'].append(snap)
+        append_save(watcher, snap)
         _send_to_sessions(save, snap)
 
 
@@ -134,7 +139,7 @@ def _watch_save(watcher):
             break
 
         # Refresh
-        _watcher_update(save, folder, watcher)
+        _debug_watcher_update(save, folder, watcher)
 
         _send_to_sessions(save, WAITING_MESSAGE)
         time.sleep(1)

@@ -38,6 +38,7 @@ def fake_snap(snap):
     date_str = f'{date["y"]}.{date["m"]}.{date["d"]}'
     return {
         'date': date_str,
+        'date_days': snap['date_days'] + 30,
         'empires': {
             eid: fake_dict(date, date_str, empire)
             for eid, empire in snap['empires'].items()

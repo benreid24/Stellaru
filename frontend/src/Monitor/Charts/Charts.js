@@ -24,7 +24,7 @@ function Chart(props) {
     return (
         <div className='chart'>
             <VictoryChart animate={{duration: 500}} theme={chartTheme}>
-            <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={10} style={{fill: props.titleColor}}/>
+            <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>
                 {props.children}
             </VictoryChart>
         </div>

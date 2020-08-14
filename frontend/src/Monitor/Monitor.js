@@ -30,7 +30,6 @@ function Monitor(props) {
 
     const onNewData = (event) => {
         const data = JSON.parse(event.data);
-        console.log(`Received data from backend: ${event.data}`);
         if ('snap' in data) {
             let snaps = gameData.slice();
             snaps.push(data['snap']);
@@ -52,7 +51,6 @@ function Monitor(props) {
                 body: JSON.stringify({empire: empire.id, file: save.file})
             }
         ).then(response => response.json()).then(data => {
-            console.log(data);
             setGameData(data['snaps']);
         });
     }, [save, empire]);
