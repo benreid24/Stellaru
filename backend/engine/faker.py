@@ -28,7 +28,7 @@ def fake_dict(date, date_str, snap):
 
 
 def fake_snap(snap):
-    date = snapper._parse_date(snap['date'])
+    date = snapper.parse_date(snap['date'])
     date['m'] += 1
     if date['m'] >= 13:
         date['m'] = 1

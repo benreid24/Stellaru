@@ -14,6 +14,26 @@ monitored_saves = {}
 save_lock = Lock()
 
 
+def date_le(left, right):
+    ld = 30 * 12 * left['y'] + 30 * left['m'] + left['d']
+    rd = 30 * 12 * right['y'] + 30 * right['m'] + right['d']
+    return ld < rd
+
+
+def insert_snap(snaps, snap):
+    for i in range(0, len(snaps)):
+        oldsnap = snaps[i]
+        if date_le(oldsnap['date_components'],
+         snap['date_components']):
+            continue
+        if snap['date'] == oldsnap['date']:
+            return False
+        snaps.insert(i, snap)
+        return True
+    snaps.append(snap)     
+    return True
+
+
 def _load_save(watcher, session_id):
     folder = os.path.dirname(watcher.get_file())
     snaps = []
@@ -23,8 +43,7 @@ def _load_save(watcher, session_id):
     except:
         snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
-    if not snaps or snaps[-1]['date'] != snap['date']: # TODO - verify time only forward
-        snaps.append(snap)
+    insert_snap(snaps, snap)
     return {
         'directory': folder,
         'watcher': watcher,
@@ -52,7 +71,7 @@ def append_save(watcher, snapshot):
     folder = os.path.dirname(watcher.get_file())
     if folder in monitored_saves:
         save_lock.acquire()
-        monitored_saves[folder]['snaps'].append(snapshot)
+        insert_snap(monitored_saves[folder]['snaps'], snapshot)
         _flush_save(monitored_saves[folder])
         save_lock.release()
         return True

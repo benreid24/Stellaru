@@ -98,7 +98,7 @@ def _build_empire_snapshot(state, empire):
             'name': state['country'][empire]['name'],
             'player_name': get_player_name(state, empire),
             'date': state['date'],
-            'date_components': _parse_date(state['date']),
+            'date_components': parse_date(state['date']),
             'active_empires': len(get_empires(state).keys()),
             'edict_count': _get_edicts(state, empire),
             'sprawl': _get_empire_size(state, empire),
@@ -125,6 +125,7 @@ def build_snapshot(state):
     empires = get_empires(state)
     return {
         'date': state['date'],
+        'date_components': parse_date(state['date']),
         'empires': {
             empire_id: _build_empire_snapshot(state, empire_id)
             for empire_id in empires
@@ -146,7 +147,7 @@ def _basic_stats(values):
     }
 
 
-def _parse_date(date_str):
+def parse_date(date_str):
     comps = date_str.split('.')
     if len(comps) != 3:
         return {'y': 0, 'm': 0, 'd': 0}
@@ -180,7 +181,7 @@ def _get_empire_size(state, empire):
 
 def _get_leaders(state, empire):
     try:
-        date = _parse_date(state['date'])
+        date = parse_date(state['date'])
         leader_ids = state['country'][empire]['owned_leaders']
         leader_pool = state['leaders']
         leaders = [leader_pool[lid] for lid in leader_ids if lid in leader_pool]
@@ -188,7 +189,7 @@ def _get_leaders(state, empire):
         leaders = [
             {
                 **leader,
-                'actual_age': leader['age'] + _date_diff_days(date, _parse_date(leader['date'])) / DAYS_PER_YEAR
+                'actual_age': leader['age'] + _date_diff_days(date, parse_date(leader['date'])) / DAYS_PER_YEAR
             }
             for leader in leaders
         ]
@@ -471,9 +472,9 @@ def _get_planets_and_pops(state, empire):
             if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
         }
         planets = [planet for pid, planet in planet_dict.items()]
-        now = _parse_date(state['date'])
+        now = parse_date(state['date'])
         for planet in planets:
-            days = _date_diff_days(now, _parse_date(planet['colonize_date']))
+            days = _date_diff_days(now, parse_date(planet['colonize_date']))
             planet['age_days'] = days
             planet['age'] = days / DAYS_PER_YEAR
 
