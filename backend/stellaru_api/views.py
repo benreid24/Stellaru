@@ -10,7 +10,7 @@ from engine import sessions
 from engine import finder
 from engine import parser
 from engine.watcher import Watcher
-from engine import datastore
+from engine import engine
 
 
 def _make_error(error):
@@ -60,7 +60,7 @@ def get_empires(request):
     if not watcher.valid:
         return _make_error('Invalid directory')
 
-    save = datastore.load_and_add_save(watcher, request.session['id'])
+    save = engine.load_and_add_save(watcher, request.session['id'])
     empires = [{
         'id': empire_id,
         'name': save['snaps'][-1]['empires'][empire_id]['name'],
@@ -82,7 +82,7 @@ def get_data(request):
             return _make_error('"empire" parameter not set in POST')
         folder = os.path.dirname(parsed['file'])
         empire = parsed['empire']
-        save = datastore.get_save(folder)
+        save = engine.get_save(folder)
         if not save:
             return _make_error(f'Invalid save: {folder}')
         if empire not in save['snaps'][-1]['empires']:

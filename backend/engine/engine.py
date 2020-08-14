@@ -1,30 +1,46 @@
-import json
+import pickle
 import os
 import time
+from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
 from . import snapper
 from . import sessions
+from . import faker
 
-SAVE_FILE = 'stellaru.json'
+ZIP_FILE = 'stellaru.zip'
+SAVE_FILE = 'stellaru.pickle'
+WAITING_MESSAGE = {'status': 'WAITING'}
+LOADING_MESSAGE = {'status': 'LOADING'}
 
-session_saves = {}
 monitored_saves = {}
 save_lock = Lock()
+
+
+def insert_snap(snaps, snap):
+    for i in range(0, len(snaps)):
+        oldsnap = snaps[i]
+        if oldsnap['date_days'] < snap['date_days']:
+            continue
+        if snap['date_days'] == oldsnap['date_days']:
+            return False
+        snaps.insert(i, snap)
+        return True
+    snaps.append(snap)     
+    return True
 
 
 def _load_save(watcher, session_id):
     folder = os.path.dirname(watcher.get_file())
     snaps = []
-    if os.path.isfile(os.path.join(folder, SAVE_FILE)):
-        with open(os.path.join(folder, SAVE_FILE), 'r') as f:
-            try:
-                snaps = json.loads(f.read())
-            except:
-                snaps = []
+    try:
+        with ZipFile(os.path.join(folder, ZIP_FILE), 'r') as zip:
+            with zip.open(SAVE_FILE, 'r') as f:
+                snaps = pickle.loads(f.read())
+    except:
+        snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
-    if not snaps or snaps[-1]['date'] != snap['date']: # TODO - verify time only forward
-        snaps.append(snap)
+    insert_snap(snaps, snap)
     return {
         'directory': folder,
         'watcher': watcher,
@@ -34,30 +50,17 @@ def _load_save(watcher, session_id):
     }
 
 
-def get_save_watcher(save_file):
-    folder = os.path.dirname(save_file)
-    if folder in monitored_saves:
-        return monitored_saves[folder]['watcher']
-    return None
-
-
 def load_and_add_save(watcher, session_id):
     global monitored_saves
-    global session_saves
     folder = os.path.dirname(watcher.get_file())
     if folder not in monitored_saves:
         save_lock.acquire()
         monitored_saves[folder] = _load_save(watcher, session_id)
         save_lock.release()
         monitored_saves[folder]['updater'].start()
-    session_saves[session_id] = folder
+    else:
+        add_save_watcher(watcher, session_id)
     return monitored_saves[folder]
-
-
-def activate_save(folder):
-    if folder in monitored_saves:
-        if not monitored_saves[folder]['updater'].is_alive():
-            monitored_saves[folder]['updater'].start()
 
 
 def append_save(watcher, snapshot):
@@ -65,7 +68,8 @@ def append_save(watcher, snapshot):
     folder = os.path.dirname(watcher.get_file())
     if folder in monitored_saves:
         save_lock.acquire()
-        monitored_saves[folder]['snaps'].append(snapshot)
+        insert_snap(monitored_saves[folder]['snaps'], snapshot)
+        _flush_save(monitored_saves[folder])
         save_lock.release()
         return True
     return False
@@ -86,22 +90,34 @@ def get_save(folder):
     return None
 
 
-def get_session_save(session_id):
-    return session_saves[session_id] if session_id in session_saves else None
+def _flush_save(save):
+    folder = save['directory']
+    with ZipFile(os.path.join(folder, ZIP_FILE), 'w', ZIP_BZIP2) as zip:
+        with zip.open(SAVE_FILE, 'w') as f:
+            f.write(pickle.dumps(save['snaps']))
+
+
+def _send_to_sessions(save, payload):
+    for session in save['sessions']:
+        sessions.notify_session(session, payload)
 
 
 def _debug_watcher_update(save, folder, watcher):
-    for session in save['sessions']:
-        sessions.notify_session(session, {'message': 'test'})
+    _send_to_sessions(save, LOADING_MESSAGE)
+    time.sleep(5)
+    last_snap = save['snaps'][-1]
+    fake = faker.fake_snap(last_snap)
+    append_save(watcher, fake)
+    _send_to_sessions(save, fake)
 
 
 def _watcher_update(save, folder, watcher):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
+        _send_to_sessions(save, LOADING_MESSAGE)
         snap = snapper.build_snapshot_from_watcher(save['watcher'])
-        save['snaps'].append(snap)
-        for session in save['sessions']:
-            sessions.notify_session(session, snap)
+        append_save(watcher, snap)
+        _send_to_sessions(save, snap)
 
 
 def _watch_save(watcher):
@@ -127,6 +143,7 @@ def _watch_save(watcher):
             break
 
         # Refresh
-        _watcher_update(save, folder, watcher)
+        _debug_watcher_update(save, folder, watcher)
 
+        _send_to_sessions(save, WAITING_MESSAGE)
         time.sleep(1)

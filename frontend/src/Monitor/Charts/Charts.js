@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {VictoryChart} from 'victory';
+import {VictoryChart, VictoryLabel} from 'victory';
 
 import './Charts.css';
 
@@ -24,6 +24,7 @@ function Chart(props) {
     return (
         <div className='chart'>
             <VictoryChart animate={{duration: 500}} theme={chartTheme}>
+            <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>
                 {props.children}
             </VictoryChart>
         </div>

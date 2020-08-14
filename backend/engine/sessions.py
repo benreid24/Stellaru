@@ -75,7 +75,7 @@ def notify_session(session, payload):
     if 'empires' in payload:
         if sessions[session]['empire'] in payload['empires']:
             payload = {
-                'snap': payload['empire'][sessions[session]['empire']]
+                'snap': payload['empires'][sessions[session]['empire']]
             }
     sessions[session]['socket'].send_json(payload)
     return True
