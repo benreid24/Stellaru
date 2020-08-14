@@ -33,7 +33,6 @@ function Monitor(props) {
         if ('snap' in data) {
             let snaps = gameData.slice();
             snaps.push(data['snap']);
-            console.log(snaps);
             setGameData(snaps);
         }
         else if ('status' in data)

@@ -1,12 +1,14 @@
 import pickle
 import os
 import time
+from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
 from . import snapper
 from . import sessions
 from . import faker
 
+ZIP_FILE = 'stellaru.zip'
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
 LOADING_MESSAGE = {'status': 'LOADING'}
@@ -32,8 +34,9 @@ def _load_save(watcher, session_id):
     folder = os.path.dirname(watcher.get_file())
     snaps = []
     try:
-        with open(os.path.join(folder, SAVE_FILE), 'rb') as f:
-            snaps = pickle.loads(f.read())
+        with ZipFile(os.path.join(folder, ZIP_FILE), 'r') as zip:
+            with zip.open(SAVE_FILE, 'r') as f:
+                snaps = pickle.loads(f.read())
     except:
         snaps = []
     snap = snapper.build_snapshot_from_watcher(watcher)
@@ -89,8 +92,9 @@ def get_save(folder):
 
 def _flush_save(save):
     folder = save['directory']
-    with open(os.path.join(folder, SAVE_FILE), 'wb') as f:
-        f.write(pickle.dumps(save['snaps']))
+    with ZipFile(os.path.join(folder, ZIP_FILE), 'w', ZIP_BZIP2) as zip:
+        with zip.open(SAVE_FILE, 'w') as f:
+            f.write(pickle.dumps(save['snaps']))
 
 
 def _send_to_sessions(save, payload):
@@ -100,7 +104,6 @@ def _send_to_sessions(save, payload):
 
 def _debug_watcher_update(save, folder, watcher):
     _send_to_sessions(save, LOADING_MESSAGE)
-    time.sleep(3)
     last_snap = save['snaps'][-1]
     fake = faker.fake_snap(last_snap)
     append_save(watcher, fake)
