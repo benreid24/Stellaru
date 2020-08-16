@@ -21,6 +21,6 @@ pytz==2020.1
 service-identity==18.1.0
 six==1.15.0
 sqlparse==0.3.1
-Twisted @ file:///C:/Users/Ben/Downloads/Twisted-20.3.0-cp38-cp38-win_amd64.whl
+Twisted==20.3.0
 txaio==20.4.1
 zope.interface==5.1.0
