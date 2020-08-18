@@ -23,8 +23,8 @@ const chartTheme = {
 function Chart(props) {
     return (
         <div className='chart'>
-            <VictoryChart animate={{duration: 500}} theme={chartTheme}>
-            <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>
+            <VictoryChart animate={{duration: 500}} theme={chartTheme} height={200}>
+                <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>
                 {props.children}
             </VictoryChart>
         </div>

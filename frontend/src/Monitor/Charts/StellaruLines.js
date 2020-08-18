@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
-import {VictoryLine, VictoryAxis, VictoryLabel} from 'victory';
+import {VictoryLine, VictoryAxis} from 'victory';
 import {Chart} from './Charts';
 
-import {transform, selectNested, dateTickFormat} from './Util';
+import {transform, selectNested, valueTickFormat, dateTickFormat} from './Util';
 
 import './Charts.css';
 
@@ -20,13 +20,13 @@ function StellaruLines(props) {
         const newData = transform(props.data, netEnergy);
         if (newData.length > 0) {
             let value = Math.round(newData[newData.length-1].y);
-            newData[newData.length-1].label = String(value);
+            newData[newData.length-1].label = valueTickFormat(value);
         }
         setData(newData);
     }, [props.data]);
 
     return (
-        <Chart width='100%' height={300} title='Net Monthly Energy Credits' titleColor='#e8db27'>
+        <Chart height={200} title='Net Monthly Energy Credits' titleColor='#e8db27'>
             <VictoryLine
                 style={{
                     data: {stroke: '#e8db27'},
@@ -43,6 +43,7 @@ function StellaruLines(props) {
             />
             <VictoryAxis dependentAxis
                 label='Energy Credits'
+                tickFormat={valueTickFormat}
                 style={{axisLabel: {fill: '#e8db27'}}}
             />
         </Chart>

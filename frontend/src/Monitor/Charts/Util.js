@@ -1,3 +1,9 @@
+const NumberSuffixes = [
+    {suffix: 'b', value: 1000000000},
+    {suffix: 'M', value: 1000000},
+    {suffix: 'k', value: 1000}
+];
+
 function transform(data, transform) {
     let transformed = data.slice();
     for (let i in transformed) {
@@ -17,6 +23,24 @@ function selectNested(path, object) {
     return ref;
 }
 
+function valueToString(value) {
+    let s = value.toFixed(2);
+    if (s.substring(s.length - 3) === '.00')
+        return s.substring(0, s.length - 3);
+    return s;
+}
+
+function valueTickFormat(value) {
+    const sign = value >= 0 ? 1 : -1;
+    value = Math.abs(value);
+    for (let i in NumberSuffixes) {
+        const suffix = NumberSuffixes[i];
+        if (value >= suffix.value)
+            return valueToString(value/suffix.value) + suffix.suffix;
+    }
+    return valueToString(value);
+}
+
 function dateTickFormat(date_days) {
     let year = Math.floor(date_days / 360);
     date_days -= year * 360;
@@ -28,6 +52,7 @@ function dateTickFormat(date_days) {
 
 export {
     dateTickFormat,
+    valueTickFormat,
     transform,
     selectNested
 };
