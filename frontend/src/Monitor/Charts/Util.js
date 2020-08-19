@@ -36,9 +36,9 @@ function valueTickFormat(value) {
     for (let i in NumberSuffixes) {
         const suffix = NumberSuffixes[i];
         if (value >= suffix.value)
-            return valueToString(value/suffix.value) + suffix.suffix;
+            return valueToString(sign * value/suffix.value) + suffix.suffix;
     }
-    return valueToString(value);
+    return valueToString(sign * value);
 }
 
 function dateTickFormat(date_days) {

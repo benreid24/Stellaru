@@ -36,7 +36,7 @@ function StellaruLines(props) {
             />
             <VictoryAxis crossAxis
                 tickFormat={dateTickFormat}
-                label='Date'
+                
                 style={{
                     axisLabel: {fill: '#9a9a9a'}
                 }}
@@ -46,6 +46,11 @@ function StellaruLines(props) {
                 tickFormat={valueTickFormat}
                 style={{axisLabel: {fill: '#e8db27'}}}
             />
+
+            <svg x={20} y={170} width={500} height={150}>
+                <rect x={0} y={0} width={6} height={6} style={{fill: '#e8db27'}}/>
+                <text x={10} y={6} fill='#fdfdfd' fontSize={8} fontWeight={100} strokeWidth={0}>Energy Credits</text>
+            </svg>
         </Chart>
     );
 }
