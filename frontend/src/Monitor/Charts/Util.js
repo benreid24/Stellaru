@@ -4,6 +4,14 @@ const NumberSuffixes = [
     {suffix: 'k', value: 1000}
 ];
 
+function getTextWidth(text, fontSize) {
+    let canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    let context = canvas.getContext("2d");
+    context.font = `${fontSize}pt arial`;
+    let metrics = context.measureText(text);
+    return metrics.width;
+}
+
 function transform(data, transform) {
     let transformed = data.slice();
     for (let i in transformed) {
@@ -54,5 +62,6 @@ export {
     dateTickFormat,
     valueTickFormat,
     transform,
-    selectNested
+    selectNested,
+    getTextWidth
 };

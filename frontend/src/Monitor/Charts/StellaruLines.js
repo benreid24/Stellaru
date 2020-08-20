@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {VictoryLine, VictoryAxis} from 'victory';
 import {Chart} from './Charts';
 
+import {Legend, createLegendItems} from './Legend';
 import {transform, selectNested, valueTickFormat, dateTickFormat} from './Util';
 
 import './Charts.css';
@@ -47,10 +48,9 @@ function StellaruLines(props) {
                 style={{axisLabel: {fill: '#e8db27'}}}
             />
 
-            <svg x={20} y={170} width={500} height={150}>
-                <rect x={0} y={0} width={6} height={6} style={{fill: '#e8db27'}}/>
-                <text x={10} y={6} fill='#fdfdfd' fontSize={8} fontWeight={100} strokeWidth={0}>Energy Credits</text>
-            </svg>
+            <Legend items={createLegendItems(['Energy Credits', 'minerals', 'another thing', 'and another', 'testing many', 'do these wrap', 'lets find out', 'testing one two three'])} chartHeight={200}/>
+
+            
         </Chart>
     );
 }
