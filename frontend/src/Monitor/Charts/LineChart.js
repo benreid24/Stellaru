@@ -9,23 +9,11 @@ import {getDataColors, selectNested, valueTickFormat, dateTickFormat} from './Ut
 import './Charts.css';
 
 function LineChart(props) {
-    const height = 200;
-    const title = 'Net Resource Incomes';
-    const titleColor = '#e8db27';
-    const yAxisLabel = 'Net Income';
-    const netMinerals = snap => selectNested('economy/net_income/minerals', snap);
-    const netEnergy = snap => selectNested('economy/net_income/energy', snap);
-    const lines = [
-        {
-            label: 'Energy Credits',
-            selector: netEnergy
-        },
-        {
-            label: 'Minerals',
-            selector: netMinerals
-        }
-    ];
-    // TODO - get above from props
+    const height = props.height;
+    const title = props.title;
+    const titleColor = props.titleColor;
+    const yAxisLabel = props.yAxisLabel;
+    const lines = props.lines;
 
     const labelColors = getDataColors(lines.map(line => line.label));
     const renderedLines = lines.map(line => {
@@ -63,7 +51,7 @@ function LineChart(props) {
             <VictoryAxis dependentAxis
                 label={yAxisLabel}
                 tickFormat={valueTickFormat}
-                style={{axisLabel: {fill: '#e8db27'}}}
+                style={{axisLabel: {fill: titleColor}}}
             />
             <Legend labels={labelColors} chartHeight={height}/>
         </Chart>

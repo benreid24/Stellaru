@@ -2,6 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import LineChart from './Charts/LineChart';
+import {selectNested} from './Charts/Util';
 
 import './Monitor.css';
 
@@ -70,7 +71,23 @@ function Monitor(props) {
             </div>
             <div className='row'>
                 <div className='col-4'>
-                    <LineChart data={gameData}/>
+                    <LineChart
+                        data={gameData}
+                        height={200}
+                        title='Net Resource Incomes'
+                        titleColor='#e8db27'
+                        yAxisLabel='Net Income'
+                        lines={[
+                            {
+                                label: 'Energy Credits',
+                                selector: snap => selectNested('economy/net_income/energy', snap)
+                            },
+                            {
+                                label: 'Minerals',
+                                selector: snap => selectNested('economy/net_income/minerals', snap)
+                            }
+                        ]}
+                    />
                 </div>
             </div>
         </div>
