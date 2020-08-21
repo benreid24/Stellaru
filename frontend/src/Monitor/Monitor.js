@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-import StellaruLines from './Charts/StellaruLines';
+import LineChart from './Charts/LineChart';
 
 import './Monitor.css';
 
@@ -70,7 +70,7 @@ function Monitor(props) {
             </div>
             <div className='row'>
                 <div className='col-4'>
-                    <StellaruLines data={gameData}/>
+                    <LineChart data={gameData}/>
                 </div>
             </div>
         </div>

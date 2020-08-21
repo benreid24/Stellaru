@@ -4,20 +4,40 @@ const NumberSuffixes = [
     {suffix: 'k', value: 1000}
 ];
 
+const PresetColors = Object.freeze({
+    'Energy Credits': '#e8db27',
+    'Minerals': '#de2222'
+}); // TODO - actual names and colors
+
+const ItemColors = Object.freeze([
+    'red',
+    'green',
+    'blue'
+]); // TODO - more colors. make them match
+
+function getDataColors(labels) {
+    let colorIndex = 0;
+    let colors = {};
+    for (let i in labels) {
+        const label = labels[i];
+        if (label in PresetColors)
+            colors[label] = PresetColors[label];
+        else {
+            colors[label] = ItemColors[colorIndex];
+            colorIndex += 1;
+            if (colorIndex >= ItemColors.length)
+                colorIndex = 0;
+        }
+    }
+    return colors;
+}
+
 function getTextWidth(text, fontSize) {
     let canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
     let context = canvas.getContext("2d");
     context.font = `${fontSize}pt arial`;
     let metrics = context.measureText(text);
     return metrics.width;
-}
-
-function transform(data, transform) {
-    let transformed = data.slice();
-    for (let i in transformed) {
-        transformed[i] = transform(transformed[i]);
-    }
-    return transformed;
 }
 
 function selectNested(path, object) {
@@ -61,7 +81,7 @@ function dateTickFormat(date_days) {
 export {
     dateTickFormat,
     valueTickFormat,
-    transform,
     selectNested,
-    getTextWidth
+    getTextWidth,
+    getDataColors
 };
