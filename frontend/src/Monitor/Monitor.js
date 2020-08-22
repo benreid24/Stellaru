@@ -13,7 +13,7 @@ function TabPanel(props) {
     const display = currentTab === index ? 'block' : 'none';
 
     return (
-        <div style={{display: display}}>
+        <div style={{display: display, paddingTop: '5px'}}>
             {currentTab === index && props.children}
         </div>
     );
@@ -72,7 +72,7 @@ function Monitor(props) {
 
     return (
         <div className='container-fluid'>
-            <div className='row'>
+            <div className='row' style={{paddingBottom: '0px'}}>
                 <div className='col-3'></div>
                 <div className='col-6'>
                     <h1 className='empireName'>
