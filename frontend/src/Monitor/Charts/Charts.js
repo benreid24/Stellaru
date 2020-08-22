@@ -23,6 +23,7 @@ const chartTheme = {
 function Chart(props) {
     const height = props.height;
     const domain = props.domain;
+    const yMin = props.yMin;
 
     return (
         <div className='chart'>
@@ -30,7 +31,7 @@ function Chart(props) {
                 animate={{duration: 500}}
                 theme={chartTheme}
                 height={height}
-                minDomain={{x: domain[0]}}
+                minDomain={{x: domain[0], y: yMin}}
                 maxDomain={{x: domain[1]}}
             >
                 <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {VictoryLine, VictoryAxis} from 'victory';
 import {Chart} from './Charts';
@@ -9,32 +9,51 @@ import {getDataColors, selectNested, valueTickFormat, dateTickFormat} from './Ut
 import './Charts.css';
 
 function LineChart(props) {
+    const data = props.data;
     const height = props.height;
     const title = props.title;
     const titleColor = props.titleColor;
     const yAxisLabel = props.yAxisLabel;
     const lines = props.lines;
     const renderLabel = props.showLabels;
+    const labelColors = getDataColors(lines.map(line => line.label));
+
+    const [isolatedLines, setIsolatedLines] = useState([]);
+    const onLineclick = line => {
+        if (isolatedLines.includes(line)) {
+            setIsolatedLines(isolatedLines.filter(l => l !== line));
+        }
+        else {
+            setIsolatedLines([...isolatedLines, line]);
+        }
+    };
 
     let domain = [null, null];
-    const labelColors = getDataColors(lines.map(line => line.label));
-    const renderedLines = lines.map(line => {
-        const data = props.data.map(snap => {
+    let chartMin = -10;
+
+    const lineVisible = line => isolatedLines.length === 0 || isolatedLines.includes(line.label);
+    const renderLine = line => {
+        const lineData = props.data.map(snap => {
             const x = selectNested('date_days', snap);
-            if (domain[0] === null || x < domain[0]) {
+            const y= line.selector(snap);
+            if (domain[0] === null || domain[0] > x) {
                 domain[0] = x;
             }
-            if (domain[1] === null || x > domain[1]) {
+            if (domain[1] === null || domain[1] < x) {
                 domain[1] = x;
+            }
+            if (chartMin > y) {
+                chartMin = y;
             }
             return {
                 x: x,
-                y: line.selector(snap)
+                y: y
             };
         });
-        if (data.length > 0 && renderLabel) {
-            let value = Math.round(data[data.length-1].y);
-            data[data.length-1].label = valueTickFormat(value);
+    
+        if (lineData.length > 0 && renderLabel) {
+            let value = Math.round(lineData[lineData.length-1].y);
+            lineData[lineData.length-1].label = valueTickFormat(value);
         }
         return (
             <VictoryLine
@@ -44,14 +63,15 @@ function LineChart(props) {
                     data: {stroke: labelColors[line.label]},
                     labels: {fill: '#d2d2d2'}
                 }}
-                data={data}
+                data={lineData}
             />
         );
-    });
+    };
+    const renderedLines = lines.filter(lineVisible).map(renderLine);
 
     // TODO - set x domain based on global zoom level
     return (
-        <Chart height={height} title={title} titleColor={titleColor} domain={domain}>
+        <Chart height={height} title={title} titleColor={titleColor} domain={domain} yMin={chartMin}>
             <VictoryAxis
                 axisValue={0}
                 style={{
@@ -69,11 +89,12 @@ function LineChart(props) {
                 offsetY={50}
             />
             <VictoryAxis dependentAxis
+                crossAxis={false}
                 label={yAxisLabel}
                 tickFormat={valueTickFormat}
                 style={{axisLabel: {fill: titleColor}, ticks: {stroke: "grey", size: 5}}}
             />
-            <Legend labels={labelColors} chartHeight={height}/>
+            <Legend labels={labelColors} chartHeight={height} onClick={onLineclick} isolated={isolatedLines}/>
         </Chart>
     );
 }
