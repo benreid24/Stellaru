@@ -2,12 +2,22 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import {Tabs, Tab} from '@material-ui/core';
-import TabPanel from './TabPanel';
 
-import LineChart from './Charts/LineChart';
-import {selectNested} from './Charts/Util';
+import Overview from './Overview';
 
 import './Monitor.css';
+
+function TabPanel(props) {
+    const currentTab = props.value;
+    const index = props.index;
+    const display = currentTab === index ? 'block' : 'none';
+
+    return (
+        <div style={{display: display}}>
+            {currentTab === index && props.children}
+        </div>
+    );
+}
 
 function StatusIndicator(props) {
     const status = props.status[0].toUpperCase() + props.status.slice(1).toLowerCase();
@@ -83,27 +93,7 @@ function Monitor(props) {
                 <Tab label='Society'/>
             </Tabs>
             <TabPanel value={currentTab} index={0}>
-                <div className='row'>
-                    <div className='col-4'>
-                        <LineChart
-                            data={gameData}
-                            height={200}
-                            title='Net Resource Incomes'
-                            titleColor='#e8db27'
-                            yAxisLabel='Net Income'
-                            lines={[
-                                {
-                                    label: 'Energy Credits',
-                                    selector: snap => selectNested('economy/net_income/energy', snap)
-                                },
-                                {
-                                    label: 'Minerals',
-                                    selector: snap => selectNested('economy/net_income/minerals', snap)
-                                }
-                            ]}
-                        />
-                    </div>
-                </div>
+                <Overview data={gameData}/>
             </TabPanel>
         </div>
     );

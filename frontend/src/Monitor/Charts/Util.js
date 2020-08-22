@@ -6,7 +6,10 @@ const NumberSuffixes = [
 
 const PresetColors = Object.freeze({
     'Energy Credits': '#e8db27',
-    'Minerals': '#de2222'
+    'Minerals': '#de2222',
+    'Food': '#11de12',
+    'Alloys': '#bd60b8',
+    'Consumer Goods': '#cf8c06'
 }); // TODO - actual names and colors
 
 const ItemColors = Object.freeze([
