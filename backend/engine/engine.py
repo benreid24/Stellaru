@@ -125,25 +125,28 @@ def _watch_save(watcher):
     folder = os.path.dirname(watcher.get_file())
 
     while True:
-        # Check deleted
-        if folder not in monitored_saves:
-            break
-        save = monitored_saves[folder]
+        try:
+            # Check deleted
+            if folder not in monitored_saves:
+                break
+            save = monitored_saves[folder]
 
-        # Check sessions expired
-        save['sessions'] = [
-            session for session in save['sessions']
-            if not sessions.session_expired(session)
-        ]
-        if not save['sessions']:
-            print(f'Save expired: {watcher.get_file()}')
-            save_lock.acquire()
-            monitored_saves.pop(folder)
-            save_lock.release()
-            break
+            # Check sessions expired
+            save['sessions'] = [
+                session for session in save['sessions']
+                if not sessions.session_expired(session)
+            ]
+            if not save['sessions']:
+                print(f'Save expired: {watcher.get_file()}')
+                save_lock.acquire()
+                monitored_saves.pop(folder)
+                save_lock.release()
+                break
 
-        # Refresh
-        _watcher_update(save, folder, watcher)
+            # Refresh
+            _watcher_update(save, folder, watcher)
 
-        _send_to_sessions(save, WAITING_MESSAGE)
-        time.sleep(1)
+            _send_to_sessions(save, WAITING_MESSAGE)
+            time.sleep(1)
+        except:
+            pass
