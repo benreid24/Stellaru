@@ -143,7 +143,7 @@ def _watch_save(watcher):
             break
 
         # Refresh
-        _debug_watcher_update(save, folder, watcher)
+        _watcher_update(save, folder, watcher)
 
         _send_to_sessions(save, WAITING_MESSAGE)
         time.sleep(1)

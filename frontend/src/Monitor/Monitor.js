@@ -1,6 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
+import {Tabs, Tab} from '@material-ui/core';
+import TabPanel from './TabPanel';
+
 import LineChart from './Charts/LineChart';
 import {selectNested} from './Charts/Util';
 
@@ -26,8 +29,10 @@ function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
     const subscription = props.socket;
+
     const [gameData, setGameData] = useState([]);
     const [status, setStatus] = useState(subscription.readyState === 1 ? 'WAITING' : 'Disconnected');
+    const [currentTab, setCurrentTab] = useState(0);
 
     const onNewData = (event) => {
         const data = JSON.parse(event.data);
@@ -69,27 +74,37 @@ function Monitor(props) {
                     <StatusIndicator status={status}/>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-4'>
-                    <LineChart
-                        data={gameData}
-                        height={200}
-                        title='Net Resource Incomes'
-                        titleColor='#e8db27'
-                        yAxisLabel='Net Income'
-                        lines={[
-                            {
-                                label: 'Energy Credits',
-                                selector: snap => selectNested('economy/net_income/energy', snap)
-                            },
-                            {
-                                label: 'Minerals',
-                                selector: snap => selectNested('economy/net_income/minerals', snap)
-                            }
-                        ]}
-                    />
+            <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
+                <Tab label='Overview'/>
+                <Tab label='Economy'/>
+                <Tab label='Military'/>
+                <Tab label='Science'/>
+                <Tab label='Construction'/>
+                <Tab label='Society'/>
+            </Tabs>
+            <TabPanel value={currentTab} index={0}>
+                <div className='row'>
+                    <div className='col-4'>
+                        <LineChart
+                            data={gameData}
+                            height={200}
+                            title='Net Resource Incomes'
+                            titleColor='#e8db27'
+                            yAxisLabel='Net Income'
+                            lines={[
+                                {
+                                    label: 'Energy Credits',
+                                    selector: snap => selectNested('economy/net_income/energy', snap)
+                                },
+                                {
+                                    label: 'Minerals',
+                                    selector: snap => selectNested('economy/net_income/minerals', snap)
+                                }
+                            ]}
+                        />
+                    </div>
                 </div>
-            </div>
+            </TabPanel>
         </div>
     );
 }
