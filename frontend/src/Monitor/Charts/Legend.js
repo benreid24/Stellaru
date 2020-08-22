@@ -10,7 +10,6 @@ const Gutter = 10;
 
 function LegendItem(props) {
     const fontWeight = props.isolated ? 500 : 100;
-    console.log(props.isolated);
     return (
         <svg x={props.x} y={props.y} width={props.width} height={props.height} onClick={props.onClick} style={{cursor: 'pointer'}}>
             <rect x={0} y={0} width={BoxSize} height={BoxSize} style={{fill: props.color}}/>
@@ -60,6 +59,4 @@ function Legend(props) {
     );
 }
 
-export {
-    Legend
-};
+export default Legend;
