@@ -39,6 +39,7 @@ def get_saves(request):
         ]
         return JsonResponse({'saves': saves})
     except Exception as err:
+        print(f'Error: {err}')
         return _make_error(err)
 
 
