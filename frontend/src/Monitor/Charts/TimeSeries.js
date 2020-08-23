@@ -20,16 +20,7 @@ function TimeSeries(props) {
     const lines = props.series;
     const renderSeries = props.seriesRenderer;
     const labelColors = props.labelColors;
-
-    const [isolatedLines, setIsolatedLines] = useState([]);
-    const onLineclick = line => {
-        if (isolatedLines.includes(line)) {
-            setIsolatedLines(isolatedLines.filter(l => l !== line));
-        }
-        else {
-            setIsolatedLines([...isolatedLines, line]);
-        }
-    };
+    const onLegendClick = props.onLegendClick;
 
     const days = data.map(snap => selectNested('date_days', snap));
     const domain = [
@@ -41,9 +32,7 @@ function TimeSeries(props) {
         if (value < chartMin)
             chartMin = value - 1;
     };
-
-    const lineVisible = line => isolatedLines.length === 0 || isolatedLines.includes(line.label);
-    const renderedSeries = lines.filter(lineVisible).map(series => renderSeries(series, checkMin));
+    const renderedSeries = lines.map(series => renderSeries(series, checkMin));
 
     // TODO - set x domain based on global zoom level
     return (
@@ -73,7 +62,7 @@ function TimeSeries(props) {
                 fixLabelOverlap={true}
                 style={{axisLabel: {fill: titleColor}, ticks: {stroke: "grey", size: 5}}}
             />
-            <Legend labels={labelColors} chartHeight={height} onClick={onLineclick} isolated={isolatedLines}/>
+            <Legend labels={labelColors} chartHeight={height} onClick={onLegendClick} emphasized={props.emphasized}/>
         </Chart>
     );
 }

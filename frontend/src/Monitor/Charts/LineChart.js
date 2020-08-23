@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {VictoryLine} from 'victory';
 
@@ -13,7 +13,21 @@ function LineChart(props) {
     const renderLabel = props.showLabels;
     const labelColors = getDataColors(lines.map(line => line.label));
 
+    const [isolatedLines, setIsolatedLines] = useState([]);
+    const onLineClick = line => {
+        if (isolatedLines.includes(line)) {
+            setIsolatedLines(isolatedLines.filter(l => l !== line));
+        }
+        else {
+            setIsolatedLines([...isolatedLines, line]);
+        }
+    };
+    const lineVisible = line => isolatedLines.length === 0 || isolatedLines.includes(line.label);
+
     const renderLine = (line, registerValue) => {
+        if (!lineVisible(line))
+            return null;
+
         const lineData = data.map(snap => {
             const y = line.selector(snap);
             registerValue(y);
@@ -50,6 +64,8 @@ function LineChart(props) {
             labelColors={labelColors}
             series={lines}
             seriesRenderer={renderLine}
+            onLegendClick={onLineClick}
+            emphasized={isolatedLines}
             padding={props.padding}
         />
     );

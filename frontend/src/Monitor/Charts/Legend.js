@@ -9,7 +9,7 @@ const BoxPadding = 4;
 const Gutter = 10;
 
 function LegendItem(props) {
-    const fontWeight = props.isolated ? 500 : 100;
+    const fontWeight = props.emphasized ? 500 : 100;
     return (
         <svg x={props.x} y={props.y} width={props.width} height={props.height} onClick={props.onClick} style={{cursor: 'pointer'}}>
             <rect x={0} y={0} width={BoxSize} height={BoxSize} style={{fill: props.color}}/>
@@ -21,7 +21,7 @@ function LegendItem(props) {
 }
 
 function Legend(props) {
-    const isolated = props.isolated;
+    const emphasized = props.emphasized ? props.emphasized : [];
     const labels = props.labels;
     let x = 20;
     let y = props.chartHeight - 25;
@@ -45,7 +45,7 @@ function Legend(props) {
                 key={label} x={x} y={y}
                 width={width} height={10}
                 color={color} label={label}
-                isolated={isolated.includes(label)}
+                emphasized={emphasized.includes(label)}
                 onClick={() => onClick(label)}
             />
         );

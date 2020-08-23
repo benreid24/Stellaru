@@ -60,6 +60,7 @@ function StackedAreaChart(props) {
             labelColors={labelColors}
             series={areas}
             seriesRenderer={renderArea}
+            onLegendClick={props.onAreaClick ? props.onAreaClick : ()=>{}}
             padding={props.padding}
         />
     );
