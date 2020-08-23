@@ -70,6 +70,7 @@ function TimeSeries(props) {
                 crossAxis={false}
                 label={yAxisLabel ? yAxisLabel : null}
                 tickFormat={valueTickFormat}
+                fixLabelOverlap={true}
                 style={{axisLabel: {fill: titleColor}, ticks: {stroke: "grey", size: 5}}}
             />
             <Legend labels={labelColors} chartHeight={height} onClick={onLineclick} isolated={isolatedLines}/>

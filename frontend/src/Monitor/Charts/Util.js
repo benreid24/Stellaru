@@ -87,7 +87,15 @@ function dateTickFormat(date_days) {
     return `${year}.${String(month).padStart(2, '0')}.${String(date_days).padStart(2, '0')}`;
 }
 
+function addAlphaChannel(color, alpha) {
+    const r = parseInt(color.substring(1).slice(0,2), 16);
+    const g = parseInt(color.substring(1).slice(2,4), 16);
+    const b = parseInt(color.substring(1).slice(4,6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 export {
+    addAlphaChannel,
     dateTickFormat,
     valueTickFormat,
     selectNested,

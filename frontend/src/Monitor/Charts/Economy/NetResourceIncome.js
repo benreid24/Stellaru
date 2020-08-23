@@ -13,7 +13,7 @@ function NetResourceIncome(props) {
                 data={data}
                 height={height}
                 title='Net Resource Incomes'
-                titleColor='#d9c218'
+                titleColor='#ded140'
                 yAxisLabel='Net Income'
                 showLabels={false}
                 lines={[
