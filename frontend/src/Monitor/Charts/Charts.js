@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {VictoryChart, VictoryLabel} from 'victory';
+import {VictoryChart, VictoryLabel, VictoryContainer} from 'victory';
 
 import './Charts.css';
 
@@ -30,6 +30,7 @@ function Chart(props) {
             animate={{duration: 500}}
             theme={chartTheme}
             height={height}
+            preserveAspectRatio="none"
             minDomain={{x: domain[0], y: yMin}}
             maxDomain={{x: domain[1]}}
             padding={props.padding}
