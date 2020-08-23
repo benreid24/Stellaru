@@ -19,11 +19,11 @@ const ResourceNames = Object.freeze({
     'engineering_research': 'Engineering Research',
     'influence': 'Influence',
     'unity': 'Unity',
-    'alloys': 'Alloys',
-    'consumer_goods': 'Consumer Goods',
-    'volatile_motes': 'Volatile Motes',
-    'rare_crystals': 'Rare Crystals',
-    'exotic_gases': 'Exotic Gases',
+    'alloys': 'Alloy',
+    'consumer_goods': 'Consumer Good',
+    'volatile_motes': 'Volatile Mote',
+    'rare_crystals': 'Rare Crystal',
+    'exotic_gases': 'Exotic Gas',
     'sr_dark_matter': 'Dark Matter'
 });
 
@@ -43,11 +43,11 @@ function FancyBreakdown(props) {
     const height = props.height;
 
     const [dataType, setDataType] = useState(DataTypes.Income);
-    const [resourceType, setResourceType] = useState('Energy Credit');
+    const [resourceType, setResourceType] = useState('');
     const onDataTypeChange = event => setDataType(event.target.value);
     const onResourceTypeChange = event => setResourceType(event.target.value);
 
-    const [resourceTypes, setResourceTypes] = useState(['Energy Credit']);
+    const [resourceTypes, setResourceTypes] = useState([]);
     useEffect(() => {
         let types = {};
         [DataTypes.Income, DataTypes.Spending].forEach(dtype => {
@@ -55,6 +55,9 @@ function FancyBreakdown(props) {
                 for (let resource in snap['economy'][DataKeys[dtype]]) {
                     if (!(resource in types)) {
                         types[resource] = true;
+                        if (resource === 'energy') {
+                            setResourceType(ResourceNames[resource]);
+                        }
                     }
                 }
             })
@@ -63,7 +66,7 @@ function FancyBreakdown(props) {
     }, [data]);
 
     const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
-    const renderedResourceTypes = resourceTypes.map(type => renderResourceType(type));
+    const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
     return (
         <div className='chart'>
