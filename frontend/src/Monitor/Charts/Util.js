@@ -19,9 +19,12 @@ const PresetColors = Object.freeze({
 }); // TODO - actual names and colors
 
 const ItemColors = Object.freeze([
-    'red',
-    'green',
-    'blue'
+    '#e8db27',
+    '#de2222',
+    '#11de12',
+    '#bd60b8',
+    '#cf8c06',
+    '#3b94d4'
 ]); // TODO - more colors. make them match
 
 function getDataColors(labels) {
@@ -53,6 +56,8 @@ function selectNested(path, object) {
     const keys = path.split('/');
     let ref = object;
     for (let i in keys) {
+        if (!ref)
+            return null;
         if (!(keys[i] in ref))
             return null;
         ref = ref[keys[i]];
@@ -94,11 +99,29 @@ function addAlphaChannel(color, alpha) {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
+function objectKeys(object) {
+    return Object.entries(object).map(([key, _]) => key);
+}
+
+function findKeysOverSeries(data, topKey) {
+    let keys = {};
+    data.forEach(snap => {
+        for (let key in selectNested(topKey, snap)) {
+            if (!(key in keys)) {
+                keys[key] = true;
+            }
+        }
+    });
+    return objectKeys(keys);
+}
+
 export {
     addAlphaChannel,
     dateTickFormat,
     valueTickFormat,
     selectNested,
     getTextWidth,
-    getDataColors
+    getDataColors,
+    objectKeys,
+    findKeysOverSeries
 };

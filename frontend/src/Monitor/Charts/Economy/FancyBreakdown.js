@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import StackedAreaChart from '../StackedAreaChart';
-import {selectNested} from '../Util';
+import {selectNested, findKeysOverSeries, objectKeys} from '../Util';
 
 const DataTypes = Object.freeze({'Income': 'Income', 'Spending': 'Spending'});
 const DataKeys = Object.freeze({[DataTypes.Income]: 'income', [DataTypes.Spending]: 'spending'});
@@ -26,6 +26,14 @@ const ResourceNames = Object.freeze({
     'exotic_gases': 'Exotic Gas',
     'sr_dark_matter': 'Dark Matter'
 });
+const ResourceLookup = Object.entries(ResourceNames).reduce(
+    (obj, entry) => {
+        return {
+            ...obj,
+            [entry[1]]: entry[0]        
+        };
+    }, {}
+);
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -36,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
     },
 }));
+
+function buildKey(dataType, resourceType) {
+    return `economy/${DataKeys[dataType]}/${ResourceLookup[resourceType]}`;
+}
 
 function FancyBreakdown(props) {
     const classes = useStyles();
@@ -49,24 +61,43 @@ function FancyBreakdown(props) {
 
     const [resourceTypes, setResourceTypes] = useState([]);
     useEffect(() => {
-        let types = {};
+        let types = [];
         [DataTypes.Income, DataTypes.Spending].forEach(dtype => {
-            data.forEach(snap => {
-                for (let resource in snap['economy'][DataKeys[dtype]]) {
-                    if (!(resource in types)) {
-                        types[resource] = true;
-                        if (resource === 'energy') {
-                            setResourceType(ResourceNames[resource]);
-                        }
-                    }
-                }
-            })
+            types = [...types, ...findKeysOverSeries(data, `economy/${DataKeys[dtype]}`)];
         });
-        setResourceTypes(Object.entries(types).map(([key, _]) => ResourceNames[key]));
+        types = [...new Set(types)];
+        setResourceTypes(types.map(type => ResourceNames[type]));
     }, [data]);
 
     const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
+
+    const [chartAreas, setChartAreas] = useState([]);
+    useEffect(() => {
+        if (data.length === 0) return;
+
+        const resourceKey = buildKey(dataType, resourceType);
+        const resourceData = selectNested(resourceKey, data[data.length-1]);
+
+        if (!resourceData) {
+            setChartAreas([]);
+            return;
+        }
+
+        const cats = objectKeys(resourceData.breakdown);
+        setChartAreas(cats.map(cat => {
+            return {
+                label: cat,
+                selector: snap => selectNested(`${resourceKey}/breakdown/${cat}/total`, snap)
+            };
+        }));
+    }, [data, resourceType, dataType]);
+
+    useEffect(() => {
+        if (resourceType === '' && resourceTypes.includes(ResourceNames['energy'])) {
+            setResourceType(ResourceNames['energy']);
+        }
+    }, [data, resourceType, resourceTypes]);
 
     return (
         <div className='chart'>
@@ -90,16 +121,7 @@ function FancyBreakdown(props) {
                 titleColor='#ded140'
                 showLabels={false}
                 padding={{left: 40, top: 30, right: 30, bottom: 50}}
-                areas={[
-                    {
-                        label: 'Tech',
-                        selector: snap => selectNested('standing/tech_power', snap)
-                    },
-                    {
-                        label: 'Economy',
-                        selector: snap => selectNested('standing/economy_power', snap)
-                    },
-                ]}
+                areas={chartAreas}
             />
         </div>
     );
