@@ -6,9 +6,3 @@
     height: 100%;
     box-shadow: 6px 6px #121212;
 }
-
-.chartRow {
-    max-height: 10% !important;
-    height: 20%;
-    display: block;
-}
