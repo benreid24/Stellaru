@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Standing from './Charts/General/Standing';
 import NetResourceIncome from './Charts/Economy/NetResourceIncome';
 import RawScienceOutput from './Charts/Science/RawScienceOutput';
 
@@ -8,6 +9,9 @@ function Overview(props) {
 
     return (
         <div className='row'>
+            <div className='col-4'>
+                <Standing data={data} height={200}/>
+            </div>
             <div className='col-4'>
                 <NetResourceIncome data={data} height={200}/>
             </div>

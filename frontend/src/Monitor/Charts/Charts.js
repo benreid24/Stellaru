@@ -26,18 +26,16 @@ function Chart(props) {
     const yMin = props.yMin;
 
     return (
-        <div className='chart'>
-            <VictoryChart
-                animate={{duration: 500}}
-                theme={chartTheme}
-                height={height}
-                minDomain={{x: domain[0], y: yMin}}
-                maxDomain={{x: domain[1]}}
-            >
-                <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/>
-                {props.children}
-            </VictoryChart>
-        </div>
+        <VictoryChart
+            animate={{duration: 500}}
+            theme={chartTheme}
+            height={height}
+            minDomain={{x: domain[0], y: yMin}}
+            maxDomain={{x: domain[1]}}
+        >
+            {props.title ? <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/> : null}
+            {props.children}
+        </VictoryChart>
     );
 }
 

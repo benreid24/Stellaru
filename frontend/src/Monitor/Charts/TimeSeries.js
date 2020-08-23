@@ -66,7 +66,7 @@ function TimeSeries(props) {
             />
             <VictoryAxis dependentAxis
                 crossAxis={false}
-                label={yAxisLabel}
+                label={yAxisLabel ? yAxisLabel : null}
                 tickFormat={valueTickFormat}
                 style={{axisLabel: {fill: titleColor}, ticks: {stroke: "grey", size: 5}}}
             />
