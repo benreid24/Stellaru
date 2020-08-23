@@ -45,8 +45,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function buildKey(dataType, resourceType) {
-    return `economy/${DataKeys[dataType]}/${ResourceLookup[resourceType]}`;
+function buildKey(dataType, resourceType, breakdownLevel) {
+    const breakdownPrefix = breakdownLevel.length > 0 ? '/breakdown/' : '';
+    const breakdownKey = breakdownPrefix + breakdownLevel.join('/breakdown/');
+    return `economy/${DataKeys[dataType]}/${ResourceLookup[resourceType]}${breakdownKey}`;
 }
 
 function FancyBreakdown(props) {
@@ -59,6 +61,7 @@ function FancyBreakdown(props) {
     const onDataTypeChange = event => setDataType(event.target.value);
     const onResourceTypeChange = event => setResourceType(event.target.value);
 
+    // Determine resource types present in data
     const [resourceTypes, setResourceTypes] = useState([]);
     useEffect(() => {
         let types = [];
@@ -69,16 +72,65 @@ function FancyBreakdown(props) {
         setResourceTypes(types.map(type => ResourceNames[type]));
     }, [data]);
 
+    // Render dropdown for top level types
     const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
+    // Nested breakdown levels
+    const [breakdownLevel, setBreakdownLevel] = useState([]);
+    const [breakdownDropdowns, setBreakdownDropdowns] = useState([]);
+    const onBreakdownChange = (level, choice) => {
+        console.log(level);
+        console.log(choice);
+        let cats = [...breakdownLevel];
+        cats[level] = choice;
+        setBreakdownLevel(cats);
+        // TODO - set breakdown level
+    };
+    const onAreaClick = (label) => {
+        const level = breakdownLevel.findIndex(lvl => lvl === label);
+        onBreakdownChange(level >= 0 ? level : 0, label);
+    }
+
+    // Render breakdown dropdowns
+    const renderDrilldownDropdown = (label, level, nestedData) => {
+        const renderItem = key => <MenuItem key={key} value={key}>{key}</MenuItem>;
+        const renderedItems = objectKeys(nestedData).map(renderItem);
+        return (
+            <FormControl key={label} className={classes.formControl}>
+                <Select onChange={event => onBreakdownChange(level, event.target.value)} displayEmpty>
+                    <MenuItem value='all'>All</MenuItem>
+                    {renderedItems}
+                </Select>
+            </FormControl>
+        );
+    };
+    useEffect(() => {
+        const topKey = buildKey(dataType, resourceType, []);
+        const resourceData = selectNested(topKey, data[data.length-1]);
+        if (!resourceData) {
+            setBreakdownDropdowns([]);
+            return;
+        }
+
+        let i = 0;
+        let nestedData = resourceData.breakdown;
+        const dropdowns = breakdownLevel.reduce((level, dropdowns) => {
+            nestedData = selectNested(`${level}/breakdown`, nestedData);
+            i += 1;
+            if (!nestedData) return dropdowns;
+            return [...dropdowns, renderDrilldownDropdown(level, nestedData, i - 1)];
+        }, []);
+        setBreakdownDropdowns(dropdowns);
+    }, [data, breakdownLevel]);
+
+    // Rendered areas on chart
     const [chartAreas, setChartAreas] = useState([]);
     useEffect(() => {
         if (data.length === 0) return;
 
-        const resourceKey = buildKey(dataType, resourceType);
+        const resourceKey = buildKey(dataType, resourceType, breakdownLevel);
         const resourceData = selectNested(resourceKey, data[data.length-1]);
-
         if (!resourceData) {
             setChartAreas([]);
             return;
@@ -93,6 +145,7 @@ function FancyBreakdown(props) {
         }));
     }, [data, resourceType, dataType]);
 
+    // Material Select is stupid, have to trick it
     useEffect(() => {
         if (resourceType === '' && resourceTypes.includes(ResourceNames['energy'])) {
             setResourceType(ResourceNames['energy']);
@@ -113,6 +166,7 @@ function FancyBreakdown(props) {
                         <MenuItem value={DataTypes.Spending}>Spending</MenuItem>
                     </Select>
                 </FormControl>
+                {breakdownDropdowns}
             </div>
             <StackedAreaChart
                 data={data}
@@ -122,6 +176,7 @@ function FancyBreakdown(props) {
                 showLabels={false}
                 padding={{left: 40, top: 30, right: 30, bottom: 50}}
                 areas={chartAreas}
+                onAreaClick={onAreaClick}
             />
         </div>
     );

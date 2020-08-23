@@ -16,7 +16,7 @@ const PresetColors = Object.freeze({
     'Tech': '#0aa7cf',
     'Economy': '#ded140',
     'Victory Rank': '#96d636'
-}); // TODO - actual names and colors
+}); // TODO - all names and colors
 
 const ItemColors = shuffle(objectKeys(PresetColors)).map(key => PresetColors[key]);
 
@@ -51,6 +51,8 @@ function selectNested(path, object) {
     for (let i in keys) {
         if (!ref)
             return null;
+        if (keys[i].length === 0)
+            break;
         if (!(keys[i] in ref))
             return null;
         ref = ref[keys[i]];
