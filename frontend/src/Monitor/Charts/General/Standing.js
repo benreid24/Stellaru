@@ -35,7 +35,6 @@ function Standing(props) {
                 <LineChart
                     data={data}
                     height={height/3}
-                    titleColor='#96d636'
                     showLabels={true}
                     padding={{top: 0, left: 50, right: 50, bottom: 47}}
                     lines={[

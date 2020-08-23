@@ -12,7 +12,10 @@ const PresetColors = Object.freeze({
     'Consumer Goods': '#cf8c06',
     'Society Research': '#65c73c',
     'Physics Research': '#3b94d4',
-    'Engineering Research': '#e39f0e'
+    'Engineering Research': '#e39f0e',
+    'Tech': '#0aa7cf',
+    'Economy': '#ded140',
+    'Victory Rank': '#96d636'
 }); // TODO - actual names and colors
 
 const ItemColors = Object.freeze([
