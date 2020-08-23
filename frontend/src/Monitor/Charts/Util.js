@@ -18,14 +18,7 @@ const PresetColors = Object.freeze({
     'Victory Rank': '#96d636'
 }); // TODO - actual names and colors
 
-const ItemColors = Object.freeze([
-    '#e8db27',
-    '#de2222',
-    '#11de12',
-    '#bd60b8',
-    '#cf8c06',
-    '#3b94d4'
-]); // TODO - more colors. make them match
+const ItemColors = shuffle(objectKeys(PresetColors)).map(key => PresetColors[key]);
 
 function getDataColors(labels) {
     let colorIndex = 0;
@@ -103,6 +96,15 @@ function objectKeys(object) {
     return Object.entries(object).map(([key, _]) => key);
 }
 
+function shuffle(array) {
+    let shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 function findKeysOverSeries(data, topKey) {
     let keys = {};
     data.forEach(snap => {
@@ -123,5 +125,6 @@ export {
     getTextWidth,
     getDataColors,
     objectKeys,
-    findKeysOverSeries
+    findKeysOverSeries,
+    shuffle
 };
