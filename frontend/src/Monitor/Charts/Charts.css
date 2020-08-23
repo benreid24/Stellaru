@@ -12,3 +12,8 @@
     padding-left: 12px;
     text-align: left;
 }
+
+.verticaalFlex {
+    display: flex;
+    flex-direction: column;
+}

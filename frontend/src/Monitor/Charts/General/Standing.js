@@ -17,8 +17,9 @@ function Standing(props) {
                     height={height*2/3}
                     title={title}
                     titleColor='#96d636'
+                    yAxisLabel='Victory Points'
                     showLabels={false}
-                    padding={{top: 30, left: 50, right: 50, bottom: 47}}
+                    padding={{top: 30, left: 50, right: 50, bottom: 50}}
                     lines={[
                         {
                             label: 'Tech',
@@ -36,7 +37,9 @@ function Standing(props) {
                     data={data}
                     height={height/3}
                     showLabels={true}
-                    padding={{top: 0, left: 50, right: 50, bottom: 47}}
+                    titleColor='#96d636'
+                    yAxisLabel='Rank'
+                    padding={{top: 15, left: 50, right: 50, bottom: 47}}
                     lines={[
                         {
                             label: 'Victory Rank',

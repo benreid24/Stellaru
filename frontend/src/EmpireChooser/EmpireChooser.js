@@ -54,7 +54,7 @@ function EmpireChooser(props) {
         const rnd = Math.floor(Math.random() * 1000);
         const key = `${empire.name}${rnd}`;
         return (
-            <div className='col-3 empireCardDiv' key={key}>
+            <div className='col-xl-3 col-lg-4 col-md-6 col-xs-10 mb-3' key={key}>
                 <EmpireCard empire={empire} onClick={() => {props.onChoose(empire);}} />
             </div>
         );
@@ -77,7 +77,7 @@ function EmpireChooser(props) {
     }
 
     return (
-        <div>
+        <div className='container-fluid h-100'>
             <h1>Select Empire to Monitor</h1>
             {empires === null && <p>Loading save<LoadingDots/></p>}
             {empires !== null && error === null && 

@@ -11,18 +11,16 @@ function Overview(props) {
     return (
         <div>
             <div className='row'>
-                <div className='col-3'>
-                    <Standing data={data} height={350}/>
+                <div className='col-xl-5 col-lg-12 mb-3'>
+                    <NetResourceIncome data={data} height={180}/>
                 </div>
-                <div className='col-5'>
-                    <NetResourceIncome data={data} height={205}/>
+                <div className='col-xl-3 col-lg-6 col-md-12 mb-3'>
+                    <Standing data={data} height={320}/>
                 </div>
-                <div className='col-4'>
-                    <RawScienceOutput data={data} height={257}/>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3'>
+                    <RawScienceOutput data={data} height={230}/>
                 </div>
-            </div>
-            <div className='row'>
-                <div className='col-6'>
+                <div className='col-xl-6 col-lg-12 mb-3'>
                     <FancyBreakdown data={data} height={190}/>
                 </div>
             </div>

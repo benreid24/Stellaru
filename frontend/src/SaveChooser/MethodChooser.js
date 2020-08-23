@@ -39,9 +39,8 @@ class MethodChooser extends React.Component {
 
     renderMethod(method) {
         return (
-            <div className="row" key={method}>
-                <div className="col-4"></div>
-                <div className="col-4">
+            <div className="row justify-content-center" key={method}>
+                <div className="col-xl-5 col-lg-8 col-md-10 col-sm-11 col-xs-12">
                 <MethodCard
                     onClick={() => {this.state.chooseCb(Methods[method]);}}
                     title={MethodTitles[method]}
@@ -58,7 +57,7 @@ class MethodChooser extends React.Component {
             methods.push(this.renderMethod(method));
         }
         return (
-            <div>
+            <div className='container-fluid h-100'>
                 <h1 className="saveChooseHeader">Method for Save Selection</h1>
                 {methods}
             </div>

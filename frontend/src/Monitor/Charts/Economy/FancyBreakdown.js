@@ -86,7 +86,7 @@ function FancyBreakdown(props) {
                 title={`${resourceType} ${dataType} Breakdown`}
                 titleColor='#ded140'
                 showLabels={false}
-                padding={{left: 30, top: 30, right: 30, bottom: 50}}
+                padding={{left: 40, top: 30, right: 30, bottom: 50}}
                 areas={[
                     {
                         label: 'Tech',
