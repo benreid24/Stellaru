@@ -16,6 +16,7 @@ function NetResourceIncome(props) {
                 titleColor='#ded140'
                 yAxisLabel='Net Income'
                 showLabels={false}
+                padding={{left: 50, top: 30, right: 30, bottom: 50}}
                 lines={[
                     {
                         label: 'Energy Credits',

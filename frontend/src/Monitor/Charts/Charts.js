@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {VictoryChart, VictoryLabel, VictoryContainer} from 'victory';
+import {VictoryChart, VictoryLabel} from 'victory';
 
 import './Charts.css';
 

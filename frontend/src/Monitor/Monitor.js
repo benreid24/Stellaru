@@ -71,7 +71,7 @@ function Monitor(props) {
     }, [save, empire]);
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid monitor'>
             <div className='row' style={{paddingBottom: '0px'}}>
                 <div className='col-3'></div>
                 <div className='col-6'>

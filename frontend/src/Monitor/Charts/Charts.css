@@ -6,3 +6,9 @@
     height: 100%;
     box-shadow: 6px 6px #121212;
 }
+
+.chartForm {
+    padding-top: 12px;
+    padding-left: 12px;
+    text-align: left;
+}

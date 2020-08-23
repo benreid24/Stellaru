@@ -23,7 +23,7 @@ function Overview(props) {
             </div>
             <div className='row'>
                 <div className='col-6'>
-                    <FancyBreakdown data={data} height={200}/>
+                    <FancyBreakdown data={data} height={190}/>
                 </div>
             </div>
         </div>

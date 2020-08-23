@@ -1,3 +1,7 @@
+.monitor {
+    overflow: hidden;
+}
+
 .empireName {
     color: #22dc33;
 }
