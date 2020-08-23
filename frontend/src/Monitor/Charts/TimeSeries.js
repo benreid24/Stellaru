@@ -36,10 +36,10 @@ function TimeSeries(props) {
         days.length > 0 ? Math.min(...days) : EmptyDayStart,
         days.length > 0 ? Math.max(...days) : EmptyDayEnd
     ];
-    let chartMin = -10;
+    let chartMin = 0;
     const checkMin = value => {
         if (value < chartMin)
-            chartMin = value;
+            chartMin = value - 1;
     };
 
     const lineVisible = line => isolatedLines.length === 0 || isolatedLines.includes(line.label);
@@ -47,14 +47,16 @@ function TimeSeries(props) {
 
     // TODO - set x domain based on global zoom level
     return (
-        <Chart height={height} title={title} titleColor={titleColor} domain={domain} yMin={chartMin}>
-            <VictoryAxis
-                axisValue={0}
-                style={{
-                    tickLabels: {fill: "none"},
-                    axis: {stroke: 'white', strokeWidth: 2, strokeDasharray: 4}
-                }}
-            />
+        <Chart height={height} title={title} titleColor={titleColor} domain={domain} yMin={chartMin} padding={props.padding}>
+            {chartMin !== 0 && 
+                <VictoryAxis
+                    axisValue={0}
+                    style={{
+                        tickLabels: {fill: "none"},
+                        axis: {stroke: 'white', strokeWidth: 2, strokeDasharray: 4}
+                    }}
+                />
+            }
             {renderedSeries}
             <VictoryAxis
                 tickFormat={dateTickFormat}
@@ -62,7 +64,7 @@ function TimeSeries(props) {
                     axisLabel: {fill: '#9a9a9a'},
                     ticks: {stroke: "grey", size: 5}
                 }}
-                offsetY={50}
+                offsetY={props.padding ? (props.padding.bottom ? props.padding.bottom : props.padding) : 50}
             />
             <VictoryAxis dependentAxis
                 crossAxis={false}

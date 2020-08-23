@@ -50,6 +50,7 @@ function LineChart(props) {
             labelColors={labelColors}
             series={lines}
             seriesRenderer={renderLine}
+            padding={props.padding}
         />
     );
 }

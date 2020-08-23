@@ -14,10 +14,11 @@ function Standing(props) {
             <div>
                 <LineChart
                     data={data}
-                    height={height}
+                    height={height*2/3}
                     title={title}
                     titleColor='#96d636'
                     showLabels={false}
+                    padding={{top: 30, left: 50, right: 50, bottom: 47}}
                     lines={[
                         {
                             label: 'Tech',
@@ -27,6 +28,21 @@ function Standing(props) {
                             label: 'Economy',
                             selector: snap => selectNested('standing/economy_power', snap)
                         },
+                    ]}
+                />
+            </div>
+            <div>
+                <LineChart
+                    data={data}
+                    height={height/3}
+                    titleColor='#96d636'
+                    showLabels={true}
+                    padding={{top: 0, left: 50, right: 50, bottom: 47}}
+                    lines={[
+                        {
+                            label: 'Victory Rank',
+                            selector: snap => selectNested('standing/victory_rank', snap)
+                        }
                     ]}
                 />
             </div>

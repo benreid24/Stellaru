@@ -32,6 +32,7 @@ function Chart(props) {
             height={height}
             minDomain={{x: domain[0], y: yMin}}
             maxDomain={{x: domain[1]}}
+            padding={props.padding}
         >
             {props.title ? <VictoryLabel text={props.title} textAnchor='start' dx={15} dy={15} style={{fill: props.titleColor}}/> : null}
             {props.children}
