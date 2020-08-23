@@ -19,6 +19,7 @@ def _make_error(error):
 
 def get_saves(request):
     try:
+        sessions.register_session(request.session)
         save_files = finder.find_saves()
         saves = [
             {
@@ -47,6 +48,7 @@ def get_saves(request):
 def get_empires(request):
     file = None
     try:
+        sessions.register_session(request.session)
         parsed = json.loads(request.body)
         if 'file' not in parsed:
             return _make_error('"file" parameter not set in POST')
@@ -76,6 +78,7 @@ def get_empires(request):
 @csrf_exempt
 def get_data(request):
     try:
+        sessions.register_session(request.session)
         parsed = json.loads(request.body)
         if 'file' not in parsed:
             return _make_error('"folder" parameter not set in POST')
