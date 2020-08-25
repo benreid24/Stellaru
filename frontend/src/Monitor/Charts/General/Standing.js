@@ -1,6 +1,7 @@
 import React from 'react';
 
 import LineChart from '../LineChart';
+import StackedAreaChart from '../StackedAreaChart';
 import {selectNested} from '../Util';
 
 function Standing(props) {
@@ -12,7 +13,7 @@ function Standing(props) {
     return (
         <div className='chart'>
             <div>
-                <LineChart
+                <StackedAreaChart
                     data={data}
                     height={height*2/3}
                     title={title}
@@ -20,7 +21,7 @@ function Standing(props) {
                     yAxisLabel='Victory Points'
                     showLabels={false}
                     padding={{top: 30, left: 50, right: 50, bottom: 50}}
-                    lines={[
+                    areas={[
                         {
                             label: 'Tech',
                             selector: snap => selectNested('standing/tech_power', snap)
