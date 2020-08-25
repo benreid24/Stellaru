@@ -41,7 +41,9 @@ function Monitor(props) {
     const subscription = props.socket;
 
     const [gameData, setGameData] = useState([]);
-    const [status, setStatus] = useState(subscription.readyState === 1 ? 'WAITING' : 'Disconnected');
+    const [status, setStatus] = useState(
+        subscription !== null ? (subscription.readyState === 1 ? 'WAITING' : 'Disconnected') : 'Disconnected'
+    );
     const [currentTab, setCurrentTab] = useState(0);
 
     const onNewData = (event) => {
@@ -54,9 +56,11 @@ function Monitor(props) {
         else if ('status' in data)
             setStatus(data['status']);
     };
-    subscription.onmessage = onNewData;
-    subscription.onerror = () => setStatus('Error');
-    subscription.onclose = () => setStatus('Disconnected');
+    if (subscription !== null) {
+        subscription.onmessage = onNewData;
+        subscription.onerror = () => setStatus('Error');
+        subscription.onclose = () => setStatus('Disconnected');
+    }
 
     useEffect(() => {
         fetch(

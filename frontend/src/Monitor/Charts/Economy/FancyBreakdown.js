@@ -70,8 +70,9 @@ function BreadCrumbs(props) {
 
     return (
         <div className='breadcrumbBox'>
-            <p className='breadcrumbLabel'>Drilldown:</p>
-            {renderedDrilldowns}
+            {nestedCats.length > 0 && <p className='breadcrumbLabel'>Drilldown:</p>}
+            {nestedCats.length > 0 && renderedDrilldowns}
+            {nestedCats.length === 0 && <p className='drilldownHint'>Click legend to drill down</p>}
         </div>
     );
 }
