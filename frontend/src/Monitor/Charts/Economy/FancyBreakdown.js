@@ -86,17 +86,12 @@ function FancyBreakdown(props) {
     const [resourceType, setResourceType] = useState('');
     const [breakdownLevel, setBreakdownLevel] = useState([]);
 
-    const breakdownExists = label => {
-        const resourceKey = buildKey(dataType, resourceType, breakdownLevel);
-        const resourceData = selectNested(resourceKey, data[data.length-1]); // TODO - keys over series
-        const breakdown = resourceData.breakdown[label].breakdown;
-        return objectKeys(breakdown).length > 0;
-    };
-
     const onAreaClick = label => {
-        if (breakdownExists(label)) {
-            setBreakdownLevel([...breakdownLevel, label]);
+        if (breakdownLevel.length > 0) {
+            if (label === breakdownLevel[breakdownLevel.length - 1])
+                return;
         }
+        setBreakdownLevel([...breakdownLevel, label]);
     };
     const onDataTypeChange = event => {
         setBreakdownLevel([]);
@@ -126,21 +121,25 @@ function FancyBreakdown(props) {
     const [chartAreas, setChartAreas] = useState([]);
     useEffect(() => {
         if (data.length === 0) return;
-
         const resourceKey = buildKey(dataType, resourceType, breakdownLevel);
-        const resourceData = selectNested(resourceKey, data[data.length-1]); // TODO - keys over series
-        if (!resourceData) {
-            setChartAreas([]);
-            return;
+        const cats = findKeysOverSeries(data, `${resourceKey}/breakdown`);
+        if (cats.length > 0) {
+            setChartAreas(cats.map(cat => {
+                return {
+                    label: cat,
+                    selector: snap => selectNested(`${resourceKey}/breakdown/${cat}/total`, snap)
+                };
+            }));
         }
-
-        const cats = objectKeys(resourceData.breakdown);
-        setChartAreas(cats.map(cat => {
-            return {
-                label: cat,
-                selector: snap => selectNested(`${resourceKey}/breakdown/${cat}/total`, snap)
-            };
-        }));
+        else if (breakdownLevel.length > 0) {
+            setChartAreas([{
+                label: breakdownLevel[breakdownLevel.length - 1],
+                selector: snap => selectNested(`${resourceKey}/total`, snap)
+            }]);
+        }
+        else {
+            setChartAreas([]);
+        }
     }, [data, resourceType, dataType, breakdownLevel]);
 
     // Material Select is stupid, have to trick it
