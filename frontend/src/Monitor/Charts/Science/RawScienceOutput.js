@@ -16,6 +16,11 @@ function RawScienceOutput(props) {
         total += selectNested('economy/net_income/engineering_research', data[data.length-1]);
     }
     total = valueTickFormat(total);
+    const completedTechs = data.length > 0 ? selectNested('tech/completed_techs', data[data.length-1]) : 0;
+    const availableTechs = data.length > 0 ?
+        selectNested('tech/available_techs/engineering', data[data.length-1]) +
+        selectNested('tech/available_techs/physics', data[data.length-1]) +
+        selectNested('tech/available_techs/society', data[data.length-1]) : 0;
 
     return (
         <div className='chart'>
@@ -44,7 +49,17 @@ function RawScienceOutput(props) {
                 />
             </div>
             <div className='scienceTotalArea'>
-                <h2 className='scienceTotal'> Total: <span className='scienceTotalNumber'>{total}</span></h2>
+                <div className='row'>
+                    <div className='col-3 align-self-center'>
+                        <h2 className='scienceTotal'>Total: <span className='scienceTotalNumber'>{total}</span></h2>
+                    </div>
+                    <div className='col-4 align-self-center'>
+                        <h2 className='scienceTotal'>Completed: <span className='scienceTotalNumber'>{completedTechs}</span></h2>
+                    </div>
+                    <div className='col-4 align-self-center'>
+                        <h2 className='scienceTotal'>Available: <span className='scienceTotalNumber'>{availableTechs}</span></h2>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -77,14 +77,12 @@ function Monitor(props) {
     return (
         <div className='container-fluid monitor'>
             <div className='row' style={{paddingBottom: '0px'}}>
-                <div className='col-3'></div>
-                <div className='col-6'>
+                <div className='col-auto align-self-center'>
                     <h1 className='empireName'>
                         {empire.name}<span className='playerName'>({empire.player})</span>
                     </h1>
                 </div>
-                <div className='col-1'></div>
-                <div className='col-2'>
+                <div className='col-xl-2 col-lg-3 col-md-4 col-sm-5 col-xs-6 align-self-end'>
                     <StatusIndicator status={status}/>
                 </div>
             </div>
