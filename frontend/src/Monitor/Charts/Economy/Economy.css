@@ -1,0 +1,26 @@
+.breadcrumbBox {
+    display: inline-block;
+}
+
+.breadcrumbLabel {
+    display: inline-block;
+    color: white;
+    padding-left: 30px;
+    font-size: 120%;
+}
+
+.breadcrumb {
+    padding: 6px;
+    padding-right: 2px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: underline;
+    background: none;
+}
+
+.breadcrumbArrow {
+    padding: 0px;
+    display: inline-block;
+    cursor: unset;
+    text-decoration: none;
+}
