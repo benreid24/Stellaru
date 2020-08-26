@@ -1,5 +1,11 @@
 .monitor {
     overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100%;
+}
+
+.monitorTab {
+    min-height: 100%;
 }
 
 .empireName {

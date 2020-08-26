@@ -9,7 +9,7 @@ function Overview(props) {
     const data = props.data;
 
     return (
-        <div>
+        <div className='monitorTab'>
             <div className='row'>
                 <div className='col-xl-5 col-lg-12 mb-3'>
                     <NetResourceIncome data={data} height={180}/>
@@ -20,7 +20,7 @@ function Overview(props) {
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3'>
                     <RawScienceOutput data={data} height={230}/>
                 </div>
-                <div className='col-xl-6 col-lg-12 mb-3'>
+                <div className='col-xl-6 col-lg-12 '>
                     <FancyBreakdown data={data} height={190}/>
                 </div>
             </div>
