@@ -139,7 +139,7 @@ def _watch_save(watcher):
             if not save['sessions']:
                 print(f'Save expired: {watcher.get_file()}')
                 save_lock.acquire()
-                monitored_saves.pop(folder)
+                #monitored_saves.pop(folder)
                 save_lock.release()
                 break
 
