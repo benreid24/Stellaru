@@ -8,8 +8,9 @@ const Status = Object.freeze({
     Loading: 'Loading',
     Disconnected: 'Disconnected'
 });
-const MaxRetries = 5;
-const ConnectTimeout = 30000; // ms
+const MaxRetries = 3;
+const ConnectTimeout = 5000; // ms
+const PollInterval = 60000;
 
 function getSubscriptionUrl() {
     if (process.env.NODE_ENV === 'development')
@@ -37,11 +38,9 @@ class DataSubscription {
             this.connected = false;
             this.socketRetries = 0;
             this.socket.onopen = () => this.onOpen(this);
-            setTimeout(() => {
-                if (this.status === Status.Connecting) {
-                    this.setupPolling();
-                }
-            }, ConnectTimeout);
+            this.socket.onerror = () => {
+                setTimeout(() => this.tryReconnect(this), ConnectTimeout);
+            };
         }
         else {
             this.setupPolling();
@@ -49,8 +48,17 @@ class DataSubscription {
     }
 
     setupPolling() {
+        this.method = ConnectionMethod.Poll;
         this.setStatus(Status.WaitingPolling);
-        // TODO - setup polling
+        // TODO - setup? date aware request to backend
+        this.onPoll();
+    }
+
+    onPoll() {
+        console.log('Polling');
+        this.setStatus(Status.Polling);
+        setTimeout(() => this.setStatus(Status.WaitingPolling), 3000);
+        setTimeout(() => this.onPoll, PollInterval);
     }
 
     onOpen(me) {
@@ -59,23 +67,20 @@ class DataSubscription {
         me.setStatus(Status.WaitingSocket);
         me.connected = true;
         me.socketRetries = 0;
-        me.socket.onclose = () => this.tryReconnect(this);
-        me.socket.onerror = () => this.tryReconnect(this);
-        me.socket.onmessage = event => this.onData(me, event);
+        me.socket.onclose = () => me.tryReconnect(me);
+        me.socket.onmessage = event => me.onData(me, event);
     }
 
     tryReconnect(me) {
         me.socketRetries += 1;
         if (me.socketRetries <= MaxRetries) {
             me.socket = new WebSocket(getSubscriptionUrl());
-            me.setStatus(`${Status.Reconnecting} (try ${me.socketRetries})`);
+            me.setStatus(`${Status.Reconnecting} (retry ${me.socketRetries})`);
             me.connected = false;
-            me.socket.onopen =() => me.onOpen(me);
-            setTimeout(() => {
-                if (me.status === Status.Reconnecting) {
-                    me.tryReconnect(me);
-                }
-            }, ConnectTimeout);
+            me.socket.onopen = () => me.onOpen(me);
+            me.socket.onerror = () => {
+                setTimeout(() => me.tryReconnect(me), ConnectTimeout);
+            };
         }
         else {
             me.setupPolling();
@@ -97,8 +102,10 @@ class DataSubscription {
             this.setStatus(Status.WaitingSocket);
         }
         else if ('status' in payload) {
-            if (payload['status'] !== 'Waiting')
+            if (!payload['status'].includes('WAITING')) {
+                console.log(payload['status']);
                 this.setStatus(payload['status']);
+            }
         }
     }
 

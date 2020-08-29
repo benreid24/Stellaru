@@ -24,12 +24,12 @@ function StatusIndicator(props) {
     const status = props.status[0].toUpperCase() + props.status.slice(1).toLowerCase();
     let sclass = 'statusIndicatorError';
     let dots = [];
-    if (status.includes('Waiting')) {
+    if (status.includes('Waiting'))
         sclass = 'statusIndicatorGood';
-        dots.push(<LoadingDots key='dots'/>);
-    }
     else if (status.includes('Loading') || status.includes('Polling'))
         sclass = 'statusIndicatorLoading';
+    if (!status.includes('Disconnected'))
+        dots.push(<LoadingDots key='dots'/>);
     return (
         <div className='statusIndicator'>
             <div className={sclass}>
@@ -72,7 +72,7 @@ function Monitor(props) {
                         {empire.name}<span className='playerName'>({empire.player})</span>
                     </h1>
                 </div>
-                <div className='col-xl-2 col-lg-3 col-md-4 col-sm-5 col-xs-6 align-self-end'>
+                <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
                     <StatusIndicator status={status}/>
                 </div>
             </div>

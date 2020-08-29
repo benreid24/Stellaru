@@ -22,11 +22,12 @@ const darkTheme = createMuiTheme({
     },
 });
 
+const subscription = new DataSubscription();
+
 function Stellaru(props) {
     const [state, setState] = useState(State.chooseSave);
     const [chosenSave, setChosenSave] = useState(null);
     const [chosenEmpire, setChosenEmpire] = useState(null);
-    const subscription = new DataSubscription();
 
     const onSaveChoose = (save) => {
         setState(State.chooseEmpire);
