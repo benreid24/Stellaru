@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import StackedAreaChart from '../StackedAreaChart';
-import {selectNested, findKeysOverSeries, objectKeys} from '../Util';
+import {selectNested, findKeysOverSeries} from '../Util';
 
 import './Economy.css';
 

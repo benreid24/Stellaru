@@ -2,6 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import {Tabs, Tab} from '@material-ui/core';
+import LoadingDots from '../LoadingDots';
 
 import Overview from './Overview';
 
@@ -22,14 +23,17 @@ function TabPanel(props) {
 function StatusIndicator(props) {
     const status = props.status[0].toUpperCase() + props.status.slice(1).toLowerCase();
     let sclass = 'statusIndicatorError';
-    if (status === 'Waiting')
+    let dots = [];
+    if (status.includes('Waiting')) {
         sclass = 'statusIndicatorGood';
-    else if (status === 'Loading')
+        dots.push(<LoadingDots key='dots'/>);
+    }
+    else if (status.includes('Loading') || status.includes('Polling'))
         sclass = 'statusIndicatorLoading';
     return (
         <div className='statusIndicator'>
             <div className={sclass}>
-                <h2 className={sclass+'Text'}>{status}</h2>
+                <h2 className={sclass+'Text'}>{status}{dots}</h2>
             </div>
         </div>
     );
@@ -38,29 +42,15 @@ function StatusIndicator(props) {
 function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
-    const subscription = props.socket;
+    const subscription = props.subscription;
 
     const [gameData, setGameData] = useState([]);
-    const [status, setStatus] = useState(
-        subscription !== null ? (subscription.readyState === 1 ? 'WAITING' : 'Disconnected') : 'Disconnected'
-    );
+    const [status, setStatus] = useState(subscription.status);
     const [currentTab, setCurrentTab] = useState(0);
 
-    const onNewData = (event) => {
-        const data = JSON.parse(event.data);
-        if ('snap' in data) {
-            let snaps = gameData.slice();
-            snaps.push(data['snap']);
-            setGameData(snaps);
-        }
-        else if ('status' in data)
-            setStatus(data['status']);
-    };
-    if (subscription !== null) {
-        subscription.onmessage = onNewData;
-        subscription.onerror = () => setStatus('Error');
-        subscription.onclose = () => setStatus('Disconnected');
-    }
+    const onNewData = snap => setGameData([...gameData, snap]);
+    subscription.onSnap = onNewData;
+    subscription.onStatus = setStatus;
 
     useEffect(() => {
         fetch(
