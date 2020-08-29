@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LineChart from '../LineChart';
+import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, valueTickFormat} from '../Util';
 
 import './Science.css';
@@ -25,14 +25,14 @@ function RawScienceOutput(props) {
     return (
         <div className='chart'>
             <div>
-                <LineChart
+                <StackedAreaChart
                     data={data}
                     height={height}
                     title='Science Output'
                     titleColor='#0b9cbd'
                     yAxisLabel='Monthly Research'
                     showLabels={false}
-                    lines={[
+                    areas={[
                         {
                             label: 'Physics Research',
                             selector: snap => selectNested('economy/net_income/physics_research', snap)
