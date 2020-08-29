@@ -10,7 +10,7 @@ const Status = Object.freeze({
 });
 const MaxRetries = 3;
 const ConnectTimeout = 5000; // ms
-const PollInterval = 60000;
+const PollInterval = 45000;
 
 function getSubscriptionUrl() {
     if (process.env.NODE_ENV === 'development')
@@ -26,6 +26,7 @@ function getSubscriptionUrl() {
 }
 
 function websocketsSupported() {
+    return false;
     return 'WebSocket' in window || 'MozWebSocket' in window;
 }
 
@@ -47,18 +48,52 @@ class DataSubscription {
         }
     }
 
+    setChosenInfo(save, empire) {
+        this.save = save;
+        this.empire = empire;
+    }
+
     setupPolling() {
         this.method = ConnectionMethod.Poll;
         this.setStatus(Status.WaitingPolling);
-        // TODO - setup? date aware request to backend
         this.onPoll();
     }
 
     onPoll() {
-        console.log('Polling');
+        if (this.status === Status.Polling) {
+            setTimeout(() => this.onPoll(), PollInterval);
+            return;
+        }
         this.setStatus(Status.Polling);
-        setTimeout(() => this.setStatus(Status.WaitingPolling), 3000);
-        setTimeout(() => this.onPoll, PollInterval);
+
+        if (this.save && !isNaN(this.empire)) {
+            try {
+                fetch(
+                    'api/latest_snap', {
+                        method: 'post',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({save: this.save, empire: this.empire})
+                    }
+                ).then(response => {
+                    return response.ok ? response.json() : null;
+                }).then(data => {
+                    if (data) {
+                        this.processData({snap: data.latest_snap});
+                        this.setStatus(Status.WaitingPolling);
+                    }
+                    else {
+                        this.setStatus(Status.Disconnected);
+                    }
+                });
+            } catch (_) {
+                this.setStatus(Status.Disconnected);
+            }
+        }
+        else {
+            this.setStatus(Status.WaitingPolling);
+        }
+
+        setTimeout(() => this.onPoll(), PollInterval);
     }
 
     onOpen(me) {

@@ -48,7 +48,11 @@ function Monitor(props) {
     const [status, setStatus] = useState(subscription.status);
     const [currentTab, setCurrentTab] = useState(0);
 
-    const onNewData = snap => setGameData([...gameData, snap]);
+    const onNewData = snap => {
+        if (gameData.length === 0 || gameData[gameData.length - 1]['date_days'] < snap['date_days']) {
+            setGameData([...gameData, snap]);
+        }
+    };
     subscription.onSnap = onNewData;
     subscription.onStatus = setStatus;
 

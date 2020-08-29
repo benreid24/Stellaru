@@ -86,7 +86,7 @@ def get_data(request):
             return _make_error('"empire" parameter not set in POST')
         folder = os.path.dirname(parsed['file'])
         empire = parsed['empire']
-        save = engine.get_save(folder)
+        save = engine.get_save(folder, request.session['id'])
         if not save:
             return _make_error(f'Invalid save: {folder}')
         if empire not in save['snaps'][-1]['empires']:
@@ -97,6 +97,32 @@ def get_data(request):
             'folder': folder,
             'empire': empire,
             'snaps': snaps
+        })
+    except Exception as err:
+        return _make_error(f'Bad request body: {repr(err)}')
+
+
+@csrf_exempt
+def get_latest_snap(request):
+    try:
+        sessions.register_session(request.session)
+        parsed = json.loads(request.body)
+        if 'save' not in parsed:
+            return _make_error('"save" parameter not set in POST')
+        if 'empire' not in parsed:
+            return _make_error('"empire" parameter not set in POST')
+        folder = os.path.dirname(parsed['save'])
+        empire = parsed['empire']
+        save = engine.get_save(folder, request.session['id'], True)
+        if not save:
+            return _make_error(f'Invalid save: {folder}')
+        if empire not in save['snaps'][-1]['empires']:
+            return _make_error(f'Empire {empire} not in save {folder}')
+        sessions.set_session_empire(request.session['id'], empire)
+        return JsonResponse({
+            'folder': folder,
+            'empire': empire,
+            'latest_snap': save['snaps'][-1]['empires'][empire]
         })
     except Exception as err:
         return _make_error(f'Bad request body: {repr(err)}')

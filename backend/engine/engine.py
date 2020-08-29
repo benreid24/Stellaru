@@ -84,9 +84,11 @@ def add_save_watcher(watcher, session_id):
         save_lock.release()
 
 
-def get_save(folder):
+def get_save(folder, session_id, load=False):
     if folder in monitored_saves:
         return monitored_saves[folder]
+    if load:
+        return load_and_add_save(Watcher(folder), session_id)
     return None
 
 
