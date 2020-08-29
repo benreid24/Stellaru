@@ -73,6 +73,16 @@ ECONOMY_CLASSES = {
     'country_base': [EC_BASE]
 }
 
+START_DATE = {
+    'm': 1,
+    'd': 1,
+    'y': 2200
+}
+
+
+def _key_or(obj, key, alt):
+    return obj[key] if key in obj else alt
+
 
 def get_empires(state):
     return {
@@ -175,14 +185,16 @@ def _date_diff_days(future, past):
 def _get_edicts(state, empire):
     try:
         return len(state['country'][empire]['edicts'])
-    except:
+    except Exception as err:
+        print(err)
         return 0
 
 
 def _get_empire_size(state, empire):
     try:
         return state['country'][empire]['empire_size']
-    except:
+    except Exception as err:
+        print(err)
         return 0
 
 
@@ -216,7 +228,8 @@ def _get_leaders(state, empire):
             'percent_male': sum([1 for leader in leaders if leader['gender'] == 'male']) / len(leaders)
         }
         return {**breakdown, **leader_info}
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -225,10 +238,11 @@ def _get_standing(state, empire):
         return {
             'victory_rank': state['country'][empire]['victory_rank'],
             'tech_power': state['country'][empire]['tech_power'],
-            'economy_power': state['country'][empire]['economy_power'],
+            'economy_power': state['country'][empire]['economy_power'], # TODO - get proper powers
             'military_power': state['country'][empire]['military_power']
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -249,7 +263,8 @@ def _get_wars(state, empire):
             'attacker': offense_wars,
             'defender': defense_wars
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -270,7 +285,8 @@ def _get_systems(state, empire):
             'owned': len(owned),
             'starbases': upgraded
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -294,7 +310,8 @@ def _get_federation(state, empire):
             'level': federation['federation_progression']['levels'],
             'leader': federation['leader'] == empire
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -322,7 +339,8 @@ def _get_unity(state, empire):
             'acension_perks': ap_count,
             'unity': unity_income
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -392,7 +410,8 @@ def _get_economy(state, empire):
             'income': income,
             'spending': spending
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -434,7 +453,8 @@ def _get_construction(state, empire):
             'max_queue_size': max_size,
             'breakdown': breakdown
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -468,7 +488,8 @@ def _get_tech(state, empire):
             'completed_techs': completed,
             'available_techs': options
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -481,7 +502,10 @@ def _get_planets_and_pops(state, empire):
         planets = [planet for pid, planet in planet_dict.items()]
         now = parse_date(state['date'])
         for planet in planets:
-            days = _date_diff_days(now, parse_date(planet['colonize_date']))
+            days = _date_diff_days(
+                now,
+                parse_date(planet['colonize_date']) if 'colonize_date' in planet else START_DATE
+            )
             planet['age_days'] = days
             planet['age'] = days / DAYS_PER_YEAR
 
@@ -502,24 +526,24 @@ def _get_planets_and_pops(state, empire):
         planet_stats = {
             'total': len(planets),
             'types': type_sums,
-            'districts': _basic_stats([len(planet['district']) for planet in planets]),
+            'districts': _basic_stats([len(_key_or(planet, 'district', [])) for planet in planets]),
             'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
             'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
             'stability': _basic_stats([planet['stability'] for planet in planets]),
             'housing': _basic_stats([planet['free_housing'] for planet in planets]),
             'crime': _basic_stats([planet['crime'] for planet in planets]),
-            'pops': _basic_stats([len(planet['pop']) for planet in planets]),
+            'pops': _basic_stats([len(_key_or(planet, 'pop', [])) for planet in planets]),
             'age_days': _basic_stats([planet['age_days'] for planet in planets]),
             'age': _basic_stats([planet['age'] for planet in planets])
         }
 
         pop_ids = []
         for planet in planets:
-            pop_ids.extend(planet['pop'])
+            pop_ids.extend(_key_or(planet, 'pop', []))
         pops = [state['pop'][pid] for pid in pop_ids if isinstance(state['pop'][pid], dict)]
         jobs = {
             pop['job']: ' '.join(word.capitalize() for word in pop['job'].split('_'))
-            for pop in pops
+            for pop in pops if 'job' in pop
         }
 
         species_sums = {}
@@ -532,11 +556,12 @@ def _get_planets_and_pops(state, empire):
             else:
                 species_sums[species] += 1
             
-            job = jobs[pop['job']]
-            if job not in job_sums:
-                job_sums[job] = 1
-            else:
-                job_sums[job] += 1
+            if 'job' in pop:
+                job = jobs[pop['job']]
+                if job not in job_sums:
+                    job_sums[job] = 1
+                else:
+                    job_sums[job] += 1
 
         pop_stats = {
             'total': len(pops),
@@ -546,7 +571,8 @@ def _get_planets_and_pops(state, empire):
 
         return planet_stats, pop_stats
 
-    except:
+    except Exception as err:
+        print(err)
         return {}, {}
 
 
@@ -594,7 +620,8 @@ def _get_fleets(state, empire):
             'ship_types': ship_types,
             'avg_ship_exp': ship_exp / ships['total']
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
 
 
@@ -615,5 +642,6 @@ def _get_armies(state, empire):
             'total': len(armies),
             'types': type_counts
         }
-    except:
+    except Exception as err:
+        print(err)
         return {}
