@@ -1,7 +1,7 @@
 import sys
 import random
 
-from backend.engine.watcher import Watcher
+from backend.engine.watcher import FolderWatcher
 from backend.engine import engine
 from backend.engine import snapper
 from backend.engine import faker
@@ -13,7 +13,7 @@ def main():
     folder = sys.argv[1]
     steps = int(sys.argv[2])
 
-    watcher = Watcher(folder)
+    watcher = FolderWatcher(folder)
     if not watcher.valid:
         print(f'Invalid Stellaris save: {folder}')
     

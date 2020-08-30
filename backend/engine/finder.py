@@ -2,7 +2,7 @@ import time
 import os
 import sys
 
-from .watcher import Watcher
+from .folder_watcher import FolderWatcher
 if sys.platform == 'win32':
     from . import windows_finder as os_finder
 elif sys.platform == 'darwin':
@@ -46,7 +46,7 @@ def find_saves():
         except:
             pass
     watchers = [
-        Watcher(folder) 
+        FolderWatcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     return watchers
@@ -62,7 +62,7 @@ def find_save(folders, wait_for_save):
     print(f'Found {len(save_folders)} saves')
 
     watchers = [
-        Watcher(folder) 
+        FolderWatcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
     start_time = time.time()

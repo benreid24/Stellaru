@@ -3,7 +3,7 @@ import os
 SAVE_FILE = 'stellaru.pickle'
 
 
-class Watcher:
+class FolderWatcher:
     def __init__(self, directory):
         self.directory = directory
         self.latest_write = 0
