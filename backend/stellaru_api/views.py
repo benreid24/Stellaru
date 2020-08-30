@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from engine import sessions
 from engine import finder
 from engine import parser
-from engine.folder_watcher import FolderWatcher
+from engine.file_watcher import FileWatcher
 from engine import engine
 
 
@@ -59,7 +59,7 @@ def get_empires(request):
         return _make_error('Session expired')
 
     folder = os.path.dirname(file)
-    watcher = FolderWatcher(folder)
+    watcher = FileWatcher(folder)
     if not watcher.valid:
         return _make_error('Invalid directory')
 
