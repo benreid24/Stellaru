@@ -248,7 +248,11 @@ def _get_standing(state, empire):
 
 def _get_wars(state, empire):
     try:
-        active_wars = [war for key, war in state['war'].items() if isinstance(war, dict)]
+        active_wars = [
+            war for key, war in state['war'].items()
+            if isinstance(war, dict)
+        ] if isinstance(state['war'], dict) else []
+        
         offense_wars = sum([
             1 for war in active_wars if empire in
                 [attacker['country'] for attacker in war['attackers']]

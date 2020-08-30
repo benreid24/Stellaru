@@ -37,7 +37,6 @@ function Stellaru(props) {
     const onEmpireChoose = (empire) => {
         setChosenEmpire(empire);
         setState(State.monitor);
-        console.log(empire);
         subscription.setChosenInfo(chosenSave.file, empire.id);
     }
 

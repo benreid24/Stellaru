@@ -1,0 +1,16 @@
+.militaryOverviewArea {
+    height: 60%;
+    width: 100%;
+}
+
+.militaryOverviewLabel {
+    color: #bf0527;
+    display: inline-block;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 1.5em;
+}
+
+.militaryOverviewNumber {
+    color: #0387ab;
+}

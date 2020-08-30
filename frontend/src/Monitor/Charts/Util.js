@@ -4,7 +4,7 @@ const NumberSuffixes = [
     {suffix: 'k', value: 1000}
 ];
 
-const PresetColors = Object.freeze({
+const PresetColors = {
     'Energy Credits': '#e8db27',
     'Minerals': '#de2222',
     'Food': '#11de12',
@@ -16,23 +16,34 @@ const PresetColors = Object.freeze({
     'Tech': '#0aa7cf',
     'Economy': '#ded140',
     'Victory Rank': '#96d636'
-}); // TODO - all names and colors
+}; // TODO - all names and colors
 
-const ItemColors = shuffle(objectKeys(PresetColors)).map(key => PresetColors[key]);
+const ItemColors = ["#b6a7b4","#9ed695","#1ddfbc","#e2c496","#cd5889","#3e85bf","#c9e9ee","#f2cee7","#6d7f97","#67903c","#dc4b5a"];
 
 function getDataColors(labels) {
+    const newColors = shuffle(ItemColors);
     let colorIndex = 0;
     let colors = {};
+    let usedColors = [];
     for (let i in labels) {
         const label = labels[i];
         if (label in PresetColors)
             colors[label] = PresetColors[label];
         else {
-            colors[label] = ItemColors[colorIndex];
+            while (usedColors.includes(newColors[colorIndex])) {
+                colorIndex += 1;
+                if (colorIndex >= newColors.length) {
+                    colorIndex = 0;
+                    break;
+                }
+            }
+            colors[label] = newColors[colorIndex];
+            PresetColors[label] = newColors[colorIndex];
             colorIndex += 1;
-            if (colorIndex >= ItemColors.length)
+            if (colorIndex >= newColors.length)
                 colorIndex = 0;
         }
+        usedColors.push(colors[label]);
     }
     return colors;
 }
@@ -45,19 +56,21 @@ function getTextWidth(text, fontSize) {
     return metrics.width;
 }
 
-function selectNested(path, object) {
-    const keys = path.split('/');
-    let ref = object;
-    for (let i in keys) {
-        if (!ref)
-            return null;
-        if (keys[i].length === 0)
-            break;
-        if (!(keys[i] in ref))
-            return null;
-        ref = ref[keys[i]];
-    }
-    return ref;
+function selectNested(path, object, alt=null) {
+    try {
+        const keys = path.split('/');
+        let ref = object;
+        for (let i in keys) {
+            if (!ref)
+                return alt;
+            if (keys[i].length === 0)
+                break;
+            if (!(keys[i] in ref))
+                return alt;
+            ref = ref[keys[i]];
+        }
+        return ref;
+    } catch (err) { return alt; }
 }
 
 function valueToString(value) {

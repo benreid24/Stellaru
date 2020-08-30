@@ -64,6 +64,7 @@ function Monitor(props) {
                 body: JSON.stringify({empire: empire.id, file: save.file})
             }
         ).then(response => response.json()).then(data => {
+            console.log(data);
             setGameData(data['snaps']);
         });
     }, [save, empire]);
