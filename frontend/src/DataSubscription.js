@@ -26,7 +26,6 @@ function getSubscriptionUrl() {
 }
 
 function websocketsSupported() {
-    return false;
     return 'WebSocket' in window || 'MozWebSocket' in window;
 }
 
