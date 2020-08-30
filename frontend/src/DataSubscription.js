@@ -103,6 +103,14 @@ class DataSubscription {
         me.socketRetries = 0;
         me.socket.onclose = () => me.tryReconnect(me);
         me.socket.onmessage = event => me.onData(me, event);
+        if (me.save && !isNaN(me.empire)) {
+            me.socket.send(JSON.stringify({
+                subscribe: {
+                    save: me.save,
+                    empire: me.empire
+                }
+            }));
+        }
     }
 
     tryReconnect(me) {

@@ -7,6 +7,7 @@ from threading import Thread, Lock
 from . import snapper
 from . import sessions
 from . import faker
+from .watcher import Watcher
 
 ZIP_FILE = 'stellaru.zip'
 SAVE_FILE = 'stellaru.pickle'
@@ -82,6 +83,10 @@ def add_save_watcher(watcher, session_id):
         save_lock.acquire()
         monitored_saves[folder]['sessions'].append(session_id)
         save_lock.release()
+
+
+def session_reconnected(session_id, folder):
+    load_and_add_save(Watcher(folder), session_id)
 
 
 def get_save(folder, session_id, load=False):

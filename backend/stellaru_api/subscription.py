@@ -1,6 +1,9 @@
+
+import os
 from channels.generic.websocket import JsonWebsocketConsumer
 
 from engine import sessions
+from engine import engine
 
 class Subscription(JsonWebsocketConsumer):
     def connect(self):
@@ -15,6 +18,12 @@ class Subscription(JsonWebsocketConsumer):
 
     def receive_json(self, content):
         print(f'Message received: Client: {self.id} Content: {content}')
+        if 'subscribe' in content:
+            info = content['subscribe']
+            if 'save' in info and 'empire' in info:
+                folder = os.path.dirname(info['save'])
+                sessions.reconnect_session(self.id, info['empire'], self)
+                engine.session_reconnected(self.id, folder)
 
     def disconnect(self, code):
         print(f'Client {self.id} disconnected with code {code}')

@@ -18,7 +18,7 @@ const PresetColors = {
     'Victory Rank': '#96d636'
 }; // TODO - all names and colors
 
-const ItemColors = ["#b6a7b4","#9ed695","#1ddfbc","#e2c496","#cd5889","#3e85bf","#c9e9ee","#f2cee7","#6d7f97","#67903c","#dc4b5a"];
+const ItemColors = ["#b6a7b4","#9ed695","#1ddfbc","#e2c496","#cd5889","#3e85bf","#f2cee7","#6d7f97","#67903c","#dc4b5a"];
 
 function getDataColors(labels) {
     const newColors = shuffle(ItemColors);
