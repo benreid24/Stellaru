@@ -1,0 +1,16 @@
+.scienceTotalArea {
+    max-height: 10%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.scienceTotal {
+    font-size: 15pt;
+    color: #0b9cbd;
+}
+
+.scienceTotalNumber {
+    font-size: 90%;
+    color: #65c73c;
+}

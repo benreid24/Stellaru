@@ -39,9 +39,12 @@ def _get_save_dirs():
 def find_saves():
     save_folders = []
     for f in _get_save_dirs():
-        save_folders.extend(
-            os.path.join(f, file) for file in os.listdir(f)
-        )
+        try:
+            save_folders.extend(
+                [os.path.join(f, file) for file in os.listdir(f)]
+            )
+        except:
+            pass
     watchers = [
         Watcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0

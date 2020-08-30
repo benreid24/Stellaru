@@ -3,26 +3,7 @@ import {useState, useEffect} from 'react';
 
 import EmpireCard from './EmpireCard';
 import './EmpireChooser.css';
-
-function LoadingDots(props) {
-    const [dots, setDots] = useState('');
-
-    useEffect(() => {
-        const update = () => {
-            let newDots = dots + '.';
-            if (newDots.length > 3)
-                newDots = '';
-            setDots(newDots);
-        };
-
-        let handle = setTimeout(update, 900);
-        return () => {clearTimeout(handle);};
-    });
-
-    return (
-        <span>{dots}</span>
-    );
-}
+import LoadingDots from '../LoadingDots';
 
 function EmpireChooser(props) {
     const [empires, setEmpires] = useState(null);
@@ -54,7 +35,7 @@ function EmpireChooser(props) {
         const rnd = Math.floor(Math.random() * 1000);
         const key = `${empire.name}${rnd}`;
         return (
-            <div className='col-3 empireCardDiv' key={key}>
+            <div className='col-xl-3 col-lg-4 col-md-6 col-xs-10 mb-3' key={key}>
                 <EmpireCard empire={empire} onClick={() => {props.onChoose(empire);}} />
             </div>
         );
@@ -77,7 +58,7 @@ function EmpireChooser(props) {
     }
 
     return (
-        <div>
+        <div className='container-fluid h-100'>
             <h1>Select Empire to Monitor</h1>
             {empires === null && <p>Loading save<LoadingDots/></p>}
             {empires !== null && error === null && 

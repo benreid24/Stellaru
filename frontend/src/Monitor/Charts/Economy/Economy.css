@@ -1,0 +1,34 @@
+.breadcrumbBox {
+    display: inline-block;
+    align-items: center;
+    height: 100%;
+}
+
+.breadcrumbLabel {
+    display: inline-block;
+    color: white;
+    padding-left: 30px;
+    font-size: 120%;
+}
+
+.breadcrumb {
+    padding: 6px;
+    padding-right: 2px;
+    height: 100%;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: underline;
+    background: none;
+}
+
+.breadcrumbArrow {
+    padding: 0px;
+    display: inline-block;
+    cursor: unset;
+    text-decoration: none;
+}
+
+.drilldownHint {
+    padding-top: 15px;
+    padding-left: 25px;
+}

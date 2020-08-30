@@ -31,16 +31,19 @@ function SaveSelector(props) {
         if (props.prevOnly && !save.history)
             continue;
         saveCards.push(
-            <div className="col-3" key={save.name+save.gameDate} style={{paddingBottom: "25px"}}>
+            <div
+                className="col-xl-3 col-lg-4 col-md-6 col-xs-10 mb-3"
+                key={save.name+save.gameDate}
+            >
                 <SaveCard save={save} onClick={() => {props.onchoose(save);}}/>
             </div>
         );
     }
 
     return (
-        <div>
+        <div className='container-fluid h-100'>
             <h1 className="saveChooseHeader">Choose Game Save</h1>
-            <div className="row">
+            <div className="row justify-content-center">
                 {saveCards}
             </div>
         </div>

@@ -1,12 +1,14 @@
 .Stellaru {
   background-color: #292929;
   text-align: center;
+  min-height: 100%;
 }
 
 body {
   color: #fcfcfc !important;
   background-color: #292929 !important;
   min-height: 100%;
+  height: 100%;
   text-align: center;
 }
 
@@ -26,4 +28,8 @@ body {
 
 .error {
   color: #de3344;
+}
+
+.container-fluid {
+  height: 100vh;
 }

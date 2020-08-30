@@ -5,9 +5,7 @@ import Stellaru from './Stellaru';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Stellaru />
-  </React.StrictMode>,
+    <Stellaru />,
   document.getElementById('root')
 );
 

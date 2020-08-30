@@ -11,9 +11,13 @@ function EmpireCard(props) {
 
     return (
         <Card key={empire.name} onClick={() => {onClick(empire.id)}} className="empireCard noselect">
-            <CardContent>
-                <h2 className={textClass}>{empire.name}</h2>
-                <p className='empirePlayer'>{empire.player}</p>
+            <CardContent className='h-100'>
+                <div className='empireNameArea'>
+                    <h2 className={textClass}>{empire.name}</h2>
+                </div>
+                <div className='empireTypeArea'>
+                    <p className='empirePlayer'>{empire.player}</p>
+                </div>
             </CardContent>
         </Card>
     )

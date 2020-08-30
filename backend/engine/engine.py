@@ -7,6 +7,7 @@ from threading import Thread, Lock
 from . import snapper
 from . import sessions
 from . import faker
+from .watcher import Watcher
 
 ZIP_FILE = 'stellaru.zip'
 SAVE_FILE = 'stellaru.pickle'
@@ -84,9 +85,15 @@ def add_save_watcher(watcher, session_id):
         save_lock.release()
 
 
-def get_save(folder):
+def session_reconnected(session_id, folder):
+    load_and_add_save(Watcher(folder), session_id)
+
+
+def get_save(folder, session_id, load=False):
     if folder in monitored_saves:
         return monitored_saves[folder]
+    if load:
+        return load_and_add_save(Watcher(folder), session_id)
     return None
 
 
@@ -125,25 +132,28 @@ def _watch_save(watcher):
     folder = os.path.dirname(watcher.get_file())
 
     while True:
-        # Check deleted
-        if folder not in monitored_saves:
-            break
-        save = monitored_saves[folder]
+        try:
+            # Check deleted
+            if folder not in monitored_saves:
+                break
+            save = monitored_saves[folder]
 
-        # Check sessions expired
-        save['sessions'] = [
-            session for session in save['sessions']
-            if not sessions.session_expired(session)
-        ]
-        if not save['sessions']:
-            print(f'Save expired: {watcher.get_file()}')
-            save_lock.acquire()
-            monitored_saves.pop(folder)
-            save_lock.release()
-            break
+            # Check sessions expired
+            save['sessions'] = [
+                session for session in save['sessions']
+                if not sessions.session_expired(session)
+            ]
+            if not save['sessions']:
+                print(f'Save expired: {watcher.get_file()}')
+                save_lock.acquire()
+                #monitored_saves.pop(folder)
+                save_lock.release()
+                break
 
-        # Refresh
-        _debug_watcher_update(save, folder, watcher)
+            # Refresh
+            _watcher_update(save, folder, watcher)
 
-        _send_to_sessions(save, WAITING_MESSAGE)
-        time.sleep(1)
+            _send_to_sessions(save, WAITING_MESSAGE)
+            time.sleep(1)
+        except:
+            pass
