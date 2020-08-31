@@ -2,6 +2,8 @@ import time
 import os
 import sys
 
+from .save_watcher import SaveWatcher
+
 from .file_watcher import FileWatcher
 if sys.platform == 'win32':
     from . import windows_finder as os_finder
@@ -45,10 +47,17 @@ def find_saves():
             )
         except:
             pass
-    watchers = [
+    file_watchers = [
         FileWatcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
+    save_watchers = {}
+    for watcher in file_watchers:
+        name = SaveWatcher.extract_save_name(watcher.get_directory())
+        if name in save_watchers:
+            save_watchers[name].add_save_location(watcher)
+        else:
+            save_watchers[name] = SaveWatcher(watcher)
     return watchers
 
 
