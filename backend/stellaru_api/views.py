@@ -60,7 +60,7 @@ def get_empires(request):
         return _make_error('Session expired')
 
     save_watcher = finder.get_save(save_file)
-    if not save or not save.valid():
+    if not save_watcher or not save_watcher.valid():
         return _make_error(f'Invalid save file: {save_file}')
 
     save = engine.load_and_add_save(save_watcher, request.session['id'])
@@ -70,7 +70,7 @@ def get_empires(request):
         'player': save['snaps'][-1]['empires'][empire_id]['player_name']
     } for empire_id in save['snaps'][-1]['empires']]
     return JsonResponse({
-        'folder': folder,
+        'file': save_watcher.name(),
         'empires': empires
     })
 
@@ -85,7 +85,7 @@ def get_data(request):
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
         save_watcher = finder.get_save(parsed['file'])
-        if not save or not save.valid():
+        if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
         empire = parsed['empire']
         save = engine.get_save(save_watcher, request.session['id'])
@@ -114,7 +114,7 @@ def get_latest_snap(request):
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
         save_watcher = finder.get_save(parsed['file'])
-        if not save or not save.valid():
+        if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
         empire = parsed['empire']
         save = engine.get_save(save_watcher, request.session['id'], True)

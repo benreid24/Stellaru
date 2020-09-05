@@ -6,10 +6,10 @@ from threading import Thread, Lock
 
 from . import snapper
 from . import sessions
+from . import finder
 from . import faker
 from .file_watcher import FileWatcher
 
-ZIP_FILE = 'stellaru.zip'
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
 LOADING_MESSAGE = {'status': 'LOADING'}
@@ -32,10 +32,10 @@ def insert_snap(snaps, snap):
 
 
 def _load_save(watcher, session_id):
-    folder = watcher.name()
+    data_file = watcher.get_data_file()
     snaps = []
     try:
-        with ZipFile(os.path.join(folder, ZIP_FILE), 'r') as zip:
+        with ZipFile(data_file, 'r') as zip:
             with zip.open(SAVE_FILE, 'r') as f:
                 snaps = pickle.loads(f.read())
     except:
@@ -43,7 +43,6 @@ def _load_save(watcher, session_id):
     snap = snapper.build_snapshot_from_watcher(watcher)
     insert_snap(snaps, snap)
     return {
-        'directory': folder,
         'watcher': watcher,
         'sessions': [session_id],
         'snaps': snaps,
@@ -85,8 +84,10 @@ def add_save_watcher(watcher, session_id):
         save_lock.release()
 
 
-def session_reconnected(session_id, folder):
-    load_and_add_save(FileWatcher(folder), session_id)
+def session_reconnected(session_id, file):
+    save_watcher = finder.get_save(file)
+    if save_watcher:
+        load_and_add_save(save_watcher, session_id)
 
 
 def get_save(watcher, session_id, load=False):
@@ -98,8 +99,8 @@ def get_save(watcher, session_id, load=False):
 
 
 def _flush_save(save):
-    folder = save['directory']
-    with ZipFile(os.path.join(folder, ZIP_FILE), 'w', ZIP_BZIP2) as zip:
+    data_file = save['watcher'].get_data_file()
+    with ZipFile(data_file, 'w', ZIP_BZIP2) as zip:
         with zip.open(SAVE_FILE, 'w') as f:
             f.write(pickle.dumps(save['snaps']))
 

@@ -2,7 +2,7 @@ import os
 
 from .file_watcher import FileWatcher
 
-SAVE_FILE = 'stellaru.pickle'
+SAVE_FILE = 'stellaru.zip'
 
 
 class SaveWatcher:
