@@ -596,6 +596,7 @@ def _get_fleets(state, empire):
         fleets = [
             fleet for fid, fleet in state['fleet'].items()
             if isinstance(fleet, dict) and
+            'owner' in fleet and
             fleet['owner'] == empire and
             ('civilian' not in fleet or fleet['civilian'] == 'no') and
             ('station' not in fleet or fleet['station'] == 'no') and
@@ -607,18 +608,19 @@ def _get_fleets(state, empire):
         ship_types = {}
         ship_exp = 0
         for fleet in fleets:
-            for ship_id in fleet['ships']:
-                stype = 'Unknown'
-                if ship_id in state['ships']:
-                    ship = state['ships'][ship_id]
-                    ship_exp += ship['experience'] if 'experience' in ship else 0
-                    if ship['ship_design'] in state['ship_design']:
-                        design = state['ship_design'][ship['ship_design']]
-                        stype = design['ship_size'].capitalize()
-                        if stype not in ship_types:
-                            ship_types[stype] = 1
-                        else:
-                            ship_types[stype] += 1
+            if 'ships' in fleet:
+                for ship_id in fleet['ships']:
+                    stype = 'Unknown'
+                    if ship_id in state['ships']:
+                        ship = state['ships'][ship_id]
+                        ship_exp += ship['experience'] if 'experience' in ship else 0
+                        if ship['ship_design'] in state['ship_design']:
+                            design = state['ship_design'][ship['ship_design']]
+                            stype = design['ship_size'].capitalize()
+                            if stype not in ship_types:
+                                ship_types[stype] = 1
+                            else:
+                                ship_types[stype] += 1
         return {
             'total': len(fleets),
             'fleet_power': power,
