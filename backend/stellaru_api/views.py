@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import json
+import traceback
 
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -23,11 +24,11 @@ def get_saves(request):
         save_files = finder.find_saves()
         saves = [
             {
-                'meta': parser.load_meta(save.get_file()),
-                'file': save.get_file(),
+                'meta': parser.load_meta(save.get_file_for_read()),
+                'file': save.name(),
                 'time': save.time(),
-                'history': save.has_history
-            } for save in save_files if save.valid
+                'history': save.has_history()
+            } for save in save_files if save.valid()
         ]
         saves = [
             {
@@ -40,30 +41,29 @@ def get_saves(request):
         ]
         return JsonResponse({'saves': saves})
     except Exception as err:
-        print(f'Error: {err}')
+        traceback.print_tb(err.__traceback__)
         return _make_error(err)
 
 
 @csrf_exempt
 def get_empires(request):
-    file = None
+    save_file = None
     try:
         sessions.register_session(request.session)
         parsed = json.loads(request.body)
         if 'file' not in parsed:
             return _make_error('"file" parameter not set in POST')
-        file = parsed['file']
+        save_file = parsed['file']
     except Exception as err:
         return _make_error('Bad request body')
     if 'id' not in request.session:
         return _make_error('Session expired')
 
-    folder = os.path.dirname(file)
-    watcher = FileWatcher(folder)
-    if not watcher.valid:
-        return _make_error('Invalid directory')
+    save_watcher = finder.get_save(save_file)
+    if not save or not save.valid():
+        return _make_error(f'Invalid save file: {save_file}')
 
-    save = engine.load_and_add_save(watcher, request.session['id'])
+    save = engine.load_and_add_save(save_watcher, request.session['id'])
     empires = [{
         'id': empire_id,
         'name': save['snaps'][-1]['empires'][empire_id]['name'],
@@ -81,20 +81,22 @@ def get_data(request):
         sessions.register_session(request.session)
         parsed = json.loads(request.body)
         if 'file' not in parsed:
-            return _make_error('"folder" parameter not set in POST')
+            return _make_error('"file" parameter not set in POST')
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
-        folder = os.path.dirname(parsed['file'])
+        save_watcher = finder.get_save(parsed['file'])
+        if not save or not save.valid():
+            return _make_error(f'Invalid save file: {parsed["file"]}')
         empire = parsed['empire']
-        save = engine.get_save(folder, request.session['id'])
+        save = engine.get_save(save_watcher, request.session['id'])
         if not save:
-            return _make_error(f'Invalid save: {folder}')
+            return _make_error(f'Invalid save: {save_watcher.name()}')
         if empire not in save['snaps'][-1]['empires']:
-            return _make_error(f'Empire {empire} not in save {folder}')
+            return _make_error(f'Empire {empire} not in save {save_watcher.name()}')
         sessions.set_session_empire(request.session['id'], empire)
         snaps = [snap['empires'][empire] for snap in save['snaps']]
         return JsonResponse({
-            'folder': folder,
+            'file': save_watcher.name(),
             'empire': empire,
             'snaps': snaps
         })
@@ -107,20 +109,22 @@ def get_latest_snap(request):
     try:
         sessions.register_session(request.session)
         parsed = json.loads(request.body)
-        if 'save' not in parsed:
-            return _make_error('"save" parameter not set in POST')
+        if 'file' not in parsed:
+            return _make_error('"file" parameter not set in POST')
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
-        folder = os.path.dirname(parsed['save'])
+        save_watcher = finder.get_save(parsed['file'])
+        if not save or not save.valid():
+            return _make_error(f'Invalid save file: {parsed["file"]}')
         empire = parsed['empire']
-        save = engine.get_save(folder, request.session['id'], True)
+        save = engine.get_save(save_watcher, request.session['id'], True)
         if not save:
-            return _make_error(f'Invalid save: {folder}')
+            return _make_error(f'Invalid save: {save_watcher.name()}')
         if empire not in save['snaps'][-1]['empires']:
-            return _make_error(f'Empire {empire} not in save {folder}')
+            return _make_error(f'Empire {empire} not in save {save_watcher.name()}')
         sessions.set_session_empire(request.session['id'], empire)
         return JsonResponse({
-            'folder': folder,
+            'file': save_watcher.name(),
             'empire': empire,
             'latest_snap': save['snaps'][-1]['empires'][empire]
         })

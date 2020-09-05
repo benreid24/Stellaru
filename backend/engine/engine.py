@@ -32,7 +32,7 @@ def insert_snap(snaps, snap):
 
 
 def _load_save(watcher, session_id):
-    folder = os.path.dirname(watcher.get_file())
+    folder = watcher.name()
     snaps = []
     try:
         with ZipFile(os.path.join(folder, ZIP_FILE), 'r') as zip:
@@ -53,7 +53,7 @@ def _load_save(watcher, session_id):
 
 def load_and_add_save(watcher, session_id):
     global monitored_saves
-    folder = os.path.dirname(watcher.get_file())
+    folder = watcher.name()
     if folder not in monitored_saves:
         save_lock.acquire()
         monitored_saves[folder] = _load_save(watcher, session_id)
@@ -66,7 +66,7 @@ def load_and_add_save(watcher, session_id):
 
 def append_save(watcher, snapshot):
     global monitored_saves
-    folder = os.path.dirname(watcher.get_file())
+    folder = watcher.name()
     if folder in monitored_saves:
         save_lock.acquire()
         insert_snap(monitored_saves[folder]['snaps'], snapshot)
@@ -78,7 +78,7 @@ def append_save(watcher, snapshot):
 
 def add_save_watcher(watcher, session_id):
     global monitored_saves
-    folder = os.path.dirname(watcher.get_file())
+    folder = watcher.name()
     if folder in monitored_saves:
         save_lock.acquire()
         monitored_saves[folder]['sessions'].append(session_id)
@@ -89,11 +89,11 @@ def session_reconnected(session_id, folder):
     load_and_add_save(FileWatcher(folder), session_id)
 
 
-def get_save(folder, session_id, load=False):
-    if folder in monitored_saves:
-        return monitored_saves[folder]
+def get_save(watcher, session_id, load=False):
+    if watcher.name() in monitored_saves:
+        return monitored_saves[watcher.name()]
     if load:
-        return load_and_add_save(FileWatcher(folder), session_id)
+        return load_and_add_save(watcher, session_id)
     return None
 
 
@@ -109,34 +109,33 @@ def _send_to_sessions(save, payload):
         sessions.notify_session(session, payload)
 
 
-def _debug_watcher_update(save, folder, watcher):
+def _debug_watcher_update(save):
     _send_to_sessions(save, LOADING_MESSAGE)
     time.sleep(5)
     last_snap = save['snaps'][-1]
     fake = faker.fake_snap(last_snap)
-    append_save(watcher, fake)
+    append_save(save['watcher'], fake)
     _send_to_sessions(save, fake)
 
 
-def _watcher_update(save, folder, watcher):
+def _watcher_update(save):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
         _send_to_sessions(save, LOADING_MESSAGE)
         snap = snapper.build_snapshot_from_watcher(save['watcher'])
-        append_save(watcher, snap)
+        append_save(save['watcher'], snap)
         _send_to_sessions(save, snap)
 
 
 def _watch_save(watcher):
     global monitored_saves
-    folder = os.path.dirname(watcher.get_file())
 
     while True:
         try:
             # Check deleted
-            if folder not in monitored_saves:
+            if watcher.name() not in monitored_saves:
                 break
-            save = monitored_saves[folder]
+            save = monitored_saves[watcher.name()]
 
             # Check sessions expired
             save['sessions'] = [
@@ -144,14 +143,14 @@ def _watch_save(watcher):
                 if not sessions.session_expired(session)
             ]
             if not save['sessions']:
-                print(f'Save expired: {watcher.get_file()}')
+                print(f'Save expired: {watcher.name()}')
                 save_lock.acquire()
-                #monitored_saves.pop(folder)
+                #monitored_saves.pop(watcher.name())
                 save_lock.release()
                 break
 
             # Refresh
-            _watcher_update(save, folder, watcher)
+            _watcher_update(save)
 
             _send_to_sessions(save, WAITING_MESSAGE)
             time.sleep(1)

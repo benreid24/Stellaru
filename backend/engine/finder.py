@@ -14,11 +14,11 @@ elif sys.platform == 'linux':
 else:
     raise Exception(f'Unsupported operating system: {sys.platform}')
 
-TIMEOUT = 300
-
 STEAM_USERDATA = 'userdata'
 STELLARIS_ID = '281990'
 CLOUD_SAVE_SUFFIX = 'remote/save games'
+
+saves = {}
 
 
 def _get_save_dirs():
@@ -38,7 +38,7 @@ def _get_save_dirs():
     return save_dirs
 
 
-def find_saves():
+def _refresh():
     save_folders = []
     for f in _get_save_dirs():
         try:
@@ -51,46 +51,23 @@ def find_saves():
         FileWatcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
-    save_watchers = {}
+
+    global saves
+    new_saves = []
     for watcher in file_watchers:
-        name = SaveWatcher.extract_save_name(watcher.get_directory())
-        if name in save_watchers:
-            save_watchers[name].add_save_location(watcher)
+        name = SaveWatcher.extract_save_name(watcher.get_file_for_read())
+        if name in saves:
+            saves[name].add_save_location(watcher)
         else:
-            save_watchers[name] = SaveWatcher(watcher)
-    return watchers
+            saves[name] = SaveWatcher(watcher)
+            new_saves.append(name)
+    return new_saves
 
 
-def find_save(folders, wait_for_save):
-    print(f'Searching for files in: {folders}')
-    save_folders = []
-    for f in folders:
-        save_folders.extend(
-            os.path.join(f, file) for file in os.listdir(f)
-        )
-    print(f'Found {len(save_folders)} saves')
+def find_saves():
+    _refresh()
+    return [save for name, save in saves.items()]
 
-    watchers = [
-        FileWatcher(folder) 
-        for folder in save_folders if len(folder.split('_')) > 0
-    ]
-    start_time = time.time()
 
-    if not watchers:
-        print('No saves present')
-        return None
-
-    if wait_for_save:
-        print(f'Waiting for new save for {TIMEOUT} seconds')
-        while time.time() - start_time < TIMEOUT:
-            for watcher in watchers:
-                if watcher.new_data_available():
-                    return watcher
-        return None
-    else:
-        print('Selecting latest save')
-        newest_watcher = watchers[0]
-        for watcher in watchers:
-            if watcher.time() > newest_watcher.time():
-                newest_watcher = watcher
-        return newest_watcher
+def get_save(name):
+    return saves[name] if name in saves else None
