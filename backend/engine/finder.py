@@ -14,6 +14,8 @@ elif sys.platform == 'linux':
 else:
     raise Exception(f'Unsupported operating system: {sys.platform}')
 
+TIMEOUT = 300
+
 STEAM_USERDATA = 'userdata'
 STELLARIS_ID = '281990'
 CLOUD_SAVE_SUFFIX = 'remote/save games'
@@ -57,7 +59,8 @@ def _refresh():
     for watcher in file_watchers:
         name = SaveWatcher.extract_save_name(watcher.get_file_for_read())
         if name in saves:
-            saves[name].add_save_location(watcher)
+            if saves[name].add_save_location(watcher):
+                new_saves.append(name)
         else:
             saves[name] = SaveWatcher(watcher)
             new_saves.append(name)
@@ -71,3 +74,23 @@ def find_saves():
 
 def get_save(name):
     return saves[name] if name in saves else None
+
+
+def wait_for_save():
+    start_time = time.time()
+
+    while time.time() - start_time <= TIMEOUT:
+        new_saves = _refresh()
+        new_saves.extend([watcher.name() for watcher in saves if watcher.new_data_available()])
+        if new_saves:
+            watchers = [get_save(save) for save in new_saves]
+            ltime = 0
+            ls = None
+            for watcher in watchers:
+                if watcher.time() > ltime:
+                    ltime = watcher.time()
+                    ls = watcher
+            return ls
+        time.sleep(3)
+    
+    return None

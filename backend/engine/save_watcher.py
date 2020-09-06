@@ -26,7 +26,11 @@ class SaveWatcher:
     def add_save_location(self, watcher):
         if SaveWatcher.extract_save_name(watcher.get_file_for_read()) != self.save_name:
             raise Exception('Save names do not match')
-        self.watchers.append(watcher)
+        dirs = [watcher.get_directory() for watcher in self.watchers]
+        if watcher.get_directory() not in dirs:
+            self.watchers.append(watcher)
+            return True
+        return False
 
     def refresh(self):
         finder._refresh()

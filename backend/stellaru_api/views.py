@@ -45,6 +45,31 @@ def get_saves(request):
         return _make_error(err)
 
 
+def wait_save(request):
+    try:
+        sessions.register_session(request.session)
+        save_watcher = finder.wait_for_save()
+        if not save_watcher:
+            return _make_error('No save created or saved while waiting')
+        if not save_watcher.valid():
+            return _make_error('No valid save found')
+
+        save = engine.load_and_add_save(save_watcher, request.session['id'])
+        empires = [{
+            'id': empire_id,
+            'name': save['snaps'][-1]['empires'][empire_id]['name'],
+            'player': save['snaps'][-1]['empires'][empire_id]['player_name']
+        } for empire_id in save['snaps'][-1]['empires']]
+
+        return JsonResponse({
+            'file': save_watcher.name(),
+            'empires': empires
+        })
+    except Exception as err:
+        traceback.print_tb(err.__traceback__)
+        return _make_error(err)
+
+
 @csrf_exempt
 def get_empires(request):
     save_file = None
@@ -54,25 +79,25 @@ def get_empires(request):
         if 'file' not in parsed:
             return _make_error('"file" parameter not set in POST')
         save_file = parsed['file']
+
+        save_watcher = finder.get_save(save_file)
+        if not save_watcher or not save_watcher.valid():
+            return _make_error(f'Invalid save file: {save_file}')
+
+        save = engine.load_and_add_save(save_watcher, request.session['id'])
+        empires = [{
+            'id': empire_id,
+            'name': save['snaps'][-1]['empires'][empire_id]['name'],
+            'player': save['snaps'][-1]['empires'][empire_id]['player_name']
+        } for empire_id in save['snaps'][-1]['empires']]
+
+        return JsonResponse({
+            'file': save_watcher.name(),
+            'empires': empires
+        })
     except Exception as err:
-        return _make_error('Bad request body')
-    if 'id' not in request.session:
-        return _make_error('Session expired')
-
-    save_watcher = finder.get_save(save_file)
-    if not save_watcher or not save_watcher.valid():
-        return _make_error(f'Invalid save file: {save_file}')
-
-    save = engine.load_and_add_save(save_watcher, request.session['id'])
-    empires = [{
-        'id': empire_id,
-        'name': save['snaps'][-1]['empires'][empire_id]['name'],
-        'player': save['snaps'][-1]['empires'][empire_id]['player_name']
-    } for empire_id in save['snaps'][-1]['empires']]
-    return JsonResponse({
-        'file': save_watcher.name(),
-        'empires': empires
-    })
+        traceback.print_tb(err.__traceback__)
+        return _make_error(err)
 
 
 @csrf_exempt
@@ -84,15 +109,18 @@ def get_data(request):
             return _make_error('"file" parameter not set in POST')
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
+
         save_watcher = finder.get_save(parsed['file'])
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
+
         empire = parsed['empire']
         save = engine.get_save(save_watcher, request.session['id'])
         if not save:
             return _make_error(f'Invalid save: {save_watcher.name()}')
         if empire not in save['snaps'][-1]['empires']:
             return _make_error(f'Empire {empire} not in save {save_watcher.name()}')
+
         sessions.set_session_empire(request.session['id'], empire)
         snaps = [snap['empires'][empire] for snap in save['snaps']]
         return JsonResponse({
@@ -113,6 +141,7 @@ def get_latest_snap(request):
             return _make_error('"file" parameter not set in POST')
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
+
         save_watcher = finder.get_save(parsed['file'])
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
@@ -122,6 +151,7 @@ def get_latest_snap(request):
             return _make_error(f'Invalid save: {save_watcher.name()}')
         if empire not in save['snaps'][-1]['empires']:
             return _make_error(f'Empire {empire} not in save {save_watcher.name()}')
+
         sessions.set_session_empire(request.session['id'], empire)
         return JsonResponse({
             'file': save_watcher.name(),
