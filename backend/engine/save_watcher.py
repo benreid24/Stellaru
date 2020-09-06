@@ -1,5 +1,6 @@
 import os
 
+from . import finder
 from .file_watcher import FileWatcher
 
 SAVE_FILE = 'stellaru.zip'
@@ -28,6 +29,7 @@ class SaveWatcher:
         self.watchers.append(watcher)
 
     def refresh(self):
+        finder._refresh()
         for watcher in self.watchers:
             watcher.refresh()
 
