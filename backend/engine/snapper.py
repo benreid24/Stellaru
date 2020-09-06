@@ -243,7 +243,12 @@ def _get_standing(state, empire):
         }
     except Exception as err:
         print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
-        return {}
+        return {
+            'victory_rank': 0,
+            'tech_power': 0,
+            'economy_power': 0,
+            'military_power': 0
+        }
 
 
 def _get_wars(state, empire):
