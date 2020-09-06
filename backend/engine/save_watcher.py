@@ -52,12 +52,19 @@ class SaveWatcher:
         return ftime
 
     def get_data_file(self):
+        if not self.watchers:
+            return ''
+        dfile = ''
+        dfile_time = 0
         for watcher in self.watchers:
             path = os.path.join(watcher.get_directory(), SAVE_FILE)
             if os.path.isfile(path):
-                return path
-        if not self.watchers:
-            return ''
+                info = os.stat(path)
+                if info.st_mtime > dfile_time:
+                    dfile_time = info.st_mtime
+                    dfile = path
+        if dfile:
+            return dfile
         return os.path.join(self.watchers[0].get_directory(), SAVE_FILE)
 
     def get_file(self):
