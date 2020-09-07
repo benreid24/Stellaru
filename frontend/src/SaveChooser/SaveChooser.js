@@ -2,6 +2,7 @@ import React from 'react';
 
 import {MethodChooser, Methods} from './MethodChooser';
 import SaveSelector from './SaveSelector';
+import SaveWaiter from './SaveWaiter';
 
 import './SaveChooser.css';
 
@@ -9,7 +10,6 @@ const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choose
 // TODO - support showing saves currently being watched
 
 function selectLatestSave(saves) {
-    console.log(saves);
     let ld = saves[0].fileDatetime;
     let ls = saves[0];
     for (let i = 1; i<saves.length; i += 1) {
@@ -107,6 +107,9 @@ class SaveChooser extends React.Component {
                         saves={this.state.saves}
                         prevOnly={this.state.state === State.choosePrevSave}
                     />
+                }
+                {this.state.state === State.waitSave &&
+                    <SaveWaiter onSave={save => this.selectSave(save)}/>
                 }
             </div>
         );
