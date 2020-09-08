@@ -81,7 +81,7 @@ def wait_for_save():
 
     while time.time() - start_time <= TIMEOUT:
         new_saves = _refresh()
-        new_saves.extend([watcher.name() for watcher in saves if watcher.new_data_available()])
+        new_saves.extend([save for save in saves if get_save(save).new_data_available()])
         if new_saves:
             watchers = [get_save(save) for save in new_saves]
             ltime = 0

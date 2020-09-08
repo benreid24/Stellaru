@@ -54,16 +54,14 @@ def wait_save(request):
         if not save_watcher.valid():
             return _make_error('No valid save found')
 
-        save = engine.load_and_add_save(save_watcher, request.session['id'])
-        empires = [{
-            'id': empire_id,
-            'name': save['snaps'][-1]['empires'][empire_id]['name'],
-            'player': save['snaps'][-1]['empires'][empire_id]['player_name']
-        } for empire_id in save['snaps'][-1]['empires']]
-
+        meta = parser.load_meta(save_watcher.get_file_for_read())
         return JsonResponse({
-            'file': save_watcher.name(),
-            'empires': empires
+            'save': {
+                'file': save_watcher.name(),
+                'name': meta['name'],
+                'gameDate': meta['date'],
+                'fileDatetime': datetime.fromtimestamp(save_watcher.time())
+            }
         })
     except Exception as err:
         traceback.print_tb(err.__traceback__)

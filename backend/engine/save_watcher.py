@@ -43,7 +43,7 @@ class SaveWatcher:
 
     def new_data_available(self):
         self.refresh()
-        for watcher in self.wacthers:
+        for watcher in self.watchers:
             if watcher.new_data_available():
                 return True
         return False

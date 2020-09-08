@@ -30,8 +30,8 @@ function Stellaru(props) {
     const [chosenEmpire, setChosenEmpire] = useState(null);
 
     const onSaveChoose = (save) => {
-        setState(State.chooseEmpire);
         setChosenSave(save);
+        setState(State.chooseEmpire);
     };
 
     const onEmpireChoose = (empire) => {

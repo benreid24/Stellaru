@@ -7,6 +7,12 @@
     font-size: 45pt;
 }
 
+.saveWaitHeader {
+    margin-top: -20px;
+    padding-bottom: 20px;
+    font-size: 45pt;
+}
+
 .methodName {
     color: #ecdecc;
 }
@@ -58,4 +64,60 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+}
+
+.savePrompt {
+    border: 1px solid #121212;
+    border-radius: 5px;
+    background-color: #303030;
+    width: 100%;
+    box-shadow: 3px 3px #121212;
+}
+
+.savePromptTitle {
+    font-size: 25pt;
+    color: #c5d0fc;
+}
+
+.savePromptName {
+    font-size: 20pt;
+    color: #069ec4;
+}
+
+.savePromptDate {
+    color: #6a8a8a;
+    font-style: italic;
+}
+
+.savePromptFileTime {
+    color: #aaaaaa;
+}
+
+.savePromptButtonWrapper {
+    padding-left: 25%;
+}
+
+.savePromptButton {
+    cursor: pointer;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    background-color: #454545;
+    box-shadow: 3px 3px #121212;
+    width: 75%;
+}
+
+.savePromptButton:hover {
+    background-color: #656565;
+}
+
+.savePromptButton:active {
+    background-color: #353535;
+}
+
+.savePromptNo {
+    color: #b51212;
+}
+
+.savePromptYes {
+    color: #12b512;
 }
