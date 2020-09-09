@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {MethodChooser, Methods} from './MethodChooser';
 import SaveSelector from './SaveSelector';
@@ -6,8 +6,7 @@ import SaveWaiter from './SaveWaiter';
 
 import './SaveChooser.css';
 
-const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choosePrevSave: 3});
-// TODO - support showing saves currently being watched
+const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choosePrevSave: 3, chooseActiveSave: 4});
 
 function selectLatestSave(saves) {
     let ld = saves[0].fileDatetime;
@@ -21,19 +20,13 @@ function selectLatestSave(saves) {
     return ls;
 }
 
-class SaveChooser extends React.Component {
-    constructor(props) {
-        super(props);
+function SaveChooser(props) {
+    const selectSave = props.onChoose;
+    const [state, setState] = useState(State.chooseMethod);
+    const [saves, setSaves] = useState([]);
+    const [error, setError] = useState(null);
 
-        this.state = {
-            state: State.chooseMethod,
-            saves: [],
-            onChoose: props.onChoose,
-            error: null
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch('api/saves')
             .then(response => response.json())
             .then(data => {
@@ -49,71 +42,56 @@ class SaveChooser extends React.Component {
                             return -1;
                         return 0;
                     });
-                    this.setState({
-                        state: this.state.state,
-                        saves: saves
-                    });
+                    setSaves(saves);
                 }
                 else {
-                    this.setState({
-                        error: data['error']
-                    });
+                    setError(data['error']);
                 }
             });
-    }
+    });
 
-    methodChose(method) {
+    const methodChose = (method) => {
         switch (method) {
             case Methods.wait:
-                this.setState({state: State.waitSave});
+                setState(State.waitSave);
                 break;
             case Methods.choose:
-                this.setState({state: State.chooseSave});
+                setState(State.chooseSave);
                 break;
             case Methods.latest:
-                this.selectSave(selectLatestSave(this.state.saves));
+                selectSave(selectLatestSave(this.state.saves));
                 break;
             case Methods.chooseExisting:
-                this.setState({state: State.choosePrevSave});
+                setState(State.choosePrevSave);
                 break;
             default:
                 console.log('Unknown state: ', method);
                 break;
         }
-    }
+    };
 
-    selectSave(save) {
-        this.state.onChoose(save);
-    }
-
-    render() {
-        if (this.state.error) {
-            return (
-                <div className="saveChooser">
-                    <h1 class='error'>Error</h1>
-                    <p class='error'>{this.state.error}</p>
-                </div>
-            );
-        }
-
+    if (error) {
         return (
             <div className="saveChooser">
-                {this.state.state === State.chooseMethod &&
-                    <MethodChooser onchoose={(method) => {this.methodChose(method);}}/>
-                }
-                {(this.state.state === State.chooseSave || this.state.state === State.choosePrevSave) &&
-                    <SaveSelector
-                        onchoose={(save) => {this.selectSave(save);}}
-                        saves={this.state.saves}
-                        prevOnly={this.state.state === State.choosePrevSave}
-                    />
-                }
-                {this.state.state === State.waitSave &&
-                    <SaveWaiter onSave={save => this.selectSave(save)}/>
-                }
+                <h1 class='error'>Error</h1>
+                <p class='error'>{error}</p>
             </div>
         );
     }
+
+    return (
+        <div className="saveChooser">
+            {state === State.chooseMethod && <MethodChooser onchoose={methodChose}/>}
+            {(state === State.chooseSave || state === State.choosePrevSave) &&
+                <SaveSelector
+                    onchoose={selectSave}
+                    saves={saves}
+                    prevOnly={state === State.choosePrevSave}
+                />
+            }
+            {state === State.waitSave && <SaveWaiter onSave={selectSave}/>}
+        </div>
+    );
 }
 
 export default SaveChooser;

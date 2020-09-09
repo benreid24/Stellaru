@@ -98,6 +98,10 @@ def get_save(watcher, session_id, load=False):
     return None
 
 
+def save_active(save_name):
+    return save_name in monitored_saves
+
+
 def _flush_save(save):
     data_file = save['watcher'].get_data_file()
     with ZipFile(data_file, 'w', ZIP_BZIP2) as zip:
