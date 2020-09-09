@@ -1,13 +1,12 @@
 import os
 
-SAVE_FILE = 'stellaru.pickle'
+SAVE_FILE = 'stellaru.zip'
 
 
-class Watcher:
+class FileWatcher:
     def __init__(self, directory):
         self.directory = directory
         self.latest_write = 0
-        self.latest_read = 0
         self.latest_file = ''
         self.valid = False
         self.refresh()
@@ -28,10 +27,6 @@ class Watcher:
         for file in file_list:
             info = os.stat(file)
             
-            if info.st_atime > self.latest_read:
-                update = True
-                self.latest_read = info.st_atime
-                self.latest_file = file
             if info.st_mtime > self.latest_write:
                 update = True
                 self.new_data = True
@@ -41,7 +36,7 @@ class Watcher:
         return update
 
     def time(self):
-        return max(self.latest_read, self.latest_write)
+        return self.latest_write
 
     def new_data_available(self):
         return self.new_data

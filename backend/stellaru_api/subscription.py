@@ -20,10 +20,9 @@ class Subscription(JsonWebsocketConsumer):
         print(f'Message received: Client: {self.id} Content: {content}')
         if 'subscribe' in content:
             info = content['subscribe']
-            if 'save' in info and 'empire' in info:
-                folder = os.path.dirname(info['save'])
+            if 'file' in info and 'empire' in info:
                 sessions.reconnect_session(self.id, info['empire'], self)
-                engine.session_reconnected(self.id, folder)
+                engine.session_reconnected(self.id, info['file'])
 
     def disconnect(self, code):
         print(f'Client {self.id} disconnected with code {code}')

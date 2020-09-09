@@ -8,10 +8,17 @@ const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: tr
 function SaveCard(props) {
     const save = props.save;
     const onClick = props.onClick;
+    let nameClass = 'noselect';
+    if (props.save.active)
+        nameClass += ' activeSaveName';
+    else if (props.save.history)
+        nameClass += ' historySaveName';
+    else
+        nameClass += ' saveName';
     return (
         <Card className="saveCardDiv" onClick={onClick}>
             <CardContent>
-                <h2 className="saveName noselect">{save.name}</h2>
+                <h2 className={nameClass}>{save.name}</h2>
                     <div className="saveCardBottomDiv">
                         <p className="saveGameDate noselect">{save.gameDate}</p>
                         <p className="saveFileDatetime noselect">
@@ -24,11 +31,26 @@ function SaveCard(props) {
     );
 }
 
+function Legend(props) {
+    return (
+        <div className='saveLegend'>
+            <h2 className='saveLegendTitle'>Legend</h2>
+            <div className='saveLegendItems'>
+                <h3 className='activeSaveName'>Running Save</h3>
+                <h3 className='historySaveName'>Previously Loaded Save</h3>
+                <h3 className='saveName'>Regular Save</h3>
+            </div>
+        </div>
+    );
+}
+
 function SaveSelector(props) {
     let saveCards = [];
     for (let i = 0; i<props.saves.length; i += 1) {
         const save = props.saves[i];
         if (props.prevOnly && !save.history)
+            continue;
+        if (props.activeOnly && !save.active)
             continue;
         saveCards.push(
             <div
@@ -43,6 +65,7 @@ function SaveSelector(props) {
     return (
         <div className='container-fluid h-100'>
             <h1 className="saveChooseHeader">Choose Game Save</h1>
+            {!props.prevOnly && !props.activeOnly && <Legend/>}
             <div className="row justify-content-center">
                 {saveCards}
             </div>

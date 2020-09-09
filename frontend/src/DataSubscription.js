@@ -71,7 +71,7 @@ class DataSubscription {
                     'api/latest_snap', {
                         method: 'post',
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({save: this.save, empire: this.empire})
+                        body: JSON.stringify({file: this.save, empire: this.empire})
                     }
                 ).then(response => {
                     return response.ok ? response.json() : null;
@@ -106,7 +106,7 @@ class DataSubscription {
         if (me.save && !isNaN(me.empire)) {
             me.socket.send(JSON.stringify({
                 subscribe: {
-                    save: me.save,
+                    file: me.save,
                     empire: me.empire
                 }
             }));

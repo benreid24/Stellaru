@@ -2,7 +2,9 @@ import time
 import os
 import sys
 
-from .watcher import Watcher
+from .save_watcher import SaveWatcher
+
+from .file_watcher import FileWatcher
 if sys.platform == 'win32':
     from . import windows_finder as os_finder
 elif sys.platform == 'darwin':
@@ -17,6 +19,8 @@ TIMEOUT = 300
 STEAM_USERDATA = 'userdata'
 STELLARIS_ID = '281990'
 CLOUD_SAVE_SUFFIX = 'remote/save games'
+
+saves = {}
 
 
 def _get_save_dirs():
@@ -36,7 +40,7 @@ def _get_save_dirs():
     return save_dirs
 
 
-def find_saves():
+def _refresh():
     save_folders = []
     for f in _get_save_dirs():
         try:
@@ -45,43 +49,48 @@ def find_saves():
             )
         except:
             pass
-    watchers = [
-        Watcher(folder) 
+    file_watchers = [
+        FileWatcher(folder) 
         for folder in save_folders if len(folder.split('_')) > 0
     ]
-    return watchers
+
+    global saves
+    new_saves = []
+    for watcher in file_watchers:
+        name = SaveWatcher.extract_save_name(watcher.get_file_for_read())
+        if name in saves:
+            if saves[name].add_save_location(watcher):
+                new_saves.append(name)
+        else:
+            saves[name] = SaveWatcher(watcher)
+            new_saves.append(name)
+    return new_saves
 
 
-def find_save(folders, wait_for_save):
-    print(f'Searching for files in: {folders}')
-    save_folders = []
-    for f in folders:
-        save_folders.extend(
-            os.path.join(f, file) for file in os.listdir(f)
-        )
-    print(f'Found {len(save_folders)} saves')
+def find_saves():
+    _refresh()
+    return [save for name, save in saves.items()]
 
-    watchers = [
-        Watcher(folder) 
-        for folder in save_folders if len(folder.split('_')) > 0
-    ]
+
+def get_save(name):
+    return saves[name] if name in saves else None
+
+
+def wait_for_save():
     start_time = time.time()
 
-    if not watchers:
-        print('No saves present')
-        return None
-
-    if wait_for_save:
-        print(f'Waiting for new save for {TIMEOUT} seconds')
-        while time.time() - start_time < TIMEOUT:
+    while time.time() - start_time <= TIMEOUT:
+        new_saves = _refresh()
+        new_saves.extend([save for save in saves if get_save(save).new_data_available()])
+        if new_saves:
+            watchers = [get_save(save) for save in new_saves]
+            ltime = 0
+            ls = None
             for watcher in watchers:
-                if watcher.new_data_available():
-                    return watcher
-        return None
-    else:
-        print('Selecting latest save')
-        newest_watcher = watchers[0]
-        for watcher in watchers:
-            if watcher.time() > newest_watcher.time():
-                newest_watcher = watcher
-        return newest_watcher
+                if watcher.time() > ltime:
+                    ltime = watcher.time()
+                    ls = watcher
+            return ls
+        time.sleep(3)
+    
+    return None
