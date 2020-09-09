@@ -3,18 +3,26 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const Methods = Object.freeze({wait: 'wait', choose: 'choose', chooseExisting: 'chooseExisting', latest: 'latest'});
+const Methods = Object.freeze({
+    wait: 'wait',
+    chooseActive: 'chooseActive',
+    chooseExisting: 'chooseExisting',
+    latest: 'latest',
+    choose: 'choose',
+});
 const MethodTitles = Object.freeze({
     [Methods.wait]: 'Wait for New Save',
     [Methods.latest]: 'Select Most Recent Save',
     [Methods.choose]: 'Choose Save Manually',
-    [Methods.chooseExisting]: 'Choose Previous Saves'
+    [Methods.chooseExisting]: 'Choose From Previous Saves',
+    [Methods.chooseActive]: 'Choose From Current Saves'
 });
 const MethodDescs = Object.freeze({
     [Methods.wait]: 'Waits for a new save file to be created then selects it. Also works for resuming existing saves once an autosave occurs',
     [Methods.latest]: 'Selects the most recent save file',
     [Methods.choose]: 'Shows all found saves and allows manual selection',
-    [Methods.chooseExisting]: 'Shows saves that have been previously loaded in Stellaru'
+    [Methods.chooseExisting]: 'Shows saves that have been previously loaded in Stellaru',
+    [Methods.chooseActive]: 'Shows saves that are currently running in Stellaru'
 });
 
 function MethodCard(props) {

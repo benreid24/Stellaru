@@ -48,7 +48,7 @@ function SaveChooser(props) {
                     setError(data['error']);
                 }
             });
-    });
+    }, []);
 
     const methodChose = (method) => {
         switch (method) {
@@ -63,6 +63,9 @@ function SaveChooser(props) {
                 break;
             case Methods.chooseExisting:
                 setState(State.choosePrevSave);
+                break;
+            case Methods.chooseActive:
+                setState(State.chooseActiveSave);
                 break;
             default:
                 console.log('Unknown state: ', method);
@@ -82,11 +85,12 @@ function SaveChooser(props) {
     return (
         <div className="saveChooser">
             {state === State.chooseMethod && <MethodChooser onchoose={methodChose}/>}
-            {(state === State.chooseSave || state === State.choosePrevSave) &&
+            {(state === State.chooseSave || state === State.choosePrevSave || state === State.chooseActiveSave) &&
                 <SaveSelector
                     onchoose={selectSave}
                     saves={saves}
                     prevOnly={state === State.choosePrevSave}
+                    activeOnly={state === State.chooseActiveSave}
                 />
             }
             {state === State.waitSave && <SaveWaiter onSave={selectSave}/>}
