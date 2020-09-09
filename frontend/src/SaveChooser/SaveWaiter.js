@@ -15,28 +15,34 @@ function waitSave(onResult) {
 function Prompt(props) {
     const name = props.name;
     const date = props.date;
-    const fileTime = props.fileTime;
     const onChoose = props.onConfirm;
 
     return (
         <div className='savePrompt'>
-            <h2 className='savePromptTitle'>Save Found</h2>
+            <h2 className='savePromptTitle'>Save Detected</h2>
             <h3 className='savePromptName'>{name}</h3>
             <p className='savePromptDate'>{date}</p>
-            <p className='savePromptFileTime'>{fileTime}</p>
             <div className='row'>
                 <div className='col'>
-                    <div className='savePromptButtonWrapper'>
-                        <div className='savePromptButton' onClick={() => onChoose(true)}>
-                            <h3 className='savePromptYes'>Load Save</h3>
+                    <div className='row'>
+                        <div className='col'/>
+                        <div className='col-xl-6 col-lg-7 col-md-8 col-sm-10 align-self-center savePromptButtonOuter'>
+                            <div className='savePromptButton' onClick={() => onChoose(true)}>
+                                <h3 className='savePromptYes'>Load Save</h3>
+                            </div>
                         </div>
+                        <div className='col'/>
                     </div>
                 </div>
                 <div className='col'>
-                    <div className='savePromptButtonWrapper'>
-                        <div className='savePromptButton' onClick={() => onChoose(false)}>
-                            <h3 className='savePromptNo'>Keep Waiting</h3>
+                    <div className='row'>
+                        <div className='col'/>
+                        <div className='col-xl-6 col-lg-7 col-md-8 col-sm-10 align-self-center savePromptButtonOuter'>
+                            <div className='savePromptButton' onClick={() => onChoose(false)}>
+                                <h3 className='savePromptNo'>Keep Waiting</h3>
+                            </div>
                         </div>
+                        <div className='col'/>
                     </div>
                 </div>
             </div>
@@ -93,14 +99,15 @@ function SaveWaiter(props) {
             {state === State.Waiting && <p>Watching Stellaris save directories<LoadingDots/></p>}
             {state === State.Prompted &&
                 <div className='row'>
+                    <div className='col'/>
                     <div className='col-xl-6 col-lg-8 col-md-10 col-sm-12 align-self-center'>
                         <Prompt
                             name={save.name}
                             date={save.gameDate}
-                            fileDate={save.fileDatetime}
                             onConfirm={onPromptResult}
                         />
                     </div>
+                    <div className='col'/>
                 </div>
             }
         </div>

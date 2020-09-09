@@ -72,6 +72,7 @@
     background-color: #303030;
     width: 100%;
     box-shadow: 3px 3px #121212;
+    padding-top: 15px;
 }
 
 .savePromptTitle {
@@ -89,12 +90,8 @@
     font-style: italic;
 }
 
-.savePromptFileTime {
-    color: #aaaaaa;
-}
-
-.savePromptButtonWrapper {
-    padding-left: 25%;
+.savePromptButtonOuter {
+    transform: translateX(20px);
 }
 
 .savePromptButton {
@@ -115,7 +112,7 @@
 }
 
 .savePromptNo {
-    color: #b51212;
+    color: #9c2525;
 }
 
 .savePromptYes {
