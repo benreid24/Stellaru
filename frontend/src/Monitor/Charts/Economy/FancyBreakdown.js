@@ -8,6 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import ChartOverlay from '../ChartOverlay';
 
 import './Economy.css';
 
