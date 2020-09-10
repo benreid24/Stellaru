@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, valueTickFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
@@ -24,7 +25,7 @@ function ScienceOutput(props) {
         selectNested('tech/available_techs/society', data[data.length-1]) : 0;
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <div>
                 <StackedAreaChart
                     data={data}
@@ -62,7 +63,7 @@ function ScienceOutput(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Chart>
     );
 }
 

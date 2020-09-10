@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {VictoryAxis} from 'victory';
-import {Chart} from './Charts';
+import {ChartBase} from './ChartBase';
 
 import Legend from './Legend';
 import {selectNested, valueTickFormat, dateTickFormat} from './Util';
@@ -36,7 +36,7 @@ function TimeSeries(props) {
 
     // TODO - set x domain based on global zoom level
     return (
-        <Chart height={height} title={title} titleColor={titleColor} domain={domain} yMin={chartMin} padding={props.padding}>
+        <ChartBase height={height} title={title} titleColor={titleColor} domain={domain} yMin={chartMin} padding={props.padding}>
             {chartMin !== 0 && 
                 <VictoryAxis
                     axisValue={0}
@@ -63,7 +63,7 @@ function TimeSeries(props) {
                 style={{axisLabel: {fill: titleColor}, ticks: {stroke: "grey", size: 5}}}
             />
             <Legend labels={labelColors} chartHeight={height} onClick={onLegendClick} emphasized={props.emphasized}/>
-        </Chart>
+        </ChartBase>
     );
 }
 

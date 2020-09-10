@@ -6,7 +6,6 @@ function ChartOverlay(props) {
     const [visible, setVisible] = useState(false);
 
     if (!settings) {
-        console.log('wtf');
         return null;
     }
 

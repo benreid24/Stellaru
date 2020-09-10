@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
@@ -9,7 +10,7 @@ function NetResourceIncome(props) {
     const height = props.height;
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <LineChart
                 data={data}
                 height={height}
@@ -41,7 +42,7 @@ function NetResourceIncome(props) {
                     }
                 ]}
             />
-        </div>
+        </Chart>
     );
 }
 

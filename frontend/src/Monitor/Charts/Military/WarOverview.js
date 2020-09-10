@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested, valueTickFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
@@ -15,7 +16,7 @@ function WarOverview(props) {
     const fleetPower = data.length > 0 ? valueTickFormat(selectNested('fleets/fleet_power/total', data[data.length-1], 0)) : 0;
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <div>
             <LineChart
                 data={data}
@@ -50,7 +51,7 @@ function WarOverview(props) {
                     Ship Count: <span className='militaryOverviewNumber'>{shipCount}</span>
                 </h2>
             </div>
-        </div>
+        </Chart>
     )
 }
 

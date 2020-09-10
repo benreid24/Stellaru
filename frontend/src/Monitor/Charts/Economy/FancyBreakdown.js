@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import ChartOverlay from '../ChartOverlay';
+import Chart from '../Chart';
 
 import './Economy.css';
 
@@ -152,7 +152,7 @@ function FancyBreakdown(props) {
     }, [data, resourceType, resourceTypes]);
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <div className='chartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={resourceType} onChange={onResourceTypeChange}>
@@ -177,7 +177,7 @@ function FancyBreakdown(props) {
                 areas={chartAreas}
                 onAreaClick={onAreaClick}
             />
-        </div>
+        </Chart>
     );
 }
 
