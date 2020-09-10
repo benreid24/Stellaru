@@ -2,6 +2,7 @@ import React from 'react';
 
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 function NetResourceIncome(props) {
     const data = props.data;
@@ -43,5 +44,11 @@ function NetResourceIncome(props) {
         </div>
     );
 }
+
+registerChart(
+    'Net Core Resource Incomes',
+    'Net incomes of primary resources over time',
+    NetResourceIncome
+);
 
 export default NetResourceIncome;

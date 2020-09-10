@@ -2,6 +2,7 @@ import React from 'react';
 
 import LineChart from '../LineChart';
 import {selectNested, valueTickFormat} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 import './Military.css';
 
@@ -52,5 +53,11 @@ function WarOverview(props) {
         </div>
     )
 }
+
+registerChart(
+    'War Overview',
+    'Displays the number of concurrent wars over time, as well as offensive and defensive wars. Includes a breakdown of the current fleet as well',
+    WarOverview
+);
 
 export default WarOverview;

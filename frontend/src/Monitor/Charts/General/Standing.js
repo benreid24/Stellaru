@@ -3,6 +3,7 @@ import React from 'react';
 import LineChart from '../LineChart';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 function Standing(props) {
     const data = props.data;
@@ -52,5 +53,11 @@ function Standing(props) {
         </div>
     );
 }
+
+registerChart(
+    'General Game Standing',
+    'Victory rank and victory points over time',
+    Standing
+);
 
 export default Standing;

@@ -7,6 +7,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 import './Economy.css';
 
@@ -178,5 +179,11 @@ function FancyBreakdown(props) {
         </div>
     );
 }
+
+registerChart(
+    'Resource Spending/Income Breakdowns',
+    'Detailed breakdown of income or spending of any resource with multiple drilldown levels',
+    FancyBreakdown
+);
 
 export default FancyBreakdown;

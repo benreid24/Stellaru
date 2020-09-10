@@ -2,10 +2,11 @@ import React from 'react';
 
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, valueTickFormat} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 import './Science.css';
 
-function RawScienceOutput(props) {
+function ScienceOutput(props) {
     const data = props.data;
     const height = props.height;
 
@@ -65,4 +66,10 @@ function RawScienceOutput(props) {
     );
 }
 
-export default RawScienceOutput;
+registerChart(
+    'Science Output',
+    'Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs',
+    ScienceOutput
+);
+
+export default ScienceOutput;
