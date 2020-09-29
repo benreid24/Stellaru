@@ -609,7 +609,7 @@ def _get_fleets(state, empire):
         ]
 
         power = _basic_stats([fleet['military_power'] for fleet in fleets if fleet['military_power'] > 0])
-        ships = _basic_stats([len(fleet['ships']) for fleet in fleets])
+        ships = _basic_stats([len(fleet['ships']) for fleet in fleets if 'ships' in fleet])
         ship_types = {}
         ship_exp = 0
         for fleet in fleets:
