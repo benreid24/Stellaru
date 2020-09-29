@@ -1,4 +1,4 @@
-from inspect import currentframe, getframeinfo
+import traceback
 
 from . import parser
 
@@ -130,7 +130,7 @@ def _build_empire_snapshot(state, empire):
             'armies': _get_armies(state, empire)
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
     return snapshot
 
 
@@ -229,7 +229,7 @@ def _get_leaders(state, empire):
         }
         return {**breakdown, **leader_info}
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -242,7 +242,7 @@ def _get_standing(state, empire):
             'military_power': state['country'][empire]['military_power']
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {
             'victory_rank': 0,
             'tech_power': 0,
@@ -273,7 +273,7 @@ def _get_wars(state, empire):
             'defender': defense_wars
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -295,7 +295,7 @@ def _get_systems(state, empire):
             'starbases': upgraded
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -320,7 +320,7 @@ def _get_federation(state, empire):
             'leader': federation['leader'] == empire
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -349,7 +349,7 @@ def _get_unity(state, empire):
             'unity': unity_income
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -422,7 +422,7 @@ def _get_economy(state, empire):
             'spending': spending
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -430,7 +430,7 @@ def _get_construction(state, empire):
     try:
         build_queues = [
             {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
-            if queue['owner'] == empire
+            if isinstance(queue, dict) and queue['owner'] == empire
         ]
         total_items = 0
         max_size = 0
@@ -465,7 +465,7 @@ def _get_construction(state, empire):
             'breakdown': breakdown
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -500,7 +500,7 @@ def _get_tech(state, empire):
             'available_techs': options
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -583,7 +583,7 @@ def _get_planets_and_pops(state, empire):
         return planet_stats, pop_stats
 
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}, {}
 
 
@@ -634,7 +634,7 @@ def _get_fleets(state, empire):
             'avg_ship_exp': ship_exp / ships['total'] if ships['total'] > 0 else 0
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
 
 
@@ -656,5 +656,5 @@ def _get_armies(state, empire):
             'types': type_counts
         }
     except Exception as err:
-        print(f'Error: {getframeinfo(currentframe())}: {repr(err)}')
+        print(traceback.format_exc())
         return {}
