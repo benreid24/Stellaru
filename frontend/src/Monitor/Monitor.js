@@ -5,6 +5,7 @@ import {Tabs, Tab} from '@material-ui/core';
 import LoadingDots from '../LoadingDots';
 
 import Overview from './Overview';
+import CustomTab from './CustomTab';
 
 import './Monitor.css';
 
@@ -83,6 +84,7 @@ function Monitor(props) {
             </div>
             <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
                 <Tab label='Overview'/>
+                <Tab label='Custom'/>
                 <Tab label='Economy'/>
                 <Tab label='Military'/>
                 <Tab label='Science'/>
@@ -91,6 +93,9 @@ function Monitor(props) {
             </Tabs>
             <TabPanel value={currentTab} index={0}>
                 <Overview data={gameData}/>
+            </TabPanel>
+            <TabPanel value={currentTab} index={1}>
+                <CustomTab data={gameData}/>
             </TabPanel>
         </div>
     );

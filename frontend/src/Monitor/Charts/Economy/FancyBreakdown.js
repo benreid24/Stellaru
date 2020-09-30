@@ -28,7 +28,9 @@ const ResourceNames = Object.freeze({
     'volatile_motes': 'Volatile Mote',
     'rare_crystals': 'Rare Crystal',
     'exotic_gases': 'Exotic Gas',
-    'sr_dark_matter': 'Dark Matter'
+    'sr_dark_matter': 'Dark Matter',
+    'nanites': 'Nanite',
+    'sr_zro': 'Zro'
 });
 const ResourceLookup = Object.entries(ResourceNames).reduce(
     (obj, entry) => {
@@ -112,7 +114,11 @@ function FancyBreakdown(props) {
             types = [...types, ...findKeysOverSeries(data, `economy/${DataKeys[dtype]}`)];
         });
         types = [...new Set(types)];
-        setResourceTypes(types.map(type => ResourceNames[type]));
+        setResourceTypes(types.map(type => {
+            if (ResourceNames.hasOwnProperty(type))
+                return ResourceNames[type];
+            return type;
+        }));
     }, [data]);
 
     // Render dropdown for top level types
