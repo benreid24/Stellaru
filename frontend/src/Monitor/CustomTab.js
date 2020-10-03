@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 
+import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts} from './ChartRegistry';
-
-import './CustomTab.css';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     selectEmpty: {
         marginTop: theme.spacing(1),
-    },
+    }
 }));
 
 function ChartAdder(props) {
@@ -41,12 +41,21 @@ function ChartAdder(props) {
     const chartList = allCharts.map(makeItem);
 
     return (    
-        <FormControl className={classes.formControl}>
-            <InputLabel id='add-chart'>Add Chart...</InputLabel>
-            <Select value='' onChange={onAdd} labelId='add-chart'>
-                {chartList}
-            </Select>
-        </FormControl>
+            <div className='row'>
+                <div className='col-auto align-self-end'>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel id='add-chart'>Add Chart...</InputLabel>
+                        <Select value='' onChange={onAdd} labelId='add-chart'>
+                            {chartList}
+                        </Select>
+                    </FormControl>
+                </div>
+            {added.length > 0 && 
+                <div className='col align-self-center'>
+                    <Button color='secondary' variant='contained' onClick={props.onClear}>Clear Dashboard</Button>
+                </div>
+            }
+        </div>
     );   
 }
 
@@ -72,10 +81,17 @@ function CustomTab(props) {
             return keptCharts;
         }, []));
     };
+    const onClear = () => {
+        setCharts([]);
+    };
     const onResize = (chart, larger) => {
         setCharts(charts.reduce((newCharts, cChart) => {
             if (cChart.name === chart) {
                 cChart.size += larger ? 1 : -1;
+                if (cChart.size > 12)
+                    cChart.size = 12;
+                if (cChart.size < 1)
+                    cChart.size = 1;
             }
             return [...newCharts, cChart];
         }, []));
@@ -121,7 +137,7 @@ function CustomTab(props) {
         rowClass += ' justify-content-center';
     return (
         <div className='customTab'>
-            <ChartAdder onAdd={onAdd} charts={charts}/>
+            <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             <div className={rowClass}>
                 {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
                 {renderedCharts}

@@ -55,6 +55,10 @@
 .chartOverlayDots {
     font-size: 22pt;
     color: rgba(80,80,80,0.9);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .chartOverlayButton {
@@ -70,3 +74,8 @@
 .chartOverlayButton:active {
     background-color: rgba(20,20,20,0.9);
 }
+
+.d-flex{
+    display: flex
+ }
+ 

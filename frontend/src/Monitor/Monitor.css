@@ -54,3 +54,12 @@
 .statusIndicatorErrorText {
     color: #ff8b8b;
 }
+
+.customTab {
+    justify-content: left;
+    text-align: left;
+}
+
+.chartDesc {
+    font-size: 175%;
+}
