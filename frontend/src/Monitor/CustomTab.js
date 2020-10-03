@@ -52,8 +52,15 @@ function ChartAdder(props) {
 
 function CustomTab(props) {
     const data = props.data;
-    const [charts, setCharts] = useState([]); // TODO - load from save, have default
+    const [charts, setCharts] = useState([]);
     const [renderedCharts, setRenderedCharts] = useState([]);
+
+    useEffect(() => {
+        const saved = window.localStorage.getItem('stellaruCharts');
+        if (saved !== null) {
+            setCharts(JSON.parse(saved));
+        }
+    }, []);
 
     const onAdd = chart => {
         setCharts([...charts, {name: chart, size: 4}]);
@@ -106,12 +113,17 @@ function CustomTab(props) {
             );
         }
         setRenderedCharts(rendered);
+        window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
     }, [charts]);
 
+    let rowClass = 'row';
+    if (renderedCharts.length === 0)
+        rowClass += ' justify-content-center';
     return (
         <div className='customTab'>
             <ChartAdder onAdd={onAdd} charts={charts}/>
-            <div className='row'>
+            <div className={rowClass}>
+                {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
                 {renderedCharts}
             </div>
         </div>
