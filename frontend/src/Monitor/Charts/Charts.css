@@ -17,3 +17,65 @@
     display: flex;
     flex-direction: column;
 }
+
+.chartOverlayTriggerArea {
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.8);
+    border-radius: 15px;
+    position: absolute;
+    top: 1%;
+    left: 92%;
+    width: 6%;
+    height: 10%;
+}
+
+.chartOverlayTriggerArea:hover {
+    background-color: rgba(70,70,70,0.4);
+    cursor: pointer;
+}
+
+.chartOverlayTriggerArea:active {
+    background-color: rgba(20,20,20,0.4);
+    cursor: pointer;
+}
+
+.chartOverlay {
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    position: absolute;
+    top: 1%;
+    left: 75%;
+    width: 23%;
+    height: 10%;
+    text-align: left;
+}
+
+.chartOverlayDots {
+    font-size: 22pt;
+    color: rgba(80,80,80,0.9);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.chartOverlayButton {
+    width: 19%;
+    height: 80%;
+    padding: 5px;
+    cursor: pointer;
+}
+.chartOverlayButton:hover {
+    background-color: rgba(80,80,80,0.9);
+}
+
+.chartOverlayButton:active {
+    background-color: rgba(20,20,20,0.9);
+}
+
+.d-flex{
+    display: flex
+ }
+ 

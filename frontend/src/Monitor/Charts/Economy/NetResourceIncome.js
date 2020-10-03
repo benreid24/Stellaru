@@ -1,14 +1,16 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 function NetResourceIncome(props) {
     const data = props.data;
     const height = props.height;
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <LineChart
                 data={data}
                 height={height}
@@ -40,8 +42,14 @@ function NetResourceIncome(props) {
                     }
                 ]}
             />
-        </div>
+        </Chart>
     );
 }
+
+registerChart(
+    'Net Core Resource Incomes',
+    'Net incomes of primary resources over time',
+    NetResourceIncome
+);
 
 export default NetResourceIncome;

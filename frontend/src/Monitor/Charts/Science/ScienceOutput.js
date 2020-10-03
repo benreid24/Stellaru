@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested, valueTickFormat} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 import './Science.css';
 
-function RawScienceOutput(props) {
+function ScienceOutput(props) {
     const data = props.data;
     const height = props.height;
 
@@ -23,7 +25,7 @@ function RawScienceOutput(props) {
         selectNested('tech/available_techs/society', data[data.length-1]) : 0;
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <div>
                 <StackedAreaChart
                     data={data}
@@ -61,8 +63,14 @@ function RawScienceOutput(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Chart>
     );
 }
 
-export default RawScienceOutput;
+registerChart(
+    'Science Output',
+    'Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs',
+    ScienceOutput
+);
+
+export default ScienceOutput;

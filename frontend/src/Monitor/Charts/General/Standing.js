@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Chart from '../Chart';
 import LineChart from '../LineChart';
 import StackedAreaChart from '../StackedAreaChart';
 import {selectNested} from '../Util';
+import {registerChart} from '../../ChartRegistry';
 
 function Standing(props) {
     const data = props.data;
@@ -11,7 +13,7 @@ function Standing(props) {
     const title = rank ? `Standing (Rank: ${rank})` : 'Standing';
 
     return (
-        <div className='chart'>
+        <Chart overlay={props.overlay}>
             <div>
                 <StackedAreaChart
                     data={data}
@@ -49,8 +51,14 @@ function Standing(props) {
                     ]}
                 />
             </div>
-        </div>
+        </Chart>
     );
 }
+
+registerChart(
+    'General Game Standing',
+    'Victory rank and victory points over time',
+    Standing
+);
 
 export default Standing;

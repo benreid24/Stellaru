@@ -20,7 +20,7 @@ const chartTheme = {
     },
 };
 
-function Chart(props) {
+function ChartBase(props) {
     const height = props.height;
     const domain = props.domain;
     const yMin = props.yMin;
@@ -41,4 +41,4 @@ function Chart(props) {
     );
 }
 
-export {Chart};
+export {ChartBase};
