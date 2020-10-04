@@ -40,11 +40,7 @@ function Standing(props) {
             <div className='rankChart'>
                 <LineChart
                     data={data}
-                    height={height/3}
-                    showLabels={true}
-                    titleColor='#96d636'
                     yAxisLabel='Rank'
-                    padding={{top: 15, left: 50, right: 50, bottom: 47}}
                     lines={[
                         {
                             label: 'Victory Rank',

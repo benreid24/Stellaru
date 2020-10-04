@@ -16,14 +16,10 @@ function WarOverview(props) {
     const fleetPower = data.length > 0 ? valueTickFormat(selectNested('fleets/fleet_power/total', data[data.length-1], 0)) : 0;
 
     return (
-        <Chart overlay={props.overlay}>
+        <Chart overlay={props.overlay} title='War Overview' titleColor='#de1212'>
             <div className='warOverviewChart'>
                 <LineChart
                     data={data}
-                    height={height}
-                    title='War Overview'
-                    titleColor='#de1212'
-                    showLabels={false}
                     lines={[
                         {
                             label: 'All Wars',
