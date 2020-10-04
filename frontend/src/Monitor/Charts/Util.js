@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {YAxis, XAxis} from 'recharts';
+import {Line, Area} from 'recharts';
 
 const NumberSuffixes = [
     {suffix: 'b', value: 1000000000},
@@ -136,51 +136,40 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
-function makeXAxis() {
+const makeId = label => label.replace(/\s/g, '');
+
+function renderLine(line, labelColor) {
     return (
-        <XAxis
-            dataKey='xLabel'
-            tick={{fill: '#a0a0a0'}}
-            tickLine={{stroke: '#a0a0a0'}}
-            tickSize={9}
-            axisLine={{stroke: '#a0a0a0'}}
+        <Line
+            key={line.label}
+            name={line.label}
+            dataKey={line.label}
+            type='monotone'
+            dot={false}
+            activeDot
+            strokeWidth={1}
+            connectNulls={false}
+            stroke={labelColor}
         />
     );
 }
 
-function makeYAxis(label, minY) {
+function renderArea(area, labelColor, stackId) {
     return (
-        <YAxis
-            tickFormatter={valueTickFormat}
-            domain={[minY, 'dataMax+5']}
-            tick={{fill: '#a0a0a0'}}
-            tickLine={{stroke: '#a0a0a0'}}
-            tickSize={9}
-            axisLine={{stroke: '#a0a0a0'}}
-            interval='preserveStartEnd'
-            scale='linear'
-            label={{value: label, angle: -90, position: 'insideBottomLeft', fill: '#dadada', offset: 10}}
+        <Area
+            key={area.label}
+            name={area.label}
+            dataKey={area.label}
+            type='monotone'
+            dot={false}
+            activeDot
+            strokeWidth={1}
+            connectNulls={false}
+            stroke={labelColor}
+            fill={`url(#${makeId(area.label)})`}
+            stackId={stackId}
         />
     );
-}
-
-function extractData(rawData, series) {
-    let minY = 0;
-    const data = rawData.map(snap => {
-        const x = selectNested('date_days', snap);
-        let datum = {
-            x: x,
-            xLabel: dateTickFormat(x)
-        };
-        series.forEach(line => {
-            const value = line.selector(snap);
-            if (value < minY)
-                minY = value - 5;
-            datum[line.label] = value;
-        });
-        return datum;
-    });
-    return {minY: minY, data: data};
 }
 
 export {
@@ -193,7 +182,7 @@ export {
     objectKeys,
     findKeysOverSeries,
     shuffle,
-    makeXAxis,
-    makeYAxis,
-    extractData
+    renderLine,
+    renderArea,
+    makeId
 };
