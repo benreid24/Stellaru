@@ -7,7 +7,6 @@ import {registerChart} from '../../ChartRegistry';
 
 function NetResourceIncome(props) {
     const data = props.data;
-    const height = props.height;
 
     return (
         <Chart overlay={props.overlay} title='Net Resource Incomes' titleColor='#ded140'>

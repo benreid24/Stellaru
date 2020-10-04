@@ -9,7 +9,6 @@ import './Military.css';
 
 function WarOverview(props) {
     const data = props.data;
-    const height = props.height;
 
     const fleetCount = data.length > 0 ? selectNested('fleets/total', data[data.length-1], 0) : 0;
     const shipCount = data.length > 0 ? selectNested('fleets/ships/total', data[data.length-1], 0) : 0;

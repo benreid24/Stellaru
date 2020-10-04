@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
-import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
@@ -74,49 +73,50 @@ function CustomTab(props) {
     const onAdd = chart => {
         setCharts([...charts, {name: chart, size: 4}]);
     };
-    const onDelete = chart => {
-        setCharts(charts.reduce((keptCharts, cChart) => {
-            if (cChart.name !== chart)
-                return [...keptCharts, cChart];
-            return keptCharts;
-        }, []));
-    };
     const onClear = () => {
         setCharts([]);
     };
-    const onResize = (chart, larger) => {
-        setCharts(charts.reduce((newCharts, cChart) => {
-            if (cChart.name === chart) {
-                cChart.size += larger ? 1 : -1;
-                if (cChart.size > 12)
-                    cChart.size = 12;
-                if (cChart.size < 1)
-                    cChart.size = 1;
-            }
-            return [...newCharts, cChart];
-        }, []));
-    };
-    const onMove = (chart, higher) => {
-        const i = charts.findIndex(cChart => cChart.name === chart);
-        if (i >= 0) {
-            let newCharts = charts.slice();
-            const newI = higher ? i - 1 : i + 1;
-            if (newI >= 0 && newI < charts.length) {
-                [newCharts[i], newCharts[newI]] = [newCharts[newI], newCharts[i]];
-                setCharts(newCharts);
-            }
-        }
-    };
-
-    const makeOverlay = chart => {
-        return {
-            onDelete: () => onDelete(chart),
-            onResize: larger => onResize(chart, larger),
-            onMove: higher => onMove(chart, higher)
-        };
-    }
 
     useEffect(() => {
+        const onDelete = chart => {
+            setCharts(charts.reduce((keptCharts, cChart) => {
+                if (cChart.name !== chart)
+                    return [...keptCharts, cChart];
+                return keptCharts;
+            }, []));
+        };
+        const onResize = (chart, larger) => {
+            setCharts(charts.reduce((newCharts, cChart) => {
+                if (cChart.name === chart) {
+                    cChart.size += larger ? 1 : -1;
+                    if (cChart.size > 12)
+                        cChart.size = 12;
+                    if (cChart.size < 1)
+                        cChart.size = 1;
+                }
+                return [...newCharts, cChart];
+            }, []));
+        };
+        const onMove = (chart, higher) => {
+            const i = charts.findIndex(cChart => cChart.name === chart);
+            if (i >= 0) {
+                let newCharts = charts.slice();
+                const newI = higher ? i - 1 : i + 1;
+                if (newI >= 0 && newI < charts.length) {
+                    [newCharts[i], newCharts[newI]] = [newCharts[newI], newCharts[i]];
+                    setCharts(newCharts);
+                }
+            }
+        };
+        
+        const makeOverlay = chart => {
+            return {
+                onDelete: () => onDelete(chart),
+                onResize: larger => onResize(chart, larger),
+                onMove: higher => onMove(chart, higher)
+            };
+        };
+
         let rendered = [];
         for (let i in charts) {
             const chart = charts[i];
@@ -130,7 +130,7 @@ function CustomTab(props) {
         }
         setRenderedCharts(rendered);
         window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
-    }, [charts]);
+    }, [charts, data]);
 
     let rowClass = 'row';
     if (renderedCharts.length === 0)
