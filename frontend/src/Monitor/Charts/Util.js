@@ -1,3 +1,7 @@
+import React from 'react';
+
+import {YAxis, XAxis} from 'recharts';
+
 const NumberSuffixes = [
     {suffix: 'b', value: 1000000000},
     {suffix: 'M', value: 1000000},
@@ -132,6 +136,53 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
+function makeXAxis() {
+    return (
+        <XAxis
+            dataKey='xLabel'
+            tick={{fill: '#a0a0a0'}}
+            tickLine={{stroke: '#a0a0a0'}}
+            tickSize={9}
+            axisLine={{stroke: '#a0a0a0'}}
+        />
+    );
+}
+
+function makeYAxis(label, minY) {
+    return (
+        <YAxis
+            tickFormatter={valueTickFormat}
+            domain={[minY, 'dataMax+5']}
+            tick={{fill: '#a0a0a0'}}
+            tickLine={{stroke: '#a0a0a0'}}
+            tickSize={9}
+            axisLine={{stroke: '#a0a0a0'}}
+            interval='preserveStartEnd'
+            scale='linear'
+            label={{value: label, angle: -90, position: 'insideBottomLeft', fill: '#dadada', offset: 10}}
+        />
+    );
+}
+
+function extractData(rawData, series) {
+    let minY = 0;
+    const data = rawData.map(snap => {
+        const x = selectNested('date_days', snap);
+        let datum = {
+            x: x,
+            xLabel: dateTickFormat(x)
+        };
+        series.forEach(line => {
+            const value = line.selector(snap);
+            if (value < minY)
+                minY = value - 5;
+            datum[line.label] = value;
+        });
+        return datum;
+    });
+    return {minY: minY, data: data};
+}
+
 export {
     addAlphaChannel,
     dateTickFormat,
@@ -141,5 +192,8 @@ export {
     getDataColors,
     objectKeys,
     findKeysOverSeries,
-    shuffle
+    shuffle,
+    makeXAxis,
+    makeYAxis,
+    extractData
 };

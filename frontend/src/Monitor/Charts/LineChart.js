@@ -4,34 +4,17 @@ import {LineChart as ReLineChart} from 'recharts';
 import {Line} from 'recharts';
 import {Legend} from 'recharts';
 import {Tooltip} from 'recharts';
-import {XAxis} from 'recharts';
-import {YAxis} from 'recharts';
 import {ReferenceLine} from 'recharts';
 import {ResponsiveContainer} from 'recharts';
 
-import {getDataColors, selectNested, valueTickFormat, dateTickFormat} from './Util';
+import {getDataColors, valueTickFormat, makeYAxis, makeXAxis, extractData} from './Util';
 
 function LineChart(props) {
     const rawData = props.data;
     const lines = props.lines;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const labelColors = getDataColors(lines.map(line => line.label));
-
-    let minY = 0;
-    const data = rawData.map(snap => {
-        const x = selectNested('date_days', snap);
-        let datum = {
-            x: x,
-            xLabel: dateTickFormat(x)
-        };
-        lines.forEach(line => {
-            const value = line.selector(snap);
-            if (value < minY)
-                minY = value - 5;
-            datum[line.label] = value;
-        });
-        return datum;
-    });
+    const {minY, data} = extractData(rawData, lines);
 
     const [isolatedLines, setIsolatedLines] = useState([]);
     const onLineClick = event => {
@@ -86,24 +69,8 @@ function LineChart(props) {
     return (
         <ResponsiveContainer>
             <ReLineChart data={data} margin={{top: 15, right: 15, left: 15, bottom: 15}}>
-                <XAxis
-                    dataKey='xLabel'
-                    tick={{fill: '#a0a0a0'}}
-                    tickLine={{stroke: '#a0a0a0'}}
-                    tickSize={9}
-                    axisLine={{stroke: '#a0a0a0'}}
-                />
-                <YAxis
-                    tickFormatter={valueTickFormat}
-                    domain={[minY, 'dataMax+5']}
-                    tick={{fill: '#a0a0a0'}}
-                    tickLine={{stroke: '#a0a0a0'}}
-                    tickSize={9}
-                    axisLine={{stroke: '#a0a0a0'}}
-                    interval='preserveStartEnd'
-                    scale='linear'
-                    label={{value: yLabel, angle: -90, position: 'insideBottomLeft', fill: '#dadada', offset: 10}}
-                />
+                {makeXAxis()}
+                {makeYAxis(yLabel, minY)}
                 <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
                 <Legend onClick={onLineClick} formatter={renderLegend} payload={legendPayload}/>
                 {minY < 0 && <ReferenceLine y={0} stroke='white' strokeDasharray='3 3'/>}
