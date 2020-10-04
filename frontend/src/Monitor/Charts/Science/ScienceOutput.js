@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Chart from '../Chart';
-import StackedAreaChart from '../StackedAreaChart';
+import AreaChart from '../AreaChart';
 import {selectNested, valueTickFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
@@ -9,7 +9,6 @@ import './Science.css';
 
 function ScienceOutput(props) {
     const data = props.data;
-    const height = props.height;
 
     let total = 0;
     if (data.length > 0) {
@@ -25,15 +24,13 @@ function ScienceOutput(props) {
         selectNested('tech/available_techs/society', data[data.length-1]) : 0;
 
     return (
-        <Chart overlay={props.overlay}>
-            <div>
-                <StackedAreaChart
+        <Chart overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
+            <div className='scienceOverviewChart'>
+                <AreaChart
                     data={data}
-                    height={height}
-                    title='Science Output'
-                    titleColor='#0b9cbd'
                     yAxisLabel='Monthly Research'
-                    showLabels={false}
+                    stack={true}
+                    allowIsolation={true}
                     areas={[
                         {
                             label: 'Physics Research',

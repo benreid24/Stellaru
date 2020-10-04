@@ -1,3 +1,7 @@
+import React from 'react';
+
+import {Line, Area} from 'recharts';
+
 const NumberSuffixes = [
     {suffix: 'b', value: 1000000000},
     {suffix: 'M', value: 1000000},
@@ -132,6 +136,42 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
+const makeId = label => label.replace(/\s/g, '');
+
+function renderLine(line, labelColor) {
+    return (
+        <Line
+            key={line.label}
+            name={line.label}
+            dataKey={line.label}
+            type='monotone'
+            dot={false}
+            activeDot
+            strokeWidth={1}
+            connectNulls={false}
+            stroke={labelColor}
+        />
+    );
+}
+
+function renderArea(area, labelColor, stackId) {
+    return (
+        <Area
+            key={area.label}
+            name={area.label}
+            dataKey={area.label}
+            type='monotone'
+            dot={false}
+            activeDot
+            strokeWidth={1}
+            connectNulls={false}
+            stroke={labelColor}
+            fill={`url(#${makeId(area.label)})`}
+            stackId={stackId}
+        />
+    );
+}
+
 export {
     addAlphaChannel,
     dateTickFormat,
@@ -141,5 +181,8 @@ export {
     getDataColors,
     objectKeys,
     findKeysOverSeries,
-    shuffle
+    shuffle,
+    renderLine,
+    renderArea,
+    makeId
 };

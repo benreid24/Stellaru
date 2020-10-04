@@ -7,18 +7,12 @@ import {registerChart} from '../../ChartRegistry';
 
 function NetResourceIncome(props) {
     const data = props.data;
-    const height = props.height;
 
     return (
-        <Chart overlay={props.overlay}>
+        <Chart overlay={props.overlay} title='Net Resource Incomes' titleColor='#ded140'>
             <LineChart
                 data={data}
-                height={height}
-                title='Net Resource Incomes'
-                titleColor='#ded140'
                 yAxisLabel='Net Income'
-                showLabels={false}
-                padding={{left: 50, top: 30, right: 30, bottom: 50}}
                 lines={[
                     {
                         label: 'Energy Credits',

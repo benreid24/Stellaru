@@ -2,10 +2,12 @@
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100%;
+    width: 100%;
 }
 
 .monitorTab {
     min-height: 100%;
+    width: 100%;
 }
 
 .empireName {
@@ -62,4 +64,8 @@
 
 .chartDesc {
     font-size: 175%;
+}
+
+.overviewChart {
+    height: 40vh;
 }

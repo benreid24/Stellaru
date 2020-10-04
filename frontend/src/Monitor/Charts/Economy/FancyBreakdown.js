@@ -5,7 +5,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import StackedAreaChart from '../StackedAreaChart';
+import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
@@ -84,7 +84,6 @@ function BreadCrumbs(props) {
 function FancyBreakdown(props) {
     const classes = useStyles();
     const data = props.data;
-    const height = props.height;
 
     const [dataType, setDataType] = useState(DataTypes.Income);
     const [resourceType, setResourceType] = useState('');
@@ -158,31 +157,32 @@ function FancyBreakdown(props) {
     }, [data, resourceType, resourceTypes]);
 
     return (
-        <Chart overlay={props.overlay}>
-            <div className='chartForm'>
-                <FormControl className={classes.formControl}>
-                    <Select value={resourceType} onChange={onResourceTypeChange}>
-                        {renderedResourceTypes}
-                    </Select>
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                    <Select value={dataType} onChange={onDataTypeChange}>
-                        <MenuItem value={DataTypes.Income}>Income</MenuItem>
-                        <MenuItem value={DataTypes.Spending}>Spending</MenuItem>
-                    </Select>
-                </FormControl>
-                <BreadCrumbs onNavigate={setBreakdownLevel} breakdown={breakdownLevel}/>
+        <Chart overlay={props.overlay} title={`${resourceType} ${dataType} Breakdown`} titleColor='#ded140'>
+            <div className='fancyChartForm'>
+                <div className='fancyChartInner'>
+                    <FormControl className={classes.formControl}>
+                        <Select value={resourceType} onChange={onResourceTypeChange}>
+                            {renderedResourceTypes}
+                        </Select>
+                    </FormControl>
+                    <FormControl className={classes.formControl}>
+                        <Select value={dataType} onChange={onDataTypeChange}>
+                            <MenuItem value={DataTypes.Income}>Income</MenuItem>
+                            <MenuItem value={DataTypes.Spending}>Spending</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <BreadCrumbs onNavigate={setBreakdownLevel} breakdown={breakdownLevel}/>
+                </div>
             </div>
-            <StackedAreaChart
-                data={data}
-                height={height}
-                title={`${resourceType} ${dataType} Breakdown`}
-                titleColor='#ded140'
-                showLabels={false}
-                padding={{left: 40, top: 30, right: 30, bottom: 50}}
-                areas={chartAreas}
-                onAreaClick={onAreaClick}
-            />
+            <div className='fancyBreakdownChart'>
+                <AreaChart
+                    data={data}
+                    areas={chartAreas}
+                    onAreaClick={onAreaClick}
+                    allowIsolation={false}
+                    stack={true}
+                />
+            </div>
         </Chart>
     );
 }

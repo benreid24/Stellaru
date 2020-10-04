@@ -15,7 +15,7 @@ function TabPanel(props) {
     const display = currentTab === index ? 'block' : 'none';
 
     return (
-        <div style={{display: display, paddingTop: '5px'}}>
+        <div style={{display: display, paddingTop: '5px', width: '100%', height: '100%'}}>
             {currentTab === index && props.children}
         </div>
     );

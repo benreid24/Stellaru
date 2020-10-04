@@ -7,11 +7,13 @@
     box-shadow: 6px 6px #121212;
 }
 
-.chartForm {
-    padding-top: 12px;
-    padding-left: 12px;
-    text-align: left;
-}
+.chartTitle {
+    left: 50%;
+    top: 2%;
+    transform: translateX(-50%);
+    position: absolute;
+    font-size: 140%;
+ }
 
 .verticaalFlex {
     display: flex;
@@ -75,7 +77,6 @@
     background-color: rgba(20,20,20,0.9);
 }
 
-.d-flex{
-    display: flex
- }
- 
+.chartCol {
+    min-height: 30vh;
+}
