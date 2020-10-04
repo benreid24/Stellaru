@@ -15,12 +15,6 @@
     font-size: 140%;
  }
 
-.chartForm {
-    padding-top: 12px;
-    padding-left: 12px;
-    text-align: left;
-}
-
 .verticaalFlex {
     display: flex;
     flex-direction: column;
@@ -81,4 +75,8 @@
 
 .chartOverlayButton:active {
     background-color: rgba(20,20,20,0.9);
+}
+
+.chartCol {
+    min-height: 30vh;
 }

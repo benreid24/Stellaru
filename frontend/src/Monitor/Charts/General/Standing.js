@@ -2,7 +2,7 @@ import React from 'react';
 
 import Chart from '../Chart';
 import LineChart from '../LineChart';
-import StackedAreaChart from '../StackedAreaChart';
+import AreaChart from '../AreaChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
@@ -10,21 +10,17 @@ import './General.css';
 
 function Standing(props) {
     const data = props.data;
-    const height = props.height;
     const rank = data.length > 0 ? selectNested('standing/victory_rank', data[data.length-1]) : null;
     const title = rank ? `Standing (Rank: ${rank})` : 'Standing';
 
     return (
-        <Chart overlay={props.overlay}>
-            <div>
-                <StackedAreaChart
+        <Chart overlay={props.overlay} title={title} titleColor='#96d636'>
+            <div className='victoryPointChart'>
+                <AreaChart
                     data={data}
-                    height={height*2/3}
-                    title={title}
-                    titleColor='#96d636'
                     yAxisLabel='Victory Points'
-                    showLabels={false}
-                    padding={{top: 30, left: 50, right: 50, bottom: 50}}
+                    stack={true}
+                    allowIsolation={true}
                     areas={[
                         {
                             label: 'Tech',

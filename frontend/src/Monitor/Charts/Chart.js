@@ -2,6 +2,8 @@ import React from 'react';
 
 import ChartOverlay from './ChartOverlay';
 
+import './Charts.css';
+
 function Chart(props) {
     const color = props.titleColor ? props.titleColor : 'white';
     return (
