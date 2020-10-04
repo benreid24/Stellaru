@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Chart from '../Chart';
-import LineChart from '../LineChart';
+import LineChart from '../LineChart2';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
