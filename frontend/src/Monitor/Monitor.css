@@ -65,3 +65,7 @@
 .chartDesc {
     font-size: 175%;
 }
+
+.overviewChart {
+    height: 40vh;
+}

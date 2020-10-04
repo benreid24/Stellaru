@@ -18,7 +18,7 @@ function AreaChart(props) {
         <ComposedChart
             data={rawData}
             series={areas}
-            yLabel={yLabel}
+            yAxisLabel={yLabel}
             allowIsolation={allowIsolation}
             onSeriesClick={areaClickCb}
             seriesRenderer={renderAreaBound}

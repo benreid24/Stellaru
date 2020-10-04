@@ -15,7 +15,7 @@ function LineChart(props) {
         <ComposedChart
             data={rawData}
             series={lines}
-            yLabel={yLabel}
+            yAxisLabel={yLabel}
             allowIsolation={true}
             seriesRenderer={renderLineBound}
             labelColors={labelColors}
