@@ -6,6 +6,8 @@ import StackedAreaChart from '../StackedAreaChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+import './General.css';
+
 function Standing(props) {
     const data = props.data;
     const height = props.height;
@@ -35,7 +37,7 @@ function Standing(props) {
                     ]}
                 />
             </div>
-            <div>
+            <div className='rankChart'>
                 <LineChart
                     data={data}
                     height={height/3}

@@ -1,73 +1,113 @@
 import React, {useState} from 'react';
 
-import {VictoryLine} from 'victory';
+import {LineChart as ReLineChart} from 'recharts';
+import {Line} from 'recharts';
+import {Legend} from 'recharts';
+import {Tooltip} from 'recharts';
+import {XAxis} from 'recharts';
+import {YAxis} from 'recharts';
+import {ReferenceLine} from 'recharts';
+import {ResponsiveContainer} from 'recharts';
 
-import TimeSeries from './TimeSeries';
-import {getDataColors, selectNested, valueTickFormat} from './Util';
-
-import './Charts.css';
+import {getDataColors, selectNested, valueTickFormat, dateTickFormat} from './Util';
 
 function LineChart(props) {
-    const data = props.data;
+    const rawData = props.data;
     const lines = props.lines;
-    const renderLabel = props.showLabels;
     const labelColors = getDataColors(lines.map(line => line.label));
 
+    let minY = 0;
+    const data = rawData.map(snap => {
+        const x = selectNested('date_days', snap);
+        let datum = {
+            x: x,
+            xLabel: dateTickFormat(x)
+        };
+        lines.forEach(line => {
+            const value = line.selector(snap);
+            if (value < minY)
+                minY = value - 5;
+            datum[line.label] = value;
+        });
+        return datum;
+    });
+
     const [isolatedLines, setIsolatedLines] = useState([]);
-    const onLineClick = line => {
+    const onLineClick = event => {
+        const line = event.dataKey;
         if (isolatedLines.includes(line)) {
             setIsolatedLines(isolatedLines.filter(l => l !== line));
         }
         else {
             setIsolatedLines([...isolatedLines, line]);
+            if (isolatedLines.length === lines.length - 1)
+                setIsolatedLines([]);
         }
     };
     const lineVisible = line => isolatedLines.length === 0 || isolatedLines.includes(line.label);
 
-    const renderLine = (line, registerValue) => {
+    const renderLine = line => {
         if (!lineVisible(line))
             return null;
-
-        const lineData = data.map(snap => {
-            const y = line.selector(snap);
-            registerValue(y);
-            return {
-                x: selectNested('date_days', snap),
-                y: y
-            };
-        });
     
-        if (lineData.length > 0 && renderLabel) {
-            let value = Math.round(lineData[lineData.length-1].y);
-            lineData[lineData.length-1].label = valueTickFormat(value);
-        }
         return (
-            <VictoryLine
+            <Line
                 key={line.label}
                 name={line.label}
-                style={{
-                    data: {stroke: labelColors[line.label]},
-                    labels: {fill: '#d2d2d2'}
-                }}
-                data={lineData}
+                dataKey={line.label}
+                type='monotone'
+                dot={false}
+                activeDot
+                strokeWidth={1}
+                connectNulls={false}
+                stroke={labelColors[line.label]}
             />
         );
     };
+    const renderedLines = lines.map(renderLine);
+
+    const renderLegend = (value, entry) => {
+        let weight = 300;
+        if (isolatedLines.includes(value))
+            weight = 500;
+        return <span style={{fontWeight: weight, cursor: 'pointer'}}>{value}</span>;
+    };
+    const legendPayload = lines.map(line => {
+        return {
+            value: line.label,
+            type: 'line',
+            id: line.label,
+            dataKey: line.label,
+            color: labelColors[line.label]
+        };
+    });
 
     return (
-        <TimeSeries
-            data={data}
-            height={props.height}
-            title={props.title}
-            titleColor={props.titleColor}
-            yAxisLabel={props.yAxisLabel}
-            labelColors={labelColors}
-            series={lines}
-            seriesRenderer={renderLine}
-            onLegendClick={onLineClick}
-            emphasized={isolatedLines}
-            padding={props.padding}
-        />
+        <ResponsiveContainer>
+            <ReLineChart data={data} margin={{top: 5, right: 5, left: 5, bottom: 5}}>
+                <XAxis
+                    dataKey='xLabel'
+                    tick={{fill: '#a0a0a0'}}
+                    tickLine={{stroke: '#a0a0a0'}}
+                    tickSize={9}
+                    axisLine={{stroke: '#a0a0a0'}}
+                />
+                <YAxis
+                    tickFormatter={valueTickFormat}
+                    domain={[minY, 'dataMax+5']}
+                    tick={{fill: '#a0a0a0'}}
+                    tickLine={{stroke: '#a0a0a0'}}
+                    tickSize={9}
+                    axisLine={{stroke: '#a0a0a0'}}
+                    interval='preserveStartEnd'
+                    scale='linear'
+                />
+                <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
+                <Legend onClick={onLineClick} formatter={renderLegend} payload={legendPayload}/>
+                {minY < 0 && <ReferenceLine y={0} stroke='white' strokeDasharray='3 3'/>}
+                {renderedLines}
+            </ReLineChart>
+        </ResponsiveContainer>
     );
 }
 

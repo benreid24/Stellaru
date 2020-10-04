@@ -17,28 +17,28 @@ function WarOverview(props) {
 
     return (
         <Chart overlay={props.overlay}>
-            <div>
-            <LineChart
-                data={data}
-                height={height}
-                title='War Overview'
-                titleColor='#de1212'
-                showLabels={false}
-                lines={[
-                    {
-                        label: 'All Wars',
-                        selector: snap => selectNested('war/total', snap, 0)
-                    },
-                    {
-                        label: 'Offensive Wars',
-                        selector: snap => selectNested('war/attacker', snap, 0)
-                    },
-                    {
-                        label: 'Defensive Wars',
-                        selector: snap => selectNested('war/defender', snap, 0)
-                    }
-                ]}
-            />
+            <div className='warOverviewChart'>
+                <LineChart
+                    data={data}
+                    height={height}
+                    title='War Overview'
+                    titleColor='#de1212'
+                    showLabels={false}
+                    lines={[
+                        {
+                            label: 'All Wars',
+                            selector: snap => selectNested('war/total', snap, 0)
+                        },
+                        {
+                            label: 'Offensive Wars',
+                            selector: snap => selectNested('war/attacker', snap, 0)
+                        },
+                        {
+                            label: 'Defensive Wars',
+                            selector: snap => selectNested('war/defender', snap, 0)
+                        }
+                    ]}
+                />
             </div>
             <div className='militaryOverviewArea'>
                 <h2 className='militaryOverviewLabel'>
