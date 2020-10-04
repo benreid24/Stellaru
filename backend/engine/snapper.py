@@ -588,11 +588,14 @@ def _get_planets_and_pops(state, empire):
 
 
 def _is_transport_fleet(state, fleet):
-    for ship_id in fleet['ships']:
-        if ship_id not in state['ships']:
-            continue
-        if 'army' in state['ships'][ship_id]:
-            return True
+    try:
+        for ship_id in fleet['ships']:
+            if ship_id not in state['ships']:
+                continue
+            if 'army' in state['ships'][ship_id]:
+                return True
+    except:
+        pass
     return False
 
 
