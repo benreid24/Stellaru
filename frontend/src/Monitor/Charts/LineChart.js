@@ -15,7 +15,6 @@ function LineChart(props) {
     const rawData = props.data;
     const lines = props.lines;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
-    const topMargin = props.topMargin ? props.topMargin : 5;
     const labelColors = getDataColors(lines.map(line => line.label));
 
     let minY = 0;
@@ -86,7 +85,7 @@ function LineChart(props) {
 
     return (
         <ResponsiveContainer>
-            <ReLineChart data={data} margin={{top: topMargin, right: 5, left: 5, bottom: 5}}>
+            <ReLineChart data={data} margin={{top: 15, right: 15, left: 15, bottom: 15}}>
                 <XAxis
                     dataKey='xLabel'
                     tick={{fill: '#a0a0a0'}}

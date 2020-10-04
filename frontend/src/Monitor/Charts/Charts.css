@@ -9,6 +9,7 @@
 
 .chartTitle {
     left: 50%;
+    top: 2%;
     transform: translateX(-50%);
     position: absolute;
     font-size: 140%;

@@ -13,7 +13,6 @@ function NetResourceIncome(props) {
             <LineChart
                 data={data}
                 yAxisLabel='Net Income'
-                topMargin={30}
                 lines={[
                     {
                         label: 'Energy Credits',
