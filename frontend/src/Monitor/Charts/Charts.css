@@ -27,9 +27,11 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    left: 92%;
+    right: 2%;
     width: 6%;
+    max-width: 70px;
     height: 10%;
+    max-height: 70px;
 }
 
 .chartOverlayTriggerArea:hover {
@@ -48,8 +50,10 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    left: 75%;
+    right: 2%;
     width: 23%;
+    max-width: 250px;
+    min-width: 150px;
     height: 10%;
     text-align: left;
 }
@@ -78,5 +82,5 @@
 }
 
 .chartCol {
-    min-height: 30vh;
+    min-height: 38vh;
 }

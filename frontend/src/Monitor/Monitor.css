@@ -74,15 +74,10 @@
     color: #ff8b8b;
 }
 
-.customTab {
-    justify-content: left;
-    text-align: left;
-}
-
 .chartDesc {
     font-size: 175%;
 }
 
-.overviewChart {
-    height: 40vh;
+.presetChart {
+    height: 42vh;
 }
