@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(0.5),
         minWidth: 240,
+        width: '100%'
     },
     selectEmpty: {
         marginTop: theme.spacing(1),
@@ -40,8 +41,9 @@ function ChartAdder(props) {
     const chartList = allCharts.map(makeItem);
 
     return (    
-            <div className='row'>
-                <div className='col-auto align-self-end'>
+        <div className='container-fluid'>
+            <div className='row justify-content-start'>
+                <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-7 align-self-end'>
                     <FormControl className={classes.formControl}>
                         <InputLabel id='add-chart'>Add Chart...</InputLabel>
                         <Select value='' onChange={onAdd} labelId='add-chart'>
@@ -49,11 +51,12 @@ function ChartAdder(props) {
                         </Select>
                     </FormControl>
                 </div>
-            {added.length > 0 && 
-                <div className='col align-self-center'>
-                    <Button color='secondary' variant='contained' onClick={props.onClear}>Clear Dashboard</Button>
-                </div>
-            }
+                {added.length > 0 && 
+                    <div className='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-5 align-self-center'>
+                        <Button color='secondary' variant='contained' onClick={props.onClear}>Clear Dashboard</Button>
+                    </div>
+                }
+            </div>
         </div>
     );   
 }
