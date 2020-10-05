@@ -87,7 +87,7 @@ function ComposedChart(props) {
 
     return (
         <ResponsiveContainer>
-            <ReChart data={data} margin={{top: 15, right: 15, left: 15, bottom: 5}}>
+            <ReChart data={data} margin={{top: 45, right: 15, left: 15, bottom: 5}}>
                 <XAxis
                     dataKey='xLabel'
                     tick={{fill: '#a0a0a0'}}

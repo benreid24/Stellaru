@@ -1,13 +1,30 @@
 .monitor {
-    overflow-x: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100vw;
+}
+
+.monitorHeader {
+    flex: 0 1 auto;
+}
+
+.monitorContent {
+    display: flex;
+    flex-flow: column;
+    flex: 1 1 auto;
     overflow-y: auto;
-    min-height: 100%;
-    width: 100%;
+    overflow-x: hidden;
+    width: 100vw;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .monitorTab {
-    min-height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 .empireName {
@@ -57,15 +74,10 @@
     color: #ff8b8b;
 }
 
-.customTab {
-    justify-content: left;
-    text-align: left;
-}
-
 .chartDesc {
     font-size: 175%;
 }
 
-.overviewChart {
-    height: 40vh;
+.presetChart {
+    height: 42vh;
 }
