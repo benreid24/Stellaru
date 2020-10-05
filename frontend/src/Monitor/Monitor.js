@@ -12,6 +12,8 @@ import {dateTickFormat, selectNested} from './Charts/Util';
 
 import './Monitor.css';
 
+const MaxDataPoints = 300;
+
 function TabPanel(props) {
     const currentTab = props.value;
     const index = props.index;
@@ -136,7 +138,13 @@ function Monitor(props) {
     }, [save, empire]);
 
     const updateZoom = () => {
-        setSlicedData(gameData.slice(dateRange[0], dateRange[1]));
+        const data = gameData.slice(dateRange[0], dateRange[1]);
+        const step = data.length > MaxDataPoints ? Math.floor(data.length / MaxDataPoints) : 1;
+        setSlicedData(data.reduce((points, snap, i) => {
+            if (i % step === 0 || i === data.length - 1)
+                return [...points, snap];
+            return points;
+        }, []));
     };
     useEffect(updateZoom, [gameData, dateRange]);
 
