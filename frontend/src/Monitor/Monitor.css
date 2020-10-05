@@ -81,3 +81,9 @@
 .presetChart {
     height: 42vh;
 }
+
+.dateSlider {
+    margin-right: 50px;
+    min-width: 300px;
+    padding-top: 35px;
+}

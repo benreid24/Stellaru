@@ -2,10 +2,13 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import {Tabs, Tab} from '@material-ui/core';
+import Slider from '@material-ui/core/Slider';
 import LoadingDots from '../LoadingDots';
 
 import Overview from './Overview';
 import CustomTab from './CustomTab';
+
+import {dateTickFormat, selectNested} from './Charts/Util';
 
 import './Monitor.css';
 
@@ -40,12 +43,73 @@ function StatusIndicator(props) {
     );
 }
 
+function DateSlider(props) {
+    const gameData = props.data;
+    const onChange = props.onChange;
+    const [dateRange, setDateRange] = useState([0, 0]);
+    const [dateMarks, setDateMarks] = useState([]);
+
+    useEffect(() => {
+        let newDateRange = dateRange.slice();
+        if (newDateRange[1] === gameData.length - 1 || newDateRange[0] === newDateRange[1]) {
+            newDateRange[1] = gameData.length;
+            setDateRange(newDateRange);
+        }
+    }, [gameData]);
+
+    const debouncedUpdate = () => {
+        onChange(dateRange);
+    }
+
+    const onDateRangeChange = (_, newValue) => {
+        if (newValue[1] > newValue[0])
+            setDateRange(newValue);
+    };
+
+    useEffect(() => {
+        if (gameData.length > 1 && dateRange[0] !== dateRange[1]) {
+            let ticks = [];
+            if (dateRange[0] / gameData.length >= 0.1)
+                ticks.push(0);
+            ticks.push(dateRange[0]);
+            ticks.push(dateRange[1]);
+            if (dateRange[1] / gameData.length <= 0.9)
+                ticks.push(gameData.length-1);
+            setDateMarks(ticks.map(i => {
+                return {
+                    value: i,
+                    label: dateTickFormat(selectNested('date_days', gameData[i < gameData.length ? i : gameData.length - 1]))
+                };
+            }));
+        }
+    }, [dateRange, gameData]);
+
+    return (
+        <div className='col dateSlider'>
+            <Slider
+                track='normal'
+                getAriaValueText={dateTickFormat}
+                min={0}
+                max={gameData.length}
+                step={1}
+                marks={dateMarks}
+                value={dateRange}
+                onChange={onDateRangeChange}
+                onChangeCommitted={debouncedUpdate}
+                color='secondary'
+            />
+        </div>
+    );
+}
+
 function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
     const subscription = props.subscription;
 
     const [gameData, setGameData] = useState([]);
+    const [slicedData, setSlicedData] = useState([]);
+    const [dateRange, setDateRange] = useState([0, 0]);
     const [status, setStatus] = useState(subscription.status);
     const [currentTab, setCurrentTab] = useState(0);
 
@@ -65,10 +129,16 @@ function Monitor(props) {
                 body: JSON.stringify({empire: empire.id, file: save.file})
             }
         ).then(response => response.json()).then(data => {
-            console.log(data);
             setGameData(data['snaps']);
+            setDateRange([0, data['snaps'].length]);
+            updateZoom();
         });
     }, [save, empire]);
+
+    const updateZoom = () => {
+        setSlicedData(gameData.slice(dateRange[0], dateRange[1]));
+    };
+    useEffect(updateZoom, [gameData, dateRange]);
 
     return (
         <div className='container-fluid monitor'>
@@ -82,6 +152,7 @@ function Monitor(props) {
                     <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
                         <StatusIndicator status={status}/>
                     </div>
+                    <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
                 <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
                     <Tab label='Overview'/>
@@ -89,16 +160,17 @@ function Monitor(props) {
                     <Tab label='Economy'/>
                     <Tab label='Military'/>
                     <Tab label='Science'/>
-                    <Tab label='Construction'/>
                     <Tab label='Society'/>
+                    <Tab label='Empire'/>
+                    <Tab label='Construction'/>
                 </Tabs>
             </div>
             <div className='monitorContent'>
                 <TabPanel value={currentTab} index={0}>
-                    <Overview data={gameData}/>
+                    <Overview data={slicedData}/>
                 </TabPanel>
                 <TabPanel value={currentTab} index={1}>
-                    <CustomTab data={gameData}/>
+                    <CustomTab data={slicedData}/>
                 </TabPanel>
             </div>
         </div>
