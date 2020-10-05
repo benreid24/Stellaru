@@ -72,31 +72,35 @@ function Monitor(props) {
 
     return (
         <div className='container-fluid monitor'>
-            <div className='row' style={{paddingBottom: '0px'}}>
-                <div className='col-auto align-self-center'>
-                    <h1 className='empireName'>
-                        {empire.name}<span className='playerName'>({empire.player})</span>
-                    </h1>
+            <div className='monitorHeader'>
+                <div className='row' style={{paddingBottom: '0px'}}>
+                    <div className='col-auto align-self-center'>
+                        <h1 className='empireName'>
+                            {empire.name}<span className='playerName'>({empire.player})</span>
+                        </h1>
+                    </div>
+                    <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
+                        <StatusIndicator status={status}/>
+                    </div>
                 </div>
-                <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
-                    <StatusIndicator status={status}/>
-                </div>
+                <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
+                    <Tab label='Overview'/>
+                    <Tab label='Custom'/>
+                    <Tab label='Economy'/>
+                    <Tab label='Military'/>
+                    <Tab label='Science'/>
+                    <Tab label='Construction'/>
+                    <Tab label='Society'/>
+                </Tabs>
             </div>
-            <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
-                <Tab label='Overview'/>
-                <Tab label='Custom'/>
-                <Tab label='Economy'/>
-                <Tab label='Military'/>
-                <Tab label='Science'/>
-                <Tab label='Construction'/>
-                <Tab label='Society'/>
-            </Tabs>
-            <TabPanel value={currentTab} index={0}>
-                <Overview data={gameData}/>
-            </TabPanel>
-            <TabPanel value={currentTab} index={1}>
-                <CustomTab data={gameData}/>
-            </TabPanel>
+            <div className='monitorContent'>
+                <TabPanel value={currentTab} index={0}>
+                    <Overview data={gameData}/>
+                </TabPanel>
+                <TabPanel value={currentTab} index={1}>
+                    <CustomTab data={gameData}/>
+                </TabPanel>
+            </div>
         </div>
     );
 }

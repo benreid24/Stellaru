@@ -120,7 +120,7 @@ function CustomTab(props) {
         let rendered = [];
         for (let i in charts) {
             const chart = charts[i];
-            const className = 'mb-3 col-' + chart.size;
+            const className = 'mb-3 chartCol col-' + chart.size;
             const Chart = getChart(chart.name).component;
             rendered.push(
                 <div className={className} key={chart.name}>
@@ -136,7 +136,7 @@ function CustomTab(props) {
     if (renderedCharts.length === 0)
         rowClass += ' justify-content-center';
     return (
-        <div className='customTab'>
+        <div className='monitorTab'>
             <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             <div className={rowClass}>
                 {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
