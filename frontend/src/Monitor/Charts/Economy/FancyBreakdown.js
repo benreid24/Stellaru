@@ -7,6 +7,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
+import {getResourceName} from './Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
 
@@ -85,7 +86,7 @@ function FancyBreakdown(props) {
     const classes = useStyles();
     const data = props.data;
 
-    const [dataType, setDataType] = useState(DataTypes.Income);
+    const [dataType, setDataType] = useState(props.spending ? DataTypes.Spending : DataTypes.Income);
     const [resourceType, setResourceType] = useState('');
     const [breakdownLevel, setBreakdownLevel] = useState([]);
 
