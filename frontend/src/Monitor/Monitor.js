@@ -8,6 +8,7 @@ import LoadingDots from '../LoadingDots';
 import Overview from './Tabs/Overview';
 import CustomTab from './Tabs/CustomTab';
 import Economy from './Tabs/Economy';
+import Military from './Tabs/Military';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 
@@ -186,6 +187,9 @@ function Monitor(props) {
                 </TabPanel>
                 <TabPanel value={currentTab} index={2}>
                     <Economy data={slicedData}/>
+                </TabPanel>
+                <TabPanel value={currentTab} index={3}>
+                    <Military data={slicedData}/>
                 </TabPanel>
             </div>
         </div>
