@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
-import {getChart, getAllCharts} from './ChartRegistry';
+import {getChart, getAllCharts} from '../ChartRegistry';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {

@@ -19,7 +19,13 @@ const PresetColors = {
     'Engineering Research': '#e39f0e',
     'Tech': '#0aa7cf',
     'Economy': '#ded140',
-    'Victory Rank': '#96d636'
+    'Victory Rank': '#96d636',
+    'Unity': '#54dec9',
+    'Influence': '#a17da8',
+    'Volatile Motes': '#c77f12',
+    'Exotic Gases': '#1a960c',
+    'Rare Crystals': '#ccba2f',
+    'Dark Matter': '#8c00ba'
 }; // TODO - all names and colors
 
 const ItemColors = ["#b6a7b4","#9ed695","#1ddfbc","#e2c496","#cd5889","#3e85bf","#f2cee7","#6d7f97","#67903c","#dc4b5a"];

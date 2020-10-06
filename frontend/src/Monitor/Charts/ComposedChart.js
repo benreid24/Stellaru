@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {ComposedChart as ReChart} from 'recharts';
 import {Legend} from 'recharts';
@@ -17,25 +17,9 @@ function ComposedChart(props) {
     const allowIsolation = props.allowIsolation ? true : false;
     const seriesClickCb = props.onSeriesClick;
     const seriesRenderer = props.seriesRenderer;
-    
-    let minY = 0;
-    const data = rawData.map(snap => {
-        const x = selectNested('date_days', snap);
-        let datum = {
-            x: x,
-            xLabel: dateTickFormat(x)
-        };
-        series.forEach(line => {
-            const value = line.selector(snap);
-            if (value < minY)
-                minY = value - 5;
-            datum[line.label] = value;
-        });
-        return datum;
-    });
 
     const [isolatedSeries, setIsolatedSeries] = useState([]);
-    const onAreaClick = event => {
+    const seriesClick = event => {
         const series = event.dataKey;
         if (seriesClickCb)
             seriesClickCb(series);
@@ -50,10 +34,38 @@ function ComposedChart(props) {
                 setIsolatedSeries([]);
         }
     };
-    const areaVisible = series => isolatedSeries.length === 0 || isolatedSeries.includes(series.label);
+    const seriesVisible = series => isolatedSeries.length === 0 || isolatedSeries.includes(series.label);
+    
+    const data = rawData.map(snap => {
+        const x = selectNested('date_days', snap);
+        let datum = {
+            x: x,
+            xLabel: dateTickFormat(x)
+        };
+        series.forEach(line => {
+            datum[line.label] = line.selector(snap);
+        });
+        return datum;
+    });
+
+    const [minY, setMinY] = useState(0);
+    useEffect(() => {
+        let newMinY = 0;
+        series.forEach(line => {
+            if (seriesVisible(line.label)) {
+                rawData.forEach(snap => {
+                    const value = line.selector(snap);
+                    if (value < newMinY)
+                        newMinY = value;
+                });
+            }
+        });
+        setMinY(newMinY);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data, series, isolatedSeries]);
 
     const renderSeries = series => {
-        if (!areaVisible(series))
+        if (!seriesVisible(series))
             return null;
         return seriesRenderer(series);
     };
@@ -97,7 +109,7 @@ function ComposedChart(props) {
                 />
                 <YAxis
                     tickFormatter={valueTickFormat}
-                    domain={[minY, 'dataMax+1']}
+                    domain={['dataMin', 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}
@@ -107,7 +119,7 @@ function ComposedChart(props) {
                     label={{value: yLabel, angle: -90, position: 'insideBottomLeft', fill: '#dadada', offset: 10}}
                 />
                 <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
-                <Legend onClick={onAreaClick} formatter={renderLegend} payload={legendPayload}/>
+                <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
                 {minY < 0 && <ReferenceLine y={0} stroke='white' strokeDasharray='3 3'/>}
                 <defs>
                     {renderedGradients}

@@ -5,8 +5,9 @@ import {Tabs, Tab} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import LoadingDots from '../LoadingDots';
 
-import Overview from './Overview';
-import CustomTab from './CustomTab';
+import Overview from './Tabs/Overview';
+import CustomTab from './Tabs/CustomTab';
+import Economy from './Tabs/Economy';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 
@@ -57,6 +58,7 @@ function DateSlider(props) {
             newDateRange[1] = gameData.length;
             setDateRange(newDateRange);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameData]);
 
     const debouncedUpdate = () => {
@@ -70,6 +72,7 @@ function DateSlider(props) {
 
     useEffect(() => {
         if (gameData.length > 1 && dateRange[0] !== dateRange[1]) {
+            console.log(gameData[gameData.length-1]);
             let ticks = [];
             if (dateRange[0] / gameData.length >= 0.1)
                 ticks.push(0);
@@ -135,6 +138,7 @@ function Monitor(props) {
             setDateRange([0, data['snaps'].length]);
             updateZoom();
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [save, empire]);
 
     const updateZoom = () => {
@@ -179,6 +183,9 @@ function Monitor(props) {
                 </TabPanel>
                 <TabPanel value={currentTab} index={1}>
                     <CustomTab data={slicedData}/>
+                </TabPanel>
+                <TabPanel value={currentTab} index={2}>
+                    <Economy data={slicedData}/>
                 </TabPanel>
             </div>
         </div>
