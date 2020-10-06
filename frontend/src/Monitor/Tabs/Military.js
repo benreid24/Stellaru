@@ -23,7 +23,6 @@ function Military(props) {
                 <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
                     <FleetShips data={data}/>
                 </div>
-                
             </div>
         </div>
     );

@@ -7,7 +7,6 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
-import {getResourceName} from './Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
 

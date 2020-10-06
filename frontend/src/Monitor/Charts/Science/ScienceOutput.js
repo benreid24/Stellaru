@@ -53,10 +53,10 @@ function ScienceOutput(props) {
                         <h2 className='scienceTotal'>Total: <span className='scienceTotalNumber'>{total}</span></h2>
                     </div>
                     <div className='col-4 align-self-center'>
-                        <h2 className='scienceTotal'>Completed: <span className='scienceTotalNumber'>{completedTechs}</span></h2>
+                        <h2 className='scienceTotal'>Completed Techs: <span className='scienceTotalNumber'>{completedTechs}</span></h2>
                     </div>
                     <div className='col-4 align-self-center'>
-                        <h2 className='scienceTotal'>Available: <span className='scienceTotalNumber'>{availableTechs}</span></h2>
+                        <h2 className='scienceTotal'>Available Techs: <span className='scienceTotalNumber'>{availableTechs}</span></h2>
                     </div>
                 </div>
             </div>
