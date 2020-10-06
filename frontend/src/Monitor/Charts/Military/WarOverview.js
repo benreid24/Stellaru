@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Chart from '../Chart';
-import LineChart from '../LineChart';
-import {selectNested, valueTickFormat} from '../Util';
+import ComposedChart from '../ComposedChart';
+import {selectNested, valueTickFormat, renderArea, renderLine, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 import './Military.css';
@@ -14,25 +14,36 @@ function WarOverview(props) {
     const shipCount = data.length > 0 ? selectNested('fleets/ships/total', data[data.length-1], 0) : 0;
     const fleetPower = data.length > 0 ? valueTickFormat(selectNested('fleets/fleet_power/total', data[data.length-1], 0)) : 0;
 
+    const series = [
+        {
+            label: 'Offensive Wars',
+            selector: snap => selectNested('war/attacker', snap, 0)
+        },
+        {
+            label: 'Defensive Wars',
+            selector: snap => selectNested('war/defender', snap, 0)
+        },
+        {
+            label: 'All Wars',
+            selector: snap => selectNested('war/total', snap, 0)
+        }
+    ];
+    const labelColors = getDataColors(['All Wars', 'Offensive Wars', 'Defensive Wars']);
+    const renderSeries = series => {
+        if (series.label === 'All Wars')
+            return renderLine(series, labelColors[series.label]);
+        return renderArea(series, labelColors[series.label], '1');
+    }
+
     return (
         <Chart overlay={props.overlay} title='War Overview' titleColor='#de1212'>
             <div className='warOverviewChart'>
-                <LineChart
+                <ComposedChart
                     data={data}
-                    lines={[
-                        {
-                            label: 'All Wars',
-                            selector: snap => selectNested('war/total', snap, 0)
-                        },
-                        {
-                            label: 'Offensive Wars',
-                            selector: snap => selectNested('war/attacker', snap, 0)
-                        },
-                        {
-                            label: 'Defensive Wars',
-                            selector: snap => selectNested('war/defender', snap, 0)
-                        }
-                    ]}
+                    series={series}
+                    allowIsolation={true}
+                    seriesRenderer={renderSeries}
+                    labelColors={labelColors}
                 />
             </div>
             <div className='militaryOverviewArea'>
