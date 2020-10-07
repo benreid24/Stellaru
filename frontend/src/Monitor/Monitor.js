@@ -12,6 +12,7 @@ import Military from './Tabs/Military';
 import Science from './Tabs/Science';
 import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
+import Construction from './Tabs/Construction';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
@@ -208,6 +209,9 @@ function Monitor(props) {
                 </TabPanel>
                 <TabPanel value={currentTab} index={6}>
                     <Empire data={slicedData}/>
+                </TabPanel>
+                <TabPanel value={currentTab} index={7}>
+                    <Construction data={slicedData}/>
                 </TabPanel>
             </div>
         </div>

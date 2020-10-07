@@ -1,0 +1,16 @@
+.constructionChartArea {
+    height: 85%;
+}
+
+.constructionChartForm {
+    text-align: left;
+    height: 15%;
+}
+
+.constructionChartFormInner {
+    width: 100%;
+    height: 95%;
+    position: absolute;
+    top: 7%;
+    left: 4%;
+}

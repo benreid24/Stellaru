@@ -1,3 +1,5 @@
+import {capitalize} from '../Util';
+
 const resourceNames = Object.freeze({
     sr_dark_matter: 'Dark Matter',
     energy: 'Energy Credits',
@@ -14,7 +16,7 @@ const filteredResources = Object.freeze([
 function getResourceName(key) {
     if (resourceNames.hasOwnProperty(key))
         return resourceNames[key];
-    return key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return capitalize(key, '_');
 }
 
 function filterResources(keys) {
