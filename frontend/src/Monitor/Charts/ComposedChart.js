@@ -60,7 +60,10 @@ function ComposedChart(props) {
     const renderedAreas = series.map(renderSeries);
 
     let minY = 0;
+    let showRightAxis = false;
     series.forEach(line => {
+        if (line.yAxis === 'right')
+            showRightAxis = true;
         if (isolatedSeries.length === 0 || isolatedSeries.includes(line.label)) {
             rawData.forEach(snap => {
                 const y = line.selector(snap);
@@ -121,6 +124,7 @@ function ComposedChart(props) {
                 <YAxis
                     yAxisId='right'
                     orientation='right'
+                    hide={!showRightAxis}
                     tickFormatter={valueTickFormat}
                     domain={['dataMin', 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
