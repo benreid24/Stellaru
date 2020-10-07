@@ -119,7 +119,7 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale='linear'
-                    label={{value: yLabel, angle: -90, position: 'insideLeft', fill: '#dadada', offset: 10}}
+                    label={{value: yLabel, angle: -90, position: 'insideLeft', fill: '#dadada'}}
                 />
                 <YAxis
                     yAxisId='right'
@@ -133,7 +133,7 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale='linear'
-                    label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada', offset: 10}}
+                    label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada'}}
                 />
                 <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>

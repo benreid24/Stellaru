@@ -11,7 +11,7 @@ function FleetPower(props) {
         <Chart overlay={props.overlay} title='Fleet Power' titleColor='#de1212'>
             <StatsChart
                 data={data}
-                keyPath='fleets/fleet_power'
+                keyPaths='fleets/fleet_power'
                 statLabels={['Min Power/Fleet', 'Max Power/Fleet', 'Average Power/Fleet', 'Total Fleet Power']}
             />
         </Chart>

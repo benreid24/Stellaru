@@ -6,7 +6,7 @@ import Leaders from '../Charts/Society/Leaders';
 import LeaderStats from '../Charts/Society/LeaderStats';
 import LeaderGender from '../Charts/Society/LeaderGender';
 
-function Science(props) {
+function Society(props) {
     const data = props.data;
 
     return (
@@ -32,4 +32,4 @@ function Science(props) {
     );
 }
 
-export default Science;
+export default Society;
