@@ -112,7 +112,7 @@ function ComposedChart(props) {
                 <YAxis
                     yAxisId='left'
                     tickFormatter={valueTickFormat}
-                    domain={['dataMin', 'dataMax+1']}
+                    domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}
@@ -126,7 +126,7 @@ function ComposedChart(props) {
                     orientation='right'
                     hide={!showRightAxis}
                     tickFormatter={valueTickFormat}
-                    domain={['dataMin', 'dataMax+1']}
+                    domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}
