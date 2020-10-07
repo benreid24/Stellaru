@@ -155,6 +155,14 @@ function findKeysOverSeries(data, topKey) {
 
 const makeId = label => label.replace(/\s/g, '');
 
+function capitalizeWord(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+function capitalize(str, sep) {
+    return sep ? str.split(sep).map(capitalizeWord).join(' ') : capitalizeWord(str);
+}
+
 function renderLine(line, labelColor) {
     return (
         <Line
@@ -204,5 +212,7 @@ export {
     shuffle,
     renderLine,
     renderArea,
-    makeId
+    makeId,
+    capitalizeWord,
+    capitalize
 };

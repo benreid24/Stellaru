@@ -31,7 +31,7 @@ def _get_save_dirs():
         user_path = os.path.join(steam_dir, STEAM_USERDATA)
         users = os.listdir(user_path)
         for user in users:
-            save_dir = os.path.join(user_path, user,STELLARIS_ID, CLOUD_SAVE_SUFFIX)
+            save_dir = os.path.join(user_path, user, STELLARIS_ID, CLOUD_SAVE_SUFFIX)
             save_dirs.append(save_dir)
     else:
         print('Failed to find Steam install, only local saves will be searched')
@@ -45,7 +45,7 @@ def _refresh():
     for f in _get_save_dirs():
         try:
             save_folders.extend(
-                [os.path.join(f, file) for file in os.listdir(f)]
+                [os.path.join(f, file) for file in os.listdir(f) if os.path.isdir(os.path.join(f, file))]
             )
         except:
             pass
