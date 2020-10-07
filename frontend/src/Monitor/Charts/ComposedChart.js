@@ -135,7 +135,7 @@ function ComposedChart(props) {
                     scale='linear'
                     label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada'}}
                 />
-                <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
+                <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
                 {minY < 0 && <ReferenceLine yAxisId='left' y={0} stroke='white' strokeDasharray='3 3'/>}
                 <defs>
