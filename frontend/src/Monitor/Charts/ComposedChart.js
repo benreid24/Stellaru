@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import {ComposedChart as ReChart} from 'recharts';
 import {Legend} from 'recharts';
@@ -7,12 +7,14 @@ import {ReferenceLine} from 'recharts';
 import {ResponsiveContainer} from 'recharts';
 import {YAxis, XAxis} from 'recharts';
 
+import {getCurrentTab} from '../Tabs/CurrentTab';
 import {getDataColors, valueTickFormat, selectNested, dateTickFormat, makeId} from './Util';
 
 function ComposedChart(props) {
     const rawData = props.data;
     const series = props.series;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
+    const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
     const labelColors = props.labelColors ? props.labelColors : getDataColors(series.map(series => series.label));
     const allowIsolation = props.allowIsolation ? true : false;
     const seriesClickCb = props.onSeriesClick;
@@ -20,18 +22,19 @@ function ComposedChart(props) {
 
     const [isolatedSeries, setIsolatedSeries] = useState([]);
     const seriesClick = event => {
-        const series = event.dataKey;
+        const iseries = event.dataKey;
         if (seriesClickCb)
-            seriesClickCb(series);
+            seriesClickCb(iseries);
         if (!allowIsolation)
             return;
-        if (isolatedSeries.includes(series)) {
-            setIsolatedSeries(isolatedSeries.filter(l => l !== series));
+        if (isolatedSeries.includes(iseries)) {
+            setIsolatedSeries(isolatedSeries.filter(l => l !== iseries));
         }
         else {
-            setIsolatedSeries([...isolatedSeries, series]);
-            if (isolatedSeries.length === series.length - 1)
-                setIsolatedSeries([]);
+            let newIsolated = [...isolatedSeries, iseries];
+            if (newIsolated.length === series.length)
+                newIsolated = [];
+            setIsolatedSeries(newIsolated);
         }
     };
     const seriesVisible = series => isolatedSeries.length === 0 || isolatedSeries.includes(series.label);
@@ -43,26 +46,11 @@ function ComposedChart(props) {
             xLabel: dateTickFormat(x)
         };
         series.forEach(line => {
-            datum[line.label] = line.selector(snap);
+            const y = line.selector(snap);
+            datum[line.label] = y;
         });
         return datum;
     });
-
-    const [minY, setMinY] = useState(0);
-    useEffect(() => {
-        let newMinY = 0;
-        series.forEach(line => {
-            if (seriesVisible(line.label)) {
-                rawData.forEach(snap => {
-                    const value = line.selector(snap);
-                    if (value < newMinY)
-                        newMinY = value;
-                });
-            }
-        });
-        setMinY(newMinY);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [data, series, isolatedSeries]);
 
     const renderSeries = series => {
         if (!seriesVisible(series))
@@ -70,6 +58,17 @@ function ComposedChart(props) {
         return seriesRenderer(series);
     };
     const renderedAreas = series.map(renderSeries);
+
+    let minY = 0;
+    series.forEach(line => {
+        if (isolatedSeries.length === 0 || isolatedSeries.includes(line.label)) {
+            rawData.forEach(snap => {
+                const y = line.selector(snap);
+                if (y < minY)
+                    minY = y;
+            });
+        }
+    });
 
     const renderGradient = series => {
         return (
@@ -99,7 +98,7 @@ function ComposedChart(props) {
 
     return (
         <ResponsiveContainer>
-            <ReChart data={data} syncId='stellaru' margin={{top: 45, right: 15, left: 15, bottom: 5}}>
+            <ReChart data={data} syncId={getCurrentTab()} margin={{top: 45, right: 15, left: 15, bottom: 5}}>
                 <XAxis
                     dataKey='xLabel'
                     tick={{fill: '#a0a0a0'}}
@@ -108,6 +107,7 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                 />
                 <YAxis
+                    yAxisId='left'
                     tickFormatter={valueTickFormat}
                     domain={['dataMin', 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
@@ -116,11 +116,24 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale='linear'
-                    label={{value: yLabel, angle: -90, position: 'insideBottomLeft', fill: '#dadada', offset: 10}}
+                    label={{value: yLabel, angle: -90, position: 'insideLeft', fill: '#dadada', offset: 10}}
+                />
+                <YAxis
+                    yAxisId='right'
+                    orientation='right'
+                    tickFormatter={valueTickFormat}
+                    domain={['dataMin', 'dataMax+1']}
+                    tick={{fill: '#a0a0a0'}}
+                    tickLine={{stroke: '#a0a0a0'}}
+                    tickSize={9}
+                    axisLine={{stroke: '#a0a0a0'}}
+                    interval='preserveStartEnd'
+                    scale='linear'
+                    label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada', offset: 10}}
                 />
                 <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
-                {minY < 0 && <ReferenceLine y={0} stroke='white' strokeDasharray='3 3'/>}
+                {minY < 0 && <ReferenceLine yAxisId='left' y={0} stroke='white' strokeDasharray='3 3'/>}
                 <defs>
                     {renderedGradients}
                 </defs>

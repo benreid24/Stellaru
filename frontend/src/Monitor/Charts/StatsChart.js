@@ -7,6 +7,7 @@ import {selectNested} from './Util';
 function StatsChart(props) {
     const rawData = props.data;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
+    const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
     const keyPath = props.keyPath;
     const extraLines = props.extraLines ? props.extraLines : [];
     const statLabels = props.statLabels ? props.statLabels : ['Min', 'Max', 'Average', 'Total'];
@@ -30,7 +31,7 @@ function StatsChart(props) {
         }
     ];
 
-    return <LineChart data={rawData} yLabel={yLabel} lines={lines}/>;
+    return <LineChart data={rawData} yAxisLabel={yLabel} rightYLabel={rightYLabel} lines={lines}/>;
 }
 
 export default StatsChart;

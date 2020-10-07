@@ -21,6 +21,8 @@ const PresetColors = {
     'Economy': '#ded140',
     'Victory Rank': '#96d636',
     'Unity': '#54dec9',
+    'Unity Income': '#54dec9',
+    'Unity Stockpile': '#18a38e',
     'Influence': '#a17da8',
     'Volatile Motes': '#c77f12',
     'Exotic Gases': '#1a960c',
@@ -153,6 +155,7 @@ function renderLine(line, labelColor) {
             key={line.label}
             name={line.label}
             dataKey={line.label}
+            yAxisId={line.yAxis ? line.yAxis : 'left'}
             type='monotone'
             dot={false}
             activeDot
@@ -169,6 +172,7 @@ function renderArea(area, labelColor, stackId) {
             key={area.label}
             name={area.label}
             dataKey={area.label}
+            yAxisId={area.yAxis ? area.yAxis : 'left'}
             type='monotone'
             dot={false}
             activeDot

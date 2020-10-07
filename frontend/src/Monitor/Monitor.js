@@ -12,6 +12,7 @@ import Military from './Tabs/Military';
 import Science from './Tabs/Science';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
+import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
 
 import './Monitor.css';
 
@@ -120,6 +121,11 @@ function Monitor(props) {
     const [status, setStatus] = useState(subscription.status);
     const [currentTab, setCurrentTab] = useState(0);
 
+    const onTabChange = (_, newTab) => {
+        setCurrentTab(newTab);
+        setSyncId(`stellaru-tab-${newTab}`);
+    };
+
     const onNewData = snap => {
         if (gameData.length === 0 || gameData[gameData.length - 1]['date_days'] < snap['date_days']) {
             setGameData([...gameData, snap]);
@@ -168,7 +174,7 @@ function Monitor(props) {
                     </div>
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
+                <Tabs value={currentTab} onChange={onTabChange}>
                     <Tab label='Overview'/>
                     <Tab label='Custom'/>
                     <Tab label='Economy'/>

@@ -11,7 +11,8 @@ function Technologies(props) {
     const series = [
         {
             label: 'Researched Technologies',
-            selector: snap => selectNested('tech/completed_techs', snap)
+            selector: snap => selectNested('tech/completed_techs', snap),
+            yAxis: 'right'
         },
         {
             label: 'Available Engineering Techs',
@@ -41,6 +42,8 @@ function Technologies(props) {
                 series={series}
                 seriesRenderer={renderer}
                 labelColors={labelColors}
+                yAxisLabel='Available Techs'
+                rightYLabel='Researched Techs'
             />
         </Chart>
     );
