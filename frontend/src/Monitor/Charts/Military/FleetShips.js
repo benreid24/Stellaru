@@ -15,7 +15,8 @@ function FleetShips(props) {
         },
         {
             label: 'Average Ship Experience',
-            selector: snap => selectNested('fleets/avg_ship_exp', snap)
+            selector: snap => selectNested('fleets/avg_ship_exp', snap),
+            yAxis: 'right'
         }
     ];
 
@@ -23,9 +24,11 @@ function FleetShips(props) {
         <Chart overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
             <StatsChart
                 data={data}
-                keyPath='fleets/ships'
+                keyPaths='fleets/ships'
                 extraLines={lines}
                 statLabels={['Min Ship Count', 'Max Ship Count', 'Average Ship Count', 'Total Ship Count']}
+                yAxisLabel='Ship Count'
+                rightYLabel='Experience'
             />
         </Chart>
     );

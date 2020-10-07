@@ -13,6 +13,7 @@
     transform: translateX(-50%);
     position: absolute;
     font-size: 170%;
+    width: 90%;
  }
 
 .verticaalFlex {
