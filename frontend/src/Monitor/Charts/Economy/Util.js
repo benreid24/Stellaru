@@ -7,7 +7,8 @@ const resourceNames = Object.freeze({
 const filteredResources = Object.freeze([
     'physics_research',
     'society_research',
-    'engineering_research'
+    'engineering_research',
+    'unity'
 ]);
 
 function getResourceName(key) {

@@ -28,11 +28,11 @@ function Unity(props) {
         },
         {
             label: 'Completed Trees',
-            selector: snap => selectNested('unity/traditions', snap)
+            selector: snap => selectNested('unity/finished_trees', snap)
         },
         {
             label: 'Ascension Perks',
-            selector: snap => selectNested('unity/ascension_perks', snap)
+            selector: snap => selectNested('unity/acension_perks', snap)
         }
     ]
 
