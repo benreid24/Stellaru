@@ -21,6 +21,8 @@ const PresetColors = {
     'Economy': '#ded140',
     'Victory Rank': '#96d636',
     'Unity': '#54dec9',
+    'Unity Income': '#54dec9',
+    'Unity Stockpile': '#18a38e',
     'Influence': '#a17da8',
     'Volatile Motes': '#c77f12',
     'Exotic Gases': '#1a960c',

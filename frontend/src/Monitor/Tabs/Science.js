@@ -17,10 +17,10 @@ function Science(props) {
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
                     <Technologies data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
                     <Unity data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
                     <Exploration data={data}/>
                 </div>
             </div>
