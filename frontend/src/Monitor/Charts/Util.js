@@ -153,6 +153,7 @@ function renderLine(line, labelColor) {
             key={line.label}
             name={line.label}
             dataKey={line.label}
+            yAxisId={line.yAxis ? line.yAxis : 'left'}
             type='monotone'
             dot={false}
             activeDot
@@ -169,6 +170,7 @@ function renderArea(area, labelColor, stackId) {
             key={area.label}
             name={area.label}
             dataKey={area.label}
+            yAxisId={area.yAxis ? area.yAxis : 'left'}
             type='monotone'
             dot={false}
             activeDot

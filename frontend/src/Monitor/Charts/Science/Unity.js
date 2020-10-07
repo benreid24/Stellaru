@@ -12,11 +12,13 @@ function Unity(props) {
     const lines = [
         {
             label: 'Unity Income',
-            selector: snap => selectNested('economy/income/unity/total', snap)
+            selector: snap => selectNested('economy/income/unity/total', snap),
+            yAxis: 'right'
         },
         {
             label: 'Unity Stockpile',
-            selector: snap => selectNested('economy/stockpile/unity', snap)
+            selector: snap => selectNested('economy/stockpile/unity', snap),
+            yAxis: 'right'
         },
         {
             label: 'Adopted Trees',
@@ -42,6 +44,8 @@ function Unity(props) {
                 data={data}
                 allowIsolation={true}
                 lines={lines}
+                yAxisLabel='Count'
+                rightYLabel='Unity'
             />
         </Chart>
     );
