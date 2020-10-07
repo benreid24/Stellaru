@@ -115,6 +115,12 @@ function dateTickFormat(date_days) {
     return `${year}.${String(month).padStart(2, '0')}.${String(date_days).padStart(2, '0')}`;
 }
 
+function percentValueFormat(percent) {
+    if (!percent)
+        return '0%';
+    return `${percent.toFixed(2)}%`;
+}
+
 function addAlphaChannel(color, alpha) {
     const r = parseInt(color.substring(1).slice(0,2), 16);
     const g = parseInt(color.substring(1).slice(2,4), 16);
@@ -189,6 +195,7 @@ export {
     addAlphaChannel,
     dateTickFormat,
     valueTickFormat,
+    percentValueFormat,
     selectNested,
     getTextWidth,
     getDataColors,

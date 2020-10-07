@@ -2,8 +2,11 @@ import React from 'react';
 
 import Chart from '../Chart';
 import AreaChart from '../AreaChart';
-import {selectNested} from '../Util';
+import PieChart from '../PieChart';
+import {selectNested, percentValueFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+
+import './Society.css';
 
 function LeaderGender(props) {
     const data = props.data;
@@ -18,15 +21,26 @@ function LeaderGender(props) {
             selector: snap => (1 - selectNested('leaders/percent_male', snap)) * 100
         }
     ];
+    const sections = areas.map(area => {
+        return {
+            label: area.label,
+            value: data.length > 0 ? area.selector(data[data.length-1]) : 0.5
+        };
+    });
 
     return (
         <Chart overlay={props.overlay} title='Leader Gender Breakdown' titleColor='#65c73c'>
-            <AreaChart
-                data={data}
-                allowIsolation={true}
-                stack={true}
-                areas={areas}
-            />
+            <div className='genderAreaChart'>
+                <AreaChart
+                    data={data}
+                    allowIsolation={true}
+                    stack={true}
+                    areas={areas}
+                />
+            </div>
+            <div className='genderPieChart'>
+                <PieChart sections={sections} formatter={percentValueFormat}/>
+            </div>
         </Chart>
     );
 }
