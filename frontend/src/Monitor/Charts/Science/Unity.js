@@ -8,7 +8,6 @@ import {registerChart} from '../../ChartRegistry';
 function Unity(props) {
     const data = props.data;
 
-    // TODO - build in support for multiple y-axes
     const lines = [
         {
             label: 'Unity Income',
