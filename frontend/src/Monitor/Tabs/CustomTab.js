@@ -82,14 +82,14 @@ function CustomTab(props) {
     useEffect(() => {
         const onDelete = chart => {
             setCharts(charts.reduce((keptCharts, cChart) => {
-                if (cChart.name !== chart)
+                if (cChart.saveName !== chart)
                     return [...keptCharts, cChart];
                 return keptCharts;
             }, []));
         };
         const onResize = (chart, larger) => {
             setCharts(charts.reduce((newCharts, cChart) => {
-                if (cChart.name === chart) {
+                if (cChart.saveName === chart) {
                     cChart.size += larger ? 1 : -1;
                     if (cChart.size > 12)
                         cChart.size = 12;
@@ -100,7 +100,7 @@ function CustomTab(props) {
             }, []));
         };
         const onMove = (chart, higher) => {
-            const i = charts.findIndex(cChart => cChart.name === chart);
+            const i = charts.findIndex(cChart => cChart.saveName === chart);
             if (i >= 0) {
                 let newCharts = charts.slice();
                 const newI = higher ? i - 1 : i + 1;
@@ -125,8 +125,8 @@ function CustomTab(props) {
             const className = 'mb-3 chartCol col-' + chart.size;
             const Chart = getChart(chart.name).component;
             rendered.push(
-                <div className={className} key={chart.name}>
-                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.name)}/>
+                <div className={className} key={chart.saveName}>
+                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.saveName)}/>
                 </div>
             );
         }
