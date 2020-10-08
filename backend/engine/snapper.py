@@ -257,17 +257,20 @@ def _get_wars(state, empire):
             war for key, war in state['war'].items()
             if isinstance(war, dict)
         ] if isinstance(state['war'], dict) else []
+
+        attackers = [fighter['country'] for war in active_wars for fighter in war['attackers']]
+        defenders = [fighter['country'] for war in active_wars for fighter in war['defenders']]
         
-        offense_wars = sum([
-            1 for war in active_wars if empire in
-                [attacker['country'] for attacker in war['attackers']]
-        ])
-        defense_wars = sum([
-            1 for war in active_wars if empire in
-                [defender['country'] for defender in war['defenders']]
-        ])
+        offense_wars = sum([1 for war in active_wars if empire in attackers])
+        defense_wars = sum([1 for war in active_wars if empire in defenders])
+
+        all_participants = attackers
+        all_participants.extend(defenders)
+        all_participants = set(all_participants)
+
         return {
             'total': len(active_wars),
+            'all_participants': len(all_participants),
             'participation': offense_wars + defense_wars,
             'attacker': offense_wars,
             'defender': defense_wars
@@ -534,13 +537,31 @@ def _get_planets_and_pops(state, empire):
             else:
                 type_sums[tp] += 1
 
+        planet_summaries = [
+            {
+                'name': planet['name'],
+                'size': planet['planet_size'],
+                'population': len(planet['pop']) if 'pop' in planet else 0,
+                'districts': len(planet['district']) if 'district' in planet else 0,
+                'armies': len(planet['army']) if 'army' in planet else 0,
+                'stability': planet['stability'],
+                'amenities': planet['amenities'],
+                'free_amenities': planet['free_amenities'],
+                'amenities_usage': planet['amenities_usage'],
+                'free_housing': planet['free_housing'],
+                'total_housing': planet['total_housing']
+            } for planet in planets
+        ]
+
         planet_stats = {
             'total': len(planets),
+            'list': {planet['name']: planet for planet in planet_summaries},
             'types': type_sums,
             'districts': _basic_stats([len(_key_or(planet, 'district', [])) for planet in planets]),
             'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
             'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
             'stability': _basic_stats([planet['stability'] for planet in planets]),
+            'amenities': _basic_stats([planet['free_amenities'] for planet in planets]),
             'housing': _basic_stats([planet['free_housing'] for planet in planets]),
             'crime': _basic_stats([planet['crime'] for planet in planets]),
             'pops': _basic_stats([len(_key_or(planet, 'pop', [])) for planet in planets]),
