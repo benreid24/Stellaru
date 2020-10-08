@@ -435,25 +435,30 @@ def _get_construction(state, empire):
             {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
             if isinstance(queue, dict) and queue['owner'] == empire
         ]
+        total_count = 0
         total_items = 0
         max_size = 0
+        type_count = {}
         type_queues = {}
         for queue in build_queues:
             queue['size'] = sum([
                 1 for iid,item in state['construction']['item_mgr']['items'].items()
                 if isinstance(item, dict) and item['queue'] == queue['id']
             ])
+            total_count += queue['simultaneous']
             total_items += queue['size']
             if queue['size'] > max_size:
                 max_size = queue['size']
             if queue['type'] not in type_queues:
+                type_count[queue['type']] = queue['simultaneous']
                 type_queues[queue['type']] = [queue]
             else:
+                type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
 
         breakdown = {
             qtype: {
-                'queue_count': len(qlist),
+                'queue_count': type_count[qtype],
                 'queued_items': sum([queue['size'] for queue in qlist]),
                 'avg_queue_size': sum([queue['size'] for queue in qlist]) / len(qlist) if len(qlist) > 0 else 0,
                 'max_queue_size': max([queue['size'] for queue in qlist])
@@ -461,7 +466,7 @@ def _get_construction(state, empire):
         }
             
         return {
-            'queue_count': len(build_queues), # TODO - consider taking into acccount simultaneous queues
+            'queue_count': total_count,
             'queued_items': total_items,
             'avg_queue_size': total_items / len(build_queues) if len(build_queues) > 0 else 0,
             'max_queue_size': max_size,
