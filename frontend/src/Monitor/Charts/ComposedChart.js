@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {ComposedChart as ReChart} from 'recharts';
 import {Legend} from 'recharts';
@@ -11,6 +11,7 @@ import {getCurrentTab} from '../Tabs/CurrentTab';
 import {getDataColors, valueTickFormat, selectNested, dateTickFormat, makeId} from './Util';
 
 function ComposedChart(props) {
+    const name = props.name ? props.name : null;
     const rawData = props.data;
     const series = props.series;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
@@ -21,6 +22,19 @@ function ComposedChart(props) {
     const seriesRenderer = props.seriesRenderer;
 
     const [isolatedSeries, setIsolatedSeries] = useState([]);
+    useEffect(() => {
+        if (name) {
+            const saved = window.localStorage.getItem(`${name}-isolated`);
+            if (saved !== null) {
+                setIsolatedSeries(JSON.parse(saved));
+            }
+        }
+    }, []);
+    useEffect(() => {
+        if (name) {
+            window.localStorage.setItem(`${name}-isolated`, JSON.stringify(isolatedSeries));
+        }
+    }, [isolatedSeries]);
     const seriesClick = event => {
         const iseries = event.dataKey;
         if (seriesClickCb)

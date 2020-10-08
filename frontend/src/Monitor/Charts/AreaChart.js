@@ -4,6 +4,7 @@ import ComposedChart from './ComposedChart';
 import {getDataColors, renderArea} from './Util';
 
 function AreaChart(props) {
+    const name = props.name;
     const rawData = props.data;
     const areas = props.areas;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
@@ -17,6 +18,7 @@ function AreaChart(props) {
 
     return (
         <ComposedChart
+            name={name}
             data={rawData}
             series={areas}
             yAxisLabel={yLabel}

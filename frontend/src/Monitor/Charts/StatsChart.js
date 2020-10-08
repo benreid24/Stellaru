@@ -5,6 +5,7 @@ import LineChart from './LineChart';
 import {selectNested} from './Util';
 
 function StatsChart(props) {
+    const name = props.name;
     const rawData = props.data;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
@@ -28,7 +29,7 @@ function StatsChart(props) {
     });
     const lines = [...extraLines, ...statLines];
 
-    return <LineChart data={rawData} yAxisLabel={yLabel} rightYLabel={rightYLabel} lines={lines}/>;
+    return <LineChart name={name} data={rawData} yAxisLabel={yLabel} rightYLabel={rightYLabel} lines={lines}/>;
 }
 
 export default StatsChart;
