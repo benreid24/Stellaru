@@ -20,6 +20,7 @@ function Stockpiles(props) {
     return (
         <Chart overlay={props.overlay} title='Resource Stockpiles' titleColor='#ded140'>
             <LineChart
+                name='stockpiles'
                 data={data}
                 yAxisLabel='Stockpile'
                 lines={lines}

@@ -40,6 +40,7 @@ function Unity(props) {
     return (
         <Chart overlay={props.overlay} title='Unity' titleColor='#0b9cbd'>
             <LineChart
+                name='unity'
                 data={data}
                 allowIsolation={true}
                 lines={lines}

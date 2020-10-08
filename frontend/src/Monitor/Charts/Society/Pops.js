@@ -19,6 +19,7 @@ function Pops(props) {
     return (
         <Chart overlay={props.overlay} title='Pops' titleColor='#65c73c'>
             <AreaChart
+                name='pops'
                 data={data}
                 allowIsolation={true}
                 stack={true}

@@ -19,6 +19,7 @@ function ConstructionQueues(props) {
     return (
         <Chart overlay={props.overlay} title='Construction Queue Counts' titleColor='#e68e00'>
             <AreaChart
+                name='constructionqueues'
                 data={data}
                 stack={true}
                 allowIsolation={true}

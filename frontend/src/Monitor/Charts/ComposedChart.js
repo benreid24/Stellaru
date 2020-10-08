@@ -29,12 +29,12 @@ function ComposedChart(props) {
                 setIsolatedSeries(JSON.parse(saved));
             }
         }
-    }, []);
+    }, [name]);
     useEffect(() => {
         if (name) {
             window.localStorage.setItem(`${name}-isolated`, JSON.stringify(isolatedSeries));
         }
-    }, [isolatedSeries]);
+    }, [isolatedSeries, name]);
     const seriesClick = event => {
         const iseries = event.dataKey;
         if (seriesClickCb)

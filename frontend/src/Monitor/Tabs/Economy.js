@@ -17,10 +17,10 @@ function Economy(props) {
                     <Stockpiles data={data}/>
                 </div>
                 <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
-                    <FancyBreakdown data={data}/>
+                    <FancyBreakdown data={data} name='economybreakdown1'/>
                 </div>
                 <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
-                    <FancyBreakdown spending data={data}/>
+                    <FancyBreakdown spending data={data} name='economybreakdown2'/>
                 </div>
             </div>
         </div>

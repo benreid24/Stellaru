@@ -37,6 +37,7 @@ function Technologies(props) {
     return (
         <Chart overlay={props.overlay} title='Technologies' titleColor='#0b9cbd'>
             <ComposedChart
+                name='technologies'
                 data={data}
                 allowIsolation={true}
                 series={series}

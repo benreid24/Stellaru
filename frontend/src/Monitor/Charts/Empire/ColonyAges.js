@@ -10,6 +10,7 @@ function ColonyAges(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Age Stats' titleColor='#96d636'>
             <StatsChart
+                name='colonyages'
                 data={data}
                 keyPaths='planets/age'
                 statLabels={['Min Colony Age', 'Max Colony Age', 'Average Colony Age']}

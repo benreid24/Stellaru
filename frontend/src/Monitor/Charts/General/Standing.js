@@ -35,6 +35,7 @@ function Standing(props) {
             </div>
             <div className='rankChart'>
                 <LineChart
+                    name='standing'
                     data={data}
                     yAxisLabel='Rank'
                     lines={[

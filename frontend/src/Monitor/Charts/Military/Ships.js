@@ -19,6 +19,7 @@ function Ships(props) {
     return (
         <Chart overlay={props.overlay} title='Ship Types' titleColor='#de1212'>
             <AreaChart
+                name='ships'
                 data={data}
                 areas={lines}
                 stack={true}

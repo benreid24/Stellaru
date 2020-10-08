@@ -27,6 +27,7 @@ function ScienceOutput(props) {
         <Chart overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
             <div className='scienceOverviewChart'>
                 <AreaChart
+                    name='scienceoverview'
                     data={data}
                     yAxisLabel='Monthly Research'
                     stack={true}

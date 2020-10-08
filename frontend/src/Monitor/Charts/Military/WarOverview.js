@@ -39,6 +39,7 @@ function WarOverview(props) {
         <Chart overlay={props.overlay} title='War Overview' titleColor='#de1212'>
             <div className='warOverviewChart'>
                 <ComposedChart
+                    name='waroverview'
                     data={data}
                     series={series}
                     allowIsolation={true}

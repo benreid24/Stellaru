@@ -15,6 +15,7 @@ function ColonyStability(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Stability &amp; Crime' titleColor='#96d636'>
             <StatsChart
+                name='colonystability'
                 data={data}
                 keyPaths={['planets/stability', 'planets/crime']}
                 statLabels={labels}

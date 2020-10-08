@@ -22,7 +22,7 @@ function Overview(props) {
                     <ScienceOutput data={data}/>
                 </div>
                 <div className='col-xl-6 col-lg-12 chartCol presetChart'>
-                    <FancyBreakdown data={data}/>
+                    <FancyBreakdown data={data} name='overviewbreakdown'/>
                 </div>
                 <div className='col-xl-6 col-lg-8 col-sm-10 col-xs-12 chartCol presetChart'>
                     <WarOveriview data={data}/>

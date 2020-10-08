@@ -20,6 +20,7 @@ function AllResourceIncomes(props) {
     return (
         <Chart overlay={props.overlay} title='All Resource Net Incomes' titleColor='#ded140'>
             <LineChart
+                name='allresourceincomes'
                 data={data}
                 yAxisLabel='Net Income'
                 lines={lines}

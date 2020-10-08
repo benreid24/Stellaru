@@ -32,6 +32,7 @@ function LeaderGender(props) {
         <Chart overlay={props.overlay} title='Leader Gender Breakdown' titleColor='#65c73c'>
             <div className='genderAreaChart'>
                 <AreaChart
+                    name='leadergenders'
                     data={data}
                     allowIsolation={true}
                     stack={true}

@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Construction(props) {
     const classes = useStyles();
+    const name = props.name ? props.name : 'constructionqueuestats';
     const data = props.data;
 
     const [queueType, setQueueType] = useState('');
@@ -33,6 +34,19 @@ function Construction(props) {
     };
     const renderQueueType = type => <MenuItem key={type} value={type}>{capitalize(type, '_')}</MenuItem>;
     const renderedQueueTypes = queueTypes.map(renderQueueType);
+
+    useEffect(() => {
+        const saved = window.localStorage.getItem(`${name}-qtype`);
+        if (saved !== null) {
+            setQueueType(JSON.parse(saved));
+        }
+        else {
+            setQueueType('shipyard');
+        }
+    }, [name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-qtype`, JSON.stringify(queueType));
+    }, [name, queueType]);
 
     const renderLines = queueType => [
         {
@@ -57,13 +71,6 @@ function Construction(props) {
     if (queueType !== '')
         lines = renderLines(queueType);
 
-    // Set default once loaded
-    useEffect(() => {
-        if (queueType === '' && queueTypes.includes('shipyard')) {
-            setQueueType('shipyard');
-        }
-    }, [data, queueType, queueTypes]);
-
     return (
         <Chart overlay={props.overlay} title='Construction Queue Breakdowns' titleColor='#e68e00'>
             <div className='constructionChartForm'>
@@ -77,6 +84,7 @@ function Construction(props) {
             </div>
             <div className='constructionChartArea'>
                 <LineChart
+                    name='constructionoverview'
                     data={data}
                     allowIsolation={true}
                     lines={lines}

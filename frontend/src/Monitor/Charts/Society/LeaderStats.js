@@ -40,6 +40,7 @@ function LeaderStats(props) {
     return (
         <Chart overlay={props.overlay} title='Leader Stats' titleColor='#65c73c'>
             <LineChart
+                name='leaderstats'
                 data={data}
                 allowIsolation={true}
                 lines={lines}

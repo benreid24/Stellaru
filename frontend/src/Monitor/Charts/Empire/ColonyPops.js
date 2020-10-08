@@ -15,6 +15,7 @@ function ColonyPops(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Population &amp; Housing' titleColor='#96d636'>
             <StatsChart
+                name='colonypops'
                 data={data}
                 keyPaths={['planets/pops', 'planets/housing']}
                 statLabels={labels}

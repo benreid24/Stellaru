@@ -16,6 +16,7 @@ function ColonySizes(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Sizes &amp; Development' titleColor='#96d636'>
             <StatsChart
+                name='colonysizes'
                 data={data}
                 keyPaths={['planets/sizes', 'planets/districts', 'planets/buildings']}
                 statLabels={labels}

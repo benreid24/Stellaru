@@ -19,6 +19,7 @@ function Jobs(props) {
     return (
         <Chart overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
             <AreaChart
+                name='jobs'
                 data={data}
                 allowIsolation={true}
                 stack={true}

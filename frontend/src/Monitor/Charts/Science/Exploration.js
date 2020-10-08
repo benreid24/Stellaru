@@ -26,6 +26,7 @@ function Exploration(props) {
     return (
         <Chart overlay={props.overlay} title='Exploration' titleColor='#0b9cbd'>
             <LineChart
+                name='exploration'
                 data={data}
                 allowIsolation={true}
                 lines={lines}

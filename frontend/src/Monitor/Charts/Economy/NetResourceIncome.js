@@ -11,6 +11,7 @@ function NetResourceIncome(props) {
     return (
         <Chart overlay={props.overlay} title='Net Resource Incomes' titleColor='#ded140'>
             <LineChart
+                name='netresourceincomes'
                 data={data}
                 yAxisLabel='Net Income'
                 lines={[

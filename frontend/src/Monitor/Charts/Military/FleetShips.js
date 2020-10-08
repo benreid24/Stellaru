@@ -23,6 +23,7 @@ function FleetShips(props) {
     return (
         <Chart overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
             <StatsChart
+                name='fleetships'
                 data={data}
                 keyPaths='fleets/ships'
                 extraLines={lines}

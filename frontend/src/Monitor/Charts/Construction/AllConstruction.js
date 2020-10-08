@@ -31,6 +31,7 @@ function AllConstruction(props) {
     return (
         <Chart overlay={props.overlay} title='Empire Wide Construction Overview' titleColor='#e68e00'>
             <LineChart
+                name='allconstruction'
                 data={data}
                 allowIsolation={true}
                 lines={lines}

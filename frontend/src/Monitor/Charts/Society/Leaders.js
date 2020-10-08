@@ -38,6 +38,7 @@ function Leaders(props) {
     return (
         <Chart overlay={props.overlay} title='Leaders' titleColor='#65c73c'>
             <AreaChart
+                name='leaders'
                 data={data}
                 allowIsolation={true}
                 stack={true}

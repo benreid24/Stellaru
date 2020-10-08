@@ -36,6 +36,7 @@ function EmpireSize(props) {
     return (
         <Chart overlay={props.overlay} title='Empire Size' titleColor='#96d636'>
             <LineChart
+                name='empiresize'
                 data={data}
                 allowIsolation={true}
                 lines={lines}

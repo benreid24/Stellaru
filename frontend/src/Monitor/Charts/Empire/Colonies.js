@@ -19,6 +19,7 @@ function Colonies(props) {
     return (
         <Chart overlay={props.overlay} title='Colonies' titleColor='#96d636'>
             <AreaChart
+                name='colonies'
                 data={data}
                 areas={lines}
                 stack={true}
