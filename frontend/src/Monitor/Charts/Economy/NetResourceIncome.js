@@ -6,11 +6,13 @@ import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function NetResourceIncome(props) {
+    const name = props.name ? props.name : 'netresourceincome';
     const data = props.data;
 
     return (
-        <Chart overlay={props.overlay} title='Net Resource Incomes' titleColor='#ded140'>
+        <Chart overlay={props.overlay} title='Net Core Resource Incomes' titleColor='#ded140'>
             <LineChart
+                name={name}
                 data={data}
                 yAxisLabel='Net Income'
                 lines={[

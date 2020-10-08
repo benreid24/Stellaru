@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ConstructionQueues(props) {
     const classes = useStyles();
+    const name = props.name ? props.name : 'constructionqueuecomps';
     const data = props.data;
 
     const statTypes = ['queue_count', 'queued_items', 'avg_queue_size', 'max_queue_size'];
@@ -29,6 +30,15 @@ function ConstructionQueues(props) {
     const onStatChange = event => {
         setStat(event.target.value);
     };
+    useEffect(() => {
+        const saved = window.localStorage.getItem(`${name}-queueitem`);
+        if (saved !== null) {
+            setStat(JSON.parse(saved));
+        }
+    }, [name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-queueitem`, JSON.stringify(stat));
+    }, [stat, name]);
 
     const keys = findKeysOverSeries(data, 'construction/breakdown');
     const lines = keys.map(key => {
@@ -54,6 +64,7 @@ function ConstructionQueues(props) {
             </div>
             <div className='constructionChartArea'>
                 <LineChart
+                    name={name}
                     data={data}
                     allowIsolation={true}
                     lines={lines}

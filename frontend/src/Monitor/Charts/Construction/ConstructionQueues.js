@@ -6,6 +6,7 @@ import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function ConstructionQueues(props) {
+    const name = props.name ? props.name : 'constructionqueuecounts';
     const data = props.data;
 
     const keys = findKeysOverSeries(data, 'construction/breakdown');
@@ -19,6 +20,7 @@ function ConstructionQueues(props) {
     return (
         <Chart overlay={props.overlay} title='Construction Queue Counts' titleColor='#e68e00'>
             <AreaChart
+                name={name}
                 data={data}
                 stack={true}
                 allowIsolation={true}

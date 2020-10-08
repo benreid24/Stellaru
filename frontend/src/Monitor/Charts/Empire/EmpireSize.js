@@ -6,6 +6,7 @@ import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function EmpireSize(props) {
+    const name = props.name ? props.name : 'empiresize';
     const data = props.data;
 
     const lines = [
@@ -36,6 +37,7 @@ function EmpireSize(props) {
     return (
         <Chart overlay={props.overlay} title='Empire Size' titleColor='#96d636'>
             <LineChart
+                name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}

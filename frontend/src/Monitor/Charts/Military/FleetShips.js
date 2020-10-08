@@ -6,6 +6,7 @@ import {registerChart} from '../../ChartRegistry';
 import {selectNested} from '../Util';
 
 function FleetShips(props) {
+    const name = props.name ? props.name : 'fleetships';
     const data = props.data;
 
     const lines = [
@@ -23,6 +24,7 @@ function FleetShips(props) {
     return (
         <Chart overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
             <StatsChart
+                name={name}
                 data={data}
                 keyPaths='fleets/ships'
                 extraLines={lines}

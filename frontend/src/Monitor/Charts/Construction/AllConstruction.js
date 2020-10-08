@@ -6,6 +6,7 @@ import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function AllConstruction(props) {
+    const name = props.name ? props.name : 'allconstruction';
     const data = props.data;
 
     const lines = [
@@ -31,6 +32,7 @@ function AllConstruction(props) {
     return (
         <Chart overlay={props.overlay} title='Empire Wide Construction Overview' titleColor='#e68e00'>
             <LineChart
+                name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}

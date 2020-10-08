@@ -9,6 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts} from '../ChartRegistry';
+import {randomString} from '../Charts/Util';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -28,8 +29,6 @@ function ChartAdder(props) {
 
     const allCharts = getAllCharts();
     const makeItem = chart => {
-        if (added.includes(chart.name))
-            return null;
         return (
             <MenuItem key={chart.name} value={chart.name}>
                 <Tooltip title={<span className='chartDesc'>{chart.description}</span>} placement='right'>
@@ -74,7 +73,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4}]);
+        setCharts([...charts, {name: chart, size: 4, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -83,14 +82,14 @@ function CustomTab(props) {
     useEffect(() => {
         const onDelete = chart => {
             setCharts(charts.reduce((keptCharts, cChart) => {
-                if (cChart.name !== chart)
+                if (cChart.saveName !== chart)
                     return [...keptCharts, cChart];
                 return keptCharts;
             }, []));
         };
         const onResize = (chart, larger) => {
             setCharts(charts.reduce((newCharts, cChart) => {
-                if (cChart.name === chart) {
+                if (cChart.saveName === chart) {
                     cChart.size += larger ? 1 : -1;
                     if (cChart.size > 12)
                         cChart.size = 12;
@@ -101,7 +100,7 @@ function CustomTab(props) {
             }, []));
         };
         const onMove = (chart, higher) => {
-            const i = charts.findIndex(cChart => cChart.name === chart);
+            const i = charts.findIndex(cChart => cChart.saveName === chart);
             if (i >= 0) {
                 let newCharts = charts.slice();
                 const newI = higher ? i - 1 : i + 1;
@@ -126,8 +125,8 @@ function CustomTab(props) {
             const className = 'mb-3 chartCol col-' + chart.size;
             const Chart = getChart(chart.name).component;
             rendered.push(
-                <div className={className} key={chart.name}>
-                    <Chart data={data} height={250} overlay={makeOverlay(chart.name)}/>
+                <div className={className} key={chart.saveName}>
+                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.saveName)}/>
                 </div>
             );
         }

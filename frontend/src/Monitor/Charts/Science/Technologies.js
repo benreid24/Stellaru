@@ -6,6 +6,7 @@ import {selectNested, renderLine, renderArea, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function Technologies(props) {
+    const name = props.name ? props.name : 'technologies';
     const data = props.data;
 
     const series = [
@@ -37,6 +38,7 @@ function Technologies(props) {
     return (
         <Chart overlay={props.overlay} title='Technologies' titleColor='#0b9cbd'>
             <ComposedChart
+                name={name}
                 data={data}
                 allowIsolation={true}
                 series={series}

@@ -7,6 +7,7 @@ import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
 
 function Stockpiles(props) {
+    const name = props.name ? props.name : 'stockpiles';
     const data = props.data;
 
     const keys = filterResources(findKeysOverSeries(data, 'economy/stockpile'));
@@ -20,6 +21,7 @@ function Stockpiles(props) {
     return (
         <Chart overlay={props.overlay} title='Resource Stockpiles' titleColor='#ded140'>
             <LineChart
+                name={name}
                 data={data}
                 yAxisLabel='Stockpile'
                 lines={lines}

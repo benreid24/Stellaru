@@ -6,6 +6,7 @@ import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function LeaderStats(props) {
+    const name = props.name ? props.name : 'leaderstats';
     const data = props.data;
 
     const lines = [
@@ -40,6 +41,7 @@ function LeaderStats(props) {
     return (
         <Chart overlay={props.overlay} title='Leader Stats' titleColor='#65c73c'>
             <LineChart
+                name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}

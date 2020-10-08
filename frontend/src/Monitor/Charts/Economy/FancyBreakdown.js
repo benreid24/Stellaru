@@ -83,11 +83,29 @@ function BreadCrumbs(props) {
 
 function FancyBreakdown(props) {
     const classes = useStyles();
+    const name = props.name ? props.name : 'fancybreakdown';
     const data = props.data;
 
     const [dataType, setDataType] = useState(props.spending ? DataTypes.Spending : DataTypes.Income);
     const [resourceType, setResourceType] = useState('');
     const [breakdownLevel, setBreakdownLevel] = useState([]);
+
+    useEffect(() => {
+        const savedType = window.localStorage.getItem(`${name}-datatype`);
+        const savedResource = window.localStorage.getItem(`${name}-resource`);
+        if (savedType !== null) {
+            setDataType(JSON.parse(savedType));
+        }
+        if (savedResource !== null) {
+            setResourceType(JSON.parse(savedResource));
+        }
+    }, [name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-datatype`, JSON.stringify(dataType));
+    }, [dataType, name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
+    }, [resourceType, name]);
 
     const onAreaClick = label => {
         if (breakdownLevel.length > 0) {

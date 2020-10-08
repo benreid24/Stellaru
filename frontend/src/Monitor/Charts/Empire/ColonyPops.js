@@ -5,6 +5,7 @@ import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
 function ColonyPops(props) {
+    const name = props.name ? props.name : 'colonypops';
     const data = props.data;
 
     const labels = {
@@ -15,6 +16,7 @@ function ColonyPops(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Population &amp; Housing' titleColor='#96d636'>
             <StatsChart
+                name={name}
                 data={data}
                 keyPaths={['planets/pops', 'planets/housing']}
                 statLabels={labels}

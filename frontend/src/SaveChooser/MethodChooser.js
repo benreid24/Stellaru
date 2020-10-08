@@ -14,8 +14,8 @@ const MethodTitles = Object.freeze({
     [Methods.wait]: 'Wait for New Save',
     [Methods.latest]: 'Select Most Recent Save',
     [Methods.choose]: 'Choose Save Manually',
-    [Methods.chooseExisting]: 'Choose From Previous Saves',
-    [Methods.chooseActive]: 'Choose From Current Saves'
+    [Methods.chooseExisting]: 'Choose From Previously Loaded Saves',
+    [Methods.chooseActive]: 'Choose From Currently Loaded Saves'
 });
 const MethodDescs = Object.freeze({
     [Methods.wait]: 'Waits for a new save file to be created then selects it. Also works for resuming existing saves once an autosave occurs',

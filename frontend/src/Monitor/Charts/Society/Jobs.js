@@ -6,6 +6,7 @@ import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function Jobs(props) {
+    const name = props.name ? props.name : 'jobs';
     const data = props.data;
 
     const keys = findKeysOverSeries(data, 'pops/jobs');
@@ -19,6 +20,7 @@ function Jobs(props) {
     return (
         <Chart overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
             <AreaChart
+                name={name}
                 data={data}
                 allowIsolation={true}
                 stack={true}

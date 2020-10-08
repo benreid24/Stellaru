@@ -4,6 +4,7 @@ import ComposedChart from './ComposedChart';
 import {getDataColors, renderLine} from './Util';
 
 function LineChart(props) {
+    const name = props.name;
     const rawData = props.data;
     const lines = props.lines;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
@@ -14,6 +15,7 @@ function LineChart(props) {
 
     return (
         <ComposedChart
+            name={name}
             data={rawData}
             series={lines}
             yAxisLabel={yLabel}
