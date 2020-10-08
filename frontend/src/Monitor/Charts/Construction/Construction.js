@@ -84,7 +84,7 @@ function Construction(props) {
             </div>
             <div className='constructionChartArea'>
                 <LineChart
-                    name='constructionoverview'
+                    name={name}
                     data={data}
                     allowIsolation={true}
                     lines={lines}

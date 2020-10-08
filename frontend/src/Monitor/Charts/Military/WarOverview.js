@@ -8,6 +8,7 @@ import {registerChart} from '../../ChartRegistry';
 import './Military.css';
 
 function WarOverview(props) {
+    const name = props.name ? props.name : 'waroverview';
     const data = props.data;
 
     const fleetCount = data.length > 0 ? selectNested('fleets/total', data[data.length-1], 0) : 0;
@@ -39,7 +40,7 @@ function WarOverview(props) {
         <Chart overlay={props.overlay} title='War Overview' titleColor='#de1212'>
             <div className='warOverviewChart'>
                 <ComposedChart
-                    name='waroverview'
+                    name={name}
                     data={data}
                     series={series}
                     allowIsolation={true}

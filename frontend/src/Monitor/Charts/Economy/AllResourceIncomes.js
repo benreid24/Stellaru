@@ -7,6 +7,7 @@ import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
 
 function AllResourceIncomes(props) {
+    const name = props.name ? props.name : 'allresourceincome';
     const data = props.data;
 
     const keys = filterResources(findKeysOverSeries(data, 'economy/net_income'));
@@ -20,7 +21,7 @@ function AllResourceIncomes(props) {
     return (
         <Chart overlay={props.overlay} title='All Resource Net Incomes' titleColor='#ded140'>
             <LineChart
-                name='allresourceincomes'
+                name={name}
                 data={data}
                 yAxisLabel='Net Income'
                 lines={lines}

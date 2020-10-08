@@ -9,6 +9,7 @@ import {registerChart} from '../../ChartRegistry';
 import './General.css';
 
 function Standing(props) {
+    const name = props.name ? props.name : 'standing';
     const data = props.data;
     const rank = data.length > 0 ? selectNested('standing/victory_rank', data[data.length-1]) : null;
     const title = rank ? `Standing (Rank: ${rank})` : 'Standing';
@@ -35,7 +36,7 @@ function Standing(props) {
             </div>
             <div className='rankChart'>
                 <LineChart
-                    name='standing'
+                    name={name}
                     data={data}
                     yAxisLabel='Rank'
                     lines={[

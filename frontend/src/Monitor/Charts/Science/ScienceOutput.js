@@ -8,6 +8,7 @@ import {registerChart} from '../../ChartRegistry';
 import './Science.css';
 
 function ScienceOutput(props) {
+    const name = props.name ? props.name : 'scienceoutput';
     const data = props.data;
 
     let total = 0;
@@ -27,7 +28,7 @@ function ScienceOutput(props) {
         <Chart overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
             <div className='scienceOverviewChart'>
                 <AreaChart
-                    name='scienceoverview'
+                    name={name}
                     data={data}
                     yAxisLabel='Monthly Research'
                     stack={true}

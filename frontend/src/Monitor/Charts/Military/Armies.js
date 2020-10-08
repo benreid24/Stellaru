@@ -6,6 +6,7 @@ import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 
 function Armies(props) {
+    const name = props.name ? props.name : 'armies';
     const data = props.data;
 
     const keys = findKeysOverSeries(data, 'armies/types');
@@ -19,7 +20,7 @@ function Armies(props) {
     return (
         <Chart overlay={props.overlay} title='Armies' titleColor='#de1212'>
             <AreaChart
-                name='armies'
+                name={name}
                 data={data}
                 areas={lines}
                 stack={true}

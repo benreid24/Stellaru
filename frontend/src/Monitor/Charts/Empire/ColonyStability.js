@@ -5,6 +5,7 @@ import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
 function ColonyStability(props) {
+    const name = props.name ? props.name : 'colonystability';
     const data = props.data;
 
     const labels = {
@@ -15,7 +16,7 @@ function ColonyStability(props) {
     return (
         <Chart overlay={props.overlay} title='Colony Stability &amp; Crime' titleColor='#96d636'>
             <StatsChart
-                name='colonystability'
+                name={name}
                 data={data}
                 keyPaths={['planets/stability', 'planets/crime']}
                 statLabels={labels}

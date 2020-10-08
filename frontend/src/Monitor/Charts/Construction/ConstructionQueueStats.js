@@ -64,7 +64,7 @@ function ConstructionQueues(props) {
             </div>
             <div className='constructionChartArea'>
                 <LineChart
-                    name='constructionqueuestats'
+                    name={name}
                     data={data}
                     allowIsolation={true}
                     lines={lines}

@@ -5,12 +5,13 @@ import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
 function ColonyAges(props) {
+    const name = props.name ? props.name : 'colonyages';
     const data = props.data;
 
     return (
         <Chart overlay={props.overlay} title='Colony Age Stats' titleColor='#96d636'>
             <StatsChart
-                name='colonyages'
+                name={name}
                 data={data}
                 keyPaths='planets/age'
                 statLabels={['Min Colony Age', 'Max Colony Age', 'Average Colony Age']}

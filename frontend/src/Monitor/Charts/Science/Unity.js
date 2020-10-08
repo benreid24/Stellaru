@@ -6,6 +6,7 @@ import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function Unity(props) {
+    const name = props.name ? props.name : 'unity';
     const data = props.data;
 
     const lines = [
@@ -40,7 +41,7 @@ function Unity(props) {
     return (
         <Chart overlay={props.overlay} title='Unity' titleColor='#0b9cbd'>
             <LineChart
-                name='unity'
+                name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}

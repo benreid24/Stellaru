@@ -5,12 +5,13 @@ import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
 function FleetPower(props) {
+    const name = props.name ? props.name : 'fleetpower';
     const data = props.data;
 
     return (
         <Chart overlay={props.overlay} title='Fleet Power' titleColor='#de1212'>
             <StatsChart
-                name='fleetpower'
+                name={name}
                 data={data}
                 keyPaths='fleets/fleet_power'
                 statLabels={['Min Power/Fleet', 'Max Power/Fleet', 'Average Power/Fleet', 'Total Fleet Power']}

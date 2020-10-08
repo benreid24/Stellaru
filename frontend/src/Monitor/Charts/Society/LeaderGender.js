@@ -9,6 +9,7 @@ import {registerChart} from '../../ChartRegistry';
 import './Society.css';
 
 function LeaderGender(props) {
+    const name = props.name ? props.name : 'leadergender';
     const data = props.data;
 
     const areas = [
@@ -32,7 +33,7 @@ function LeaderGender(props) {
         <Chart overlay={props.overlay} title='Leader Gender Breakdown' titleColor='#65c73c'>
             <div className='genderAreaChart'>
                 <AreaChart
-                    name='leadergenders'
+                    name={name}
                     data={data}
                     allowIsolation={true}
                     stack={true}
