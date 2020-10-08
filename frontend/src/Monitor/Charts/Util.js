@@ -63,14 +63,6 @@ function getDataColors(labels) {
     return colors;
 }
 
-function getTextWidth(text, fontSize) {
-    let canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
-    let context = canvas.getContext("2d");
-    context.font = `${fontSize}pt arial`;
-    let metrics = context.measureText(text);
-    return metrics.width;
-}
-
 function selectNested(path, object, alt=null) {
     try {
         const keys = path.split('/');
@@ -205,7 +197,6 @@ export {
     valueTickFormat,
     percentValueFormat,
     selectNested,
-    getTextWidth,
     getDataColors,
     objectKeys,
     findKeysOverSeries,
