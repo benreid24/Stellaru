@@ -31,6 +31,8 @@ const PresetColors = {
     'Available Society Techs': '#65c73c',
     'Available Physics Techs': '#3b94d4',
     'Available Engineering Techs': '#e39f0e',
+    'Percent Male': '#68bef7',
+    'Percent Female': '#ff4fe5'
 }; // TODO - all names and colors
 
 const Saturation = 75;
