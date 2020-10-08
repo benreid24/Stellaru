@@ -33,32 +33,32 @@ const PresetColors = {
     'Available Engineering Techs': '#e39f0e',
 }; // TODO - all names and colors
 
-const ItemColors = ["#b6a7b4","#9ed695","#1ddfbc","#e2c496","#cd5889","#3e85bf","#f2cee7","#6d7f97","#67903c","#dc4b5a"];
+const Saturation = 75;
+const Hues = [0, 20, 40, 60, 80, 150, 180, 220, 260, 280, 300, 335];
+const Lumens = [60, 40, 80];
 
 function getDataColors(labels) {
-    const newColors = shuffle(ItemColors);
-    let colorIndex = 0;
+    const hues = shuffle(Hues);
     let colors = {};
-    let usedColors = [];
+    let hueIndex = 0;
+    let lumenIndex = 0;
     for (let i in labels) {
         const label = labels[i];
         if (label in PresetColors)
             colors[label] = PresetColors[label];
         else {
-            while (usedColors.includes(newColors[colorIndex])) {
-                colorIndex += 1;
-                if (colorIndex >= newColors.length) {
-                    colorIndex = 0;
-                    break;
-                }
+            const color = `hsl(${hues[hueIndex]}, ${Saturation}%, ${Lumens[lumenIndex]}%)`;
+            console.log(color);
+            PresetColors[label] = color;
+            colors[label] = color;
+            hueIndex += 1;
+            if (hueIndex >= hues.length) {
+                hueIndex = 0;
+                lumenIndex += 1;
+                if (lumenIndex >= Lumens.length)
+                    lumenIndex = 0;
             }
-            colors[label] = newColors[colorIndex];
-            PresetColors[label] = newColors[colorIndex];
-            colorIndex += 1;
-            if (colorIndex >= newColors.length)
-                colorIndex = 0;
         }
-        usedColors.push(colors[label]);
     }
     return colors;
 }
@@ -111,13 +111,6 @@ function percentValueFormat(percent) {
     if (!percent)
         return '0%';
     return `${percent.toFixed(2)}%`;
-}
-
-function addAlphaChannel(color, alpha) {
-    const r = parseInt(color.substring(1).slice(0,2), 16);
-    const g = parseInt(color.substring(1).slice(2,4), 16);
-    const b = parseInt(color.substring(1).slice(4,6), 16);
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 function objectKeys(object) {
@@ -201,7 +194,6 @@ function randomString(length) {
 }
 
 export {
-    addAlphaChannel,
     dateTickFormat,
     valueTickFormat,
     percentValueFormat,
