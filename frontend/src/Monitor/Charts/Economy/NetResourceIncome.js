@@ -10,7 +10,7 @@ function NetResourceIncome(props) {
     const data = props.data;
 
     return (
-        <Chart overlay={props.overlay} title='Net Resource Incomes' titleColor='#ded140'>
+        <Chart overlay={props.overlay} title='Net Core Resource Incomes' titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}

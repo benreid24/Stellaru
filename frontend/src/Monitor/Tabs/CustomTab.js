@@ -9,6 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts} from '../ChartRegistry';
+import {randomString} from '../Charts/Util';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -28,8 +29,6 @@ function ChartAdder(props) {
 
     const allCharts = getAllCharts();
     const makeItem = chart => {
-        if (added.includes(chart.name))
-            return null;
         return (
             <MenuItem key={chart.name} value={chart.name}>
                 <Tooltip title={<span className='chartDesc'>{chart.description}</span>} placement='right'>
@@ -74,7 +73,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4}]);
+        setCharts([...charts, {name: chart, size: 4, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -127,7 +126,7 @@ function CustomTab(props) {
             const Chart = getChart(chart.name).component;
             rendered.push(
                 <div className={className} key={chart.name}>
-                    <Chart data={data} height={250} overlay={makeOverlay(chart.name)}/>
+                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.name)}/>
                 </div>
             );
         }

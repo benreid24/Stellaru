@@ -191,6 +191,15 @@ function renderArea(area, labelColor, stackId) {
     );
 }
 
+function randomString(length) {
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    let chosen = [];
+    for (let i = 0; i < length; i += 1) {
+        chosen.push(chars.charAt(Math.floor(Math.random()*chars.length)));
+    }
+    return chosen.join('');
+}
+
 export {
     addAlphaChannel,
     dateTickFormat,
@@ -205,5 +214,6 @@ export {
     renderArea,
     makeId,
     capitalizeWord,
-    capitalize
+    capitalize,
+    randomString
 };
