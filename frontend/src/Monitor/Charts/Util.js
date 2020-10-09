@@ -36,11 +36,11 @@ const PresetColors = {
 }; // TODO - all names and colors
 
 const Saturation = 75;
-const Hues = [0, 20, 40, 60, 80, 150, 180, 220, 260, 280, 300, 335];
+const Hues = [0, 20, 40, 60, 150, 180, 220, 260, 335];
 const Lumens = [60, 40, 80];
 
 function getDataColors(labels) {
-    const hues = Hues;//shuffle(Hues);
+    const hues = shuffle(Hues);
     let colors = {};
     let hueIndex = 0;
     let lumenIndex = 0;

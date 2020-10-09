@@ -148,23 +148,23 @@ function FancyBreakdown(props) {
         if (data.length === 0) return;
         const resourceKey = buildKey(dataType, resourceType, breakdownLevel);
         const cats = findKeysOverSeries(data, `${resourceKey}/breakdown`);
+        let newChartAreas = [];
         if (cats.length > 0) {
-            setChartAreas(cats.map(cat => {
+            newChartAreas = cats.map(cat => {
                 return {
                     label: cat,
                     selector: snap => selectNested(`${resourceKey}/breakdown/${cat}/total`, snap)
                 };
-            }));
+            });
         }
         else if (breakdownLevel.length > 0) {
-            setChartAreas([{
+            newChartAreas = [{
                 label: breakdownLevel[breakdownLevel.length - 1],
                 selector: snap => selectNested(`${resourceKey}/total`, snap)
-            }]);
+            }];
         }
-        else {
-            setChartAreas([]);
-        }
+        setChartAreas(newChartAreas);
+        // TODO - label colors
     }, [data, resourceType, dataType, breakdownLevel]);
 
     // Material Select is stupid, have to trick it

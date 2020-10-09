@@ -39,9 +39,9 @@ function WarOverview(props) {
             selector: snap => selectNested('war/defender', snap, 0)
         }
     ];
-    const labelColors = getDataColors(['All Wars', 'Offensive Wars', 'Defensive Wars']);
+    const labelColors = getDataColors(series.map(series => series.label));
     const renderSeries = series => {
-        if (series.label === 'All Wars')
+        if (['All Wars', 'Active Empires', 'Warring Empires'].includes(series.label))
             return renderLine(series, labelColors[series.label]);
         return renderArea(series, labelColors[series.label], '1');
     }
