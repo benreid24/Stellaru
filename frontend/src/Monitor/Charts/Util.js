@@ -139,7 +139,7 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
-const makeId = label => label.replace(/\s/g, '');
+const makeId = label => label.replace(/[\s\(\)]/g, '');
 
 function capitalizeWord(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
