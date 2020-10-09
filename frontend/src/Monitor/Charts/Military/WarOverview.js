@@ -39,10 +39,10 @@ function WarOverview(props) {
             selector: snap => selectNested('war/defender', snap, 0)
         }
     ];
-    const renderSeries = (series, labelColors) => {
+    const renderSeries = (series, labelColors, onClick) => {
         if (['All Wars', 'Active Empires', 'Warring Empires'].includes(series.label))
-            return renderLine(series, labelColors[series.label]);
-        return renderArea(series, labelColors[series.label], '1');
+            return renderLine(series, labelColors[series.label], onClick);
+        return renderArea(series, labelColors[series.label], '1', onClick);
     }
 
     return (

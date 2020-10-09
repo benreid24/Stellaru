@@ -149,7 +149,7 @@ function capitalize(str, sep) {
     return sep ? str.split(sep).map(capitalizeWord).join(' ') : capitalizeWord(str);
 }
 
-function renderLine(line, labelColor) {
+function renderLine(line, labelColor, onClick) {
     return (
         <Line
             key={line.label}
@@ -162,11 +162,13 @@ function renderLine(line, labelColor) {
             strokeWidth={1}
             connectNulls={false}
             stroke={labelColor}
+            isAnimationActive={true}
+            onClick={onClick}
         />
     );
 }
 
-function renderArea(area, labelColor, stackId) {
+function renderArea(area, labelColor, stackId, onClick) {
     return (
         <Area
             key={area.label}
@@ -181,6 +183,8 @@ function renderArea(area, labelColor, stackId) {
             stroke={labelColor}
             fill={`url(#${makeId(area.label)})`}
             stackId={stackId}
+            isAnimationActive={true}
+            onClick={onClick}
         />
     );
 }

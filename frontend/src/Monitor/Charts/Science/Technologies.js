@@ -28,10 +28,10 @@ function Technologies(props) {
             selector: snap => selectNested('tech/available_techs/physics', snap)
         }
     ];
-    const renderer = (series, labelColors) => {
+    const renderer = (series, labelColors, onClick) => {
         if (series.label === 'Researched Technologies')
-            return renderLine(series, labelColors[series.label]);
-        return renderArea(series, labelColors[series.label], '1');
+            return renderLine(series, labelColors[series.label], onClick);
+        return renderArea(series, labelColors[series.label], '1', onClick);
     }
 
     return (

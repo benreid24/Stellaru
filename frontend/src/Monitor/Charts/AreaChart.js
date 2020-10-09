@@ -14,7 +14,9 @@ function AreaChart(props) {
     const areaClickCb = props.onAreaClick;
     const stack = props.stack ? true : false;
 
-    const renderAreaBound = (area, labelColors) => renderArea(area, labelColors[area.label], stack ? '1' : null);
+    const renderAreaBound = (area, labelColors, onClick) => {
+        return renderArea(area, labelColors[area.label], stack ? '1' : null, onClick);
+    };
 
     return (
         <ComposedChart

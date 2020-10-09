@@ -11,7 +11,7 @@ function LineChart(props) {
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
     const labelColors = props.labelColors;
 
-    const renderLineBound = (line, labelColors) => renderLine(line, labelColors[line.label]);
+    const renderLineBound = (line, labelColors, onClick) => renderLine(line, labelColors[line.label], onClick);
 
     return (
         <ComposedChart

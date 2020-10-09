@@ -86,7 +86,9 @@ function ComposedChart(props) {
     const renderSeries = series => {
         if (!seriesVisible(series))
             return null;
-        return seriesRenderer(series, labelColors);
+        return seriesRenderer(series, labelColors, () => {
+            seriesClick({dataKey: series.label});
+        });
     };
     const renderedAreas = series.map(renderSeries);
 
