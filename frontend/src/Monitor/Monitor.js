@@ -60,9 +60,10 @@ function DateSlider(props) {
 
     useEffect(() => {
         let newDateRange = dateRange.slice();
-        if (newDateRange[1] === gameData.length - 1 || newDateRange[0] === newDateRange[1]) {
+        if (newDateRange[1] >= gameData.length - 4 || newDateRange[0] === newDateRange[1]) {
             newDateRange[1] = gameData.length;
             setDateRange(newDateRange);
+            onChange(newDateRange);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameData]);

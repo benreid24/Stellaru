@@ -7,6 +7,7 @@ WHITESPACE = '\n \t'
 
 
 def _open_save(file):
+    print(f'Opening save: {file}')
     with ZipFile(file) as zipped:
         meta = File(zipped.read('meta').decode('utf-8'))
         gamestate = File(zipped.read('gamestate').decode('utf-8'))
