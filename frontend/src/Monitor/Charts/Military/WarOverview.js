@@ -2,7 +2,7 @@ import React from 'react';
 
 import Chart from '../Chart';
 import ComposedChart from '../ComposedChart';
-import {selectNested, valueTickFormat, renderArea, renderLine, getDataColors} from '../Util';
+import {selectNested, valueTickFormat, renderArea, renderLine} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 import './Military.css';
@@ -39,8 +39,7 @@ function WarOverview(props) {
             selector: snap => selectNested('war/defender', snap, 0)
         }
     ];
-    const labelColors = getDataColors(series.map(series => series.label));
-    const renderSeries = series => {
+    const renderSeries = (series, labelColors) => {
         if (['All Wars', 'Active Empires', 'Warring Empires'].includes(series.label))
             return renderLine(series, labelColors[series.label]);
         return renderArea(series, labelColors[series.label], '1');
@@ -55,7 +54,6 @@ function WarOverview(props) {
                     series={series}
                     allowIsolation={true}
                     seriesRenderer={renderSeries}
-                    labelColors={labelColors}
                     yAxisLabel='War Count'
                     rightYLabel='Empire Count'
                 />

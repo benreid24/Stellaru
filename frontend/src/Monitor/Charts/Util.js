@@ -39,8 +39,9 @@ const Saturation = 75;
 const Hues = [0, 20, 40, 60, 150, 180, 220, 260, 335];
 const Lumens = [60, 40, 80];
 
-function getDataColors(labels) {
-    const hues = shuffle(Hues);
+function getDataColors(labels, hues) {
+    if (!hues)
+        hues = shuffle(Hues);
     let colors = {};
     let hueIndex = 0;
     let lumenIndex = 0;
@@ -50,7 +51,6 @@ function getDataColors(labels) {
             colors[label] = PresetColors[label];
         else {
             const color = `hsl(${hues[hueIndex]}, ${Saturation}%, ${Lumens[lumenIndex]}%)`;
-            console.log(color);
             colors[label] = color;
             hueIndex += 1;
             if (hueIndex >= hues.length) {
@@ -61,7 +61,7 @@ function getDataColors(labels) {
             }
         }
     }
-    return colors;
+    return [colors, hues];
 }
 
 function selectNested(path, object, alt=null) {
@@ -139,7 +139,7 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
-const makeId = label => label.replace(/[\s\(\)]/g, '');
+const makeId = label => label.replace(/[\s()]/g, '');
 
 function capitalizeWord(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);

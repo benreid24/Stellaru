@@ -12,7 +12,7 @@ function PieChart(props) {
     const sections = props.sections;
     const label = props.label ? props.label : true;
     const formatter = props.formatter ? props.formatter : valueTickFormat;
-    const labelColors = props.labelColors ? props.labelColors : getDataColors(sections.map(section => section.label));
+    const labelColors = props.labelColors ? props.labelColors : getDataColors(sections.map(section => section.label))[0];
 
     return (
         <ResponsiveContainer>

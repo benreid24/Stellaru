@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import AreaChart from '../AreaChart';
-import {selectNested, findKeysOverSeries} from '../Util';
+import {selectNested, findKeysOverSeries, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
 
@@ -142,6 +142,34 @@ function FancyBreakdown(props) {
     const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
+    // Manage label colors to keep consistent when drilling down
+    const [labelColors, setLabelColors] = useState({});
+    const [shuffledColors, setShuffledColors] = useState(null);
+    const recurseDataKeys = (data, prefix) => {
+        const keys = findKeysOverSeries(data, `${prefix}/breakdown`);
+        return keys.reduce((acc, key) => {
+            const lowKeys = recurseDataKeys(data, `${prefix}/breakdown/${key}`);
+            return [...acc, key, ...lowKeys];
+        }, []);
+    };
+    useEffect(() => {
+        if (data.length > 0) {
+            let labels = [];
+            ['income', 'spending'].forEach(dtype => {
+                const prefix = `economy/${dtype}`;
+                const keys = findKeysOverSeries(data, prefix);
+                keys.forEach(key => {
+                    labels = [...labels, ...recurseDataKeys(data, `${prefix}/${key}`)];
+                });
+            });
+            labels = [...new Set(labels)];
+            let [newColors, shuffled] = getDataColors(labels, shuffledColors);
+            setLabelColors(newColors);
+            setShuffledColors(shuffled);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data]);
+
     // Rendered areas on chart
     const [chartAreas, setChartAreas] = useState([]);
     useEffect(() => {
@@ -164,7 +192,6 @@ function FancyBreakdown(props) {
             }];
         }
         setChartAreas(newChartAreas);
-        // TODO - label colors
     }, [data, resourceType, dataType, breakdownLevel]);
 
     // Material Select is stupid, have to trick it
@@ -199,6 +226,7 @@ function FancyBreakdown(props) {
                     onAreaClick={onAreaClick}
                     allowIsolation={false}
                     stack={true}
+                    labelColors={labelColors}
                 />
             </div>
         </Chart>
