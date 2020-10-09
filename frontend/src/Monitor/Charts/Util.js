@@ -51,7 +51,6 @@ function getDataColors(labels) {
         else {
             const color = `hsl(${hues[hueIndex]}, ${Saturation}%, ${Lumens[lumenIndex]}%)`;
             console.log(color);
-            PresetColors[label] = color;
             colors[label] = color;
             hueIndex += 1;
             if (hueIndex >= hues.length) {
