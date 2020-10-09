@@ -81,6 +81,29 @@ START_DATE = {
     'y': 2200
 }
 
+RELIC_SCORES = {
+    'r_dragon_trophy': 1000,
+    'r_khans_throne': 3000,
+    'r_worm_scales': 1000,
+    'r_rubricator': 1000,
+    'r_galaxy': 2000,
+    'r_omnicodex': 500,
+    'r_surveyor': 200,
+    'r_galatron': 20000,
+    'r_ancient_sword': 200,
+    'r_severed_head': 200,
+    'r_prethoryn_queen': 5000,
+    'r_unbidden_warlock': 5000,
+    'r_contingency_core': 5000,
+    'r_zro_crystal': 1000,
+    'r_the_last_baol': 1000,
+    'r_the_defragmentor': 1000,
+    'r_reality_perforator': 5000,
+    'r_pox_sample': 5000,
+    'r_cryo_core': 5000,
+    'r_war_forge': 5000
+}
+
 
 def _key_or(obj, key, alt):
     return obj[key] if key in obj else alt
@@ -233,13 +256,65 @@ def _get_leaders(state, empire):
         return {}
 
 
+def _get_victory_points(state, empire, ignore_fed=False):
+    try:
+        crisis_kills = state['country'][empire]['crisis_kills'] if 'crisis_kills' in state['country'][empire] else 0
+        
+        relic_points = 0
+        if 'relics' in state['country'][empire]:
+            for relic in state['country'][empire]['relics']:
+                if relic in RELIC_SCORES:
+                    relic_points += RELIC_SCORES[relic]
+                else:
+                    print(f'Relic {relic} not configured in RELIC_SCORES')
+
+        planet_count = len(state['country'][empire]['owned_planets']) if 'owned_planets' in state['country'][empire] else 0
+        system_count = len(
+            [base for bid, base in state['starbase_mgr']['starbases'].items()
+            if isinstance(base, dict) and base['owner'] == empire]
+        )
+        planets, pops = _get_planets_and_pops(state, empire)
+        pop_count = pops['total'] if 'total' in pops else 0
+
+        subject_score = 0
+        if 'subjects' in state['country'][empire]:
+            for subject in state['country'][empire]['subjects']:
+                if subject != empire:
+                    vps = _get_victory_points(state, subject, True)
+                    for k, score in vps.items():
+                        subject_score += score * 0.5
+
+        federation_score = 0
+        if 'federation' in state['country'][empire] and not ignore_fed:
+            if state['country'][empire]['federation'] in state['federation']:
+                federation = state['federation'][state['country'][empire]['federation']]
+                for member in federation['members']:
+                    if member != empire:
+                        vps = _get_victory_points(state, member, True)
+                        for k, score in vps.items():
+                            federation_score += score * 0.1
+
+        return {
+            'Economy': state['country'][empire]['economy_power'],
+            'Technology': state['country'][empire]['tech_power'] / 4,
+            'Systems': system_count * 10,
+            'Colonies': planet_count * 50,
+            'Pops': pop_count * 2,
+            'Subjects': subject_score,
+            'Federation': federation_score,
+            'Crisis Ships Killed': crisis_kills * 10,
+            'Relics': relic_points
+        }
+    except:
+        print(traceback.print_exc())
+        return {}
+
+
 def _get_standing(state, empire):
     try:
         return {
             'victory_rank': state['country'][empire]['victory_rank'],
-            'tech_power': state['country'][empire]['tech_power'],
-            'economy_power': state['country'][empire]['economy_power'], # TODO - get proper powers
-            'military_power': state['country'][empire]['military_power']
+            'victory_points': _get_victory_points(state, empire)
         }
     except Exception as err:
         print(traceback.format_exc())
