@@ -17,16 +17,26 @@ function WarOverview(props) {
 
     const series = [
         {
+            label: 'Active Empires',
+            selector: snap => selectNested('active_empires', snap, 0),
+            yAxis: 'right'
+        },
+        {
+            label: 'Warring Empires',
+            selector: snap => selectNested('war/total_participants', snap, 0),
+            yAxis: 'right'
+        },
+        {
+            label: 'All Wars',
+            selector: snap => selectNested('war/total', snap, 0)
+        },
+        {
             label: 'Offensive Wars',
             selector: snap => selectNested('war/attacker', snap, 0)
         },
         {
             label: 'Defensive Wars',
             selector: snap => selectNested('war/defender', snap, 0)
-        },
-        {
-            label: 'All Wars',
-            selector: snap => selectNested('war/total', snap, 0)
         }
     ];
     const labelColors = getDataColors(['All Wars', 'Offensive Wars', 'Defensive Wars']);
@@ -46,6 +56,8 @@ function WarOverview(props) {
                     allowIsolation={true}
                     seriesRenderer={renderSeries}
                     labelColors={labelColors}
+                    yAxisLabel='War Count'
+                    rightYLabel='Empire Count'
                 />
             </div>
             <div className='militaryOverviewArea'>
