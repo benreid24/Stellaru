@@ -531,6 +531,14 @@ def _get_construction(state, empire):
                 type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
 
+        queue_list = [
+            {
+                'size': queue['simultaneous'],
+                'items': queue['size'],
+                'type': queue['type']
+            } for queue in build_queues
+        ]
+
         breakdown = {
             qtype: {
                 'queue_count': type_count[qtype],
@@ -545,7 +553,8 @@ def _get_construction(state, empire):
             'queued_items': total_items,
             'avg_queue_size': total_items / len(build_queues) if len(build_queues) > 0 else 0,
             'max_queue_size': max_size,
-            'breakdown': breakdown
+            'breakdown': breakdown,
+            'queue_list': queue_list
         }
     except Exception as err:
         print(traceback.format_exc())
@@ -716,13 +725,20 @@ def _get_fleets(state, empire):
         ships = _basic_stats([len(fleet['ships']) for fleet in fleets if 'ships' in fleet])
         ship_types = {}
         ship_exp = 0
+        fleet_list = []
         for fleet in fleets:
             if 'ships' in fleet:
+                fleet_item = {
+                    'power': fleet['military_power'],
+                    'ship_count': len(fleet['ships']),
+                }
+                exps = []
                 for ship_id in fleet['ships']:
                     stype = 'Unknown'
                     if ship_id in state['ships']:
                         ship = state['ships'][ship_id]
                         ship_exp += ship['experience'] if 'experience' in ship else 0
+                        exps.append(ship_exp)
                         if ship['ship_design'] in state['ship_design']:
                             design = state['ship_design'][ship['ship_design']]
                             stype = design['ship_size'].capitalize()
@@ -730,12 +746,15 @@ def _get_fleets(state, empire):
                                 ship_types[stype] = 1
                             else:
                                 ship_types[stype] += 1
+                fleet_item['experience'] = _basic_stats(exps)
+        
         return {
             'total': len(fleets),
             'fleet_power': power,
             'ships': ships,
             'ship_types': ship_types,
-            'avg_ship_exp': ship_exp / ships['total'] if ships['total'] > 0 else 0
+            'avg_ship_exp': ship_exp / ships['total'] if ships['total'] > 0 else 0,
+            'fleets': fleet_list
         }
     except Exception as err:
         print(traceback.format_exc())
