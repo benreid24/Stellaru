@@ -11,7 +11,7 @@ function Overview(props) {
 
     return (
         <div className='monitorTab'>
-            <div className='row'>
+            <div className='row chartRow'>
                 <div className='col-xl-5 col-lg-12 mb-3 chartCol presetChart'>
                     <NetResourceIncome data={data}/>
                 </div>
