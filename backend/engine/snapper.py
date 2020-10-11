@@ -15,7 +15,6 @@ EC_STATIONS = 'Stations'
 EC_SHIPS = 'Ships'
 EC_SHIPS_BASE = 'Base'
 EC_SHIPS_COMP = 'Components'
-EC_PLANETS = 'Planets'
 EC_PLANETS_DISTRICTS = 'Districts'
 EC_PLANETS_BUILDINGS = 'Buildings'
 EC_PLANET_POPS = 'Pops'
@@ -34,36 +33,36 @@ ECONOMY_CLASSES = {
     'starbase_stations': [EC_SB, EC_SB_BASE],
     'starbase_buildings': [EC_SB, EC_SB_BUILDINGS],
     'starbase_modules': [EC_SB, EC_SB_MODULES],
-    'planet_buildings': [EC_PLANETS, EC_PLANETS_BUILDINGS],
-    'planet_buildings_strongholds': [EC_PLANETS, EC_PLANETS_BUILDINGS],
-    'planet_districts': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_cities': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_energy': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_research': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_mining': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_trade': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_pop_assemblers': [EC_PLANETS, EC_PLANETS_JOBS, 'Assemblers'],
-    'planet_farmers': [EC_PLANETS, EC_PLANETS_JOBS, 'Farmers'],
-    'planet_miners': [EC_PLANETS, EC_PLANETS_JOBS, 'Miners'],
-    'planet_technician': [EC_PLANETS, EC_PLANETS_JOBS, 'Technicians'],
-    'planet_administrators': [EC_PLANETS, EC_PLANETS_JOBS, 'Administrators'],
-    'planet_bureaucrats': [EC_PLANETS, EC_PLANETS_JOBS, 'Bureaucrats'],
-    'planet_researchers': [EC_PLANETS, EC_PLANETS_JOBS, 'Researchers'],
-    'planet_metallurgists': [EC_PLANETS, EC_PLANETS_JOBS, 'Metallurgists'],
-    'planet_culture_workers': [EC_PLANETS, EC_PLANETS_JOBS, 'Culture Workers'],
-    'planet_entertainers': [EC_PLANETS, EC_PLANETS_JOBS, 'Entertainers'],
-    'planet_enforcers': [EC_PLANETS, EC_PLANETS_JOBS, 'Enforcers'],
-    'planet_doctors': [EC_PLANETS, EC_PLANETS_JOBS, 'Doctors'],
-    'planet_refiners': [EC_PLANETS, EC_PLANETS_JOBS, 'Refiners'],
-    'planet_translucers': [EC_PLANETS, EC_PLANETS_JOBS, 'Translucers'],
-    'planet_chemists': [EC_PLANETS, EC_PLANETS_JOBS, 'Chemists'],
-    'planet_artisans': [EC_PLANETS, EC_PLANETS_JOBS, 'Artisans'],
-    'pop_category_robot': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_slaves': [EC_PLANETS, EC_PLANET_POPS, 'Slaves'],
-    'pop_category_workers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_specialists': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_rulers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'planet_deposits': [EC_PLANETS, 'Other'],
+    'planet_buildings': [EC_PLANETS_BUILDINGS],
+    'planet_buildings_strongholds': [EC_PLANETS_BUILDINGS],
+    'planet_districts': [EC_PLANETS_DISTRICTS],
+    'planet_districts_cities': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_energy': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_research': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_mining': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_trade': [EC_PLANETS_DISTRICTS],
+    'planet_pop_assemblers': [EC_PLANETS_JOBS, 'Assemblers'],
+    'planet_farmers': [EC_PLANETS_JOBS, 'Farmers'],
+    'planet_miners': [EC_PLANETS_JOBS, 'Miners'],
+    'planet_technician': [EC_PLANETS_JOBS, 'Technicians'],
+    'planet_administrators': [EC_PLANETS_JOBS, 'Administrators'],
+    'planet_bureaucrats': [EC_PLANETS_JOBS, 'Bureaucrats'],
+    'planet_researchers': [EC_PLANETS_JOBS, 'Researchers'],
+    'planet_metallurgists': [EC_PLANETS_JOBS, 'Metallurgists'],
+    'planet_culture_workers': [EC_PLANETS_JOBS, 'Culture Workers'],
+    'planet_entertainers': [EC_PLANETS_JOBS, 'Entertainers'],
+    'planet_enforcers': [EC_PLANETS_JOBS, 'Enforcers'],
+    'planet_doctors': [EC_PLANETS_JOBS, 'Doctors'],
+    'planet_refiners': [EC_PLANETS_JOBS, 'Refiners'],
+    'planet_translucers': [EC_PLANETS_JOBS, 'Translucers'],
+    'planet_chemists': [EC_PLANETS_JOBS, 'Chemists'],
+    'planet_artisans': [EC_PLANETS_JOBS, 'Artisans'],
+    'pop_category_robot': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_slaves': [EC_PLANET_POPS, 'Slaves'],
+    'pop_category_workers': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_specialists': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_rulers': [EC_PLANET_POPS, 'Robots'],
+    'planet_deposits': ['Other'],
     'orbital_mining_deposits': [EC_STATIONS],
     'orbital_research_deposits': [EC_STATIONS],
     'armies': [EC_ARMIES],
@@ -71,7 +70,7 @@ ECONOMY_CLASSES = {
     'leader_generals': [EC_LEADERS],
     'leader_scientists': [EC_LEADERS],
     'leader_governors': [EC_LEADERS],
-    'pop_factions': [EC_PLANETS, EC_PLANET_POPS, 'Factions'],
+    'pop_factions': [EC_PLANET_POPS, 'Factions'],
     'country_base': [EC_BASE]
 }
 
@@ -437,10 +436,10 @@ def _classify_resource_producer(name):
     
     if 'planet' in name:
         if 'district' in name:
-            return [EC_PLANETS, EC_PLANETS_DISTRICTS]
+            return [EC_PLANETS_DISTRICTS]
         if 'pop' in name:
-            return [EC_PLANETS, EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
-        return [EC_PLANETS, EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
+            return [EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
+        return [EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
     if 'orbital' in name:
         return [EC_STATIONS]
     if 'starbase' in name or 'station' in name:
