@@ -93,11 +93,16 @@ function FancyBreakdown(props) {
     useEffect(() => {
         const savedType = window.localStorage.getItem(`${name}-datatype`);
         const savedResource = window.localStorage.getItem(`${name}-resource`);
+        const savedDrilldown = window.localStorage.getItem(`${name}-drilldown`);
+        // TODO - drilldown persist
         if (savedType !== null) {
             setDataType(JSON.parse(savedType));
         }
         if (savedResource !== null) {
             setResourceType(JSON.parse(savedResource));
+        }
+        if (savedDrilldown !== null) {
+            setBreakdownLevel(JSON.parse(savedDrilldown));
         }
     }, [name]);
     useEffect(() => {
@@ -106,6 +111,9 @@ function FancyBreakdown(props) {
     useEffect(() => {
         window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
     }, [resourceType, name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-drilldown`, JSON.stringify(breakdownLevel));
+    }, [breakdownLevel, name]);
 
     const onAreaClick = label => {
         if (breakdownLevel.length > 0) {
