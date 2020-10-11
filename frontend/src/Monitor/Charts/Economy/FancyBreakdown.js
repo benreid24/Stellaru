@@ -109,7 +109,9 @@ function FancyBreakdown(props) {
 
     const onAreaClick = label => {
         if (breakdownLevel.length > 0) {
-            if (label === breakdownLevel[breakdownLevel.length - 1])
+            const key = buildKey(dataType, resourceType, breakdownLevel);
+            const cats = findKeysOverSeries(data, `${key}/breakdown`);
+            if (cats.length === 0)
                 return;
         }
         setBreakdownLevel([...breakdownLevel, label]);
