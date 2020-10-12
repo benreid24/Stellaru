@@ -15,7 +15,6 @@ EC_STATIONS = 'Stations'
 EC_SHIPS = 'Ships'
 EC_SHIPS_BASE = 'Base'
 EC_SHIPS_COMP = 'Components'
-EC_PLANETS = 'Planets'
 EC_PLANETS_DISTRICTS = 'Districts'
 EC_PLANETS_BUILDINGS = 'Buildings'
 EC_PLANET_POPS = 'Pops'
@@ -34,36 +33,36 @@ ECONOMY_CLASSES = {
     'starbase_stations': [EC_SB, EC_SB_BASE],
     'starbase_buildings': [EC_SB, EC_SB_BUILDINGS],
     'starbase_modules': [EC_SB, EC_SB_MODULES],
-    'planet_buildings': [EC_PLANETS, EC_PLANETS_BUILDINGS],
-    'planet_buildings_strongholds': [EC_PLANETS, EC_PLANETS_BUILDINGS],
-    'planet_districts': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_cities': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_energy': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_research': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_mining': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_districts_hab_trade': [EC_PLANETS, EC_PLANETS_DISTRICTS],
-    'planet_pop_assemblers': [EC_PLANETS, EC_PLANETS_JOBS, 'Assemblers'],
-    'planet_farmers': [EC_PLANETS, EC_PLANETS_JOBS, 'Farmers'],
-    'planet_miners': [EC_PLANETS, EC_PLANETS_JOBS, 'Miners'],
-    'planet_technician': [EC_PLANETS, EC_PLANETS_JOBS, 'Technicians'],
-    'planet_administrators': [EC_PLANETS, EC_PLANETS_JOBS, 'Administrators'],
-    'planet_bureaucrats': [EC_PLANETS, EC_PLANETS_JOBS, 'Bureaucrats'],
-    'planet_researchers': [EC_PLANETS, EC_PLANETS_JOBS, 'Researchers'],
-    'planet_metallurgists': [EC_PLANETS, EC_PLANETS_JOBS, 'Metallurgists'],
-    'planet_culture_workers': [EC_PLANETS, EC_PLANETS_JOBS, 'Culture Workers'],
-    'planet_entertainers': [EC_PLANETS, EC_PLANETS_JOBS, 'Entertainers'],
-    'planet_enforcers': [EC_PLANETS, EC_PLANETS_JOBS, 'Enforcers'],
-    'planet_doctors': [EC_PLANETS, EC_PLANETS_JOBS, 'Doctors'],
-    'planet_refiners': [EC_PLANETS, EC_PLANETS_JOBS, 'Refiners'],
-    'planet_translucers': [EC_PLANETS, EC_PLANETS_JOBS, 'Translucers'],
-    'planet_chemists': [EC_PLANETS, EC_PLANETS_JOBS, 'Chemists'],
-    'planet_artisans': [EC_PLANETS, EC_PLANETS_JOBS, 'Artisans'],
-    'pop_category_robot': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_slaves': [EC_PLANETS, EC_PLANET_POPS, 'Slaves'],
-    'pop_category_workers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_specialists': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'pop_category_rulers': [EC_PLANETS, EC_PLANET_POPS, 'Robots'],
-    'planet_deposits': [EC_PLANETS, 'Other'],
+    'planet_buildings': [EC_PLANETS_BUILDINGS],
+    'planet_buildings_strongholds': [EC_PLANETS_BUILDINGS],
+    'planet_districts': [EC_PLANETS_DISTRICTS],
+    'planet_districts_cities': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_energy': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_research': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_mining': [EC_PLANETS_DISTRICTS],
+    'planet_districts_hab_trade': [EC_PLANETS_DISTRICTS],
+    'planet_pop_assemblers': [EC_PLANETS_JOBS, 'Assemblers'],
+    'planet_farmers': [EC_PLANETS_JOBS, 'Farmers'],
+    'planet_miners': [EC_PLANETS_JOBS, 'Miners'],
+    'planet_technician': [EC_PLANETS_JOBS, 'Technicians'],
+    'planet_administrators': [EC_PLANETS_JOBS, 'Administrators'],
+    'planet_bureaucrats': [EC_PLANETS_JOBS, 'Bureaucrats'],
+    'planet_researchers': [EC_PLANETS_JOBS, 'Researchers'],
+    'planet_metallurgists': [EC_PLANETS_JOBS, 'Metallurgists'],
+    'planet_culture_workers': [EC_PLANETS_JOBS, 'Culture Workers'],
+    'planet_entertainers': [EC_PLANETS_JOBS, 'Entertainers'],
+    'planet_enforcers': [EC_PLANETS_JOBS, 'Enforcers'],
+    'planet_doctors': [EC_PLANETS_JOBS, 'Doctors'],
+    'planet_refiners': [EC_PLANETS_JOBS, 'Refiners'],
+    'planet_translucers': [EC_PLANETS_JOBS, 'Translucers'],
+    'planet_chemists': [EC_PLANETS_JOBS, 'Chemists'],
+    'planet_artisans': [EC_PLANETS_JOBS, 'Artisans'],
+    'pop_category_robot': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_slaves': [EC_PLANET_POPS, 'Slaves'],
+    'pop_category_workers': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_specialists': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_rulers': [EC_PLANET_POPS, 'Robots'],
+    'planet_deposits': ['Other'],
     'orbital_mining_deposits': [EC_STATIONS],
     'orbital_research_deposits': [EC_STATIONS],
     'armies': [EC_ARMIES],
@@ -71,7 +70,7 @@ ECONOMY_CLASSES = {
     'leader_generals': [EC_LEADERS],
     'leader_scientists': [EC_LEADERS],
     'leader_governors': [EC_LEADERS],
-    'pop_factions': [EC_PLANETS, EC_PLANET_POPS, 'Factions'],
+    'pop_factions': [EC_PLANET_POPS, 'Factions'],
     'country_base': [EC_BASE]
 }
 
@@ -79,6 +78,29 @@ START_DATE = {
     'm': 1,
     'd': 1,
     'y': 2200
+}
+
+RELIC_SCORES = {
+    'r_dragon_trophy': 1000,
+    'r_khans_throne': 3000,
+    'r_worm_scales': 1000,
+    'r_rubricator': 1000,
+    'r_galaxy': 2000,
+    'r_omnicodex': 500,
+    'r_surveyor': 200,
+    'r_galatron': 20000,
+    'r_ancient_sword': 200,
+    'r_severed_head': 200,
+    'r_prethoryn_queen': 5000,
+    'r_unbidden_warlock': 5000,
+    'r_contingency_core': 5000,
+    'r_zro_crystal': 1000,
+    'r_the_last_baol': 1000,
+    'r_the_defragmentor': 1000,
+    'r_reality_perforator': 5000,
+    'r_pox_sample': 5000,
+    'r_cryo_core': 5000,
+    'r_war_forge': 5000
 }
 
 
@@ -233,13 +255,65 @@ def _get_leaders(state, empire):
         return {}
 
 
+def _get_victory_points(state, empire, ignore_fed=False):
+    try:
+        crisis_kills = state['country'][empire]['crisis_kills'] if 'crisis_kills' in state['country'][empire] else 0
+        
+        relic_points = 0
+        if 'relics' in state['country'][empire]:
+            for relic in state['country'][empire]['relics']:
+                if relic in RELIC_SCORES:
+                    relic_points += RELIC_SCORES[relic]
+                else:
+                    print(f'Relic {relic} not configured in RELIC_SCORES')
+
+        planet_count = len(state['country'][empire]['owned_planets']) if 'owned_planets' in state['country'][empire] else 0
+        system_count = len(
+            [base for bid, base in state['starbase_mgr']['starbases'].items()
+            if isinstance(base, dict) and base['owner'] == empire]
+        )
+        planets, pops = _get_planets_and_pops(state, empire)
+        pop_count = pops['total'] if 'total' in pops else 0
+
+        subject_score = 0
+        if 'subjects' in state['country'][empire]:
+            for subject in state['country'][empire]['subjects']:
+                if subject != empire:
+                    vps = _get_victory_points(state, subject, True)
+                    for k, score in vps.items():
+                        subject_score += score * 0.5
+
+        federation_score = 0
+        if 'federation' in state['country'][empire] and not ignore_fed:
+            if state['country'][empire]['federation'] in state['federation']:
+                federation = state['federation'][state['country'][empire]['federation']]
+                for member in federation['members']:
+                    if member != empire:
+                        vps = _get_victory_points(state, member, True)
+                        for k, score in vps.items():
+                            federation_score += score * 0.1
+
+        return {
+            'Economy': state['country'][empire]['economy_power'],
+            'Technology': state['country'][empire]['tech_power'] / 4,
+            'Systems': system_count * 10,
+            'Colonies': planet_count * 50,
+            'Pops': pop_count * 2,
+            'Subjects': subject_score,
+            'Federation': federation_score,
+            'Crisis Ships Killed': crisis_kills * 10,
+            'Relics': relic_points
+        }
+    except:
+        print(traceback.print_exc())
+        return {}
+
+
 def _get_standing(state, empire):
     try:
         return {
             'victory_rank': state['country'][empire]['victory_rank'],
-            'tech_power': state['country'][empire]['tech_power'],
-            'economy_power': state['country'][empire]['economy_power'], # TODO - get proper powers
-            'military_power': state['country'][empire]['military_power']
+            'victory_points': _get_victory_points(state, empire)
         }
     except Exception as err:
         print(traceback.format_exc())
@@ -257,17 +331,20 @@ def _get_wars(state, empire):
             war for key, war in state['war'].items()
             if isinstance(war, dict)
         ] if isinstance(state['war'], dict) else []
+
+        attackers = [fighter['country'] for war in active_wars for fighter in war['attackers']]
+        defenders = [fighter['country'] for war in active_wars for fighter in war['defenders']]
         
-        offense_wars = sum([
-            1 for war in active_wars if empire in
-                [attacker['country'] for attacker in war['attackers']]
-        ])
-        defense_wars = sum([
-            1 for war in active_wars if empire in
-                [defender['country'] for defender in war['defenders']]
-        ])
+        offense_wars = sum([1 for war in active_wars if empire in attackers])
+        defense_wars = sum([1 for war in active_wars if empire in defenders])
+
+        all_participants = attackers
+        all_participants.extend(defenders)
+        all_participants = set(all_participants)
+
         return {
             'total': len(active_wars),
+            'all_participants': len(all_participants),
             'participation': offense_wars + defense_wars,
             'attacker': offense_wars,
             'defender': defense_wars
@@ -359,10 +436,10 @@ def _classify_resource_producer(name):
     
     if 'planet' in name:
         if 'district' in name:
-            return [EC_PLANETS, EC_PLANETS_DISTRICTS]
+            return [EC_PLANETS_DISTRICTS]
         if 'pop' in name:
-            return [EC_PLANETS, EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
-        return [EC_PLANETS, EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
+            return [EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
+        return [EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
     if 'orbital' in name:
         return [EC_STATIONS]
     if 'starbase' in name or 'station' in name:
@@ -432,25 +509,38 @@ def _get_construction(state, empire):
             {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
             if isinstance(queue, dict) and queue['owner'] == empire
         ]
+        total_count = 0
         total_items = 0
         max_size = 0
+        type_count = {}
         type_queues = {}
         for queue in build_queues:
             queue['size'] = sum([
                 1 for iid,item in state['construction']['item_mgr']['items'].items()
                 if isinstance(item, dict) and item['queue'] == queue['id']
             ])
+            total_count += queue['simultaneous']
             total_items += queue['size']
             if queue['size'] > max_size:
                 max_size = queue['size']
             if queue['type'] not in type_queues:
+                type_count[queue['type']] = queue['simultaneous']
                 type_queues[queue['type']] = [queue]
             else:
+                type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
+
+        queue_list = [
+            {
+                'size': queue['simultaneous'],
+                'items': queue['size'],
+                'type': queue['type']
+            } for queue in build_queues
+        ]
 
         breakdown = {
             qtype: {
-                'queue_count': len(qlist),
+                'queue_count': type_count[qtype],
                 'queued_items': sum([queue['size'] for queue in qlist]),
                 'avg_queue_size': sum([queue['size'] for queue in qlist]) / len(qlist) if len(qlist) > 0 else 0,
                 'max_queue_size': max([queue['size'] for queue in qlist])
@@ -458,11 +548,12 @@ def _get_construction(state, empire):
         }
             
         return {
-            'queue_count': len(build_queues), # TODO - consider taking into acccount simultaneous queues
+            'queue_count': total_count,
             'queued_items': total_items,
             'avg_queue_size': total_items / len(build_queues) if len(build_queues) > 0 else 0,
             'max_queue_size': max_size,
-            'breakdown': breakdown
+            'breakdown': breakdown,
+            'queue_list': queue_list
         }
     except Exception as err:
         print(traceback.format_exc())
@@ -510,7 +601,7 @@ def _get_planets_and_pops(state, empire):
             pid: planet for pid, planet in state['planets']['planet'].items()
             if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
         }
-        planets = [planet for pid, planet in planet_dict.items()]
+        planets = [{'id': pid, **planet} for pid, planet in planet_dict.items()]
         now = parse_date(state['date'])
         for planet in planets:
             days = _date_diff_days(
@@ -534,13 +625,31 @@ def _get_planets_and_pops(state, empire):
             else:
                 type_sums[tp] += 1
 
+        planet_summaries = {
+            planet['id']: {
+                'name': planet['name'],
+                'size': planet['planet_size'],
+                'population': len(planet['pop']) if 'pop' in planet else 0,
+                'districts': len(planet['district']) if 'district' in planet else 0,
+                'armies': len(planet['army']) if 'army' in planet else 0,
+                'stability': planet['stability'],
+                'amenities': planet['amenities'],
+                'free_amenities': planet['free_amenities'],
+                'amenities_usage': planet['amenities_usage'],
+                'free_housing': planet['free_housing'],
+                'total_housing': planet['total_housing']
+            } for planet in planets
+        }
+
         planet_stats = {
             'total': len(planets),
+            'list': planet_summaries,
             'types': type_sums,
             'districts': _basic_stats([len(_key_or(planet, 'district', [])) for planet in planets]),
             'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
             'sizes': _basic_stats([planet['planet_size'] for planet in planets]),
             'stability': _basic_stats([planet['stability'] for planet in planets]),
+            'amenities': _basic_stats([planet['free_amenities'] for planet in planets]),
             'housing': _basic_stats([planet['free_housing'] for planet in planets]),
             'crime': _basic_stats([planet['crime'] for planet in planets]),
             'pops': _basic_stats([len(_key_or(planet, 'pop', [])) for planet in planets]),
@@ -602,7 +711,7 @@ def _is_transport_fleet(state, fleet):
 def _get_fleets(state, empire):
     try:
         fleets = [
-            fleet for fid, fleet in state['fleet'].items()
+            {'id': fid, **fleet} for fid, fleet in state['fleet'].items()
             if isinstance(fleet, dict) and
             'owner' in fleet and
             fleet['owner'] == empire and
@@ -615,13 +724,21 @@ def _get_fleets(state, empire):
         ships = _basic_stats([len(fleet['ships']) for fleet in fleets if 'ships' in fleet])
         ship_types = {}
         ship_exp = 0
+        fleet_list = {}
         for fleet in fleets:
             if 'ships' in fleet:
+                fleet_item = {
+                    'id': fleet['id'],
+                    'power': fleet['military_power'],
+                    'ship_count': len(fleet['ships']),
+                }
+                exps = []
                 for ship_id in fleet['ships']:
                     stype = 'Unknown'
                     if ship_id in state['ships']:
                         ship = state['ships'][ship_id]
                         ship_exp += ship['experience'] if 'experience' in ship else 0
+                        exps.append(ship_exp)
                         if ship['ship_design'] in state['ship_design']:
                             design = state['ship_design'][ship['ship_design']]
                             stype = design['ship_size'].capitalize()
@@ -629,12 +746,16 @@ def _get_fleets(state, empire):
                                 ship_types[stype] = 1
                             else:
                                 ship_types[stype] += 1
+                fleet_item['experience'] = _basic_stats(exps)
+                fleet_list[fleet['id']] = fleet_item
+        
         return {
             'total': len(fleets),
             'fleet_power': power,
             'ships': ships,
             'ship_types': ship_types,
-            'avg_ship_exp': ship_exp / ships['total'] if ships['total'] > 0 else 0
+            'avg_ship_exp': ship_exp / ships['total'] if ships['total'] > 0 else 0,
+            'fleets': fleet_list
         }
     except Exception as err:
         print(traceback.format_exc())

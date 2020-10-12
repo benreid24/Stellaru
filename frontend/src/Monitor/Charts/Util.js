@@ -36,11 +36,12 @@ const PresetColors = {
 }; // TODO - all names and colors
 
 const Saturation = 75;
-const Hues = [0, 20, 40, 60, 80, 150, 180, 220, 260, 280, 300, 335];
+const Hues = [0, 20, 40, 60, 150, 180, 220, 260, 335];
 const Lumens = [60, 40, 80];
 
-function getDataColors(labels) {
-    const hues = shuffle(Hues);
+function getDataColors(labels, hues) {
+    if (!hues)
+        hues = shuffle(Hues);
     let colors = {};
     let hueIndex = 0;
     let lumenIndex = 0;
@@ -50,8 +51,6 @@ function getDataColors(labels) {
             colors[label] = PresetColors[label];
         else {
             const color = `hsl(${hues[hueIndex]}, ${Saturation}%, ${Lumens[lumenIndex]}%)`;
-            console.log(color);
-            PresetColors[label] = color;
             colors[label] = color;
             hueIndex += 1;
             if (hueIndex >= hues.length) {
@@ -62,7 +61,7 @@ function getDataColors(labels) {
             }
         }
     }
-    return colors;
+    return [colors, hues];
 }
 
 function selectNested(path, object, alt=null) {
@@ -140,7 +139,7 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
-const makeId = label => label.replace(/\s/g, '');
+const makeId = label => label.replace(/[\s()]/g, '');
 
 function capitalizeWord(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -150,7 +149,7 @@ function capitalize(str, sep) {
     return sep ? str.split(sep).map(capitalizeWord).join(' ') : capitalizeWord(str);
 }
 
-function renderLine(line, labelColor) {
+function renderLine(line, labelColor, onClick) {
     return (
         <Line
             key={line.label}
@@ -163,11 +162,13 @@ function renderLine(line, labelColor) {
             strokeWidth={1}
             connectNulls={false}
             stroke={labelColor}
+            isAnimationActive={true}
+            onClick={onClick}
         />
     );
 }
 
-function renderArea(area, labelColor, stackId) {
+function renderArea(area, labelColor, stackId, onClick) {
     return (
         <Area
             key={area.label}
@@ -182,6 +183,8 @@ function renderArea(area, labelColor, stackId) {
             stroke={labelColor}
             fill={`url(#${makeId(area.label)})`}
             stackId={stackId}
+            isAnimationActive={true}
+            onClick={onClick}
         />
     );
 }

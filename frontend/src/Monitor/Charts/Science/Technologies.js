@@ -2,7 +2,7 @@ import React from 'react';
 
 import Chart from '../Chart';
 import ComposedChart from '../ComposedChart';
-import {selectNested, renderLine, renderArea, getDataColors} from '../Util';
+import {selectNested, renderLine, renderArea} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 function Technologies(props) {
@@ -28,11 +28,10 @@ function Technologies(props) {
             selector: snap => selectNested('tech/available_techs/physics', snap)
         }
     ];
-    const labelColors = getDataColors(series.map(series => series.label));
-    const renderer = series => {
+    const renderer = (series, labelColors, onClick) => {
         if (series.label === 'Researched Technologies')
-            return renderLine(series, labelColors[series.label]);
-        return renderArea(series, labelColors[series.label], '1');
+            return renderLine(series, labelColors[series.label], onClick);
+        return renderArea(series, labelColors[series.label], '1', onClick);
     }
 
     return (
@@ -43,7 +42,6 @@ function Technologies(props) {
                 allowIsolation={true}
                 series={series}
                 seriesRenderer={renderer}
-                labelColors={labelColors}
                 yAxisLabel='Available Techs'
                 rightYLabel='Researched Techs'
             />

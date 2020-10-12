@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import AreaChart from '../AreaChart';
-import {selectNested, findKeysOverSeries} from '../Util';
+import {selectNested, findKeysOverSeries, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
 
@@ -93,11 +93,16 @@ function FancyBreakdown(props) {
     useEffect(() => {
         const savedType = window.localStorage.getItem(`${name}-datatype`);
         const savedResource = window.localStorage.getItem(`${name}-resource`);
+        const savedDrilldown = window.localStorage.getItem(`${name}-drilldown`);
+        // TODO - drilldown persist
         if (savedType !== null) {
             setDataType(JSON.parse(savedType));
         }
         if (savedResource !== null) {
             setResourceType(JSON.parse(savedResource));
+        }
+        if (savedDrilldown !== null) {
+            setBreakdownLevel(JSON.parse(savedDrilldown));
         }
     }, [name]);
     useEffect(() => {
@@ -106,10 +111,15 @@ function FancyBreakdown(props) {
     useEffect(() => {
         window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
     }, [resourceType, name]);
+    useEffect(() => {
+        window.localStorage.setItem(`${name}-drilldown`, JSON.stringify(breakdownLevel));
+    }, [breakdownLevel, name]);
 
     const onAreaClick = label => {
         if (breakdownLevel.length > 0) {
-            if (label === breakdownLevel[breakdownLevel.length - 1])
+            const key = buildKey(dataType, resourceType, breakdownLevel);
+            const cats = findKeysOverSeries(data, `${key}/breakdown`);
+            if (cats.length === 0)
                 return;
         }
         setBreakdownLevel([...breakdownLevel, label]);
@@ -142,29 +152,56 @@ function FancyBreakdown(props) {
     const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
+    // Manage label colors to keep consistent when drilling down
+    const [labelColors, setLabelColors] = useState({});
+    const [shuffledColors, setShuffledColors] = useState(null);
+    const recurseDataKeys = (data, prefix) => {
+        const keys = findKeysOverSeries(data, `${prefix}/breakdown`);
+        return keys.reduce((acc, key) => {
+            const lowKeys = recurseDataKeys(data, `${prefix}/breakdown/${key}`);
+            return [...acc, key, ...lowKeys];
+        }, []);
+    };
+    useEffect(() => {
+        if (data.length > 0) {
+            let labels = [];
+            ['income', 'spending'].forEach(dtype => {
+                const prefix = `economy/${dtype}`;
+                const keys = findKeysOverSeries(data, prefix);
+                keys.forEach(key => {
+                    labels = [...labels, ...recurseDataKeys(data, `${prefix}/${key}`)];
+                });
+            });
+            labels = [...new Set(labels)];
+            let [newColors, shuffled] = getDataColors(labels, shuffledColors);
+            setLabelColors(newColors);
+            setShuffledColors(shuffled);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data]);
+
     // Rendered areas on chart
     const [chartAreas, setChartAreas] = useState([]);
     useEffect(() => {
         if (data.length === 0) return;
         const resourceKey = buildKey(dataType, resourceType, breakdownLevel);
         const cats = findKeysOverSeries(data, `${resourceKey}/breakdown`);
+        let newChartAreas = [];
         if (cats.length > 0) {
-            setChartAreas(cats.map(cat => {
+            newChartAreas = cats.map(cat => {
                 return {
                     label: cat,
                     selector: snap => selectNested(`${resourceKey}/breakdown/${cat}/total`, snap)
                 };
-            }));
+            });
         }
         else if (breakdownLevel.length > 0) {
-            setChartAreas([{
+            newChartAreas = [{
                 label: breakdownLevel[breakdownLevel.length - 1],
                 selector: snap => selectNested(`${resourceKey}/total`, snap)
-            }]);
+            }];
         }
-        else {
-            setChartAreas([]);
-        }
+        setChartAreas(newChartAreas);
     }, [data, resourceType, dataType, breakdownLevel]);
 
     // Material Select is stupid, have to trick it
@@ -199,6 +236,7 @@ function FancyBreakdown(props) {
                     onAreaClick={onAreaClick}
                     allowIsolation={false}
                     stack={true}
+                    labelColors={labelColors}
                 />
             </div>
         </Chart>

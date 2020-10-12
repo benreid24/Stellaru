@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ComposedChart from './ComposedChart';
-import {getDataColors, renderLine} from './Util';
+import {renderLine} from './Util';
 
 function LineChart(props) {
     const name = props.name;
@@ -9,9 +9,9 @@ function LineChart(props) {
     const lines = props.lines;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
-    const labelColors = getDataColors(lines.map(line => line.label));
+    const labelColors = props.labelColors;
 
-    const renderLineBound = line => renderLine(line, labelColors[line.label]);
+    const renderLineBound = (line, labelColors, onClick) => renderLine(line, labelColors[line.label], onClick);
 
     return (
         <ComposedChart

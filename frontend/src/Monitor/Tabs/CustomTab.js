@@ -134,15 +134,19 @@ function CustomTab(props) {
         window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
     }, [charts, data]);
 
-    let rowClass = 'row';
+    let rowClass = 'row chartRow';
     if (renderedCharts.length === 0)
         rowClass += ' justify-content-center';
     return (
-        <div className='monitorTab'>
-            <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
-            <div className={rowClass}>
-                {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
-                {renderedCharts}
+        <div className='customTab'>
+            <div className='customTabHeader'>
+                <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
+            </div>
+            <div className='customTabContent'>
+                <div className={rowClass}>
+                    {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
+                    {renderedCharts}
+                </div>
             </div>
         </div>
     );

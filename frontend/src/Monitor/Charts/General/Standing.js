@@ -3,7 +3,7 @@ import React from 'react';
 import Chart from '../Chart';
 import LineChart from '../LineChart';
 import AreaChart from '../AreaChart';
-import {selectNested} from '../Util';
+import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
 import './General.css';
@@ -14,6 +14,14 @@ function Standing(props) {
     const rank = data.length > 0 ? selectNested('standing/victory_rank', data[data.length-1]) : null;
     const title = rank ? `Standing (Rank: ${rank})` : 'Standing';
 
+    const keys = findKeysOverSeries(data, 'standing/victory_points');
+    const areas = keys.map(key => {
+        return {
+            label: key,
+            selector: snap => selectNested(`standing/victory_points/${key}`, snap)
+        };
+    });
+
     return (
         <Chart overlay={props.overlay} title={title} titleColor='#96d636'>
             <div className='victoryPointChart'>
@@ -22,16 +30,7 @@ function Standing(props) {
                     yAxisLabel='Victory Points'
                     stack={true}
                     allowIsolation={true}
-                    areas={[
-                        {
-                            label: 'Tech',
-                            selector: snap => selectNested('standing/tech_power', snap)
-                        },
-                        {
-                            label: 'Economy',
-                            selector: snap => selectNested('standing/economy_power', snap)
-                        },
-                    ]}
+                    areas={areas}
                 />
             </div>
             <div className='rankChart'>

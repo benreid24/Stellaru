@@ -12,7 +12,7 @@
     top: 2%;
     transform: translateX(-50%);
     position: absolute;
-    font-size: 170%;
+    font-size: 1.4vw;
     width: 90%;
  }
 
@@ -80,8 +80,4 @@
 
 .chartOverlayButton:active {
     background-color: rgba(20,20,20,0.9);
-}
-
-.chartCol {
-    min-height: 38vh;
 }

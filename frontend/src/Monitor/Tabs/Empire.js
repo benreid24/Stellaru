@@ -12,7 +12,7 @@ function Empire(props) {
 
     return (
         <div className='monitorTab'>
-            <div className='row'>
+            <div className='row chartRow'>
                 <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3 chartCol presetChart'>
                     <EmpireSize data={data}/>
                 </div>

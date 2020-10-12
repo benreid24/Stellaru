@@ -1,92 +1,112 @@
 {
-    "name": "The Rascividian Ravagers",
-    "active_empires": 29,
-    "edict_count": 21,
-    "sprawl": 1570,
+    "name": "The Foreunner",
+    "player_name": "reidben24",
+    "date": "2485.10.28",
+    "date_components": {
+        "y": 2485,
+        "m": 10,
+        "d": 28
+    },
+    "date_days": 894928,
+    "active_empires": 15,
+    "edict_count": 12,
+    "sprawl": 5980,
     "leaders": {
-        "general": 1,
-        "admiral": 12,
-        "governor": 1,
-        "envoy": 5,
-        "scientist": 5,
-        "ruler": 2,
-        "total": 26,
-        "max_age": 314.60833333333335,
-        "avg_age": 176.0998931623931,
-        "avg_hire_age": 37.23076923076923,
-        "max_hire_age": 49,
-        "avg_level": 5.461538461538462,
+        "ruler": 1,
+        "scientist": 8,
+        "envoy": 3,
+        "admiral": 23,
+        "general": 2,
+        "governor": 38,
+        "total": 75,
+        "max_age": 292.90833333333336,
+        "avg_age": 66.96114814814815,
+        "avg_hire_age": 5.84,
+        "max_hire_age": 9,
+        "avg_level": 4.52,
         "max_level": 10,
-        "percent_male": 0.46153846153846156
+        "percent_male": 0.0
     },
     "standing": {
         "victory_rank": 1,
-        "tech_power": 214885.00057,
-        "economy_power": 31145.83197,
-        "military_power": 3844591.88015
+        "victory_points": {
+            "Economy": 95105.99194,
+            "Technology": 47426.2502975,
+            "Systems": 6030,
+            "Colonies": 9450,
+            "Pops": 18114,
+            "Subjects": 0,
+            "Federation": 0,
+            "Crisis Ships Killed": 6430,
+            "Relics": 5900
+        }
     },
     "war": {
-        "total": 1,
+        "total": 0,
+        "all_participants": 0,
         "participation": 0,
         "attacker": 0,
         "defender": 0
     },
     "systems": {
-        "surveyed_objects": 2404,
-        "surveyed_systems": 335,
-        "owned": 78,
-        "starbases": 29
+        "surveyed_objects": 3220,
+        "surveyed_systems": 338,
+        "owned": 603,
+        "starbases": 88
     },
     "federation": {
-        "name": "The Enlightened Reclaimers",
-        "members": 3,
-        "cohesion": 41.6,
-        "xp": 18000,
-        "level": 5,
-        "leader": true
+        "name": "",
+        "members": 0,
+        "cohesion": 0,
+        "xp": 0,
+        "level": 0,
+        "leader": false
     },
     "unity": {
         "adopted_trees": 7,
         "finished_trees": 7,
         "traditions": 35,
         "acension_perks": 8,
-        "unity": 2036.392
+        "unity": 5802.0740000000005
     },
     "economy": {
         "stockpile": {
-            "energy": 100000,
-            "minerals": 65000,
-            "food": 65000,
-            "society_research": 516.25548,
-            "influence": 710.89579,
-            "unity": 1538358.5257,
-            "alloys": 11358.81508,
-            "consumer_goods": 65000,
-            "volatile_motes": 10531.70852,
-            "exotic_gases": 13925.94135,
-            "rare_crystals": 11440.98533,
-            "sr_dark_matter": 6070.57769,
-            "minor_artifacts": 5
+            "energy": 79484.05474,
+            "minerals": 158611.62,
+            "food": 179940.36,
+            "influence": 426.5,
+            "unity": 2584484.73114,
+            "alloys": 197000,
+            "consumer_goods": 139673.356,
+            "volatile_motes": 300.08706,
+            "exotic_gases": 2331.84508,
+            "rare_crystals": 685.97655,
+            "sr_zro": 8239.9,
+            "sr_dark_matter": 30151.99525,
+            "nanites": 118.7,
+            "minor_artifacts": 24
         },
         "net_income": {
-            "society_research": 2868.0860000000002,
-            "energy": 2265.7740200000026,
-            "minerals": 2109.8439999999996,
-            "food": 555.8199999999997,
-            "physics_research": 2862.11,
-            "engineering_research": 2757.148,
-            "influence": 10.89579,
-            "unity": 2036.392,
-            "alloys": 130.82119999999986,
-            "consumer_goods": 178.30100000000016,
-            "volatile_motes": 12.591999999999999,
-            "rare_crystals": 8.771999999999991,
-            "exotic_gases": 6.131999999999991,
-            "sr_dark_matter": 4
+            "society_research": 11754.748,
+            "nanites": 0.09999999999999998,
+            "energy": 3301.372500000012,
+            "minerals": 4999.566000000001,
+            "physics_research": 12295.148000000001,
+            "engineering_research": 11894.348,
+            "influence": 11,
+            "unity": 5802.0740000000005,
+            "alloys": 5687.14015,
+            "food": 1036.6,
+            "consumer_goods": 652.96,
+            "volatile_motes": -34.31200000000001,
+            "exotic_gases": 3.3039999999999736,
+            "rare_crystals": -33.664000000000016,
+            "sr_zro": 13.6,
+            "sr_dark_matter": 40.2
         },
         "income": {
             "society_research": {
-                "total": 2868.0860000000002,
+                "total": 11754.748,
                 "breakdown": {
                     "Other (unknown)": {
                         "total": 8,
@@ -96,22 +116,14 @@
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Megastructures": {
-                        "total": 300,
-                        "breakdown": {}
-                    },
                     "Planets": {
-                        "total": 2500.0860000000002,
+                        "total": 11292.148,
                         "breakdown": {
                             "Jobs": {
-                                "total": 2500.0860000000002,
+                                "total": 11292.148,
                                 "breakdown": {
                                     "Researchers": {
-                                        "total": 2255.898,
-                                        "breakdown": {}
-                                    },
-                                    "Culture Workers": {
-                                        "total": 244.188,
+                                        "total": 11292.148,
                                         "breakdown": {}
                                     }
                                 }
@@ -119,55 +131,68 @@
                         }
                     },
                     "Stations": {
-                        "total": 50,
+                        "total": 444.6,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "nanites": {
+                "total": 1,
+                "breakdown": {
+                    "Other (unknown)": {
+                        "total": 1,
                         "breakdown": {}
                     }
                 }
             },
             "energy": {
-                "total": 11032.79002,
+                "total": 36888.115999999995,
                 "breakdown": {
                     "Base": {
-                        "total": 19,
-                        "breakdown": {}
-                    },
-                    "Trade": {
-                        "total": 6212.52202,
+                        "total": 33,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 3800,
+                        "total": 4400,
                         "breakdown": {}
                     },
                     "Planets": {
-                        "total": 669.568,
+                        "total": 29721.615999999998,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 2233,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 631.568,
+                                "total": 27488.615999999998,
                                 "breakdown": {
+                                    "Jobs": {
+                                        "total": 4401.672,
+                                        "breakdown": {}
+                                    },
                                     "Technicians": {
-                                        "total": 631.568,
+                                        "total": 23086.944,
                                         "breakdown": {}
                                     }
                                 }
-                            },
-                            "Other": {
-                                "total": 38,
-                                "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 331.7,
+                        "total": 2732.4,
+                        "breakdown": {}
+                    },
+                    "Armies": {
+                        "total": 1.1,
                         "breakdown": {}
                     }
                 }
             },
             "minerals": {
-                "total": 5009.4439999999995,
+                "total": 13291.866,
                 "breakdown": {
                     "Base": {
-                        "total": 26.6,
+                        "total": 39.9,
                         "breakdown": {}
                     },
                     "Megastructures": {
@@ -184,76 +209,48 @@
                         }
                     },
                     "Planets": {
-                        "total": 1551.584,
+                        "total": 5727.586,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 798,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 1551.584,
+                                "total": 4896.336,
                                 "breakdown": {
                                     "Miners": {
-                                        "total": 1551.584,
+                                        "total": 4896.336,
                                         "breakdown": {}
                                     }
                                 }
-                            }
-                        }
-                    },
-                    "Stations": {
-                        "total": 763.28,
-                        "breakdown": {}
-                    }
-                }
-            },
-            "food": {
-                "total": 3271.72,
-                "breakdown": {
-                    "Base": {
-                        "total": 10,
-                        "breakdown": {}
-                    },
-                    "Starbases": {
-                        "total": 33,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 33,
+                            },
+                            "Other": {
+                                "total": 33.25,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Planets": {
-                        "total": 3228.72,
-                        "breakdown": {
-                            "Jobs": {
-                                "total": 3228.72,
-                                "breakdown": {
-                                    "Farmers": {
-                                        "total": 3228.72,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
+                    "Stations": {
+                        "total": 4856.4,
+                        "breakdown": {}
                     }
                 }
             },
             "physics_research": {
-                "total": 2862.11,
+                "total": 12295.148000000001,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Megastructures": {
-                        "total": 300,
-                        "breakdown": {}
-                    },
                     "Planets": {
-                        "total": 2430.11,
+                        "total": 11262.948,
                         "breakdown": {
                             "Jobs": {
-                                "total": 2430.11,
+                                "total": 11262.948,
                                 "breakdown": {
                                     "Researchers": {
-                                        "total": 2430.11,
+                                        "total": 11262.948,
                                         "breakdown": {}
                                     }
                                 }
@@ -261,30 +258,26 @@
                         }
                     },
                     "Stations": {
-                        "total": 122,
+                        "total": 1022.2,
                         "breakdown": {}
                     }
                 }
             },
             "engineering_research": {
-                "total": 2757.148,
+                "total": 11894.348,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Megastructures": {
-                        "total": 300,
-                        "breakdown": {}
-                    },
                     "Planets": {
-                        "total": 2381.148,
+                        "total": 11261.148,
                         "breakdown": {
                             "Jobs": {
-                                "total": 2381.148,
+                                "total": 11261.148,
                                 "breakdown": {
                                     "Researchers": {
-                                        "total": 2381.148,
+                                        "total": 11261.148,
                                         "breakdown": {}
                                     }
                                 }
@@ -292,82 +285,43 @@
                         }
                     },
                     "Stations": {
-                        "total": 66,
+                        "total": 623.2,
                         "breakdown": {}
                     }
                 }
             },
             "influence": {
-                "total": 11.39579,
+                "total": 11,
                 "breakdown": {
                     "Base": {
-                        "total": 9,
-                        "breakdown": {}
-                    },
-                    "Planets": {
-                        "total": 1.89579,
-                        "breakdown": {
-                            "Pops": {
-                                "total": 1.89579,
-                                "breakdown": {
-                                    "Factions": {
-                                        "total": 1.89579,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "Other (unknown)": {
-                        "total": 0.5,
+                        "total": 11,
                         "breakdown": {}
                     }
                 }
             },
             "unity": {
-                "total": 2036.392,
+                "total": 5802.0740000000005,
                 "breakdown": {
                     "Base": {
-                        "total": 10.5,
+                        "total": 9.8,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 450,
+                        "total": 840,
                         "breakdown": {}
                     },
-                    "Starbases": {
-                        "total": 3,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 3,
-                                "breakdown": {}
-                            }
-                        }
-                    },
                     "Planets": {
-                        "total": 1572.892,
+                        "total": 4952.274,
                         "breakdown": {
                             "Jobs": {
-                                "total": 1572.892,
+                                "total": 4952.274,
                                 "breakdown": {
-                                    "Administrators": {
-                                        "total": 566.676,
+                                    "Jobs": {
+                                        "total": 4344.21,
                                         "breakdown": {}
                                     },
-                                    "Bureaucrats": {
-                                        "total": 176.766,
-                                        "breakdown": {}
-                                    },
-                                    "Culture Workers": {
-                                        "total": 343.638,
-                                        "breakdown": {}
-                                    },
-                                    "Entertainers": {
-                                        "total": 294.38,
-                                        "breakdown": {}
-                                    },
-                                    "Enforcers": {
-                                        "total": 191.432,
+                                    "Evaluators": {
+                                        "total": 608.064,
                                         "breakdown": {}
                                     }
                                 }
@@ -377,20 +331,24 @@
                 }
             },
             "alloys": {
-                "total": 1198.846,
+                "total": 8349.366,
                 "breakdown": {
                     "Base": {
-                        "total": 5,
+                        "total": 5.25,
                         "breakdown": {}
                     },
                     "Planets": {
-                        "total": 1182.646,
+                        "total": 8239.116,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 157.5,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 1182.646,
+                                "total": 8081.616,
                                 "breakdown": {
                                     "Metallurgists": {
-                                        "total": 1182.646,
+                                        "total": 8081.616,
                                         "breakdown": {}
                                     }
                                 }
@@ -398,26 +356,62 @@
                         }
                     },
                     "Stations": {
-                        "total": 11.2,
+                        "total": 105,
                         "breakdown": {}
                     }
                 }
             },
-            "consumer_goods": {
-                "total": 1874.476,
+            "food": {
+                "total": 1329.1,
                 "breakdown": {
-                    "Base": {
-                        "total": 10,
-                        "breakdown": {}
+                    "Starbases": {
+                        "total": 147,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 147,
+                                "breakdown": {}
+                            }
+                        }
                     },
                     "Planets": {
-                        "total": 1864.476,
+                        "total": 1182.1,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 200,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 1864.476,
+                                "total": 457.1,
+                                "breakdown": {
+                                    "Farmers": {
+                                        "total": 457.1,
+                                        "breakdown": {}
+                                    }
+                                }
+                            },
+                            "Other": {
+                                "total": 525,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "consumer_goods": {
+                "total": 652.96,
+                "breakdown": {
+                    "Planets": {
+                        "total": 652.96,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 150,
+                                "breakdown": {}
+                            },
+                            "Jobs": {
+                                "total": 502.96,
                                 "breakdown": {
                                     "Artisans": {
-                                        "total": 1864.476,
+                                        "total": 502.96,
                                         "breakdown": {}
                                     }
                                 }
@@ -427,99 +421,112 @@
                 }
             },
             "volatile_motes": {
-                "total": 123.992,
+                "total": 301.388,
                 "breakdown": {
                     "Planets": {
-                        "total": 120.792,
+                        "total": 223.188,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 14,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 118.792,
+                                "total": 209.188,
                                 "breakdown": {
                                     "Miners": {
-                                        "total": 6.12,
+                                        "total": 52.396,
                                         "breakdown": {}
                                     },
                                     "Chemists": {
-                                        "total": 112.672,
+                                        "total": 156.792,
                                         "breakdown": {}
                                     }
                                 }
-                            },
-                            "Other": {
-                                "total": 2,
-                                "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 3.2,
-                        "breakdown": {}
-                    }
-                }
-            },
-            "rare_crystals": {
-                "total": 121.472,
-                "breakdown": {
-                    "Planets": {
-                        "total": 111.872,
-                        "breakdown": {
-                            "Jobs": {
-                                "total": 109.872,
-                                "breakdown": {
-                                    "Miners": {
-                                        "total": 6.036,
-                                        "breakdown": {}
-                                    },
-                                    "Translucers": {
-                                        "total": 103.836,
-                                        "breakdown": {}
-                                    }
-                                }
-                            },
-                            "Other": {
-                                "total": 2,
-                                "breakdown": {}
-                            }
-                        }
-                    },
-                    "Stations": {
-                        "total": 9.6,
+                        "total": 78.2,
                         "breakdown": {}
                     }
                 }
             },
             "exotic_gases": {
-                "total": 67.63199999999999,
+                "total": 280.50399999999996,
                 "breakdown": {
                     "Planets": {
-                        "total": 58.032,
+                        "total": 243.10399999999998,
                         "breakdown": {
+                            "Buildings": {
+                                "total": 14,
+                                "breakdown": {}
+                            },
                             "Jobs": {
-                                "total": 56.032,
+                                "total": 229.10399999999998,
                                 "breakdown": {
+                                    "Miners": {
+                                        "total": 25.94,
+                                        "breakdown": {}
+                                    },
                                     "Refiners": {
-                                        "total": 56.032,
+                                        "total": 203.164,
                                         "breakdown": {}
                                     }
                                 }
-                            },
-                            "Other": {
-                                "total": 2,
-                                "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 9.6,
+                        "total": 37.4,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "rare_crystals": {
+                "total": 207.536,
+                "breakdown": {
+                    "Planets": {
+                        "total": 161.636,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 14,
+                                "breakdown": {}
+                            },
+                            "Jobs": {
+                                "total": 147.636,
+                                "breakdown": {
+                                    "Miners": {
+                                        "total": 16.376,
+                                        "breakdown": {}
+                                    },
+                                    "Translucers": {
+                                        "total": 131.26,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 45.9,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "sr_zro": {
+                "total": 13.6,
+                "breakdown": {
+                    "Stations": {
+                        "total": 13.6,
                         "breakdown": {}
                     }
                 }
             },
             "sr_dark_matter": {
-                "total": 4,
+                "total": 40.2,
                 "breakdown": {
                     "Stations": {
-                        "total": 4,
+                        "total": 40.2,
                         "breakdown": {}
                     }
                 }
@@ -527,135 +534,191 @@
         },
         "spending": {
             "energy": {
-                "total": 8767.015999999998,
+                "total": 33586.74349999998,
                 "breakdown": {
                     "Megastructures": {
-                        "total": 485,
+                        "total": 645,
                         "breakdown": {}
                     },
                     "Ships": {
-                        "total": 4988.816,
+                        "total": 8593.5435,
                         "breakdown": {
                             "Base": {
-                                "total": 651.2,
+                                "total": 1324.5,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 4337.616,
+                                "total": 7269.0435,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Starbases": {
-                        "total": 681,
+                        "total": 2747.2,
                         "breakdown": {
                             "Buildings": {
-                                "total": 330,
+                                "total": 1417.2,
                                 "breakdown": {}
                             },
                             "Base": {
-                                "total": 177,
+                                "total": 836,
                                 "breakdown": {}
                             },
                             "Modules": {
-                                "total": 174,
+                                "total": 494,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Planets": {
-                        "total": 2485.0,
+                        "total": 13907.4,
                         "breakdown": {
                             "Buildings": {
-                                "total": 1371.6999999999998,
+                                "total": 5883.3,
                                 "breakdown": {}
                             },
                             "Districts": {
-                                "total": 691.2,
+                                "total": 2570.4,
                                 "breakdown": {}
                             },
                             "Jobs": {
-                                "total": 230.3,
+                                "total": 5453.700000000001,
                                 "breakdown": {
-                                    "Researchers": {
-                                        "total": 218.3,
+                                    "Jobs": {
+                                        "total": 41.8,
                                         "breakdown": {}
                                     },
-                                    "Enforcers": {
-                                        "total": 12,
+                                    "Miners": {
+                                        "total": 34.2,
                                         "breakdown": {}
-                                    }
-                                }
-                            },
-                            "Pops": {
-                                "total": 191.8,
-                                "breakdown": {
-                                    "Robots": {
-                                        "total": 191.8,
+                                    },
+                                    "Bureaucrats": {
+                                        "total": 1452,
+                                        "breakdown": {}
+                                    },
+                                    "Researchers": {
+                                        "total": 3842.1,
+                                        "breakdown": {}
+                                    },
+                                    "Evaluators": {
+                                        "total": 83.6,
                                         "breakdown": {}
                                     }
                                 }
                             }
                         }
                     },
+                    "Other (unknown)": {
+                        "total": 7532.35,
+                        "breakdown": {}
+                    },
                     "Armies": {
-                        "total": 93,
+                        "total": 68.85,
                         "breakdown": {}
                     },
                     "Leaders": {
-                        "total": 34.2,
+                        "total": 92.4,
                         "breakdown": {}
                     }
                 }
             },
             "alloys": {
-                "total": 1068.0248000000001,
+                "total": 2662.22585,
                 "breakdown": {
                     "Ships": {
-                        "total": 1003.6248,
+                        "total": 1748.02585,
                         "breakdown": {
                             "Base": {
-                                "total": 216,
+                                "total": 439.75,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 787.6248,
+                                "total": 1308.27585,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Planets": {
-                        "total": 64.4,
+                        "total": 914.2,
                         "breakdown": {
                             "Buildings": {
-                                "total": 50,
+                                "total": 364.5,
                                 "breakdown": {}
                             },
                             "Jobs": {
-                                "total": 14.4,
+                                "total": 549.7,
                                 "breakdown": {
                                     "Assemblers": {
-                                        "total": 14.4,
+                                        "total": 549.7,
                                         "breakdown": {}
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            },
+            "minerals": {
+                "total": 8292.3,
+                "breakdown": {
+                    "Planets": {
+                        "total": 8292.3,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 337.5,
+                                "breakdown": {}
+                            },
+                            "Jobs": {
+                                "total": 7954.8,
+                                "breakdown": {
+                                    "Metallurgists": {
+                                        "total": 5863.2,
+                                        "breakdown": {}
+                                    },
+                                    "Refiners": {
+                                        "total": 673,
+                                        "breakdown": {}
+                                    },
+                                    "Translucers": {
+                                        "total": 444.5,
+                                        "breakdown": {}
+                                    },
+                                    "Chemists": {
+                                        "total": 510.5,
+                                        "breakdown": {}
+                                    },
+                                    "Artisans": {
+                                        "total": 463.6,
+                                        "breakdown": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "food": {
+                "total": 292.5,
+                "breakdown": {
+                    "Planets": {
+                        "total": 292.5,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 292.5,
+                                "breakdown": {}
                             }
                         }
                     }
                 }
             },
             "volatile_motes": {
-                "total": 111.4,
+                "total": 335.7,
                 "breakdown": {
                     "Planets": {
-                        "total": 111.4,
+                        "total": 335.7,
                         "breakdown": {
                             "Buildings": {
-                                "total": 95.2,
-                                "breakdown": {}
-                            },
-                            "Districts": {
-                                "total": 16.2,
+                                "total": 335.7,
                                 "breakdown": {}
                             }
                         }
@@ -663,13 +726,13 @@
                 }
             },
             "exotic_gases": {
-                "total": 61.5,
+                "total": 277.2,
                 "breakdown": {
                     "Planets": {
-                        "total": 61.5,
+                        "total": 277.2,
                         "breakdown": {
                             "Buildings": {
-                                "total": 52.5,
+                                "total": 268.2,
                                 "breakdown": {}
                             },
                             "Districts": {
@@ -681,158 +744,65 @@
                 }
             },
             "rare_crystals": {
-                "total": 112.7,
+                "total": 241.20000000000002,
                 "breakdown": {
                     "Planets": {
-                        "total": 112.7,
+                        "total": 241.20000000000002,
                         "breakdown": {
                             "Buildings": {
-                                "total": 94.7,
+                                "total": 226.8,
                                 "breakdown": {}
                             },
                             "Districts": {
-                                "total": 18,
+                                "total": 14.4,
                                 "breakdown": {}
                             }
                         }
                     }
                 }
             },
-            "consumer_goods": {
-                "total": 1696.175,
+            "nanites": {
+                "total": 0.9,
                 "breakdown": {
                     "Planets": {
-                        "total": 1696.175,
+                        "total": 0.9,
                         "breakdown": {
-                            "Jobs": {
-                                "total": 738.0,
-                                "breakdown": {
-                                    "Bureaucrats": {
-                                        "total": 79.1,
-                                        "breakdown": {}
-                                    },
-                                    "Researchers": {
-                                        "total": 442.9,
-                                        "breakdown": {}
-                                    },
-                                    "Culture Workers": {
-                                        "total": 102,
-                                        "breakdown": {}
-                                    },
-                                    "Entertainers": {
-                                        "total": 74,
-                                        "breakdown": {}
-                                    },
-                                    "Doctors": {
-                                        "total": 40,
-                                        "breakdown": {}
-                                    }
-                                }
-                            },
-                            "Pops": {
-                                "total": 958.175,
-                                "breakdown": {
-                                    "Robots": {
-                                        "total": 958.175,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Buildings": {
+                                "total": 0.9,
+                                "breakdown": {}
                             }
                         }
-                    }
-                }
-            },
-            "minerals": {
-                "total": 2899.6,
-                "breakdown": {
-                    "Planets": {
-                        "total": 2899.6,
-                        "breakdown": {
-                            "Jobs": {
-                                "total": 2899.6,
-                                "breakdown": {
-                                    "Metallurgists": {
-                                        "total": 955.8,
-                                        "breakdown": {}
-                                    },
-                                    "Refiners": {
-                                        "total": 100,
-                                        "breakdown": {}
-                                    },
-                                    "Translucers": {
-                                        "total": 355,
-                                        "breakdown": {}
-                                    },
-                                    "Chemists": {
-                                        "total": 398,
-                                        "breakdown": {}
-                                    },
-                                    "Artisans": {
-                                        "total": 1090.8,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "food": {
-                "total": 2715.9,
-                "breakdown": {
-                    "Planets": {
-                        "total": 2715.9,
-                        "breakdown": {
-                            "Pops": {
-                                "total": 2715.9,
-                                "breakdown": {
-                                    "Robots": {
-                                        "total": 2715.9,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "influence": {
-                "total": 0.5,
-                "breakdown": {
-                    "Other (unknown)": {
-                        "total": 0.5,
-                        "breakdown": {}
                     }
                 }
             }
         }
     },
     "construction": {
-        "queue_count": 559,
-        "queued_items": 0,
-        "avg_queue_size": 0.0,
-        "max_queue_size": 0,
+        "queue_count": 4299,
+        "queued_items": 43,
+        "avg_queue_size": 0.010146295422369042,
+        "max_queue_size": 2,
         "breakdown": {
             "planet": {
-                "queue_count": 239,
-                "queued_items": 0,
-                "avg_queue_size": 0.0,
-                "max_queue_size": 0
+                "queue_count": 1815,
+                "queued_items": 43,
+                "avg_queue_size": 0.023691460055096418,
+                "max_queue_size": 2
             },
             "army": {
-                "queue_count": 239,
+                "queue_count": 1815,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
             },
             "starbase": {
-                "queue_count": 78,
+                "queue_count": 603,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
             },
             "shipyard": {
-                "queue_count": 3,
+                "queue_count": 66,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
@@ -841,148 +811,1565 @@
     },
     "tech": {
         "output": {
-            "society": 2868.0860000000002,
-            "physics": 2862.11,
-            "engineering": 2757.148,
-            "total": 8487.344000000001
+            "society": 11754.748,
+            "physics": 12295.148000000001,
+            "engineering": 11894.348,
+            "total": 35944.244
         },
-        "completed_techs": 330,
+        "completed_techs": 304,
         "available_techs": {
-            "society": 7,
+            "society": 4,
             "physics": 5,
-            "engineering": 7
+            "engineering": 6
         }
     },
     "planets": {
-        "total": 31,
+        "total": 189,
+        "list": {
+            "E Border Hab": {
+                "name": "E Border Hab",
+                "size": 8,
+                "population": 40,
+                "districts": 8,
+                "armies": 36,
+                "stability": 57.2222,
+                "amenities": 50,
+                "free_amenities": 5,
+                "amenities_usage": 45,
+                "free_housing": 19,
+                "total_housing": 56
+            },
+            "Vish": {
+                "name": "Vish",
+                "size": 8,
+                "population": 6,
+                "districts": 7,
+                "armies": 9,
+                "stability": 0.7575,
+                "amenities": 7,
+                "free_amenities": -4.0,
+                "amenities_usage": 11,
+                "free_housing": 54,
+                "total_housing": 59
+            },
+            "N Border Hab": {
+                "name": "N Border Hab",
+                "size": 8,
+                "population": 34,
+                "districts": 8,
+                "armies": 45,
+                "stability": 58.0768,
+                "amenities": 45,
+                "free_amenities": 6,
+                "amenities_usage": 39,
+                "free_housing": 28,
+                "total_housing": 59
+            },
+            "Requiem": {
+                "name": "Requiem",
+                "size": 19,
+                "population": 151,
+                "districts": 20,
+                "armies": 10,
+                "stability": 74.6152,
+                "amenities": 270,
+                "free_amenities": 114,
+                "amenities_usage": 156,
+                "free_housing": 4,
+                "total_housing": 125
+            },
+            "Mining Hab": {
+                "name": "Mining Hab",
+                "size": 6,
+                "population": 21,
+                "districts": 6,
+                "armies": 0,
+                "stability": 61.1538,
+                "amenities": 34,
+                "free_amenities": 8,
+                "amenities_usage": 26,
+                "free_housing": 19,
+                "total_housing": 38
+            },
+            "Jaggo": {
+                "name": "Jaggo",
+                "size": 20,
+                "population": 20,
+                "districts": 13,
+                "armies": 4,
+                "stability": 31,
+                "amenities": 16,
+                "free_amenities": -9.0,
+                "amenities_usage": 25,
+                "free_housing": 58,
+                "total_housing": 74
+            },
+            "Refinery World 5": {
+                "name": "Refinery World 5",
+                "size": 18,
+                "population": 57,
+                "districts": 17,
+                "armies": 8,
+                "stability": 56.6128,
+                "amenities": 67,
+                "free_amenities": 5,
+                "amenities_usage": 62,
+                "free_housing": 29,
+                "total_housing": 76
+            },
+            "Alaria": {
+                "name": "Alaria",
+                "size": 19,
+                "population": 73,
+                "districts": 16,
+                "armies": 0,
+                "stability": 51.845,
+                "amenities": 38,
+                "free_amenities": 29,
+                "amenities_usage": 9,
+                "free_housing": 92,
+                "total_housing": 96
+            },
+            "Factory World": {
+                "name": "Factory World",
+                "size": 21,
+                "population": 65,
+                "districts": 14,
+                "armies": 6,
+                "stability": 63.5714,
+                "amenities": 100,
+                "free_amenities": 30,
+                "amenities_usage": 70,
+                "free_housing": 44,
+                "total_housing": 97
+            },
+            "Factory World 10": {
+                "name": "Factory World 10",
+                "size": 19,
+                "population": 77,
+                "districts": 12,
+                "armies": 6,
+                "stability": 45.2435,
+                "amenities": 70,
+                "free_amenities": -12.0,
+                "amenities_usage": 82,
+                "free_housing": 14,
+                "total_housing": 78
+            },
+            "Factory World 1": {
+                "name": "Factory World 1",
+                "size": 18,
+                "population": 183,
+                "districts": 19,
+                "armies": 14,
+                "stability": 75,
+                "amenities": 406,
+                "free_amenities": 218,
+                "amenities_usage": 188,
+                "free_housing": 1,
+                "total_housing": 149
+            },
+            "Refinery World 12": {
+                "name": "Refinery World 12",
+                "size": 14,
+                "population": 71,
+                "districts": 15,
+                "armies": 8,
+                "stability": 64.2104,
+                "amenities": 111,
+                "free_amenities": 35,
+                "amenities_usage": 76,
+                "free_housing": 12,
+                "total_housing": 70
+            },
+            "Research World 2": {
+                "name": "Research World 2",
+                "size": 16,
+                "population": 158,
+                "districts": 17,
+                "armies": 10,
+                "stability": 69.9692,
+                "amenities": 285,
+                "free_amenities": 122,
+                "amenities_usage": 163,
+                "free_housing": 1,
+                "total_housing": 128
+            },
+            "Croo's Cocoon": {
+                "name": "Croo's Cocoon",
+                "size": 4,
+                "population": 10,
+                "districts": 4,
+                "armies": 0,
+                "stability": 59,
+                "amenities": 18,
+                "free_amenities": 3,
+                "amenities_usage": 15,
+                "free_housing": 13,
+                "total_housing": 22
+            },
+            "Factory World 5": {
+                "name": "Factory World 5",
+                "size": 12,
+                "population": 141,
+                "districts": 13,
+                "armies": 10,
+                "stability": 42.453,
+                "amenities": 132,
+                "free_amenities": -14.0,
+                "amenities_usage": 146,
+                "free_housing": -18.0,
+                "total_housing": 99
+            },
+            "Dologga's Spring": {
+                "name": "Dologga's Spring",
+                "size": 4,
+                "population": 8,
+                "districts": 4,
+                "armies": 0,
+                "stability": 24.2305,
+                "amenities": 7,
+                "free_amenities": -6.0,
+                "amenities_usage": 13,
+                "free_housing": 10,
+                "total_housing": 17
+            },
+            "Grobbsal Civa": {
+                "name": "Grobbsal Civa",
+                "size": 13,
+                "population": 69,
+                "districts": 14,
+                "armies": 0,
+                "stability": 75,
+                "amenities": 193,
+                "free_amenities": 119,
+                "amenities_usage": 74,
+                "free_housing": 32,
+                "total_housing": 94
+            },
+            "Research World": {
+                "name": "Research World",
+                "size": 25,
+                "population": 90,
+                "districts": 21,
+                "armies": 2,
+                "stability": 41.6665,
+                "amenities": 76,
+                "free_amenities": -19.0,
+                "amenities_usage": 95,
+                "free_housing": 56,
+                "total_housing": 130
+            },
+            "Factory World 9": {
+                "name": "Factory World 9",
+                "size": 18,
+                "population": 112,
+                "districts": 13,
+                "armies": 19,
+                "stability": 54.2058,
+                "amenities": 135,
+                "free_amenities": 18,
+                "amenities_usage": 117,
+                "free_housing": -9.0,
+                "total_housing": 84
+            },
+            "Refinery World 11": {
+                "name": "Refinery World 11",
+                "size": 18,
+                "population": 89,
+                "districts": 19,
+                "armies": 10,
+                "stability": 70.5318,
+                "amenities": 167,
+                "free_amenities": 73,
+                "amenities_usage": 94,
+                "free_housing": 21,
+                "total_housing": 94
+            },
+            "Admin World": {
+                "name": "Admin World",
+                "size": 23,
+                "population": 188,
+                "districts": 24,
+                "armies": 10,
+                "stability": 68.575,
+                "amenities": 324,
+                "free_amenities": 131,
+                "amenities_usage": 193,
+                "free_housing": 1,
+                "total_housing": 152
+            },
+            "Refinery World 7": {
+                "name": "Refinery World 7",
+                "size": 20,
+                "population": 73,
+                "districts": 21,
+                "armies": 8,
+                "stability": 50.726,
+                "amenities": 73,
+                "free_amenities": -5.0,
+                "amenities_usage": 78,
+                "free_housing": 53,
+                "total_housing": 113
+            },
+            "Factory World 8": {
+                "name": "Factory World 8",
+                "size": 25,
+                "population": 77,
+                "districts": 15,
+                "armies": 8,
+                "stability": 47.6825,
+                "amenities": 73,
+                "free_amenities": -9.0,
+                "amenities_usage": 82,
+                "free_housing": 26,
+                "total_housing": 90
+            },
+            "Kojogg's Keep": {
+                "name": "Kojogg's Keep",
+                "size": 4,
+                "population": 8,
+                "districts": 4,
+                "armies": 3,
+                "stability": 24.2305,
+                "amenities": 7,
+                "free_amenities": -6.0,
+                "amenities_usage": 13,
+                "free_housing": 26,
+                "total_housing": 33
+            },
+            "Factory World 11": {
+                "name": "Factory World 11",
+                "size": 19,
+                "population": 78,
+                "districts": 12,
+                "armies": 10,
+                "stability": 62.2288,
+                "amenities": 113,
+                "free_amenities": 30,
+                "amenities_usage": 83,
+                "free_housing": 4,
+                "total_housing": 68
+            },
+            "Refinery World 3": {
+                "name": "Refinery World 3",
+                "size": 12,
+                "population": 62,
+                "districts": 13,
+                "armies": 4,
+                "stability": 55.2984,
+                "amenities": 68,
+                "free_amenities": 1,
+                "amenities_usage": 67,
+                "free_housing": 4,
+                "total_housing": 54
+            },
+            "Bontargi's Citadel": {
+                "name": "Bontargi's Citadel",
+                "size": 4,
+                "population": 9,
+                "districts": 4,
+                "armies": 0,
+                "stability": 60.7142,
+                "amenities": 18,
+                "free_amenities": 4,
+                "amenities_usage": 14,
+                "free_housing": 24,
+                "total_housing": 32
+            },
+            "Bovven Vvada": {
+                "name": "Bovven Vvada",
+                "size": 24,
+                "population": 89,
+                "districts": 19,
+                "armies": 0,
+                "stability": 75,
+                "amenities": 282,
+                "free_amenities": 188,
+                "amenities_usage": 94,
+                "free_housing": 54,
+                "total_housing": 134
+            },
+            "Refinery World": {
+                "name": "Refinery World",
+                "size": 10,
+                "population": 67,
+                "districts": 11,
+                "armies": 2,
+                "stability": 71.6666,
+                "amenities": 132,
+                "free_amenities": 60,
+                "amenities_usage": 72,
+                "free_housing": 9,
+                "total_housing": 63
+            },
+            "NAME_Celestial_Throne": {
+                "name": "NAME_Celestial_Throne",
+                "size": 30,
+                "population": 59,
+                "districts": 22,
+                "armies": 12,
+                "stability": 85,
+                "amenities": 302,
+                "free_amenities": 238,
+                "amenities_usage": 64,
+                "free_housing": 205,
+                "total_housing": 253
+            },
+            "NAME_Sky_Temple": {
+                "name": "NAME_Sky_Temple",
+                "size": 22,
+                "population": 38,
+                "districts": 16,
+                "armies": 4,
+                "stability": 75,
+                "amenities": 216,
+                "free_amenities": 173,
+                "amenities_usage": 43,
+                "free_housing": 157,
+                "total_housing": 188
+            },
+            "NAME_The_Core": {
+                "name": "NAME_The_Core",
+                "size": 25,
+                "population": 56,
+                "districts": 13,
+                "armies": 6,
+                "stability": 75,
+                "amenities": 204,
+                "free_amenities": 156,
+                "amenities_usage": 48,
+                "free_housing": 77,
+                "total_housing": 116
+            },
+            "NAME_Boundary": {
+                "name": "NAME_Boundary",
+                "size": 12,
+                "population": 25,
+                "districts": 9,
+                "armies": 4,
+                "stability": 75,
+                "amenities": 93,
+                "free_amenities": 63,
+                "amenities_usage": 30,
+                "free_housing": 47,
+                "total_housing": 67
+            },
+            "Silent Colony": {
+                "name": "Silent Colony",
+                "size": 24,
+                "population": 95,
+                "districts": 19,
+                "armies": 2,
+                "stability": 8.4315,
+                "amenities": 16,
+                "free_amenities": -30.0,
+                "amenities_usage": 46,
+                "free_housing": 62,
+                "total_housing": 99
+            },
+            "NAME_Decayed_Hub": {
+                "name": "NAME_Decayed_Hub",
+                "size": 21,
+                "population": 56,
+                "districts": 17,
+                "armies": 4,
+                "stability": 25.6115,
+                "amenities": 14,
+                "free_amenities": -8.0,
+                "amenities_usage": 22,
+                "free_housing": 71,
+                "total_housing": 86
+            },
+            "Crumbling Borough": {
+                "name": "Crumbling Borough",
+                "size": 11,
+                "population": 20,
+                "districts": 10,
+                "armies": 0,
+                "stability": 57.777,
+                "amenities": 14,
+                "free_amenities": 5,
+                "amenities_usage": 9,
+                "free_housing": 51,
+                "total_housing": 55
+            },
+            "Ury": {
+                "name": "Ury",
+                "size": 23,
+                "population": 73,
+                "districts": 18,
+                "armies": 0,
+                "stability": 75,
+                "amenities": 193,
+                "free_amenities": 115,
+                "amenities_usage": 78,
+                "free_housing": 47,
+                "total_housing": 106
+            },
+            "The Veil": {
+                "name": "The Veil",
+                "size": 17,
+                "population": 111,
+                "districts": 18,
+                "armies": 57,
+                "stability": 61.0344,
+                "amenities": 151,
+                "free_amenities": 35,
+                "amenities_usage": 116,
+                "free_housing": 12,
+                "total_housing": 101
+            },
+            "Refinery World 14": {
+                "name": "Refinery World 14",
+                "size": 16,
+                "population": 83,
+                "districts": 17,
+                "armies": 10,
+                "stability": 65.6818,
+                "amenities": 135,
+                "free_amenities": 47,
+                "amenities_usage": 88,
+                "free_housing": 24,
+                "total_housing": 93
+            },
+            "Garbanog's Dwelling": {
+                "name": "Garbanog's Dwelling",
+                "size": 4,
+                "population": 9,
+                "districts": 4,
+                "armies": 9,
+                "stability": 21.6665,
+                "amenities": 7,
+                "free_amenities": -7.0,
+                "amenities_usage": 14,
+                "free_housing": 27,
+                "total_housing": 35
+            },
+            "Refinery World 4": {
+                "name": "Refinery World 4",
+                "size": 12,
+                "population": 80,
+                "districts": 13,
+                "armies": 19,
+                "stability": 64.1764,
+                "amenities": 124,
+                "free_amenities": 39,
+                "amenities_usage": 85,
+                "free_housing": 3,
+                "total_housing": 69
+            },
+            "Refinery World 13": {
+                "name": "Refinery World 13",
+                "size": 13,
+                "population": 50,
+                "districts": 9,
+                "armies": 14,
+                "stability": 54.0905,
+                "amenities": 46,
+                "free_amenities": -9.0,
+                "amenities_usage": 55,
+                "free_housing": 6,
+                "total_housing": 47
+            },
+            "Factory World 4": {
+                "name": "Factory World 4",
+                "size": 20,
+                "population": 203,
+                "districts": 21,
+                "armies": 10,
+                "stability": 69.4458,
+                "amenities": 383,
+                "free_amenities": 175,
+                "amenities_usage": 208,
+                "free_housing": -10.0,
+                "total_housing": 158
+            },
+            "Odranka's Holding": {
+                "name": "Odranka's Holding",
+                "size": 4,
+                "population": 8,
+                "districts": 4,
+                "armies": 3,
+                "stability": 75,
+                "amenities": 28,
+                "free_amenities": 15,
+                "amenities_usage": 13,
+                "free_housing": 31,
+                "total_housing": 38
+            },
+            "Piskus II": {
+                "name": "Piskus II",
+                "size": 22,
+                "population": 21,
+                "districts": 3,
+                "armies": 10,
+                "stability": 75,
+                "amenities": 53,
+                "free_amenities": 27,
+                "amenities_usage": 26,
+                "free_housing": 8,
+                "total_housing": 27
+            },
+            "Factory World 3": {
+                "name": "Factory World 3",
+                "size": 15,
+                "population": 145,
+                "districts": 16,
+                "armies": 14,
+                "stability": 59.5332,
+                "amenities": 184,
+                "free_amenities": 34,
+                "amenities_usage": 150,
+                "free_housing": 4,
+                "total_housing": 120
+            },
+            "Yltar's Bulwark": {
+                "name": "Yltar's Bulwark",
+                "size": 4,
+                "population": 7,
+                "districts": 3,
+                "armies": 0,
+                "stability": 55,
+                "amenities": 12,
+                "free_amenities": 0,
+                "amenities_usage": 12,
+                "free_housing": 18,
+                "total_housing": 24
+            },
+            "Irjamma's Treasure": {
+                "name": "Irjamma's Treasure",
+                "size": 10,
+                "population": 13,
+                "districts": 9,
+                "armies": 4,
+                "stability": 61.6666,
+                "amenities": 24,
+                "free_amenities": 6,
+                "amenities_usage": 18,
+                "free_housing": 35,
+                "total_housing": 47
+            },
+            "Refinery World 1": {
+                "name": "Refinery World 1",
+                "size": 15,
+                "population": 70,
+                "districts": 16,
+                "armies": 4,
+                "stability": 57.4,
+                "amenities": 84,
+                "free_amenities": 9,
+                "amenities_usage": 75,
+                "free_housing": 12,
+                "total_housing": 68
+            },
+            "Factory World 7": {
+                "name": "Factory World 7",
+                "size": 19,
+                "population": 77,
+                "districts": 11,
+                "armies": 8,
+                "stability": 36.7425,
+                "amenities": 68,
+                "free_amenities": -14.0,
+                "amenities_usage": 82,
+                "free_housing": -11.0,
+                "total_housing": 53
+            },
+            "Research World 3": {
+                "name": "Research World 3",
+                "size": 25,
+                "population": 122,
+                "districts": 20,
+                "armies": 14,
+                "stability": 71.2204,
+                "amenities": 230,
+                "free_amenities": 103,
+                "amenities_usage": 127,
+                "free_housing": 5,
+                "total_housing": 115
+            },
+            "Refinery World 8": {
+                "name": "Refinery World 8",
+                "size": 15,
+                "population": 74,
+                "districts": 16,
+                "armies": 8,
+                "stability": 40.654,
+                "amenities": 62,
+                "free_amenities": -17.0,
+                "amenities_usage": 79,
+                "free_housing": 17,
+                "total_housing": 78
+            },
+            "Uldrugg": {
+                "name": "Uldrugg",
+                "size": 14,
+                "population": 39,
+                "districts": 10,
+                "armies": 3,
+                "stability": 18.0705,
+                "amenities": 16,
+                "free_amenities": -19.0,
+                "amenities_usage": 35,
+                "free_housing": 35,
+                "total_housing": 62
+            },
+            "Mondak's Retreat": {
+                "name": "Mondak's Retreat",
+                "size": 4,
+                "population": 7,
+                "districts": 4,
+                "armies": 9,
+                "stability": 27.222,
+                "amenities": 7,
+                "free_amenities": -5.0,
+                "amenities_usage": 12,
+                "free_housing": 29,
+                "total_housing": 35
+            },
+            "Refinery World 9": {
+                "name": "Refinery World 9",
+                "size": 20,
+                "population": 86,
+                "districts": 21,
+                "armies": 10,
+                "stability": 56.3186,
+                "amenities": 97,
+                "free_amenities": 6,
+                "amenities_usage": 91,
+                "free_housing": 39,
+                "total_housing": 110
+            },
+            "Refinery World 10": {
+                "name": "Refinery World 10",
+                "size": 15,
+                "population": 68,
+                "districts": 16,
+                "armies": 20,
+                "stability": 59.3834,
+                "amenities": 89,
+                "free_amenities": 16,
+                "amenities_usage": 73,
+                "free_housing": 21,
+                "total_housing": 77
+            },
+            "Factory World 2": {
+                "name": "Factory World 2",
+                "size": 15,
+                "population": 137,
+                "districts": 16,
+                "armies": 10,
+                "stability": 60.4928,
+                "amenities": 181,
+                "free_amenities": 39,
+                "amenities_usage": 142,
+                "free_housing": 3,
+                "total_housing": 113
+            },
+            "Factory World 6": {
+                "name": "Factory World 6",
+                "size": 12,
+                "population": 106,
+                "districts": 10,
+                "armies": 6,
+                "stability": 21.9012,
+                "amenities": 68,
+                "free_amenities": -43.0,
+                "amenities_usage": 111,
+                "free_housing": -16.0,
+                "total_housing": 72
+            },
+            "Chiiban III": {
+                "name": "Chiiban III",
+                "size": 12,
+                "population": 87,
+                "districts": 10,
+                "armies": 0,
+                "stability": 45.833,
+                "amenities": 16,
+                "free_amenities": 8,
+                "amenities_usage": 8,
+                "free_housing": 52,
+                "total_housing": 55
+            },
+            "Research World 1": {
+                "name": "Research World 1",
+                "size": 21,
+                "population": 182,
+                "districts": 22,
+                "armies": 14,
+                "stability": 75,
+                "amenities": 405,
+                "free_amenities": 218,
+                "amenities_usage": 187,
+                "free_housing": 17,
+                "total_housing": 163
+            },
+            "Research World 5": {
+                "name": "Research World 5",
+                "size": 25,
+                "population": 74,
+                "districts": 17,
+                "armies": 8,
+                "stability": 56.2658,
+                "amenities": 84,
+                "free_amenities": 5,
+                "amenities_usage": 79,
+                "free_housing": 45,
+                "total_housing": 106
+            },
+            "Groro": {
+                "name": "Groro",
+                "size": 14,
+                "population": 10,
+                "districts": 4,
+                "armies": 2,
+                "stability": 56.3332,
+                "amenities": 16,
+                "free_amenities": 1,
+                "amenities_usage": 15,
+                "free_housing": 16,
+                "total_housing": 25
+            },
+            "Unity World": {
+                "name": "Unity World",
+                "size": 17,
+                "population": 139,
+                "districts": 18,
+                "armies": 32,
+                "stability": 61.25,
+                "amenities": 189,
+                "free_amenities": 45,
+                "amenities_usage": 144,
+                "free_housing": 1,
+                "total_housing": 112
+            },
+            "Refinery World 2": {
+                "name": "Refinery World 2",
+                "size": 10,
+                "population": 32,
+                "districts": 11,
+                "armies": 4,
+                "stability": 51.396,
+                "amenities": 35,
+                "free_amenities": -2.0,
+                "amenities_usage": 37,
+                "free_housing": 22,
+                "total_housing": 48
+            },
+            "Indig's Refuge": {
+                "name": "Indig's Refuge",
+                "size": 4,
+                "population": 18,
+                "districts": 3,
+                "armies": 0,
+                "stability": 23.579,
+                "amenities": 7,
+                "free_amenities": -5.0,
+                "amenities_usage": 12,
+                "free_housing": 18,
+                "total_housing": 24
+            },
+            "Pogga Pash": {
+                "name": "Pogga Pash",
+                "size": 4,
+                "population": 11,
+                "districts": 4,
+                "armies": 0,
+                "stability": 57.5,
+                "amenities": 18,
+                "free_amenities": 2,
+                "amenities_usage": 16,
+                "free_housing": 17,
+                "total_housing": 27
+            },
+            "Elthir I": {
+                "name": "Elthir I",
+                "size": 12,
+                "population": 14,
+                "districts": 3,
+                "armies": 2,
+                "stability": 75,
+                "amenities": 53,
+                "free_amenities": 34,
+                "amenities_usage": 19,
+                "free_housing": 14,
+                "total_housing": 27
+            },
+            "Energy Hab": {
+                "name": "Energy Hab",
+                "size": 8,
+                "population": 44,
+                "districts": 8,
+                "armies": 0,
+                "stability": 57.0408,
+                "amenities": 54,
+                "free_amenities": 5,
+                "amenities_usage": 49,
+                "free_housing": 8,
+                "total_housing": 48
+            },
+            "Research Hab": {
+                "name": "Research Hab",
+                "size": 6,
+                "population": 19,
+                "districts": 6,
+                "armies": 0,
+                "stability": 67.5,
+                "amenities": 39,
+                "free_amenities": 15,
+                "amenities_usage": 24,
+                "free_housing": 21,
+                "total_housing": 38
+            },
+            "Energy Segment": {
+                "name": "Energy Segment",
+                "size": 5,
+                "population": 159,
+                "districts": 5,
+                "armies": 14,
+                "stability": 45.2435,
+                "amenities": 140,
+                "free_amenities": -24.0,
+                "amenities_usage": 164,
+                "free_housing": 44,
+                "total_housing": 192
+            },
+            "Energy  Hab": {
+                "name": "Energy  Hab",
+                "size": 4,
+                "population": 10,
+                "districts": 4,
+                "armies": 9,
+                "stability": 72.3332,
+                "amenities": 28,
+                "free_amenities": 13,
+                "amenities_usage": 15,
+                "free_housing": 24,
+                "total_housing": 33
+            },
+            "Krachaw's Nest": {
+                "name": "Krachaw's Nest",
+                "size": 4,
+                "population": 8,
+                "districts": 4,
+                "armies": 3,
+                "stability": 49.8715,
+                "amenities": 12,
+                "free_amenities": -1.0,
+                "amenities_usage": 13,
+                "free_housing": 16,
+                "total_housing": 23
+            },
+            "Carcana": {
+                "name": "Carcana",
+                "size": 4,
+                "population": 14,
+                "districts": 4,
+                "armies": 0,
+                "stability": 30.4385,
+                "amenities": 12,
+                "free_amenities": -7.0,
+                "amenities_usage": 19,
+                "free_housing": 14,
+                "total_housing": 27
+            },
+            "Ultrak's Point": {
+                "name": "Ultrak's Point",
+                "size": 4,
+                "population": 7,
+                "districts": 3,
+                "armies": 0,
+                "stability": 55,
+                "amenities": 12,
+                "free_amenities": 0,
+                "amenities_usage": 12,
+                "free_housing": 18,
+                "total_housing": 24
+            },
+            "Kortol's Station": {
+                "name": "Kortol's Station",
+                "size": 4,
+                "population": 8,
+                "districts": 4,
+                "armies": 3,
+                "stability": 75,
+                "amenities": 28,
+                "free_amenities": 15,
+                "amenities_usage": 13,
+                "free_housing": 31,
+                "total_housing": 38
+            },
+            "Hadrigga's Bastion": {
+                "name": "Hadrigga's Bastion",
+                "size": 4,
+                "population": 5,
+                "districts": 4,
+                "armies": 0,
+                "stability": 59,
+                "amenities": 12,
+                "free_amenities": 2,
+                "amenities_usage": 10,
+                "free_housing": 23,
+                "total_housing": 28
+            },
+            "Prek-Ek-Ek": {
+                "name": "Prek-Ek-Ek",
+                "size": 8,
+                "population": 20,
+                "districts": 8,
+                "armies": 0,
+                "stability": 25.5335,
+                "amenities": 7,
+                "free_amenities": -4.0,
+                "amenities_usage": 11,
+                "free_housing": 67,
+                "total_housing": 72
+            },
+            "Research Segment": {
+                "name": "Research Segment",
+                "size": 5,
+                "population": 40,
+                "districts": 2,
+                "armies": 2,
+                "stability": 35.7405,
+                "amenities": 32,
+                "free_amenities": -13.0,
+                "amenities_usage": 45,
+                "free_housing": 92,
+                "total_housing": 128
+            },
+            "Trast": {
+                "name": "Trast",
+                "size": 4,
+                "population": 15,
+                "districts": 4,
+                "armies": 0,
+                "stability": 48.333,
+                "amenities": 18,
+                "free_amenities": -2.0,
+                "amenities_usage": 20,
+                "free_housing": 13,
+                "total_housing": 27
+            },
+            "Siltam's Fortress": {
+                "name": "Siltam's Fortress",
+                "size": 4,
+                "population": 6,
+                "districts": 4,
+                "armies": 3,
+                "stability": 30.7575,
+                "amenities": 7,
+                "free_amenities": -4.0,
+                "amenities_usage": 11,
+                "free_housing": 27,
+                "total_housing": 33
+            },
+            "Lastargavin's Shelter": {
+                "name": "Lastargavin's Shelter",
+                "size": 4,
+                "population": 4,
+                "districts": 4,
+                "armies": 0,
+                "stability": 40.185,
+                "amenities": 7,
+                "free_amenities": -2.0,
+                "amenities_usage": 9,
+                "free_housing": 33,
+                "total_housing": 37
+            },
+            "Fidgit": {
+                "name": "Fidgit",
+                "size": 4,
+                "population": 13,
+                "districts": 4,
+                "armies": 0,
+                "stability": 55,
+                "amenities": 18,
+                "free_amenities": 0,
+                "amenities_usage": 18,
+                "free_housing": 15,
+                "total_housing": 27
+            },
+            "W Border Hab": {
+                "name": "W Border Hab",
+                "size": 8,
+                "population": 36,
+                "districts": 8,
+                "armies": 27,
+                "stability": 56.9512,
+                "amenities": 45,
+                "free_amenities": 4,
+                "amenities_usage": 41,
+                "free_housing": 20,
+                "total_housing": 53
+            },
+            "Claive": {
+                "name": "Claive",
+                "size": 4,
+                "population": 5,
+                "districts": 2,
+                "armies": 0,
+                "stability": 35,
+                "amenities": 7,
+                "free_amenities": -3.0,
+                "amenities_usage": 10,
+                "free_housing": 16,
+                "total_housing": 21
+            },
+            "Findirban's Outpost": {
+                "name": "Findirban's Outpost",
+                "size": 4,
+                "population": 7,
+                "districts": 3,
+                "armies": 0,
+                "stability": 65,
+                "amenities": 18,
+                "free_amenities": 6,
+                "amenities_usage": 12,
+                "free_housing": 23,
+                "total_housing": 29
+            },
+            "Micaw": {
+                "name": "Micaw",
+                "size": 4,
+                "population": 10,
+                "districts": 4,
+                "armies": 3,
+                "stability": 19.444,
+                "amenities": 7,
+                "free_amenities": -8.0,
+                "amenities_usage": 15,
+                "free_housing": 20,
+                "total_housing": 29
+            },
+            "Chyy'ta": {
+                "name": "Chyy'ta",
+                "size": 4,
+                "population": 13,
+                "districts": 4,
+                "armies": 6,
+                "stability": 70.5554,
+                "amenities": 32,
+                "free_amenities": 14,
+                "amenities_usage": 18,
+                "free_housing": 22,
+                "total_housing": 34
+            },
+            "Foshoo's Rest": {
+                "name": "Foshoo's Rest",
+                "size": 6,
+                "population": 9,
+                "districts": 5,
+                "armies": 0,
+                "stability": 67.857,
+                "amenities": 23,
+                "free_amenities": 9,
+                "amenities_usage": 14,
+                "free_housing": 32,
+                "total_housing": 40
+            },
+            "Craw't": {
+                "name": "Craw't",
+                "size": 4,
+                "population": 12,
+                "districts": 4,
+                "armies": 9,
+                "stability": 15.784,
+                "amenities": 7,
+                "free_amenities": -10.0,
+                "amenities_usage": 17,
+                "free_housing": 14,
+                "total_housing": 25
+            },
+            "Pirgak's Freehold": {
+                "name": "Pirgak's Freehold",
+                "size": 4,
+                "population": 15,
+                "districts": 4,
+                "armies": 9,
+                "stability": 24.519,
+                "amenities": 7,
+                "free_amenities": -5.0,
+                "amenities_usage": 12,
+                "free_housing": 29,
+                "total_housing": 35
+            },
+            "NE Border Hab": {
+                "name": "NE Border Hab",
+                "size": 6,
+                "population": 20,
+                "districts": 6,
+                "armies": 18,
+                "stability": 71,
+                "amenities": 45,
+                "free_amenities": 20,
+                "amenities_usage": 25,
+                "free_housing": 26,
+                "total_housing": 44
+            },
+            "Travuu": {
+                "name": "Travuu",
+                "size": 4,
+                "population": 10,
+                "districts": 4,
+                "armies": 0,
+                "stability": 65.6666,
+                "amenities": 23,
+                "free_amenities": 8,
+                "amenities_usage": 15,
+                "free_housing": 23,
+                "total_housing": 32
+            },
+            "Madragon's Stronghold": {
+                "name": "Madragon's Stronghold",
+                "size": 4,
+                "population": 12,
+                "districts": 4,
+                "armies": 0,
+                "stability": 56.1764,
+                "amenities": 18,
+                "free_amenities": 1,
+                "amenities_usage": 17,
+                "free_housing": 16,
+                "total_housing": 27
+            },
+            "Tripitit": {
+                "name": "Tripitit",
+                "size": 4,
+                "population": 14,
+                "districts": 4,
+                "armies": 0,
+                "stability": 70.7894,
+                "amenities": 34,
+                "free_amenities": 15,
+                "amenities_usage": 19,
+                "free_housing": 19,
+                "total_housing": 32
+            },
+            "Foosh'ro": {
+                "name": "Foosh'ro",
+                "size": 4,
+                "population": 11,
+                "districts": 4,
+                "armies": 18,
+                "stability": 17.5,
+                "amenities": 7,
+                "free_amenities": -9.0,
+                "amenities_usage": 16,
+                "free_housing": 28,
+                "total_housing": 38
+            },
+            "Whoo'tar": {
+                "name": "Whoo'tar",
+                "size": 4,
+                "population": 11,
+                "districts": 4,
+                "armies": 18,
+                "stability": 17.5,
+                "amenities": 7,
+                "free_amenities": -9.0,
+                "amenities_usage": 16,
+                "free_housing": 28,
+                "total_housing": 38
+            },
+            "Fashaaw": {
+                "name": "Fashaaw",
+                "size": 4,
+                "population": 11,
+                "districts": 4,
+                "armies": 9,
+                "stability": 57.5,
+                "amenities": 18,
+                "free_amenities": 2,
+                "amenities_usage": 16,
+                "free_housing": 25,
+                "total_housing": 35
+            },
+            "Urytry": {
+                "name": "Urytry",
+                "size": 4,
+                "population": 8,
+                "districts": 3,
+                "armies": 0,
+                "stability": 62.6922,
+                "amenities": 18,
+                "free_amenities": 5,
+                "amenities_usage": 13,
+                "free_housing": 17,
+                "total_housing": 24
+            },
+            "Raggani": {
+                "name": "Raggani",
+                "size": 4,
+                "population": 8,
+                "districts": 3,
+                "armies": 0,
+                "stability": 24.2305,
+                "amenities": 7,
+                "free_amenities": -6.0,
+                "amenities_usage": 13,
+                "free_housing": 12,
+                "total_housing": 19
+            },
+            "Trittita": {
+                "name": "Trittita",
+                "size": 4,
+                "population": 13,
+                "districts": 4,
+                "armies": 0,
+                "stability": 60.5554,
+                "amenities": 23,
+                "free_amenities": 5,
+                "amenities_usage": 18,
+                "free_housing": 20,
+                "total_housing": 32
+            },
+            "Drakoo": {
+                "name": "Drakoo",
+                "size": 4,
+                "population": 12,
+                "districts": 4,
+                "armies": 18,
+                "stability": 35.392,
+                "amenities": 12,
+                "free_amenities": -5.0,
+                "amenities_usage": 17,
+                "free_housing": 17,
+                "total_housing": 28
+            },
+            "Wormhole Hab": {
+                "name": "Wormhole Hab",
+                "size": 8,
+                "population": 35,
+                "districts": 8,
+                "armies": 27,
+                "stability": 62.5,
+                "amenities": 55,
+                "free_amenities": 15,
+                "amenities_usage": 40,
+                "free_housing": 26,
+                "total_housing": 58
+            },
+            "Frippit": {
+                "name": "Frippit",
+                "size": 4,
+                "population": 12,
+                "districts": 4,
+                "armies": 0,
+                "stability": 56.1764,
+                "amenities": 18,
+                "free_amenities": 1,
+                "amenities_usage": 17,
+                "free_housing": 16,
+                "total_housing": 27
+            },
+            "Klohopka": {
+                "name": "Klohopka",
+                "size": 6,
+                "population": 4,
+                "districts": 6,
+                "armies": 0,
+                "stability": 40.185,
+                "amenities": 7,
+                "free_amenities": -2.0,
+                "amenities_usage": 9,
+                "free_housing": 44,
+                "total_housing": 48
+            },
+            "Kleck-O": {
+                "name": "Kleck-O",
+                "size": 6,
+                "population": 5,
+                "districts": 6,
+                "armies": 0,
+                "stability": 35,
+                "amenities": 7,
+                "free_amenities": -3.0,
+                "amenities_usage": 10,
+                "free_housing": 38,
+                "total_housing": 43
+            },
+            "Rickichi's Roost": {
+                "name": "Rickichi's Roost",
+                "size": 4,
+                "population": 12,
+                "districts": 4,
+                "armies": 0,
+                "stability": 35.392,
+                "amenities": 12,
+                "free_amenities": -5.0,
+                "amenities_usage": 17,
+                "free_housing": 16,
+                "total_housing": 27
+            }
+        },
         "types": {
-            "Ring World Section": 7,
-            "Tundra": 11,
-            "City": 1,
-            "Habitat": 12
+            "Habitat": 81,
+            "Machine": 78,
+            "Tropical": 3,
+            "Desert": 4,
+            "Savannah": 4,
+            "Gaia": 1,
+            "Ocean": 2,
+            "Nuked": 5,
+            "Relic": 2,
+            "Tundra": 1,
+            "Alpine": 1,
+            "Arid": 2,
+            "Continental": 1,
+            "Ring World Section": 4
         },
         "districts": {
-            "avg": 10.419354838709678,
+            "avg": 9.243386243386244,
             "min": 2,
-            "max": 26,
-            "total": 323
+            "max": 25,
+            "total": 1747
         },
         "buildings": {
-            "avg": 13.064516129032258,
-            "min": 8,
+            "avg": 8.470899470899472,
+            "min": 1,
             "max": 16,
-            "total": 405
+            "total": 1601
         },
         "sizes": {
-            "avg": 10.67741935483871,
-            "min": 5,
-            "max": 25,
-            "total": 331
+            "avg": 11.936507936507937,
+            "min": 4,
+            "max": 30,
+            "total": 2256
         },
         "stability": {
-            "avg": 79.4723806451613,
-            "min": 65.108,
-            "max": 100,
-            "total": 2463.6438000000003
+            "avg": 53.389306349206315,
+            "min": 0.7575,
+            "max": 85,
+            "total": 10090.578899999993
+        },
+        "amenities": {
+            "avg": 20.306878306878307,
+            "min": -43.0,
+            "max": 238,
+            "total": 3838.0
         },
         "housing": {
-            "avg": 10.419354838709678,
-            "min": 0,
-            "max": 114,
-            "total": 323
+            "avg": 26.005291005291006,
+            "min": -18.0,
+            "max": 205,
+            "total": 4915.0
         },
         "crime": {
-            "avg": 0.0,
+            "avg": 5.562962962962963,
             "min": 0,
-            "max": 0,
-            "total": 0
+            "max": 100,
+            "total": 1051.4
         },
         "pops": {
-            "avg": 91.09677419354838,
-            "min": 37,
-            "max": 233,
-            "total": 2824
+            "avg": 47.92063492063492,
+            "min": 4,
+            "max": 203,
+            "total": 9057
         },
         "age_days": {
-            "avg": 86769.0,
-            "min": 21489,
-            "max": 131229,
-            "total": 2689839
+            "avg": 64217.31746031746,
+            "min": 11037,
+            "max": 103287,
+            "total": 12137073
         },
         "age": {
-            "avg": 241.02499999999998,
-            "min": 59.69166666666667,
-            "max": 364.525,
-            "total": 7471.775
+            "avg": 178.38143738977038,
+            "min": 30.658333333333335,
+            "max": 286.90833333333336,
+            "total": 33714.0916666666
         }
     },
     "pops": {
-        "total": 2824,
+        "total": 9057,
         "jobs": {
+            "Replicator": 610,
+            "Coordinator": 363,
+            "Technician Drone": 1403,
+            "Warrior Drone": 166,
+            "Chemist Drone": 59,
+            "Maintenance Drone": 1946,
+            "Gas Refiner Drone": 76,
+            "Mining Drone": 408,
+            "Calculator": 1203,
+            "Fabricator": 1281,
+            "Patrol Drone": 415,
+            "Evaluator": 88,
+            "Translucer Drone": 51,
+            "Artisan Drone": 61,
+            "Corrupt Drone": 44,
+            "Purge": 571,
+            "Mote Harvesting Drone": 20,
+            "Gas Extraction Drone": 10,
             "Head Researcher": 3,
-            "Administrator": 96,
-            "Researcher": 213,
-            "Artisan": 185,
-            "Enforcer": 99,
-            "Foundry": 217,
-            "Clerk": 998,
-            "Merchant": 152,
-            "Bureaucrat": 82,
-            "Translucer": 38,
-            "Farmer": 151,
-            "Entertainer": 74,
-            "Crystal Miner": 2,
-            "Gas Plant Engineer": 8,
-            "Miner": 127,
-            "Healthcare": 40,
-            "Technician": 66,
-            "Chemist": 42,
-            "Odd Factory Worker": 1,
-            "Culture Worker": 51,
-            "Soldier": 165,
-            "Dimensional Portal Researcher": 3,
-            "Roboticist": 6,
-            "Mote Harvester": 2,
-            "Gas Refiner": 2,
-            "Servant": 1
+            "Crystal Mining Drone": 6,
+            "Agri Drone": 46
         },
         "species": {
-            "Raviscid": 2555,
-            "Robot": 269
+            "Promethean": 6834,
+            "XT-489": 1249,
+            "Ess'Jaggon": 58,
+            "Alari": 130,
+            "Robot": 377,
+            "Najklax": 66,
+            "Yv'Zorak": 6,
+            "Pelx-Cradonian": 6,
+            "Netraxi": 8,
+            "Tuxkan": 33,
+            "Yssravannar": 7,
+            "Sibulan": 13,
+            "Ymacera": 27,
+            "Helvan": 22,
+            "Racket": 40,
+            "Rixi": 3,
+            "Ketling": 70,
+            "Saiiban": 14,
+            "Buvhondon": 9,
+            "Miidari": 12,
+            "Genoggian": 3,
+            "Birnathi": 1,
+            "Screk": 1,
+            "Dyss": 64,
+            "Wacegi": 3,
+            "Fellnoll": 1
         }
     },
     "fleets": {
-        "total": 13,
+        "total": 25,
         "fleet_power": {
-            "avg": 327287.73408250004,
-            "min": 82860.92889,
-            "max": 393631.02325,
-            "total": 3927452.8089900007
+            "avg": 394702.63619083335,
+            "min": 81785.06524,
+            "max": 471864.68884,
+            "total": 9472863.26858
         },
         "ships": {
-            "avg": 98.07692307692308,
+            "avg": 88.48,
             "min": 1,
             "max": 250,
-            "total": 1275
+            "total": 2212
         },
         "ship_types": {
-            "Destroyer": 153,
-            "Corvette": 894,
-            "Cruiser": 107,
-            "Titan": 15,
-            "Battleship": 104,
+            "Destroyer": 374,
+            "Battleship": 364,
+            "Corvette": 1350,
+            "Cruiser": 100,
+            "Titan": 20,
             "Juggernaut": 1,
+            "Npc_warship_01": 1,
+            "Graygoo_interdictor": 1,
             "Colossus": 1
         },
-        "avg_ship_exp": 394.42996078431344
+        "avg_ship_exp": 360.1454792043443
     },
     "armies": {
-        "total": 696,
+        "total": 1153,
         "types": {
-            "Defense Army": 661,
-            "Gene Warrior Army": 30,
-            "Robotic Defense Army": 2,
-            "Titanic Assault Army": 3
+            "Machine Defense": 1141,
+            "Machine Assault 3": 10,
+            "Machine Assault 1": 1,
+            "Gray Army": 1
         }
     }
 }

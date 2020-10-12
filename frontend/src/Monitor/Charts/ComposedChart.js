@@ -16,10 +16,27 @@ function ComposedChart(props) {
     const series = props.series;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
-    const labelColors = props.labelColors ? props.labelColors : getDataColors(series.map(series => series.label));
     const allowIsolation = props.allowIsolation ? true : false;
     const seriesClickCb = props.onSeriesClick;
     const seriesRenderer = props.seriesRenderer;
+
+    const [initialColors, initialShuffled] = getDataColors(series.map(series => series.label));
+    const [labelColors, setLabelColors] = useState(props.labelColors ? props.labelColors : initialColors);
+    const [shuffleOrder, setShuffledOrder] = useState(initialShuffled);
+    useEffect(() => {
+        if (!props.labelColors) {
+            const [newColors, newShuffled] = getDataColors(series.map(series => series.label), shuffleOrder);
+            setLabelColors(newColors);
+            setShuffledOrder(newShuffled);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [series]);
+    useEffect(() => {
+        if (props.labelColors)
+            setLabelColors(props.labelColors);
+    }, [props.labelColors]);
+
+    //const labelColors = getDataColors(series.map(series => series.label));
 
     const [isolatedSeries, setIsolatedSeries] = useState([]);
     useEffect(() => {
@@ -69,7 +86,9 @@ function ComposedChart(props) {
     const renderSeries = series => {
         if (!seriesVisible(series))
             return null;
-        return seriesRenderer(series);
+        return seriesRenderer(series, labelColors, () => {
+            seriesClick({dataKey: series.label});
+        });
     };
     const renderedAreas = series.map(renderSeries);
 

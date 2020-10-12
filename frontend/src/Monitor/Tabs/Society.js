@@ -11,7 +11,7 @@ function Society(props) {
 
     return (
         <div className='monitorTab'>
-            <div className='row'>
+            <div className='row chartRow'>
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
                     <Pops data={data}/>
                 </div>
