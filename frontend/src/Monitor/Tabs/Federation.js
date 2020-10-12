@@ -16,7 +16,7 @@ function Federation(props) {
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
                     <FederationMembers data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12chartCol presetChart'>
+                <div className='col-12 chartCol presetChart'>
                     <FederationExperience data={data}/>
                 </div>
             </div>
