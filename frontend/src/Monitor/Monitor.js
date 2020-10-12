@@ -179,7 +179,7 @@ function Monitor(props) {
                     </div>
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <Tabs value={currentTab} onChange={onTabChange} scrollButtons='auto'>
+                <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
                     <Tab label='Overview'/>
                     <Tab label='Custom'/>
                     <Tab label='Economy'/>
