@@ -4,6 +4,8 @@ import Chart from '../Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
+import {capitalize, selectNested} from '../Util';
+
 function ColonySizes(props) {
     const name = props.name ? props.name : 'colonysizes';
     const data = props.data;
@@ -14,14 +16,26 @@ function ColonySizes(props) {
         'planets/buildings': ['Min Planet Buildings', 'Max Planet Buildings', 'Average Planet Buildings'],
     };
 
+    const keyPaths = ['planets/sizes', 'planets/districts', 'planets/buildings'];
+    const totals = keyPaths.map(path => {
+        return {
+            label: 'Total ' + capitalize(path.split('/')[1]),
+            selector: snap => selectNested(`${path}/total`, snap),
+            yAxis: 'right'
+        };
+    });
+
     return (
         <Chart overlay={props.overlay} title='Colony Sizes &amp; Development' titleColor='#96d636'>
             <StatsChart
                 name={name}
                 data={data}
-                keyPaths={['planets/sizes', 'planets/districts', 'planets/buildings']}
+                keyPaths={keyPaths}
                 statLabels={labels}
                 exclude={['total']}
+                extraLines={totals}
+                yAxisLabel='Per Colony Count'
+                rightYLabel='Totals'
             />
         </Chart>
     );
