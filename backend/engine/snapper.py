@@ -530,13 +530,13 @@ def _get_construction(state, empire):
                 type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
 
-        queue_list = [
-            {
+        queue_list = {
+            queue['id']: {
                 'size': queue['simultaneous'],
                 'items': queue['size'],
                 'type': queue['type']
             } for queue in build_queues
-        ]
+        }
 
         breakdown = {
             qtype: {

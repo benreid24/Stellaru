@@ -94,7 +94,6 @@ function FancyBreakdown(props) {
         const savedType = window.localStorage.getItem(`${name}-datatype`);
         const savedResource = window.localStorage.getItem(`${name}-resource`);
         const savedDrilldown = window.localStorage.getItem(`${name}-drilldown`);
-        // TODO - drilldown persist
         if (savedType !== null) {
             setDataType(JSON.parse(savedType));
         }
