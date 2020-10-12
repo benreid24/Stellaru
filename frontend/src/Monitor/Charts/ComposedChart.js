@@ -10,6 +10,18 @@ import {YAxis, XAxis} from 'recharts';
 import {getCurrentTab} from '../Tabs/CurrentTab';
 import {getDataColors, valueTickFormat, selectNested, dateTickFormat, makeId} from './Util';
 
+const AxisLabel = ({axisType, x, y, width, height, stroke, children, offset}) => {
+    const isVert = axisType === 'yAxis';
+    const cx = isVert ? x : x + (width / 2);
+    const cy = isVert ? (height / 2) + y : y + height + 10;
+    const rot = isVert ? `270 ${cx} ${cy}` : 0;
+    return (
+      <text x={cx} y={cy + offset} transform={`rotate(${rot})`} textAnchor="middle" stroke={stroke} fill='#dadada'>
+        {children}
+      </text>
+    );
+  };
+
 function ComposedChart(props) {
     const name = props.name ? props.name : null;
     const rawData = props.data;
@@ -153,7 +165,7 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale='linear'
-                    label={{value: yLabel, angle: -90, position: 'insideLeft', fill: '#dadada'}}
+                    label={({ viewBox }) => <AxisLabel offset={8} axisType="yAxis" {...viewBox}>{yLabel}</AxisLabel>}
                 />
                 <YAxis
                     yAxisId='right'
@@ -167,7 +179,7 @@ function ComposedChart(props) {
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale='linear'
-                    label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada'}}
+                    label={({ viewBox }) => <AxisLabel offset={55} axisType="yAxis" {...viewBox}>{rightYLabel}</AxisLabel>}
                 />
                 <Tooltip formatter={formatter} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
