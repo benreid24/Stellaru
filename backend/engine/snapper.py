@@ -711,7 +711,7 @@ def _is_transport_fleet(state, fleet):
 def _get_fleets(state, empire):
     try:
         fleets = [
-            fleet for fid, fleet in state['fleet'].items()
+            {'id': fid, **fleet} for fid, fleet in state['fleet'].items()
             if isinstance(fleet, dict) and
             'owner' in fleet and
             fleet['owner'] == empire and
@@ -724,10 +724,11 @@ def _get_fleets(state, empire):
         ships = _basic_stats([len(fleet['ships']) for fleet in fleets if 'ships' in fleet])
         ship_types = {}
         ship_exp = 0
-        fleet_list = []
+        fleet_list = {}
         for fleet in fleets:
             if 'ships' in fleet:
                 fleet_item = {
+                    'id': fleet['id'],
                     'power': fleet['military_power'],
                     'ship_count': len(fleet['ships']),
                 }
@@ -746,6 +747,7 @@ def _get_fleets(state, empire):
                             else:
                                 ship_types[stype] += 1
                 fleet_item['experience'] = _basic_stats(exps)
+                fleet_list[fleet['id']] = fleet_item
         
         return {
             'total': len(fleets),
