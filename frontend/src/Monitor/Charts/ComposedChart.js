@@ -16,11 +16,50 @@ const AxisLabel = ({axisType, x, y, width, height, stroke, children, offset}) =>
     const cy = isVert ? (height / 2) + y : y + height + 10;
     const rot = isVert ? `270 ${cx} ${cy}` : 0;
     return (
-      <text x={cx} y={cy + offset} transform={`rotate(${rot})`} textAnchor="middle" stroke={stroke} fill='#dadada'>
-        {children}
-      </text>
+        <text x={cx} y={cy + offset} transform={`rotate(${rot})`} textAnchor="middle" stroke={stroke} fill='#dadada'>
+            {children}
+        </text>
     );
-  };
+};
+
+function RenderTooltip(props) {
+    const payload = props.payload;
+    const label = props.label;
+    const formatter = props.formatter;
+
+    const renderItem = item => {
+        return (
+            <p
+                key={item.dataKey}
+                className='tooltipItem'
+                style={{color: item.color}}
+            >
+                {`${item.name}: ${formatter(item.value)}`}
+            </p>
+        );
+    };
+    const renderedItems = payload ? payload.map(renderItem) : [];
+
+    const MaxRows = 14;
+    const columnCount = Math.ceil(renderedItems.length / MaxRows);
+    let columns = [];
+    for (let i = 0; i<columnCount; i += 1) {
+        columns.push(
+            <div key={i} className='col-auto'>
+                {renderedItems.slice(i * MaxRows, i * MaxRows + MaxRows)}
+            </div>
+        );
+    }
+    
+    return (
+        <div className='tooltipBox'>
+            <p className='tooltipLabel'>{label}</p>
+            <div className='row tooltipRow'>
+                {columns}
+            </div>
+        </div>
+    );
+}
 
 function ComposedChart(props) {
     const name = props.name ? props.name : null;
@@ -181,7 +220,7 @@ function ComposedChart(props) {
                     scale='linear'
                     label={({ viewBox }) => <AxisLabel offset={55} axisType="yAxis" {...viewBox}>{rightYLabel}</AxisLabel>}
                 />
-                <Tooltip formatter={formatter} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
+                <Tooltip formatter={formatter} content={<RenderTooltip/>}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
                 <defs>
                     {renderedGradients}

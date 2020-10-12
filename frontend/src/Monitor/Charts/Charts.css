@@ -81,3 +81,26 @@
 .chartOverlayButton:active {
     background-color: rgba(20,20,20,0.9);
 }
+
+.tooltipBox {
+    background-color: #303030;
+    border: 1px solid white;
+    text-align: left;
+    padding: 5px;
+}
+
+.tooltipRow {
+    margin-bottom: -20px;
+}
+
+.tooltipLabel {
+    font-size: 1vw;
+    text-align: center;
+    color: white;
+}
+
+.tooltipItem {
+    font-size: 0.85vw;
+    padding: 0px;
+    margin-bottom: -3px;
+}
