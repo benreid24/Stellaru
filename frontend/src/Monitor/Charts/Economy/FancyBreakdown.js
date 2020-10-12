@@ -92,26 +92,25 @@ function FancyBreakdown(props) {
 
     useEffect(() => {
         const savedType = window.localStorage.getItem(`${name}-datatype`);
-        const savedResource = window.localStorage.getItem(`${name}-resource`);
         const savedDrilldown = window.localStorage.getItem(`${name}-drilldown`);
         if (savedType !== null) {
             setDataType(JSON.parse(savedType));
-        }
-        if (savedResource !== null) {
-            setResourceType(JSON.parse(savedResource));
         }
         if (savedDrilldown !== null) {
             setBreakdownLevel(JSON.parse(savedDrilldown));
         }
     }, [name]);
     useEffect(() => {
-        window.localStorage.setItem(`${name}-datatype`, JSON.stringify(dataType));
+        if (dataType)
+            window.localStorage.setItem(`${name}-datatype`, JSON.stringify(dataType));
     }, [dataType, name]);
     useEffect(() => {
-        window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
+        if (resourceType)
+            window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
     }, [resourceType, name]);
     useEffect(() => {
-        window.localStorage.setItem(`${name}-drilldown`, JSON.stringify(breakdownLevel));
+        if (breakdownLevel)
+            window.localStorage.setItem(`${name}-drilldown`, JSON.stringify(breakdownLevel));
     }, [breakdownLevel, name]);
 
     const onAreaClick = label => {
@@ -205,10 +204,14 @@ function FancyBreakdown(props) {
 
     // Material Select is stupid, have to trick it
     useEffect(() => {
-        if (resourceType === '' && resourceTypes.includes(ResourceNames['energy'])) {
-            setResourceType(ResourceNames['energy']);
+        const savedResource = window.localStorage.getItem(`${name}-resource`);
+        if (savedResource !== null) {
+            const resource = JSON.parse(savedResource);
+            if (!resourceType && resourceTypes.includes(resource)) {
+                setResourceType(resource);
+            }
         }
-    }, [data, resourceType, resourceTypes]);
+    }, [data, resourceType, resourceTypes, name]);
 
     return (
         <Chart overlay={props.overlay} title={`${resourceType} ${dataType} Breakdown`} titleColor='#ded140'>
