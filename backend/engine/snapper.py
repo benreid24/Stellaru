@@ -601,7 +601,7 @@ def _get_planets_and_pops(state, empire):
             pid: planet for pid, planet in state['planets']['planet'].items()
             if isinstance(planet, dict) and 'owner' in planet and planet['owner'] == empire
         }
-        planets = [planet for pid, planet in planet_dict.items()]
+        planets = [{'id': pid, **planet} for pid, planet in planet_dict.items()]
         now = parse_date(state['date'])
         for planet in planets:
             days = _date_diff_days(
@@ -625,8 +625,8 @@ def _get_planets_and_pops(state, empire):
             else:
                 type_sums[tp] += 1
 
-        planet_summaries = [
-            {
+        planet_summaries = {
+            planet['id']: {
                 'name': planet['name'],
                 'size': planet['planet_size'],
                 'population': len(planet['pop']) if 'pop' in planet else 0,
@@ -639,11 +639,11 @@ def _get_planets_and_pops(state, empire):
                 'free_housing': planet['free_housing'],
                 'total_housing': planet['total_housing']
             } for planet in planets
-        ]
+        }
 
         planet_stats = {
             'total': len(planets),
-            'list': {planet['name']: planet for planet in planet_summaries},
+            'list': planet_summaries,
             'types': type_sums,
             'districts': _basic_stats([len(_key_or(planet, 'district', [])) for planet in planets]),
             'buildings': _basic_stats([len(planet['buildings']) for planet in planets]),
