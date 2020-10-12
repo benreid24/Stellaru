@@ -171,11 +171,11 @@ function ComposedChart(props) {
                 />
                 <Tooltip formatter={formatter} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
-                {minY < 0 && <ReferenceLine yAxisId='left' y={0} stroke='white' strokeDasharray='3 3'/>}
                 <defs>
                     {renderedGradients}
                 </defs>
                 {renderedAreas}
+                {minY < 0 && <ReferenceLine yAxisId='left' y={0} stroke='white' strokeDasharray='3 3'/>}
             </ReChart>
         </ResponsiveContainer>
     );
