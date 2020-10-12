@@ -16,6 +16,7 @@ function ComposedChart(props) {
     const series = props.series;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
+    const formatter = props.formatter ? props.formatter : valueTickFormat;
     const allowIsolation = props.allowIsolation ? true : false;
     const seriesClickCb = props.onSeriesClick;
     const seriesRenderer = props.seriesRenderer;
@@ -144,7 +145,7 @@ function ComposedChart(props) {
                 />
                 <YAxis
                     yAxisId='left'
-                    tickFormatter={valueTickFormat}
+                    tickFormatter={formatter}
                     domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
@@ -158,7 +159,7 @@ function ComposedChart(props) {
                     yAxisId='right'
                     orientation='right'
                     hide={!showRightAxis}
-                    tickFormatter={valueTickFormat}
+                    tickFormatter={formatter}
                     domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
@@ -168,7 +169,7 @@ function ComposedChart(props) {
                     scale='linear'
                     label={{value: rightYLabel, angle: -90, position: 'insideRight', fill: '#dadada'}}
                 />
-                <Tooltip formatter={valueTickFormat} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
+                <Tooltip formatter={formatter} contentStyle={{backgroundColor: '#303030'}} wrapperStyle={{zIndex: 9000}}/>
                 <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
                 {minY < 0 && <ReferenceLine yAxisId='left' y={0} stroke='white' strokeDasharray='3 3'/>}
                 <defs>

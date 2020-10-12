@@ -9,6 +9,7 @@ function AreaChart(props) {
     const areas = props.areas;
     const yLabel = props.yAxisLabel ? props.yAxisLabel : null;
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
+    const formatter = props.formatter;
     const labelColors = props.labelColors;
     const allowIsolation = props.allowIsolation ? true : false;
     const areaClickCb = props.onAreaClick;
@@ -25,6 +26,7 @@ function AreaChart(props) {
             series={areas}
             yAxisLabel={yLabel}
             rightYLabel={rightYLabel}
+            formatter={formatter}
             allowIsolation={allowIsolation}
             onSeriesClick={areaClickCb}
             seriesRenderer={renderAreaBound}

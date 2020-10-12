@@ -13,6 +13,7 @@ import Science from './Tabs/Science';
 import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
 import Construction from './Tabs/Construction';
+import Federation from './Tabs/Federation';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
@@ -178,7 +179,7 @@ function Monitor(props) {
                     </div>
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <Tabs value={currentTab} onChange={onTabChange}>
+                <Tabs value={currentTab} onChange={onTabChange} scrollButtons='auto'>
                     <Tab label='Overview'/>
                     <Tab label='Custom'/>
                     <Tab label='Economy'/>
@@ -186,6 +187,7 @@ function Monitor(props) {
                     <Tab label='Science'/>
                     <Tab label='Society'/>
                     <Tab label='Empire'/>
+                    <Tab label='Federation'/>
                     <Tab label='Construction'/>
                 </Tabs>
             </div>
@@ -212,6 +214,9 @@ function Monitor(props) {
                     <Empire data={slicedData}/>
                 </TabPanel>
                 <TabPanel value={currentTab} index={7}>
+                    <Federation data={slicedData}/>
+                </TabPanel>
+                <TabPanel value={currentTab} index={8}>
                     <Construction data={slicedData}/>
                 </TabPanel>
             </div>
