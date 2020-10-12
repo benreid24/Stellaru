@@ -124,3 +124,22 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.tabRow {
+    margin-bottom: -12px;
+    padding-bottom: 17px;
+}
+
+.tipBox {
+    border: 1px solid white;
+    padding: 5px;
+    padding-bottom: 0px;
+    margin-bottom: -12px;
+    border-radius: 3px;
+}
+
+.tip {
+    color: #d3dad9;
+    text-align: center;
+    margin: 0px;
+}

@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import {Tabs, Tab} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import LoadingDots from '../LoadingDots';
+import Tips from './Tips';
 
 import Overview from './Tabs/Overview';
 import CustomTab from './Tabs/CustomTab';
@@ -179,17 +180,24 @@ function Monitor(props) {
                     </div>
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
-                    <Tab label='Overview'/>
-                    <Tab label='Custom'/>
-                    <Tab label='Economy'/>
-                    <Tab label='Military'/>
-                    <Tab label='Science'/>
-                    <Tab label='Society'/>
-                    <Tab label='Empire'/>
-                    <Tab label='Federation'/>
-                    <Tab label='Construction'/>
-                </Tabs>
+                <div className='row tabRow'>
+                    <div className='col-9'>
+                        <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
+                            <Tab label='Overview'/>
+                            <Tab label='Custom'/>
+                            <Tab label='Economy'/>
+                            <Tab label='Military'/>
+                            <Tab label='Science'/>
+                            <Tab label='Society'/>
+                            <Tab label='Empire'/>
+                            <Tab label='Federation'/>
+                            <Tab label='Construction'/>
+                        </Tabs>
+                    </div>
+                    <div className='col-3'>
+                        <Tips/>
+                    </div>
+                </div>
             </div>
             <div className='monitorContent'>
                 <TabPanel value={currentTab} index={0}>
