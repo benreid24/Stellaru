@@ -71,6 +71,8 @@ function ComposedChart(props) {
     const allowIsolation = props.allowIsolation ? true : false;
     const seriesClickCb = props.onSeriesClick;
     const seriesRenderer = props.seriesRenderer;
+    const leftDomain = props.leftDomain ? props.leftDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
+    const rightDomain = props.rightDomain ? props.rightDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
 
     const [initialColors, initialShuffled] = getDataColors(series.map(series => series.label));
     const [labelColors, setLabelColors] = useState(props.labelColors ? props.labelColors : initialColors);
@@ -197,7 +199,7 @@ function ComposedChart(props) {
                 <YAxis
                     yAxisId='left'
                     tickFormatter={formatter}
-                    domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
+                    domain={leftDomain}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}
@@ -211,7 +213,7 @@ function ComposedChart(props) {
                     orientation='right'
                     hide={!showRightAxis}
                     tickFormatter={formatter}
-                    domain={[dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1']}
+                    domain={rightDomain}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}

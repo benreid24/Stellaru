@@ -77,6 +77,24 @@ function MegaBreakdown(props) {
         }
     ];
 
+    const [dataAbsMax, setDataAbsMax] = useState(0);
+    const minDomain = dataMin => {
+        const abs = Math.abs(dataMin);
+        if (abs > dataAbsMax) {
+            setDataAbsMax(abs);
+            return 0 - abs;
+        }
+        return 0 - dataAbsMax;
+    };
+    const maxDomain = dataMax => {
+        const abs = Math.abs(dataMax);
+        if (abs > dataAbsMax) {
+            setDataAbsMax(abs);
+            return abs;
+        }
+        return dataAbsMax;
+    };
+
     useEffect(() => {
         const savedResource = window.localStorage.getItem(`${name}-resource`);
         if (savedResource !== null) {
@@ -105,6 +123,7 @@ function MegaBreakdown(props) {
                     series={series}
                     allowIsolation={true}
                     seriesRenderer={renderSeries}
+                    leftDomain={[minDomain, maxDomain]}
                 />
             </div>
         </Chart>
