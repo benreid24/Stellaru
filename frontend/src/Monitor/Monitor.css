@@ -135,6 +135,7 @@
     padding: 5px;
     margin-bottom: -12px;
     border-radius: 3px;
+    transform: translateY(-10px);
 }
 
 .tip {

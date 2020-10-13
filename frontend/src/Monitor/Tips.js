@@ -23,7 +23,7 @@ function Tips(props) {
 
     const updateTip = () => {
         let newTip = currentTip + 1;
-        if (newTip > TipOrder.length)
+        if (newTip >= TipOrder.length)
             newTip = 0;
         setCurrentTip(newTip);
     }
