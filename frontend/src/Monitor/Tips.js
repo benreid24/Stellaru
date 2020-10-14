@@ -20,21 +20,28 @@ const TipOrder = shuffle(list);
 
 function Tips(props) {
     const [currentTip, setCurrentTip] = useState(0);
+    const [timer, setTimer] = useState(null);
 
     const updateTip = () => {
         let newTip = currentTip + 1;
         if (newTip >= TipOrder.length)
             newTip = 0;
         setCurrentTip(newTip);
-    }
+    };
+
+    const onClick = () => {
+        if (timer)
+            clearTimeout(timer);
+        updateTip();
+    };
 
     useEffect(() => {
-        setTimeout(updateTip, 30000);
+        setTimer(setTimeout(updateTip, 30000));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentTip]);
 
     return (
-        <div className='tipBox tabRow'>
+        <div className='tipBox tabRow' onClick={onClick}>
             <p className='tip'>{TipList[TipOrder[currentTip]]}</p>
         </div>
     );
