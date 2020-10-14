@@ -199,35 +199,37 @@ function Monitor(props) {
                     </div>
                 </div>
             </div>
-            <div className='monitorContent'>
-                <TabPanel value={currentTab} index={0}>
-                    <Overview data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={1}>
-                    <CustomTab data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={2}>
-                    <Economy data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={3}>
-                    <Military data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={4}>
-                    <Science data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={5}>
-                    <Society data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={6}>
-                    <Empire data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={7}>
-                    <Federation data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={8}>
-                    <Construction data={slicedData}/>
-                </TabPanel>
-            </div>
+            {slicedData.length > 0 && 
+                <div className='monitorContent'>
+                    <TabPanel value={currentTab} index={0}>
+                        <Overview data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={1}>
+                        <CustomTab data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={2}>
+                        <Economy data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={3}>
+                        <Military data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={4}>
+                        <Science data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={5}>
+                        <Society data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={6}>
+                        <Empire data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={7}>
+                        <Federation data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={8}>
+                        <Construction data={slicedData}/>
+                    </TabPanel>
+                </div>
+            }
         </div>
     );
 }

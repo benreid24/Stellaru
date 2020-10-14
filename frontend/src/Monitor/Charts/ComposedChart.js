@@ -76,21 +76,17 @@ function ComposedChart(props) {
 
     const [initialColors, initialShuffled] = getDataColors(series.map(series => series.label));
     const [labelColors, setLabelColors] = useState(props.labelColors ? props.labelColors : initialColors);
-    const [shuffleOrder, setShuffledOrder] = useState(initialShuffled);
+    const shuffleOrder = useState(initialShuffled)[0];
     useEffect(() => {
         if (!props.labelColors) {
-            const [newColors, newShuffled] = getDataColors(series.map(series => series.label), shuffleOrder);
+            const newColors = getDataColors(series.map(series => series.label), shuffleOrder)[0];
             setLabelColors(newColors);
-            setShuffledOrder(newShuffled);
+        }
+        else {
+            setLabelColors(props.labelColors);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [series]);
-    useEffect(() => {
-        if (props.labelColors)
-            setLabelColors(props.labelColors);
-    }, [props.labelColors]);
-
-    //const labelColors = getDataColors(series.map(series => series.label));
+    }, [series, props.labelColors]);
 
     const [isolatedSeries, setIsolatedSeries] = useState([]);
     useEffect(() => {
