@@ -26,12 +26,33 @@ function MegaBreakdown(props) {
     const classes = useStyles();
     const data = props.data;
 
+    const [dataAbsMax, setDataAbsMax] = useState(0);
+    const minDomain = dataMin => {
+        const abs = Math.abs(dataMin);
+        if (abs > dataAbsMax) {
+            setDataAbsMax(abs);
+            return 0 - abs;
+        }
+        return 0 - dataAbsMax;
+    };
+    const maxDomain = dataMax => {
+        const abs = Math.abs(dataMax);
+        if (abs > dataAbsMax) {
+            setDataAbsMax(abs);
+            return abs;
+        }
+        return dataAbsMax;
+    };
+
     const [resourceType, setResourceType] = useState('');
     useEffect(() => {
         if (resourceType)
             window.localStorage.setItem(`${name}-resource`, JSON.stringify(resourceType));
     }, [resourceType, name]);
-    const onResourceTypeChange = event => setResourceType(event.target.value);
+    const onResourceTypeChange = event => {
+        setResourceType(event.target.value);
+        setDataAbsMax(0);
+    }
 
     const resourceTypes = [...new Set([
         ...findKeysOverSeries(data, 'economy/income'),
@@ -47,7 +68,7 @@ function MegaBreakdown(props) {
         return renderArea(series, labelColors[series.label], 'spendng');
     };
     const renderNet = (series, labelColors) => {
-        return renderLine(series, labelColors[series.label]);
+        return renderLine(series, labelColors[series.label], null, 2);
     };
     const renderSeries = (series, labelColor) => series.renderer(series, labelColor);
 
@@ -76,24 +97,6 @@ function MegaBreakdown(props) {
             renderer: renderNet
         }
     ];
-
-    const [dataAbsMax, setDataAbsMax] = useState(0);
-    const minDomain = dataMin => {
-        const abs = Math.abs(dataMin);
-        if (abs > dataAbsMax) {
-            setDataAbsMax(abs);
-            return 0 - abs;
-        }
-        return 0 - dataAbsMax;
-    };
-    const maxDomain = dataMax => {
-        const abs = Math.abs(dataMax);
-        if (abs > dataAbsMax) {
-            setDataAbsMax(abs);
-            return abs;
-        }
-        return dataAbsMax;
-    };
 
     useEffect(() => {
         const savedResource = window.localStorage.getItem(`${name}-resource`);

@@ -32,7 +32,8 @@ const PresetColors = {
     'Available Physics Techs': '#3b94d4',
     'Available Engineering Techs': '#e39f0e',
     'Percent Male': '#68bef7',
-    'Percent Female': '#ff4fe5'
+    'Percent Female': '#ff4fe5',
+    'Net Income': 'white'
 }; // TODO - all names and colors
 
 const Saturation = 75;
@@ -149,7 +150,7 @@ function capitalize(str, sep) {
     return sep ? str.split(sep).map(capitalizeWord).join(' ') : capitalizeWord(str);
 }
 
-function renderLine(line, labelColor, onClick) {
+function renderLine(line, labelColor, onClick, strokeWidth=1) {
     return (
         <Line
             key={line.label}
@@ -164,6 +165,7 @@ function renderLine(line, labelColor, onClick) {
             stroke={labelColor}
             isAnimationActive={true}
             onClick={onClick}
+            strokeWidth={strokeWidth}
         />
     );
 }
