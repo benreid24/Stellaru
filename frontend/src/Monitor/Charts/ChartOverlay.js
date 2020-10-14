@@ -27,11 +27,11 @@ function ChartOverlay(props) {
 
     return (
         <div className='chartOverlay' onMouseLeave={() => setVisible(false)}>
-            <img src='uparrow.png' className='chartOverlayButton' alt='Move up' title='Move up' onClick={onMoveUp}/>
-            <img src='downarrow.png' className='chartOverlayButton' alt='Move down' title='Move down' onClick={onMoveDown}/>
-            <img src='smaller.png' className='chartOverlayButton' alt='Make smaller' title='Make smaller' onClick={onResizeSmaller}/>
-            <img src='bigger.png' className='chartOverlayButton' alt='Make bigger' title='Make bigger' onClick={onResizeBigger}/>
-            <img src='x.png' className='chartOverlayButton' alt='Remove' title='Remove' onClick={onDelete}/>
+            <img src='static/uparrow.png' className='chartOverlayButton' alt='Move up' title='Move up' onClick={onMoveUp}/>
+            <img src='static/downarrow.png' className='chartOverlayButton' alt='Move down' title='Move down' onClick={onMoveDown}/>
+            <img src='static/smaller.png' className='chartOverlayButton' alt='Make smaller' title='Make smaller' onClick={onResizeSmaller}/>
+            <img src='static/bigger.png' className='chartOverlayButton' alt='Make bigger' title='Make bigger' onClick={onResizeBigger}/>
+            <img src='static/x.png' className='chartOverlayButton' alt='Remove' title='Remove' onClick={onDelete}/>
         </div>
     )
 }
