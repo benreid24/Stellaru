@@ -2,7 +2,7 @@ import React from 'react';
 
 import EmpireSize from '../Charts/Empire/EmpireSize';
 import ColonyAges from '../Charts/Empire/ColonyAges';
-import ColonyPops from '../Charts/Empire/ColonyPops';
+import ColonyStats from '../Charts/Empire/ColonyStats';
 import ColonySizes from '../Charts/Empire/ColonySizes';
 import ColonyStability from '../Charts/Empire/ColonyStability';
 import Colonies from '../Charts/Empire/Colonies';
@@ -23,7 +23,7 @@ function Empire(props) {
                     <ColonyAges data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 chartCol presetChart'>
-                    <ColonyPops data={data}/>
+                    <ColonyStats data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 chartCol presetChart'>
                     <ColonyStability data={data}/>

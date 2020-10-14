@@ -1,5 +1,5 @@
 .warOverviewChart {
-    height: 88%;
+    height: 90%;
     width: 100%;
 }
 
@@ -13,7 +13,7 @@
     display: inline-block;
     padding-left: 18px;
     padding-right: 18px;
-    font-size: 1vw;
+    font-size: 0.8vw;
 }
 
 .militaryOverviewNumber {

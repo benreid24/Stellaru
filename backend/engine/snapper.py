@@ -59,9 +59,9 @@ ECONOMY_CLASSES = {
     'planet_artisans': [EC_PLANETS_JOBS, 'Artisans'],
     'pop_category_robot': [EC_PLANET_POPS, 'Robots'],
     'pop_category_slaves': [EC_PLANET_POPS, 'Slaves'],
-    'pop_category_workers': [EC_PLANET_POPS, 'Robots'],
-    'pop_category_specialists': [EC_PLANET_POPS, 'Robots'],
-    'pop_category_rulers': [EC_PLANET_POPS, 'Robots'],
+    'pop_category_workers': [EC_PLANET_POPS, 'Workers'],
+    'pop_category_specialists': [EC_PLANET_POPS, 'Specialists'],
+    'pop_category_rulers': [EC_PLANET_POPS, 'Rulers'],
     'planet_deposits': ['Other'],
     'orbital_mining_deposits': [EC_STATIONS],
     'orbital_research_deposits': [EC_STATIONS],
@@ -530,13 +530,13 @@ def _get_construction(state, empire):
                 type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
 
-        queue_list = [
-            {
+        queue_list = {
+            queue['id']: {
                 'size': queue['simultaneous'],
                 'items': queue['size'],
                 'type': queue['type']
             } for queue in build_queues
-        ]
+        }
 
         breakdown = {
             qtype: {

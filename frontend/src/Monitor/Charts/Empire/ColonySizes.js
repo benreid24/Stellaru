@@ -1,27 +1,31 @@
 import React from 'react';
 
 import Chart from '../Chart';
-import StatsChart from '../StatsChart';
+import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
+
+import {selectNested, findKeysOverSeries, findNested} from '../Util';
 
 function ColonySizes(props) {
     const name = props.name ? props.name : 'colonysizes';
     const data = props.data;
 
-    const labels = {
-        'planets/sizes': ['Min Planet Size', 'Max Planet Size', 'Average Planet Size'],
-        'planets/districts': ['Min Planet Districts', 'Max Planet Districts', 'Average Planet Districts'],
-        'planets/buildings': ['Min Planet Buildings', 'Max Planet Buildings', 'Average Planet Buildings'],
-    };
+    const planetKeys = findKeysOverSeries(data, 'planets/list');
+    const areas = planetKeys.map(key => {
+        return {
+            label: findNested(`planets/list/${key}/name`, data, `Planet ${key}`),
+            selector: snap => selectNested(`planets/list/${key}/size`, snap)
+        };
+    });
 
     return (
-        <Chart overlay={props.overlay} title='Colony Sizes &amp; Development' titleColor='#96d636'>
-            <StatsChart
+        <Chart overlay={props.overlay} title='Colony Sizes' titleColor='#96d636'>
+            <AreaChart
                 name={name}
                 data={data}
-                keyPaths={['planets/sizes', 'planets/districts', 'planets/buildings']}
-                statLabels={labels}
-                exclude={['total']}
+                areas={areas}
+                stack={true}
+                allowIsolation={true}
             />
         </Chart>
     );
@@ -29,7 +33,7 @@ function ColonySizes(props) {
 
 registerChart(
     'Colony Sizes',
-    'Shows colony sizes, districts, and buildings over time',
+    'Shows colony sizes stacked together time',
     ColonySizes
 );
 

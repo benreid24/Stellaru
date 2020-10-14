@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import {Tabs, Tab} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import LoadingDots from '../LoadingDots';
+import Tips from './Tips';
 
 import Overview from './Tabs/Overview';
 import CustomTab from './Tabs/CustomTab';
@@ -13,6 +14,7 @@ import Science from './Tabs/Science';
 import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
 import Construction from './Tabs/Construction';
+import Federation from './Tabs/Federation';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
@@ -178,43 +180,56 @@ function Monitor(props) {
                     </div>
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <Tabs value={currentTab} onChange={onTabChange}>
-                    <Tab label='Overview'/>
-                    <Tab label='Custom'/>
-                    <Tab label='Economy'/>
-                    <Tab label='Military'/>
-                    <Tab label='Science'/>
-                    <Tab label='Society'/>
-                    <Tab label='Empire'/>
-                    <Tab label='Construction'/>
-                </Tabs>
+                <div className='row tabRow'>
+                    <div className='col-9'>
+                        <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
+                            <Tab label='Overview'/>
+                            <Tab label='Custom'/>
+                            <Tab label='Economy'/>
+                            <Tab label='Military'/>
+                            <Tab label='Science'/>
+                            <Tab label='Society'/>
+                            <Tab label='Empire'/>
+                            <Tab label='Federation'/>
+                            <Tab label='Construction'/>
+                        </Tabs>
+                    </div>
+                    <div className='col-3'>
+                        <Tips/>
+                    </div>
+                </div>
             </div>
-            <div className='monitorContent'>
-                <TabPanel value={currentTab} index={0}>
-                    <Overview data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={1}>
-                    <CustomTab data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={2}>
-                    <Economy data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={3}>
-                    <Military data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={4}>
-                    <Science data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={5}>
-                    <Society data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={6}>
-                    <Empire data={slicedData}/>
-                </TabPanel>
-                <TabPanel value={currentTab} index={7}>
-                    <Construction data={slicedData}/>
-                </TabPanel>
-            </div>
+            {slicedData.length > 0 && 
+                <div className='monitorContent'>
+                    <TabPanel value={currentTab} index={0}>
+                        <Overview data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={1}>
+                        <CustomTab data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={2}>
+                        <Economy data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={3}>
+                        <Military data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={4}>
+                        <Science data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={5}>
+                        <Society data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={6}>
+                        <Empire data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={7}>
+                        <Federation data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={8}>
+                        <Construction data={slicedData}/>
+                    </TabPanel>
+                </div>
+            }
         </div>
     );
 }

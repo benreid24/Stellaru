@@ -1,44 +1,44 @@
 {
-    "name": "The Foreunner",
+    "name": "Science Fox Regime",
     "player_name": "reidben24",
-    "date": "2485.10.28",
+    "date": "2376.10.21",
     "date_components": {
-        "y": 2485,
+        "y": 2376,
         "m": 10,
-        "d": 28
+        "d": 21
     },
-    "date_days": 894928,
-    "active_empires": 15,
-    "edict_count": 12,
-    "sprawl": 5980,
+    "date_days": 855681,
+    "active_empires": 45,
+    "edict_count": 8,
+    "sprawl": 1339,
     "leaders": {
-        "ruler": 1,
-        "scientist": 8,
-        "envoy": 3,
-        "admiral": 23,
-        "general": 2,
-        "governor": 38,
-        "total": 75,
-        "max_age": 292.90833333333336,
-        "avg_age": 66.96114814814815,
-        "avg_hire_age": 5.84,
-        "max_hire_age": 9,
-        "avg_level": 4.52,
-        "max_level": 10,
-        "percent_male": 0.0
+        "envoy": 2,
+        "admiral": 3,
+        "governor": 1,
+        "scientist": 6,
+        "general": 1,
+        "ruler": 2,
+        "total": 15,
+        "max_age": 205.88888888888889,
+        "avg_age": 140.0046296296296,
+        "avg_hire_age": 26.933333333333334,
+        "max_hire_age": 46,
+        "avg_level": 5.733333333333333,
+        "max_level": 9,
+        "percent_male": 0.26666666666666666
     },
     "standing": {
         "victory_rank": 1,
         "victory_points": {
-            "Economy": 95105.99194,
-            "Technology": 47426.2502975,
-            "Systems": 6030,
-            "Colonies": 9450,
-            "Pops": 18114,
-            "Subjects": 0,
-            "Federation": 0,
-            "Crisis Ships Killed": 6430,
-            "Relics": 5900
+            "Economy": 22734.60671,
+            "Technology": 13302.5,
+            "Systems": 830,
+            "Colonies": 1800,
+            "Pops": 4082,
+            "Subjects": 6267.854915,
+            "Federation": 2559.7506879999996,
+            "Crisis Ships Killed": 0,
+            "Relics": 0
         }
     },
     "war": {
@@ -49,17 +49,17 @@
         "defender": 0
     },
     "systems": {
-        "surveyed_objects": 3220,
-        "surveyed_systems": 338,
-        "owned": 603,
-        "starbases": 88
+        "surveyed_objects": 2460,
+        "surveyed_systems": 299,
+        "owned": 83,
+        "starbases": 22
     },
     "federation": {
-        "name": "",
-        "members": 0,
-        "cohesion": 0,
-        "xp": 0,
-        "level": 0,
+        "name": "The Zealous Purifiers",
+        "members": 4,
+        "cohesion": 100,
+        "xp": 8328.58,
+        "level": 3,
         "leader": false
     },
     "unity": {
@@ -67,466 +67,420 @@
         "finished_trees": 7,
         "traditions": 35,
         "acension_perks": 8,
-        "unity": 5802.0740000000005
+        "unity": 1345.3220000000001
     },
     "economy": {
         "stockpile": {
-            "energy": 79484.05474,
-            "minerals": 158611.62,
-            "food": 179940.36,
-            "influence": 426.5,
-            "unity": 2584484.73114,
-            "alloys": 197000,
-            "consumer_goods": 139673.356,
-            "volatile_motes": 300.08706,
-            "exotic_gases": 2331.84508,
-            "rare_crystals": 685.97655,
-            "sr_zro": 8239.9,
-            "sr_dark_matter": 30151.99525,
-            "nanites": 118.7,
-            "minor_artifacts": 24
+            "energy": 66824.75638,
+            "minerals": 1796.752,
+            "food": 31874.846,
+            "influence": 289.86195,
+            "unity": 70354.98394,
+            "alloys": 48023.32137,
+            "consumer_goods": 29844.383,
+            "volatile_motes": 3135.77256,
+            "exotic_gases": 4128.53173,
+            "rare_crystals": 2262.78944,
+            "sr_dark_matter": 1262.3,
+            "minor_artifacts": 9
         },
         "net_income": {
-            "society_research": 11754.748,
-            "nanites": 0.09999999999999998,
-            "energy": 3301.372500000012,
-            "minerals": 4999.566000000001,
-            "physics_research": 12295.148000000001,
-            "engineering_research": 11894.348,
-            "influence": 11,
-            "unity": 5802.0740000000005,
-            "alloys": 5687.14015,
-            "food": 1036.6,
-            "consumer_goods": 652.96,
-            "volatile_motes": -34.31200000000001,
-            "exotic_gases": 3.3039999999999736,
-            "rare_crystals": -33.664000000000016,
-            "sr_zro": 13.6,
-            "sr_dark_matter": 40.2
+            "energy": 2317.4405399999996,
+            "minerals": -43.13600000000042,
+            "food": 475.126,
+            "physics_research": 2619.5,
+            "society_research": 2810.72,
+            "engineering_research": 2426.0,
+            "influence": 11.467970000000001,
+            "unity": 1345.3220000000001,
+            "alloys": 1576.9053,
+            "consumer_goods": 98.66449999999986,
+            "exotic_gases": 9.5,
+            "rare_crystals": -0.2079999999999984,
+            "volatile_motes": 5.1000000000000085,
+            "sr_dark_matter": 3.2
         },
         "income": {
-            "society_research": {
-                "total": 11754.748,
-                "breakdown": {
-                    "Other (unknown)": {
-                        "total": 8,
-                        "breakdown": {}
-                    },
-                    "Base": {
-                        "total": 10,
-                        "breakdown": {}
-                    },
-                    "Planets": {
-                        "total": 11292.148,
-                        "breakdown": {
-                            "Jobs": {
-                                "total": 11292.148,
-                                "breakdown": {
-                                    "Researchers": {
-                                        "total": 11292.148,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "Stations": {
-                        "total": 444.6,
-                        "breakdown": {}
-                    }
-                }
-            },
-            "nanites": {
-                "total": 1,
-                "breakdown": {
-                    "Other (unknown)": {
-                        "total": 1,
-                        "breakdown": {}
-                    }
-                }
-            },
             "energy": {
-                "total": 36888.115999999995,
+                "total": 7321.686540000001,
                 "breakdown": {
                     "Base": {
-                        "total": 33,
+                        "total": 17,
+                        "breakdown": {}
+                    },
+                    "Trade": {
+                        "total": 2438.33654,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 4400,
+                        "total": 2550,
                         "breakdown": {}
                     },
-                    "Planets": {
-                        "total": 29721.615999999998,
+                    "Buildings": {
+                        "total": 25.5,
+                        "breakdown": {}
+                    },
+                    "Jobs": {
+                        "total": 1875.3,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 2233,
+                            "Technicians": {
+                                "total": 1844.7,
                                 "breakdown": {}
                             },
-                            "Jobs": {
-                                "total": 27488.615999999998,
-                                "breakdown": {
-                                    "Jobs": {
-                                        "total": 4401.672,
-                                        "breakdown": {}
-                                    },
-                                    "Technicians": {
-                                        "total": 23086.944,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Researchers": {
+                                "total": 30.6,
+                                "breakdown": {}
                             }
                         }
                     },
-                    "Stations": {
-                        "total": 2732.4,
+                    "Other": {
+                        "total": 25.5,
                         "breakdown": {}
                     },
-                    "Armies": {
-                        "total": 1.1,
+                    "Stations": {
+                        "total": 390.05,
                         "breakdown": {}
                     }
                 }
             },
             "minerals": {
-                "total": 13291.866,
+                "total": 2712.2639999999997,
                 "breakdown": {
                     "Base": {
-                        "total": 39.9,
-                        "breakdown": {}
-                    },
-                    "Megastructures": {
-                        "total": 2660,
+                        "total": 20,
                         "breakdown": {}
                     },
                     "Starbases": {
-                        "total": 7.98,
+                        "total": 6,
                         "breakdown": {
                             "Buildings": {
-                                "total": 7.98,
+                                "total": 6,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Planets": {
-                        "total": 5727.586,
+                    "Jobs": {
+                        "total": 2285.064,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 798,
-                                "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 4896.336,
-                                "breakdown": {
-                                    "Miners": {
-                                        "total": 4896.336,
-                                        "breakdown": {}
-                                    }
-                                }
-                            },
-                            "Other": {
-                                "total": 33.25,
+                            "Miners": {
+                                "total": 2285.064,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 4856.4,
+                        "total": 401.2,
                         "breakdown": {}
                     }
                 }
             },
-            "physics_research": {
-                "total": 12295.148000000001,
+            "food": {
+                "total": 497.626,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Planets": {
-                        "total": 11262.948,
+                    "Starbases": {
+                        "total": 21,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 21,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Jobs": {
+                        "total": 466.626,
                         "breakdown": {
                             "Jobs": {
-                                "total": 11262.948,
-                                "breakdown": {
-                                    "Researchers": {
-                                        "total": 11262.948,
-                                        "breakdown": {}
-                                    }
-                                }
+                                "total": 3.256,
+                                "breakdown": {}
+                            },
+                            "Farmers": {
+                                "total": 463.37,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "physics_research": {
+                "total": 2619.5,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Jobs": {
+                        "total": 2186,
+                        "breakdown": {
+                            "Researchers": {
+                                "total": 2186,
+                                "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 1022.2,
+                        "total": 123.5,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "society_research": {
+                "total": 2810.72,
+                "breakdown": {
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Starbases": {
+                        "total": 12,
+                        "breakdown": {
+                            "Other": {
+                                "total": 12,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Jobs": {
+                        "total": 2346.22,
+                        "breakdown": {
+                            "Researchers": {
+                                "total": 2019.1,
+                                "breakdown": {}
+                            },
+                            "Culture Workers": {
+                                "total": 327.12,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 142.5,
                         "breakdown": {}
                     }
                 }
             },
             "engineering_research": {
-                "total": 11894.348,
+                "total": 2426.0,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Planets": {
-                        "total": 11261.148,
+                    "Megastructures": {
+                        "total": 300,
+                        "breakdown": {}
+                    },
+                    "Jobs": {
+                        "total": 2019.1,
                         "breakdown": {
-                            "Jobs": {
-                                "total": 11261.148,
-                                "breakdown": {
-                                    "Researchers": {
-                                        "total": 11261.148,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Researchers": {
+                                "total": 2019.1,
+                                "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 623.2,
+                        "total": 96.9,
                         "breakdown": {}
                     }
                 }
             },
             "influence": {
-                "total": 11,
+                "total": 11.967970000000001,
                 "breakdown": {
                     "Base": {
-                        "total": 11,
+                        "total": 9,
+                        "breakdown": {}
+                    },
+                    "Pops": {
+                        "total": 2.71797,
+                        "breakdown": {
+                            "Factions": {
+                                "total": 2.71797,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Other (unknown)": {
+                        "total": 0.25,
                         "breakdown": {}
                     }
                 }
             },
             "unity": {
-                "total": 5802.0740000000005,
+                "total": 1345.3220000000001,
                 "breakdown": {
                     "Base": {
-                        "total": 9.8,
+                        "total": 9.59,
                         "breakdown": {}
                     },
-                    "Megastructures": {
-                        "total": 840,
-                        "breakdown": {}
-                    },
-                    "Planets": {
-                        "total": 4952.274,
+                    "Starbases": {
+                        "total": 2.74,
                         "breakdown": {
-                            "Jobs": {
-                                "total": 4952.274,
-                                "breakdown": {
-                                    "Jobs": {
-                                        "total": 4344.21,
-                                        "breakdown": {}
-                                    },
-                                    "Evaluators": {
-                                        "total": 608.064,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Buildings": {
+                                "total": 2.74,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Jobs": {
+                        "total": 1332.9920000000002,
+                        "breakdown": {
+                            "Administrators": {
+                                "total": 349.344,
+                                "breakdown": {}
+                            },
+                            "Researchers": {
+                                "total": 303.42,
+                                "breakdown": {}
+                            },
+                            "Culture Workers": {
+                                "total": 358.32,
+                                "breakdown": {}
+                            },
+                            "Entertainers": {
+                                "total": 210.488,
+                                "breakdown": {}
+                            },
+                            "Enforcers": {
+                                "total": 111.42,
+                                "breakdown": {}
                             }
                         }
                     }
                 }
             },
             "alloys": {
-                "total": 8349.366,
+                "total": 1960.532,
                 "breakdown": {
                     "Base": {
-                        "total": 5.25,
+                        "total": 5,
                         "breakdown": {}
                     },
-                    "Planets": {
-                        "total": 8239.116,
+                    "Jobs": {
+                        "total": 1942.732,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 157.5,
+                            "Metallurgists": {
+                                "total": 1942.732,
                                 "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 8081.616,
-                                "breakdown": {
-                                    "Metallurgists": {
-                                        "total": 8081.616,
-                                        "breakdown": {}
-                                    }
-                                }
                             }
                         }
                     },
                     "Stations": {
-                        "total": 105,
+                        "total": 12.8,
                         "breakdown": {}
-                    }
-                }
-            },
-            "food": {
-                "total": 1329.1,
-                "breakdown": {
-                    "Starbases": {
-                        "total": 147,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 147,
-                                "breakdown": {}
-                            }
-                        }
-                    },
-                    "Planets": {
-                        "total": 1182.1,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 200,
-                                "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 457.1,
-                                "breakdown": {
-                                    "Farmers": {
-                                        "total": 457.1,
-                                        "breakdown": {}
-                                    }
-                                }
-                            },
-                            "Other": {
-                                "total": 525,
-                                "breakdown": {}
-                            }
-                        }
                     }
                 }
             },
             "consumer_goods": {
-                "total": 652.96,
+                "total": 1029.8519999999999,
                 "breakdown": {
-                    "Planets": {
-                        "total": 652.96,
+                    "Base": {
+                        "total": 10,
+                        "breakdown": {}
+                    },
+                    "Starbases": {
+                        "total": 2,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 150,
+                            "Other": {
+                                "total": 2,
                                 "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 502.96,
-                                "breakdown": {
-                                    "Artisans": {
-                                        "total": 502.96,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "volatile_motes": {
-                "total": 301.388,
-                "breakdown": {
-                    "Planets": {
-                        "total": 223.188,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 14,
-                                "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 209.188,
-                                "breakdown": {
-                                    "Miners": {
-                                        "total": 52.396,
-                                        "breakdown": {}
-                                    },
-                                    "Chemists": {
-                                        "total": 156.792,
-                                        "breakdown": {}
-                                    }
-                                }
                             }
                         }
                     },
-                    "Stations": {
-                        "total": 78.2,
-                        "breakdown": {}
+                    "Jobs": {
+                        "total": 1017.852,
+                        "breakdown": {
+                            "Artisans": {
+                                "total": 1017.852,
+                                "breakdown": {}
+                            }
+                        }
                     }
                 }
             },
             "exotic_gases": {
-                "total": 280.50399999999996,
+                "total": 58.1,
                 "breakdown": {
-                    "Planets": {
-                        "total": 243.10399999999998,
+                    "Jobs": {
+                        "total": 48.1,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 14,
+                            "Miners": {
+                                "total": 10.436,
                                 "breakdown": {}
                             },
-                            "Jobs": {
-                                "total": 229.10399999999998,
-                                "breakdown": {
-                                    "Miners": {
-                                        "total": 25.94,
-                                        "breakdown": {}
-                                    },
-                                    "Refiners": {
-                                        "total": 203.164,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Refiners": {
+                                "total": 37.664,
+                                "breakdown": {}
                             }
                         }
                     },
+                    "Other": {
+                        "total": 2,
+                        "breakdown": {}
+                    },
                     "Stations": {
-                        "total": 37.4,
+                        "total": 8,
                         "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 207.536,
+                "total": 60.092,
                 "breakdown": {
-                    "Planets": {
-                        "total": 161.636,
+                    "Jobs": {
+                        "total": 56.492,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 14,
+                            "Miners": {
+                                "total": 6.988,
                                 "breakdown": {}
                             },
-                            "Jobs": {
-                                "total": 147.636,
-                                "breakdown": {
-                                    "Miners": {
-                                        "total": 16.376,
-                                        "breakdown": {}
-                                    },
-                                    "Translucers": {
-                                        "total": 131.26,
-                                        "breakdown": {}
-                                    }
-                                }
+                            "Translucers": {
+                                "total": 49.504,
+                                "breakdown": {}
                             }
                         }
                     },
+                    "Other": {
+                        "total": 2,
+                        "breakdown": {}
+                    },
                     "Stations": {
-                        "total": 45.9,
+                        "total": 1.6,
                         "breakdown": {}
                     }
                 }
             },
-            "sr_zro": {
-                "total": 13.6,
+            "volatile_motes": {
+                "total": 105,
                 "breakdown": {
-                    "Stations": {
-                        "total": 13.6,
-                        "breakdown": {}
+                    "Jobs": {
+                        "total": 105,
+                        "breakdown": {
+                            "Chemists": {
+                                "total": 105,
+                                "breakdown": {}
+                            }
+                        }
                     }
                 }
             },
             "sr_dark_matter": {
-                "total": 40.2,
+                "total": 3.2,
                 "breakdown": {
                     "Stations": {
-                        "total": 40.2,
+                        "total": 3.2,
                         "breakdown": {}
                     }
                 }
@@ -534,1842 +488,3999 @@
         },
         "spending": {
             "energy": {
-                "total": 33586.74349999998,
+                "total": 5004.246000000001,
                 "breakdown": {
                     "Megastructures": {
-                        "total": 645,
+                        "total": 75,
                         "breakdown": {}
                     },
                     "Ships": {
-                        "total": 8593.5435,
+                        "total": 629.896,
                         "breakdown": {
                             "Base": {
-                                "total": 1324.5,
+                                "total": 139.16,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 7269.0435,
+                                "total": 490.736,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Starbases": {
-                        "total": 2747.2,
+                        "total": 540.25,
                         "breakdown": {
                             "Buildings": {
-                                "total": 1417.2,
+                                "total": 269.45,
+                                "breakdown": {}
+                            },
+                            "Other": {
+                                "total": 1,
                                 "breakdown": {}
                             },
                             "Base": {
-                                "total": 836,
+                                "total": 149.15,
                                 "breakdown": {}
                             },
                             "Modules": {
-                                "total": 494,
+                                "total": 120.65,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Planets": {
-                        "total": 13907.4,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 5883.3,
-                                "breakdown": {}
-                            },
-                            "Districts": {
-                                "total": 2570.4,
-                                "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 5453.700000000001,
-                                "breakdown": {
-                                    "Jobs": {
-                                        "total": 41.8,
-                                        "breakdown": {}
-                                    },
-                                    "Miners": {
-                                        "total": 34.2,
-                                        "breakdown": {}
-                                    },
-                                    "Bureaucrats": {
-                                        "total": 1452,
-                                        "breakdown": {}
-                                    },
-                                    "Researchers": {
-                                        "total": 3842.1,
-                                        "breakdown": {}
-                                    },
-                                    "Evaluators": {
-                                        "total": 83.6,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "Other (unknown)": {
-                        "total": 7532.35,
+                    "Buildings": {
+                        "total": 1359.9,
                         "breakdown": {}
                     },
+                    "Districts": {
+                        "total": 558.9,
+                        "breakdown": {}
+                    },
+                    "Jobs": {
+                        "total": 418.0,
+                        "breakdown": {
+                            "Researchers": {
+                                "total": 137.6,
+                                "breakdown": {}
+                            },
+                            "Metallurgists": {
+                                "total": 280.4,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Pops": {
+                        "total": 1388.9999999999998,
+                        "breakdown": {
+                            "Robots": {
+                                "total": 1388.9999999999998,
+                                "breakdown": {}
+                            }
+                        }
+                    },
                     "Armies": {
-                        "total": 68.85,
+                        "total": 13.5,
                         "breakdown": {}
                     },
                     "Leaders": {
-                        "total": 92.4,
+                        "total": 19.8,
                         "breakdown": {}
                     }
                 }
             },
             "alloys": {
-                "total": 2662.22585,
+                "total": 383.6267,
                 "breakdown": {
                     "Ships": {
-                        "total": 1748.02585,
+                        "total": 136.6267,
                         "breakdown": {
                             "Base": {
-                                "total": 439.75,
+                                "total": 45.22,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 1308.27585,
+                                "total": 91.4067,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Planets": {
-                        "total": 914.2,
+                    "Buildings": {
+                        "total": 63,
+                        "breakdown": {}
+                    },
+                    "Jobs": {
+                        "total": 184,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 364.5,
+                            "Assemblers": {
+                                "total": 184,
                                 "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 549.7,
-                                "breakdown": {
-                                    "Assemblers": {
-                                        "total": 549.7,
-                                        "breakdown": {}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "minerals": {
-                "total": 8292.3,
-                "breakdown": {
-                    "Planets": {
-                        "total": 8292.3,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 337.5,
-                                "breakdown": {}
-                            },
-                            "Jobs": {
-                                "total": 7954.8,
-                                "breakdown": {
-                                    "Metallurgists": {
-                                        "total": 5863.2,
-                                        "breakdown": {}
-                                    },
-                                    "Refiners": {
-                                        "total": 673,
-                                        "breakdown": {}
-                                    },
-                                    "Translucers": {
-                                        "total": 444.5,
-                                        "breakdown": {}
-                                    },
-                                    "Chemists": {
-                                        "total": 510.5,
-                                        "breakdown": {}
-                                    },
-                                    "Artisans": {
-                                        "total": 463.6,
-                                        "breakdown": {}
-                                    }
-                                }
                             }
                         }
                     }
                 }
             },
             "food": {
-                "total": 292.5,
+                "total": 22.5,
                 "breakdown": {
-                    "Planets": {
-                        "total": 292.5,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 292.5,
-                                "breakdown": {}
-                            }
-                        }
+                    "Buildings": {
+                        "total": 22.5,
+                        "breakdown": {}
                     }
                 }
             },
             "volatile_motes": {
-                "total": 335.7,
+                "total": 99.89999999999999,
                 "breakdown": {
-                    "Planets": {
-                        "total": 335.7,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 335.7,
-                                "breakdown": {}
-                            }
-                        }
+                    "Buildings": {
+                        "total": 99.89999999999999,
+                        "breakdown": {}
                     }
                 }
             },
             "exotic_gases": {
-                "total": 277.2,
+                "total": 48.6,
                 "breakdown": {
-                    "Planets": {
-                        "total": 277.2,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 268.2,
-                                "breakdown": {}
-                            },
-                            "Districts": {
-                                "total": 9,
-                                "breakdown": {}
-                            }
-                        }
+                    "Buildings": {
+                        "total": 43.2,
+                        "breakdown": {}
+                    },
+                    "Districts": {
+                        "total": 5.4,
+                        "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 241.20000000000002,
+                "total": 60.3,
                 "breakdown": {
-                    "Planets": {
-                        "total": 241.20000000000002,
+                    "Buildings": {
+                        "total": 54.9,
+                        "breakdown": {}
+                    },
+                    "Districts": {
+                        "total": 5.4,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "consumer_goods": {
+                "total": 931.1875,
+                "breakdown": {
+                    "Jobs": {
+                        "total": 585.95,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 226.8,
+                            "Bureaucrats": {
+                                "total": 112.75,
                                 "breakdown": {}
                             },
-                            "Districts": {
-                                "total": 14.4,
+                            "Researchers": {
+                                "total": 215.2,
+                                "breakdown": {}
+                            },
+                            "Culture Workers": {
+                                "total": 116,
+                                "breakdown": {}
+                            },
+                            "Entertainers": {
+                                "total": 52,
+                                "breakdown": {}
+                            },
+                            "Doctors": {
+                                "total": 90,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Pops": {
+                        "total": 345.2375,
+                        "breakdown": {
+                            "Robots": {
+                                "total": 345.2375,
                                 "breakdown": {}
                             }
                         }
                     }
                 }
             },
-            "nanites": {
-                "total": 0.9,
+            "minerals": {
+                "total": 2755.4,
                 "breakdown": {
-                    "Planets": {
-                        "total": 0.9,
+                    "Jobs": {
+                        "total": 2755.4,
                         "breakdown": {
-                            "Buildings": {
-                                "total": 0.9,
+                            "Metallurgists": {
+                                "total": 1682.4,
+                                "breakdown": {}
+                            },
+                            "Refiners": {
+                                "total": 115,
+                                "breakdown": {}
+                            },
+                            "Translucers": {
+                                "total": 140,
+                                "breakdown": {}
+                            },
+                            "Chemists": {
+                                "total": 314,
+                                "breakdown": {}
+                            },
+                            "Artisans": {
+                                "total": 504,
                                 "breakdown": {}
                             }
                         }
+                    }
+                }
+            },
+            "influence": {
+                "total": 0.5,
+                "breakdown": {
+                    "Other (unknown)": {
+                        "total": 0.5,
+                        "breakdown": {}
                     }
                 }
             }
         }
     },
     "construction": {
-        "queue_count": 4299,
-        "queued_items": 43,
-        "avg_queue_size": 0.010146295422369042,
-        "max_queue_size": 2,
+        "queue_count": 606,
+        "queued_items": 284,
+        "avg_queue_size": 0.4709784411276949,
+        "max_queue_size": 127,
         "breakdown": {
             "planet": {
-                "queue_count": 1815,
-                "queued_items": 43,
-                "avg_queue_size": 0.023691460055096418,
+                "queue_count": 259,
+                "queued_items": 6,
+                "avg_queue_size": 0.023166023166023165,
                 "max_queue_size": 2
             },
             "army": {
-                "queue_count": 1815,
+                "queue_count": 259,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
             },
             "starbase": {
-                "queue_count": 603,
-                "queued_items": 0,
-                "avg_queue_size": 0.0,
-                "max_queue_size": 0
+                "queue_count": 83,
+                "queued_items": 112,
+                "avg_queue_size": 1.3493975903614457,
+                "max_queue_size": 16
             },
             "shipyard": {
-                "queue_count": 66,
-                "queued_items": 0,
-                "avg_queue_size": 0.0,
-                "max_queue_size": 0
+                "queue_count": 5,
+                "queued_items": 166,
+                "avg_queue_size": 83.0,
+                "max_queue_size": 127
+            }
+        },
+        "queue_list": {
+            "0": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "2": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "8": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "24": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "26": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "27": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "29": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "30": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "32": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "33": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "35": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "36": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "38": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "39": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "41": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "408": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "410": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "411": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "413": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "414": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "416": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "438": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "440": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "441": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "443": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "450": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "452": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "453": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "455": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "456": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "458": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "747": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "749": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "756": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "758": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "759": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "761": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "765": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "767": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "915": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "917": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "918": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "920": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "921": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "923": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "927": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "929": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "930": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "932": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "933": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "935": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1041": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1043": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1050": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1052": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1053": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1055": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1059": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1061": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1419": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1421": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1428": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1430": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1611": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1613": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1614": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1616": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1794": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1796": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "1809": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "1811": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "2031": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "2033": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "2034": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "2036": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "2052": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "2054": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "2055": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "2057": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "2235": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "2236": {
+                "size": 3,
+                "items": 127,
+                "type": "shipyard"
+            },
+            "2251": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "3284": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "3286": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "3287": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "3289": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "3290": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "3292": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "3293": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "3295": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "3299": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "3301": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4139": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4141": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4145": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4147": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4151": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4153": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4154": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4156": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4157": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4159": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4172": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4174": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4178": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4180": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4221": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4223": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4407": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4409": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4413": {
+                "size": 1,
+                "items": 2,
+                "type": "planet"
+            },
+            "4415": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4680": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4682": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4695": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4697": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4728": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4730": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4734": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4736": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4752": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4754": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4821": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4823": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4827": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4829": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4857": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4859": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "4884": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "4886": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5085": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5087": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5094": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5096": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5097": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5099": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5100": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5102": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5103": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5105": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5106": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5108": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5115": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5117": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5265": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5267": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5295": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5297": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5793": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5795": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5796": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5798": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5808": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5810": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "5817": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "5819": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6318": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6320": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6333": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6335": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6336": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6338": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6342": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6344": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6561": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6563": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6564": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6566": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6678": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6680": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6687": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6689": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "6702": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "6704": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7194": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7196": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7209": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7211": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7356": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7358": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7368": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7370": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7371": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7373": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7731": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7733": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7743": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7745": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7788": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7790": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7893": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7895": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7917": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7919": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7923": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7925": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "7965": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "7967": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9150": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9152": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9156": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9158": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9159": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9161": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9180": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9182": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9183": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9185": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9198": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9200": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9276": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9278": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9315": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9317": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9324": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9326": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9927": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9929": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "9936": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "9938": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "10812": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "10814": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "10815": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "10817": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "10821": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "10823": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "10938": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "10940": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11550": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11552": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11559": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11561": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11565": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11567": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11742": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11744": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11748": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11750": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "11757": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "11759": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12069": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12071": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12072": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12074": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12075": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12077": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12093": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12095": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12108": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12110": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12126": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12128": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12150": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12152": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12156": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12158": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12546": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12548": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12600": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12602": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12606": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12608": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12618": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12620": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12624": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12626": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12627": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12629": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12633": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12635": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12639": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12641": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12645": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12647": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12648": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12650": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12651": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12653": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12672": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12674": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12684": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12686": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "12987": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "12989": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13713": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13715": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13716": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13718": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13722": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13724": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13728": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13730": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13743": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13745": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13914": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13916": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13920": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13922": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13935": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13937": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "13938": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "13940": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "14802": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "14804": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15144": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15146": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15150": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15152": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15165": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15167": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15240": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15242": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15246": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15248": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15264": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15266": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15435": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15437": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "15453": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "15455": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16569": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16571": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16593": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16595": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16641": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16643": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16659": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16661": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16890": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16892": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16893": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "16895": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "17259": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17261": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "17289": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17291": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "17376": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17378": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "17406": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17408": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "17988": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "17990": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18009": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18011": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18021": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18023": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18045": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18047": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18159": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18161": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18168": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18170": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18177": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18179": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18192": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18194": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18198": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18200": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18744": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18746": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18768": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18770": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18987": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18989": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "18996": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "18998": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19014": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19016": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19140": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19142": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19146": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19148": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19149": {
+                "size": 1,
+                "items": 2,
+                "type": "planet"
+            },
+            "19151": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19338": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19340": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19350": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19352": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19602": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19604": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19620": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19622": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19905": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19907": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19920": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19922": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19926": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19928": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "19929": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "19931": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20115": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20117": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20130": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20132": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20139": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20141": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20142": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20144": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20241": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20243": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20256": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20258": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20259": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20261": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20265": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20267": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20268": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20270": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20880": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20882": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20883": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20885": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20892": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20894": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "20901": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "20903": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21117": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21119": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21126": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21128": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21132": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21134": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21135": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21137": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21150": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21152": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21156": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21158": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21180": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21182": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21186": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21188": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21195": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21197": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21201": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21203": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21204": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21206": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21216": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21218": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21219": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21221": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21516": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21518": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "21531": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "21533": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22068": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22070": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22077": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22079": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22083": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22085": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22185": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22187": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22191": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22193": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22200": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22202": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22203": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22205": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "22326": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "22328": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23328": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23330": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23361": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23363": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23388": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23390": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23844": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23846": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23856": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23858": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23859": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23861": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "23886": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "23888": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "24799": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24802": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24811": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24813": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24816": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24823": {
+                "size": 1,
+                "items": 1,
+                "type": "starbase"
+            },
+            "24827": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24837": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24845": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24853": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24865": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "24867": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24877": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24879": {
+                "size": 1,
+                "items": 2,
+                "type": "starbase"
+            },
+            "24893": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24897": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24898": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24900": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24908": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24912": {
+                "size": 1,
+                "items": 12,
+                "type": "starbase"
+            },
+            "24920": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24942": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24947": {
+                "size": 1,
+                "items": 1,
+                "type": "starbase"
+            },
+            "24957": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "24968": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "24977": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "24994": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25012": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "16802235": {
+                "size": 1,
+                "items": 1,
+                "type": "planet"
+            },
+            "25020": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25029": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25045": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25055": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25067": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "16802287": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25073": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "25082": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25086": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25092": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "25094": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25099": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25102": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25107": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25109": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25117": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25120": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25130": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25134": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25174": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25176": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25177": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25179": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25192": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25194": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25195": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25197": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25222": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "16802459": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "16802511": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25298": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25304": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25314": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25316": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25321": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25323": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25326": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25334": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25339": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25345": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25347": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25349": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25358": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25361": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25363": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25368": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25369": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25371": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25373": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25375": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25379": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25384": {
+                "size": 1,
+                "items": 16,
+                "type": "starbase"
+            },
+            "25386": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25397": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25403": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25407": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25410": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25413": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25442": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25443": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25445": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25447": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25448": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25450": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25483": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25489": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25491": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25493": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25495": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25502": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25504": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25506": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25508": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25509": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25521": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25554": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25556": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25602": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25604": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25605": {
+                "size": 2,
+                "items": 39,
+                "type": "shipyard"
+            },
+            "25606": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25608": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25610": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25611": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25612": {
+                "size": 1,
+                "items": 0,
+                "type": "starbase"
+            },
+            "25641": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25643": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25644": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25646": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25659": {
+                "size": 1,
+                "items": 1,
+                "type": "planet"
+            },
+            "25661": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
+            },
+            "25662": {
+                "size": 1,
+                "items": 0,
+                "type": "planet"
+            },
+            "25664": {
+                "size": 1,
+                "items": 0,
+                "type": "army"
             }
         }
     },
     "tech": {
         "output": {
-            "society": 11754.748,
-            "physics": 12295.148000000001,
-            "engineering": 11894.348,
-            "total": 35944.244
+            "society": 2810.72,
+            "physics": 2619.5,
+            "engineering": 2426.0,
+            "total": 7856.219999999999
         },
-        "completed_techs": 304,
+        "completed_techs": 314,
         "available_techs": {
-            "society": 4,
+            "society": 5,
             "physics": 5,
-            "engineering": 6
+            "engineering": 5
         }
     },
     "planets": {
-        "total": 189,
+        "total": 36,
         "list": {
-            "E Border Hab": {
-                "name": "E Border Hab",
-                "size": 8,
-                "population": 40,
-                "districts": 8,
-                "armies": 36,
-                "stability": 57.2222,
-                "amenities": 50,
-                "free_amenities": 5,
-                "amenities_usage": 45,
-                "free_housing": 19,
-                "total_housing": 56
-            },
-            "Vish": {
-                "name": "Vish",
-                "size": 8,
-                "population": 6,
-                "districts": 7,
-                "armies": 9,
-                "stability": 0.7575,
-                "amenities": 7,
-                "free_amenities": -4.0,
-                "amenities_usage": 11,
-                "free_housing": 54,
-                "total_housing": 59
-            },
-            "N Border Hab": {
-                "name": "N Border Hab",
-                "size": 8,
-                "population": 34,
-                "districts": 8,
-                "armies": 45,
-                "stability": 58.0768,
-                "amenities": 45,
-                "free_amenities": 6,
-                "amenities_usage": 39,
-                "free_housing": 28,
-                "total_housing": 59
-            },
-            "Requiem": {
-                "name": "Requiem",
-                "size": 19,
-                "population": 151,
-                "districts": 20,
-                "armies": 10,
-                "stability": 74.6152,
-                "amenities": 270,
-                "free_amenities": 114,
-                "amenities_usage": 156,
-                "free_housing": 4,
-                "total_housing": 125
-            },
-            "Mining Hab": {
-                "name": "Mining Hab",
-                "size": 6,
-                "population": 21,
-                "districts": 6,
-                "armies": 0,
-                "stability": 61.1538,
-                "amenities": 34,
-                "free_amenities": 8,
-                "amenities_usage": 26,
-                "free_housing": 19,
-                "total_housing": 38
-            },
-            "Jaggo": {
-                "name": "Jaggo",
-                "size": 20,
-                "population": 20,
-                "districts": 13,
-                "armies": 4,
-                "stability": 31,
-                "amenities": 16,
-                "free_amenities": -9.0,
-                "amenities_usage": 25,
-                "free_housing": 58,
-                "total_housing": 74
-            },
-            "Refinery World 5": {
-                "name": "Refinery World 5",
-                "size": 18,
-                "population": 57,
-                "districts": 17,
+            "2": {
+                "name": "The Great Prairy",
+                "size": 5,
+                "population": 169,
+                "districts": 5,
                 "armies": 8,
-                "stability": 56.6128,
-                "amenities": 67,
-                "free_amenities": 5,
-                "amenities_usage": 62,
-                "free_housing": 29,
-                "total_housing": 76
+                "stability": 75.4422,
+                "amenities": 210,
+                "free_amenities": 45,
+                "amenities_usage": 165,
+                "free_housing": 24,
+                "total_housing": 193
             },
-            "Alaria": {
-                "name": "Alaria",
-                "size": 19,
-                "population": 73,
-                "districts": 16,
-                "armies": 0,
-                "stability": 51.845,
-                "amenities": 38,
-                "free_amenities": 29,
-                "amenities_usage": 9,
-                "free_housing": 92,
-                "total_housing": 96
-            },
-            "Factory World": {
-                "name": "Factory World",
-                "size": 21,
-                "population": 65,
-                "districts": 14,
-                "armies": 6,
-                "stability": 63.5714,
-                "amenities": 100,
-                "free_amenities": 30,
-                "amenities_usage": 70,
-                "free_housing": 44,
-                "total_housing": 97
-            },
-            "Factory World 10": {
-                "name": "Factory World 10",
-                "size": 19,
-                "population": 77,
-                "districts": 12,
-                "armies": 6,
-                "stability": 45.2435,
-                "amenities": 70,
-                "free_amenities": -12.0,
-                "amenities_usage": 82,
-                "free_housing": 14,
-                "total_housing": 78
-            },
-            "Factory World 1": {
+            "253": {
                 "name": "Factory World 1",
-                "size": 18,
-                "population": 183,
-                "districts": 19,
-                "armies": 14,
-                "stability": 75,
-                "amenities": 406,
-                "free_amenities": 218,
-                "amenities_usage": 188,
-                "free_housing": 1,
-                "total_housing": 149
-            },
-            "Refinery World 12": {
-                "name": "Refinery World 12",
-                "size": 14,
-                "population": 71,
-                "districts": 15,
-                "armies": 8,
-                "stability": 64.2104,
-                "amenities": 111,
-                "free_amenities": 35,
-                "amenities_usage": 76,
-                "free_housing": 12,
-                "total_housing": 70
-            },
-            "Research World 2": {
-                "name": "Research World 2",
-                "size": 16,
-                "population": 158,
-                "districts": 17,
-                "armies": 10,
-                "stability": 69.9692,
-                "amenities": 285,
-                "free_amenities": 122,
-                "amenities_usage": 163,
-                "free_housing": 1,
-                "total_housing": 128
-            },
-            "Croo's Cocoon": {
-                "name": "Croo's Cocoon",
-                "size": 4,
-                "population": 10,
-                "districts": 4,
-                "armies": 0,
-                "stability": 59,
-                "amenities": 18,
-                "free_amenities": 3,
-                "amenities_usage": 15,
-                "free_housing": 13,
-                "total_housing": 22
-            },
-            "Factory World 5": {
-                "name": "Factory World 5",
-                "size": 12,
-                "population": 141,
-                "districts": 13,
-                "armies": 10,
-                "stability": 42.453,
-                "amenities": 132,
-                "free_amenities": -14.0,
-                "amenities_usage": 146,
-                "free_housing": -18.0,
-                "total_housing": 99
-            },
-            "Dologga's Spring": {
-                "name": "Dologga's Spring",
-                "size": 4,
-                "population": 8,
-                "districts": 4,
-                "armies": 0,
-                "stability": 24.2305,
-                "amenities": 7,
-                "free_amenities": -6.0,
-                "amenities_usage": 13,
-                "free_housing": 10,
-                "total_housing": 17
-            },
-            "Grobbsal Civa": {
-                "name": "Grobbsal Civa",
-                "size": 13,
-                "population": 69,
-                "districts": 14,
-                "armies": 0,
-                "stability": 75,
-                "amenities": 193,
-                "free_amenities": 119,
-                "amenities_usage": 74,
-                "free_housing": 32,
-                "total_housing": 94
-            },
-            "Research World": {
-                "name": "Research World",
-                "size": 25,
-                "population": 90,
-                "districts": 21,
-                "armies": 2,
-                "stability": 41.6665,
-                "amenities": 76,
-                "free_amenities": -19.0,
-                "amenities_usage": 95,
-                "free_housing": 56,
-                "total_housing": 130
-            },
-            "Factory World 9": {
-                "name": "Factory World 9",
-                "size": 18,
-                "population": 112,
-                "districts": 13,
-                "armies": 19,
-                "stability": 54.2058,
-                "amenities": 135,
-                "free_amenities": 18,
-                "amenities_usage": 117,
-                "free_housing": -9.0,
-                "total_housing": 84
-            },
-            "Refinery World 11": {
-                "name": "Refinery World 11",
-                "size": 18,
-                "population": 89,
-                "districts": 19,
-                "armies": 10,
-                "stability": 70.5318,
-                "amenities": 167,
-                "free_amenities": 73,
-                "amenities_usage": 94,
-                "free_housing": 21,
-                "total_housing": 94
-            },
-            "Admin World": {
-                "name": "Admin World",
-                "size": 23,
-                "population": 188,
-                "districts": 24,
-                "armies": 10,
-                "stability": 68.575,
-                "amenities": 324,
-                "free_amenities": 131,
-                "amenities_usage": 193,
-                "free_housing": 1,
-                "total_housing": 152
-            },
-            "Refinery World 7": {
-                "name": "Refinery World 7",
                 "size": 20,
-                "population": 73,
-                "districts": 21,
-                "armies": 8,
-                "stability": 50.726,
-                "amenities": 73,
-                "free_amenities": -5.0,
-                "amenities_usage": 78,
-                "free_housing": 53,
-                "total_housing": 113
-            },
-            "Factory World 8": {
-                "name": "Factory World 8",
-                "size": 25,
-                "population": 77,
+                "population": 91,
                 "districts": 15,
-                "armies": 8,
-                "stability": 47.6825,
-                "amenities": 73,
-                "free_amenities": -9.0,
-                "amenities_usage": 82,
-                "free_housing": 26,
-                "total_housing": 90
-            },
-            "Kojogg's Keep": {
-                "name": "Kojogg's Keep",
-                "size": 4,
-                "population": 8,
-                "districts": 4,
-                "armies": 3,
-                "stability": 24.2305,
-                "amenities": 7,
-                "free_amenities": -6.0,
-                "amenities_usage": 13,
-                "free_housing": 26,
-                "total_housing": 33
-            },
-            "Factory World 11": {
-                "name": "Factory World 11",
-                "size": 19,
-                "population": 78,
-                "districts": 12,
-                "armies": 10,
-                "stability": 62.2288,
-                "amenities": 113,
-                "free_amenities": 30,
-                "amenities_usage": 83,
-                "free_housing": 4,
-                "total_housing": 68
-            },
-            "Refinery World 3": {
-                "name": "Refinery World 3",
-                "size": 12,
-                "population": 62,
-                "districts": 13,
-                "armies": 4,
-                "stability": 55.2984,
-                "amenities": 68,
-                "free_amenities": 1,
-                "amenities_usage": 67,
-                "free_housing": 4,
-                "total_housing": 54
-            },
-            "Bontargi's Citadel": {
-                "name": "Bontargi's Citadel",
-                "size": 4,
-                "population": 9,
-                "districts": 4,
-                "armies": 0,
-                "stability": 60.7142,
-                "amenities": 18,
-                "free_amenities": 4,
-                "amenities_usage": 14,
-                "free_housing": 24,
-                "total_housing": 32
-            },
-            "Bovven Vvada": {
-                "name": "Bovven Vvada",
-                "size": 24,
-                "population": 89,
-                "districts": 19,
-                "armies": 0,
-                "stability": 75,
-                "amenities": 282,
-                "free_amenities": 188,
-                "amenities_usage": 94,
-                "free_housing": 54,
-                "total_housing": 134
-            },
-            "Refinery World": {
-                "name": "Refinery World",
-                "size": 10,
-                "population": 67,
-                "districts": 11,
-                "armies": 2,
-                "stability": 71.6666,
-                "amenities": 132,
-                "free_amenities": 60,
-                "amenities_usage": 72,
-                "free_housing": 9,
-                "total_housing": 63
-            },
-            "NAME_Celestial_Throne": {
-                "name": "NAME_Celestial_Throne",
-                "size": 30,
-                "population": 59,
-                "districts": 22,
-                "armies": 12,
-                "stability": 85,
-                "amenities": 302,
-                "free_amenities": 238,
-                "amenities_usage": 64,
-                "free_housing": 205,
-                "total_housing": 253
-            },
-            "NAME_Sky_Temple": {
-                "name": "NAME_Sky_Temple",
-                "size": 22,
-                "population": 38,
-                "districts": 16,
-                "armies": 4,
-                "stability": 75,
-                "amenities": 216,
-                "free_amenities": 173,
-                "amenities_usage": 43,
-                "free_housing": 157,
-                "total_housing": 188
-            },
-            "NAME_The_Core": {
-                "name": "NAME_The_Core",
-                "size": 25,
-                "population": 56,
-                "districts": 13,
                 "armies": 6,
-                "stability": 75,
-                "amenities": 204,
-                "free_amenities": 156,
-                "amenities_usage": 48,
-                "free_housing": 77,
-                "total_housing": 116
-            },
-            "NAME_Boundary": {
-                "name": "NAME_Boundary",
-                "size": 12,
-                "population": 25,
-                "districts": 9,
-                "armies": 4,
-                "stability": 75,
-                "amenities": 93,
-                "free_amenities": 63,
-                "amenities_usage": 30,
-                "free_housing": 47,
-                "total_housing": 67
-            },
-            "Silent Colony": {
-                "name": "Silent Colony",
-                "size": 24,
-                "population": 95,
-                "districts": 19,
-                "armies": 2,
-                "stability": 8.4315,
-                "amenities": 16,
-                "free_amenities": -30.0,
-                "amenities_usage": 46,
-                "free_housing": 62,
-                "total_housing": 99
-            },
-            "NAME_Decayed_Hub": {
-                "name": "NAME_Decayed_Hub",
-                "size": 21,
-                "population": 56,
-                "districts": 17,
-                "armies": 4,
-                "stability": 25.6115,
-                "amenities": 14,
-                "free_amenities": -8.0,
-                "amenities_usage": 22,
-                "free_housing": 71,
-                "total_housing": 86
-            },
-            "Crumbling Borough": {
-                "name": "Crumbling Borough",
-                "size": 11,
-                "population": 20,
-                "districts": 10,
-                "armies": 0,
-                "stability": 57.777,
-                "amenities": 14,
-                "free_amenities": 5,
-                "amenities_usage": 9,
-                "free_housing": 51,
-                "total_housing": 55
-            },
-            "Ury": {
-                "name": "Ury",
-                "size": 23,
-                "population": 73,
-                "districts": 18,
-                "armies": 0,
-                "stability": 75,
-                "amenities": 193,
-                "free_amenities": 115,
-                "amenities_usage": 78,
-                "free_housing": 47,
-                "total_housing": 106
-            },
-            "The Veil": {
-                "name": "The Veil",
-                "size": 17,
-                "population": 111,
-                "districts": 18,
-                "armies": 57,
-                "stability": 61.0344,
-                "amenities": 151,
-                "free_amenities": 35,
-                "amenities_usage": 116,
+                "stability": 74.3584,
+                "amenities": 162,
+                "free_amenities": 70,
+                "amenities_usage": 92,
                 "free_housing": 12,
-                "total_housing": 101
+                "total_housing": 103
             },
-            "Refinery World 14": {
-                "name": "Refinery World 14",
+            "350": {
+                "name": "Refinery World 1",
+                "size": 14,
+                "population": 95,
+                "districts": 15,
+                "armies": 15,
+                "stability": 73.9702,
+                "amenities": 160,
+                "free_amenities": 66,
+                "amenities_usage": 94,
+                "free_housing": 5,
+                "total_housing": 100
+            },
+            "476": {
+                "name": "Admin World",
+                "size": 21,
+                "population": 108,
+                "districts": 15,
+                "armies": 4,
+                "stability": 73.0858,
+                "amenities": 171,
+                "free_amenities": 64,
+                "amenities_usage": 107,
+                "free_housing": 1,
+                "total_housing": 109
+            },
+            "1363": {
+                "name": "Research World",
                 "size": 16,
-                "population": 83,
-                "districts": 17,
-                "armies": 10,
-                "stability": 65.6818,
-                "amenities": 135,
-                "free_amenities": 47,
+                "population": 5,
+                "districts": 2,
+                "armies": 1,
+                "stability": 57.5002,
+                "amenities": 8,
+                "free_amenities": -2.0,
+                "amenities_usage": 10,
+                "free_housing": 2,
+                "total_housing": 7
+            },
+            "1365": {
+                "name": "City World",
+                "size": 20,
+                "population": 5,
+                "districts": 2,
+                "armies": 1,
+                "stability": 69.1,
+                "amenities": 13,
+                "free_amenities": 3,
+                "amenities_usage": 10,
+                "free_housing": 14,
+                "total_housing": 19
+            },
+            "1450": {
+                "name": "Refinery World 4",
+                "size": 19,
+                "population": 88,
+                "districts": 18,
+                "armies": 4,
+                "stability": 68.1712,
+                "amenities": 132,
+                "free_amenities": 44,
                 "amenities_usage": 88,
-                "free_housing": 24,
+                "free_housing": 5,
                 "total_housing": 93
             },
-            "Garbanog's Dwelling": {
-                "name": "Garbanog's Dwelling",
-                "size": 4,
-                "population": 9,
-                "districts": 4,
-                "armies": 9,
-                "stability": 21.6665,
-                "amenities": 7,
-                "free_amenities": -7.0,
-                "amenities_usage": 14,
-                "free_housing": 27,
-                "total_housing": 35
-            },
-            "Refinery World 4": {
-                "name": "Refinery World 4",
+            "1544": {
+                "name": "Refinery World 6",
                 "size": 12,
-                "population": 80,
+                "population": 47,
                 "districts": 13,
-                "armies": 19,
-                "stability": 64.1764,
-                "amenities": 124,
-                "free_amenities": 39,
-                "amenities_usage": 85,
-                "free_housing": 3,
-                "total_housing": 69
-            },
-            "Refinery World 13": {
-                "name": "Refinery World 13",
-                "size": 13,
-                "population": 50,
-                "districts": 9,
-                "armies": 14,
-                "stability": 54.0905,
-                "amenities": 46,
-                "free_amenities": -9.0,
-                "amenities_usage": 55,
-                "free_housing": 6,
-                "total_housing": 47
-            },
-            "Factory World 4": {
-                "name": "Factory World 4",
-                "size": 20,
-                "population": 203,
-                "districts": 21,
-                "armies": 10,
-                "stability": 69.4458,
-                "amenities": 383,
-                "free_amenities": 175,
-                "amenities_usage": 208,
-                "free_housing": -10.0,
-                "total_housing": 158
-            },
-            "Odranka's Holding": {
-                "name": "Odranka's Holding",
-                "size": 4,
-                "population": 8,
-                "districts": 4,
-                "armies": 3,
-                "stability": 75,
-                "amenities": 28,
-                "free_amenities": 15,
-                "amenities_usage": 13,
-                "free_housing": 31,
-                "total_housing": 38
-            },
-            "Piskus II": {
-                "name": "Piskus II",
-                "size": 22,
-                "population": 21,
-                "districts": 3,
-                "armies": 10,
-                "stability": 75,
-                "amenities": 53,
-                "free_amenities": 27,
-                "amenities_usage": 26,
-                "free_housing": 8,
-                "total_housing": 27
-            },
-            "Factory World 3": {
-                "name": "Factory World 3",
-                "size": 15,
-                "population": 145,
-                "districts": 16,
-                "armies": 14,
-                "stability": 59.5332,
-                "amenities": 184,
-                "free_amenities": 34,
-                "amenities_usage": 150,
-                "free_housing": 4,
-                "total_housing": 120
-            },
-            "Yltar's Bulwark": {
-                "name": "Yltar's Bulwark",
-                "size": 4,
-                "population": 7,
-                "districts": 3,
-                "armies": 0,
-                "stability": 55,
-                "amenities": 12,
-                "free_amenities": 0,
-                "amenities_usage": 12,
-                "free_housing": 18,
-                "total_housing": 24
-            },
-            "Irjamma's Treasure": {
-                "name": "Irjamma's Treasure",
-                "size": 10,
-                "population": 13,
-                "districts": 9,
                 "armies": 4,
-                "stability": 61.6666,
-                "amenities": 24,
-                "free_amenities": 6,
-                "amenities_usage": 18,
-                "free_housing": 35,
-                "total_housing": 47
-            },
-            "Refinery World 1": {
-                "name": "Refinery World 1",
-                "size": 15,
-                "population": 70,
-                "districts": 16,
-                "armies": 4,
-                "stability": 57.4,
-                "amenities": 84,
-                "free_amenities": 9,
-                "amenities_usage": 75,
-                "free_housing": 12,
-                "total_housing": 68
-            },
-            "Factory World 7": {
-                "name": "Factory World 7",
-                "size": 19,
-                "population": 77,
-                "districts": 11,
-                "armies": 8,
-                "stability": 36.7425,
-                "amenities": 68,
-                "free_amenities": -14.0,
-                "amenities_usage": 82,
-                "free_housing": -11.0,
-                "total_housing": 53
-            },
-            "Research World 3": {
-                "name": "Research World 3",
-                "size": 25,
-                "population": 122,
-                "districts": 20,
-                "armies": 14,
-                "stability": 71.2204,
-                "amenities": 230,
-                "free_amenities": 103,
-                "amenities_usage": 127,
-                "free_housing": 5,
-                "total_housing": 115
-            },
-            "Refinery World 8": {
-                "name": "Refinery World 8",
-                "size": 15,
-                "population": 74,
-                "districts": 16,
-                "armies": 8,
-                "stability": 40.654,
-                "amenities": 62,
-                "free_amenities": -17.0,
-                "amenities_usage": 79,
-                "free_housing": 17,
-                "total_housing": 78
-            },
-            "Uldrugg": {
-                "name": "Uldrugg",
-                "size": 14,
-                "population": 39,
-                "districts": 10,
-                "armies": 3,
-                "stability": 18.0705,
-                "amenities": 16,
-                "free_amenities": -19.0,
-                "amenities_usage": 35,
-                "free_housing": 35,
-                "total_housing": 62
-            },
-            "Mondak's Retreat": {
-                "name": "Mondak's Retreat",
-                "size": 4,
-                "population": 7,
-                "districts": 4,
-                "armies": 9,
-                "stability": 27.222,
-                "amenities": 7,
-                "free_amenities": -5.0,
-                "amenities_usage": 12,
-                "free_housing": 29,
-                "total_housing": 35
-            },
-            "Refinery World 9": {
-                "name": "Refinery World 9",
-                "size": 20,
-                "population": 86,
-                "districts": 21,
-                "armies": 10,
-                "stability": 56.3186,
-                "amenities": 97,
-                "free_amenities": 6,
-                "amenities_usage": 91,
-                "free_housing": 39,
-                "total_housing": 110
-            },
-            "Refinery World 10": {
-                "name": "Refinery World 10",
-                "size": 15,
-                "population": 68,
-                "districts": 16,
-                "armies": 20,
-                "stability": 59.3834,
-                "amenities": 89,
+                "stability": 67.8196,
+                "amenities": 65,
                 "free_amenities": 16,
-                "amenities_usage": 73,
-                "free_housing": 21,
-                "total_housing": 77
+                "amenities_usage": 49,
+                "free_housing": 0,
+                "total_housing": 47
             },
-            "Factory World 2": {
-                "name": "Factory World 2",
-                "size": 15,
-                "population": 137,
-                "districts": 16,
-                "armies": 10,
-                "stability": 60.4928,
-                "amenities": 181,
-                "free_amenities": 39,
-                "amenities_usage": 142,
+            "1677": {
+                "name": "Factory World 4",
+                "size": 18,
+                "population": 70,
+                "districts": 11,
+                "armies": 4,
+                "stability": 67.5568,
+                "amenities": 89,
+                "free_amenities": 18,
+                "amenities_usage": 71,
                 "free_housing": 3,
+                "total_housing": 73
+            },
+            "2090": {
+                "name": "Factory World 2",
+                "size": 21,
+                "population": 104,
+                "districts": 17,
+                "armies": 4,
+                "stability": 65.6368,
+                "amenities": 104,
+                "free_amenities": 2,
+                "amenities_usage": 102,
+                "free_housing": 9,
                 "total_housing": 113
             },
-            "Factory World 6": {
-                "name": "Factory World 6",
-                "size": 12,
-                "population": 106,
-                "districts": 10,
-                "armies": 6,
-                "stability": 21.9012,
-                "amenities": 68,
-                "free_amenities": -43.0,
-                "amenities_usage": 111,
-                "free_housing": -16.0,
-                "total_housing": 72
-            },
-            "Chiiban III": {
-                "name": "Chiiban III",
-                "size": 12,
-                "population": 87,
-                "districts": 10,
-                "armies": 0,
-                "stability": 45.833,
-                "amenities": 16,
-                "free_amenities": 8,
-                "amenities_usage": 8,
-                "free_housing": 52,
-                "total_housing": 55
-            },
-            "Research World 1": {
-                "name": "Research World 1",
+            "2093": {
+                "name": "Factory World 3",
                 "size": 21,
-                "population": 182,
-                "districts": 22,
-                "armies": 14,
-                "stability": 75,
-                "amenities": 405,
-                "free_amenities": 218,
-                "amenities_usage": 187,
-                "free_housing": 17,
-                "total_housing": 163
+                "population": 65,
+                "districts": 10,
+                "armies": 4,
+                "stability": 69.0214,
+                "amenities": 85,
+                "free_amenities": 16,
+                "amenities_usage": 69,
+                "free_housing": 6,
+                "total_housing": 71
             },
-            "Research World 5": {
-                "name": "Research World 5",
-                "size": 25,
-                "population": 74,
-                "districts": 17,
-                "armies": 8,
-                "stability": 56.2658,
-                "amenities": 84,
-                "free_amenities": 5,
-                "amenities_usage": 79,
-                "free_housing": 45,
-                "total_housing": 106
-            },
-            "Groro": {
-                "name": "Groro",
+            "2435": {
+                "name": "Refinery World 5",
                 "size": 14,
-                "population": 10,
-                "districts": 4,
+                "population": 68,
+                "districts": 15,
                 "armies": 2,
-                "stability": 56.3332,
-                "amenities": 16,
-                "free_amenities": 1,
-                "amenities_usage": 15,
-                "free_housing": 16,
-                "total_housing": 25
+                "stability": 66.5656,
+                "amenities": 78,
+                "free_amenities": 9,
+                "amenities_usage": 69,
+                "free_housing": 5,
+                "total_housing": 73
             },
-            "Unity World": {
-                "name": "Unity World",
-                "size": 17,
-                "population": 139,
-                "districts": 18,
-                "armies": 32,
-                "stability": 61.25,
-                "amenities": 189,
-                "free_amenities": 45,
-                "amenities_usage": 144,
-                "free_housing": 1,
-                "total_housing": 112
-            },
-            "Refinery World 2": {
-                "name": "Refinery World 2",
+            "2436": {
+                "name": "City World 3",
                 "size": 10,
-                "population": 32,
+                "population": 70,
                 "districts": 11,
                 "armies": 4,
-                "stability": 51.396,
-                "amenities": 35,
-                "free_amenities": -2.0,
-                "amenities_usage": 37,
-                "free_housing": 22,
-                "total_housing": 48
-            },
-            "Indig's Refuge": {
-                "name": "Indig's Refuge",
-                "size": 4,
-                "population": 18,
-                "districts": 3,
-                "armies": 0,
-                "stability": 23.579,
-                "amenities": 7,
-                "free_amenities": -5.0,
-                "amenities_usage": 12,
-                "free_housing": 18,
-                "total_housing": 24
-            },
-            "Pogga Pash": {
-                "name": "Pogga Pash",
-                "size": 4,
-                "population": 11,
-                "districts": 4,
-                "armies": 0,
-                "stability": 57.5,
-                "amenities": 18,
-                "free_amenities": 2,
-                "amenities_usage": 16,
-                "free_housing": 17,
-                "total_housing": 27
-            },
-            "Elthir I": {
-                "name": "Elthir I",
-                "size": 12,
-                "population": 14,
-                "districts": 3,
-                "armies": 2,
-                "stability": 75,
-                "amenities": 53,
-                "free_amenities": 34,
-                "amenities_usage": 19,
-                "free_housing": 14,
-                "total_housing": 27
-            },
-            "Energy Hab": {
-                "name": "Energy Hab",
-                "size": 8,
-                "population": 44,
-                "districts": 8,
-                "armies": 0,
-                "stability": 57.0408,
-                "amenities": 54,
-                "free_amenities": 5,
-                "amenities_usage": 49,
-                "free_housing": 8,
-                "total_housing": 48
-            },
-            "Research Hab": {
-                "name": "Research Hab",
-                "size": 6,
-                "population": 19,
-                "districts": 6,
-                "armies": 0,
-                "stability": 67.5,
-                "amenities": 39,
-                "free_amenities": 15,
-                "amenities_usage": 24,
-                "free_housing": 21,
-                "total_housing": 38
-            },
-            "Energy Segment": {
-                "name": "Energy Segment",
-                "size": 5,
-                "population": 159,
-                "districts": 5,
-                "armies": 14,
-                "stability": 45.2435,
-                "amenities": 140,
-                "free_amenities": -24.0,
-                "amenities_usage": 164,
-                "free_housing": 44,
-                "total_housing": 192
-            },
-            "Energy  Hab": {
-                "name": "Energy  Hab",
-                "size": 4,
-                "population": 10,
-                "districts": 4,
-                "armies": 9,
-                "stability": 72.3332,
-                "amenities": 28,
-                "free_amenities": 13,
-                "amenities_usage": 15,
-                "free_housing": 24,
-                "total_housing": 33
-            },
-            "Krachaw's Nest": {
-                "name": "Krachaw's Nest",
-                "size": 4,
-                "population": 8,
-                "districts": 4,
-                "armies": 3,
-                "stability": 49.8715,
-                "amenities": 12,
-                "free_amenities": -1.0,
-                "amenities_usage": 13,
-                "free_housing": 16,
-                "total_housing": 23
-            },
-            "Carcana": {
-                "name": "Carcana",
-                "size": 4,
-                "population": 14,
-                "districts": 4,
-                "armies": 0,
-                "stability": 30.4385,
-                "amenities": 12,
-                "free_amenities": -7.0,
-                "amenities_usage": 19,
-                "free_housing": 14,
-                "total_housing": 27
-            },
-            "Ultrak's Point": {
-                "name": "Ultrak's Point",
-                "size": 4,
-                "population": 7,
-                "districts": 3,
-                "armies": 0,
-                "stability": 55,
-                "amenities": 12,
-                "free_amenities": 0,
-                "amenities_usage": 12,
-                "free_housing": 18,
-                "total_housing": 24
-            },
-            "Kortol's Station": {
-                "name": "Kortol's Station",
-                "size": 4,
-                "population": 8,
-                "districts": 4,
-                "armies": 3,
-                "stability": 75,
-                "amenities": 28,
-                "free_amenities": 15,
-                "amenities_usage": 13,
-                "free_housing": 31,
-                "total_housing": 38
-            },
-            "Hadrigga's Bastion": {
-                "name": "Hadrigga's Bastion",
-                "size": 4,
-                "population": 5,
-                "districts": 4,
-                "armies": 0,
-                "stability": 59,
-                "amenities": 12,
-                "free_amenities": 2,
-                "amenities_usage": 10,
-                "free_housing": 23,
-                "total_housing": 28
-            },
-            "Prek-Ek-Ek": {
-                "name": "Prek-Ek-Ek",
-                "size": 8,
-                "population": 20,
-                "districts": 8,
-                "armies": 0,
-                "stability": 25.5335,
-                "amenities": 7,
-                "free_amenities": -4.0,
-                "amenities_usage": 11,
-                "free_housing": 67,
-                "total_housing": 72
-            },
-            "Research Segment": {
-                "name": "Research Segment",
-                "size": 5,
-                "population": 40,
-                "districts": 2,
-                "armies": 2,
-                "stability": 35.7405,
-                "amenities": 32,
-                "free_amenities": -13.0,
-                "amenities_usage": 45,
-                "free_housing": 92,
-                "total_housing": 128
-            },
-            "Trast": {
-                "name": "Trast",
-                "size": 4,
-                "population": 15,
-                "districts": 4,
-                "armies": 0,
-                "stability": 48.333,
-                "amenities": 18,
-                "free_amenities": -2.0,
-                "amenities_usage": 20,
-                "free_housing": 13,
-                "total_housing": 27
-            },
-            "Siltam's Fortress": {
-                "name": "Siltam's Fortress",
-                "size": 4,
-                "population": 6,
-                "districts": 4,
-                "armies": 3,
-                "stability": 30.7575,
-                "amenities": 7,
-                "free_amenities": -4.0,
-                "amenities_usage": 11,
+                "stability": 75.9274,
+                "amenities": 160,
+                "free_amenities": 89,
+                "amenities_usage": 71,
                 "free_housing": 27,
-                "total_housing": 33
+                "total_housing": 97
             },
-            "Lastargavin's Shelter": {
-                "name": "Lastargavin's Shelter",
-                "size": 4,
-                "population": 4,
-                "districts": 4,
-                "armies": 0,
-                "stability": 40.185,
-                "amenities": 7,
-                "free_amenities": -2.0,
-                "amenities_usage": 9,
-                "free_housing": 33,
-                "total_housing": 37
+            "3832": {
+                "name": "Refinery World 5",
+                "size": 19,
+                "population": 71,
+                "districts": 20,
+                "armies": 2,
+                "stability": 66.3304,
+                "amenities": 81,
+                "free_amenities": 9,
+                "amenities_usage": 72,
+                "free_housing": 14,
+                "total_housing": 85
             },
-            "Fidgit": {
-                "name": "Fidgit",
-                "size": 4,
-                "population": 13,
-                "districts": 4,
-                "armies": 0,
-                "stability": 55,
-                "amenities": 18,
+            "4203": {
+                "name": "Refinery World 3",
+                "size": 11,
+                "population": 55,
+                "districts": 12,
+                "armies": 13,
+                "stability": 70.228,
+                "amenities": 81,
+                "free_amenities": 24,
+                "amenities_usage": 57,
+                "free_housing": 0,
+                "total_housing": 55
+            },
+            "6362": {
+                "name": "City World 1",
+                "size": 15,
+                "population": 75,
+                "districts": 16,
+                "armies": 4,
+                "stability": 81.4962,
+                "amenities": 158,
+                "free_amenities": 82,
+                "amenities_usage": 76,
+                "free_housing": 62,
+                "total_housing": 137
+            },
+            "6732": {
+                "name": "Unity World",
+                "size": 18,
+                "population": 99,
+                "districts": 15,
+                "armies": 4,
+                "stability": 71.5698,
+                "amenities": 112,
+                "free_amenities": 15,
+                "amenities_usage": 97,
+                "free_housing": 0,
+                "total_housing": 99
+            },
+            "7021": {
+                "name": "Refinery World 2",
+                "size": 19,
+                "population": 87,
+                "districts": 20,
+                "armies": 4,
+                "stability": 75.0928,
+                "amenities": 195,
+                "free_amenities": 108,
+                "amenities_usage": 87,
+                "free_housing": 38,
+                "total_housing": 125
+            },
+            "7775": {
+                "name": "W Border World",
+                "size": 15,
+                "population": 84,
+                "districts": 16,
+                "armies": 49,
+                "stability": 73.6462,
+                "amenities": 147,
+                "free_amenities": 61,
+                "amenities_usage": 86,
+                "free_housing": 1,
+                "total_housing": 85
+            },
+            "7932": {
+                "name": "NE Border World",
+                "size": 23,
+                "population": 71,
+                "districts": 19,
+                "armies": 33,
+                "stability": 65.47,
+                "amenities": 72,
                 "free_amenities": 0,
-                "amenities_usage": 18,
-                "free_housing": 15,
-                "total_housing": 27
+                "amenities_usage": 72,
+                "free_housing": 17,
+                "total_housing": 88
             },
-            "W Border Hab": {
+            "8247": {
+                "name": "Mining Hab 1",
+                "size": 8,
+                "population": 47,
+                "districts": 8,
+                "armies": 20,
+                "stability": 72.0082,
+                "amenities": 77,
+                "free_amenities": 26,
+                "amenities_usage": 51,
+                "free_housing": 2,
+                "total_housing": 49
+            },
+            "8248": {
+                "name": "Mining Hab 2",
+                "size": 8,
+                "population": 47,
+                "districts": 8,
+                "armies": 20,
+                "stability": 71.6806,
+                "amenities": 77,
+                "free_amenities": 25,
+                "amenities_usage": 52,
+                "free_housing": 2,
+                "total_housing": 49
+            },
+            "8249": {
+                "name": "N Border Hab",
+                "size": 8,
+                "population": 45,
+                "districts": 8,
+                "armies": 47,
+                "stability": 69.9646,
+                "amenities": 71,
+                "free_amenities": 21,
+                "amenities_usage": 50,
+                "free_housing": 4,
+                "total_housing": 49
+            },
+            "8250": {
                 "name": "W Border Hab",
+                "size": 6,
+                "population": 44,
+                "districts": 6,
+                "armies": 59,
+                "stability": 67.3918,
+                "amenities": 61,
+                "free_amenities": 12,
+                "amenities_usage": 49,
+                "free_housing": 3,
+                "total_housing": 47
+            },
+            "8260": {
+                "name": "Mining Hab 3",
+                "size": 8,
+                "population": 42,
+                "districts": 8,
+                "armies": 5,
+                "stability": 77.307,
+                "amenities": 71,
+                "free_amenities": 24,
+                "amenities_usage": 47,
+                "free_housing": 3,
+                "total_housing": 45
+            },
+            "8261": {
+                "name": "SE Border Hab",
+                "size": 6,
+                "population": 42,
+                "districts": 6,
+                "armies": 41,
+                "stability": 68.4436,
+                "amenities": 57,
+                "free_amenities": 10,
+                "amenities_usage": 47,
+                "free_housing": 4,
+                "total_housing": 46
+            },
+            "8262": {
+                "name": "Research Hab 1",
+                "size": 8,
+                "population": 53,
+                "districts": 8,
+                "armies": 0,
+                "stability": 67.5478,
+                "amenities": 61,
+                "free_amenities": 6,
+                "amenities_usage": 55,
+                "free_housing": 4,
+                "total_housing": 57
+            },
+            "8263": {
+                "name": "NW Border Hab",
                 "size": 8,
                 "population": 36,
-                "districts": 8,
-                "armies": 27,
-                "stability": 56.9512,
+                "districts": 7,
+                "armies": 32,
+                "stability": 73.0078,
+                "amenities": 71,
+                "free_amenities": 30,
+                "amenities_usage": 41,
+                "free_housing": 10,
+                "total_housing": 46
+            },
+            "8264": {
+                "name": "Mining Hab 4",
+                "size": 8,
+                "population": 31,
+                "districts": 7,
+                "armies": 2,
+                "stability": 78.1966,
+                "amenities": 80,
+                "free_amenities": 44,
+                "amenities_usage": 36,
+                "free_housing": 10,
+                "total_housing": 41
+            },
+            "8267": {
+                "name": "Trade Segment",
+                "size": 5,
+                "population": 48,
+                "districts": 22,
+                "armies": 4,
+                "stability": 66.6244,
+                "amenities": 57,
+                "free_amenities": 6,
+                "amenities_usage": 51,
+                "free_housing": 1,
+                "total_housing": 49
+            },
+            "8271": {
+                "name": "Research Section",
+                "size": 5,
+                "population": 38,
+                "districts": 19,
+                "armies": 0,
+                "stability": 66.5602,
                 "amenities": 45,
                 "free_amenities": 4,
                 "amenities_usage": 41,
-                "free_housing": 20,
-                "total_housing": 53
+                "free_housing": 8,
+                "total_housing": 46
             },
-            "Claive": {
-                "name": "Claive",
+            "8280": {
+                "name": "Science Hab",
+                "size": 4,
+                "population": 15,
+                "districts": 3,
+                "armies": 2,
+                "stability": 64.8604,
+                "amenities": 19,
+                "free_amenities": -1.0,
+                "amenities_usage": 20,
+                "free_housing": 9,
+                "total_housing": 24
+            },
+            "8289": {
+                "name": "Wormhole Hab",
+                "size": 4,
+                "population": 8,
+                "districts": 2,
+                "armies": 3,
+                "stability": 74.9326,
+                "amenities": 22,
+                "free_amenities": 9,
+                "amenities_usage": 13,
+                "free_housing": 7,
+                "total_housing": 15
+            },
+            "8290": {
+                "name": "Border Hab",
+                "size": 4,
+                "population": 8,
+                "districts": 2,
+                "armies": 3,
+                "stability": 73.4326,
+                "amenities": 22,
+                "free_amenities": 9,
+                "amenities_usage": 13,
+                "free_housing": 7,
+                "total_housing": 15
+            },
+            "8296": {
+                "name": "Trade Hab",
                 "size": 4,
                 "population": 5,
                 "districts": 2,
                 "armies": 0,
-                "stability": 35,
-                "amenities": 7,
-                "free_amenities": -3.0,
-                "amenities_usage": 10,
-                "free_housing": 16,
-                "total_housing": 21
-            },
-            "Findirban's Outpost": {
-                "name": "Findirban's Outpost",
-                "size": 4,
-                "population": 7,
-                "districts": 3,
-                "armies": 0,
-                "stability": 65,
+                "stability": 69.4456,
                 "amenities": 18,
-                "free_amenities": 6,
-                "amenities_usage": 12,
-                "free_housing": 23,
-                "total_housing": 29
-            },
-            "Micaw": {
-                "name": "Micaw",
-                "size": 4,
-                "population": 10,
-                "districts": 4,
-                "armies": 3,
-                "stability": 19.444,
-                "amenities": 7,
-                "free_amenities": -8.0,
-                "amenities_usage": 15,
-                "free_housing": 20,
-                "total_housing": 29
-            },
-            "Chyy'ta": {
-                "name": "Chyy'ta",
-                "size": 4,
-                "population": 13,
-                "districts": 4,
-                "armies": 6,
-                "stability": 70.5554,
-                "amenities": 32,
-                "free_amenities": 14,
-                "amenities_usage": 18,
-                "free_housing": 22,
-                "total_housing": 34
-            },
-            "Foshoo's Rest": {
-                "name": "Foshoo's Rest",
-                "size": 6,
-                "population": 9,
-                "districts": 5,
-                "armies": 0,
-                "stability": 67.857,
-                "amenities": 23,
-                "free_amenities": 9,
-                "amenities_usage": 14,
-                "free_housing": 32,
-                "total_housing": 40
-            },
-            "Craw't": {
-                "name": "Craw't",
-                "size": 4,
-                "population": 12,
-                "districts": 4,
-                "armies": 9,
-                "stability": 15.784,
-                "amenities": 7,
-                "free_amenities": -10.0,
-                "amenities_usage": 17,
-                "free_housing": 14,
-                "total_housing": 25
-            },
-            "Pirgak's Freehold": {
-                "name": "Pirgak's Freehold",
-                "size": 4,
-                "population": 15,
-                "districts": 4,
-                "armies": 9,
-                "stability": 24.519,
-                "amenities": 7,
-                "free_amenities": -5.0,
-                "amenities_usage": 12,
-                "free_housing": 29,
-                "total_housing": 35
-            },
-            "NE Border Hab": {
-                "name": "NE Border Hab",
-                "size": 6,
-                "population": 20,
-                "districts": 6,
-                "armies": 18,
-                "stability": 71,
-                "amenities": 45,
-                "free_amenities": 20,
-                "amenities_usage": 25,
-                "free_housing": 26,
-                "total_housing": 44
-            },
-            "Travuu": {
-                "name": "Travuu",
-                "size": 4,
-                "population": 10,
-                "districts": 4,
-                "armies": 0,
-                "stability": 65.6666,
-                "amenities": 23,
                 "free_amenities": 8,
-                "amenities_usage": 15,
-                "free_housing": 23,
-                "total_housing": 32
-            },
-            "Madragon's Stronghold": {
-                "name": "Madragon's Stronghold",
-                "size": 4,
-                "population": 12,
-                "districts": 4,
-                "armies": 0,
-                "stability": 56.1764,
-                "amenities": 18,
-                "free_amenities": 1,
-                "amenities_usage": 17,
-                "free_housing": 16,
-                "total_housing": 27
-            },
-            "Tripitit": {
-                "name": "Tripitit",
-                "size": 4,
-                "population": 14,
-                "districts": 4,
-                "armies": 0,
-                "stability": 70.7894,
-                "amenities": 34,
-                "free_amenities": 15,
-                "amenities_usage": 19,
-                "free_housing": 19,
-                "total_housing": 32
-            },
-            "Foosh'ro": {
-                "name": "Foosh'ro",
-                "size": 4,
-                "population": 11,
-                "districts": 4,
-                "armies": 18,
-                "stability": 17.5,
-                "amenities": 7,
-                "free_amenities": -9.0,
-                "amenities_usage": 16,
-                "free_housing": 28,
-                "total_housing": 38
-            },
-            "Whoo'tar": {
-                "name": "Whoo'tar",
-                "size": 4,
-                "population": 11,
-                "districts": 4,
-                "armies": 18,
-                "stability": 17.5,
-                "amenities": 7,
-                "free_amenities": -9.0,
-                "amenities_usage": 16,
-                "free_housing": 28,
-                "total_housing": 38
-            },
-            "Fashaaw": {
-                "name": "Fashaaw",
-                "size": 4,
-                "population": 11,
-                "districts": 4,
-                "armies": 9,
-                "stability": 57.5,
-                "amenities": 18,
-                "free_amenities": 2,
-                "amenities_usage": 16,
-                "free_housing": 25,
-                "total_housing": 35
-            },
-            "Urytry": {
-                "name": "Urytry",
-                "size": 4,
-                "population": 8,
-                "districts": 3,
-                "armies": 0,
-                "stability": 62.6922,
-                "amenities": 18,
-                "free_amenities": 5,
-                "amenities_usage": 13,
-                "free_housing": 17,
-                "total_housing": 24
-            },
-            "Raggani": {
-                "name": "Raggani",
-                "size": 4,
-                "population": 8,
-                "districts": 3,
-                "armies": 0,
-                "stability": 24.2305,
-                "amenities": 7,
-                "free_amenities": -6.0,
-                "amenities_usage": 13,
-                "free_housing": 12,
-                "total_housing": 19
-            },
-            "Trittita": {
-                "name": "Trittita",
-                "size": 4,
-                "population": 13,
-                "districts": 4,
-                "armies": 0,
-                "stability": 60.5554,
-                "amenities": 23,
-                "free_amenities": 5,
-                "amenities_usage": 18,
-                "free_housing": 20,
-                "total_housing": 32
-            },
-            "Drakoo": {
-                "name": "Drakoo",
-                "size": 4,
-                "population": 12,
-                "districts": 4,
-                "armies": 18,
-                "stability": 35.392,
-                "amenities": 12,
-                "free_amenities": -5.0,
-                "amenities_usage": 17,
-                "free_housing": 17,
-                "total_housing": 28
-            },
-            "Wormhole Hab": {
-                "name": "Wormhole Hab",
-                "size": 8,
-                "population": 35,
-                "districts": 8,
-                "armies": 27,
-                "stability": 62.5,
-                "amenities": 55,
-                "free_amenities": 15,
-                "amenities_usage": 40,
-                "free_housing": 26,
-                "total_housing": 58
-            },
-            "Frippit": {
-                "name": "Frippit",
-                "size": 4,
-                "population": 12,
-                "districts": 4,
-                "armies": 0,
-                "stability": 56.1764,
-                "amenities": 18,
-                "free_amenities": 1,
-                "amenities_usage": 17,
-                "free_housing": 16,
-                "total_housing": 27
-            },
-            "Klohopka": {
-                "name": "Klohopka",
-                "size": 6,
-                "population": 4,
-                "districts": 6,
-                "armies": 0,
-                "stability": 40.185,
-                "amenities": 7,
-                "free_amenities": -2.0,
-                "amenities_usage": 9,
-                "free_housing": 44,
-                "total_housing": 48
-            },
-            "Kleck-O": {
-                "name": "Kleck-O",
-                "size": 6,
-                "population": 5,
-                "districts": 6,
-                "armies": 0,
-                "stability": 35,
-                "amenities": 7,
-                "free_amenities": -3.0,
                 "amenities_usage": 10,
-                "free_housing": 38,
-                "total_housing": 43
+                "free_housing": 9,
+                "total_housing": 14
             },
-            "Rickichi's Roost": {
-                "name": "Rickichi's Roost",
+            "8297": {
+                "name": "Factory Hab",
                 "size": 4,
-                "population": 12,
-                "districts": 4,
+                "population": 5,
+                "districts": 23,
                 "armies": 0,
-                "stability": 35.392,
-                "amenities": 12,
-                "free_amenities": -5.0,
-                "amenities_usage": 17,
-                "free_housing": 16,
-                "total_housing": 27
+                "stability": 76.8304,
+                "amenities": 18,
+                "free_amenities": 8,
+                "amenities_usage": 10,
+                "free_housing": 1,
+                "total_housing": 6
             }
         },
         "types": {
-            "Habitat": 81,
-            "Machine": 78,
-            "Tropical": 3,
-            "Desert": 4,
-            "Savannah": 4,
-            "Gaia": 1,
-            "Ocean": 2,
-            "Nuked": 5,
-            "Relic": 2,
-            "Tundra": 1,
+            "Ring World Section": 3,
+            "Savannah": 17,
             "Alpine": 1,
-            "Arid": 2,
-            "Continental": 1,
-            "Ring World Section": 4
+            "Tundra": 1,
+            "Habitat": 14
         },
         "districts": {
-            "avg": 9.243386243386244,
+            "avg": 11.277777777777779,
             "min": 2,
-            "max": 25,
-            "total": 1747
+            "max": 23,
+            "total": 406
         },
         "buildings": {
-            "avg": 8.470899470899472,
+            "avg": 10.666666666666666,
             "min": 1,
             "max": 16,
-            "total": 1601
+            "total": 384
         },
         "sizes": {
-            "avg": 11.936507936507937,
+            "avg": 11.916666666666666,
             "min": 4,
-            "max": 30,
-            "total": 2256
+            "max": 23,
+            "total": 429
         },
         "stability": {
-            "avg": 53.389306349206315,
-            "min": 0.7575,
-            "max": 85,
-            "total": 10090.578899999993
+            "avg": 70.72842222222224,
+            "min": 57.5002,
+            "max": 81.4962,
+            "total": 2546.2232000000004
         },
         "amenities": {
-            "avg": 20.306878306878307,
-            "min": -43.0,
-            "max": 238,
-            "total": 3838.0
+            "avg": 27.22222222222222,
+            "min": -2.0,
+            "max": 108,
+            "total": 980.0
         },
         "housing": {
-            "avg": 26.005291005291006,
-            "min": -18.0,
-            "max": 205,
-            "total": 4915.0
+            "avg": 9.13888888888889,
+            "min": 0,
+            "max": 62,
+            "total": 329
         },
         "crime": {
-            "avg": 5.562962962962963,
+            "avg": 0.2597222222222222,
             "min": 0,
-            "max": 100,
-            "total": 1051.4
+            "max": 4.25,
+            "total": 9.35
         },
         "pops": {
-            "avg": 47.92063492063492,
-            "min": 4,
-            "max": 203,
-            "total": 9057
+            "avg": 56.69444444444444,
+            "min": 5,
+            "max": 169,
+            "total": 2041
         },
         "age_days": {
-            "avg": 64217.31746031746,
-            "min": 11037,
-            "max": 103287,
-            "total": 12137073
+            "avg": 30808.333333333332,
+            "min": 4520,
+            "max": 64040,
+            "total": 1109100
         },
         "age": {
-            "avg": 178.38143738977038,
-            "min": 30.658333333333335,
-            "max": 286.90833333333336,
-            "total": 33714.0916666666
+            "avg": 85.57870370370368,
+            "min": 12.555555555555555,
+            "max": 177.88888888888889,
+            "total": 3080.8333333333326
         }
     },
     "pops": {
-        "total": 9057,
+        "total": 2041,
         "jobs": {
-            "Replicator": 610,
-            "Coordinator": 363,
-            "Technician Drone": 1403,
-            "Warrior Drone": 166,
-            "Chemist Drone": 59,
-            "Maintenance Drone": 1946,
-            "Gas Refiner Drone": 76,
-            "Mining Drone": 408,
-            "Calculator": 1203,
-            "Fabricator": 1281,
-            "Patrol Drone": 415,
-            "Evaluator": 88,
-            "Translucer Drone": 51,
-            "Artisan Drone": 61,
-            "Corrupt Drone": 44,
-            "Purge": 571,
-            "Mote Harvesting Drone": 20,
-            "Gas Extraction Drone": 10,
-            "Head Researcher": 3,
-            "Crystal Mining Drone": 6,
-            "Agri Drone": 46
+            "Head Researcher": 39,
+            "Administrator": 60,
+            "Artisan": 84,
+            "Researcher": 130,
+            "Foundry": 315,
+            "Roboticist": 92,
+            "Healthcare": 90,
+            "Culture Worker": 58,
+            "Merchant": 51,
+            "Enforcer": 56,
+            "Bureaucrat": 95,
+            "Clerk": 369,
+            "Farmer": 37,
+            "Odd Factory Worker": 1,
+            "Entertainer": 52,
+            "Technician": 129,
+            "Gas Refiner": 12,
+            "Translucer": 15,
+            "Chemist": 33,
+            "Miner": 207,
+            "Soldier": 104,
+            "Colonist": 2,
+            "Gas Extractor": 3,
+            "Crystal Miner": 2,
+            "Dimensional Portal Researcher": 3
         },
         "species": {
-            "Promethean": 6834,
-            "XT-489": 1249,
-            "Ess'Jaggon": 58,
-            "Alari": 130,
-            "Robot": 377,
-            "Najklax": 66,
-            "Yv'Zorak": 6,
-            "Pelx-Cradonian": 6,
-            "Netraxi": 8,
-            "Tuxkan": 33,
-            "Yssravannar": 7,
-            "Sibulan": 13,
-            "Ymacera": 27,
-            "Helvan": 22,
-            "Racket": 40,
-            "Rixi": 3,
-            "Ketling": 70,
-            "Saiiban": 14,
-            "Buvhondon": 9,
-            "Miidari": 12,
-            "Genoggian": 3,
-            "Birnathi": 1,
-            "Screk": 1,
-            "Dyss": 64,
-            "Wacegi": 3,
-            "Fellnoll": 1
+            "Neo-Super-Science Fox": 1657,
+            "Robot": 384
         }
     },
     "fleets": {
-        "total": 25,
+        "total": 8,
         "fleet_power": {
-            "avg": 394702.63619083335,
-            "min": 81785.06524,
-            "max": 471864.68884,
-            "total": 9472863.26858
+            "avg": 39471.09715571429,
+            "min": 361.01559,
+            "max": 98480.68652,
+            "total": 276297.68009000004
         },
         "ships": {
-            "avg": 88.48,
+            "avg": 24.375,
             "min": 1,
-            "max": 250,
-            "total": 2212
+            "max": 124,
+            "total": 195
         },
         "ship_types": {
-            "Destroyer": 374,
-            "Battleship": 364,
-            "Corvette": 1350,
-            "Cruiser": 100,
-            "Titan": 20,
-            "Juggernaut": 1,
+            "Titan": 5,
+            "Battleship": 35,
+            "Destroyer": 25,
             "Npc_warship_01": 1,
-            "Graygoo_interdictor": 1,
-            "Colossus": 1
+            "Corvette": 127,
+            "Colossus": 1,
+            "Juggernaut": 1
         },
-        "avg_ship_exp": 360.1454792043443
+        "avg_ship_exp": 228.57538461538465,
+        "fleets": {
+            "16777389": {
+                "id": 16777389,
+                "power": 98480.68652,
+                "ship_count": 25,
+                "experience": {
+                    "avg": 0.0,
+                    "min": 0,
+                    "max": 0,
+                    "total": 0
+                }
+            },
+            "16778918": {
+                "id": 16778918,
+                "power": 95717.83322,
+                "ship_count": 41,
+                "experience": {
+                    "avg": 11709.202439024393,
+                    "min": 1104.5,
+                    "max": 19018.499999999996,
+                    "total": 480077.3000000001
+                }
+            },
+            "33556323": {
+                "id": 33556323,
+                "power": 361.01559,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 19018.499999999996,
+                    "min": 19018.499999999996,
+                    "max": 19018.499999999996,
+                    "total": 19018.499999999996
+                }
+            },
+            "16779268": {
+                "id": 16779268,
+                "power": 361.01559,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 19018.499999999996,
+                    "min": 19018.499999999996,
+                    "max": 19018.499999999996,
+                    "total": 19018.499999999996
+                }
+            },
+            "2786": {
+                "id": 2786,
+                "power": 0.0,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 19018.499999999996,
+                    "min": 19018.499999999996,
+                    "max": 19018.499999999996,
+                    "total": 19018.499999999996
+                }
+            },
+            "2830": {
+                "id": 2830,
+                "power": 29788.54312,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 19018.499999999996,
+                    "min": 19018.499999999996,
+                    "max": 19018.499999999996,
+                    "total": 19018.499999999996
+                }
+            },
+            "16780049": {
+                "id": 16780049,
+                "power": 51227.57046,
+                "ship_count": 124,
+                "experience": {
+                    "avg": 42052.070967742024,
+                    "min": 20122.999999999996,
+                    "max": 44572.200000000004,
+                    "total": 5214456.800000011
+                }
+            },
+            "83888970": {
+                "id": 83888970,
+                "power": 361.01559,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 44572.200000000004,
+                    "min": 44572.200000000004,
+                    "max": 44572.200000000004,
+                    "total": 44572.200000000004
+                }
+            }
+        }
     },
     "armies": {
-        "total": 1153,
+        "total": 424,
         "types": {
-            "Machine Defense": 1141,
-            "Machine Assault 3": 10,
-            "Machine Assault 1": 1,
-            "Gray Army": 1
+            "Robotic Defense Army": 408,
+            "Clone Army": 10,
+            "Assault Army": 6
         }
     }
 }

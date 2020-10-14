@@ -32,7 +32,8 @@ const PresetColors = {
     'Available Physics Techs': '#3b94d4',
     'Available Engineering Techs': '#e39f0e',
     'Percent Male': '#68bef7',
-    'Percent Female': '#ff4fe5'
+    'Percent Female': '#ff4fe5',
+    'Net Income': 'white'
 }; // TODO - all names and colors
 
 const Saturation = 75;
@@ -79,6 +80,15 @@ function selectNested(path, object, alt=null) {
         }
         return ref;
     } catch (err) { return alt; }
+}
+
+function findNested(path, data, alt) {
+    for (let i = data.length - 1; i >= 0; i -= 1) {
+        const val = selectNested(path, data[i], null);
+        if (val !== null)
+            return val;
+    }
+    return alt;
 }
 
 function valueToString(value) {
@@ -149,7 +159,7 @@ function capitalize(str, sep) {
     return sep ? str.split(sep).map(capitalizeWord).join(' ') : capitalizeWord(str);
 }
 
-function renderLine(line, labelColor, onClick) {
+function renderLine(line, labelColor, onClick, strokeWidth=1) {
     return (
         <Line
             key={line.label}
@@ -159,11 +169,11 @@ function renderLine(line, labelColor, onClick) {
             type='monotone'
             dot={false}
             activeDot
-            strokeWidth={1}
             connectNulls={false}
             stroke={labelColor}
             isAnimationActive={true}
             onClick={onClick}
+            strokeWidth={strokeWidth}
         />
     );
 }
@@ -203,6 +213,7 @@ export {
     valueTickFormat,
     percentValueFormat,
     selectNested,
+    findNested,
     getDataColors,
     objectKeys,
     findKeysOverSeries,
