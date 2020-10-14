@@ -82,6 +82,15 @@ function selectNested(path, object, alt=null) {
     } catch (err) { return alt; }
 }
 
+function findNested(path, data, alt) {
+    for (let i = data.length - 1; i >= 0; i -= 1) {
+        const val = selectNested(path, data[i], null);
+        if (val !== null)
+            return val;
+    }
+    return alt;
+}
+
 function valueToString(value) {
     let s = value.toFixed(2);
     if (s.substring(s.length - 3) === '.00')
@@ -160,7 +169,6 @@ function renderLine(line, labelColor, onClick, strokeWidth=1) {
             type='monotone'
             dot={false}
             activeDot
-            strokeWidth={1}
             connectNulls={false}
             stroke={labelColor}
             isAnimationActive={true}
@@ -205,6 +213,7 @@ export {
     valueTickFormat,
     percentValueFormat,
     selectNested,
+    findNested,
     getDataColors,
     objectKeys,
     findKeysOverSeries,

@@ -24,6 +24,8 @@ function PieChart(props) {
                     formatter={formatter}
                     label={label ? data => formatter(data.payload.value) : false}
                     labelLine={true}
+                    startAngle={90}
+                    endAngle={450}
                 >
                     {sections.map(section => <Cell key={section.label} fill={labelColors[section.label]}/>)}
                 </Pie>
