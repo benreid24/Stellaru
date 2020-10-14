@@ -187,7 +187,7 @@ function ComposedChart(props) {
     });
 
     return (
-        <ResponsiveContainer>
+        <ResponsiveContainer width='100%' height='100%'>
             <ReChart data={data} syncId={getCurrentTab()} margin={{top: 45, right: 15, left: 15, bottom: 5}}>
                 <XAxis
                     dataKey='xLabel'
