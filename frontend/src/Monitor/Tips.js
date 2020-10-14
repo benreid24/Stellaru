@@ -42,7 +42,7 @@ function Tips(props) {
 
     return (
         <div className='tipBox tabRow' onClick={onClick}>
-            <p className='tip'>{TipList[TipOrder[currentTip]]}</p>
+            <p className='tip noselect'>{TipList[TipOrder[currentTip]]}</p>
         </div>
     );
 }
