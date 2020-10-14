@@ -61,6 +61,14 @@ function RenderTooltip(props) {
     );
 }
 
+function labelColorsEqual(left, right) {
+    for (const [label, color] of Object.entries(left)) {
+        if (!right.hasOwnProperty(label)) return false;
+        if (color !== right[label]) return false;
+    }
+    return true;
+}
+
 function ComposedChart(props) {
     const name = props.name ? props.name : null;
     const rawData = props.data;
@@ -78,12 +86,16 @@ function ComposedChart(props) {
     const [labelColors, setLabelColors] = useState(props.labelColors ? props.labelColors : initialColors);
     const shuffleOrder = useState(initialShuffled)[0];
     useEffect(() => {
+        let newLabelColors = null;
         if (!props.labelColors) {
-            const newColors = getDataColors(series.map(series => series.label), shuffleOrder)[0];
-            setLabelColors(newColors);
+            newLabelColors = getDataColors(series.map(series => series.label), shuffleOrder)[0];
         }
         else {
-            setLabelColors(props.labelColors);
+            newLabelColors = props.labelColors;
+        }
+
+        if (!labelColorsEqual(newLabelColors, labelColors)) {
+            setLabelColors(newLabelColors);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [series, props.labelColors]);
