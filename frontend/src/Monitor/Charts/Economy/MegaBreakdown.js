@@ -109,7 +109,7 @@ function MegaBreakdown(props) {
     }, [data, resourceType, resourceTypes, name]);
 
     return (
-        <Chart title={`${getResourceName(resourceType)} Production Overview`} titleColor='#ded140'>
+        <Chart title={`${getResourceName(resourceType)} Production Breakdown`} titleColor='#ded140'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>
@@ -134,7 +134,7 @@ function MegaBreakdown(props) {
 }
 
 registerChart(
-    'Resource Production Overview',
+    'Resource Production Breakdown',
     'Shows a breakdown of spending and income for an individual resource, overlayed with net income',
     MegaBreakdown
 );
