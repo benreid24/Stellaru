@@ -73,7 +73,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4, height: 49, saveName: randomString(8)}]);
+        setCharts([...charts, {name: chart, size: 4, height: 450, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -119,34 +119,60 @@ function CustomTab(props) {
             };
         };
 
+        if (charts.length === 0) {
+            setRenderedCharts(<div className='row chartRow justify-content-center'/>);
+            return;
+        }
+
         let rendered = [];
-        for (let i in charts) {
-            const chart = charts[i];
-            const className = 'mb-3 col-' + chart.size;
-            const Chart = getChart(chart.name).component;
+        let toRender = charts.slice();
+        let currentRow = [];
+        let rowWidth = 0;
+        let rowHeight = charts[0].height;
+        let rowCount = 0;
+        const addRow = () => {
             rendered.push(
-                <div className={className} key={chart.saveName}>
-                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.saveName)}/>
+                <div key={rowCount} className='row' style={{height: `${rowHeight}px`}}>
+                    {currentRow}
                 </div>
             );
+            rowCount += 1;
+            currentRow = [];
+            rowWidth = 0;
+            rowHeight = 0;
+        };
+        while (toRender.length > 0) {
+            const chart = toRender[0];
+            if (rowWidth + chart.size > 12) {
+                addRow();
+            }
+            else {
+                const Chart = getChart(chart.name).component;
+                currentRow.push(
+                    <div key={chart.saveName}  className={`mb-3 col-${chart.size}`}>
+                        <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
+                    </div>
+                );
+                if (chart.height > rowHeight) rowHeight = chart.height;
+                rowWidth += chart.size;
+                toRender = toRender.splice(1);
+            }
         }
+        if (currentRow.length > 0)
+            addRow();
         setRenderedCharts(rendered);
+
         window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
     }, [charts, data]);
 
-    let rowClass = 'row chartRow';
-    if (renderedCharts.length === 0)
-        rowClass += ' justify-content-center';
     return (
         <div className='customTab'>
             <div className='customTabHeader'>
                 <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             </div>
-            <div className='customTabContent'>
-                <div className={rowClass}>
-                    {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
-                    {renderedCharts}
-                </div>
+            <div className='container-fluid customTabContent'>
+                {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
+                {renderedCharts}
             </div>
         </div>
     );
