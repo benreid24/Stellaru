@@ -10,17 +10,28 @@ jobs:
   build:
     name: Build Release
     runs-on: windows-latest
+
+    strategy:
+      matrix:
+        python-version: [3.8]
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Build Frontend
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Build Frontend
         run: |
           cd frontend
           npm install
           npm run build
       - name: Build Backend
-        uses: actions/setup-python@v2
         with:
           python-version: 3.8
         run: |
