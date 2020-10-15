@@ -5,6 +5,7 @@
     width: 100%;
     height: 100%;
     box-shadow: 6px 6px #121212;
+    position: relative;
 }
 
 .chartTitle {

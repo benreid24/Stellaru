@@ -73,7 +73,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4, height: 450, saveName: randomString(8)}]);
+        setCharts([...charts, {name: chart, size: 30, height: 49, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -90,11 +90,11 @@ function CustomTab(props) {
         const onResize = (chart, larger) => {
             setCharts(charts.reduce((newCharts, cChart) => {
                 if (cChart.saveName === chart) {
-                    cChart.size += larger ? 1 : -1;
-                    if (cChart.size > 12)
-                        cChart.size = 12;
-                    if (cChart.size < 1)
-                        cChart.size = 1;
+                    cChart.size += larger ? 3 : -3;
+                    if (cChart.size > 95)
+                        cChart.size = 95;
+                    if (cChart.size < 10)
+                        cChart.size = 10;
                 }
                 return [...newCharts, cChart];
             }, []));
@@ -120,7 +120,7 @@ function CustomTab(props) {
         };
 
         if (charts.length === 0) {
-            setRenderedCharts(<div className='row chartRow justify-content-center'/>);
+            setRenderedCharts([]);
             return;
         }
 
@@ -132,7 +132,7 @@ function CustomTab(props) {
         let rowCount = 0;
         const addRow = () => {
             rendered.push(
-                <div key={rowCount} className='row' style={{height: `${rowHeight}px`}}>
+                <div key={rowCount} className='customRow' style={{height: `${rowHeight}%`}}>
                     {currentRow}
                 </div>
             );
@@ -143,13 +143,13 @@ function CustomTab(props) {
         };
         while (toRender.length > 0) {
             const chart = toRender[0];
-            if (rowWidth + chart.size > 12) {
+            if (rowWidth + chart.size > 98) {
                 addRow();
             }
             else {
                 const Chart = getChart(chart.name).component;
                 currentRow.push(
-                    <div key={chart.saveName}  className={`mb-3 col-${chart.size}`}>
+                    <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
                         <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
                     </div>
                 );
@@ -161,17 +161,19 @@ function CustomTab(props) {
         if (currentRow.length > 0)
             addRow();
         setRenderedCharts(rendered);
-
-        window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
     }, [charts, data]);
+
+    useEffect(() => {
+        window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
+    }, [charts]);
 
     return (
         <div className='customTab'>
             <div className='customTabHeader'>
                 <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             </div>
-            <div className='container-fluid customTabContent'>
-                {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
+            <div className='customTabContent'>
+                {renderedCharts.length === 0 && <div className='row chartRow justify-content-center'><div className='col-6'><p>Create a custom dashboard by adding charts</p></div></div>}
                 {renderedCharts}
             </div>
         </div>
