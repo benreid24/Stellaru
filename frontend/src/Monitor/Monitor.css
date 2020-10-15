@@ -144,3 +144,25 @@
     text-align: center;
     margin: 0px;
 }
+
+.helpPage {
+    text-align: left;
+}
+
+.helpTitle {
+    color: #d3d3d3;
+}
+
+.helpSubtitle {
+    color: #33ffb3;
+}
+
+.helpLabel {
+    color: #22ffee;
+}
+
+.helpValue {
+    color: #22cf55;
+    font-size: 110%;
+    font-weight: bold;
+}

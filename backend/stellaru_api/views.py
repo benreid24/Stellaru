@@ -2,6 +2,8 @@ from datetime import datetime
 import os
 import json
 import traceback
+import socket
+from requests import get
 
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -157,6 +159,20 @@ def get_latest_snap(request):
             'file': save_watcher.name(),
             'empire': empire,
             'latest_snap': save['snaps'][-1]['empires'][empire]
+        })
+    except Exception as err:
+        return _make_error(f'Bad request body: {repr(err)}')
+
+
+def get_connection_info(request):
+    try:
+        local_ip = socket.gethostbyname(socket.gethostname())
+        external_ip = get('https://api.ipify.org').text
+        port = request.get_port()
+        return JsonResponse({
+            'local_ip': local_ip,
+            'external_ip': external_ip,
+            'port': port
         })
     except Exception as err:
         return _make_error(f'Bad request body: {repr(err)}')
