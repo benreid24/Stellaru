@@ -109,7 +109,7 @@ function MegaBreakdown(props) {
     }, [data, resourceType, resourceTypes, name]);
 
     return (
-        <Chart title={`${getResourceName(resourceType)} Production Breakdown`} titleColor='#ded140'>
+        <Chart overlay={props.overlay} title={`${getResourceName(resourceType)} Production Breakdown`} titleColor='#ded140'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>
