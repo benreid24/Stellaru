@@ -66,9 +66,14 @@ function CustomTab(props) {
     const [renderedCharts, setRenderedCharts] = useState([]);
 
     useEffect(() => {
-        const saved = window.localStorage.getItem('stellaruCharts');
-        if (saved !== null) {
-            setCharts(JSON.parse(saved));
+        try {
+            const saved = window.localStorage.getItem('stellaruCharts');
+            if (saved !== null) {
+                setCharts(JSON.parse(saved));
+            }
+        }
+        catch (_) {
+            setCharts([]);
         }
     }, []);
 
