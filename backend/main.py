@@ -1,3 +1,7 @@
+# Imports for compilation only
+import channels.apps
+import stellaru_api.urls
+
 import functools
 import os
 import socket
@@ -6,10 +10,12 @@ import webbrowser
 import time
 from contextlib import closing
 
-import django
 from daphne.server import Server
+import django
 from daphne.endpoints import build_endpoint_description_strings
 from channels.staticfiles import StaticFilesWrapper
+
+from stellaru import settings_release
 
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 42069
@@ -17,7 +23,7 @@ DEFAULT_PORT = 42069
 
 def port_open(port):
     with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
-        return sock.connect_ex((DEFAULT_HOST, port)) == 0
+        return sock.connect_ex(('localhost', port)) != 0
 
 
 def find_port():
@@ -36,8 +42,10 @@ def open_browser(port):
 
 
 def main():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stellaru.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stellaru.settings_release")
     django.setup()
+    django.core.management.call_command("makemigrations")
+    django.core.management.call_command("migrate")
 
     port = find_port()
     from stellaru import routing as stellaru_app
