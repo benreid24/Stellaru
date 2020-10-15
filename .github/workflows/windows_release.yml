@@ -1,0 +1,66 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Build Release
+
+jobs:
+  build:
+    name: Build Release
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+      - name: Build Backend
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm main.py
+      - name: Package Project
+        run: |
+          cd backend
+          python manage.py collectstatic
+          mv static dist/Stellaru
+          cd dist
+          Compress-Archive -Path Stellaru -DestinationPath Windows.zip
+          mv Windows.zip ../../
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.head_commit.message }}
+          release_name: Release ${{ github.event.head_commit.message }}
+          draft: true
+          prerelease: true
+      - name: Upload Package
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./Windows.zip
+          asset_name: Windows.zip
+          asset_content_type: application/zip
