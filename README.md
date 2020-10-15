@@ -38,6 +38,9 @@ There are many charts available in Stellaru. They are available across a series 
 ### Overview Tab and Full UI:
 ![OVerview Tab](docs/screenshots/overview.png)
 
+### Economy Tab Showing Tooltips
+![Economy Tab](docs/screenshots/economyTooltip.png)
+
 ### Detailed Income and Spending Comparisons
 ![Income/Spending Breakdown](docs/screenshots/productionChart.png)
 
