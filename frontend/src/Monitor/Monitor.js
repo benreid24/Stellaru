@@ -82,7 +82,6 @@ function DateSlider(props) {
 
     useEffect(() => {
         if (gameData.length > 1 && dateRange[0] !== dateRange[1]) {
-            console.log(gameData[gameData.length-1]);
             let ticks = [];
             if (dateRange[0] / gameData.length >= 0.1)
                 ticks.push(0);
