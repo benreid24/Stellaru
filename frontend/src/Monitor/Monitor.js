@@ -15,6 +15,7 @@ import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
 import Construction from './Tabs/Construction';
 import Federation from './Tabs/Federation';
+import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
@@ -126,6 +127,7 @@ function Monitor(props) {
     const [dateRange, setDateRange] = useState([0, 0]);
     const [status, setStatus] = useState(subscription.status);
     const [currentTab, setCurrentTab] = useState(0);
+    const [connInfo, setConnInfo] = useState(null);
 
     const onTabChange = (_, newTab) => {
         setCurrentTab(newTab);
@@ -139,6 +141,12 @@ function Monitor(props) {
     };
     subscription.onSnap = onNewData;
     subscription.onStatus = setStatus;
+
+    useEffect(() => {
+        fetch('api/conn_info', {method: 'get'}).then(
+            response => response.json()
+        ).then(data => setConnInfo(data));
+    }, []);
 
     useEffect(() => {
         fetch(
@@ -192,6 +200,7 @@ function Monitor(props) {
                             <Tab label='Empire'/>
                             <Tab label='Federation'/>
                             <Tab label='Construction'/>
+                            <Tab label='Help'/>
                         </Tabs>
                     </div>
                     <div className='col-3'>
@@ -227,6 +236,9 @@ function Monitor(props) {
                     </TabPanel>
                     <TabPanel value={currentTab} index={8}>
                         <Construction data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={9}>
+                        <Help connInfo={connInfo}/>
                     </TabPanel>
                 </div>
             }
