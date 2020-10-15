@@ -4,3 +4,6 @@ __pycache__
 node_modules
 .DS_Store
 static
+dist
+Stellaru.spec
+build
