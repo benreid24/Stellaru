@@ -93,14 +93,6 @@
     height: 100%;
 }
 
-.chartCol {
-    min-height: 49%;
-}
-
-.presetChartRow {
-    height: 80%;
-}
-
 .customTab {
     display: flex;
     flex-flow: column;

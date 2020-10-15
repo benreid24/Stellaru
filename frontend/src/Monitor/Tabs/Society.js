@@ -12,19 +12,19 @@ function Society(props) {
     return (
         <div className='monitorTab'>
             <div className='row chartRow'>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <Pops data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <Jobs data={data}/>
                 </div>
-                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 chartCol presetChart'>
+                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 presetChart'>
                     <Leaders data={data}/>
                 </div>
-                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 chartCol presetChart'>
+                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 presetChart'>
                     <LeaderStats data={data}/>
                 </div>
-                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 chartCol presetChart'>
+                <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 presetChart'>
                     <LeaderGender data={data}/>
                 </div>
             </div>

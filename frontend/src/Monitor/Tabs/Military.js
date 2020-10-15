@@ -11,16 +11,16 @@ function Military(props) {
     return (
         <div className='monitorTab'>
             <div className='row chartRow'>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <FleetPower data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <Ships data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 presetChart'>
                     <Armies data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 presetChart'>
                     <FleetShips data={data}/>
                 </div>
             </div>

@@ -73,7 +73,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4, saveName: randomString(8)}]);
+        setCharts([...charts, {name: chart, size: 4, height: 49, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -122,7 +122,7 @@ function CustomTab(props) {
         let rendered = [];
         for (let i in charts) {
             const chart = charts[i];
-            const className = 'mb-3 chartCol col-' + chart.size;
+            const className = 'mb-3 col-' + chart.size;
             const Chart = getChart(chart.name).component;
             rendered.push(
                 <div className={className} key={chart.saveName}>
