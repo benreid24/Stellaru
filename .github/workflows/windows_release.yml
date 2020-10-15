@@ -28,8 +28,6 @@ jobs:
           npm install
           npm run build
       - name: Build Backend
-        with:
-          python-version: 3.8
         run: |
           cd backend
           python -m pip install --upgrade pip
