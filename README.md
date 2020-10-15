@@ -7,11 +7,12 @@ Stellaru contains a laundry list of functionaility that aims to make it as usefu
 1. Easy to use and cross platform compatible
 2. Works with multiplayer out of the box (though port forwarding is required for players over the internet)
 3. Charts update in real time as you play. Refresh rate depends on autosave frequency
-4. Over thirty differnt charts and visualizations, organised by category
+4. Over thirty differnt charts and visualizations, organized by category
 5. The ability for each user to build their own custom dashboard using their favorite charts
 6. Each chart is interactive and customizable, data may be hidden or shown in all charts
-7. The date range of shown data may be adjusted in order to zoom in on interesting periods
-8. All changes to each chart and the custom dashboard are persisted for each individual user
+7. Tooltips hover over all charts when any one is moused over, showing all values at a point in time
+8. The date range of shown data may be adjusted in order to zoom in on interesting periods
+9. All changes to each chart and the custom dashboard are persisted for each individual user
 
 
 ## Getting Stellaru
