@@ -39,7 +39,7 @@ jobs:
           python manage.py collectstatic
           mv static dist/Stellaru
           cd dist
-          zip -r Stellaru.zip Stellaru
+          Compress-Archive -Path Stellaru -DestinationPath Stellaru.zip
           mv Stellaru.zip ../../
       - name: Create Release
         id: create_release
