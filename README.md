@@ -13,12 +13,10 @@ Stellaru contains a laundry list of functionaility that aims to make it as usefu
 7. The date range of shown data may be adjusted in order to zoom in on interesting periods
 8. All changes to each chart and the custom dashboard are persisted for each individual user
 
---------------------------------
 
 ## Getting Stellaru
 Prebuilt binaries for supported platforms are available [here](https://github.com/benreid24/Stellaru/releases) as zipped folders. Download the appropriate zipfile for your computer and extract the *Stellaru* folder where you would like. Inside the folder is a binary executable that can be double clicked to start Stellaru. A web browser will open with the save selection screen.
 
---------------------------------
 
 ## Multiplayer
 Stellaru works by running a lightweight webserver that only supplies the frontend as content. This makes it inherently compatible with multiplayer as the other players can navigate to it via their web browsers. The main barrier is forwarding the proper port on your router to your local computer. The Help tab inside of Stellaru will contain specifics on what port to forward, which IP to forward to, and the URL for multiplayer players to connect to. How to forward ports varies from router to router. The steps are as follows:
@@ -32,7 +30,6 @@ Stellaru works by running a lightweight webserver that only supplies the fronten
     - The internal IP address is the IP found in step 3. Note that the internal IP may change, especially for computers connected over WiFi. The forwarded port would need to be updated in that case
 5. Send the Multiplayer Link from the Help page to your multiplayer friends, who should open it in their web browser of choice
 
---------------------------------
 
 ## Available Visualizations
 There are many charts available in Stellaru. They are available across a series of categories, and the ability to create a custom dashboard with your favorite charts exists as well. Some charts include the following:
@@ -52,7 +49,6 @@ There are many charts available in Stellaru. They are available across a series 
 ### Interactive Charts Allow Showing/Hising Data
 ![Interactive Chart](docs/screenshots/isolatedChart.png)
 
---------------------------------
 
 ## Running From Source
 For those wishing to make changes or avoid prebuilt binaries, Stellaru may be run from source quite easily. The frontend is built using React and the backend is Python, using Daphne and Django. There are two ways to run from source: Run the Node development server and Django development server side by side, or build the frontend and use the Django development server only. The production service entrypoint, [main.py](backend/main.py) may be used as well. All methods require the following one time setup.
