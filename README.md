@@ -34,7 +34,7 @@ Stellaru works by running a lightweight webserver that only supplies the fronten
 ## Available Visualizations
 There are many charts available in Stellaru. They are available across a series of categories, and the ability to create a custom dashboard with your favorite charts exists as well. Some charts include the following:
 
-### Overview tab and full UI:
+### Overview Tab and Full UI:
 ![OVerview Tab](docs/screenshots/overview.png)
 
 ### Detailed Income and Spending Comparisons
@@ -46,7 +46,7 @@ There are many charts available in Stellaru. They are available across a series 
 ### Empire Wide Jobs Breakdown
 ![Jobs Breakdown](docs/screenshots/jobsChart.png)
 
-### Interactive Charts Allow Showing/Hising Data
+### Interactive Charts Allow Showing/Hiding Data
 ![Interactive Chart](docs/screenshots/isolatedChart.png)
 
 
