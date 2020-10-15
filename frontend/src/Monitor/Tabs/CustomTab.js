@@ -78,7 +78,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 30, height: 49, saveName: randomString(8)}]);
+        setCharts([...charts, {name: chart, size: 32, height: 37, saveName: randomString(8)}]);
     };
     const onClear = () => {
         setCharts([]);
@@ -137,7 +137,7 @@ function CustomTab(props) {
         let rowCount = 0;
         const addRow = () => {
             rendered.push(
-                <div key={rowCount} className='customRow' style={{height: `${rowHeight}%`}}>
+                <div key={rowCount} className='customRow' style={{height: `${rowHeight}vh`}}>
                     {currentRow}
                 </div>
             );
