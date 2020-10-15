@@ -9,7 +9,8 @@ const TipList = [
     'Create a custom dashboard with your favorite charts in the "Custom" tab',
     'All your changes to charts will persist, so everything will be as you left it when you reopen Stellaru',
     'Stellaru works for multiplayer as well, visit the Help tab to learn how',
-    'Sometimes charts will render a little funny. Click a legend item twice to fix them'
+    'Sometimes charts will render a little funny. Click a legend item twice to fix them',
+    'Click this tip box to cycle through the tip list'
 ];
 const makeList = () => {
     let list = [];
