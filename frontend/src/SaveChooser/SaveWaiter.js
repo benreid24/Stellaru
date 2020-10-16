@@ -90,6 +90,7 @@ function SaveWaiter(props) {
     if (error !== null) {
         return (
             <div className='container-fluid h-100'>
+                <BackButton onClick={onBack}/>
                 <h1 className='error'>Error</h1>
                 <p className='error'>{error}</p>
             </div>
