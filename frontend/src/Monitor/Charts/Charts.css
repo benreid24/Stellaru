@@ -13,7 +13,7 @@
     top: 1.1%;
     transform: translateX(-50%);
     position: absolute;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     width: 90%;
  }
 
@@ -29,11 +29,9 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    right: 2%;
-    width: 6%;
-    max-width: 70px;
-    height: 10%;
-    max-height: 70px;
+    right: 1%;
+    width: 40px;
+    height: 40px;
 }
 
 .chartOverlayTriggerArea:hover {
@@ -52,7 +50,7 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    right: 2%;
+    right: 1%;
     width: 90px;
     height: 160px;
     text-align: left;
@@ -63,7 +61,7 @@
     color: rgba(80,80,80,0.9);
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translateX(-50%) translateY(-50%);
 }
 

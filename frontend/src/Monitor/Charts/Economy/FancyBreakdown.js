@@ -211,6 +211,9 @@ function FancyBreakdown(props) {
                 setResourceType(resource);
             }
         }
+        else if (!resourceType && resourceTypes.includes('Energy Credit')) {
+            setResourceType('Energy Credit');
+        }
     }, [data, resourceType, resourceTypes, name]);
 
     return (

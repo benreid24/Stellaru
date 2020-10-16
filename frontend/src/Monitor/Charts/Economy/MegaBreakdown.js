@@ -106,6 +106,9 @@ function MegaBreakdown(props) {
                 setResourceType(resource);
             }
         }
+        else if (!resourceType && resourceTypes.includes('energy')) {
+            setResourceType('energy');
+        }
     }, [data, resourceType, resourceTypes, name]);
 
     return (
