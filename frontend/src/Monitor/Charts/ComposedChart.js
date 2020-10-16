@@ -82,6 +82,10 @@ function ComposedChart(props) {
     const leftDomain = props.leftDomain ? props.leftDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
     const rightDomain = props.rightDomain ? props.rightDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
 
+    series.forEach(series => {
+        series.labelId = makeId(`${name}_${series.label}`);
+    });
+
     const [initialColors, initialShuffled] = getDataColors(series.map(series => series.label));
     const [labelColors, setLabelColors] = useState(props.labelColors ? props.labelColors : initialColors);
     const shuffleOrder = useState(initialShuffled)[0];
@@ -170,7 +174,7 @@ function ComposedChart(props) {
 
     const renderGradient = series => {
         return (
-            <linearGradient id={makeId(series.label)} x1='0' y1='0' x2='0' y2='1' key={series.label}>
+            <linearGradient id={series.labelId} x1='0' y1='0' x2='0' y2='1' key={series.label}>
                 <stop offset='5%' stopColor={labelColors[series.label]} stopOpacity={0.8}/>
                 <stop offset='95%' stopColor={labelColors[series.label]} stopOpacity={0.1}/>
             </linearGradient>
