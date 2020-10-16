@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+import BackButton from './BackButton';
 import LoadingDots from '../LoadingDots';
 
 const State = Object.freeze({Waiting: 0, Prompted: 1});
@@ -52,6 +53,8 @@ function Prompt(props) {
 
 function SaveWaiter(props) {
     const onSave = props.onSave;
+    const onBack = props.onBack;
+
     const [state, setState] = useState(State.Waiting);
     const [save, setSave] = useState(null);
     const [error, setError] = useState(null);
@@ -95,6 +98,7 @@ function SaveWaiter(props) {
 
     return (
         <div className='container-fluid h-100'>
+            <BackButton onClick={onBack}/>
             <h1 className="saveWaitHeader">Waiting For New Save</h1>
             {state === State.Waiting && <p>Watching Stellaris save directories<LoadingDots/></p>}
             {state === State.Prompted &&
