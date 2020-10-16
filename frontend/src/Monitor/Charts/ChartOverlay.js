@@ -37,12 +37,12 @@ function ChartOverlay(props) {
                 <img src='static/downarrow.png' className='chartOverlayButton' alt='Move down' title='Move down' onClick={onMoveDown}/>
             </div>
             <div className='chartOverlayRow'>
-                <img src='static/smaller.png' className='chartOverlayButton' alt='Make narrower' title='Make narrower' onClick={onResizeSmaller}/>
-                <img src='static/bigger.png' className='chartOverlayButton' alt='Make wider' title='Make wider' onClick={onResizeBigger}/>
+                <img src='static/narrower.png' className='chartOverlayButton' alt='Make narrower' title='Make narrower' onClick={onResizeSmaller}/>
+                <img src='static/wider.png' className='chartOverlayButton' alt='Make wider' title='Make wider' onClick={onResizeBigger}/>
             </div>
             <div className='chartOverlayRow'>
-                <img src='static/smaller.png' className='chartOverlayButton' alt='Make shorter' title='Make shorter' onClick={onResizeShorter}/>
-                <img src='static/bigger.png' className='chartOverlayButton' alt='Make taller' title='Make taller' onClick={onResizeTaller}/>
+                <img src='static/shorter.png' className='chartOverlayButton' alt='Make shorter' title='Make shorter' onClick={onResizeShorter}/>
+                <img src='static/taller.png' className='chartOverlayButton' alt='Make taller' title='Make taller' onClick={onResizeTaller}/>
             </div>
         </div>
     )
