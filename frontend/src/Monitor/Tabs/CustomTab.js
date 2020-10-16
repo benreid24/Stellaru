@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
-import {getChart, getAllCharts} from '../ChartRegistry';
+import {getChart, getAllCharts, getAddedCharts, clearAdded} from '../ChartRegistry';
 import {randomString} from '../Charts/Util';
 
 const useStyles = makeStyles((theme) => ({
@@ -70,15 +70,20 @@ function CustomTab(props) {
     };
 
     useEffect(() => {
+        let newCharts = [];
         try {
             const saved = window.localStorage.getItem('stellaruCharts');
             if (saved !== null) {
-                setCharts(JSON.parse(saved));
+                newCharts = JSON.parse(saved);
             }
         }
         catch (_) {
-            setCharts([]);
+            newCharts = [];
         }
+        const added = getAddedCharts();
+        added.forEach(chart => newCharts.push(newChart(chart)));
+        setCharts(newCharts);
+        clearAdded();
     }, []);
 
     const onAdd = chart => {

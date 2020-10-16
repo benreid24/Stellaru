@@ -110,3 +110,34 @@
     padding: 0px;
     margin-bottom: -3px;
 }
+
+.defaultChartOverlay {
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    text-align: left;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.defaultChartOverlay:hover {
+    background-color: rgba(120,120,120,0.3);
+}
+
+.defaultChartOverlay:active {
+    background-color: rgba(40,40,40,0.6);
+}
+
+.addToDashboardText {
+    padding-top: 5px;
+}
+
+.addedToDashText {
+    color: #12de45;
+    font-weight: bold;
+    padding-top: 5px;
+}
