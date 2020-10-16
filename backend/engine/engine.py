@@ -77,9 +77,10 @@ def add_save_watcher(watcher, session_id):
     global monitored_saves
     folder = watcher.name()
     if folder in monitored_saves:
-        save_lock.acquire()
-        monitored_saves[folder]['sessions'].append(session_id)
-        save_lock.release()
+        if session_id not in monitored_saves[folder]['sessions']:
+            save_lock.acquire()
+            monitored_saves[folder]['sessions'].append(session_id)
+            save_lock.release()
 
 
 def session_reconnected(session_id, file):
@@ -147,6 +148,14 @@ def _watch_save(watcher):
                 session for session in save['sessions']
                 if not sessions.session_expired(session)
             ]
+
+            # If all sessions expired wait a few seconds then die
+            if not sessions.sessions_left():
+                print('No sessions left')
+                time.sleep(20)
+                if not sessions.sessions_left():
+                    print('Exiting')
+                    os._exit(0)
 
             # Refresh
             save_lock.acquire()

@@ -63,13 +63,11 @@ def clear_session(session):
 
 
 def session_expired(session):
-    session = _get_session_id(session)
-    if not session:
-        return True
+    return session not in sessions
 
-    if session not in sessions:
-        return True
-    return False
+
+def sessions_left():
+    return len(sessions) > 0
 
 
 def notify_session(session, payload):
