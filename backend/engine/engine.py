@@ -147,15 +147,11 @@ def _watch_save(watcher):
                 session for session in save['sessions']
                 if not sessions.session_expired(session)
             ]
-            if not save['sessions']:
-                print(f'Save expired: {watcher.name()}')
-                save_lock.acquire()
-                #monitored_saves.pop(watcher.name())
-                save_lock.release()
-                break
 
             # Refresh
+            save_lock.acquire()
             _watcher_update(save)
+            save_lock.release()
 
             _send_to_sessions(save, WAITING_MESSAGE)
             time.sleep(1)
