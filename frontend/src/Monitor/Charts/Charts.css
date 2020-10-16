@@ -53,10 +53,8 @@
     position: absolute;
     top: 1%;
     right: 2%;
-    width: 23%;
-    max-width: 250px;
-    min-width: 150px;
-    height: 10%;
+    width: 90px;
+    height: 160px;
     text-align: left;
 }
 
@@ -69,12 +67,21 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
+.chartOverlayRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
 .chartOverlayButton {
-    width: 19%;
-    height: 80%;
+    width: 50%;
+    height: 100%;
     padding: 5px;
     cursor: pointer;
+    border-radius: 10px;
 }
+
 .chartOverlayButton:hover {
     background-color: rgba(80,80,80,0.9);
 }

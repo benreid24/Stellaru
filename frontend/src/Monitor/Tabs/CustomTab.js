@@ -104,6 +104,18 @@ function CustomTab(props) {
                 return [...newCharts, cChart];
             }, []));
         };
+        const onChangeHeight = (chart, taller) => {
+            setCharts(charts.reduce((newCharts, cChart) => {
+                if (cChart.saveName === chart) {
+                    cChart.height += taller ? 1 : -1;
+                    if (cChart.height > 95)
+                        cChart.height = 95;
+                    if (cChart.height < 10)
+                        cChart.height = 10;
+                }
+                return [...newCharts, cChart];
+            }, []));
+        }
         const onMove = (chart, higher) => {
             const i = charts.findIndex(cChart => cChart.saveName === chart);
             if (i >= 0) {
@@ -120,6 +132,7 @@ function CustomTab(props) {
             return {
                 onDelete: () => onDelete(chart),
                 onResize: larger => onResize(chart, larger),
+                onHeight: taller => onChangeHeight(chart, taller),
                 onMove: higher => onMove(chart, higher)
             };
         };
