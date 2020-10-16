@@ -530,14 +530,6 @@ def _get_construction(state, empire):
                 type_count[queue['type']] += queue['simultaneous']
                 type_queues[queue['type']].append(queue)
 
-        queue_list = {
-            queue['id']: {
-                'size': queue['simultaneous'],
-                'items': queue['size'],
-                'type': queue['type']
-            } for queue in build_queues
-        }
-
         breakdown = {
             qtype: {
                 'queue_count': type_count[qtype],
@@ -552,8 +544,7 @@ def _get_construction(state, empire):
             'queued_items': total_items,
             'avg_queue_size': total_items / len(build_queues) if len(build_queues) > 0 else 0,
             'max_queue_size': max_size,
-            'breakdown': breakdown,
-            'queue_list': queue_list
+            'breakdown': breakdown
         }
     except Exception as err:
         print(traceback.format_exc())
