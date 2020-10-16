@@ -9,6 +9,7 @@ name: Make Release
 jobs:
   make_release:
     name: Make Release
+    runs-on: windows-latest
     steps:
       - name: Create Release
         id: create_release
