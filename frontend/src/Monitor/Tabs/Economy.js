@@ -11,16 +11,16 @@ function Economy(props) {
     return (
         <div className='monitorTab'>
             <div className='row chartRow'>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <AllResourceIncomes data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <Stockpiles data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 presetChart'>
                     <MegaBreakdown data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 chartCol presetChart'>
+                <div className='col-xl-6 col-lg-6 col-md-12 presetChart'>
                     <FancyBreakdown spending data={data} name='economybreakdown2'/>
                 </div>
             </div>

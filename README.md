@@ -62,6 +62,7 @@ Frontend dependencies:
 ```
 cd frontend
 npm install
+npm run build
 ```
 Backend virtualenv and dependencies:
 ```

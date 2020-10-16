@@ -6,6 +6,8 @@ import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
 
+const Name = 'All Resource Stockpiles';
+
 function Stockpiles(props) {
     const name = props.name ? props.name : 'stockpiles';
     const data = props.data;
@@ -19,7 +21,7 @@ function Stockpiles(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Resource Stockpiles' titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title='Resource Stockpiles' titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function Stockpiles(props) {
 }
 
 registerChart(
-    'All Resource Stockpiles',
+    Name,
     'Stockpiles of all resources over time',
     Stockpiles
 );

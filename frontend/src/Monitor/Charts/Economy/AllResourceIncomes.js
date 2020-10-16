@@ -6,6 +6,8 @@ import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
 
+const Name = 'All Resource Net Incomes';
+
 function AllResourceIncomes(props) {
     const name = props.name ? props.name : 'allresourceincome';
     const data = props.data;
@@ -19,7 +21,7 @@ function AllResourceIncomes(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='All Resource Net Incomes' titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title='All Resource Net Incomes' titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function AllResourceIncomes(props) {
 }
 
 registerChart(
-    'All Resource Net Incomes',
+    Name,
     'Net incomes of all resources over time',
     AllResourceIncomes
 );

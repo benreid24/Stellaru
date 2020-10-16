@@ -8,6 +8,8 @@ import {registerChart} from '../../ChartRegistry';
 
 import './General.css';
 
+const Name = 'General Game Standing';
+
 function Standing(props) {
     const name = props.name ? props.name : 'standing';
     const data = props.data;
@@ -23,7 +25,7 @@ function Standing(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title={title} titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={title} titleColor='#96d636'>
             <div className='victoryPointChart'>
                 <AreaChart
                     data={data}
@@ -51,7 +53,7 @@ function Standing(props) {
 }
 
 registerChart(
-    'General Game Standing',
+    Name,
     'Victory rank and victory points over time',
     Standing
 );

@@ -141,3 +141,32 @@
 .saveLegendItems {
     padding-left: 15px;
 }
+
+.backButton {
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    width: 150px;
+    height: 70px;
+    background-color: #522e2e;
+    border-radius: 20px;
+    border: 1px solid #331414;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    background-color: #7e4747;
+}
+
+.backButton:active {
+    background-color: #311b1b;
+}
+
+.backButtonText {
+    color: #f0e0e0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+}

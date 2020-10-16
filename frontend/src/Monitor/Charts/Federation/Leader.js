@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Leading Federation';
+
 function LeadingFederation(props) {
     const name = props.name ? props.name : 'LeadingFederation';
     const data = props.data;
@@ -23,7 +25,7 @@ function LeadingFederation(props) {
     };
 
     return (
-        <Chart overlay={props.overlay} title='Leading Federation' titleColor='#127814'>
+        <Chart name={Name} overlay={props.overlay} title='Leading Federation' titleColor='#127814'>
             <LineChart
                 name={name}
                 data={data}
@@ -36,7 +38,7 @@ function LeadingFederation(props) {
 }
 
 registerChart(
-    'Leading Federation',
+    Name,
     'Shows when currently leading a federation',
     LeadingFederation
 );

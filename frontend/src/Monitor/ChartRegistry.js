@@ -1,4 +1,5 @@
 let registeredCharts = {};
+let addedCharts = [];
 
 function registerChart(name, description, component) {
     registeredCharts[name] = {
@@ -19,8 +20,23 @@ function getAllCharts() {
     return Object.entries(registeredCharts).map(kv => kv[1]);
 }
 
+function addChart(name) {
+    addedCharts.push(name);
+}
+
+function getAddedCharts() {
+    return addedCharts;
+}
+
+function clearAdded() {
+    addedCharts = [];
+}
+
 export {
     registerChart,
     getChart,
-    getAllCharts
+    getAllCharts,
+    addChart,
+    getAddedCharts,
+    clearAdded
 }

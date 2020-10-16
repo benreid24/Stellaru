@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Construction Queue Counts';
+
 function ConstructionQueues(props) {
     const name = props.name ? props.name : 'constructionqueuecounts';
     const data = props.data;
@@ -18,7 +20,7 @@ function ConstructionQueues(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Construction Queue Counts' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title='Construction Queue Counts' titleColor='#e68e00'>
             <AreaChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function ConstructionQueues(props) {
 }
 
 registerChart(
-    'Construction Queue Counts',
+    Name,
     'Shows the number of construction queues by type over time',
     ConstructionQueues
 );

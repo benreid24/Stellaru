@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Pops';
+
 function Pops(props) {
     const name = props.name ? props.name : 'pops';
     const data = props.data;
@@ -18,7 +20,7 @@ function Pops(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Pops' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title='Pops' titleColor='#65c73c'>
             <AreaChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function Pops(props) {
 }
 
 registerChart(
-    'Pops',
+    Name,
     'Shows population and species breakdown over time',
     Pops
 );

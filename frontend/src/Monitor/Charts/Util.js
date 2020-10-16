@@ -191,7 +191,7 @@ function renderArea(area, labelColor, stackId, onClick) {
             strokeWidth={1}
             connectNulls={false}
             stroke={labelColor}
-            fill={`url(#${makeId(area.label)})`}
+            fill={`url(#${area.labelId})`}
             stackId={stackId}
             isAnimationActive={true}
             onClick={onClick}

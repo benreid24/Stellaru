@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
-import {getChart, getAllCharts} from '../ChartRegistry';
+import {getChart, getAllCharts, getAddedCharts, clearAdded} from '../ChartRegistry';
 import {randomString} from '../Charts/Util';
 
 const useStyles = makeStyles((theme) => ({
@@ -65,15 +65,29 @@ function CustomTab(props) {
     const [charts, setCharts] = useState([]);
     const [renderedCharts, setRenderedCharts] = useState([]);
 
+    const newChart = name => {
+        return {name: name, size: 32, height: 37, saveName: randomString(8)};
+    };
+
     useEffect(() => {
-        const saved = window.localStorage.getItem('stellaruCharts');
-        if (saved !== null) {
-            setCharts(JSON.parse(saved));
+        let newCharts = [];
+        try {
+            const saved = window.localStorage.getItem('stellaruCharts');
+            if (saved !== null) {
+                newCharts = JSON.parse(saved);
+            }
         }
+        catch (_) {
+            newCharts = [];
+        }
+        const added = getAddedCharts();
+        added.forEach(chart => newCharts.push(newChart(chart)));
+        setCharts(newCharts);
+        clearAdded();
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 4, saveName: randomString(8)}]);
+        setCharts([...charts, newChart(chart)]);
     };
     const onClear = () => {
         setCharts([]);
@@ -90,15 +104,27 @@ function CustomTab(props) {
         const onResize = (chart, larger) => {
             setCharts(charts.reduce((newCharts, cChart) => {
                 if (cChart.saveName === chart) {
-                    cChart.size += larger ? 1 : -1;
-                    if (cChart.size > 12)
-                        cChart.size = 12;
-                    if (cChart.size < 1)
-                        cChart.size = 1;
+                    cChart.size += larger ? 3 : -3;
+                    if (cChart.size > 95)
+                        cChart.size = 95;
+                    if (cChart.size < 10)
+                        cChart.size = 10;
                 }
                 return [...newCharts, cChart];
             }, []));
         };
+        const onChangeHeight = (chart, taller) => {
+            setCharts(charts.reduce((newCharts, cChart) => {
+                if (cChart.saveName === chart) {
+                    cChart.height += taller ? 1 : -1;
+                    if (cChart.height > 95)
+                        cChart.height = 95;
+                    if (cChart.height < 10)
+                        cChart.height = 10;
+                }
+                return [...newCharts, cChart];
+            }, []));
+        }
         const onMove = (chart, higher) => {
             const i = charts.findIndex(cChart => cChart.saveName === chart);
             if (i >= 0) {
@@ -115,38 +141,67 @@ function CustomTab(props) {
             return {
                 onDelete: () => onDelete(chart),
                 onResize: larger => onResize(chart, larger),
+                onHeight: taller => onChangeHeight(chart, taller),
                 onMove: higher => onMove(chart, higher)
             };
         };
 
+        if (charts.length === 0) {
+            setRenderedCharts([]);
+            return;
+        }
+
         let rendered = [];
-        for (let i in charts) {
-            const chart = charts[i];
-            const className = 'mb-3 chartCol col-' + chart.size;
-            const Chart = getChart(chart.name).component;
+        let toRender = charts.slice();
+        let currentRow = [];
+        let rowWidth = 0;
+        let rowHeight = charts[0].height;
+        let rowCount = 0;
+        const addRow = () => {
             rendered.push(
-                <div className={className} key={chart.saveName}>
-                    <Chart name={chart.saveName} data={data} height={250} overlay={makeOverlay(chart.saveName)}/>
+                <div key={rowCount} className='customRow' style={{height: `${rowHeight}vh`}}>
+                    {currentRow}
                 </div>
             );
+            rowCount += 1;
+            currentRow = [];
+            rowWidth = 0;
+            rowHeight = 0;
+        };
+        while (toRender.length > 0) {
+            const chart = toRender[0];
+            if (rowWidth + chart.size > 98) {
+                addRow();
+            }
+            else {
+                const Chart = getChart(chart.name).component;
+                currentRow.push(
+                    <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
+                        <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
+                    </div>
+                );
+                if (chart.height > rowHeight) rowHeight = chart.height;
+                rowWidth += chart.size;
+                toRender = toRender.splice(1);
+            }
         }
+        if (currentRow.length > 0)
+            addRow();
         setRenderedCharts(rendered);
-        window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
     }, [charts, data]);
 
-    let rowClass = 'row chartRow';
-    if (renderedCharts.length === 0)
-        rowClass += ' justify-content-center';
+    useEffect(() => {
+        window.localStorage.setItem('stellaruCharts', JSON.stringify(charts));
+    }, [charts]);
+
     return (
         <div className='customTab'>
             <div className='customTabHeader'>
                 <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             </div>
             <div className='customTabContent'>
-                <div className={rowClass}>
-                    {renderedCharts.length === 0 && <div className='col-6'><p>Create a custom dashboard by adding charts</p></div>}
-                    {renderedCharts}
-                </div>
+                {renderedCharts.length === 0 && <div className='row chartRow justify-content-center'><div className='col-6'><p>Create a custom dashboard by adding charts</p></div></div>}
+                {renderedCharts}
             </div>
         </div>
     );

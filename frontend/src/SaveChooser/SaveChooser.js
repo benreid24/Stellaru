@@ -9,6 +9,7 @@ import './SaveChooser.css';
 const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choosePrevSave: 3, chooseActiveSave: 4});
 
 function selectLatestSave(saves) {
+    console.log(saves);
     let ld = saves[0].fileDatetime;
     let ls = saves[0];
     for (let i = 1; i<saves.length; i += 1) {
@@ -25,6 +26,7 @@ function SaveChooser(props) {
     const [state, setState] = useState(State.chooseMethod);
     const [saves, setSaves] = useState([]);
     const [error, setError] = useState(null);
+    const [selectedLatest, setSelectedLatest] = useState(false);
 
     useEffect(() => {
         fetch('api/saves')
@@ -59,7 +61,9 @@ function SaveChooser(props) {
                 setState(State.chooseSave);
                 break;
             case Methods.latest:
-                selectSave(selectLatestSave(this.state.saves));
+                setSelectedLatest(true);
+                if (saves.length > 0)
+                    selectSave(selectLatestSave(saves));
                 break;
             case Methods.chooseExisting:
                 setState(State.choosePrevSave);
@@ -72,6 +76,13 @@ function SaveChooser(props) {
                 break;
         }
     };
+
+    useEffect(() => {
+        if (selectedLatest && saves.length > 0)
+            selectSave(selectLatestSave(saves));
+    }, [saves, selectedLatest, selectSave]);
+
+    const onBack = () => setState(State.chooseMethod);
 
     if (error) {
         return (
@@ -91,9 +102,10 @@ function SaveChooser(props) {
                     saves={saves}
                     prevOnly={state === State.choosePrevSave}
                     activeOnly={state === State.chooseActiveSave}
+                    onBack={onBack}
                 />
             }
-            {state === State.waitSave && <SaveWaiter onSave={selectSave}/>}
+            {state === State.waitSave && <SaveWaiter onSave={selectSave} onBack={onBack}/>}
         </div>
     );
 }

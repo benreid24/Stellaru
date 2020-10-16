@@ -5,22 +5,22 @@ import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 
-const Name = 'Ship Types';
+const Name = 'Colony Types';
 
-function Ships(props) {
-    const name = props.name ? props.name : 'ships';
+function ColonyTypes(props) {
+    const name = props.name ? props.name : 'colonies';
     const data = props.data;
 
-    const keys = findKeysOverSeries(data, 'fleets/ship_types');
+    const keys = findKeysOverSeries(data, 'planets/types');
     const lines = keys.map(key => {
         return {
             label: key,
-            selector: snap => selectNested(`fleets/ship_types/${key}`, snap)
+            selector: snap => selectNested(`planets/types/${key}`, snap)
         };
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Ship Types' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title='Colony Types' titleColor='#96d636'>
             <AreaChart
                 name={name}
                 data={data}
@@ -34,8 +34,8 @@ function Ships(props) {
 
 registerChart(
     Name,
-    'Displays number of ships by type over time',
-    Ships
+    'Shows number of colonies and type breakdown over time',
+    ColonyTypes
 );
 
-export default Ships;
+export default ColonyTypes;

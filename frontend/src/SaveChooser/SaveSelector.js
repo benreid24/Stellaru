@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import BackButton from './BackButton';
 
 const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: true});
 
@@ -45,6 +46,8 @@ function Legend(props) {
 }
 
 function SaveSelector(props) {
+    const onBack = props.onBack;
+
     let saveCards = [];
     for (let i = 0; i<props.saves.length; i += 1) {
         const save = props.saves[i];
@@ -64,6 +67,7 @@ function SaveSelector(props) {
 
     return (
         <div className='container-fluid h-100'>
+            <BackButton onClick={onBack}/>
             <h1 className="saveChooseHeader">Choose Game Save</h1>
             {!props.prevOnly && !props.activeOnly && <Legend/>}
             <div className="row justify-content-center">

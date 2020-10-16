@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Unity';
+
 function Unity(props) {
     const name = props.name ? props.name : 'unity';
     const data = props.data;
@@ -39,7 +41,7 @@ function Unity(props) {
     ]
 
     return (
-        <Chart overlay={props.overlay} title='Unity' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title='Unity' titleColor='#0b9cbd'>
             <LineChart
                 name={name}
                 data={data}
@@ -53,7 +55,7 @@ function Unity(props) {
 }
 
 registerChart(
-    'Unity',
+    Name,
     'Shows Unity income and stockpile alongside adopted traditions over time',
     Unity
 );

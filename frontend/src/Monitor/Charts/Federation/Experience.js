@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Federation Experience';
+
 function FederationExperience(props) {
     const name = props.name ? props.name : 'FederationExperience';
     const data = props.data;
@@ -24,7 +26,7 @@ function FederationExperience(props) {
     const fedName = data.length > 0 ? selectNested('federation/name', data[data.length-1]) : 'Federation';
 
     return (
-        <Chart overlay={props.overlay} title={`${fedName} Experience`} titleColor='#127814'>
+        <Chart name={Name} overlay={props.overlay} title={`${fedName} Experience`} titleColor='#127814'>
             <LineChart
                 name={name}
                 data={data}
@@ -38,7 +40,7 @@ function FederationExperience(props) {
 }
 
 registerChart(
-    'Federation Experience',
+    Name,
     'Shows federation experience and level over time',
     FederationExperience
 );

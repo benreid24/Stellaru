@@ -11,6 +11,8 @@ import {getResourceName} from './Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
 
+const Name = 'Resource Production Breakdown';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -106,10 +108,13 @@ function MegaBreakdown(props) {
                 setResourceType(resource);
             }
         }
+        else if (!resourceType && resourceTypes.includes('energy')) {
+            setResourceType('energy');
+        }
     }, [data, resourceType, resourceTypes, name]);
 
     return (
-        <Chart title={`${getResourceName(resourceType)} Production Overview`} titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title={`${getResourceName(resourceType)} Production Breakdown`} titleColor='#ded140'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>
@@ -134,7 +139,7 @@ function MegaBreakdown(props) {
 }
 
 registerChart(
-    'Resource Production Overview',
+    Name,
     'Shows a breakdown of spending and income for an individual resource, overlayed with net income',
     MegaBreakdown
 );

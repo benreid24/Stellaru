@@ -7,6 +7,8 @@ import {registerChart} from '../../ChartRegistry';
 
 import './Science.css';
 
+const Name = 'Science Output';
+
 function ScienceOutput(props) {
     const name = props.name ? props.name : 'scienceoutput';
     const data = props.data;
@@ -25,7 +27,7 @@ function ScienceOutput(props) {
         selectNested('tech/available_techs/society', data[data.length-1]) : 0;
 
     return (
-        <Chart overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
             <div className='scienceOverviewChart'>
                 <AreaChart
                     name={name}
@@ -67,7 +69,7 @@ function ScienceOutput(props) {
 }
 
 registerChart(
-    'Science Output',
+    Name,
     'Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs',
     ScienceOutput
 );

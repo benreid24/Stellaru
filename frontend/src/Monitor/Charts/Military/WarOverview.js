@@ -7,6 +7,8 @@ import {registerChart} from '../../ChartRegistry';
 
 import './Military.css';
 
+const Name = 'War Overview';
+
 function WarOverview(props) {
     const name = props.name ? props.name : 'waroverview';
     const data = props.data;
@@ -46,7 +48,7 @@ function WarOverview(props) {
     }
 
     return (
-        <Chart overlay={props.overlay} title='War Overview' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title='War Overview' titleColor='#de1212'>
             <div className='warOverviewChart'>
                 <ComposedChart
                     name={name}
@@ -74,7 +76,7 @@ function WarOverview(props) {
 }
 
 registerChart(
-    'War Overview',
+    Name,
     'Displays the number of concurrent wars over time, as well as offensive and defensive wars. Includes a breakdown of the current fleet as well',
     WarOverview
 );

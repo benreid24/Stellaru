@@ -93,14 +93,6 @@
     height: 100%;
 }
 
-.chartCol {
-    min-height: 49%;
-}
-
-.presetChartRow {
-    height: 80%;
-}
-
 .customTab {
     display: flex;
     flex-flow: column;
@@ -123,6 +115,18 @@
     margin-right: -15px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.customColumn {
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 100%;
+}
+
+.customRow {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
 }
 
 .tabRow {

@@ -5,6 +5,7 @@
     width: 100%;
     height: 100%;
     box-shadow: 6px 6px #121212;
+    position: relative;
 }
 
 .chartTitle {
@@ -12,7 +13,7 @@
     top: 1.1%;
     transform: translateX(-50%);
     position: absolute;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     width: 90%;
  }
 
@@ -28,11 +29,9 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    right: 2%;
-    width: 6%;
-    max-width: 70px;
-    height: 10%;
-    max-height: 70px;
+    right: 1%;
+    width: 40px;
+    height: 40px;
 }
 
 .chartOverlayTriggerArea:hover {
@@ -51,11 +50,9 @@
     border-radius: 15px;
     position: absolute;
     top: 1%;
-    right: 2%;
-    width: 23%;
-    max-width: 250px;
-    min-width: 150px;
-    height: 10%;
+    right: 1%;
+    width: 90px;
+    height: 160px;
     text-align: left;
 }
 
@@ -64,16 +61,25 @@
     color: rgba(80,80,80,0.9);
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translateX(-50%) translateY(-50%);
 }
 
+.chartOverlayRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
 .chartOverlayButton {
-    width: 19%;
-    height: 80%;
+    width: 50%;
+    height: 100%;
     padding: 5px;
     cursor: pointer;
+    border-radius: 10px;
 }
+
 .chartOverlayButton:hover {
     background-color: rgba(80,80,80,0.9);
 }
@@ -103,4 +109,35 @@
     font-size: 0.85vw;
     padding: 0px;
     margin-bottom: -3px;
+}
+
+.defaultChartOverlay {
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    text-align: left;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.defaultChartOverlay:hover {
+    background-color: rgba(120,120,120,0.3);
+}
+
+.defaultChartOverlay:active {
+    background-color: rgba(40,40,40,0.6);
+}
+
+.addToDashboardText {
+    padding-top: 5px;
+}
+
+.addedToDashText {
+    color: #12de45;
+    font-weight: bold;
+    padding-top: 5px;
 }

@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Leader Stats';
+
 function LeaderStats(props) {
     const name = props.name ? props.name : 'leaderstats';
     const data = props.data;
@@ -39,7 +41,7 @@ function LeaderStats(props) {
     ];
 
     return (
-        <Chart overlay={props.overlay} title='Leader Stats' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title='Leader Stats' titleColor='#65c73c'>
             <LineChart
                 name={name}
                 data={data}
@@ -53,8 +55,8 @@ function LeaderStats(props) {
 }
 
 registerChart(
-    'Leader Stats',
-    'Shows leader stats over time',
+    Name,
+    'Shows leader ages and levels over time',
     LeaderStats
 );
 

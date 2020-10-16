@@ -5,12 +5,14 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Net Core Resource Incomes';
+
 function NetResourceIncome(props) {
     const name = props.name ? props.name : 'netresourceincome';
     const data = props.data;
 
     return (
-        <Chart overlay={props.overlay} title='Net Core Resource Incomes' titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title='Net Core Resource Incomes' titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}
@@ -43,7 +45,7 @@ function NetResourceIncome(props) {
 }
 
 registerChart(
-    'Net Core Resource Incomes',
+    Name,
     'Net incomes of primary resources over time',
     NetResourceIncome
 );

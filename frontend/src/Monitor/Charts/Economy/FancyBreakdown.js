@@ -12,6 +12,8 @@ import Chart from '../Chart';
 
 import './Economy.css';
 
+const Name = 'Resource Spending/Income Drilldowns';
+
 const DataTypes = Object.freeze({'Income': 'Income', 'Spending': 'Spending'});
 const DataKeys = Object.freeze({[DataTypes.Income]: 'income', [DataTypes.Spending]: 'spending'});
 const ResourceNames = Object.freeze({
@@ -211,10 +213,13 @@ function FancyBreakdown(props) {
                 setResourceType(resource);
             }
         }
+        else if (!resourceType && resourceTypes.includes('Energy Credit')) {
+            setResourceType('Energy Credit');
+        }
     }, [data, resourceType, resourceTypes, name]);
 
     return (
-        <Chart overlay={props.overlay} title={`${resourceType} ${dataType} Breakdown`} titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title={`${resourceType} ${dataType} Drilldowns`} titleColor='#ded140'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>
@@ -246,7 +251,7 @@ function FancyBreakdown(props) {
 }
 
 registerChart(
-    'Resource Spending/Income Breakdowns',
+    Name,
     'Detailed breakdown of income or spending of any resource with multiple drilldown levels',
     FancyBreakdown
 );
