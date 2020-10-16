@@ -36,15 +36,26 @@ class DataSubscription {
             this.setStatus(Status.Connecting);
             this.method = ConnectionMethod.Socket;
             this.connected = false;
+            this.heartbeatTime = Date.now();
             this.socketRetries = 0;
             this.socket.onopen = () => this.onOpen(this);
             this.socket.onerror = () => {
                 setTimeout(() => this.tryReconnect(this), ConnectTimeout);
             };
+            setTimeout(() => this.checkHeartbeat(), 5000);
         }
         else {
             this.setupPolling();
         }
+    }
+
+    checkHeartbeat(me) {
+        if (me.connected) {
+            if (Date.now() - me.heartbeatTime > 5000) {
+                me.resubscribe();
+            }
+        }
+        setTimeout(() => this.checkHeartbeat(), 5000);
     }
 
     setChosenInfo(save, empire) {
@@ -95,6 +106,15 @@ class DataSubscription {
         setTimeout(() => this.onPoll(), PollInterval);
     }
 
+    resubscribe(me) {
+        me.socket.send(JSON.stringify({
+            subscribe: {
+                file: me.save,
+                empire: me.empire
+            }
+        }));
+    }
+
     onOpen(me) {
         console.log('Subscribed to backend updates');
         me.socket.send('{"message": "Frontend connected"}');
@@ -104,12 +124,7 @@ class DataSubscription {
         me.socket.onclose = () => me.tryReconnect(me);
         me.socket.onmessage = event => me.onData(me, event);
         if (me.save && !isNaN(me.empire)) {
-            me.socket.send(JSON.stringify({
-                subscribe: {
-                    file: me.save,
-                    empire: me.empire
-                }
-            }));
+            me.resubscribe();
         }
     }
 
@@ -152,6 +167,7 @@ class DataSubscription {
     }
 
     onData(me, event) {
+        me.heartbeatTime = Date.now();
         me.processData(JSON.parse(event.data));
     }
 }

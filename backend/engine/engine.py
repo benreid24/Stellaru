@@ -67,10 +67,8 @@ def append_save(watcher, snapshot):
     global monitored_saves
     folder = watcher.name()
     if folder in monitored_saves:
-        save_lock.acquire()
         insert_snap(monitored_saves[folder]['snaps'], snapshot)
         _flush_save(monitored_saves[folder])
-        save_lock.release()
         return True
     return False
 
@@ -115,10 +113,12 @@ def _send_to_sessions(save, payload):
 
 
 def _debug_watcher_update(save):
+    print('Faking')
     _send_to_sessions(save, LOADING_MESSAGE)
     time.sleep(5)
     last_snap = save['snaps'][-1]
     fake = faker.fake_snap(last_snap)
+    print('Faked')
     append_save(save['watcher'], fake)
     _send_to_sessions(save, fake)
 
