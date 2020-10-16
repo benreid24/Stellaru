@@ -73,6 +73,7 @@ def find_saves():
 
 
 def get_save(name):
+    _refresh()
     return saves[name] if name in saves else None
 
 

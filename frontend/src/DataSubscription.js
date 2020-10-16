@@ -10,7 +10,7 @@ const Status = Object.freeze({
 });
 const MaxRetries = 3;
 const ConnectTimeout = 5000; // ms
-const PollInterval = 45000;
+const PollInterval = 30000;
 
 function getSubscriptionUrl() {
     if (process.env.NODE_ENV === 'development')
@@ -42,7 +42,7 @@ class DataSubscription {
             this.socket.onerror = () => {
                 setTimeout(() => this.tryReconnect(this), ConnectTimeout);
             };
-            setTimeout(() => this.checkHeartbeat(), 5000);
+            setTimeout(() => this.checkHeartbeat(this), 5000);
         }
         else {
             this.setupPolling();
@@ -52,10 +52,10 @@ class DataSubscription {
     checkHeartbeat(me) {
         if (me.connected) {
             if (Date.now() - me.heartbeatTime > 5000) {
-                me.resubscribe();
+                me.resubscribe(me);
             }
         }
-        setTimeout(() => this.checkHeartbeat(), 5000);
+        setTimeout(() => this.checkHeartbeat(me), 5000);
     }
 
     setChosenInfo(save, empire) {
@@ -124,7 +124,7 @@ class DataSubscription {
         me.socket.onclose = () => me.tryReconnect(me);
         me.socket.onmessage = event => me.onData(me, event);
         if (me.save && !isNaN(me.empire)) {
-            me.resubscribe();
+            me.resubscribe(me);
         }
     }
 
