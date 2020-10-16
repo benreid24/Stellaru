@@ -4,6 +4,8 @@ import Chart from '../Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Colony Stability & Crime';
+
 function ColonyStability(props) {
     const name = props.name ? props.name : 'colonystability';
     const data = props.data;
@@ -14,7 +16,7 @@ function ColonyStability(props) {
     };
 
     return (
-        <Chart overlay={props.overlay} title='Colony Stability &amp; Crime' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title='Colony Stability &amp; Crime' titleColor='#96d636'>
             <StatsChart
                 name={name}
                 data={data}
@@ -27,7 +29,7 @@ function ColonyStability(props) {
 }
 
 registerChart(
-    'Colony Stability & Crime',
+    Name,
     'Shows colony stability and crime over time',
     ColonyStability
 );

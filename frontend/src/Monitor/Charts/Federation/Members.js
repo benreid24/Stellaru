@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Federation Members';
+
 function FederationMembers(props) {
     const name = props.name ? props.name : 'FederationMembers';
     const data = props.data;
@@ -24,7 +26,7 @@ function FederationMembers(props) {
     const fedName = data.length > 0 ? selectNested('federation/name', data[data.length-1]) : 'Federation';
 
     return (
-        <Chart overlay={props.overlay} title={`${fedName} Members`} titleColor='#127814'>
+        <Chart name={Name} overlay={props.overlay} title={`${fedName} Members`} titleColor='#127814'>
             <LineChart
                 name={name}
                 data={data}
@@ -38,7 +40,7 @@ function FederationMembers(props) {
 }
 
 registerChart(
-    'Federation Members',
+    Name,
     'Shows federation member count and cohesion over time',
     FederationMembers
 );

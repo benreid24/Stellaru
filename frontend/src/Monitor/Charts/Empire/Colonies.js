@@ -10,6 +10,8 @@ import LineChart from '../LineChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, capitalize, findNested, selectNested} from '../Util';
 
+const Name = 'Colony Stats';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -49,7 +51,7 @@ function Colonies(props) {
     const renderedMenuItems = stats.map(stat => <MenuItem key={stat} value={stat}>{capitalize(stat, '_')}</MenuItem>);
 
     return (
-        <Chart overlay={props.overlay} title={`Colony ${capitalize(stat, '_')}`} titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={`Colony ${capitalize(stat, '_')}`} titleColor='#96d636'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>
@@ -71,7 +73,7 @@ function Colonies(props) {
 }
 
 registerChart(
-    'Colony Stats',
+    Name,
     'Shows various statistics per colony over time',
     Colonies
 );

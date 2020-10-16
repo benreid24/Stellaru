@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 
+const Name = 'Army Breakdown';
+
 function Armies(props) {
     const name = props.name ? props.name : 'armies';
     const data = props.data;
@@ -18,7 +20,7 @@ function Armies(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Armies' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title='Armies' titleColor='#de1212'>
             <AreaChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function Armies(props) {
 }
 
 registerChart(
-    'Army Breakdown',
+    Name,
     'Displays number of armies by type over time',
     Armies
 );

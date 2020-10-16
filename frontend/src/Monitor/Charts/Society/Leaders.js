@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Leaders';
+
 function Leaders(props) {
     const name = props.name ? props.name : 'leaders';
     const data = props.data;
@@ -37,7 +39,7 @@ function Leaders(props) {
     ];
 
     return (
-        <Chart overlay={props.overlay} title='Leaders' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title='Leaders' titleColor='#65c73c'>
             <AreaChart
                 name={name}
                 data={data}
@@ -50,7 +52,7 @@ function Leaders(props) {
 }
 
 registerChart(
-    'Leaders',
+    Name,
     'Shows leader count and breakdown over time',
     Leaders
 );

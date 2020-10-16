@@ -10,6 +10,8 @@ import LineChart from '../LineChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Construction Queue Comparisons';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -52,7 +54,7 @@ function ConstructionQueues(props) {
     const renderedStats = statTypes.map(renderStat);
 
     return (
-        <Chart overlay={props.overlay} title='Construction Queue Comparisons' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title='Construction Queue Comparisons' titleColor='#e68e00'>
             <div className='constructionChartForm'>
                 <div className='constructionChartFormInner'>
                     <FormControl className={classes.formControl}>
@@ -75,7 +77,7 @@ function ConstructionQueues(props) {
 }
 
 registerChart(
-    'Construction Queue Comparisons',
+    Name,
     'Shows construction queue comparisons by type over time',
     ConstructionQueues
 );

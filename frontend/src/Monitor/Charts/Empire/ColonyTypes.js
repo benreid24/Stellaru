@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 
+const Name = 'Colony Types';
+
 function ColonyTypes(props) {
     const name = props.name ? props.name : 'colonies';
     const data = props.data;
@@ -18,7 +20,7 @@ function ColonyTypes(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Colony Types' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title='Colony Types' titleColor='#96d636'>
             <AreaChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function ColonyTypes(props) {
 }
 
 registerChart(
-    'Colony Types',
+    Name,
     'Shows number of colonies and type breakdown over time',
     ColonyTypes
 );

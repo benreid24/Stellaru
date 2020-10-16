@@ -5,6 +5,8 @@ import ComposedChart from '../ComposedChart';
 import {selectNested, renderLine, renderArea} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Technologies';
+
 function Technologies(props) {
     const name = props.name ? props.name : 'technologies';
     const data = props.data;
@@ -35,7 +37,7 @@ function Technologies(props) {
     }
 
     return (
-        <Chart overlay={props.overlay} title='Technologies' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title='Technologies' titleColor='#0b9cbd'>
             <ComposedChart
                 name={name}
                 data={data}
@@ -50,7 +52,7 @@ function Technologies(props) {
 }
 
 registerChart(
-    'Technologies',
+    Name,
     'Shows completed and available technologies over time',
     Technologies
 );

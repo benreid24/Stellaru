@@ -5,6 +5,8 @@ import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Jobs';
+
 function Jobs(props) {
     const name = props.name ? props.name : 'jobs';
     const data = props.data;
@@ -18,7 +20,7 @@ function Jobs(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
+        <Chart nme={Name} overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
             <AreaChart
                 name={name}
                 data={data}
@@ -31,7 +33,7 @@ function Jobs(props) {
 }
 
 registerChart(
-    'Jobs',
+    Name,
     'Shows available jobs by type over time',
     Jobs
 );

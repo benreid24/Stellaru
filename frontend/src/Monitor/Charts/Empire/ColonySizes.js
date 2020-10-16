@@ -6,6 +6,8 @@ import {registerChart} from '../../ChartRegistry';
 
 import {selectNested, findKeysOverSeries, findNested} from '../Util';
 
+const Name = 'Colony Sizes';
+
 function ColonySizes(props) {
     const name = props.name ? props.name : 'colonysizes';
     const data = props.data;
@@ -19,7 +21,7 @@ function ColonySizes(props) {
     });
 
     return (
-        <Chart overlay={props.overlay} title='Colony Sizes' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title='Colony Sizes' titleColor='#96d636'>
             <AreaChart
                 name={name}
                 data={data}
@@ -32,7 +34,7 @@ function ColonySizes(props) {
 }
 
 registerChart(
-    'Colony Sizes',
+    Name,
     'Shows colony sizes stacked together time',
     ColonySizes
 );

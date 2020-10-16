@@ -12,6 +12,8 @@ import {registerChart} from '../../ChartRegistry';
 
 import './Construction.css';
 
+const Name = 'Construction Breakdowns';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -72,7 +74,7 @@ function Construction(props) {
         lines = renderLines(queueType);
 
     return (
-        <Chart overlay={props.overlay} title='Construction Queue Breakdowns' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title='Construction Queue Breakdowns' titleColor='#e68e00'>
             <div className='constructionChartForm'>
                 <div className='constructionChartFormInner'>
                     <FormControl className={classes.formControl}>
@@ -97,7 +99,7 @@ function Construction(props) {
 }
 
 registerChart(
-    'Construction Breakdowns',
+    Name,
     'Gives lower level view into construction queues and items by queue type over time',
     Construction
 );

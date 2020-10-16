@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Exploration';
+
 function Exploration(props) {
     const name = props.name ? props.name : 'exploration';
     const data = props.data;
@@ -25,7 +27,7 @@ function Exploration(props) {
     ]
 
     return (
-        <Chart overlay={props.overlay} title='Exploration' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title='Exploration' titleColor='#0b9cbd'>
             <LineChart
                 name={name}
                 data={data}
@@ -37,7 +39,7 @@ function Exploration(props) {
 }
 
 registerChart(
-    'Exploration',
+    Name,
     'Shows number of surveyed ojects and systems over time',
     Exploration
 );

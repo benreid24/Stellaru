@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Empire Wide Construction Overview';
+
 function AllConstruction(props) {
     const name = props.name ? props.name : 'allconstruction';
     const data = props.data;
@@ -30,7 +32,7 @@ function AllConstruction(props) {
     ];
 
     return (
-        <Chart overlay={props.overlay} title='Empire Wide Construction Overview' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title='Empire Wide Construction Overview' titleColor='#e68e00'>
             <LineChart
                 name={name}
                 data={data}
@@ -44,7 +46,7 @@ function AllConstruction(props) {
 }
 
 registerChart(
-    'Empire Wide Construction Overview',
+    Name,
     'Gives stats on empire wide construction queues and capability',
     AllConstruction
 );

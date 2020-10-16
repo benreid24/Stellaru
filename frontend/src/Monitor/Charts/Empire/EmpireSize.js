@@ -5,6 +5,8 @@ import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 
+const Name = 'Empire Size';
+
 function EmpireSize(props) {
     const name = props.name ? props.name : 'empiresize';
     const data = props.data;
@@ -35,7 +37,7 @@ function EmpireSize(props) {
     ];
 
     return (
-        <Chart overlay={props.overlay} title='Empire Size' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title='Empire Size' titleColor='#96d636'>
             <LineChart
                 name={name}
                 data={data}
@@ -49,7 +51,7 @@ function EmpireSize(props) {
 }
 
 registerChart(
-    'Empire Size',
+    Name,
     'Shows size of the empire over time',
     EmpireSize
 );

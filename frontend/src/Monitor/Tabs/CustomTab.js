@@ -65,6 +65,10 @@ function CustomTab(props) {
     const [charts, setCharts] = useState([]);
     const [renderedCharts, setRenderedCharts] = useState([]);
 
+    const newChart = name => {
+        return {name: name, size: 32, height: 37, saveName: randomString(8)};
+    };
+
     useEffect(() => {
         try {
             const saved = window.localStorage.getItem('stellaruCharts');
@@ -78,7 +82,7 @@ function CustomTab(props) {
     }, []);
 
     const onAdd = chart => {
-        setCharts([...charts, {name: chart, size: 32, height: 37, saveName: randomString(8)}]);
+        setCharts([...charts, newChart(chart)]);
     };
     const onClear = () => {
         setCharts([]);

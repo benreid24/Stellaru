@@ -5,6 +5,8 @@ import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 import {selectNested} from '../Util';
 
+const Name = 'Fleet Ship Stats';
+
 function FleetShips(props) {
     const name = props.name ? props.name : 'fleetships';
     const data = props.data;
@@ -22,7 +24,7 @@ function FleetShips(props) {
     ];
 
     return (
-        <Chart overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
             <StatsChart
                 name={name}
                 data={data}
@@ -37,7 +39,7 @@ function FleetShips(props) {
 }
 
 registerChart(
-    'Fleet Ship Stats',
+    Name,
     'Breaks down fleet stats over time',
     FleetShips
 );
