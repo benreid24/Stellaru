@@ -25,7 +25,7 @@ function WarOverview(props) {
         },
         {
             label: 'Warring Empires',
-            selector: snap => selectNested('war/total_participants', snap, 0),
+            selector: snap => selectNested('war/all_participants', snap, 0),
             yAxis: 'right'
         },
         {
