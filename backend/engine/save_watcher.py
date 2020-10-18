@@ -43,10 +43,11 @@ class SaveWatcher:
 
     def new_data_available(self):
         self.refresh()
+        latest_watcher = None
         for watcher in self.watchers:
-            if watcher.new_data_available():
-                return True
-        return False
+            if not latest_watcher or watcher.time() > latest_watcher.time():
+                latest_watcher = watcher
+        return latest_watcher.new_data_available()
 
     def time(self):
         ftime = 0
