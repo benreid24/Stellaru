@@ -2,16 +2,17 @@
     max-height: 10%;
     position: absolute;
     bottom: 0;
+    left: 5%;
     width: 100%;
 }
 
 .scienceTotal {
-    font-size: 0.8vw;
+    font-size: 0.75vw;
     color: #0b9cbd;
 }
 
 .scienceTotalNumber {
-    font-size: 0.75vw;
+    font-size: 0.7vw;
     color: #65c73c;
 }
 
