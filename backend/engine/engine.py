@@ -161,9 +161,10 @@ def _watch_save(watcher):
             # Refresh
             save_lock.acquire()
             _watcher_update(save)
-            save_lock.release()
 
             _send_to_sessions(save, WAITING_MESSAGE)
             time.sleep(1)
         except:
             traceback.print_exc()
+        finally:
+            save_lock.release()
