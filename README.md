@@ -16,7 +16,28 @@ Stellaru contains a laundry list of functionaility that aims to make it as usefu
 
 
 ## Getting Stellaru
-Prebuilt binaries for supported platforms are available [here](https://github.com/benreid24/Stellaru/releases) as zipped folders. Download the appropriate zipfile for your computer and extract the *Stellaru* folder where you would like. Inside the folder is a binary executable that can be double clicked to start Stellaru. A web browser will open with the save selection screen.
+Prebuilt binaries for supported platforms are available [here](https://github.com/benreid24/Stellaru/releases) as zipped folders and can be used for each platform as follows:
+
+### Windows
+1. Download **Windows.zip** from the [releases page](https://github.com/benreid24/Stellaru/releases)
+2. Extract the *Stellaru* folder to a location of your choosing
+3. Double click **Stellaru.exe** inside of the *Stellaru* folder to start Stellaru
+4. A shortcut to **Stellaru.exe** may be created by `Right Click -> Create Shortcut` and can be placed on the desktop, taskbar, start menu, etc
+
+### MacOS
+1. Download **MacOS.zip** from the [releases page](https://github.com/benreid24/Stellaru/releases)
+2. Double click to extract the Stellaru app
+3. Place the app file in a location of your choosing
+4. Double click the app file to run Stellaru. It can be added to the Dock by dragging the file onto the Dock
+5. To fix a broken file error do one of the following:
+    * Allow all apps: `Settings -> Security & Privacy -> General -> Allow apps downloaded from` and select **all**
+    * Remove Extra Attributes:
+        1. `Command + Space` -> Terminal.app
+        2. `cd <folder where stellaru.app is>`
+        3. `xattr -rc ./Stellaru.app`
+
+### Linux
+Coming soon
 
 
 ## Multiplayer

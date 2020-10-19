@@ -34,7 +34,7 @@ const PresetColors = {
     'Percent Male': '#68bef7',
     'Percent Female': '#ff4fe5',
     'Net Income': 'white'
-}; // TODO - all names and colors
+};
 
 const Saturation = 75;
 const Hues = [0, 20, 40, 60, 150, 180, 220, 260, 335];
@@ -114,7 +114,6 @@ function dateTickFormat(date_days) {
     date_days -= year * 360;
     let month = Math.floor(date_days / 30);
     date_days -= month * 30;
-    month += 1;
     return `${year}.${String(month).padStart(2, '0')}.${String(date_days).padStart(2, '0')}`;
 }
 

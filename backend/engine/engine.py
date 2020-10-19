@@ -1,6 +1,7 @@
 import pickle
 import os
 import time
+import traceback
 from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
@@ -160,9 +161,10 @@ def _watch_save(watcher):
             # Refresh
             save_lock.acquire()
             _watcher_update(save)
-            save_lock.release()
 
             _send_to_sessions(save, WAITING_MESSAGE)
             time.sleep(1)
         except:
-            pass
+            traceback.print_exc()
+        finally:
+            save_lock.release()

@@ -19,6 +19,7 @@ class FileWatcher:
             for filename in dir_files
             if filename != SAVE_FILE
             and '.sav' in filename
+            and '.stmp' != os.path.splitext(filename)[1]
         ]
         self.valid = len(file_list) > 0
         self.has_history = SAVE_FILE in dir_files
