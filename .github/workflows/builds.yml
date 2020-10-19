@@ -6,7 +6,7 @@ name: Build Binaries
 
 jobs:
   windows_build:
-    name: Build Release
+    name: Windows Build
     runs-on: windows-latest
     strategy:
       matrix:

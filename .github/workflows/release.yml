@@ -24,6 +24,6 @@ jobs:
       - name: Dispatch Builds
         uses: peter-evans/repository-dispatch@v1.0.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: builds
           client-payload: '{"release_url": "${{ steps.create_release.outputs.upload_url }}", "ref": "${{ github.event.head_commit.message }}"}'
