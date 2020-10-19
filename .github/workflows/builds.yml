@@ -89,7 +89,7 @@ jobs:
           mkdir Stellaru.app/Contents
           mkdir Stellaru.app/Contents/Resources
           mkdir Stellaru.app/Contents/MacOS
-          cp data/Info.plst Stellaru.app/Contents
+          cp data/Info.plist Stellaru.app/Contents
           cp data/stellaru.icns Stellaru.app/Contents/Resources
           cp -R dist/Stellaru/* Stellaru.app/Contents/MacOS
           zip -vr MacOS.zip Stellaru.app
