@@ -25,4 +25,4 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: builds
-          client-payload: '{"release_url": "${{ steps.create_release.outputs.upload_url }}", "ref": "${{ github.event.head_commit.message }}"}'
+          client-payload: '{"release_url": "${{ steps.create_release.outputs.upload_url }}"}'
