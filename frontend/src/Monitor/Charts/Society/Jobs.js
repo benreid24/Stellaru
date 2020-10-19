@@ -20,7 +20,7 @@ function Jobs(props) {
     });
 
     return (
-        <Chart nme={Name} overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title='Jobs' titleColor='#65c73c'>
             <AreaChart
                 name={name}
                 data={data}
