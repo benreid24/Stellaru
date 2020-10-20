@@ -16,7 +16,7 @@ Stellaru contains a laundry list of functionaility that aims to make it as usefu
 
 
 ## Getting Stellaru
-Prebuilt binaries for supported platforms are available [here](https://github.com/benreid24/Stellaru/releases) as zipped folders and can be used for each platform as follows:
+Prebuilt binaries for supported platforms are available as zipped folders and can be used for each platform as follows:
 
 ### Windows
 1. Download **Windows.zip** from the [releases page](https://github.com/benreid24/Stellaru/releases)
@@ -119,7 +119,7 @@ npm start
 Stellaru is now available at [localhost:3000](localhost:3000)
 
 ### Running Using the Backend Server Only
-This mode more closely resembles how the released version Stellaru runs, and exactly resembles it if [main.py](backend/main.py) is used instead of [manage.py](backend/manage.py) below.
+This mode more closely resembles how the released version of Stellaru runs, and exactly resembles it if [main.py](backend/main.py) is used instead of [manage.py](backend/manage.py) below.
 
 Build the frontend and make it available to the backend server:
 ```
