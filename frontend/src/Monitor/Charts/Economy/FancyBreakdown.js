@@ -32,7 +32,8 @@ const ResourceNames = Object.freeze({
     'exotic_gases': 'Exotic Gas',
     'sr_dark_matter': 'Dark Matter',
     'nanites': 'Nanite',
-    'sr_zro': 'Zro'
+    'sr_zro': 'Zro',
+    'sr_living_metal': 'Living Metal'
 });
 const ResourceLookup = Object.entries(ResourceNames).reduce(
     (obj, entry) => {
