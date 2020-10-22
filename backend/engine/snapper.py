@@ -108,10 +108,16 @@ def _key_or(obj, key, alt):
     return obj[key] if key in obj else alt
 
 
+def _empire_valid(state, empire):
+    if 'owned_planets' not in state['country'][empire]:
+        return False
+    return len(state['country'][empire]['owned_planets']) > 0
+
+
 def get_empires(state):
     return {
         cid: empire['name'] 
-        for cid, empire in state['country'].items() if isinstance(empire, dict)
+        for cid, empire in state['country'].items() if isinstance(empire, dict) and _empire_valid(state, cid)
     }
 
 
