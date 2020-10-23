@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 
+import DefaultLegendContent from 'recharts/lib/component/DefaultLegendContent';
 import {ComposedChart as ReChart} from 'recharts';
 import {Legend} from 'recharts';
 import {Tooltip} from 'recharts';
 import {ReferenceLine} from 'recharts';
 import {ResponsiveContainer} from 'recharts';
 import {YAxis, XAxis} from 'recharts';
+import {Scrollbars} from 'react-custom-scrollbars';
 
 import {getCurrentTab} from '../Tabs/CurrentTab';
 import {getDataColors, valueTickFormat, selectNested, dateTickFormat, makeId} from './Util';
@@ -182,7 +184,7 @@ function ComposedChart(props) {
     };
     const renderedGradients = series.map(renderGradient);
 
-    const renderLegend = value => {
+    const renderLegendItem = value => {
         let weight = 300;
         if (isolatedSeries.includes(value))
             weight = 500;
@@ -197,6 +199,22 @@ function ComposedChart(props) {
             color: labelColors[series.label]
         };
     });
+
+    const ScrollableLegend = (props) => {
+        const newProps = {...props};
+        newProps.layout = 'horizontal';
+        return (
+            <Scrollbars
+                style={{
+                    width: '100%',
+                }}
+                autoHeight
+                autoHeightMax={100}
+            >
+                <DefaultLegendContent {...newProps} />
+            </Scrollbars>
+        );
+    };
 
     return (
         <ResponsiveContainer width='100%' height='100%'>
@@ -235,7 +253,7 @@ function ComposedChart(props) {
                     label={({ viewBox }) => <AxisLabel offset={55} axisType="yAxis" {...viewBox}>{rightYLabel}</AxisLabel>}
                 />
                 <Tooltip formatter={formatter} content={<RenderTooltip/>}/>
-                <Legend onClick={seriesClick} formatter={renderLegend} payload={legendPayload}/>
+                <Legend onClick={seriesClick} formatter={renderLegendItem} payload={legendPayload} content={ScrollableLegend}/>
                 <defs>
                     {renderedGradients}
                 </defs>

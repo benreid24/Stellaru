@@ -3,7 +3,7 @@ import React from 'react';
 import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
-import {findKeysOverSeries, selectNested} from '../Util';
+import {findKeysOverSeries, selectNested, capitalize} from '../Util';
 
 const Name = 'Ship Types';
 
@@ -14,7 +14,7 @@ function Ships(props) {
     const keys = findKeysOverSeries(data, 'fleets/ship_types');
     const lines = keys.map(key => {
         return {
-            label: key,
+            label: capitalize(key, '_'),
             selector: snap => selectNested(`fleets/ship_types/${key}`, snap)
         };
     });

@@ -3,7 +3,8 @@ import {capitalize} from '../Util';
 const resourceNames = Object.freeze({
     sr_dark_matter: 'Dark Matter',
     energy: 'Energy Credits',
-    sr_zro: 'Zro'
+    sr_zro: 'Zro',
+    sr_living_metal: 'Living Metal'
 });
 
 const filteredResources = Object.freeze([

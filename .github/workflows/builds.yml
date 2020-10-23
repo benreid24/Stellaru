@@ -32,7 +32,7 @@ jobs:
           cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm main.py
+          pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm --icon=./data/icon.ico main.py
       - name: Package Project
         run: |
           cd backend
