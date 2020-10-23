@@ -1,19 +1,15 @@
 import os
+from xdg import XDG_DATA_HOME
 
-STEAM_DIRS = [
-    '/Steam',
-    '/bin/Steam',
-    '/usr/bin/Steam'
-] # TODO - correct?
-
+STEAM_DIR = 'Steam'
+SAVE_DIR = 'Paradox Interactive/Stellaris/save games'
 
 def find_steam():
-    for folder in STEAM_DIRS:
-        if os.path.isdir(folder): # TODO - use listdir and tolower for case insensitive
-            return path
+    path = os.path.join(str(XDG_DATA_HOME), STEAM_DIR)
+    if os.path.isdir(path):
+        return path
     return None
 
-
 def get_os_specific_save_dirs():
-    # TODO - find user dir and local saves
-    return []
+    path = os.path.join(str(XDG_DATA_HOME), SAVE_DIR)
+    return [path]
