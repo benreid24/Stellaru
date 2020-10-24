@@ -8,6 +8,9 @@ def find_steam():
     path = os.path.join(str(XDG_DATA_HOME), STEAM_DIR)
     if os.path.isdir(path):
         return path
+    path = os.path.expanduser('~/.steam/steam')
+    if os.path.isdir(path):
+        return path
     return None
 
 def get_os_specific_save_dirs():
