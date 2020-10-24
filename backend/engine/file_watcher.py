@@ -1,6 +1,16 @@
 import os
 
+from engine import parser
+
 SAVE_FILE = 'stellaru.zip'
+
+
+def _save_valid(path):
+    try:
+        parser.load_meta(path)
+        return True
+    except:
+        return False
 
 
 class FileWatcher:
@@ -21,7 +31,6 @@ class FileWatcher:
             and '.sav' in filename
             and '.stmp' != os.path.splitext(filename)[1]
         ]
-        self.valid = len(file_list) > 0
         self.has_history = SAVE_FILE in dir_files
 
         update = False
@@ -29,10 +38,12 @@ class FileWatcher:
             info = os.stat(file)
             
             if info.st_mtime > self.latest_write:
-                update = True
-                self.new_data = True
-                self.latest_write = info.st_mtime
-                self.latest_file = file
+                if _save_valid(file):
+                    self.valid = True
+                    update = True
+                    self.new_data = True
+                    self.latest_write = info.st_mtime
+                    self.latest_file = file
 
         return update
 
