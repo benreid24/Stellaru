@@ -82,7 +82,7 @@ def get_empires(request):
             return _make_error('"file" parameter not set in POST')
         save_file = parsed['file']
 
-        save_watcher = finder.get_save(save_file)
+        save_watcher = finder.get_save(save_file, False)
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {save_file}')
 
@@ -112,7 +112,7 @@ def get_data(request):
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
 
-        save_watcher = finder.get_save(parsed['file'])
+        save_watcher = finder.get_save(parsed['file'], False)
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
 

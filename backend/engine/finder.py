@@ -72,8 +72,9 @@ def find_saves():
     return [save for name, save in saves.items()]
 
 
-def get_save(name):
-    _refresh()
+def get_save(name, refresh=True):
+    if refresh:
+        _refresh()
     return saves[name] if name in saves else None
 
 
