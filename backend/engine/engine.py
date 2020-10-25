@@ -26,8 +26,8 @@ def insert_snap(snaps, snap):
             continue
         if snap['date_days'] == oldsnap['date_days']:
             return False
-        snaps.insert(i, snap)
-        return True
+        snaps = snaps[:i+1]
+        break
     snaps.append(snap)     
     return True
 
