@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import {shuffle} from './Charts/Util';
 
 const TipList = [
-    'The slider in the top rate can be moved to adjust the dates of data shown',
+    'The slider in the top right can be moved to adjust the dates of data shown',
     'Most charts are interactive, trying clicking on the legend labels',
     'Create a custom dashboard with your favorite charts in the "Custom" tab',
     'All your changes to charts will persist, so everything will be as you left it when you reopen Stellaru',
