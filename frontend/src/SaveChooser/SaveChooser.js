@@ -28,7 +28,7 @@ function SaveChooser(props) {
     const [error, setError] = useState(null);
     const [selectedLatest, setSelectedLatest] = useState(false);
 
-    useEffect(() => {
+    const fetchSaves = () => {
         fetch('api/saves')
             .then(response => response.json())
             .then(data => {
@@ -45,12 +45,16 @@ function SaveChooser(props) {
                         return 0;
                     });
                     setSaves(saves);
+                    if (saves.length === 0) {
+                        setTimeout(fetchSaves, 5000);
+                    }
                 }
                 else {
                     setError(data['error']);
                 }
             });
-    }, []);
+    };
+    useEffect(fetchSaves, []);
 
     const methodChose = (method) => {
         switch (method) {
