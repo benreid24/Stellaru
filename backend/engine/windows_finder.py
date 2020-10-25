@@ -12,7 +12,11 @@ STEAM_DIRS = [
     'Program Files/Steam',
     'Program Files (x86)/Steam'
 ]
-PATH_SUFFIX = 'Paradox Interactive/Stellaris/save games' 
+PATH_SUFFIXES = [
+    'Paradox Interactive/Stellaris/save games',
+    'Paradox Interactive/Stellaris Plaza/save games',
+    'Paradox Interactive/Stellaris GamePass/save games'
+]
 
 
 def _get_drives():
@@ -38,4 +42,8 @@ def find_steam():
 def get_os_specific_save_dirs():
     docs_path = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
     ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, docs_path)
-    return [os.path.join(str(docs_path.value), PATH_SUFFIX)]
+    documents = str(docs_path.value)
+    return [
+        os.path.join(documents, suffix) for suffix in PATH_SUFFIXES
+        if os.path.isdir(os.path.join(documents, suffix))
+    ]
