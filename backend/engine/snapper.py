@@ -122,7 +122,9 @@ def get_empires(state):
 
 
 def get_player_name(state, empire):
-    players = {player['country']: player['name'] for player in state['player']}
+    players = {}
+    if 'player' in state:
+        players = {player['country']: player['name'] for player in state['player']}
     if empire in players:
         return players[empire] if players[empire] != 'unknown' else 'Player'
     return 'AI'
