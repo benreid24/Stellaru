@@ -38,14 +38,20 @@ function Stellaru(props) {
         setChosenEmpire(empire);
         setState(State.monitor);
         subscription.setChosenInfo(chosenSave.file, empire.id);
-    }
+    };
+
+    const onGoBack = () => {
+        setState(State.chooseSave);
+        setChosenSave(null);
+        setChosenEmpire(null);
+    };
 
     return (
         <ThemeProvider theme={darkTheme}>
             <div className="Stellaru">
                 {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
                 {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
-                {state === State.monitor && <Monitor save={chosenSave} empire={chosenEmpire} subscription={subscription}/>}
+                {state === State.monitor && <Monitor save={chosenSave} empire={chosenEmpire} subscription={subscription} onBack={onGoBack}/>}
             </div>
         </ThemeProvider>
     );

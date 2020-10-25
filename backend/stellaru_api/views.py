@@ -24,15 +24,20 @@ def get_saves(request):
     try:
         sessions.register_session(request.session)
         save_files = finder.find_saves()
-        saves = [
-            {
-                'meta': parser.load_meta(save.get_file_for_read()),
-                'file': save.name(),
-                'time': save.time(),
-                'history': save.has_history(),
-                'active': engine.save_active(save.name())
-            } for save in save_files if save.valid()
-        ]
+        saves = []
+        for save in save_files:
+            try:
+                if save.valid():
+                    saves.append({
+                        'meta': parser.load_meta(save.get_file_for_read()),
+                        'file': save.name(),
+                        'time': save.time(),
+                        'history': save.has_history(),
+                        'active': engine.save_active(save.name())
+                    })
+            except:
+                traceback.print_exc()
+
         saves = [
             {
                 'file': save['file'],
@@ -82,7 +87,7 @@ def get_empires(request):
             return _make_error('"file" parameter not set in POST')
         save_file = parsed['file']
 
-        save_watcher = finder.get_save(save_file)
+        save_watcher = finder.get_save(save_file, False)
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {save_file}')
 
@@ -112,7 +117,7 @@ def get_data(request):
         if 'empire' not in parsed:
             return _make_error('"empire" parameter not set in POST')
 
-        save_watcher = finder.get_save(parsed['file'])
+        save_watcher = finder.get_save(parsed['file'], False)
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {parsed["file"]}')
 

@@ -3,6 +3,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import BackButton from './BackButton';
+import LoadingDots from '../LoadingDots';
 
 const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: true});
 
@@ -61,6 +62,16 @@ function SaveSelector(props) {
                 key={save.name+save.gameDate}
             >
                 <SaveCard save={save} onClick={() => {props.onchoose(save);}}/>
+            </div>
+        );
+    }
+
+    if (props.saves.length === 0) {
+        return (
+            <div className='container-fluid h-100'>
+                <BackButton onClick={onBack}/>
+                <h1 className="saveChooseHeader">Choose Game Save</h1>
+                <p>Finding saves<LoadingDots/></p>
             </div>
         );
     }

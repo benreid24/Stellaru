@@ -120,6 +120,7 @@ function Monitor(props) {
     const save = props.save;
     const empire = props.empire;
     const subscription = props.subscription;
+    const onBack = props.onBack;
 
     const [gameData, setGameData] = useState([]);
     const [slicedData, setSlicedData] = useState([]);
@@ -178,7 +179,7 @@ function Monitor(props) {
             <div className='monitorHeader'>
                 <div className='row' style={{paddingBottom: '0px'}}>
                     <div className='col-auto align-self-center'>
-                        <h1 className='empireName'>
+                        <h1 className='empireName noselect' onClick={onBack} title='Go back to save selection'>
                             {empire.name}<span className='playerName'>({empire.player})</span>
                         </h1>
                     </div>
