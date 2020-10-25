@@ -667,6 +667,8 @@ def _get_planets_and_pops(state, empire):
 
         species_sums = {}
         job_sums = {}
+        ethic_sums = {}
+        cat_sums = {}
         for pop in pops:
             species = state['species'][pop['species_index']]['name'] \
                 if pop['species_index'] < len(state['species']) else 'Unknown'
@@ -682,10 +684,26 @@ def _get_planets_and_pops(state, empire):
                 else:
                     job_sums[job] += 1
 
+            if 'category' in pop:
+                cat = pop['category']
+                if cat not in cat_sums:
+                    cat_sums[cat] = 1
+                else:
+                    cat_sums[cat] += 1
+
+            if 'ethos' in pop:
+                for _, ethic in pop['ethos'].items():
+                    if ethic not in ethic_sums:
+                        ethic_sums[ethic] = 1
+                    else:
+                        ethic_sums[ethic] += 1
+
         pop_stats = {
             'total': len(pops),
             'jobs': job_sums,
-            'species': species_sums
+            'species': species_sums,
+            'categories': cat_sums,
+            'ethics': ethic_sums
         }
 
         return planet_stats, pop_stats
