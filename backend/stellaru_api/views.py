@@ -24,15 +24,20 @@ def get_saves(request):
     try:
         sessions.register_session(request.session)
         save_files = finder.find_saves()
-        saves = [
-            {
-                'meta': parser.load_meta(save.get_file_for_read()),
-                'file': save.name(),
-                'time': save.time(),
-                'history': save.has_history(),
-                'active': engine.save_active(save.name())
-            } for save in save_files if save.valid()
-        ]
+        saves = []
+        for save in save_files:
+            try:
+                if save.valid():
+                    saves.append({
+                        'meta': parser.load_meta(save.get_file_for_read()),
+                        'file': save.name(),
+                        'time': save.time(),
+                        'history': save.has_history(),
+                        'active': engine.save_active(save.name())
+                    })
+            except:
+                traceback.print_exc()
+
         saves = [
             {
                 'file': save['file'],
