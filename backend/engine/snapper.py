@@ -454,7 +454,7 @@ def _classify_resource_producer(name):
         return [EC_SB, 'Other']
     if 'ship' in name:
         return [EC_SHIPS, 'Other']
-    return ['Other (unknown)']
+    return ' '.join([word.capitalize() for word in name.split('_')])
 
 
 def _build_resource_breakdown(budget):
