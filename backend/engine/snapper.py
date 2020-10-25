@@ -692,7 +692,8 @@ def _get_planets_and_pops(state, empire):
                     cat_sums[cat] += 1
 
             if 'ethos' in pop:
-                for _, ethic in pop['ethos'].items():
+                for _, ethic_key in pop['ethos'].items():
+                    ethic = ethic_key.split('_')[-1].capitalize()
                     if ethic not in ethic_sums:
                         ethic_sums[ethic] = 1
                     else:
