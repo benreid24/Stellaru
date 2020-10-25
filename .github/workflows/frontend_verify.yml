@@ -1,6 +1,6 @@
 name: Frontend Build Verify
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
