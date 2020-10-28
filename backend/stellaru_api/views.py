@@ -29,7 +29,7 @@ def get_saves(request):
             try:
                 if save.valid():
                     saves.append({
-                        'meta': parser.load_meta(save.get_file_for_read()),
+                        'meta': parser.load_meta(save.get_file(False)),
                         'file': save.name(),
                         'time': save.time(),
                         'history': save.has_history(),
@@ -63,7 +63,7 @@ def wait_save(request):
         if not save_watcher.valid():
             return _make_error('No valid save found')
 
-        meta = parser.load_meta(save_watcher.get_file_for_read())
+        meta = parser.load_meta(save_watcher.get_file(False))
         return JsonResponse({
             'save': {
                 'file': save_watcher.name(),

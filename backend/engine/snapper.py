@@ -178,7 +178,7 @@ def build_snapshot(state):
 
 
 def build_snapshot_from_watcher(watcher):
-    meta, state = parser.parse_save(watcher.get_file_for_read())
+    meta, state = parser.parse_save(watcher.get_file(True))
     return build_snapshot(state)
 
 

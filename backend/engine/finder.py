@@ -58,7 +58,7 @@ def _refresh():
     global saves
     new_saves = []
     for watcher in file_watchers:
-        name = SaveWatcher.extract_save_name(watcher.get_file_for_read())
+        name = SaveWatcher.extract_save_name(watcher.get_directory())
         if name in saves:
             if saves[name].add_save_location(watcher):
                 new_saves.append(name)
