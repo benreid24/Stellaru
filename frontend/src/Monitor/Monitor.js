@@ -59,11 +59,11 @@ function DateSlider(props) {
     const gameData = props.data;
     const onChange = props.onChange;
     const [dateRange, setDateRange] = useState([0, 0]);
-    const [dateMarks, setDateMarks] = useState([]);
+    const [atEnd, setAtEnd] = useState(true);
 
     useEffect(() => {
         let newDateRange = dateRange.slice();
-        if (newDateRange[1] >= gameData.length - 4 || newDateRange[0] === newDateRange[1]) {
+        if (atEnd || newDateRange[0] === newDateRange[1]) {
             newDateRange[1] = gameData.length;
             setDateRange(newDateRange);
             onChange(newDateRange);
@@ -76,27 +76,28 @@ function DateSlider(props) {
     }
 
     const onDateRangeChange = (_, newValue) => {
-        if (newValue[1] > newValue[0])
+        if (newValue[1] > newValue[0]) {
             setDateRange(newValue);
+            setAtEnd(newValue[1] === gameData.length);
+        }
     };
 
-    useEffect(() => {
-        if (gameData.length > 1 && dateRange[0] !== dateRange[1]) {
-            let ticks = [];
-            if (dateRange[0] / gameData.length >= 0.1)
-                ticks.push(0);
-            ticks.push(dateRange[0]);
-            ticks.push(dateRange[1]);
-            if (dateRange[1] / gameData.length <= 0.9)
-                ticks.push(gameData.length-1);
-            setDateMarks(ticks.map(i => {
-                return {
-                    value: i,
-                    label: dateTickFormat(selectNested('date_days', gameData[i < gameData.length ? i : gameData.length - 1]))
-                };
-            }));
-        }
-    }, [dateRange, gameData]);
+    let dateMarks = [];
+    if (gameData.length > 1 && dateRange[0] !== dateRange[1]) {
+        let ticks = [];
+        if (dateRange[0] / gameData.length >= 0.1 && dateRange[0] > 1)
+            ticks.push(0);
+        ticks.push(dateRange[0]);
+        ticks.push(dateRange[1]);
+        if (dateRange[1] / gameData.length <= 0.9 && dateRange[1] < gameData.length - 1)
+            ticks.push(gameData.length-1);
+        dateMarks = ticks.map(i => {
+            return {
+                value: i,
+                label: dateTickFormat(selectNested('date_days', gameData[i < gameData.length ? i : gameData.length - 1]))
+            };
+        });
+    }
 
     return (
         <div className='col dateSlider'>
