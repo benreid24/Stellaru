@@ -114,6 +114,7 @@ function dateTickFormat(date_days) {
     date_days -= year * 360;
     let month = Math.floor(date_days / 30);
     date_days -= month * 30;
+    if (month === 0) month = 12;
     return `${year}.${String(month).padStart(2, '0')}.${String(date_days).padStart(2, '0')}`;
 }
 

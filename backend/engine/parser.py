@@ -14,6 +14,11 @@ def _open_save(file):
         return meta, gamestate
 
 
+def save_valid(file):
+    with ZipFile(file) as zipped:
+        return 'meta' in zipped.namelist() and 'gamestate' in zipped.namelist()
+
+
 def _parse_data(file):
     PARSING_DICT = 0
     PARSING_LIST = 1

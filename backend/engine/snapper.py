@@ -178,7 +178,7 @@ def build_snapshot(state):
 
 
 def build_snapshot_from_watcher(watcher):
-    meta, state = parser.parse_save(watcher.get_file_for_read())
+    meta, state = parser.parse_save(watcher.get_file(True))
     return build_snapshot(state)
 
 
@@ -454,7 +454,7 @@ def _classify_resource_producer(name):
         return [EC_SB, 'Other']
     if 'ship' in name:
         return [EC_SHIPS, 'Other']
-    return ['Other (unknown)']
+    return ' '.join([word.capitalize() for word in name.split('_')])
 
 
 def _build_resource_breakdown(budget):
@@ -667,6 +667,8 @@ def _get_planets_and_pops(state, empire):
 
         species_sums = {}
         job_sums = {}
+        ethic_sums = {}
+        cat_sums = {}
         for pop in pops:
             species = state['species'][pop['species_index']]['name'] \
                 if pop['species_index'] < len(state['species']) else 'Unknown'
@@ -682,10 +684,27 @@ def _get_planets_and_pops(state, empire):
                 else:
                     job_sums[job] += 1
 
+            if 'category' in pop:
+                cat = pop['category']
+                if cat not in cat_sums:
+                    cat_sums[cat] = 1
+                else:
+                    cat_sums[cat] += 1
+
+            if 'ethos' in pop:
+                for _, ethic_key in pop['ethos'].items():
+                    ethic = ethic_key.split('_')[-1].capitalize()
+                    if ethic not in ethic_sums:
+                        ethic_sums[ethic] = 1
+                    else:
+                        ethic_sums[ethic] += 1
+
         pop_stats = {
             'total': len(pops),
             'jobs': job_sums,
-            'species': species_sums
+            'species': species_sums,
+            'categories': cat_sums,
+            'ethics': ethic_sums
         }
 
         return planet_stats, pop_stats

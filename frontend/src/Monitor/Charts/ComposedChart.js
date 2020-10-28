@@ -201,6 +201,7 @@ function ComposedChart(props) {
     });
 
     const ScrollableLegend = (props) => {
+        delete props.content;
         const newProps = {...props};
         newProps.layout = 'horizontal';
         return (
