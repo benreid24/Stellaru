@@ -59,7 +59,7 @@ function MethodChooser(props) {
     const methods = objectKeys(Methods).map(method => renderMethod(method));
     return (
         <div className='container-fluid h-100'>
-            <h1 className="saveChooseHeader">Method for Save Selection</h1>
+            <h1 className="saveChooseHeader">{translate('Method for Save Selection')}</h1>
             {methods}
         </div>
     );

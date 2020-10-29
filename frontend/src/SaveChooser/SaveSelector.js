@@ -5,6 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import BackButton from './BackButton';
 import LoadingDots from '../LoadingDots';
 
+import {translate} from '../Translator';
+
 const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: true});
 
 function SaveCard(props) {
@@ -36,11 +38,11 @@ function SaveCard(props) {
 function Legend(props) {
     return (
         <div className='saveLegend'>
-            <h2 className='saveLegendTitle'>Legend</h2>
+            <h2 className='saveLegendTitle'>{translate('Legend')}</h2>
             <div className='saveLegendItems'>
-                <h3 className='activeSaveName'>Running Save</h3>
-                <h3 className='historySaveName'>Previously Loaded Save</h3>
-                <h3 className='saveName'>Regular Save</h3>
+                <h3 className='activeSaveName'>{translate('Running Save')}</h3>
+                <h3 className='historySaveName'>{translate('Previously Loaded Save')}</h3>
+                <h3 className='saveName'>{translate('Regular Save')}</h3>
             </div>
         </div>
     );
@@ -70,8 +72,8 @@ function SaveSelector(props) {
         return (
             <div className='container-fluid h-100'>
                 <BackButton onClick={onBack}/>
-                <h1 className="saveChooseHeader">Choose Game Save</h1>
-                <p>Finding saves<LoadingDots/></p>
+                <h1 className="saveChooseHeader">{translate('Choose Game Save')}</h1>
+                <p>{translate('Finding saves')}<LoadingDots/></p>
             </div>
         );
     }
@@ -79,7 +81,7 @@ function SaveSelector(props) {
     return (
         <div className='container-fluid h-100'>
             <BackButton onClick={onBack}/>
-            <h1 className="saveChooseHeader">Choose Game Save</h1>
+            <h1 className="saveChooseHeader">{translate('Choose Game Save')}</h1>
             {!props.prevOnly && !props.activeOnly && <Legend/>}
             <div className="row justify-content-center">
                 {saveCards}

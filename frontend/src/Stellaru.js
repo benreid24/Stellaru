@@ -73,7 +73,7 @@ function Stellaru(props) {
     return (
         <ThemeProvider theme={darkTheme}>
             <div className="Stellaru">
-                <LanguagePicker onChange={onLangChange} lang={lang} langs={allLangs}/>
+                {state === State.chooseSave && <LanguagePicker onChange={onLangChange} lang={lang} langs={allLangs}/>}
                 {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
                 {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
                 {state === State.monitor && <Monitor save={chosenSave} empire={chosenEmpire} subscription={subscription} onBack={onGoBack}/>}

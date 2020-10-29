@@ -2,8 +2,10 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import EmpireCard from './EmpireCard';
-import './EmpireChooser.css';
 import LoadingDots from '../LoadingDots';
+import {translate} from '../Translator';
+
+import './EmpireChooser.css';
 
 function EmpireChooser(props) {
     const [empires, setEmpires] = useState(null);
@@ -59,8 +61,8 @@ function EmpireChooser(props) {
 
     return (
         <div className='container-fluid h-100'>
-            <h1>Select Empire to Monitor</h1>
-            {empires === null && <p>Loading save<LoadingDots/></p>}
+            <h1>{translate('Select Empire to Monitor')}</h1>
+            {empires === null && <p>{translate('Loading save')}<LoadingDots/></p>}
             {empires !== null && error === null && 
                 <div className="row empireChooserRow">
                     {empireCards}

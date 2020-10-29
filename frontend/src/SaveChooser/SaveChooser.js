@@ -4,6 +4,8 @@ import {MethodChooser, Methods} from './MethodChooser';
 import SaveSelector from './SaveSelector';
 import SaveWaiter from './SaveWaiter';
 
+import {translate} from '../Translator';
+
 import './SaveChooser.css';
 
 const State = Object.freeze({chooseMethod: 0, waitSave: 1, chooseSave: 2, choosePrevSave: 3, chooseActiveSave: 4});
@@ -91,7 +93,7 @@ function SaveChooser(props) {
     if (error) {
         return (
             <div className="saveChooser">
-                <h1 class='error'>Error</h1>
+                <h1 class='error'>{translate('Error')}</h1>
                 <p class='error'>{error}</p>
             </div>
         );
