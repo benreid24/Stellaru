@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Federation Members';
 
@@ -13,11 +14,11 @@ function FederationMembers(props) {
 
     const lines = [
         {
-            label: 'Member Count',
+            label: translate('Member Count'),
             selector: snap => selectNested('federation/members', snap),
         },
         {
-            label: 'Cohesion',
+            label: translate('Cohesion'),
             selector: snap => selectNested('federation/cohesion', snap),
             yAxis: 'right'
         }
@@ -26,14 +27,14 @@ function FederationMembers(props) {
     const fedName = data.length > 0 ? selectNested('federation/name', data[data.length-1]) : 'Federation';
 
     return (
-        <Chart name={Name} overlay={props.overlay} title={`${fedName} Members`} titleColor='#127814'>
+        <Chart name={Name} overlay={props.overlay} title={fedName + ' ' + translate('Members')} titleColor='#127814'>
             <LineChart
                 name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}
-                yAxisLabel='Members'
-                rightYLabel='Cohesion'
+                yAxisLabel={translate('Members')}
+                rightYLabel={translate('Cohesion')}
             />
         </Chart>
     );
