@@ -48,7 +48,7 @@ function getDataColors(labels, hues) {
     let lumenIndex = 0;
     for (let i in labels) {
         const label = labels[i];
-        if (label in PresetColors)
+        if (label in PresetColors) // TODO - translate preset colors before checking?
             colors[label] = PresetColors[label];
         else {
             const color = `hsl(${hues[hueIndex]}, ${Saturation}%, ${Lumens[lumenIndex]}%)`;

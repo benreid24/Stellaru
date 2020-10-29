@@ -5,6 +5,7 @@ import LineChart from '../LineChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
+import {translate} from '../../../Translator';
 
 const Name = 'All Resource Net Incomes';
 
@@ -15,17 +16,17 @@ function AllResourceIncomes(props) {
     const keys = filterResources(findKeysOverSeries(data, 'economy/net_income'));
     const lines = keys.map(key => {
         return {
-            label: getResourceName(key),
+            label: translate(getResourceName(key)),
             selector: snap => selectNested(`economy/net_income/${key}`, snap)
         };
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='All Resource Net Incomes' titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title={translate('All Resource Net Incomes')} titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}
-                yAxisLabel='Net Income'
+                yAxisLabel={translate('Net Income')}
                 lines={lines}
             />
         </Chart>

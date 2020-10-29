@@ -62,9 +62,11 @@ def _refresh():
         if name in saves:
             if saves[name].add_save_location(watcher):
                 new_saves.append(name)
+                saves[name].get_file(True)
         else:
             saves[name] = SaveWatcher(watcher)
             new_saves.append(name)
+            saves[name].get_file(True)
     return new_saves
 
 

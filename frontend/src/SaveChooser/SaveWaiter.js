@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import BackButton from './BackButton';
 import LoadingDots from '../LoadingDots';
+import {translate} from '../Translator';
 
 const State = Object.freeze({Waiting: 0, Prompted: 1});
 
@@ -20,7 +21,7 @@ function Prompt(props) {
 
     return (
         <div className='savePrompt'>
-            <h2 className='savePromptTitle'>Save Detected</h2>
+            <h2 className='savePromptTitle'>{translate('Save Detected')}</h2>
             <h3 className='savePromptName'>{name}</h3>
             <p className='savePromptDate'>{date}</p>
             <div className='row'>
@@ -29,7 +30,7 @@ function Prompt(props) {
                         <div className='col'/>
                         <div className='col-xl-6 col-lg-7 col-md-8 col-sm-10 align-self-center savePromptButtonOuter'>
                             <div className='savePromptButton' onClick={() => onChoose(true)}>
-                                <h3 className='savePromptYes'>Load Save</h3>
+                                <h3 className='savePromptYes'>{translate('Load Save')}</h3>
                             </div>
                         </div>
                         <div className='col'/>
@@ -40,7 +41,7 @@ function Prompt(props) {
                         <div className='col'/>
                         <div className='col-xl-6 col-lg-7 col-md-8 col-sm-10 align-self-center savePromptButtonOuter'>
                             <div className='savePromptButton' onClick={() => onChoose(false)}>
-                                <h3 className='savePromptNo'>Keep Waiting</h3>
+                                <h3 className='savePromptNo'>{translate('Keep Waiting')}</h3>
                             </div>
                         </div>
                         <div className='col'/>
@@ -91,7 +92,7 @@ function SaveWaiter(props) {
         return (
             <div className='container-fluid h-100'>
                 <BackButton onClick={onBack}/>
-                <h1 className='error'>Error</h1>
+                <h1 className='error'>{translate('Error')}</h1>
                 <p className='error'>{error}</p>
             </div>
         );
@@ -100,8 +101,8 @@ function SaveWaiter(props) {
     return (
         <div className='container-fluid h-100'>
             <BackButton onClick={onBack}/>
-            <h1 className="saveWaitHeader">Waiting For New Save</h1>
-            {state === State.Waiting && <p>Watching Stellaris save directories<LoadingDots/></p>}
+            <h1 className="saveWaitHeader">{translate('Waiting For New Save')}</h1>
+            {state === State.Waiting && <p>{translate('Watching Stellaris save directories')}<LoadingDots/></p>}
             {state === State.Prompted &&
                 <div className='row'>
                     <div className='col'/>

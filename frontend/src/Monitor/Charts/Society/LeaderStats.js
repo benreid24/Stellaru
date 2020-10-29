@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Leader Stats';
 
@@ -13,42 +14,42 @@ function LeaderStats(props) {
 
     const lines = [
         {
-            label: 'Average Age',
+            label: translate('Average Age'),
             selector: snap => selectNested('leaders/avg_age', snap)
         },
         {
-            label: 'Average Hire Age',
+            label: translate('Average Hire Age'),
             selector: snap => selectNested('leaders/avg_hire_age', snap)
         },
         {
-            label: 'Max Age',
+            label: translate('Max Age'),
             selector: snap => selectNested('leaders/max_age', snap)
         },
         {
-            label: 'Max Hire Age',
+            label: translate('Max Hire Age'),
             selector: snap => selectNested('leaders/max_hire_age', snap)
         },
         {
-            label: 'Average Level',
+            label: translate('Average Level'),
             selector: snap => selectNested('leaders/avg_level', snap),
             yAxis: 'right'
         },
         {
-            label: 'Max Level',
+            label: translate('Max Level'),
             selector: snap => selectNested('leaders/max_level', snap),
             yAxis: 'right'
         },
     ];
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Leader Stats' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Leader Stats')} titleColor='#65c73c'>
             <LineChart
                 name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}
-                yAxisLabel='Age'
-                rightYLabel='Level'
+                yAxisLabel={translate('Age')}
+                rightYLabel={translate('Level')}
             />
         </Chart>
     );

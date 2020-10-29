@@ -9,6 +9,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, capitalize, findNested, selectNested} from '../Util';
+import {translate} from '../../../Translator';
 
 const Name = 'Colony Stats';
 
@@ -48,10 +49,10 @@ function Colonies(props) {
     });
 
     const stats = ['size', 'population', 'districts', 'armies', 'stability', 'amenities', 'free_amenities', 'amenities_usage', 'free_housing', 'total_housing'];
-    const renderedMenuItems = stats.map(stat => <MenuItem key={stat} value={stat}>{capitalize(stat, '_')}</MenuItem>);
+    const renderedMenuItems = stats.map(stat => <MenuItem key={stat} value={stat}>{translate(capitalize(stat, '_'))}</MenuItem>);
 
     return (
-        <Chart name={Name} overlay={props.overlay} title={`Colony ${capitalize(stat, '_')}`} titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Colony') + ' ' +  capitalize(stat, '_')} titleColor='#96d636'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>

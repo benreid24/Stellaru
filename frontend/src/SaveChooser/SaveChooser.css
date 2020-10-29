@@ -135,7 +135,7 @@
     padding: 5px;
     position: absolute;
     top: 1%;
-    right: 5%;
+    right: 15%;
 }
 
 .saveLegendItems {
@@ -169,4 +169,10 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -60%);
+}
+
+.langChooser {
+    position: absolute;
+    right: 2%;
+    top: 1%;
 }

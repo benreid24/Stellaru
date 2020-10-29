@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Construction Queue Counts';
 
@@ -14,13 +15,13 @@ function ConstructionQueues(props) {
     const keys = findKeysOverSeries(data, 'construction/breakdown');
     const areas = keys.map(key => {
         return {
-            label: capitalize(key),
+            label: translate(capitalize(key)),
             selector: snap => selectNested(`construction/breakdown/${key}/queue_count`, snap)
         }
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Construction Queue Counts' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Construction Queue Counts')} titleColor='#e68e00'>
             <AreaChart
                 name={name}
                 data={data}

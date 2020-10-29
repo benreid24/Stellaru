@@ -20,6 +20,16 @@ def _make_error(error):
     return JsonResponse({'error': repr(error)}, status=400)
 
 
+def get_translations(request):
+    try:
+        with open('data/translations.json', 'r') as data:
+            translations = json.loads(data.read())
+            return JsonResponse({'translations': translations})
+    except Exception as err:
+        traceback.print_tb(err.__traceback__)
+        return _make_error(err)
+
+
 def get_saves(request):
     try:
         sessions.register_session(request.session)
@@ -63,7 +73,7 @@ def wait_save(request):
         if not save_watcher.valid():
             return _make_error('No valid save found')
 
-        meta = parser.load_meta(save_watcher.get_file(False))
+        meta = parser.load_meta(save_watcher.get_file(True))
         return JsonResponse({
             'save': {
                 'file': save_watcher.name(),

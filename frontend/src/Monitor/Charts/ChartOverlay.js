@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import {translate} from '../../Translator';
+
 function ChartOverlay(props) {
     const settings = props.settings;
 
@@ -30,19 +32,19 @@ function ChartOverlay(props) {
     return (
         <div className='chartOverlay' onMouseLeave={() => setVisible(false)}>
             <div className='chartOverlayRow'>
-                <img src='static/x.png' className='chartOverlayButton' alt='Remove' title='Remove' onClick={onDelete}/>
+                <img src='static/x.png' className='chartOverlayButton' alt={translate('Remove')} title={translate('Remove')} onClick={onDelete}/>
             </div>
             <div className='chartOverlayRow'>
-                <img src='static/uparrow.png' className='chartOverlayButton' alt='Move up' title='Move up' onClick={onMoveUp}/>
-                <img src='static/downarrow.png' className='chartOverlayButton' alt='Move down' title='Move down' onClick={onMoveDown}/>
+                <img src='static/uparrow.png' className='chartOverlayButton' alt={translate('Move up')} title={translate('Move up')} onClick={onMoveUp}/>
+                <img src='static/downarrow.png' className='chartOverlayButton' alt={translate('Move down')} title={translate('Move down')} onClick={onMoveDown}/>
             </div>
             <div className='chartOverlayRow'>
-                <img src='static/narrower.png' className='chartOverlayButton' alt='Make narrower' title='Make narrower' onClick={onResizeSmaller}/>
-                <img src='static/wider.png' className='chartOverlayButton' alt='Make wider' title='Make wider' onClick={onResizeBigger}/>
+                <img src='static/narrower.png' className='chartOverlayButton' alt={translate('Make narrower')} title={translate('Make narrower')} onClick={onResizeSmaller}/>
+                <img src='static/wider.png' className='chartOverlayButton' alt={translate('Make wider')} title={translate('Make wider')} onClick={onResizeBigger}/>
             </div>
             <div className='chartOverlayRow'>
-                <img src='static/shorter.png' className='chartOverlayButton' alt='Make shorter' title='Make shorter' onClick={onResizeShorter}/>
-                <img src='static/taller.png' className='chartOverlayButton' alt='Make taller' title='Make taller' onClick={onResizeTaller}/>
+                <img src='static/shorter.png' className='chartOverlayButton' alt={translate('Make shorter')} title={translate('Make shorter')} onClick={onResizeShorter}/>
+                <img src='static/taller.png' className='chartOverlayButton' alt={translate('Make taller')} title={translate('Make taller')} onClick={onResizeTaller}/>
             </div>
         </div>
     )

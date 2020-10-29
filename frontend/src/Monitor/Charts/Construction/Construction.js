@@ -9,6 +9,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested, capitalize, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 import './Construction.css';
 
@@ -34,7 +35,7 @@ function Construction(props) {
     const onQueueTypeChange = event => {
         setQueueType(event.target.value);
     };
-    const renderQueueType = type => <MenuItem key={type} value={type}>{capitalize(type, '_')}</MenuItem>;
+    const renderQueueType = type => <MenuItem key={type} value={type}>{translate(capitalize(type, '_'))}</MenuItem>;
     const renderedQueueTypes = queueTypes.map(renderQueueType);
 
     useEffect(() => {
@@ -52,20 +53,20 @@ function Construction(props) {
 
     const renderLines = queueType => [
         {
-            label: 'Total Construction Queues',
+            label: translate('Total Construction Queues'),
             selector: snap => selectNested(`construction/breakdown/${queueType}/queue_count`, snap)
         },
         {
-            label: 'Total Queued Items',
+            label: translate('Total Queued Items'),
             selector: snap => selectNested(`construction/breakdown/${queueType}/queued_items`, snap)
         },
         {
-            label: 'Average Queue Size',
+            label: translate('Average Queue Size'),
             selector: snap => selectNested(`construction/breakdown/${queueType}/avg_queue_size`, snap),
             yAxis: 'right'
         },
         {
-            label: 'Max Queue Size',
+            label: translate('Max Queue Size'),
             selector: snap => selectNested(`construction/breakdown/${queueType}/max_queue_size`, snap)
         }
     ];
@@ -74,7 +75,7 @@ function Construction(props) {
         lines = renderLines(queueType);
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Construction Queue Breakdowns' titleColor='#e68e00'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Construction Queue Breakdowns')} titleColor='#e68e00'>
             <div className='constructionChartForm'>
                 <div className='constructionChartFormInner'>
                     <FormControl className={classes.formControl}>
@@ -90,8 +91,8 @@ function Construction(props) {
                     data={data}
                     allowIsolation={true}
                     lines={lines}
-                    yAxisLabel='Count'
-                    rightYLabel='Average'
+                    yAxisLabel={translate('Count')}
+                    rightYLabel={translate('Average')}
                 />
             </div>
         </Chart>

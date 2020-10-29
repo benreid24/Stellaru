@@ -10,6 +10,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts, getAddedCharts, clearAdded} from '../ChartRegistry';
 import {randomString} from '../Charts/Util';
+import {translate} from '../../Translator';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -31,8 +32,8 @@ function ChartAdder(props) {
     const makeItem = chart => {
         return (
             <MenuItem key={chart.name} value={chart.name}>
-                <Tooltip title={<span className='chartDesc'>{chart.description}</span>} placement='right'>
-                    <span>{chart.name}</span>
+                <Tooltip title={<span className='chartDesc'>{translate(chart.description)}</span>} placement='right'>
+                    <span>{translate(chart.name)}</span>
                 </Tooltip>
             </MenuItem>
         );
@@ -44,7 +45,7 @@ function ChartAdder(props) {
             <div className='row justify-content-start'>
                 <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-7 align-self-end'>
                     <FormControl className={classes.formControl}>
-                        <InputLabel id='add-chart'>Add Chart...</InputLabel>
+                        <InputLabel id='add-chart'>{translate('Add Chart')}...</InputLabel>
                         <Select value='' onChange={onAdd} labelId='add-chart'>
                             {chartList}
                         </Select>
@@ -52,7 +53,7 @@ function ChartAdder(props) {
                 </div>
                 {added.length > 0 && 
                     <div className='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-5 align-self-center'>
-                        <Button color='secondary' variant='contained' onClick={props.onClear}>Clear Dashboard</Button>
+                        <Button color='secondary' variant='contained' onClick={props.onClear}>{translate('Clear Dashboard')}</Button>
                     </div>
                 }
             </div>
@@ -200,7 +201,7 @@ function CustomTab(props) {
                 <ChartAdder onAdd={onAdd} onClear={onClear} charts={charts}/>
             </div>
             <div className='customTabContent'>
-                {renderedCharts.length === 0 && <div className='row chartRow justify-content-center'><div className='col-6'><p>Create a custom dashboard by adding charts</p></div></div>}
+                {renderedCharts.length === 0 && <div className='row chartRow justify-content-center'><div className='col-6'><p>{translate('Create a custom dashboard by adding charts')}</p></div></div>}
                 {renderedCharts}
             </div>
         </div>

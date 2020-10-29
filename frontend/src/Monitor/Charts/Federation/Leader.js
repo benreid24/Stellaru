@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Leading Federation';
 
@@ -13,7 +14,7 @@ function LeadingFederation(props) {
 
     const lines = [
         {
-            label: 'Currently Leader',
+            label: translate('Currently Leader'),
             selector: snap => selectNested('federation/leader', snap) ? 1 : 0,
         }
     ];
@@ -25,7 +26,7 @@ function LeadingFederation(props) {
     };
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Leading Federation' titleColor='#127814'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Leading Federation')} titleColor='#127814'>
             <LineChart
                 name={name}
                 data={data}

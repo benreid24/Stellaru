@@ -3,6 +3,7 @@ import React from 'react';
 import LineChart from './LineChart';
 
 import {selectNested} from './Util';
+import {translate} from '../../Translator';
 
 function StatsChart(props) {
     const name = props.name;
@@ -11,7 +12,7 @@ function StatsChart(props) {
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
     const keyPaths = Array.isArray(props.keyPaths) ? props.keyPaths : [props.keyPaths];
     const extraLines = props.extraLines ? props.extraLines : [];
-    const statLabels = props.statLabels ? props.statLabels : ['Min', 'Max', 'Average', 'Total'];
+    const statLabels = props.statLabels ? props.statLabels : [translate('Min'), translate('Max'), translate('Average'), translate('Total')];
     const exclude = props.exclude ? props.exclude : [];
 
     let statLines = [];

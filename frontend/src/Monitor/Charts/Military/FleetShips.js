@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 import {selectNested} from '../Util';
+import {translate} from '../../../Translator';
 
 const Name = 'Fleet Ship Stats';
 
@@ -13,26 +14,31 @@ function FleetShips(props) {
 
     const lines = [
         {
-            label: 'Fleet Count',
+            label: translate('Fleet Count'),
             selector: snap => selectNested('fleets/total', snap)
         },
         {
-            label: 'Average Ship Experience',
+            label: translate('Average Ship Experience'),
             selector: snap => selectNested('fleets/avg_ship_exp', snap),
             yAxis: 'right'
         }
     ];
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Fleet Ship Stats' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Fleet Ship Stats')} titleColor='#de1212'>
             <StatsChart
                 name={name}
                 data={data}
                 keyPaths='fleets/ships'
                 extraLines={lines}
-                statLabels={['Min Ship Count', 'Max Ship Count', 'Average Ship Count', 'Total Ship Count']}
-                yAxisLabel='Ship Count'
-                rightYLabel='Experience'
+                statLabels={[
+                    translate('Min Ship Count'),
+                    translate('Max Ship Count'),
+                    translate('Average Ship Count'),
+                    translate('Total Ship Count')
+                ]}
+                yAxisLabel={translate('Ship Count')}
+                rightYLabel={translate('Experience')}
             />
         </Chart>
     );

@@ -19,6 +19,7 @@ import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
+import {translate} from '../Translator';
 
 import './Monitor.css';
 
@@ -49,7 +50,7 @@ function StatusIndicator(props) {
     return (
         <div className='statusIndicator'>
             <div className={sclass}>
-                <h2 className={sclass+'Text'}>{status}{dots}</h2>
+                <h2 className={sclass+'Text'}>{translate(status)}{dots}</h2>
             </div>
         </div>
     );
@@ -180,7 +181,7 @@ function Monitor(props) {
             <div className='monitorHeader'>
                 <div className='row' style={{paddingBottom: '0px'}}>
                     <div className='col-auto align-self-center'>
-                        <h1 className='empireName noselect' onClick={onBack} title='Go back to save selection'>
+                        <h1 className='empireName noselect' onClick={onBack} title={translate('Go back to save selection')}>
                             {empire.name}<span className='playerName'>({empire.player})</span>
                         </h1>
                     </div>
@@ -192,16 +193,16 @@ function Monitor(props) {
                 <div className='row tabRow'>
                     <div className='col-9'>
                         <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
-                            <Tab label='Overview'/>
-                            <Tab label='Custom'/>
-                            <Tab label='Economy'/>
-                            <Tab label='Military'/>
-                            <Tab label='Science'/>
-                            <Tab label='Society'/>
-                            <Tab label='Empire'/>
-                            <Tab label='Federation'/>
-                            <Tab label='Construction'/>
-                            <Tab label='Help'/>
+                            <Tab label={translate('Overview')}/>
+                            <Tab label={translate('Custom')}/>
+                            <Tab label={translate('Economy')}/>
+                            <Tab label={translate('Military')}/>
+                            <Tab label={translate('Science')}/>
+                            <Tab label={translate('Society')}/>
+                            <Tab label={translate('Empire')}/>
+                            <Tab label={translate('Federation')}/>
+                            <Tab label={translate('Construction')}/>
+                            <Tab label={translate('Help')}/>
                         </Tabs>
                     </div>
                     <div className='col-3'>

@@ -10,6 +10,7 @@ import {selectNested, findKeysOverSeries, renderArea, renderLine} from '../Util'
 import {getResourceName} from './Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
+import {translate} from '../../../Translator';
 
 const Name = 'Resource Production Breakdown';
 
@@ -60,7 +61,7 @@ function MegaBreakdown(props) {
         ...findKeysOverSeries(data, 'economy/income'),
         ...findKeysOverSeries(data, 'economy/spending')
     ])];
-    const renderResourceType = type => <MenuItem key={type} value={type}>{getResourceName(type)}</MenuItem>;
+    const renderResourceType = type => <MenuItem key={type} value={type}>{translate(getResourceName(type))}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
     const renderIncome = (series, labelColors) => {
@@ -77,7 +78,7 @@ function MegaBreakdown(props) {
     const incomeKeys = findKeysOverSeries(data, `economy/income/${resourceType}/breakdown`);
     const incomeSeries = incomeKeys.map(key => {
         return {
-            label: `${key} Income`,
+            label: translate(key) + ' ' + translate('Income'),
             selector: snap => selectNested(`economy/income/${resourceType}/breakdown/${key}/total`, snap),
             renderer: renderIncome
         };
@@ -85,7 +86,7 @@ function MegaBreakdown(props) {
     const spendingKeys = findKeysOverSeries(data, `economy/spending/${resourceType}/breakdown`);
     const spendingSeries = spendingKeys.map(key => {
         return {
-            label: `${key} Spending`,
+            label: translate(key) + ' ' + translate('Spending'),
             selector: snap => -1 * selectNested(`economy/spending/${resourceType}/breakdown/${key}/total`, snap),
             renderer: renderSpending
         };
@@ -94,7 +95,7 @@ function MegaBreakdown(props) {
         ...incomeSeries,
         ...spendingSeries,
         {
-            label: 'Net Income',
+            label: translate('Net Income'),
             selector: snap => selectNested(`economy/net_income/${resourceType}`, snap),
             renderer: renderNet
         }
@@ -114,7 +115,7 @@ function MegaBreakdown(props) {
     }, [data, resourceType, resourceTypes, name]);
 
     return (
-        <Chart name={Name} overlay={props.overlay} title={`${getResourceName(resourceType)} Production Breakdown`} titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title={translate(getResourceName(resourceType)) + ' ' + translate('Production Breakdown')} titleColor='#ded140'>
             <div className='fancyChartForm'>
                 <div className='fancyChartInner'>
                     <FormControl className={classes.formControl}>

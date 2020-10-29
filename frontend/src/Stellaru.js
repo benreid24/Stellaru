@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {createMuiTheme} from '@material-ui/core'
 import {ThemeProvider} from '@material-ui/core'
 
@@ -9,6 +9,8 @@ import DataSubscription from './DataSubscription';
 import SaveChooser from './SaveChooser/SaveChooser';
 import EmpireChooser from './EmpireChooser/EmpireChooser';
 import Monitor from './Monitor/Monitor';
+
+import {init as initTranslator, getAllLangs, setLang as setGlobalLang, LanguagePicker} from './Translator';
 
 const State = Object.freeze({
     chooseSave: 0,
@@ -24,10 +26,34 @@ const darkTheme = createMuiTheme({
 
 const subscription = new DataSubscription();
 
+function loadLang() {
+    const stored = window.localStorage.getItem('stellaru-lang');
+    let lang = 'english';
+    if (stored !== null)
+        lang = JSON.parse(stored);
+    setGlobalLang(lang);
+    return lang;
+}
+
 function Stellaru(props) {
     const [state, setState] = useState(State.chooseSave);
     const [chosenSave, setChosenSave] = useState(null);
     const [chosenEmpire, setChosenEmpire] = useState(null);
+
+    const [allLangs, setAllLangs] = useState([]);
+    const [lang, setLang] = useState('');
+    const onLangChange = newLang => {
+        setLang(newLang);
+        setGlobalLang(newLang);
+        window.localStorage.setItem('stellaru-lang', JSON.stringify(newLang));
+    };
+    const onTranslationLoad = () => {
+        setAllLangs(getAllLangs());
+        setLang(loadLang());
+    }
+    useEffect(() => {
+        initTranslator(onTranslationLoad);
+    }, []);
 
     const onSaveChoose = (save) => {
         setChosenSave(save);
@@ -49,6 +75,7 @@ function Stellaru(props) {
     return (
         <ThemeProvider theme={darkTheme}>
             <div className="Stellaru">
+                {state === State.chooseSave && <LanguagePicker onChange={onLangChange} lang={lang} langs={allLangs}/>}
                 {state === State.chooseSave && <SaveChooser onChoose={onSaveChoose}/>}
                 {state === State.chooseEmpire && <EmpireChooser file={chosenSave.file} onChoose={onEmpireChoose}/>}
                 {state === State.monitor && <Monitor save={chosenSave} empire={chosenEmpire} subscription={subscription} onBack={onGoBack}/>}

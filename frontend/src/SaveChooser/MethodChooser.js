@@ -3,6 +3,9 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
+import {objectKeys} from '../Monitor/Charts/Util';
+import {translate} from '../Translator';
+
 const Methods = Object.freeze({
     wait: 'wait',
     chooseActive: 'chooseActive',
@@ -36,41 +39,30 @@ function MethodCard(props) {
     );
 }
 
-class MethodChooser extends React.Component {
-    constructor(props) {
-        super(props);
+function MethodChooser(props) {
+    const chooseCb = props.onchoose;
 
-        this.state = {
-            chooseCb: props.onchoose
-        };
-    }
-
-    renderMethod(method) {
+    const renderMethod = method => {
         return (
             <div className="row justify-content-center" key={method}>
                 <div className="col-xl-5 col-lg-8 col-md-10 col-sm-11 col-xs-12">
                 <MethodCard
-                    onClick={() => {this.state.chooseCb(Methods[method]);}}
-                    title={MethodTitles[method]}
-                    desc={MethodDescs[method]}
+                    onClick={() => {chooseCb(Methods[method]);}}
+                    title={translate(MethodTitles[method])}
+                    desc={translate(MethodDescs[method])}
                 />
                 </div>
             </div>
         );
     }
 
-    render() {
-        let methods = [];
-        for (let method in Methods) {
-            methods.push(this.renderMethod(method));
-        }
-        return (
-            <div className='container-fluid h-100'>
-                <h1 className="saveChooseHeader">Method for Save Selection</h1>
-                {methods}
-            </div>
-        );
-    }
+    const methods = objectKeys(Methods).map(method => renderMethod(method));
+    return (
+        <div className='container-fluid h-100'>
+            <h1 className="saveChooseHeader">{translate('Method for Save Selection')}</h1>
+            {methods}
+        </div>
+    );
 }
 
 export {

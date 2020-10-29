@@ -9,6 +9,7 @@ import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
 import Chart from '../Chart';
+import {translate} from '../../../Translator';
 
 import './Economy.css';
 
@@ -77,9 +78,9 @@ function BreadCrumbs(props) {
 
     return (
         <div className='breadcrumbBox'>
-            {nestedCats.length > 0 && <p className='breadcrumbLabel'>Drilldown:</p>}
+            {nestedCats.length > 0 && <p className='breadcrumbLabel'>{translate('Drilldown:')}</p>}
             {nestedCats.length > 0 && renderedDrilldowns}
-            {nestedCats.length === 0 && <p className='drilldownHint'>Click legend to drill down</p>}
+            {nestedCats.length === 0 && <p className='drilldownHint'>{translate('Click legend to drill down')}</p>}
         </div>
     );
 }
@@ -150,7 +151,7 @@ function FancyBreakdown(props) {
     }, [data]);
 
     // Render dropdown for top level types
-    const renderResourceType = type => <MenuItem key={type} value={type}>{type}</MenuItem>;
+    const renderResourceType = type => <MenuItem key={type} value={type}>{translate(type)}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 
     // Manage label colors to keep consistent when drilling down
@@ -215,7 +216,7 @@ function FancyBreakdown(props) {
             }
         }
         else if (!resourceType && resourceTypes.includes('Energy Credit')) {
-            setResourceType('Energy Credit');
+            setResourceType('Energy Credit'); // TODO - refactor to make less janky. use keys in breakdown, not labels
         }
     }, [data, resourceType, resourceTypes, name]);
 
@@ -230,8 +231,8 @@ function FancyBreakdown(props) {
                     </FormControl>
                     <FormControl className={classes.formControl}>
                         <Select value={dataType} onChange={onDataTypeChange}>
-                            <MenuItem value={DataTypes.Income}>Income</MenuItem>
-                            <MenuItem value={DataTypes.Spending}>Spending</MenuItem>
+                            <MenuItem value={DataTypes.Income}>{translate('Income')}</MenuItem>
+                            <MenuItem value={DataTypes.Spending}>{translate('Spending')}</MenuItem>
                         </Select>
                     </FormControl>
                     <BreadCrumbs onNavigate={setBreakdownLevel} breakdown={breakdownLevel}/>

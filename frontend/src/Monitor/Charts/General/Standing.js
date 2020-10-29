@@ -5,6 +5,7 @@ import LineChart from '../LineChart';
 import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 import './General.css';
 
@@ -14,12 +15,12 @@ function Standing(props) {
     const name = props.name ? props.name : 'standing';
     const data = props.data;
     const rank = data.length > 0 ? selectNested('standing/victory_rank', data[data.length-1]) : null;
-    const title = rank ? `Standing (Rank: ${rank})` : 'Standing';
+    const title = rank ? `${translate('Standing')} (${translate('Rank')}: ${rank})` : translate('Standing');
 
     const keys = findKeysOverSeries(data, 'standing/victory_points');
     const areas = keys.map(key => {
         return {
-            label: key,
+            label: translate(key),
             selector: snap => selectNested(`standing/victory_points/${key}`, snap)
         };
     });
@@ -29,7 +30,7 @@ function Standing(props) {
             <div className='victoryPointChart'>
                 <AreaChart
                     data={data}
-                    yAxisLabel='Victory Points'
+                    yAxisLabel={translate('Victory Points')}
                     stack={true}
                     allowIsolation={true}
                     areas={areas}
@@ -39,10 +40,10 @@ function Standing(props) {
                 <LineChart
                     name={name}
                     data={data}
-                    yAxisLabel='Rank'
+                    yAxisLabel={translate('Rank')}
                     lines={[
                         {
-                            label: 'Victory Rank',
+                            label: translate('Victory Rank'),
                             selector: snap => selectNested('standing/victory_rank', snap)
                         }
                     ]}

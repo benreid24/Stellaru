@@ -5,6 +5,7 @@ import LineChart from '../LineChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
+import {translate} from '../../../Translator';
 
 const Name = 'All Resource Stockpiles';
 
@@ -15,17 +16,17 @@ function Stockpiles(props) {
     const keys = filterResources(findKeysOverSeries(data, 'economy/stockpile'));
     const lines = keys.map(key => {
         return {
-            label: getResourceName(key),
+            label: translate(getResourceName(key)),
             selector: snap => selectNested(`economy/stockpile/${key}`, snap)
         };
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Resource Stockpiles' titleColor='#ded140'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Resource Stockpiles')} titleColor='#ded140'>
             <LineChart
                 name={name}
                 data={data}
-                yAxisLabel='Stockpile'
+                yAxisLabel={translate('Stockpile')}
                 lines={lines}
             />
         </Chart>

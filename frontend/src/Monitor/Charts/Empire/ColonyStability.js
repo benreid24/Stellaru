@@ -3,6 +3,7 @@ import React from 'react';
 import Chart from '../Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Colony Stability & Crime';
 
@@ -11,12 +12,20 @@ function ColonyStability(props) {
     const data = props.data;
 
     const labels = {
-        'planets/stability': ['Min Planet Stability', 'Max Planet Stability', 'Average Planet Stability'],
-        'planets/crime': ['Min Planet Crime', 'Max Planet Crime', 'Average Planet Crime']
+        'planets/stability': [
+            translate('Min Planet Stability'),
+            translate('Max Planet Stability'),
+            translate('Average Planet Stability')
+        ],
+        'planets/crime': [
+            translate('Min Planet Crime'),
+            translate('Max Planet Crime'),
+            translate('Average Planet Crime')
+        ]
     };
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Colony Stability &amp; Crime' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Colony Stability &amp; Crime')} titleColor='#96d636'>
             <StatsChart
                 name={name}
                 data={data}
