@@ -9,6 +9,7 @@ import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Pops';
 
@@ -48,14 +49,14 @@ function Pops(props) {
     const keys = findKeysOverSeries(data, `pops/${stat}`);
     const areas = keys.map(key => {
         return {
-            label: capitalize(key, '_'),
+            label: translate(capitalize(key, '_')),
             selector: snap => selectNested(`pops/${stat}/${key}`, snap)
         };
     });
 
-    const renderedStats = stats.map(option => <MenuItem key={option} value={option}>{capitalize(option)}</MenuItem>);
+    const renderedStats = stats.map(option => <MenuItem key={option} value={option}>{translate(capitalize(option))}</MenuItem>);
     return (
-        <Chart name={Name} overlay={props.overlay} title={`Pop ${capitalize(stat)} Breakdown`} titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title={translate(`Pop ${capitalize(stat)} Breakdown`)} titleColor='#65c73c'>
             <div className='societyChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={stat} onChange={onStatChange}>

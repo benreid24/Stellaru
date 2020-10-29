@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Leaders';
 
@@ -13,33 +14,33 @@ function Leaders(props) {
 
     const areas = [
         {
-            label: 'Scientist',
+            label: translate('Scientist'),
             selector: snap => selectNested('leaders/scientist', snap)
         },
         {
-            label: 'Admiral',
+            label: translate('Admiral'),
             selector: snap => selectNested('leaders/admiral', snap)
         },
         {
-            label: 'General',
+            label: translate('General'),
             selector: snap => selectNested('leaders/general', snap)
         },
         {
-            label: 'Envoy',
+            label: translate('Envoy'),
             selector: snap => selectNested('leaders/envoy', snap)
         },
         {
-            label: 'Governor',
+            label: translate('Governor'),
             selector: snap => selectNested('leaders/governor', snap)
         },
         {
-            label: 'Ruler',
+            label: translate('Ruler'),
             selector: snap => selectNested('leaders/ruler', snap)
         },
     ];
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Leaders' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Leaders')} titleColor='#65c73c'>
             <AreaChart
                 name={name}
                 data={data}

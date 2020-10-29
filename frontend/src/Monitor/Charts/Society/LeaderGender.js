@@ -5,6 +5,7 @@ import AreaChart from '../AreaChart';
 import PieChart from '../PieChart';
 import {selectNested, percentValueFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 import './Society.css';
 
@@ -16,11 +17,11 @@ function LeaderGender(props) {
 
     const areas = [
         {
-            label: 'Percent Male',
+            label: translate('Percent Male'),
             selector: snap => selectNested('leaders/percent_male', snap) * 100
         },
         {
-            label: 'Percent Female',
+            label: translate('Percent Female'),
             selector: snap => (1 - selectNested('leaders/percent_male', snap)) * 100
         }
     ];
@@ -32,7 +33,7 @@ function LeaderGender(props) {
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Leader Gender Breakdown' titleColor='#65c73c'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Leader Gender Breakdown')} titleColor='#65c73c'>
             <div className='genderAreaChart'>
                 <AreaChart
                     name={name}
