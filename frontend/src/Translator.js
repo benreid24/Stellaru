@@ -1,0 +1,80 @@
+import React, {useState} from 'react';
+
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import {makeStyles} from '@material-ui/core/styles';
+
+import {objectKeys} from './Monitor/Charts/Util';
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
+
+let translations = {
+    'Wait for New Save': {
+        'english': 'Wait for a New Save',
+        'spanish': 'Spanish spanish spanish'
+    }
+};
+let currentLang = 'english';
+
+function init() {
+    // TODO - load dict from backend
+}
+
+function translate(phrase) {
+    console.log(phrase);
+    if (phrase in translations)
+        return translations[phrase][currentLang];
+    return phrase;
+}
+
+function setLang(lang) {
+    currentLang = lang;
+}
+
+function getAllLangs() {
+    const phrases = objectKeys(translations);
+    if (phrases.length > 0)
+        return objectKeys(translations[phrases[0]]);
+    return [];
+}
+
+function LanguagePicker(props) {
+    const classes = useStyles();
+    const langs = props.langs ? props.langs : ['english', 'spanish'];
+    const onChange = props.onChange;
+
+    const [lang, setLang] = useState(props.lang);
+    const onLangChange = event => {
+        const newLang = event.target.value;
+        setLang(newLang);
+        onChange(newLang);
+    };
+
+    const options = langs.map(lang => <MenuItem key={lang} value={lang}>{lang}</MenuItem>);
+    return (
+        <div className='langChooser'>
+            <FormControl className={classes.formControl}>
+                <Select value={lang} onChange={onLangChange}>
+                    {options}
+                </Select>
+            </FormControl>
+        </div>
+    );
+}
+
+export {
+    init,
+    translate,
+    setLang,
+    getAllLangs,
+    LanguagePicker
+};
