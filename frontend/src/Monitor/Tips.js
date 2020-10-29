@@ -2,6 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import {shuffle} from './Charts/Util';
+import {translate} from '../Translator';
 
 const TipList = [
     'The slider in the top right can be moved to adjust the dates of data shown',
@@ -45,7 +46,7 @@ function Tips(props) {
 
     return (
         <div className='tipBox tabRow' onClick={onClick}>
-            <p className='tip noselect'>{TipList[TipOrder[currentTip]]}</p>
+            <p className='tip noselect'>{translate(TipList[TipOrder[currentTip]])}</p>
         </div>
     );
 }

@@ -9,6 +9,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Construction Queue Comparisons';
 
@@ -45,7 +46,7 @@ function ConstructionQueues(props) {
     const keys = findKeysOverSeries(data, 'construction/breakdown');
     const lines = keys.map(key => {
         return {
-            label: `${capitalize(key, '_')} ${capitalize(stat, '_')}`,
+            label: `${translate(capitalize(key, '_'))} ${translate(capitalize(stat, '_'))}`,
             selector: snap => selectNested(`construction/breakdown/${key}/${stat}`, snap)
         }
     });

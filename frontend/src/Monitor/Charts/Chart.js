@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import ChartOverlay from './ChartOverlay';
 import {addChart} from '../ChartRegistry';
+import {translate} from '../../Translator';
 
 import './Charts.css';
 
@@ -34,8 +35,8 @@ function AddOverlay(props) {
 
     return (
         <div className='defaultChartOverlay' onMouseLeave={onLeave} onClick={onClick}>
-            {!added && <p className='addToDashboardText noselect'>Add to custom dashboard</p>}
-            {added && <p className='addedToDashText noselect'>Added</p>}
+            {!added && <p className='addToDashboardText noselect'>{translate('Add to custom dashboard')}</p>}
+            {added && <p className='addedToDashText noselect'>{translate('Added')}</p>}
         </div>
     );
 }
