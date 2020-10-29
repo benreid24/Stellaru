@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Empire Size';
 
@@ -13,38 +14,38 @@ function EmpireSize(props) {
 
     const lines = [
         {
-            label: 'Owned Systems',
+            label: translate('Owned Systems'),
             selector: snap => selectNested('systems/owned', snap)
         },
         {
-            label: 'Starbases',
+            label: translate('Starbases'),
             selector: snap => selectNested('systems/starbases', snap)
         },
         {
-            label: 'Colonies',
+            label: translate('Colonies'),
             selector: snap => selectNested('planets/total', snap)
         },
         {
-            label: 'Population',
+            label: translate('Population'),
             selector: snap => selectNested('pops/total', snap),
             yAxis: 'right'
         },
         {
-            label: 'Spawl',
+            label: translate('Spawl'),
             selector: snap => selectNested('sprawl', snap),
             yAxis: 'right'
         }
     ];
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Empire Size' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Empire Size')} titleColor='#96d636'>
             <LineChart
                 name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}
-                yAxisLabel='Count'
-                rightYLabel='Sprawl &amp; Pops'
+                yAxisLabel={translate('Count')}
+                rightYLabel={translate('Sprawl &amp; Pops')}
             />
         </Chart>
     );

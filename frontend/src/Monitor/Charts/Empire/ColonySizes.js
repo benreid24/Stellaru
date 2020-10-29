@@ -3,6 +3,7 @@ import React from 'react';
 import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 import {selectNested, findKeysOverSeries, findNested} from '../Util';
 
@@ -21,7 +22,7 @@ function ColonySizes(props) {
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Colony Sizes' titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Colony Sizes')} titleColor='#96d636'>
             <AreaChart
                 name={name}
                 data={data}
