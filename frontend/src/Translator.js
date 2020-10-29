@@ -24,13 +24,17 @@ let translations = {
     }
 };
 let currentLang = 'english';
+let keys = [];
 
 function init() {
     // TODO - load dict from backend
 }
 
 function translate(phrase) {
-    console.log(phrase);
+    if (!keys.includes(phrase)) {
+        keys.push(phrase);
+        console.log(keys);
+    }
     if (phrase in translations)
         return translations[phrase][currentLang];
     return phrase;

@@ -63,7 +63,7 @@ def wait_save(request):
         if not save_watcher.valid():
             return _make_error('No valid save found')
 
-        meta = parser.load_meta(save_watcher.get_file(False))
+        meta = parser.load_meta(save_watcher.get_file(True))
         return JsonResponse({
             'save': {
                 'file': save_watcher.name(),
