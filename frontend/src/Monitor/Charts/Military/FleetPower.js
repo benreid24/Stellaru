@@ -3,6 +3,7 @@ import React from 'react';
 import Chart from '../Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Fleet Power';
 
@@ -11,12 +12,17 @@ function FleetPower(props) {
     const data = props.data;
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Fleet Power' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Fleet Power')} titleColor='#de1212'>
             <StatsChart
                 name={name}
                 data={data}
                 keyPaths='fleets/fleet_power'
-                statLabels={['Min Power/Fleet', 'Max Power/Fleet', 'Average Power/Fleet', 'Total Fleet Power']}
+                statLabels={[
+                    translate('Min Power/Fleet'),
+                    translate('Max Power/Fleet'),
+                    translate('Average Power/Fleet'),
+                    translate('Total Fleet Power')
+                ]}
             />
         </Chart>
     );

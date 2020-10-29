@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested, capitalize} from '../Util';
+import {translate} from '../../../Translator';
 
 const Name = 'Ship Types';
 
@@ -14,13 +15,13 @@ function Ships(props) {
     const keys = findKeysOverSeries(data, 'fleets/ship_types');
     const lines = keys.map(key => {
         return {
-            label: capitalize(key, '_'),
+            label: translate(capitalize(key, '_')),
             selector: snap => selectNested(`fleets/ship_types/${key}`, snap)
         };
     });
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Ship Types' titleColor='#de1212'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Ship Types')} titleColor='#de1212'>
             <AreaChart
                 name={name}
                 data={data}

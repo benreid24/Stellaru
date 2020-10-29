@@ -154,7 +154,8 @@ function ComposedChart(props) {
     const renderSeries = series => {
         if (!seriesVisible(series))
             return null;
-        return seriesRenderer(series, labelColors, () => {
+        const renderer = series.renderer ? series.renderer : seriesRenderer;
+        return renderer(series, labelColors, () => {
             seriesClick({dataKey: series.label});
         });
     };
