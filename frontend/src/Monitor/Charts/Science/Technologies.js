@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import ComposedChart from '../ComposedChart';
 import {selectNested, renderLine, renderArea} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Technologies';
 
@@ -13,20 +14,20 @@ function Technologies(props) {
 
     const series = [
         {
-            label: 'Researched Technologies',
+            label: translate('Researched Technologies'),
             selector: snap => selectNested('tech/completed_techs', snap),
             yAxis: 'right'
         },
         {
-            label: 'Available Engineering Techs',
+            label: translate('Available Engineering Techs'),
             selector: snap => selectNested('tech/available_techs/engineering', snap)
         },
         {
-            label: 'Available Society Techs',
+            label: translate('Available Society Techs'),
             selector: snap => selectNested('tech/available_techs/society', snap)
         },
         {
-            label: 'Available Physics Techs',
+            label: translate('Available Physics Techs'),
             selector: snap => selectNested('tech/available_techs/physics', snap)
         }
     ];
@@ -37,15 +38,15 @@ function Technologies(props) {
     }
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Technologies' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Technologies')} titleColor='#0b9cbd'>
             <ComposedChart
                 name={name}
                 data={data}
                 allowIsolation={true}
                 series={series}
                 seriesRenderer={renderer}
-                yAxisLabel='Available Techs'
-                rightYLabel='Researched Techs'
+                yAxisLabel={translate('Available Techs')}
+                rightYLabel={translate('Researched Techs')}
             />
         </Chart>
     );

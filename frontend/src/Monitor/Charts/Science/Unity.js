@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Unity';
 
@@ -13,42 +14,42 @@ function Unity(props) {
 
     const lines = [
         {
-            label: 'Unity Income',
+            label: translate('Unity Income'),
             selector: snap => selectNested('economy/income/unity/total', snap),
             yAxis: 'right'
         },
         {
-            label: 'Unity Stockpile',
+            label: translate('Unity Stockpile'),
             selector: snap => selectNested('economy/stockpile/unity', snap),
             yAxis: 'right'
         },
         {
-            label: 'Adopted Trees',
+            label: translate('Adopted Trees'),
             selector: snap => selectNested('unity/adopted_trees', snap)
         },
         {
-            label: 'Adopted Traditions',
+            label: translate('Adopted Traditions'),
             selector: snap => selectNested('unity/traditions', snap)
         },
         {
-            label: 'Completed Trees',
+            label: translate('Completed Trees'),
             selector: snap => selectNested('unity/finished_trees', snap)
         },
         {
-            label: 'Ascension Perks',
+            label: translate('Ascension Perks'),
             selector: snap => selectNested('unity/acension_perks', snap)
         }
     ]
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Unity' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Unity')} titleColor='#0b9cbd'>
             <LineChart
                 name={name}
                 data={data}
                 allowIsolation={true}
                 lines={lines}
-                yAxisLabel='Count'
-                rightYLabel='Unity'
+                yAxisLabel={translate('Count')}
+                rightYLabel={translate('Unity')}
             />
         </Chart>
     );

@@ -4,6 +4,7 @@ import Chart from '../Chart';
 import LineChart from '../LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 const Name = 'Exploration';
 
@@ -13,21 +14,21 @@ function Exploration(props) {
 
     const lines = [
         {
-            label: 'Surveyed Systems',
+            label: translate('Surveyed Systems'),
             selector: snap => selectNested('systems/surveyed_systems', snap)
         },
         {
-            label: 'Surveyed Objects',
+            label: translate('Surveyed Objects'),
             selector: snap => selectNested('systems/surveyed_objects', snap)
         },
         {
-            label: 'Owned Systems',
+            label: translate('Owned Systems'),
             selector: snap => selectNested('systems/owned', snap)
         }
     ]
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Exploration' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Exploration')} titleColor='#0b9cbd'>
             <LineChart
                 name={name}
                 data={data}

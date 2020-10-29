@@ -10,6 +10,7 @@ import AreaChart from '../AreaChart';
 import LineChart from '../LineChart';
 import {selectNested, valueTickFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
+import {translate} from '../../../Translator';
 
 import './Science.css';
 
@@ -48,15 +49,15 @@ function ScienceOutput(props) {
 
     const series = [
         {
-            label: 'Physics Research',
+            label: translate('Physics Research'),
             selector: snap => selectNested('economy/net_income/physics_research', snap)
         },
         {
-            label: 'Society Research',
+            label: translate('Society Research'),
             selector: snap => selectNested('economy/net_income/society_research', snap)
         },
         {
-            label: 'Engineering Research',
+            label: translate('Engineering Research'),
             selector: snap => selectNested('economy/net_income/engineering_research', snap)
         }
     ];
@@ -79,7 +80,7 @@ function ScienceOutput(props) {
             <AreaChart
                 name={name}
                 data={data}
-                yAxisLabel='Monthly Research'
+                yAxisLabel={translate('Monthly Research')}
                 stack={true}
                 allowIsolation={true}
                 areas={series}
@@ -89,19 +90,19 @@ function ScienceOutput(props) {
             <LineChart
                 name={name}
                 data={data}
-                yAxisLabel='Monthly Research'
+                yAxisLabel={translate('Monthly Research')}
                 allowIsolation={true}
                 lines={series}
             />
         );
 
     return (
-        <Chart name={Name} overlay={props.overlay} title='Science Output' titleColor='#0b9cbd'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Science Output')} titleColor='#0b9cbd'>
             <div className='scienceChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={chartType} onChange={onChartTypeChange}>
-                        <MenuItem value='area'>Stacked Area</MenuItem>
-                        <MenuItem value='line'>Lines</MenuItem>
+                        <MenuItem value='area'>{translate('Stacked Area')}</MenuItem>
+                        <MenuItem value='line'>{translate('Lines')}</MenuItem>
                     </Select>
                 </FormControl>
             </div>
@@ -111,13 +112,13 @@ function ScienceOutput(props) {
             <div className='scienceTotalArea'>
                 <div className='row'>
                     <div className='col-3 align-self-center'>
-                        <h2 className='scienceTotal'>Total: <span className='scienceTotalNumber'>{total}</span></h2>
+                        <h2 className='scienceTotal'>{translate('Total')}: <span className='scienceTotalNumber'>{total}</span></h2>
                     </div>
                     <div className='col-4 align-self-center'>
-                        <h2 className='scienceTotal'>Completed Techs: <span className='scienceTotalNumber'>{completedTechs}</span></h2>
+                        <h2 className='scienceTotal'>{translate('Completed Techs')}: <span className='scienceTotalNumber'>{completedTechs}</span></h2>
                     </div>
                     <div className='col-4 align-self-center'>
-                        <h2 className='scienceTotal'>Available Techs: <span className='scienceTotalNumber'>{availableTechs}</span></h2>
+                        <h2 className='scienceTotal'>{translate('Available Techs')}: <span className='scienceTotalNumber'>{availableTechs}</span></h2>
                     </div>
                 </div>
             </div>
