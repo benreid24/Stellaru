@@ -41,15 +41,18 @@ function Stellaru(props) {
     const [chosenEmpire, setChosenEmpire] = useState(null);
 
     const [allLangs, setAllLangs] = useState([]);
-    const [lang, setLang] = useState(loadLang());
+    const [lang, setLang] = useState('');
     const onLangChange = newLang => {
         setLang(newLang);
         setGlobalLang(newLang);
         window.localStorage.setItem('stellaru-lang', JSON.stringify(newLang));
     };
-    useEffect(() => {
-        initTranslator();
+    const onTranslationLoad = () => {
         setAllLangs(getAllLangs());
+        setLang(loadLang());
+    }
+    useEffect(() => {
+        initTranslator(onTranslationLoad);
     }, []);
 
     const onSaveChoose = (save) => {
@@ -69,7 +72,6 @@ function Stellaru(props) {
         setChosenEmpire(null);
     };
 
-    console.log(lang);
     return (
         <ThemeProvider theme={darkTheme}>
             <div className="Stellaru">

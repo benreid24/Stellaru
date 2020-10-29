@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -17,26 +17,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-let translations = {
-    'Wait for New Save': {
-        'english': 'Wait for a New Save',
-        'spanish': 'Spanish spanish spanish'
-    }
-};
+let translations = {};
 let currentLang = 'english';
 let keys = [];
 
-function init() {
-    // TODO - load dict from backend
+function init(doneCb) {
+    fetch('api/translations')
+        .then(response => response.json())
+        .then(data => {
+            if ('translations' in data) {
+                translations = data['translations'];
+                doneCb();
+            }
+            else {
+                console.log(`Bad translation data: ${translations}`);
+            }
+        });
 }
 
 function translate(phrase) {
     if (!keys.includes(phrase)) {
         keys.push(phrase);
-        console.log(keys);
     }
-    if (phrase in translations)
-        return translations[phrase][currentLang];
+    if (phrase in translations) {
+        if (currentLang in translations[phrase])
+            return translations[phrase][currentLang];
+    }
     return phrase;
 }
 
@@ -62,6 +68,11 @@ function LanguagePicker(props) {
         setLang(newLang);
         onChange(newLang);
     };
+    useEffect(() => {
+        if (lang !== props.lang)
+            setLang(props.lang);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.lang]);
 
     const options = langs.map(lang => <MenuItem key={lang} value={lang}>{lang}</MenuItem>);
     return (
