@@ -6,11 +6,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import Chart from '../Chart';
-import LineChart from '../LineChart';
+import AreaChart from '../AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {translate} from '../../../Translator';
-import { getResourceName } from './Util';
+import {getResourceName, nonNull} from './Util';
 
 const Name = 'Total Economy Value';
 
@@ -35,6 +35,11 @@ function ResourceValues(props) {
         outflows: 'Spending',
         net: 'Net Income'
     };
+    const ecKeys = {
+        inflows: 'economy/income/energy/total',
+        outflows: 'economy/spending/energy/total',
+        net: 'economy/net_income/energy'
+    };
 
     const [key, setKey] = useState('');
     const onKeyChange = event => {
@@ -53,7 +58,6 @@ function ResourceValues(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const types = ['base_gdp', 'adjusted_gdp'];
     const typeLabels = {
         base_gdp: 'Nominal Value',
         adjusted_gdp: 'Market Value'
@@ -78,14 +82,23 @@ function ResourceValues(props) {
 
     const resourceKeys = findKeysOverSeries(data, `economy/base_gdp/${key}`);
     const lines = resourceKeys.reduce((lines, rkey) => {
+        let line = [{
+            label: translate(`${getResourceName(rkey)} ${translate(typeLabels[type])}`),
+            selector: snap => selectNested(`economy/${type}/${key}/${rkey}`, snap)
+        }];
+        if (!nonNull(data, line[0].selector)) {
+            line = [];
+        }
         return [
             ...lines,
-            {
-                label: translate(`${getResourceName(rkey)} ${translate(typeLabels[type])}`),
-                selector: snap => selectNested(`economy/${type}/${key}/${rkey}`, snap)
-            }
+            ...line
         ]
-    }, []);
+    }, [
+        {
+            label: translate(`${getResourceName('energy_credits')} ${translate(typeLabels[type])}`),
+            selector: snap => selectNested(ecKeys[key], snap)
+        }
+    ]);
 
     const renderedOptions = keys.map(key => <MenuItem key={key} value={key}>{translate(keyLabels[key])}</MenuItem>);
     return (
@@ -95,6 +108,8 @@ function ResourceValues(props) {
                     <Select value={key} onChange={onKeyChange}>
                         {renderedOptions}
                     </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
                     <Select value={type} onChange={onTypeChange}>
                         <MenuItem value='base_gdp'>{translate(typeLabels['base_gdp'])}</MenuItem>
                         <MenuItem value='adjusted_gdp'>{translate(typeLabels['adjusted_gdp'])}</MenuItem>
@@ -102,11 +117,13 @@ function ResourceValues(props) {
                 </FormControl>
             </div>
             <div className='resourceValueChart'>
-                <LineChart
+                <AreaChart
                     name={name}
                     data={data}
                     yAxisLabel={translate('Energy Credits')}
-                    lines={lines}
+                    areas={lines}
+                    stack={true}
+                    allowIsolation={true}
                 />
             </div>
         </Chart>

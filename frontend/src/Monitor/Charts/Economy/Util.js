@@ -24,7 +24,18 @@ function filterResources(keys) {
     return keys.filter(key => !filteredResources.includes(key));
 }
 
+function nonNull(data, selector) {
+    for (let i = 0; i < data.length; i += 1) {
+        const v = selector(data[i]);
+        if (v !== null && v !== 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
 export {
     getResourceName,
-    filterResources
+    filterResources,
+    nonNull
 }
