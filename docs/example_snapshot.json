@@ -1,65 +1,64 @@
 {
-    "name": "Science Fox Regime",
+    "name": "The Chosen Geckos",
     "player_name": "reidben24",
-    "date": "2376.10.21",
+    "date": "2529.10.27",
     "date_components": {
-        "y": 2376,
+        "y": 2529,
         "m": 10,
-        "d": 21
+        "d": 27
     },
-    "date_days": 855681,
-    "active_empires": 45,
-    "edict_count": 8,
-    "sprawl": 1339,
+    "date_days": 910767,
+    "active_empires": 15,
+    "edict_count": 16,
+    "sprawl": 1292,
     "leaders": {
         "envoy": 2,
-        "admiral": 3,
-        "governor": 1,
-        "scientist": 6,
-        "general": 1,
+        "scientist": 5,
         "ruler": 2,
-        "total": 15,
-        "max_age": 205.88888888888889,
-        "avg_age": 140.0046296296296,
-        "avg_hire_age": 26.933333333333334,
-        "max_hire_age": 46,
-        "avg_level": 5.733333333333333,
-        "max_level": 9,
-        "percent_male": 0.26666666666666666
+        "governor": 1,
+        "admiral": 13,
+        "total": 23,
+        "max_age": 279.2388888888889,
+        "avg_age": 132.20314009661834,
+        "avg_hire_age": 35.17391304347826,
+        "max_hire_age": 49,
+        "avg_level": 5.956521739130435,
+        "max_level": 10,
+        "percent_male": 0.5217391304347826
     },
     "standing": {
-        "victory_rank": 1,
+        "victory_rank": 2,
         "victory_points": {
-            "Economy": 22734.60671,
-            "Technology": 13302.5,
-            "Systems": 830,
-            "Colonies": 1800,
-            "Pops": 4082,
-            "Subjects": 6267.854915,
-            "Federation": 2559.7506879999996,
-            "Crisis Ships Killed": 0,
-            "Relics": 0
+            "Economy": 28413.62445,
+            "Technology": 38312.500305,
+            "Systems": 980,
+            "Colonies": 1400,
+            "Pops": 5168,
+            "Subjects": 0,
+            "Federation": 22239.5209225,
+            "Crisis Ships Killed": 5520,
+            "Relics": 8000
         }
     },
     "war": {
-        "total": 0,
-        "all_participants": 0,
+        "total": 1,
+        "all_participants": 3,
         "participation": 0,
         "attacker": 0,
         "defender": 0
     },
     "systems": {
-        "surveyed_objects": 2460,
-        "surveyed_systems": 299,
-        "owned": 83,
-        "starbases": 22
+        "surveyed_objects": 1476,
+        "surveyed_systems": 173,
+        "owned": 98,
+        "starbases": 35
     },
     "federation": {
-        "name": "The Zealous Purifiers",
+        "name": "The Sexfast Club",
         "members": 4,
-        "cohesion": 100,
-        "xp": 8328.58,
-        "level": 3,
+        "cohesion": -3.55,
+        "xp": 17999.175,
+        "level": 5,
         "leader": false
     },
     "unity": {
@@ -67,68 +66,61 @@
         "finished_trees": 7,
         "traditions": 35,
         "acension_perks": 8,
-        "unity": 1345.3220000000001
+        "unity": 1822.271
     },
     "economy": {
         "stockpile": {
-            "energy": 66824.75638,
-            "minerals": 1796.752,
-            "food": 31874.846,
-            "influence": 289.86195,
-            "unity": 70354.98394,
-            "alloys": 48023.32137,
-            "consumer_goods": 29844.383,
-            "volatile_motes": 3135.77256,
-            "exotic_gases": 4128.53173,
-            "rare_crystals": 2262.78944,
-            "sr_dark_matter": 1262.3,
-            "minor_artifacts": 9
+            "energy": 124000,
+            "minerals": 89000,
+            "food": 33450.964,
+            "influence": 1000,
+            "unity": 1406888.03672,
+            "alloys": 73516.28178,
+            "consumer_goods": 89000,
+            "volatile_motes": 772.14314,
+            "exotic_gases": 2206.44676,
+            "rare_crystals": 1250.21309,
+            "sr_zro": 5917.8,
+            "sr_dark_matter": 7944.43179
         },
         "net_income": {
-            "energy": 2317.4405399999996,
-            "minerals": -43.13600000000042,
-            "food": 475.126,
-            "physics_research": 2619.5,
-            "society_research": 2810.72,
-            "engineering_research": 2426.0,
-            "influence": 11.467970000000001,
-            "unity": 1345.3220000000001,
-            "alloys": 1576.9053,
-            "consumer_goods": 98.66449999999986,
-            "exotic_gases": 9.5,
-            "rare_crystals": -0.2079999999999984,
-            "volatile_motes": 5.1000000000000085,
-            "sr_dark_matter": 3.2
+            "energy": 1060.6363399999982,
+            "minerals": 1324.4819999999995,
+            "food": 107.74200000000019,
+            "physics_research": 1936.988,
+            "society_research": 2023.582,
+            "engineering_research": 1772.8780000000002,
+            "influence": 4.92763,
+            "unity": 1822.271,
+            "alloys": 492.7732000000001,
+            "consumer_goods": 771.8753500000003,
+            "exotic_gases": 2.914999999999999,
+            "rare_crystals": 1.2319999999999993,
+            "sr_dark_matter": 5.8359999999999985,
+            "volatile_motes": 3.1380000000000337,
+            "sr_zro": 3.4
         },
         "income": {
             "energy": {
-                "total": 7321.686540000001,
+                "total": 8367.91871,
                 "breakdown": {
                     "Base": {
                         "total": 17,
                         "breakdown": {}
                     },
                     "Trade": {
-                        "total": 2438.33654,
+                        "total": 3841.74071,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 2550,
-                        "breakdown": {}
-                    },
-                    "Buildings": {
-                        "total": 25.5,
+                        "total": 3400,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1875.3,
+                        "total": 640.628,
                         "breakdown": {
                             "Technicians": {
-                                "total": 1844.7,
-                                "breakdown": {}
-                            },
-                            "Researchers": {
-                                "total": 30.6,
+                                "total": 640.628,
                                 "breakdown": {}
                             }
                         }
@@ -138,67 +130,132 @@
                         "breakdown": {}
                     },
                     "Stations": {
-                        "total": 390.05,
+                        "total": 389.05,
                         "breakdown": {}
+                    },
+                    "M": {
+                        "total": 54,
+                        "breakdown": {
+                            "o": {
+                                "total": 54,
+                                "breakdown": {
+                                    "n": {
+                                        "total": 54,
+                                        "breakdown": {
+                                            "t": {
+                                                "total": 54,
+                                                "breakdown": {
+                                                    "h": {
+                                                        "total": 54,
+                                                        "breakdown": {
+                                                            "l": {
+                                                                "total": 54,
+                                                                "breakdown": {
+                                                                    "y": {
+                                                                        "total": 54,
+                                                                        "breakdown": {
+                                                                            " ": {
+                                                                                "total": 54,
+                                                                                "breakdown": {
+                                                                                    "T": {
+                                                                                        "total": 54,
+                                                                                        "breakdown": {
+                                                                                            "r": {
+                                                                                                "total": 54,
+                                                                                                "breakdown": {
+                                                                                                    "a": {
+                                                                                                        "total": 54,
+                                                                                                        "breakdown": {
+                                                                                                            "d": {
+                                                                                                                "total": 54,
+                                                                                                                "breakdown": {
+                                                                                                                    "e": {
+                                                                                                                        "total": 54,
+                                                                                                                        "breakdown": {
+                                                                                                                            "s": {
+                                                                                                                                "total": 54,
+                                                                                                                                "breakdown": {}
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
             "minerals": {
-                "total": 2712.2639999999997,
+                "total": 3812.8819999999996,
                 "breakdown": {
                     "Base": {
-                        "total": 20,
+                        "total": 26.6,
                         "breakdown": {}
                     },
                     "Starbases": {
-                        "total": 6,
+                        "total": 7.98,
                         "breakdown": {
                             "Buildings": {
-                                "total": 6,
+                                "total": 7.98,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Jobs": {
-                        "total": 2285.064,
+                        "total": 2591.892,
                         "breakdown": {
                             "Miners": {
-                                "total": 2285.064,
+                                "total": 2591.892,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 401.2,
+                        "total": 1186.41,
                         "breakdown": {}
                     }
                 }
             },
             "food": {
-                "total": 497.626,
+                "total": 3203.692,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
                     "Starbases": {
-                        "total": 21,
+                        "total": 78,
                         "breakdown": {
                             "Buildings": {
-                                "total": 21,
+                                "total": 78,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Jobs": {
-                        "total": 466.626,
+                        "total": 3115.692,
                         "breakdown": {
-                            "Jobs": {
-                                "total": 3.256,
-                                "breakdown": {}
-                            },
                             "Farmers": {
-                                "total": 463.37,
+                                "total": 3115.692,
                                 "breakdown": {}
                             }
                         }
@@ -206,155 +263,141 @@
                 }
             },
             "physics_research": {
-                "total": 2619.5,
+                "total": 1936.988,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 300,
+                        "total": 350,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 2186,
+                        "total": 1423.088,
                         "breakdown": {
                             "Researchers": {
-                                "total": 2186,
+                                "total": 1423.088,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 123.5,
+                        "total": 153.9,
                         "breakdown": {}
                     }
                 }
             },
             "society_research": {
-                "total": 2810.72,
+                "total": 2023.582,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 300,
+                        "total": 350,
                         "breakdown": {}
                     },
-                    "Starbases": {
-                        "total": 12,
-                        "breakdown": {
-                            "Other": {
-                                "total": 12,
-                                "breakdown": {}
-                            }
-                        }
-                    },
                     "Jobs": {
-                        "total": 2346.22,
+                        "total": 1623.682,
                         "breakdown": {
                             "Researchers": {
-                                "total": 2019.1,
+                                "total": 1316.228,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 327.12,
+                                "total": 37.02,
+                                "breakdown": {}
+                            },
+                            "Priests": {
+                                "total": 270.434,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 142.5,
+                        "total": 39.9,
                         "breakdown": {}
                     }
                 }
             },
             "engineering_research": {
-                "total": 2426.0,
+                "total": 1772.8780000000002,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 300,
+                        "total": 350,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 2019.1,
+                        "total": 1363.478,
                         "breakdown": {
                             "Researchers": {
-                                "total": 2019.1,
+                                "total": 1363.478,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 96.9,
+                        "total": 49.4,
                         "breakdown": {}
                     }
                 }
             },
             "influence": {
-                "total": 11.967970000000001,
+                "total": 5.67763,
                 "breakdown": {
                     "Base": {
-                        "total": 9,
+                        "total": 4,
                         "breakdown": {}
                     },
                     "Pops": {
-                        "total": 2.71797,
+                        "total": 1.67763,
                         "breakdown": {
                             "Factions": {
-                                "total": 2.71797,
+                                "total": 1.67763,
                                 "breakdown": {}
                             }
                         }
-                    },
-                    "Other (unknown)": {
-                        "total": 0.25,
-                        "breakdown": {}
                     }
                 }
             },
             "unity": {
-                "total": 1345.3220000000001,
+                "total": 1822.271,
                 "breakdown": {
                     "Base": {
-                        "total": 9.59,
+                        "total": 10.5,
                         "breakdown": {}
                     },
-                    "Starbases": {
-                        "total": 2.74,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 2.74,
-                                "breakdown": {}
-                            }
-                        }
-                    },
                     "Jobs": {
-                        "total": 1332.9920000000002,
+                        "total": 1811.771,
                         "breakdown": {
                             "Administrators": {
-                                "total": 349.344,
-                                "breakdown": {}
-                            },
-                            "Researchers": {
-                                "total": 303.42,
+                                "total": 235.929,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 358.32,
+                                "total": 47.76,
+                                "breakdown": {}
+                            },
+                            "Merchants": {
+                                "total": 675.438,
                                 "breakdown": {}
                             },
                             "Entertainers": {
-                                "total": 210.488,
+                                "total": 210.944,
+                                "breakdown": {}
+                            },
+                            "Priests": {
+                                "total": 540.873,
                                 "breakdown": {}
                             },
                             "Enforcers": {
-                                "total": 111.42,
+                                "total": 100.827,
                                 "breakdown": {}
                             }
                         }
@@ -362,48 +405,43 @@
                 }
             },
             "alloys": {
-                "total": 1960.532,
+                "total": 1379.662,
                 "breakdown": {
                     "Base": {
                         "total": 5,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1942.732,
+                        "total": 1357.662,
                         "breakdown": {
                             "Metallurgists": {
-                                "total": 1942.732,
+                                "total": 1357.662,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 12.8,
+                        "total": 17,
                         "breakdown": {}
                     }
                 }
             },
             "consumer_goods": {
-                "total": 1029.8519999999999,
+                "total": 2181.55035,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Starbases": {
-                        "total": 2,
-                        "breakdown": {
-                            "Other": {
-                                "total": 2,
-                                "breakdown": {}
-                            }
-                        }
+                    "Trade": {
+                        "total": 1920.87035,
+                        "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1017.852,
+                        "total": 250.68,
                         "breakdown": {
                             "Artisans": {
-                                "total": 1017.852,
+                                "total": 250.68,
                                 "breakdown": {}
                             }
                         }
@@ -411,43 +449,39 @@
                 }
             },
             "exotic_gases": {
-                "total": 58.1,
+                "total": 45.315,
                 "breakdown": {
                     "Jobs": {
-                        "total": 48.1,
+                        "total": 43.315,
                         "breakdown": {
                             "Miners": {
-                                "total": 10.436,
+                                "total": 5.986,
                                 "breakdown": {}
                             },
                             "Refiners": {
-                                "total": 37.664,
+                                "total": 37.329,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Other": {
                         "total": 2,
-                        "breakdown": {}
-                    },
-                    "Stations": {
-                        "total": 8,
                         "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 60.092,
+                "total": 102.032,
                 "breakdown": {
                     "Jobs": {
-                        "total": 56.492,
+                        "total": 94.932,
                         "breakdown": {
                             "Miners": {
-                                "total": 6.988,
+                                "total": 2.858,
                                 "breakdown": {}
                             },
                             "Translucers": {
-                                "total": 49.504,
+                                "total": 92.074,
                                 "breakdown": {}
                             }
                         }
@@ -457,30 +491,52 @@
                         "breakdown": {}
                     },
                     "Stations": {
-                        "total": 1.6,
+                        "total": 5.1,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "sr_dark_matter": {
+                "total": 8.835999999999999,
+                "breakdown": {
+                    "Jobs": {
+                        "total": 3.336,
+                        "breakdown": {
+                            "Researchers": {
+                                "total": 3.336,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 5.5,
                         "breakdown": {}
                     }
                 }
             },
             "volatile_motes": {
-                "total": 105,
+                "total": 143.138,
                 "breakdown": {
                     "Jobs": {
-                        "total": 105,
+                        "total": 136.338,
                         "breakdown": {
                             "Chemists": {
-                                "total": 105,
+                                "total": 136.338,
                                 "breakdown": {}
                             }
                         }
+                    },
+                    "Stations": {
+                        "total": 6.8,
+                        "breakdown": {}
                     }
                 }
             },
-            "sr_dark_matter": {
-                "total": 3.2,
+            "sr_zro": {
+                "total": 3.4,
                 "breakdown": {
                     "Stations": {
-                        "total": 3.2,
+                        "total": 3.4,
                         "breakdown": {}
                     }
                 }
@@ -488,194 +544,184 @@
         },
         "spending": {
             "energy": {
-                "total": 5004.246000000001,
+                "total": 7307.282370000002,
                 "breakdown": {
                     "Megastructures": {
-                        "total": 75,
+                        "total": 390,
                         "breakdown": {}
                     },
                     "Ships": {
-                        "total": 629.896,
+                        "total": 4030.18237,
                         "breakdown": {
                             "Base": {
-                                "total": 139.16,
+                                "total": 602.64,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 490.736,
+                                "total": 3427.54237,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Starbases": {
-                        "total": 540.25,
+                        "total": 752.7,
                         "breakdown": {
                             "Buildings": {
-                                "total": 269.45,
-                                "breakdown": {}
-                            },
-                            "Other": {
-                                "total": 1,
+                                "total": 351.8,
                                 "breakdown": {}
                             },
                             "Base": {
-                                "total": 149.15,
+                                "total": 202.35,
                                 "breakdown": {}
                             },
                             "Modules": {
-                                "total": 120.65,
+                                "total": 198.55,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Buildings": {
-                        "total": 1359.9,
+                        "total": 1332.0,
                         "breakdown": {}
                     },
                     "Districts": {
-                        "total": 558.9,
+                        "total": 497.6,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 418.0,
+                        "total": 168.6,
                         "breakdown": {
-                            "Researchers": {
-                                "total": 137.6,
+                            "Farmers": {
+                                "total": 64,
                                 "breakdown": {}
                             },
-                            "Metallurgists": {
-                                "total": 280.4,
+                            "Researchers": {
+                                "total": 104.6,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Pops": {
-                        "total": 1388.9999999999998,
+                        "total": 103,
                         "breakdown": {
                             "Robots": {
-                                "total": 1388.9999999999998,
+                                "total": 103,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Armies": {
-                        "total": 13.5,
-                        "breakdown": {}
-                    },
                     "Leaders": {
-                        "total": 19.8,
+                        "total": 33.199999999999996,
                         "breakdown": {}
                     }
                 }
             },
             "alloys": {
-                "total": 383.6267,
+                "total": 886.8888,
                 "breakdown": {
                     "Ships": {
-                        "total": 136.6267,
+                        "total": 822.8888,
                         "breakdown": {
                             "Base": {
-                                "total": 45.22,
+                                "total": 200.03,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 91.4067,
+                                "total": 622.8588,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Buildings": {
-                        "total": 63,
-                        "breakdown": {}
-                    },
-                    "Jobs": {
-                        "total": 184,
-                        "breakdown": {
-                            "Assemblers": {
-                                "total": 184,
-                                "breakdown": {}
-                            }
-                        }
-                    }
-                }
-            },
-            "food": {
-                "total": 22.5,
-                "breakdown": {
-                    "Buildings": {
-                        "total": 22.5,
+                        "total": 64,
                         "breakdown": {}
                     }
                 }
             },
             "volatile_motes": {
-                "total": 99.89999999999999,
+                "total": 139.99999999999997,
                 "breakdown": {
                     "Buildings": {
-                        "total": 99.89999999999999,
+                        "total": 138.39999999999998,
+                        "breakdown": {}
+                    },
+                    "Districts": {
+                        "total": 1.6,
                         "breakdown": {}
                     }
                 }
             },
             "exotic_gases": {
-                "total": 48.6,
+                "total": 42.4,
                 "breakdown": {
                     "Buildings": {
-                        "total": 43.2,
+                        "total": 37.6,
                         "breakdown": {}
                     },
                     "Districts": {
-                        "total": 5.4,
+                        "total": 4.8,
                         "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 60.3,
+                "total": 100.8,
                 "breakdown": {
                     "Buildings": {
-                        "total": 54.9,
+                        "total": 88,
                         "breakdown": {}
                     },
                     "Districts": {
-                        "total": 5.4,
+                        "total": 12.8,
                         "breakdown": {}
                     }
                 }
             },
             "consumer_goods": {
-                "total": 931.1875,
+                "total": 1409.6749999999997,
                 "breakdown": {
                     "Jobs": {
-                        "total": 585.95,
+                        "total": 614.65,
                         "breakdown": {
                             "Bureaucrats": {
-                                "total": 112.75,
+                                "total": 89.25,
                                 "breakdown": {}
                             },
                             "Researchers": {
-                                "total": 215.2,
+                                "total": 206.4,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 116,
+                                "total": 16,
                                 "breakdown": {}
                             },
                             "Entertainers": {
-                                "total": 52,
+                                "total": 55,
+                                "breakdown": {}
+                            },
+                            "Priests": {
+                                "total": 188,
                                 "breakdown": {}
                             },
                             "Doctors": {
-                                "total": 90,
+                                "total": 60,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Pops": {
-                        "total": 345.2375,
+                        "total": 795.025,
                         "breakdown": {
-                            "Robots": {
-                                "total": 345.2375,
+                            "Workers": {
+                                "total": 138.9,
+                                "breakdown": {}
+                            },
+                            "Specialists": {
+                                "total": 420.025,
+                                "breakdown": {}
+                            },
+                            "Rulers": {
+                                "total": 236.1,
                                 "breakdown": {}
                             }
                         }
@@ -683,29 +729,51 @@
                 }
             },
             "minerals": {
-                "total": 2755.4,
+                "total": 2488.4,
                 "breakdown": {
                     "Jobs": {
-                        "total": 2755.4,
+                        "total": 2488.4,
                         "breakdown": {
                             "Metallurgists": {
-                                "total": 1682.4,
+                                "total": 1457.4,
                                 "breakdown": {}
                             },
                             "Refiners": {
-                                "total": 115,
+                                "total": 91,
                                 "breakdown": {}
                             },
                             "Translucers": {
-                                "total": 140,
+                                "total": 322,
                                 "breakdown": {}
                             },
                             "Chemists": {
-                                "total": 314,
+                                "total": 468,
                                 "breakdown": {}
                             },
                             "Artisans": {
-                                "total": 504,
+                                "total": 150,
+                                "breakdown": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "food": {
+                "total": 3095.95,
+                "breakdown": {
+                    "Pops": {
+                        "total": 3095.95,
+                        "breakdown": {
+                            "Workers": {
+                                "total": 1751.1,
+                                "breakdown": {}
+                            },
+                            "Specialists": {
+                                "total": 1050,
+                                "breakdown": {}
+                            },
+                            "Rulers": {
+                                "total": 294.85,
                                 "breakdown": {}
                             }
                         }
@@ -713,3774 +781,1059 @@
                 }
             },
             "influence": {
-                "total": 0.5,
+                "total": 0.75,
                 "breakdown": {
-                    "Other (unknown)": {
+                    "F": {
                         "total": 0.5,
-                        "breakdown": {}
+                        "breakdown": {
+                            "e": {
+                                "total": 0.5,
+                                "breakdown": {
+                                    "d": {
+                                        "total": 0.5,
+                                        "breakdown": {
+                                            "e": {
+                                                "total": 0.5,
+                                                "breakdown": {
+                                                    "r": {
+                                                        "total": 0.5,
+                                                        "breakdown": {
+                                                            "a": {
+                                                                "total": 0.5,
+                                                                "breakdown": {
+                                                                    "t": {
+                                                                        "total": 0.5,
+                                                                        "breakdown": {
+                                                                            "i": {
+                                                                                "total": 0.5,
+                                                                                "breakdown": {
+                                                                                    "o": {
+                                                                                        "total": 0.5,
+                                                                                        "breakdown": {
+                                                                                            "n": {
+                                                                                                "total": 0.5,
+                                                                                                "breakdown": {}
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "M": {
+                        "total": 0.25,
+                        "breakdown": {
+                            "i": {
+                                "total": 0.25,
+                                "breakdown": {
+                                    "g": {
+                                        "total": 0.25,
+                                        "breakdown": {
+                                            "r": {
+                                                "total": 0.25,
+                                                "breakdown": {
+                                                    "a": {
+                                                        "total": 0.25,
+                                                        "breakdown": {
+                                                            "t": {
+                                                                "total": 0.25,
+                                                                "breakdown": {
+                                                                    "i": {
+                                                                        "total": 0.25,
+                                                                        "breakdown": {
+                                                                            "o": {
+                                                                                "total": 0.25,
+                                                                                "breakdown": {
+                                                                                    "n": {
+                                                                                        "total": 0.25,
+                                                                                        "breakdown": {
+                                                                                            " ": {
+                                                                                                "total": 0.25,
+                                                                                                "breakdown": {
+                                                                                                    "P": {
+                                                                                                        "total": 0.25,
+                                                                                                        "breakdown": {
+                                                                                                            "a": {
+                                                                                                                "total": 0.25,
+                                                                                                                "breakdown": {
+                                                                                                                    "c": {
+                                                                                                                        "total": 0.25,
+                                                                                                                        "breakdown": {
+                                                                                                                            "t": {
+                                                                                                                                "total": 0.25,
+                                                                                                                                "breakdown": {
+                                                                                                                                    "s": {
+                                                                                                                                        "total": 0.25,
+                                                                                                                                        "breakdown": {}
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "sr_dark_matter": {
+                "total": 3,
+                "breakdown": {
+                    "M": {
+                        "total": 3,
+                        "breakdown": {
+                            "o": {
+                                "total": 3,
+                                "breakdown": {
+                                    "n": {
+                                        "total": 3,
+                                        "breakdown": {
+                                            "t": {
+                                                "total": 3,
+                                                "breakdown": {
+                                                    "h": {
+                                                        "total": 3,
+                                                        "breakdown": {
+                                                            "l": {
+                                                                "total": 3,
+                                                                "breakdown": {
+                                                                    "y": {
+                                                                        "total": 3,
+                                                                        "breakdown": {
+                                                                            " ": {
+                                                                                "total": 3,
+                                                                                "breakdown": {
+                                                                                    "T": {
+                                                                                        "total": 3,
+                                                                                        "breakdown": {
+                                                                                            "r": {
+                                                                                                "total": 3,
+                                                                                                "breakdown": {
+                                                                                                    "a": {
+                                                                                                        "total": 3,
+                                                                                                        "breakdown": {
+                                                                                                            "d": {
+                                                                                                                "total": 3,
+                                                                                                                "breakdown": {
+                                                                                                                    "e": {
+                                                                                                                        "total": 3,
+                                                                                                                        "breakdown": {
+                                                                                                                            "s": {
+                                                                                                                                "total": 3,
+                                                                                                                                "breakdown": {}
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
+        },
+        "market_prices": {
+            "minerals": 1.105812,
+            "food": 0.7597829,
+            "alloys": 4.398524,
+            "consumer_goods": 1.5260764,
+            "volatile_motes": 25.270793,
+            "exotic_gases": 27.116549,
+            "rare_crystals": 40.10527999999999,
+            "sr_living_metal": 20.0,
+            "sr_zro": 20.0,
+            "sr_dark_matter": 20.0
+        },
+        "base_gdp": {
+            "inflows": {
+                "minerals": 3812.8819999999996,
+                "food": 3203.692,
+                "alloys": 5518.648,
+                "consumer_goods": 4363.1007,
+                "volatile_motes": 1431.38,
+                "exotic_gases": 453.15,
+                "rare_crystals": 1020.3199999999999,
+                "sr_living_metal": 0,
+                "sr_zro": 68.0,
+                "sr_dark_matter": 176.71999999999997
+            },
+            "outflows": {
+                "minerals": 2488.4,
+                "food": 3095.95,
+                "alloys": 3547.5552,
+                "consumer_goods": 2819.3499999999995,
+                "volatile_motes": 1399.9999999999998,
+                "exotic_gases": 424.0,
+                "rare_crystals": 1008.0,
+                "sr_living_metal": 0,
+                "sr_zro": 0,
+                "sr_dark_matter": 60
+            },
+            "net": {
+                "minerals": 1324.4819999999995,
+                "food": 107.74200000000019,
+                "alloys": 1971.0928000000004,
+                "consumer_goods": 1543.7507000000005,
+                "volatile_motes": 31.380000000000337,
+                "exotic_gases": 29.14999999999999,
+                "rare_crystals": 12.319999999999993,
+                "sr_living_metal": 0,
+                "sr_zro": 68.0,
+                "sr_dark_matter": 116.71999999999997
+            },
+            "total_inflows": 20047.892700000004,
+            "total_outflows": 14843.2552,
+            "total_net": 5204.637500000001
+        },
+        "adjusted_gdp": {
+            "inflows": {
+                "minerals": 4216.330670183999,
+                "food": 2434.1103984668002,
+                "alloys": 6068.476418888,
+                "consumer_goods": 3329.21250454674,
+                "volatile_motes": 3617.2107684340003,
+                "exotic_gases": 1228.786417935,
+                "rare_crystals": 4092.021928959999,
+                "sr_living_metal": 0.0,
+                "sr_zro": 68.0,
+                "sr_dark_matter": 176.71999999999997
+            },
+            "outflows": {
+                "minerals": 2751.7025808000003,
+                "food": 2352.249869255,
+                "alloys": 3901.0016721312,
+                "consumer_goods": 2151.2717491699996,
+                "volatile_motes": 3537.9110199999996,
+                "exotic_gases": 1149.7416776,
+                "rare_crystals": 4042.612223999999,
+                "sr_living_metal": 0.0,
+                "sr_zro": 0.0,
+                "sr_dark_matter": 60.0
+            },
+            "net": {
+                "minerals": 1464.6280893839994,
+                "food": 81.86052921180014,
+                "alloys": 2167.4747467568004,
+                "consumer_goods": 1177.9407553767403,
+                "volatile_motes": 79.29974843400086,
+                "exotic_gases": 79.04474033499997,
+                "rare_crystals": 49.409704959999964,
+                "sr_living_metal": 0.0,
+                "sr_zro": 68.0,
+                "sr_dark_matter": 116.71999999999997
+            },
+            "total_inflows": 25230.86910741454,
+            "total_outflows": 19946.4907929562,
+            "total_net": 5284.378314458341
         }
     },
     "construction": {
-        "queue_count": 606,
-        "queued_items": 284,
-        "avg_queue_size": 0.4709784411276949,
-        "max_queue_size": 127,
+        "queue_count": 728,
+        "queued_items": 17,
+        "avg_queue_size": 0.024113475177304965,
+        "max_queue_size": 8,
         "breakdown": {
             "planet": {
-                "queue_count": 259,
-                "queued_items": 6,
-                "avg_queue_size": 0.023166023166023165,
-                "max_queue_size": 2
+                "queue_count": 302,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
             },
             "army": {
-                "queue_count": 259,
+                "queue_count": 302,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
             },
             "starbase": {
-                "queue_count": 83,
-                "queued_items": 112,
-                "avg_queue_size": 1.3493975903614457,
-                "max_queue_size": 16
+                "queue_count": 98,
+                "queued_items": 17,
+                "avg_queue_size": 0.17346938775510204,
+                "max_queue_size": 8
             },
             "shipyard": {
-                "queue_count": 5,
-                "queued_items": 166,
-                "avg_queue_size": 83.0,
-                "max_queue_size": 127
-            }
-        },
-        "queue_list": {
-            "0": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "2": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "8": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "24": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "26": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "27": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "29": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "30": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "32": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "33": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "35": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "36": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "38": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "39": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "41": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "408": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "410": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "411": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "413": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "414": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "416": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "438": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "440": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "441": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "443": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "450": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "452": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "453": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "455": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "456": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "458": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "747": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "749": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "756": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "758": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "759": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "761": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "765": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "767": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "915": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "917": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "918": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "920": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "921": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "923": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "927": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "929": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "930": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "932": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "933": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "935": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1041": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1043": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1050": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1052": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1053": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1055": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1059": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1061": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1419": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1421": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1428": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1430": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1611": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1613": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1614": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1616": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1794": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1796": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "1809": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "1811": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "2031": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "2033": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "2034": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "2036": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "2052": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "2054": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "2055": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "2057": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "2235": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "2236": {
-                "size": 3,
-                "items": 127,
-                "type": "shipyard"
-            },
-            "2251": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "3284": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "3286": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "3287": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "3289": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "3290": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "3292": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "3293": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "3295": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "3299": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "3301": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4139": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4141": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4145": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4147": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4151": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4153": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4154": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4156": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4157": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4159": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4172": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4174": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4178": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4180": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4221": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4223": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4407": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4409": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4413": {
-                "size": 1,
-                "items": 2,
-                "type": "planet"
-            },
-            "4415": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4680": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4682": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4695": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4697": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4728": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4730": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4734": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4736": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4752": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4754": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4821": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4823": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4827": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4829": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4857": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4859": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "4884": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "4886": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5085": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5087": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5094": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5096": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5097": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5099": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5100": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5102": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5103": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5105": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5106": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5108": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5115": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5117": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5265": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5267": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5295": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5297": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5793": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5795": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5796": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5798": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5808": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5810": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "5817": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "5819": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6318": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6320": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6333": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6335": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6336": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6338": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6342": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6344": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6561": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6563": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6564": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6566": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6678": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6680": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6687": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6689": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "6702": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "6704": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7194": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7196": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7209": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7211": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7356": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7358": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7368": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7370": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7371": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7373": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7731": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7733": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7743": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7745": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7788": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7790": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7893": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7895": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7917": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7919": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7923": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7925": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "7965": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "7967": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9150": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9152": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9156": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9158": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9159": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9161": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9180": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9182": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9183": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9185": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9198": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9200": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9276": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9278": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9315": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9317": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9324": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9326": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9927": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9929": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "9936": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "9938": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "10812": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "10814": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "10815": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "10817": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "10821": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "10823": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "10938": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "10940": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11550": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11552": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11559": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11561": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11565": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11567": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11742": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11744": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11748": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11750": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "11757": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "11759": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12069": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12071": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12072": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12074": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12075": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12077": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12093": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12095": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12108": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12110": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12126": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12128": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12150": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12152": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12156": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12158": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12546": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12548": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12600": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12602": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12606": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12608": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12618": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12620": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12624": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12626": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12627": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12629": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12633": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12635": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12639": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12641": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12645": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12647": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12648": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12650": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12651": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12653": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12672": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12674": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12684": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12686": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "12987": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "12989": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13713": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13715": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13716": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13718": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13722": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13724": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13728": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13730": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13743": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13745": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13914": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13916": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13920": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13922": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13935": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13937": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "13938": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "13940": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "14802": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "14804": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15144": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15146": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15150": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15152": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15165": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15167": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15240": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15242": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15246": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15248": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15264": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15266": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15435": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15437": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "15453": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "15455": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16569": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16571": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16593": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16595": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16641": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16643": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16659": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16661": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16890": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16892": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16893": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "16895": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "17259": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17261": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "17289": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17291": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "17376": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17378": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "17406": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17408": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "17988": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "17990": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18009": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18011": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18021": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18023": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18045": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18047": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18159": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18161": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18168": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18170": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18177": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18179": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18192": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18194": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18198": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18200": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18744": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18746": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18768": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18770": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18987": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18989": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "18996": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "18998": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19014": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19016": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19140": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19142": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19146": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19148": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19149": {
-                "size": 1,
-                "items": 2,
-                "type": "planet"
-            },
-            "19151": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19338": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19340": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19350": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19352": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19602": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19604": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19620": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19622": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19905": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19907": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19920": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19922": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19926": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19928": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "19929": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "19931": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20115": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20117": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20130": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20132": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20139": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20141": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20142": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20144": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20241": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20243": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20256": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20258": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20259": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20261": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20265": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20267": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20268": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20270": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20880": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20882": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20883": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20885": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20892": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20894": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "20901": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "20903": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21117": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21119": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21126": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21128": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21132": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21134": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21135": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21137": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21150": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21152": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21156": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21158": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21180": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21182": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21186": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21188": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21195": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21197": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21201": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21203": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21204": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21206": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21216": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21218": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21219": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21221": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21516": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21518": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "21531": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "21533": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22068": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22070": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22077": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22079": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22083": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22085": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22185": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22187": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22191": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22193": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22200": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22202": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22203": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22205": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "22326": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "22328": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23328": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23330": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23361": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23363": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23388": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23390": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23844": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23846": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23856": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23858": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23859": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23861": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "23886": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "23888": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "24799": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24802": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24811": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24813": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24816": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24823": {
-                "size": 1,
-                "items": 1,
-                "type": "starbase"
-            },
-            "24827": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24837": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24845": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24853": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24865": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "24867": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24877": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24879": {
-                "size": 1,
-                "items": 2,
-                "type": "starbase"
-            },
-            "24893": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24897": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24898": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24900": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24908": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24912": {
-                "size": 1,
-                "items": 12,
-                "type": "starbase"
-            },
-            "24920": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24942": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24947": {
-                "size": 1,
-                "items": 1,
-                "type": "starbase"
-            },
-            "24957": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "24968": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "24977": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "24994": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25012": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "16802235": {
-                "size": 1,
-                "items": 1,
-                "type": "planet"
-            },
-            "25020": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25029": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25045": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25055": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25067": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "16802287": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25073": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "25082": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25086": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25092": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "25094": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25099": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25102": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25107": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25109": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25117": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25120": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25130": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25134": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25174": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25176": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25177": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25179": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25192": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25194": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25195": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25197": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25222": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "16802459": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "16802511": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25298": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25304": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25314": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25316": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25321": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25323": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25326": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25334": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25339": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25345": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25347": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25349": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25358": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25361": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25363": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25368": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25369": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25371": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25373": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25375": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25379": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25384": {
-                "size": 1,
-                "items": 16,
-                "type": "starbase"
-            },
-            "25386": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25397": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25403": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25407": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25410": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25413": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25442": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25443": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25445": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25447": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25448": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25450": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25483": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25489": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25491": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25493": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25495": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25502": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25504": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25506": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25508": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25509": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25521": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25554": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25556": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25602": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25604": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25605": {
-                "size": 2,
-                "items": 39,
-                "type": "shipyard"
-            },
-            "25606": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25608": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25610": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25611": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25612": {
-                "size": 1,
-                "items": 0,
-                "type": "starbase"
-            },
-            "25641": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25643": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25644": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25646": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25659": {
-                "size": 1,
-                "items": 1,
-                "type": "planet"
-            },
-            "25661": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
-            },
-            "25662": {
-                "size": 1,
-                "items": 0,
-                "type": "planet"
-            },
-            "25664": {
-                "size": 1,
-                "items": 0,
-                "type": "army"
+                "queue_count": 26,
+                "queued_items": 0,
+                "avg_queue_size": 0.0,
+                "max_queue_size": 0
             }
         }
     },
     "tech": {
         "output": {
-            "society": 2810.72,
-            "physics": 2619.5,
-            "engineering": 2426.0,
-            "total": 7856.219999999999
+            "society": 2023.582,
+            "physics": 1936.988,
+            "engineering": 1772.8780000000002,
+            "total": 5733.448
         },
-        "completed_techs": 314,
+        "completed_techs": 332,
         "available_techs": {
-            "society": 5,
+            "society": 6,
             "physics": 5,
-            "engineering": 5
+            "engineering": 6
         }
     },
     "planets": {
-        "total": 36,
+        "total": 28,
         "list": {
             "2": {
-                "name": "The Great Prairy",
+                "name": "The Great Tank",
                 "size": 5,
-                "population": 169,
+                "population": 195,
                 "districts": 5,
                 "armies": 8,
-                "stability": 75.4422,
-                "amenities": 210,
-                "free_amenities": 45,
-                "amenities_usage": 165,
-                "free_housing": 24,
+                "stability": 73.7704,
+                "amenities": 375,
+                "free_amenities": 177,
+                "amenities_usage": 198,
+                "free_housing": 3,
                 "total_housing": 193
             },
-            "253": {
-                "name": "Factory World 1",
-                "size": 20,
-                "population": 91,
+            "291": {
+                "name": "Tank Delta",
+                "size": 12,
+                "population": 94,
+                "districts": 13,
+                "armies": 33,
+                "stability": 68.1356,
+                "amenities": 288,
+                "free_amenities": 170,
+                "amenities_usage": 118,
+                "free_housing": 0,
+                "total_housing": 91
+            },
+            "419": {
+                "name": "Tank Beta",
+                "size": 14,
+                "population": 121,
                 "districts": 15,
                 "armies": 6,
-                "stability": 74.3584,
-                "amenities": 162,
-                "free_amenities": 70,
-                "amenities_usage": 92,
-                "free_housing": 12,
-                "total_housing": 103
+                "stability": 67.8122,
+                "amenities": 244,
+                "free_amenities": 107,
+                "amenities_usage": 137,
+                "free_housing": 2,
+                "total_housing": 122
             },
-            "350": {
-                "name": "Refinery World 1",
-                "size": 14,
-                "population": 95,
-                "districts": 15,
+            "1048": {
+                "name": "Tank Charlie",
+                "size": 10,
+                "population": 104,
+                "districts": 11,
                 "armies": 15,
-                "stability": 73.9702,
-                "amenities": 160,
-                "free_amenities": 66,
-                "amenities_usage": 94,
-                "free_housing": 5,
-                "total_housing": 100
+                "stability": 65.2274,
+                "amenities": 231,
+                "free_amenities": 98,
+                "amenities_usage": 133,
+                "free_housing": 0,
+                "total_housing": 101
             },
-            "476": {
-                "name": "Admin World",
-                "size": 21,
-                "population": 108,
-                "districts": 15,
-                "armies": 4,
-                "stability": 73.0858,
-                "amenities": 171,
-                "free_amenities": 64,
+            "3611": {
+                "name": "Tank Foxtrot",
+                "size": 24,
+                "population": 173,
+                "districts": 25,
+                "armies": 6,
+                "stability": 63.9692,
+                "amenities": 352,
+                "free_amenities": 137,
+                "amenities_usage": 215,
+                "free_housing": 0,
+                "total_housing": 171
+            },
+            "6753": {
+                "name": "Tank Igloo",
+                "size": 10,
+                "population": 78,
+                "districts": 11,
+                "armies": 31,
+                "stability": 65.9864,
+                "amenities": 161,
+                "free_amenities": 63,
+                "amenities_usage": 98,
+                "free_housing": 0,
+                "total_housing": 76
+            },
+            "7781": {
+                "name": "Tank Juliet",
+                "size": 17,
+                "population": 97,
+                "districts": 18,
+                "armies": 15,
+                "stability": 58.5614,
+                "amenities": 113,
+                "free_amenities": 6,
                 "amenities_usage": 107,
                 "free_housing": 1,
-                "total_housing": 109
-            },
-            "1363": {
-                "name": "Research World",
-                "size": 16,
-                "population": 5,
-                "districts": 2,
-                "armies": 1,
-                "stability": 57.5002,
-                "amenities": 8,
-                "free_amenities": -2.0,
-                "amenities_usage": 10,
-                "free_housing": 2,
-                "total_housing": 7
-            },
-            "1365": {
-                "name": "City World",
-                "size": 20,
-                "population": 5,
-                "districts": 2,
-                "armies": 1,
-                "stability": 69.1,
-                "amenities": 13,
-                "free_amenities": 3,
-                "amenities_usage": 10,
-                "free_housing": 14,
-                "total_housing": 19
-            },
-            "1450": {
-                "name": "Refinery World 4",
-                "size": 19,
-                "population": 88,
-                "districts": 18,
-                "armies": 4,
-                "stability": 68.1712,
-                "amenities": 132,
-                "free_amenities": 44,
-                "amenities_usage": 88,
-                "free_housing": 5,
-                "total_housing": 93
-            },
-            "1544": {
-                "name": "Refinery World 6",
-                "size": 12,
-                "population": 47,
-                "districts": 13,
-                "armies": 4,
-                "stability": 67.8196,
-                "amenities": 65,
-                "free_amenities": 16,
-                "amenities_usage": 49,
-                "free_housing": 0,
-                "total_housing": 47
-            },
-            "1677": {
-                "name": "Factory World 4",
-                "size": 18,
-                "population": 70,
-                "districts": 11,
-                "armies": 4,
-                "stability": 67.5568,
-                "amenities": 89,
-                "free_amenities": 18,
-                "amenities_usage": 71,
-                "free_housing": 3,
-                "total_housing": 73
-            },
-            "2090": {
-                "name": "Factory World 2",
-                "size": 21,
-                "population": 104,
-                "districts": 17,
-                "armies": 4,
-                "stability": 65.6368,
-                "amenities": 104,
-                "free_amenities": 2,
-                "amenities_usage": 102,
-                "free_housing": 9,
-                "total_housing": 113
-            },
-            "2093": {
-                "name": "Factory World 3",
-                "size": 21,
-                "population": 65,
-                "districts": 10,
-                "armies": 4,
-                "stability": 69.0214,
-                "amenities": 85,
-                "free_amenities": 16,
-                "amenities_usage": 69,
-                "free_housing": 6,
-                "total_housing": 71
-            },
-            "2435": {
-                "name": "Refinery World 5",
-                "size": 14,
-                "population": 68,
-                "districts": 15,
-                "armies": 2,
-                "stability": 66.5656,
-                "amenities": 78,
-                "free_amenities": 9,
-                "amenities_usage": 69,
-                "free_housing": 5,
-                "total_housing": 73
-            },
-            "2436": {
-                "name": "City World 3",
-                "size": 10,
-                "population": 70,
-                "districts": 11,
-                "armies": 4,
-                "stability": 75.9274,
-                "amenities": 160,
-                "free_amenities": 89,
-                "amenities_usage": 71,
-                "free_housing": 27,
-                "total_housing": 97
-            },
-            "3832": {
-                "name": "Refinery World 5",
-                "size": 19,
-                "population": 71,
-                "districts": 20,
-                "armies": 2,
-                "stability": 66.3304,
-                "amenities": 81,
-                "free_amenities": 9,
-                "amenities_usage": 72,
-                "free_housing": 14,
-                "total_housing": 85
-            },
-            "4203": {
-                "name": "Refinery World 3",
-                "size": 11,
-                "population": 55,
-                "districts": 12,
-                "armies": 13,
-                "stability": 70.228,
-                "amenities": 81,
-                "free_amenities": 24,
-                "amenities_usage": 57,
-                "free_housing": 0,
-                "total_housing": 55
-            },
-            "6362": {
-                "name": "City World 1",
-                "size": 15,
-                "population": 75,
-                "districts": 16,
-                "armies": 4,
-                "stability": 81.4962,
-                "amenities": 158,
-                "free_amenities": 82,
-                "amenities_usage": 76,
-                "free_housing": 62,
-                "total_housing": 137
-            },
-            "6732": {
-                "name": "Unity World",
-                "size": 18,
-                "population": 99,
-                "districts": 15,
-                "armies": 4,
-                "stability": 71.5698,
-                "amenities": 112,
-                "free_amenities": 15,
-                "amenities_usage": 97,
-                "free_housing": 0,
-                "total_housing": 99
-            },
-            "7021": {
-                "name": "Refinery World 2",
-                "size": 19,
-                "population": 87,
-                "districts": 20,
-                "armies": 4,
-                "stability": 75.0928,
-                "amenities": 195,
-                "free_amenities": 108,
-                "amenities_usage": 87,
-                "free_housing": 38,
-                "total_housing": 125
-            },
-            "7775": {
-                "name": "W Border World",
-                "size": 15,
-                "population": 84,
-                "districts": 16,
-                "armies": 49,
-                "stability": 73.6462,
-                "amenities": 147,
-                "free_amenities": 61,
-                "amenities_usage": 86,
-                "free_housing": 1,
-                "total_housing": 85
-            },
-            "7932": {
-                "name": "NE Border World",
-                "size": 23,
-                "population": 71,
-                "districts": 19,
-                "armies": 33,
-                "stability": 65.47,
-                "amenities": 72,
-                "free_amenities": 0,
-                "amenities_usage": 72,
-                "free_housing": 17,
                 "total_housing": 88
             },
-            "8247": {
-                "name": "Mining Hab 1",
-                "size": 8,
-                "population": 47,
-                "districts": 8,
-                "armies": 20,
-                "stability": 72.0082,
-                "amenities": 77,
-                "free_amenities": 26,
-                "amenities_usage": 51,
+            "7782": {
+                "name": "Tank Golf",
+                "size": 14,
+                "population": 65,
+                "districts": 15,
+                "armies": 4,
+                "stability": 59.4572,
+                "amenities": 123,
+                "free_amenities": 39,
+                "amenities_usage": 84,
+                "free_housing": 1,
+                "total_housing": 63
+            },
+            "7783": {
+                "name": "Tank Hotel",
+                "size": 12,
+                "population": 86,
+                "districts": 13,
+                "armies": 15,
+                "stability": 67.574,
+                "amenities": 205,
+                "free_amenities": 105,
+                "amenities_usage": 100,
                 "free_housing": 2,
-                "total_housing": 49
+                "total_housing": 79
             },
-            "8248": {
-                "name": "Mining Hab 2",
-                "size": 8,
-                "population": 47,
-                "districts": 8,
-                "armies": 20,
-                "stability": 71.6806,
-                "amenities": 77,
-                "free_amenities": 25,
-                "amenities_usage": 52,
-                "free_housing": 2,
-                "total_housing": 49
+            "7988": {
+                "name": "Tank Echo",
+                "size": 22,
+                "population": 133,
+                "districts": 23,
+                "armies": 6,
+                "stability": 63.5564,
+                "amenities": 259,
+                "free_amenities": 92,
+                "amenities_usage": 167,
+                "free_housing": 0,
+                "total_housing": 131
             },
-            "8249": {
-                "name": "N Border Hab",
-                "size": 8,
-                "population": 45,
-                "districts": 8,
-                "armies": 47,
-                "stability": 69.9646,
-                "amenities": 71,
-                "free_amenities": 21,
-                "amenities_usage": 50,
-                "free_housing": 4,
-                "total_housing": 49
-            },
-            "8250": {
-                "name": "W Border Hab",
-                "size": 6,
-                "population": 44,
-                "districts": 6,
-                "armies": 59,
-                "stability": 67.3918,
-                "amenities": 61,
-                "free_amenities": 12,
-                "amenities_usage": 49,
-                "free_housing": 3,
-                "total_housing": 47
-            },
-            "8260": {
-                "name": "Mining Hab 3",
-                "size": 8,
-                "population": 42,
-                "districts": 8,
-                "armies": 5,
-                "stability": 77.307,
-                "amenities": 71,
-                "free_amenities": 24,
-                "amenities_usage": 47,
-                "free_housing": 3,
-                "total_housing": 45
-            },
-            "8261": {
-                "name": "SE Border Hab",
-                "size": 6,
-                "population": 42,
-                "districts": 6,
-                "armies": 41,
-                "stability": 68.4436,
-                "amenities": 57,
-                "free_amenities": 10,
-                "amenities_usage": 47,
-                "free_housing": 4,
-                "total_housing": 46
-            },
-            "8262": {
-                "name": "Research Hab 1",
+            "8137": {
+                "name": "Artificial Tank Alpha",
                 "size": 8,
                 "population": 53,
                 "districts": 8,
-                "armies": 0,
-                "stability": 67.5478,
-                "amenities": 61,
-                "free_amenities": 6,
-                "amenities_usage": 55,
-                "free_housing": 4,
+                "armies": 11,
+                "stability": 69.9656,
+                "amenities": 122,
+                "free_amenities": 60,
+                "amenities_usage": 62,
+                "free_housing": 0,
+                "total_housing": 52
+            },
+            "8138": {
+                "name": "Artificial Tank Beta",
+                "size": 8,
+                "population": 69,
+                "districts": 8,
+                "armies": 29,
+                "stability": 64.385,
+                "amenities": 292,
+                "free_amenities": 213,
+                "amenities_usage": 79,
+                "free_housing": 0,
+                "total_housing": 67
+            },
+            "8142": {
+                "name": "Artificial Tank Charlie",
+                "size": 8,
+                "population": 73,
+                "districts": 8,
+                "armies": 38,
+                "stability": 69.4418,
+                "amenities": 173,
+                "free_amenities": 89,
+                "amenities_usage": 84,
+                "free_housing": 0,
+                "total_housing": 71
+            },
+            "8143": {
+                "name": "Artificial Tank Delta",
+                "size": 8,
+                "population": 78,
+                "districts": 8,
+                "armies": 47,
+                "stability": 69.95,
+                "amenities": 195,
+                "free_amenities": 106,
+                "amenities_usage": 89,
+                "free_housing": 0,
+                "total_housing": 76
+            },
+            "8145": {
+                "name": "Artificial Tank Echo",
+                "size": 6,
+                "population": 70,
+                "districts": 6,
+                "armies": 29,
+                "stability": 67.7894,
+                "amenities": 246,
+                "free_amenities": 166,
+                "amenities_usage": 80,
+                "free_housing": 2,
+                "total_housing": 70
+            },
+            "8158": {
+                "name": "The Great Tank 2",
+                "size": 5,
+                "population": 222,
+                "districts": 5,
+                "armies": 17,
+                "stability": 75.6408,
+                "amenities": 522,
+                "free_amenities": 314,
+                "amenities_usage": 208,
+                "free_housing": -1.0,
+                "total_housing": 196
+            },
+            "8251": {
+                "name": "Eastern Border Habitat",
+                "size": 8,
+                "population": 67,
+                "districts": 8,
+                "armies": 83,
+                "stability": 56.1896,
+                "amenities": 93,
+                "free_amenities": 16,
+                "amenities_usage": 77,
+                "free_housing": 0,
+                "total_housing": 66
+            },
+            "8252": {
+                "name": "Southern Border Habitat",
+                "size": 8,
+                "population": 62,
+                "districts": 8,
+                "armies": 56,
+                "stability": 64.6796,
+                "amenities": 122,
+                "free_amenities": 50,
+                "amenities_usage": 72,
+                "free_housing": 2,
+                "total_housing": 63
+            },
+            "8256": {
+                "name": "The Great Tank 3",
+                "size": 5,
+                "population": 196,
+                "districts": 5,
+                "armies": 8,
+                "stability": 75.6508,
+                "amenities": 474,
+                "free_amenities": 288,
+                "amenities_usage": 186,
+                "free_housing": 17,
+                "total_housing": 193
+            },
+            "8266": {
+                "name": "Northern Border Habitat",
+                "size": 8,
+                "population": 65,
+                "districts": 8,
+                "armies": 60,
+                "stability": 64.7666,
+                "amenities": 133,
+                "free_amenities": 58,
+                "amenities_usage": 75,
+                "free_housing": 0,
+                "total_housing": 63
+            },
+            "16785498": {
+                "name": "Heat Lamp Echo I Habitat",
+                "size": 8,
+                "population": 58,
+                "districts": 8,
+                "armies": 29,
+                "stability": 60.8882,
+                "amenities": 88,
+                "free_amenities": 23,
+                "amenities_usage": 65,
+                "free_housing": 0,
                 "total_housing": 57
             },
-            "8263": {
-                "name": "NW Border Hab",
+            "8333": {
+                "name": "Mining Hab 1",
                 "size": 8,
-                "population": 36,
-                "districts": 7,
-                "armies": 32,
-                "stability": 73.0078,
-                "amenities": 71,
-                "free_amenities": 30,
-                "amenities_usage": 41,
-                "free_housing": 10,
-                "total_housing": 46
+                "population": 53,
+                "districts": 8,
+                "armies": 20,
+                "stability": 62.9288,
+                "amenities": 94,
+                "free_amenities": 33,
+                "amenities_usage": 61,
+                "free_housing": 0,
+                "total_housing": 52
             },
-            "8264": {
-                "name": "Mining Hab 4",
+            "8335": {
+                "name": "Mining Hab 2",
                 "size": 8,
-                "population": 31,
-                "districts": 7,
-                "armies": 2,
-                "stability": 78.1966,
-                "amenities": 80,
-                "free_amenities": 44,
-                "amenities_usage": 36,
-                "free_housing": 10,
-                "total_housing": 41
-            },
-            "8267": {
-                "name": "Trade Segment",
-                "size": 5,
-                "population": 48,
-                "districts": 22,
-                "armies": 4,
-                "stability": 66.6244,
-                "amenities": 57,
-                "free_amenities": 6,
-                "amenities_usage": 51,
-                "free_housing": 1,
-                "total_housing": 49
-            },
-            "8271": {
-                "name": "Research Section",
-                "size": 5,
-                "population": 38,
-                "districts": 19,
-                "armies": 0,
-                "stability": 66.5602,
-                "amenities": 45,
-                "free_amenities": 4,
-                "amenities_usage": 41,
-                "free_housing": 8,
-                "total_housing": 46
-            },
-            "8280": {
-                "name": "Science Hab",
-                "size": 4,
-                "population": 15,
-                "districts": 3,
-                "armies": 2,
-                "stability": 64.8604,
-                "amenities": 19,
-                "free_amenities": -1.0,
-                "amenities_usage": 20,
-                "free_housing": 9,
-                "total_housing": 24
-            },
-            "8289": {
-                "name": "Wormhole Hab",
-                "size": 4,
-                "population": 8,
-                "districts": 2,
-                "armies": 3,
-                "stability": 74.9326,
-                "amenities": 22,
-                "free_amenities": 9,
-                "amenities_usage": 13,
-                "free_housing": 7,
-                "total_housing": 15
-            },
-            "8290": {
-                "name": "Border Hab",
-                "size": 4,
-                "population": 8,
-                "districts": 2,
-                "armies": 3,
-                "stability": 73.4326,
-                "amenities": 22,
-                "free_amenities": 9,
-                "amenities_usage": 13,
-                "free_housing": 7,
-                "total_housing": 15
-            },
-            "8296": {
-                "name": "Trade Hab",
-                "size": 4,
-                "population": 5,
-                "districts": 2,
-                "armies": 0,
-                "stability": 69.4456,
-                "amenities": 18,
+                "population": 66,
+                "districts": 8,
+                "armies": 65,
+                "stability": 63.8104,
+                "amenities": 82,
                 "free_amenities": 8,
-                "amenities_usage": 10,
-                "free_housing": 9,
-                "total_housing": 14
-            },
-            "8297": {
-                "name": "Factory Hab",
-                "size": 4,
-                "population": 5,
-                "districts": 23,
-                "armies": 0,
-                "stability": 76.8304,
-                "amenities": 18,
-                "free_amenities": 8,
-                "amenities_usage": 10,
+                "amenities_usage": 74,
                 "free_housing": 1,
-                "total_housing": 6
+                "total_housing": 65
+            },
+            "8337": {
+                "name": "Mining Hab 3",
+                "size": 8,
+                "population": 53,
+                "districts": 8,
+                "armies": 20,
+                "stability": 59.4638,
+                "amenities": 82,
+                "free_amenities": 21,
+                "amenities_usage": 61,
+                "free_housing": 4,
+                "total_housing": 55
+            },
+            "8340": {
+                "name": "Firam IV Habitat",
+                "size": 8,
+                "population": 62,
+                "districts": 8,
+                "armies": 29,
+                "stability": 66.5888,
+                "amenities": 122,
+                "free_amenities": 52,
+                "amenities_usage": 70,
+                "free_housing": 0,
+                "total_housing": 60
+            },
+            "8345": {
+                "name": "Firam III Habitat",
+                "size": 8,
+                "population": 66,
+                "districts": 8,
+                "armies": 65,
+                "stability": 61.4902,
+                "amenities": 82,
+                "free_amenities": 8,
+                "amenities_usage": 74,
+                "free_housing": 1,
+                "total_housing": 65
+            },
+            "8348": {
+                "name": "Gemma III Habitat",
+                "size": 8,
+                "population": 68,
+                "districts": 8,
+                "armies": 56,
+                "stability": 62.5076,
+                "amenities": 116,
+                "free_amenities": 40,
+                "amenities_usage": 76,
+                "free_housing": 0,
+                "total_housing": 66
+            },
+            "8351": {
+                "name": "Khiram I Habitat",
+                "size": 8,
+                "population": 57,
+                "districts": 8,
+                "armies": 47,
+                "stability": 65.9158,
+                "amenities": 88,
+                "free_amenities": 24,
+                "amenities_usage": 64,
+                "free_housing": 3,
+                "total_housing": 58
             }
         },
         "types": {
             "Ring World Section": 3,
-            "Savannah": 17,
-            "Alpine": 1,
-            "Tundra": 1,
-            "Habitat": 14
+            "Arid": 9,
+            "Habitat": 16
         },
         "districts": {
-            "avg": 11.277777777777779,
-            "min": 2,
-            "max": 23,
-            "total": 406
+            "avg": 10.178571428571429,
+            "min": 5,
+            "max": 25,
+            "total": 285
         },
         "buildings": {
-            "avg": 10.666666666666666,
-            "min": 1,
+            "avg": 15.392857142857142,
+            "min": 13,
             "max": 16,
-            "total": 384
+            "total": 431
         },
         "sizes": {
-            "avg": 11.916666666666666,
-            "min": 4,
-            "max": 23,
-            "total": 429
+            "avg": 9.857142857142858,
+            "min": 5,
+            "max": 24,
+            "total": 276
         },
         "stability": {
-            "avg": 70.72842222222224,
-            "min": 57.5002,
-            "max": 81.4962,
-            "total": 2546.2232000000004
+            "avg": 65.57510714285714,
+            "min": 56.1896,
+            "max": 75.6508,
+            "total": 1836.1029999999998
         },
         "amenities": {
-            "avg": 27.22222222222222,
-            "min": -2.0,
-            "max": 108,
-            "total": 980.0
+            "avg": 91.53571428571429,
+            "min": 6,
+            "max": 314,
+            "total": 2563
         },
         "housing": {
-            "avg": 9.13888888888889,
-            "min": 0,
-            "max": 62,
-            "total": 329
+            "avg": 1.3571428571428572,
+            "min": -1.0,
+            "max": 17,
+            "total": 38.0
         },
         "crime": {
-            "avg": 0.2597222222222222,
+            "avg": 0.030357142857142857,
             "min": 0,
-            "max": 4.25,
-            "total": 9.35
+            "max": 0.85,
+            "total": 0.85
         },
         "pops": {
-            "avg": 56.69444444444444,
-            "min": 5,
-            "max": 169,
-            "total": 2041
+            "avg": 92.28571428571429,
+            "min": 53,
+            "max": 222,
+            "total": 2584
         },
         "age_days": {
-            "avg": 30808.333333333332,
-            "min": 4520,
-            "max": 64040,
-            "total": 1109100
+            "avg": 66446.0,
+            "min": 22796,
+            "max": 119126,
+            "total": 1860488
         },
         "age": {
-            "avg": 85.57870370370368,
-            "min": 12.555555555555555,
-            "max": 177.88888888888889,
-            "total": 3080.8333333333326
+            "avg": 184.57222222222214,
+            "min": 63.32222222222222,
+            "max": 330.90555555555557,
+            "total": 5168.02222222222
         }
     },
     "pops": {
-        "total": 2041,
+        "total": 2584,
         "jobs": {
-            "Head Researcher": 39,
-            "Administrator": 60,
-            "Artisan": 84,
-            "Researcher": 130,
-            "Foundry": 315,
-            "Roboticist": 92,
-            "Healthcare": 90,
-            "Culture Worker": 58,
-            "Merchant": 51,
-            "Enforcer": 56,
-            "Bureaucrat": 95,
-            "Clerk": 369,
-            "Farmer": 37,
-            "Odd Factory Worker": 1,
-            "Entertainer": 52,
-            "Technician": 129,
-            "Gas Refiner": 12,
-            "Translucer": 15,
-            "Chemist": 33,
-            "Miner": 207,
-            "Soldier": 104,
-            "Colonist": 2,
-            "Gas Extractor": 3,
-            "Crystal Miner": 2,
-            "Dimensional Portal Researcher": 3
+            "Merchant": 186,
+            "Administrator": 44,
+            "Researcher": 132,
+            "Artisan": 25,
+            "Enforcer": 55,
+            "Foundry": 277,
+            "Head Researcher": 3,
+            "Translucer": 34,
+            "Clerk": 855,
+            "Culture Worker": 8,
+            "Entertainer": 55,
+            "Gas Refiner": 5,
+            "Healthcare": 60,
+            "Farmer": 128,
+            "Chemist": 51,
+            "Priest": 94,
+            "Soldier": 246,
+            "Bureaucrat": 75,
+            "Technician": 64,
+            "Miner": 175,
+            "Gas Extractor": 2,
+            "Dimensional Portal Researcher": 2,
+            "Gas Plant Engineer": 5,
+            "Crystal Miner": 1,
+            "High Priest": 2
         },
         "species": {
-            "Neo-Super-Science Fox": 1657,
-            "Robot": 384
+            "Geck": 270,
+            "Zum": 194,
+            "Hiran": 130,
+            "Havarigga": 126,
+            "Dima'Xanian": 38,
+            "Jhoolian": 83,
+            "Half-Zum": 104,
+            "Half-Dima'Xanian": 35,
+            "Karabnar": 229,
+            "Fiiral": 53,
+            "Qvefoz": 29,
+            "Lagin'Chuuz": 89,
+            "Shantari": 20,
+            "Elaaminid": 132,
+            "The Most Sexual Grob": 50,
+            "Provalguvor": 34,
+            "Robot": 103,
+            "Pobelin": 43,
+            "Xanyr": 36,
+            "Qell'Nudar": 27,
+            "Half-Karabnar": 241,
+            "Yalon": 69,
+            "Entheri": 22,
+            "Half-Entheri": 17,
+            "Half-Elaaminid": 115,
+            "Half-Hiran": 43,
+            "Half-Qvefoz": 79,
+            "Dorbolan": 10,
+            "Half-Slithery Devil": 21,
+            "Half-Provalguvor": 27,
+            "Half-Havarigga": 86,
+            "Half-Fiiral": 22,
+            "Velutarian": 7
+        },
+        "categories": {
+            "ruler": 235,
+            "specialist": 837,
+            "worker": 1409,
+            "robot_servant": 103
+        },
+        "ethics": {
+            "Spiritualist": 246,
+            "Xenophile": 991,
+            "Militarist": 233,
+            "Authoritarian": 724,
+            "Materialist": 298,
+            "Xenophobe": 92
         }
     },
     "fleets": {
-        "total": 8,
+        "total": 15,
         "fleet_power": {
-            "avg": 39471.09715571429,
-            "min": 361.01559,
-            "max": 98480.68652,
-            "total": 276297.68009000004
+            "avg": 142934.09347571427,
+            "min": 10070.38119,
+            "max": 195385.44174,
+            "total": 2001077.3086599996
         },
         "ships": {
-            "avg": 24.375,
+            "avg": 42.93333333333333,
             "min": 1,
-            "max": 124,
-            "total": 195
+            "max": 80,
+            "total": 644
         },
         "ship_types": {
-            "Titan": 5,
-            "Battleship": 35,
-            "Destroyer": 25,
-            "Npc_warship_01": 1,
-            "Corvette": 127,
+            "Destroyer": 90,
+            "Corvette": 299,
+            "Cruiser": 103,
+            "Battleship": 134,
+            "Titan": 15,
             "Colossus": 1,
+            "Npc_warship_01": 1,
             "Juggernaut": 1
         },
-        "avg_ship_exp": 228.57538461538465,
+        "avg_ship_exp": 377.74860248447027,
         "fleets": {
-            "16777389": {
-                "id": 16777389,
-                "power": 98480.68652,
-                "ship_count": 25,
+            "268435564": {
+                "id": 268435564,
+                "power": 178693.06661,
+                "ship_count": 80,
                 "experience": {
-                    "avg": 0.0,
-                    "min": 0,
-                    "max": 0,
-                    "total": 0
+                    "avg": 7040.050000000006,
+                    "min": 99.6,
+                    "max": 14068.000000000018,
+                    "total": 563204.0000000005
                 }
             },
-            "16778918": {
-                "id": 16778918,
-                "power": 95717.83322,
-                "ship_count": 41,
+            "67109072": {
+                "id": 67109072,
+                "power": 61239.63198,
+                "ship_count": 9,
                 "experience": {
-                    "avg": 11709.202439024393,
-                    "min": 1104.5,
-                    "max": 19018.499999999996,
-                    "total": 480077.3000000001
+                    "avg": 18818.088888888906,
+                    "min": 15172.600000000019,
+                    "max": 22569.80000000001,
+                    "total": 169362.80000000016
                 }
             },
-            "33556323": {
-                "id": 33556323,
-                "power": 361.01559,
-                "ship_count": 1,
+            "16777570": {
+                "id": 16777570,
+                "power": 139947.88455,
+                "ship_count": 38,
                 "experience": {
-                    "avg": 19018.499999999996,
-                    "min": 19018.499999999996,
-                    "max": 19018.499999999996,
-                    "total": 19018.499999999996
+                    "avg": 27389.331578947407,
+                    "min": 22840.20000000001,
+                    "max": 31434.200000000063,
+                    "total": 1040794.6000000015
                 }
             },
-            "16779268": {
-                "id": 16779268,
-                "power": 361.01559,
-                "ship_count": 1,
-                "experience": {
-                    "avg": 19018.499999999996,
-                    "min": 19018.499999999996,
-                    "max": 19018.499999999996,
-                    "total": 19018.499999999996
-                }
-            },
-            "2786": {
-                "id": 2786,
+            "50332193": {
+                "id": 50332193,
                 "power": 0.0,
                 "ship_count": 1,
                 "experience": {
-                    "avg": 19018.499999999996,
-                    "min": 19018.499999999996,
-                    "max": 19018.499999999996,
-                    "total": 19018.499999999996
+                    "avg": 31434.200000000063,
+                    "min": 31434.200000000063,
+                    "max": 31434.200000000063,
+                    "total": 31434.200000000063
                 }
             },
-            "2830": {
-                "id": 2830,
-                "power": 29788.54312,
+            "50332331": {
+                "id": 50332331,
+                "power": 160831.98822,
+                "ship_count": 48,
+                "experience": {
+                    "avg": 36456.166666666766,
+                    "min": 31668.600000000064,
+                    "max": 41385.40000000013,
+                    "total": 1749896.000000005
+                }
+            },
+            "33555594": {
+                "id": 33555594,
+                "power": 152126.79248,
+                "ship_count": 24,
+                "experience": {
+                    "avg": 50899.40833333345,
+                    "min": 42256.50000000013,
+                    "max": 59775.5000000001,
+                    "total": 1221585.8000000028
+                }
+            },
+            "234882500": {
+                "id": 234882500,
+                "power": 10070.38119,
+                "ship_count": 14,
+                "experience": {
+                    "avg": 62304.67857142868,
+                    "min": 60070.0000000001,
+                    "max": 64384.5000000001,
+                    "total": 872265.5000000015
+                }
+            },
+            "251659922": {
+                "id": 251659922,
+                "power": 167897.15908,
+                "ship_count": 56,
+                "experience": {
+                    "avg": 86047.51249999997,
+                    "min": 65180.9000000001,
+                    "max": 105873.19999999981,
+                    "total": 4818660.699999998
+                }
+            },
+            "134219531": {
+                "id": 134219531,
+                "power": 183159.28479,
+                "ship_count": 79,
+                "experience": {
+                    "avg": 132138.779746835,
+                    "min": 106559.5999999998,
+                    "max": 156946.79999999938,
+                    "total": 10438963.599999964
+                }
+            },
+            "83888239": {
+                "id": 83888239,
+                "power": 191151.14215,
+                "ship_count": 80,
+                "experience": {
+                    "avg": 164503.2624999993,
+                    "min": 157152.79999999938,
+                    "max": 171324.79999999938,
+                    "total": 13160260.999999946
+                }
+            },
+            "2258": {
+                "id": 2258,
+                "power": 172732.61315,
+                "ship_count": 31,
+                "experience": {
+                    "avg": 186049.0709677413,
+                    "min": 171866.19999999937,
+                    "max": 204124.8999999995,
+                    "total": 5767521.199999981
+                }
+            },
+            "100665690": {
+                "id": 100665690,
+                "power": 195385.44174,
+                "ship_count": 72,
+                "experience": {
+                    "avg": 211042.3305555554,
+                    "min": 204230.8999999995,
+                    "max": 217255.8999999995,
+                    "total": 15195047.79999999
+                }
+            },
+            "117442957": {
+                "id": 117442957,
+                "power": 148617.60565,
+                "ship_count": 37,
+                "experience": {
+                    "avg": 221980.4999999994,
+                    "min": 217526.2999999995,
+                    "max": 226455.2999999993,
+                    "total": 8213278.499999978
+                }
+            },
+            "83889170": {
+                "id": 83889170,
+                "power": 53365.1607,
                 "ship_count": 1,
                 "experience": {
-                    "avg": 19018.499999999996,
-                    "min": 19018.499999999996,
-                    "max": 19018.499999999996,
-                    "total": 19018.499999999996
+                    "avg": 226455.2999999993,
+                    "min": 226455.2999999993,
+                    "max": 226455.2999999993,
+                    "total": 226455.2999999993
                 }
             },
-            "16780049": {
-                "id": 16780049,
-                "power": 51227.57046,
-                "ship_count": 124,
+            "100666447": {
+                "id": 100666447,
+                "power": 185859.15637,
+                "ship_count": 74,
                 "experience": {
-                    "avg": 42052.070967742024,
-                    "min": 20122.999999999996,
-                    "max": 44572.200000000004,
-                    "total": 5214456.800000011
-                }
-            },
-            "83888970": {
-                "id": 83888970,
-                "power": 361.01559,
-                "ship_count": 1,
-                "experience": {
-                    "avg": 44572.200000000004,
-                    "min": 44572.200000000004,
-                    "max": 44572.200000000004,
-                    "total": 44572.200000000004
+                    "avg": 235126.2972972963,
+                    "min": 226704.19999999928,
+                    "max": 243270.09999999887,
+                    "total": 17399345.999999925
                 }
             }
         }
     },
     "armies": {
-        "total": 424,
+        "total": 848,
         "types": {
-            "Robotic Defense Army": 408,
-            "Clone Army": 10,
-            "Assault Army": 6
+            "Defense Army": 848
         }
     }
 }
