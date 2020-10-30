@@ -558,10 +558,10 @@ def _get_gdp(income, spending, net, stockpile, prices):
         'outflows': gross_spending,
         'net': net_gdp,
         'stockpile_values': stockpile_value,
-        'total_inflows': sum([val for r, val in gross_income.items()]),
-        'total_outflows': sum([val for r, val in gross_spending.items()]),
-        'total_net': sum([val for r, val in net_gdp.items()]),
-        'total_stockpile_value': sum([v for r, v in stockpile_value.items()])
+        'total_inflows': sum([val for r, val in gross_income.items()]) + income['energy']['total'],
+        'total_outflows': sum([val for r, val in gross_spending.items()]) + spending['energy']['total'],
+        'total_net': sum([val for r, val in net_gdp.items()]) + net['energy'],
+        'total_stockpile_value': sum([v for r, v in stockpile_value.items()]) + stockpile['energy']
     }
 
 
