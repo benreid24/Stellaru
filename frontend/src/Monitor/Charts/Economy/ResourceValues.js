@@ -29,16 +29,18 @@ function ResourceValues(props) {
     const name = props.name ? props.name : 'resource_values';
     const data = props.data;
 
-    const keys = ['inflows', 'outflows', 'net'];
+    const keys = ['inflows', 'outflows', 'net', 'stockpile_values'];
     const keyLabels = {
         inflows: 'Gross Income',
         outflows: 'Spending',
-        net: 'Net Income'
+        net: 'Net Income',
+        stockpile_values: 'Stockpile'
     };
     const ecKeys = {
         inflows: 'economy/income/energy/total',
         outflows: 'economy/spending/energy/total',
-        net: 'economy/net_income/energy'
+        net: 'economy/net_income/energy',
+        stockpile_values: 'economy/stockpile/energy'
     };
 
     const [key, setKey] = useState('');

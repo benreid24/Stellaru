@@ -28,11 +28,12 @@ function Gdp(props) {
     const name = props.name ? props.name : 'total_economy_value';
     const data = props.data;
 
-    const keys = ['total_inflows', 'total_outflows', 'total_net'];
+    const keys = ['total_inflows', 'total_outflows', 'total_net', 'total_stockpile_value'];
     const keyLabels = {
         total_inflows: 'Gross Income',
         total_outflows: 'Spending',
-        total_net: 'Net Income'
+        total_net: 'Net Income',
+        total_stockpile_value: 'Stockpile'
     };
 
     const [key, setKey] = useState('');
