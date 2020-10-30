@@ -538,10 +538,11 @@ def _get_market_prices(state, empire):
         return BASE_PRICES
 
 
-def _get_gdp(income, spending, net, prices):
+def _get_gdp(income, spending, net, stockpile, prices):
     gross_income = {}
     gross_spending = {}
     net_gdp = {}
+    stockpile_value = {}
     for resource in MARKET_RESOURCES:
         i = income[resource]['total'] if resource in income else 0
         gross_income[resource] = prices[resource] * i
@@ -549,14 +550,18 @@ def _get_gdp(income, spending, net, prices):
         gross_spending[resource] = prices[resource] * s
         n = net[resource] if resource in net else 0
         net_gdp[resource] = prices[resource] * n
+        v = stockpile[resource] if resource in stockpile else 0
+        stockpile_value[resource] = v * prices[resource]
     
     return {
         'inflows': gross_income,
         'outflows': gross_spending,
         'net': net_gdp,
+        'stockpile_values': stockpile_value,
         'total_inflows': sum([val for r, val in gross_income.items()]),
         'total_outflows': sum([val for r, val in gross_spending.items()]),
-        'total_net': sum([val for r, val in net_gdp.items()])
+        'total_net': sum([val for r, val in net_gdp.items()]),
+        'total_stockpile_value': sum([v for r, v in stockpile_value.items()])
     }
 
 
@@ -577,8 +582,8 @@ def _get_economy(state, empire):
             nets[resource] = net
 
         market_prices = _get_market_prices(state, empire)
-        base_gdp = _get_gdp(income, spending, nets, BASE_PRICES)
-        adjusted_gdp = _get_gdp(income, spending, nets, market_prices)
+        base_gdp = _get_gdp(income, spending, nets, resources, BASE_PRICES)
+        adjusted_gdp = _get_gdp(income, spending, nets, resources, market_prices)
 
         return {
             'stockpile': resources,
