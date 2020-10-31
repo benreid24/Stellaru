@@ -55,9 +55,15 @@ BASE_PRICES = {
     'sr_dark_matter': 20
 }
 
+MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]
+
 
 def empire_valid(state, empire):
     if 'victory_rank' not in state['country'][empire]:
+        return False
+    if 'modules' not in state['country'][empire]:
+        return False
+    if 'standard_economy_module' not in state['country'][empire]:
         return False
     if 'owned_planets' not in state['country'][empire]:
         return False
@@ -238,3 +244,36 @@ def get_unity(state, empire):
         'acension_perks': ap_count,
         'unity': unity_income
     }
+
+
+def get_economy(state, empire):
+    resources = state['country'][empire]['modules']['standard_economy_module']['resources']
+    budgets = state['country'][empire]['budget']['current_month']
+    return {
+        'stockpile': resources,
+        'income': budgets['income'],
+        'spending': budgets['expenses']
+    }
+
+
+def get_market_prices(state, empire):
+    try:
+        global_index = None
+        if 'galactic_market_access' in state['market'] and empire in state['market']['id']:
+            global_index = state['market']['id'].index(empire)
+        index = state['market']['internal_market_fluctuations']['country'].index(empire)
+        prices = {}
+        for resource in MARKET_RESOURCES:
+            fluctuation = 0
+            if resource in state['market']['internal_market_fluctuations']['resources'][index]:
+                fluctuation += state['market']['internal_market_fluctuations']['resources'][index][resource]
+            if global_index:
+                if state['market']['galactic_market_access'][global_index] > 0:
+                    if 'fluctuations' in state['market']:
+                        fluctuation += state['market']['fluctuations'][RESOURCE_INDICES[resource]]
+            prices[resource] = BASE_PRICES[resource] + fluctuation * BASE_PRICES[resource] / 100
+        return prices
+    except:
+        name = state['country'][empire]['name']
+        print(f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
+        return BASE_PRICES

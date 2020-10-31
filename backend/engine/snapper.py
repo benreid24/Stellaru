@@ -139,6 +139,12 @@ def _key_or(obj, key, alt):
 
 
 def _empire_valid(state, empire):
+    if 'victory_rank' not in state['country'][empire]:
+        return False
+    if 'modules' not in state['country'][empire]:
+        return False
+    if 'standard_economy_module' not in state['country'][empire]:
+        return False
     if 'owned_planets' not in state['country'][empire]:
         return False
     return len(state['country'][empire]['owned_planets']) > 0
