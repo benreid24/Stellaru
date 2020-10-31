@@ -512,9 +512,6 @@ def _build_resource_breakdown(budget):
     return breakdown
 
 
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-
 def _get_market_prices(state, empire):
     try:
         global_index = None
