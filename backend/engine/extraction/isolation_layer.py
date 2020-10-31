@@ -277,3 +277,23 @@ def get_market_prices(state, empire):
         name = state['country'][empire]['name']
         print(f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
         return BASE_PRICES
+
+
+def get_build_queues(state, empire):
+    build_queues = [
+        {**queue, 'id': qid} for qid, queue in state['construction']['queue_mgr']['queues'].items()
+        if isinstance(queue, dict) and queue['owner'] == empire
+    ]
+    for queue in build_queues:
+        items = [
+            item for item in state['construction']['item_mgr']['items'].items()
+            if isinstance(item, dict) and item['queue'] == queue['id']
+        ]
+        queue['items'] = len(items)
+    return [
+        {
+            'type': queue['type'],
+            'simultaneous': queue['simultaneous'],
+            'items': queue['items']
+        } for queue in build_queues
+    ]
