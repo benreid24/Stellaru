@@ -14,6 +14,8 @@ function AreaChart(props) {
     const allowIsolation = props.allowIsolation ? true : false;
     const areaClickCb = props.onAreaClick;
     const stack = props.stack ? true : false;
+    const leftScale = props.leftScale ? props.leftScale : 'linear';
+    const rightScale = props.rightScale ? props.rightScale : 'linear';
 
     const renderAreaBound = (area, labelColors, onClick) => {
         return renderArea(area, labelColors[area.label], stack ? '1' : null, onClick);
@@ -31,6 +33,8 @@ function AreaChart(props) {
             onSeriesClick={areaClickCb}
             seriesRenderer={renderAreaBound}
             labelColors={labelColors}
+            leftScale={leftScale}
+            rightScale={rightScale}
         />
     );
 }

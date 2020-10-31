@@ -11,6 +11,8 @@ function LineChart(props) {
     const rightYLabel = props.rightYLabel ? props.rightYLabel : null;
     const formatter = props.formatter;
     const labelColors = props.labelColors;
+    const leftScale = props.leftScale ? props.leftScale : 'linear';
+    const rightScale = props.rightScale ? props.rightScale : 'linear';
 
     const renderLineBound = (line, labelColors, onClick) => renderLine(line, labelColors[line.label], onClick);
 
@@ -25,6 +27,8 @@ function LineChart(props) {
             allowIsolation={true}
             seriesRenderer={renderLineBound}
             labelColors={labelColors}
+            leftScale={leftScale}
+            rightScale={rightScale}
         />
     );
 }

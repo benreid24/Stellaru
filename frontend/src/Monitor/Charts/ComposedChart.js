@@ -83,6 +83,8 @@ function ComposedChart(props) {
     const seriesRenderer = props.seriesRenderer;
     const leftDomain = props.leftDomain ? props.leftDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
     const rightDomain = props.rightDomain ? props.rightDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
+    const leftScale = props.leftScale ? props.leftScale : 'linear';
+    const rightScale = props.rightScale ? props.rightScale : 'linear';
 
     series.forEach(series => {
         series.labelId = makeId(`${name}_${series.label}`);
@@ -243,7 +245,7 @@ function ComposedChart(props) {
                     tickSize={9}
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
-                    scale='linear'
+                    scale={leftScale}
                     label={({ viewBox }) => <AxisLabel offset={8} axisType="yAxis" {...viewBox}>{yLabel}</AxisLabel>}
                 />
                 <YAxis
@@ -257,7 +259,7 @@ function ComposedChart(props) {
                     tickSize={9}
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
-                    scale='linear'
+                    scale={rightScale}
                     label={({ viewBox }) => <AxisLabel offset={55} axisType="yAxis" {...viewBox}>{rightYLabel}</AxisLabel>}
                 />
                 <Tooltip formatter={formatter} content={<RenderTooltip/>}/>
