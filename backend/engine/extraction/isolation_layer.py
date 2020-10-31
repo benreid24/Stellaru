@@ -176,7 +176,7 @@ def get_pops(state, pop_ids):
             'job': ' '.join([word.capitalize() for word in pop['job'].split('_')]) if 'job' in pop else 'Unemployed',
             'category': pop['category'] if 'category' in pop else 'Unknown',
             'ethos': [ethic.split('_')[-1].capitalize() for _, ethic in pop['ethos'].items()]
-        }
+        } for pop in pops
     ]
 
 
@@ -319,7 +319,7 @@ def get_tech(state, empire):
             if isinstance(prod, dict) and 'engineering_research' in prod
         ])
     }
-    completed = len(_key_or(state['country'][empire]['tech_status'], 'technology', []))
+    completed = len(state['country'][empire]['tech_status']['technology'] if 'technology' in state['country'][empire]['tech_status'] else [])
     options = {
         stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
         for stype in research.keys()
@@ -332,6 +332,17 @@ def get_tech(state, empire):
 
 
 def get_fleets(state, empire):
+    def _is_transport_fleet(state, fleet):
+        try:
+            for ship_id in fleet['ships']:
+                if ship_id not in state['ships']:
+                    continue
+                if 'army' in state['ships'][ship_id]:
+                    return True
+        except:
+            pass
+        return False
+
     fleets = [
         {'id': fid, **fleet} for fid, fleet in state['fleet'].items()
         if isinstance(fleet, dict) and
@@ -369,7 +380,7 @@ def get_fleets(state, empire):
                             ship_types[stype] = 1
                         else:
                             ship_types[stype] += 1
-            fleet_item['experience'] = _basic_stats(exps)
+            fleet_item['experience'] = util.basic_stats(exps)
             fleet_item['ships'] = ship_types
             fleet_list[fleet['id']] = fleet_item
     

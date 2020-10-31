@@ -34,8 +34,7 @@ class PopExtractor(Extractor):
             else:
                 cat_sums[pop['category']] += 1
 
-            for _, ethic_key in pop['ethos'].items():
-                ethic = ethic_key.split('_')[-1].capitalize()
+            for ethic in pop['ethos']:
                 if ethic not in ethic_sums:
                     ethic_sums[ethic] = 1
                 else:

@@ -47,6 +47,6 @@ class StandngExtractor(Extractor):
             'Pops': len(pops) * 2,
             'Subjects': subject_score,
             'Federation': federation_score,
-            'Crisis Ships Killed': md['crisis_kills'] * 100,
+            'Crisis Ships Killed': md['crisis_kills'] * 10,
             'Relics': md['relic_points']
         }

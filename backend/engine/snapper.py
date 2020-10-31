@@ -143,7 +143,7 @@ def _empire_valid(state, empire):
         return False
     if 'modules' not in state['country'][empire]:
         return False
-    if 'standard_economy_module' not in state['country'][empire]:
+    if 'standard_economy_module' not in state['country'][empire]['modules']:
         return False
     if 'owned_planets' not in state['country'][empire]:
         return False
@@ -164,6 +164,19 @@ def get_player_name(state, empire):
     if empire in players:
         return players[empire] if players[empire] != 'unknown' else 'Player'
     return 'AI'
+
+
+def _build_new_snapshot(state, empire):
+    snap = {}
+    try:
+        for extractor in extraction.extractor_list:
+            if not extractor.data_key():
+                snap = {**snap, **extractor.extract_data(state, empire)}
+            else:
+                snap[extractor.data_key()] = extractor.extract_data(state, empire)
+    except:
+        print(traceback.format_exc())
+    return snap
 
 
 def _build_empire_snapshot(state, empire):

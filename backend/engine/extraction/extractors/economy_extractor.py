@@ -91,7 +91,7 @@ class EconomyExtractor(Extractor):
             nets[resource] = net
 
         base_gdp = self._get_gdp(income, spending, nets, eco['stockpile'], self.isolation_layer.BASE_PRICES)
-        adjusted_gdp = self._get_gdp(income, spending, nets, eco['stockpile'], market_prices)
+        adjusted_gdp = self._get_gdp(income, spending, nets, eco['stockpile'], prices)
 
         return {
             'stockpile': eco['stockpile'],

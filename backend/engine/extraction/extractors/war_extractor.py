@@ -14,7 +14,7 @@ class WarExtractor(Extractor):
         defense_wars = sum([1 for eid in war['defenders'] if empire == eid])
         return {
             'total': war['total'],
-            'all_participants': war['all_participants'],
+            'all_participants': len(war['all_participants']),
             'participation': offense_wars + defense_wars,
             'attacker': offense_wars,
             'defender': defense_wars

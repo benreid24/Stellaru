@@ -1,4 +1,5 @@
 from .extractor import Extractor
+from engine.extraction import util
 
 
 class PlanetExtractor(Extractor):
@@ -16,20 +17,20 @@ class PlanetExtractor(Extractor):
             if planet['type'] not in type_sums:
                 type_sums[planet['type']] = 1
             else:
-                type_sums[planet] += 1
+                type_sums[planet['type']] += 1
 
         return {
             'total': len(planets),
             'list': planets,
             'types': type_sums,
-            'districts': _basic_stats([planet['districts'] for planet in planets]),
-            'buildings': _basic_stats([planet['buildings'] for planet in planets]),
-            'sizes': _basic_stats([planet['size'] for planet in planets]),
-            'stability': _basic_stats([planet['stability'] for planet in planets]),
-            'amenities': _basic_stats([planet['free_amenities'] for planet in planets]),
-            'housing': _basic_stats([planet['free_housing'] for planet in planets]),
-            'crime': _basic_stats([planet['crime'] for planet in planets]),
-            'pops': _basic_stats([len(planet['pops']) for planet in planets]),
-            'age_days': _basic_stats([planet['age_days'] for planet in planets]),
-            'age': _basic_stats([planet['age'] for planet in planets])
+            'districts': util.basic_stats([planet['districts'] for planet in planets]),
+            'buildings': util.basic_stats([planet['buildings'] for planet in planets]),
+            'sizes': util.basic_stats([planet['size'] for planet in planets]),
+            'stability': util.basic_stats([planet['stability'] for planet in planets]),
+            'amenities': util.basic_stats([planet['free_amenities'] for planet in planets]),
+            'housing': util.basic_stats([planet['free_housing'] for planet in planets]),
+            'crime': util.basic_stats([planet['crime'] for planet in planets]),
+            'pops': util.basic_stats([len(planet['pops']) for planet in planets]),
+            'age_days': util.basic_stats([planet['age_days'] for planet in planets]),
+            'age': util.basic_stats([planet['age'] for planet in planets])
         }

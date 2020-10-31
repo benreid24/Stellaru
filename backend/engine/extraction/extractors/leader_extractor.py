@@ -18,7 +18,7 @@ class LeaderExtractor(Extractor):
         leaders = [
             {
                 **leader,
-                'actual_age': leader['hire_age'] + util.date_diff_days(today, util.parse_date(leader['hire_date']))
+                'actual_age': leader['hire_age'] + util.date_diff_days(today, util.parse_date(leader['hire_date'])) / util.DAYS_PER_YEAR
             } for leader in leaders
         ]
         types = set([leader['type'] for leader in leaders])
@@ -41,5 +41,6 @@ class LeaderExtractor(Extractor):
             'max_level': max(levels),
             'percent_male': percent_male,
             'percent_female': percent_female,
-            'percent_ungendered': 1 - percent_female - percent_male
+            'percent_ungendered': 1 - percent_female - percent_male,
+            **type_breakdown
         }
