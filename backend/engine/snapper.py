@@ -103,6 +103,34 @@ RELIC_SCORES = {
     'r_war_forge': 5000
 }
 
+RESOURCE_INDICES = {
+    'minerals': 2,
+    'food': 3,
+    'alloys': 9,
+    'consumer_goods': 10,
+    'volatile_motes': 11,
+    'exotic_gases': 12,
+    'rare_crystals': 13,
+    'sr_living_metal': 14,
+    'sr_zro': 15,
+    'sr_dark_matter': 16
+}
+
+BASE_PRICES = {
+    'minerals': 1,
+    'food': 1,
+    'alloys': 4,
+    'consumer_goods': 2,
+    'volatile_motes': 10,
+    'exotic_gases': 10,
+    'rare_crystals': 10,
+    'sr_living_metal': 20,
+    'sr_zro': 20,
+    'sr_dark_matter': 20
+}
+
+MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]
+
 
 def _key_or(obj, key, alt):
     return obj[key] if key in obj else alt
@@ -484,6 +512,56 @@ def _build_resource_breakdown(budget):
     return breakdown
 
 
+def _get_market_prices(state, empire):
+    try:
+        global_index = None
+        if 'galactic_market_access' in state['market'] and empire in state['market']['id']:
+            global_index = state['market']['id'].index(empire)
+        index = state['market']['internal_market_fluctuations']['country'].index(empire)
+        prices = {}
+        for resource in MARKET_RESOURCES:
+            fluctuation = 0
+            if resource in state['market']['internal_market_fluctuations']['resources'][index]:
+                fluctuation += state['market']['internal_market_fluctuations']['resources'][index][resource]
+            if global_index:
+                if state['market']['galactic_market_access'][global_index] > 0:
+                    if 'fluctuations' in state['market']:
+                        fluctuation += state['market']['fluctuations'][RESOURCE_INDICES[resource]]
+            prices[resource] = BASE_PRICES[resource] + fluctuation * BASE_PRICES[resource] / 100
+        return prices
+    except:
+        name = state['country'][empire]['name']
+        print(f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
+        return BASE_PRICES
+
+
+def _get_gdp(income, spending, net, stockpile, prices):
+    gross_income = {}
+    gross_spending = {}
+    net_gdp = {}
+    stockpile_value = {}
+    for resource in MARKET_RESOURCES:
+        i = income[resource]['total'] if resource in income else 0
+        gross_income[resource] = prices[resource] * i
+        s = spending[resource]['total'] if resource in spending else 0
+        gross_spending[resource] = prices[resource] * s
+        n = net[resource] if resource in net else 0
+        net_gdp[resource] = prices[resource] * n
+        v = stockpile[resource] if resource in stockpile else 0
+        stockpile_value[resource] = v * prices[resource]
+    
+    return {
+        'inflows': gross_income,
+        'outflows': gross_spending,
+        'net': net_gdp,
+        'stockpile_values': stockpile_value,
+        'total_inflows': sum([val for r, val in gross_income.items()]) + income['energy']['total'],
+        'total_outflows': sum([val for r, val in gross_spending.items()]) + spending['energy']['total'],
+        'total_net': sum([val for r, val in net_gdp.items()]) + net['energy'],
+        'total_stockpile_value': sum([v for r, v in stockpile_value.items()]) + stockpile['energy']
+    }
+
+
 def _get_economy(state, empire):
     try:
         if 'standard_economy_module' not in state['country'][empire]['modules']:
@@ -500,11 +578,18 @@ def _get_economy(state, empire):
                 net -= spending[resource]['total']
             nets[resource] = net
 
+        market_prices = _get_market_prices(state, empire)
+        base_gdp = _get_gdp(income, spending, nets, resources, BASE_PRICES)
+        adjusted_gdp = _get_gdp(income, spending, nets, resources, market_prices)
+
         return {
             'stockpile': resources,
             'net_income': nets,
             'income': income,
-            'spending': spending
+            'spending': spending,
+            'market_prices': market_prices,
+            'base_gdp': base_gdp,
+            'adjusted_gdp': adjusted_gdp
         }
     except Exception as err:
         print(traceback.format_exc())

@@ -151,15 +151,21 @@ function ComposedChart(props) {
         return datum;
     });
 
+    let renderedSeriesOnce = false;
     const renderSeries = series => {
         if (!seriesVisible(series))
             return null;
+        renderedSeriesOnce = true;
         const renderer = series.renderer ? series.renderer : seriesRenderer;
         return renderer(series, labelColors, () => {
             seriesClick({dataKey: series.label});
         });
     };
-    const renderedAreas = series.map(renderSeries);
+    let renderedAreas = series.map(renderSeries);
+    if (!renderedSeriesOnce && isolatedSeries.length > 0) {
+        setIsolatedSeries([]);
+        renderedAreas = series.map(renderSeries);
+    }
 
     let minY = 0;
     let showRightAxis = false;

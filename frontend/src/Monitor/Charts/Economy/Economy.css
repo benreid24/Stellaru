@@ -48,3 +48,30 @@
     top: 7%;
     left: 4%;
 }
+
+.resourceValueForm {
+    text-align: left;
+    height: 10%;
+    position: absolute;
+    left: 2%;
+    top: 4%;
+    z-index: 1000;
+}
+
+.resourceValueChart {
+    position: absolute;
+    left: 0;
+    top: 5%;
+    width: 100%;
+    height: 95%;
+}
+
+.gdpForm {
+    text-align: left;
+    height: 7%;
+}
+
+.gdpChart {
+    width: 100%;
+    height: 93%;
+}

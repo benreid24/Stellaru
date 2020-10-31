@@ -26,7 +26,18 @@ const useStyles = makeStyles((theme) => ({
 function ChartAdder(props) {
     const classes = useStyles();
     const added = props.charts.map(chart => chart.name);
-    const onAdd = event => props.onAdd(event.target.value);
+    const onAdd = event => props.onAdd(event.target.value);    
+    const [visible, setVisible] = useState(false);
+
+    if (!visible) {
+        return (
+            <div className='chartAdderHidden' onMouseEnter={() => setVisible(true)}>
+                <div className='chartAdderHiddenInner'>
+                    <p className='chartAdderText'>{translate('Settings...')}</p>
+                </div>
+            </div>
+        );
+    }
 
     const allCharts = getAllCharts();
     const makeItem = chart => {
@@ -41,7 +52,7 @@ function ChartAdder(props) {
     const chartList = allCharts.map(makeItem);
 
     return (    
-        <div className='container-fluid'>
+        <div className='container-fluid' onMouseLeave={() => setVisible(false)}>
             <div className='row justify-content-start'>
                 <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-7 align-self-end'>
                     <FormControl className={classes.formControl}>
