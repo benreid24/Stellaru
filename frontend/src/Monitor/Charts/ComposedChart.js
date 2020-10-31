@@ -42,7 +42,7 @@ function RenderTooltip(props) {
     };
     const renderedItems = payload ? payload.map(renderItem) : [];
 
-    const MaxRows = 14;
+    const MaxRows = 12;
     const columnCount = Math.ceil(renderedItems.length / MaxRows);
     let columns = [];
     for (let i = 0; i<columnCount; i += 1) {
