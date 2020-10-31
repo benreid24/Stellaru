@@ -297,3 +297,33 @@ def get_build_queues(state, empire):
             'items': queue['items']
         } for queue in build_queues
     ]
+
+
+def get_tech(state, empire):
+    research = {
+        'society': sum([
+            prod['society_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'society_research' in prod
+        ]),
+        'physics': sum([
+            prod['physics_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'physics_research' in prod
+        ]),
+        'engineering': sum([
+            prod['engineering_research'] for pid, prod
+            in state['country'][empire]['budget']['current_month']['income'].items()
+            if isinstance(prod, dict) and 'engineering_research' in prod
+        ])
+    }
+    completed = len(_key_or(state['country'][empire]['tech_status'], 'technology', []))
+    options = {
+        stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
+        for stype in research.keys()
+    }
+    return {
+        'output': research,
+        'completed_techs': completed,
+        'available_techs': options
+    }
