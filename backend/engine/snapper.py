@@ -192,9 +192,43 @@ def _build_empire_snapshot(state, empire):
     return snapshot
 
 
+def _add_comparisons(state, empire_snaps):
+    names = {}
+    for eid, empire in empire_snaps.items():
+        try:
+            if not _empire_valid(state, eid):
+                continue
+            names[eid] = empire['name']
+            eco_comp = {eid: empire['economy']['base_gdp']['total_inflows']}
+            sci_comp = {eid: empire['tech']['output']['total']}
+            vp_comp = {eid: sum([v for t, v in empire['standing']['victory_points'].items()])}
+            str_comp = {}
+            fleet_strength = empire['fleets']['fleet_power']['total']
+            for oid, oempire in empire_snaps.items():
+                try:
+                    if oid == eid or not _empire_valid(state, oid):
+                        continue
+                    eco_comp[oid] = oempire['economy']['base_gdp']['total_inflows']
+                    sci_comp[oid] = oempire['tech']['output']['total']
+                    vp_comp[oid] = sum([v for t, v in oempire['standing']['victory_points'].items()])
+                    estr = oempire['fleets']['fleet_power']['total']
+                    str_comp[oid] = estr / fleet_strength * 100
+                except:
+                    continue
+            empire['comparisons'] = {
+                'names': names,
+                'economy': eco_comp,
+                'tech': sci_comp,
+                'victory_points': vp_comp,
+                'military': str_comp
+            }
+        except:
+            continue
+
+
 def build_snapshot(state):
     empires = get_empires(state)
-    return {
+    snapshot = {
         'date': state['date'],
         'date_components': parse_date(state['date']),
         'date_days': date_days(state['date']),
@@ -203,6 +237,8 @@ def build_snapshot(state):
             for empire_id in empires
         }
     }
+    _add_comparisons(state, snapshot['empires'])
+    return snapshot
 
 
 def build_snapshot_from_watcher(watcher):
@@ -482,7 +518,7 @@ def _classify_resource_producer(name):
         return [EC_SB, 'Other']
     if 'ship' in name:
         return [EC_SHIPS, 'Other']
-    return ' '.join([word.capitalize() for word in name.split('_')])
+    return [' '.join([word.capitalize() for word in name.split('_')])]
 
 
 def _build_resource_breakdown(budget):
@@ -549,16 +585,21 @@ def _get_gdp(income, spending, net, stockpile, prices):
         net_gdp[resource] = prices[resource] * n
         v = stockpile[resource] if resource in stockpile else 0
         stockpile_value[resource] = v * prices[resource]
+
+    energy_in = income['energy']['total'] if 'energy' in income else 0
+    energy_out = spending['energy']['total'] if 'energy' in spending else 0
+    energy_net = net['energy'] if 'energy' in net else 0
+    energy_stockpile = stockpile['energy'] if 'energy' in stockpile else 0
     
     return {
         'inflows': gross_income,
         'outflows': gross_spending,
         'net': net_gdp,
         'stockpile_values': stockpile_value,
-        'total_inflows': sum([val for r, val in gross_income.items()]) + income['energy']['total'],
-        'total_outflows': sum([val for r, val in gross_spending.items()]) + spending['energy']['total'],
-        'total_net': sum([val for r, val in net_gdp.items()]) + net['energy'],
-        'total_stockpile_value': sum([v for r, v in stockpile_value.items()]) + stockpile['energy']
+        'total_inflows': sum([val for r, val in gross_income.items()]) + energy_in,
+        'total_outflows': sum([val for r, val in gross_spending.items()]) + energy_out,
+        'total_net': sum([val for r, val in net_gdp.items()]) + energy_net,
+        'total_stockpile_value': sum([v for r, v in stockpile_value.items()]) + energy_stockpile
     }
 
 

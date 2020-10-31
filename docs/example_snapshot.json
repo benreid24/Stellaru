@@ -1,261 +1,189 @@
 {
-    "name": "The Chosen Geckos",
+    "name": "Great Zum Technocracy",
     "player_name": "reidben24",
-    "date": "2529.10.27",
+    "date": "2466.03.08",
     "date_components": {
-        "y": 2529,
-        "m": 10,
-        "d": 27
+        "y": 2466,
+        "m": 3,
+        "d": 8
     },
-    "date_days": 910767,
-    "active_empires": 15,
-    "edict_count": 16,
-    "sprawl": 1292,
+    "date_days": 887858,
+    "active_empires": 28,
+    "edict_count": 4,
+    "sprawl": 703,
     "leaders": {
-        "envoy": 2,
-        "scientist": 5,
-        "ruler": 2,
+        "admiral": 4,
         "governor": 1,
-        "admiral": 13,
-        "total": 23,
-        "max_age": 279.2388888888889,
-        "avg_age": 132.20314009661834,
-        "avg_hire_age": 35.17391304347826,
-        "max_hire_age": 49,
-        "avg_level": 5.956521739130435,
-        "max_level": 10,
-        "percent_male": 0.5217391304347826
+        "envoy": 3,
+        "ruler": 2,
+        "scientist": 6,
+        "total": 16,
+        "max_age": 119.68611111111112,
+        "avg_age": 83.59131944444445,
+        "avg_hire_age": 31.1875,
+        "max_hire_age": 48,
+        "avg_level": 3.8125,
+        "max_level": 7,
+        "percent_male": 0.4375
     },
     "standing": {
-        "victory_rank": 2,
+        "victory_rank": 3,
         "victory_points": {
-            "Economy": 28413.62445,
-            "Technology": 38312.500305,
-            "Systems": 980,
-            "Colonies": 1400,
-            "Pops": 5168,
-            "Subjects": 0,
-            "Federation": 22239.5209225,
-            "Crisis Ships Killed": 5520,
-            "Relics": 8000
+            "Economy": 14552.505,
+            "Technology": 16317.5,
+            "Systems": 390,
+            "Colonies": 750,
+            "Pops": 2108,
+            "Subjects": 1621.865585,
+            "Federation": 4626.9519230000005,
+            "Crisis Ships Killed": 2180,
+            "Relics": 0
         }
     },
     "war": {
         "total": 1,
-        "all_participants": 3,
+        "all_participants": 5,
         "participation": 0,
         "attacker": 0,
         "defender": 0
     },
     "systems": {
-        "surveyed_objects": 1476,
-        "surveyed_systems": 173,
-        "owned": 98,
-        "starbases": 35
+        "surveyed_objects": 1959,
+        "surveyed_systems": 293,
+        "owned": 39,
+        "starbases": 14
     },
     "federation": {
-        "name": "The Sexfast Club",
-        "members": 4,
-        "cohesion": -3.55,
-        "xp": 17999.175,
-        "level": 5,
-        "leader": false
+        "name": "Unified Stellar Council",
+        "members": 5,
+        "cohesion": 100,
+        "xp": 17953.925,
+        "level": 4,
+        "leader": true
     },
     "unity": {
         "adopted_trees": 7,
-        "finished_trees": 7,
-        "traditions": 35,
-        "acension_perks": 8,
-        "unity": 1822.271
+        "finished_trees": 6,
+        "traditions": 34,
+        "acension_perks": 7,
+        "unity": 424.37000000000006
     },
     "economy": {
         "stockpile": {
-            "energy": 124000,
-            "minerals": 89000,
-            "food": 33450.964,
-            "influence": 1000,
-            "unity": 1406888.03672,
-            "alloys": 73516.28178,
-            "consumer_goods": 89000,
-            "volatile_motes": 772.14314,
-            "exotic_gases": 2206.44676,
-            "rare_crystals": 1250.21309,
-            "sr_zro": 5917.8,
-            "sr_dark_matter": 7944.43179
+            "energy": 15382.94794,
+            "minerals": 6289.60156,
+            "food": 34992.612,
+            "influence": 149.03314,
+            "unity": 7953.15214,
+            "alloys": 7711.4414,
+            "consumer_goods": 18255.7098,
+            "volatile_motes": 846.73772,
+            "exotic_gases": 564.96901,
+            "rare_crystals": 1252.76732,
+            "sr_dark_matter": 2116
         },
         "net_income": {
-            "energy": 1060.6363399999982,
-            "minerals": 1324.4819999999995,
-            "food": 107.74200000000019,
-            "physics_research": 1936.988,
-            "society_research": 2023.582,
-            "engineering_research": 1772.8780000000002,
-            "influence": 4.92763,
-            "unity": 1822.271,
-            "alloys": 492.7732000000001,
-            "consumer_goods": 771.8753500000003,
-            "exotic_gases": 2.914999999999999,
-            "rare_crystals": 1.2319999999999993,
-            "sr_dark_matter": 5.8359999999999985,
-            "volatile_motes": 3.1380000000000337,
-            "sr_zro": 3.4
+            "energy": 3386.422149999999,
+            "minerals": 62.659999999999854,
+            "food": 80.30799999999999,
+            "physics_research": 1903.009,
+            "society_research": 1813.4329999999998,
+            "engineering_research": 1907.473,
+            "influence": 4.57505,
+            "unity": 424.37000000000006,
+            "alloys": 387.948,
+            "consumer_goods": 29.572000000000003,
+            "volatile_motes": 2.7719999999999985,
+            "exotic_gases": 7.672000000000004,
+            "rare_crystals": 8.232,
+            "sr_dark_matter": 1.7999999999999998
         },
         "income": {
             "energy": {
-                "total": 8367.91871,
+                "total": 6137.572149999999,
                 "breakdown": {
                     "Base": {
-                        "total": 17,
+                        "total": 21,
                         "breakdown": {}
                     },
                     "Trade": {
-                        "total": 3841.74071,
+                        "total": 1668.34815,
                         "breakdown": {}
                     },
                     "Megastructures": {
-                        "total": 3400,
+                        "total": 3150,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 640.628,
+                        "total": 808.324,
                         "breakdown": {
                             "Technicians": {
-                                "total": 640.628,
+                                "total": 776.896,
+                                "breakdown": {}
+                            },
+                            "Researchers": {
+                                "total": 31.428,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Other": {
-                        "total": 25.5,
-                        "breakdown": {}
-                    },
                     "Stations": {
-                        "total": 389.05,
+                        "total": 207.9,
                         "breakdown": {}
                     },
-                    "M": {
-                        "total": 54,
-                        "breakdown": {
-                            "o": {
-                                "total": 54,
-                                "breakdown": {
-                                    "n": {
-                                        "total": 54,
-                                        "breakdown": {
-                                            "t": {
-                                                "total": 54,
-                                                "breakdown": {
-                                                    "h": {
-                                                        "total": 54,
-                                                        "breakdown": {
-                                                            "l": {
-                                                                "total": 54,
-                                                                "breakdown": {
-                                                                    "y": {
-                                                                        "total": 54,
-                                                                        "breakdown": {
-                                                                            " ": {
-                                                                                "total": 54,
-                                                                                "breakdown": {
-                                                                                    "T": {
-                                                                                        "total": 54,
-                                                                                        "breakdown": {
-                                                                                            "r": {
-                                                                                                "total": 54,
-                                                                                                "breakdown": {
-                                                                                                    "a": {
-                                                                                                        "total": 54,
-                                                                                                        "breakdown": {
-                                                                                                            "d": {
-                                                                                                                "total": 54,
-                                                                                                                "breakdown": {
-                                                                                                                    "e": {
-                                                                                                                        "total": 54,
-                                                                                                                        "breakdown": {
-                                                                                                                            "s": {
-                                                                                                                                "total": 54,
-                                                                                                                                "breakdown": {}
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    "Monthly Trades": {
+                        "total": 282,
+                        "breakdown": {}
                     }
                 }
             },
             "minerals": {
-                "total": 3812.8819999999996,
+                "total": 1798.6599999999999,
                 "breakdown": {
                     "Base": {
-                        "total": 26.6,
+                        "total": 20,
                         "breakdown": {}
                     },
-                    "Starbases": {
-                        "total": 7.98,
-                        "breakdown": {
-                            "Buildings": {
-                                "total": 7.98,
-                                "breakdown": {}
-                            }
-                        }
-                    },
                     "Jobs": {
-                        "total": 2591.892,
+                        "total": 896.16,
                         "breakdown": {
                             "Miners": {
-                                "total": 2591.892,
+                                "total": 896.16,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 1186.41,
+                        "total": 382.5,
+                        "breakdown": {}
+                    },
+                    "Monthly Trades": {
+                        "total": 500,
                         "breakdown": {}
                     }
                 }
             },
             "food": {
-                "total": 3203.692,
+                "total": 1305.808,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
                     "Starbases": {
-                        "total": 78,
+                        "total": 3,
                         "breakdown": {
                             "Buildings": {
-                                "total": 78,
+                                "total": 3,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Jobs": {
-                        "total": 3115.692,
+                        "total": 1292.808,
                         "breakdown": {
                             "Farmers": {
-                                "total": 3115.692,
+                                "total": 1292.808,
                                 "breakdown": {}
                             }
                         }
@@ -263,7 +191,7 @@
                 }
             },
             "physics_research": {
-                "total": 1936.988,
+                "total": 1903.009,
                 "breakdown": {
                     "Base": {
                         "total": 10,
@@ -274,22 +202,22 @@
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1423.088,
+                        "total": 1524.009,
                         "breakdown": {
                             "Researchers": {
-                                "total": 1423.088,
+                                "total": 1524.009,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 153.9,
+                        "total": 19,
                         "breakdown": {}
                     }
                 }
             },
             "society_research": {
-                "total": 2023.582,
+                "total": 1813.4329999999998,
                 "breakdown": {
                     "Base": {
                         "total": 10,
@@ -300,30 +228,26 @@
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1623.682,
+                        "total": 1440.1329999999998,
                         "breakdown": {
                             "Researchers": {
-                                "total": 1316.228,
+                                "total": 1432.273,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 37.02,
-                                "breakdown": {}
-                            },
-                            "Priests": {
-                                "total": 270.434,
+                                "total": 7.86,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 39.9,
+                        "total": 13.3,
                         "breakdown": {}
                     }
                 }
             },
             "engineering_research": {
-                "total": 1772.8780000000002,
+                "total": 1907.473,
                 "breakdown": {
                     "Base": {
                         "total": 10,
@@ -334,70 +258,87 @@
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1363.478,
+                        "total": 1490.473,
                         "breakdown": {
                             "Researchers": {
-                                "total": 1363.478,
+                                "total": 1490.473,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 49.4,
+                        "total": 57,
                         "breakdown": {}
                     }
                 }
             },
             "influence": {
-                "total": 5.67763,
+                "total": 6.07505,
                 "breakdown": {
                     "Base": {
-                        "total": 4,
+                        "total": 2.5,
                         "breakdown": {}
                     },
                     "Pops": {
-                        "total": 1.67763,
+                        "total": 1.82505,
                         "breakdown": {
                             "Factions": {
-                                "total": 1.67763,
+                                "total": 1.82505,
                                 "breakdown": {}
                             }
                         }
+                    },
+                    "Subjects": {
+                        "total": 0.25,
+                        "breakdown": {}
+                    },
+                    "Federation": {
+                        "total": 1,
+                        "breakdown": {}
+                    },
+                    "Rivalries": {
+                        "total": 0.5,
+                        "breakdown": {}
                     }
                 }
             },
             "unity": {
-                "total": 1822.271,
+                "total": 424.37000000000006,
                 "breakdown": {
                     "Base": {
-                        "total": 10.5,
+                        "total": 14.56,
                         "breakdown": {}
                     },
+                    "Starbases": {
+                        "total": 2.24,
+                        "breakdown": {
+                            "Buildings": {
+                                "total": 2.24,
+                                "breakdown": {}
+                            }
+                        }
+                    },
                     "Jobs": {
-                        "total": 1811.771,
+                        "total": 407.57,
                         "breakdown": {
                             "Administrators": {
-                                "total": 235.929,
+                                "total": 127.719,
+                                "breakdown": {}
+                            },
+                            "Researchers": {
+                                "total": 207.33,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 47.76,
-                                "breakdown": {}
-                            },
-                            "Merchants": {
-                                "total": 675.438,
+                                "total": 8.58,
                                 "breakdown": {}
                             },
                             "Entertainers": {
-                                "total": 210.944,
-                                "breakdown": {}
-                            },
-                            "Priests": {
-                                "total": 540.873,
+                                "total": 13.8,
                                 "breakdown": {}
                             },
                             "Enforcers": {
-                                "total": 100.827,
+                                "total": 50.141,
                                 "breakdown": {}
                             }
                         }
@@ -405,138 +346,112 @@
                 }
             },
             "alloys": {
-                "total": 1379.662,
+                "total": 542.37,
                 "breakdown": {
                     "Base": {
                         "total": 5,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 1357.662,
+                        "total": 532.57,
                         "breakdown": {
                             "Metallurgists": {
-                                "total": 1357.662,
+                                "total": 532.57,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Stations": {
-                        "total": 17,
+                        "total": 4.8,
                         "breakdown": {}
                     }
                 }
             },
             "consumer_goods": {
-                "total": 2181.55035,
+                "total": 756.472,
                 "breakdown": {
                     "Base": {
                         "total": 10,
                         "breakdown": {}
                     },
-                    "Trade": {
-                        "total": 1920.87035,
-                        "breakdown": {}
-                    },
                     "Jobs": {
-                        "total": 250.68,
+                        "total": 746.472,
                         "breakdown": {
                             "Artisans": {
-                                "total": 250.68,
+                                "total": 746.472,
                                 "breakdown": {}
                             }
                         }
                     }
                 }
             },
-            "exotic_gases": {
-                "total": 45.315,
+            "volatile_motes": {
+                "total": 36.372,
                 "breakdown": {
                     "Jobs": {
-                        "total": 43.315,
+                        "total": 28.372,
                         "breakdown": {
                             "Miners": {
-                                "total": 5.986,
+                                "total": 2.784,
                                 "breakdown": {}
                             },
-                            "Refiners": {
-                                "total": 37.329,
+                            "Chemists": {
+                                "total": 25.588,
                                 "breakdown": {}
                             }
                         }
                     },
-                    "Other": {
-                        "total": 2,
+                    "Stations": {
+                        "total": 8,
+                        "breakdown": {}
+                    }
+                }
+            },
+            "exotic_gases": {
+                "total": 50.072,
+                "breakdown": {
+                    "Jobs": {
+                        "total": 48.472,
+                        "breakdown": {
+                            "Miners": {
+                                "total": 10.338,
+                                "breakdown": {}
+                            },
+                            "Refiners": {
+                                "total": 38.134,
+                                "breakdown": {}
+                            }
+                        }
+                    },
+                    "Stations": {
+                        "total": 1.6,
                         "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 102.032,
+                "total": 69.032,
                 "breakdown": {
                     "Jobs": {
-                        "total": 94.932,
+                        "total": 69.032,
                         "breakdown": {
                             "Miners": {
-                                "total": 2.858,
+                                "total": 12.18,
                                 "breakdown": {}
                             },
                             "Translucers": {
-                                "total": 92.074,
+                                "total": 56.852,
                                 "breakdown": {}
                             }
                         }
-                    },
-                    "Other": {
-                        "total": 2,
-                        "breakdown": {}
-                    },
-                    "Stations": {
-                        "total": 5.1,
-                        "breakdown": {}
                     }
                 }
             },
             "sr_dark_matter": {
-                "total": 8.835999999999999,
-                "breakdown": {
-                    "Jobs": {
-                        "total": 3.336,
-                        "breakdown": {
-                            "Researchers": {
-                                "total": 3.336,
-                                "breakdown": {}
-                            }
-                        }
-                    },
-                    "Stations": {
-                        "total": 5.5,
-                        "breakdown": {}
-                    }
-                }
-            },
-            "volatile_motes": {
-                "total": 143.138,
-                "breakdown": {
-                    "Jobs": {
-                        "total": 136.338,
-                        "breakdown": {
-                            "Chemists": {
-                                "total": 136.338,
-                                "breakdown": {}
-                            }
-                        }
-                    },
-                    "Stations": {
-                        "total": 6.8,
-                        "breakdown": {}
-                    }
-                }
-            },
-            "sr_zro": {
-                "total": 3.4,
+                "total": 3.8,
                 "breakdown": {
                     "Stations": {
-                        "total": 3.4,
+                        "total": 3.8,
                         "breakdown": {}
                     }
                 }
@@ -544,109 +459,105 @@
         },
         "spending": {
             "energy": {
-                "total": 7307.282370000002,
+                "total": 2751.15,
                 "breakdown": {
                     "Megastructures": {
-                        "total": 390,
+                        "total": 100,
                         "breakdown": {}
                     },
                     "Ships": {
-                        "total": 4030.18237,
+                        "total": 698.95,
                         "breakdown": {
                             "Base": {
-                                "total": 602.64,
+                                "total": 134.5,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 3427.54237,
+                                "total": 564.45,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Starbases": {
-                        "total": 752.7,
+                        "total": 243.1,
                         "breakdown": {
                             "Buildings": {
-                                "total": 351.8,
+                                "total": 125.3,
                                 "breakdown": {}
                             },
                             "Base": {
-                                "total": 202.35,
+                                "total": 68.4,
                                 "breakdown": {}
                             },
                             "Modules": {
-                                "total": 198.55,
+                                "total": 49.4,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Buildings": {
-                        "total": 1332.0,
+                        "total": 792,
                         "breakdown": {}
                     },
                     "Districts": {
-                        "total": 497.6,
+                        "total": 246.4,
                         "breakdown": {}
                     },
                     "Jobs": {
-                        "total": 168.6,
+                        "total": 4,
                         "breakdown": {
-                            "Farmers": {
-                                "total": 64,
-                                "breakdown": {}
-                            },
-                            "Researchers": {
-                                "total": 104.6,
+                            "Enforcers": {
+                                "total": 4,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Pops": {
-                        "total": 103,
+                        "total": 29.9,
                         "breakdown": {
                             "Robots": {
-                                "total": 103,
+                                "total": 29.9,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Leaders": {
-                        "total": 33.199999999999996,
+                        "total": 18.8,
+                        "breakdown": {}
+                    },
+                    "Monthly Trades": {
+                        "total": 618,
                         "breakdown": {}
                     }
                 }
             },
             "alloys": {
-                "total": 886.8888,
+                "total": 154.422,
                 "breakdown": {
                     "Ships": {
-                        "total": 822.8888,
+                        "total": 146.422,
                         "breakdown": {
                             "Base": {
-                                "total": 200.03,
+                                "total": 43.5,
                                 "breakdown": {}
                             },
                             "Components": {
-                                "total": 622.8588,
+                                "total": 102.922,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Buildings": {
-                        "total": 64,
+                        "total": 8,
                         "breakdown": {}
                     }
                 }
             },
             "volatile_motes": {
-                "total": 139.99999999999997,
+                "total": 33.6,
                 "breakdown": {
                     "Buildings": {
-                        "total": 138.39999999999998,
-                        "breakdown": {}
-                    },
-                    "Districts": {
-                        "total": 1.6,
+                        "total": 33.6,
                         "breakdown": {}
                     }
                 }
@@ -655,103 +566,91 @@
                 "total": 42.4,
                 "breakdown": {
                     "Buildings": {
-                        "total": 37.6,
-                        "breakdown": {}
-                    },
-                    "Districts": {
-                        "total": 4.8,
+                        "total": 42.4,
                         "breakdown": {}
                     }
                 }
             },
             "rare_crystals": {
-                "total": 100.8,
+                "total": 60.8,
                 "breakdown": {
                     "Buildings": {
-                        "total": 88,
-                        "breakdown": {}
-                    },
-                    "Districts": {
-                        "total": 12.8,
+                        "total": 60.8,
                         "breakdown": {}
                     }
                 }
             },
             "consumer_goods": {
-                "total": 1409.6749999999997,
+                "total": 726.9,
                 "breakdown": {
                     "Jobs": {
-                        "total": 614.65,
+                        "total": 258.7,
                         "breakdown": {
                             "Bureaucrats": {
-                                "total": 89.25,
+                                "total": 44.1,
                                 "breakdown": {}
                             },
                             "Researchers": {
-                                "total": 206.4,
+                                "total": 205.6,
                                 "breakdown": {}
                             },
                             "Culture Workers": {
-                                "total": 16,
+                                "total": 4,
                                 "breakdown": {}
                             },
                             "Entertainers": {
-                                "total": 55,
-                                "breakdown": {}
-                            },
-                            "Priests": {
-                                "total": 188,
-                                "breakdown": {}
-                            },
-                            "Doctors": {
-                                "total": 60,
+                                "total": 5,
                                 "breakdown": {}
                             }
                         }
                     },
                     "Pops": {
-                        "total": 795.025,
+                        "total": 359.20000000000005,
                         "breakdown": {
                             "Workers": {
-                                "total": 138.9,
+                                "total": 41.075,
                                 "breakdown": {}
                             },
                             "Specialists": {
-                                "total": 420.025,
+                                "total": 206.275,
                                 "breakdown": {}
                             },
                             "Rulers": {
-                                "total": 236.1,
+                                "total": 111.85,
                                 "breakdown": {}
                             }
                         }
+                    },
+                    "Monthly Trades": {
+                        "total": 109,
+                        "breakdown": {}
                     }
                 }
             },
             "minerals": {
-                "total": 2488.4,
+                "total": 1736,
                 "breakdown": {
                     "Jobs": {
-                        "total": 2488.4,
+                        "total": 1736,
                         "breakdown": {
                             "Metallurgists": {
-                                "total": 1457.4,
+                                "total": 636,
                                 "breakdown": {}
                             },
                             "Refiners": {
-                                "total": 91,
+                                "total": 160,
                                 "breakdown": {}
                             },
                             "Translucers": {
-                                "total": 322,
+                                "total": 240,
                                 "breakdown": {}
                             },
                             "Chemists": {
-                                "total": 468,
+                                "total": 100,
                                 "breakdown": {}
                             },
                             "Artisans": {
-                                "total": 150,
+                                "total": 600,
                                 "breakdown": {}
                             }
                         }
@@ -759,1081 +658,894 @@
                 }
             },
             "food": {
-                "total": 3095.95,
+                "total": 1225.5,
                 "breakdown": {
                     "Pops": {
-                        "total": 3095.95,
+                        "total": 1075.5,
                         "breakdown": {
                             "Workers": {
-                                "total": 1751.1,
+                                "total": 464.55,
                                 "breakdown": {}
                             },
                             "Specialists": {
-                                "total": 1050,
+                                "total": 481.1,
                                 "breakdown": {}
                             },
                             "Rulers": {
-                                "total": 294.85,
+                                "total": 129.85,
                                 "breakdown": {}
                             }
                         }
+                    },
+                    "Monthly Trades": {
+                        "total": 150,
+                        "breakdown": {}
                     }
                 }
             },
             "influence": {
-                "total": 0.75,
+                "total": 1.5,
                 "breakdown": {
-                    "F": {
+                    "Federation": {
                         "total": 0.5,
-                        "breakdown": {
-                            "e": {
-                                "total": 0.5,
-                                "breakdown": {
-                                    "d": {
-                                        "total": 0.5,
-                                        "breakdown": {
-                                            "e": {
-                                                "total": 0.5,
-                                                "breakdown": {
-                                                    "r": {
-                                                        "total": 0.5,
-                                                        "breakdown": {
-                                                            "a": {
-                                                                "total": 0.5,
-                                                                "breakdown": {
-                                                                    "t": {
-                                                                        "total": 0.5,
-                                                                        "breakdown": {
-                                                                            "i": {
-                                                                                "total": 0.5,
-                                                                                "breakdown": {
-                                                                                    "o": {
-                                                                                        "total": 0.5,
-                                                                                        "breakdown": {
-                                                                                            "n": {
-                                                                                                "total": 0.5,
-                                                                                                "breakdown": {}
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        "breakdown": {}
                     },
-                    "M": {
-                        "total": 0.25,
-                        "breakdown": {
-                            "i": {
-                                "total": 0.25,
-                                "breakdown": {
-                                    "g": {
-                                        "total": 0.25,
-                                        "breakdown": {
-                                            "r": {
-                                                "total": 0.25,
-                                                "breakdown": {
-                                                    "a": {
-                                                        "total": 0.25,
-                                                        "breakdown": {
-                                                            "t": {
-                                                                "total": 0.25,
-                                                                "breakdown": {
-                                                                    "i": {
-                                                                        "total": 0.25,
-                                                                        "breakdown": {
-                                                                            "o": {
-                                                                                "total": 0.25,
-                                                                                "breakdown": {
-                                                                                    "n": {
-                                                                                        "total": 0.25,
-                                                                                        "breakdown": {
-                                                                                            " ": {
-                                                                                                "total": 0.25,
-                                                                                                "breakdown": {
-                                                                                                    "P": {
-                                                                                                        "total": 0.25,
-                                                                                                        "breakdown": {
-                                                                                                            "a": {
-                                                                                                                "total": 0.25,
-                                                                                                                "breakdown": {
-                                                                                                                    "c": {
-                                                                                                                        "total": 0.25,
-                                                                                                                        "breakdown": {
-                                                                                                                            "t": {
-                                                                                                                                "total": 0.25,
-                                                                                                                                "breakdown": {
-                                                                                                                                    "s": {
-                                                                                                                                        "total": 0.25,
-                                                                                                                                        "breakdown": {}
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    "Migration Pacts": {
+                        "total": 0.5,
+                        "breakdown": {}
+                    },
+                    "Research Agreements": {
+                        "total": 0.375,
+                        "breakdown": {}
+                    },
+                    "Envoy Costs": {
+                        "total": 0.125,
+                        "breakdown": {}
                     }
                 }
             },
             "sr_dark_matter": {
-                "total": 3,
+                "total": 2,
                 "breakdown": {
-                    "M": {
-                        "total": 3,
-                        "breakdown": {
-                            "o": {
-                                "total": 3,
-                                "breakdown": {
-                                    "n": {
-                                        "total": 3,
-                                        "breakdown": {
-                                            "t": {
-                                                "total": 3,
-                                                "breakdown": {
-                                                    "h": {
-                                                        "total": 3,
-                                                        "breakdown": {
-                                                            "l": {
-                                                                "total": 3,
-                                                                "breakdown": {
-                                                                    "y": {
-                                                                        "total": 3,
-                                                                        "breakdown": {
-                                                                            " ": {
-                                                                                "total": 3,
-                                                                                "breakdown": {
-                                                                                    "T": {
-                                                                                        "total": 3,
-                                                                                        "breakdown": {
-                                                                                            "r": {
-                                                                                                "total": 3,
-                                                                                                "breakdown": {
-                                                                                                    "a": {
-                                                                                                        "total": 3,
-                                                                                                        "breakdown": {
-                                                                                                            "d": {
-                                                                                                                "total": 3,
-                                                                                                                "breakdown": {
-                                                                                                                    "e": {
-                                                                                                                        "total": 3,
-                                                                                                                        "breakdown": {
-                                                                                                                            "s": {
-                                                                                                                                "total": 3,
-                                                                                                                                "breakdown": {}
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    "Monthly Trades": {
+                        "total": 2,
+                        "breakdown": {}
                     }
                 }
             }
         },
         "market_prices": {
-            "minerals": 1.105812,
-            "food": 0.7597829,
-            "alloys": 4.398524,
-            "consumer_goods": 1.5260764,
-            "volatile_motes": 25.270793,
-            "exotic_gases": 27.116549,
-            "rare_crystals": 40.10527999999999,
+            "minerals": 1.0,
+            "food": 1.0,
+            "alloys": 4.0,
+            "consumer_goods": 2.0,
+            "volatile_motes": 10.0,
+            "exotic_gases": 10.0,
+            "rare_crystals": 10.0,
             "sr_living_metal": 20.0,
             "sr_zro": 20.0,
             "sr_dark_matter": 20.0
         },
         "base_gdp": {
             "inflows": {
-                "minerals": 3812.8819999999996,
-                "food": 3203.692,
-                "alloys": 5518.648,
-                "consumer_goods": 4363.1007,
-                "volatile_motes": 1431.38,
-                "exotic_gases": 453.15,
-                "rare_crystals": 1020.3199999999999,
-                "sr_living_metal": 0,
-                "sr_zro": 68.0,
-                "sr_dark_matter": 176.71999999999997
-            },
-            "outflows": {
-                "minerals": 2488.4,
-                "food": 3095.95,
-                "alloys": 3547.5552,
-                "consumer_goods": 2819.3499999999995,
-                "volatile_motes": 1399.9999999999998,
-                "exotic_gases": 424.0,
-                "rare_crystals": 1008.0,
+                "minerals": 1798.6599999999999,
+                "food": 1305.808,
+                "alloys": 2169.48,
+                "consumer_goods": 1512.944,
+                "volatile_motes": 363.72,
+                "exotic_gases": 500.72,
+                "rare_crystals": 690.3199999999999,
                 "sr_living_metal": 0,
                 "sr_zro": 0,
-                "sr_dark_matter": 60
+                "sr_dark_matter": 76.0
+            },
+            "outflows": {
+                "minerals": 1736,
+                "food": 1225.5,
+                "alloys": 617.688,
+                "consumer_goods": 1453.8,
+                "volatile_motes": 336.0,
+                "exotic_gases": 424.0,
+                "rare_crystals": 608.0,
+                "sr_living_metal": 0,
+                "sr_zro": 0,
+                "sr_dark_matter": 40
             },
             "net": {
-                "minerals": 1324.4819999999995,
-                "food": 107.74200000000019,
-                "alloys": 1971.0928000000004,
-                "consumer_goods": 1543.7507000000005,
-                "volatile_motes": 31.380000000000337,
-                "exotic_gases": 29.14999999999999,
-                "rare_crystals": 12.319999999999993,
+                "minerals": 62.659999999999854,
+                "food": 80.30799999999999,
+                "alloys": 1551.792,
+                "consumer_goods": 59.144000000000005,
+                "volatile_motes": 27.719999999999985,
+                "exotic_gases": 76.72000000000004,
+                "rare_crystals": 82.32,
                 "sr_living_metal": 0,
-                "sr_zro": 68.0,
-                "sr_dark_matter": 116.71999999999997
+                "sr_zro": 0,
+                "sr_dark_matter": 36.0
             },
-            "total_inflows": 20047.892700000004,
-            "total_outflows": 14843.2552,
-            "total_net": 5204.637500000001
+            "stockpile_values": {
+                "minerals": 6289.60156,
+                "food": 34992.612,
+                "alloys": 30845.7656,
+                "consumer_goods": 36511.4196,
+                "volatile_motes": 8467.377199999999,
+                "exotic_gases": 5649.6901,
+                "rare_crystals": 12527.6732,
+                "sr_living_metal": 0,
+                "sr_zro": 0,
+                "sr_dark_matter": 42320
+            },
+            "total_inflows": 14555.224149999998,
+            "total_outflows": 9192.138,
+            "total_net": 5363.086149999999,
+            "total_stockpile_value": 192987.0872
         },
         "adjusted_gdp": {
             "inflows": {
-                "minerals": 4216.330670183999,
-                "food": 2434.1103984668002,
-                "alloys": 6068.476418888,
-                "consumer_goods": 3329.21250454674,
-                "volatile_motes": 3617.2107684340003,
-                "exotic_gases": 1228.786417935,
-                "rare_crystals": 4092.021928959999,
-                "sr_living_metal": 0.0,
-                "sr_zro": 68.0,
-                "sr_dark_matter": 176.71999999999997
-            },
-            "outflows": {
-                "minerals": 2751.7025808000003,
-                "food": 2352.249869255,
-                "alloys": 3901.0016721312,
-                "consumer_goods": 2151.2717491699996,
-                "volatile_motes": 3537.9110199999996,
-                "exotic_gases": 1149.7416776,
-                "rare_crystals": 4042.612223999999,
+                "minerals": 1798.6599999999999,
+                "food": 1305.808,
+                "alloys": 2169.48,
+                "consumer_goods": 1512.944,
+                "volatile_motes": 363.72,
+                "exotic_gases": 500.72,
+                "rare_crystals": 690.3199999999999,
                 "sr_living_metal": 0.0,
                 "sr_zro": 0.0,
-                "sr_dark_matter": 60.0
+                "sr_dark_matter": 76.0
+            },
+            "outflows": {
+                "minerals": 1736.0,
+                "food": 1225.5,
+                "alloys": 617.688,
+                "consumer_goods": 1453.8,
+                "volatile_motes": 336.0,
+                "exotic_gases": 424.0,
+                "rare_crystals": 608.0,
+                "sr_living_metal": 0.0,
+                "sr_zro": 0.0,
+                "sr_dark_matter": 40.0
             },
             "net": {
-                "minerals": 1464.6280893839994,
-                "food": 81.86052921180014,
-                "alloys": 2167.4747467568004,
-                "consumer_goods": 1177.9407553767403,
-                "volatile_motes": 79.29974843400086,
-                "exotic_gases": 79.04474033499997,
-                "rare_crystals": 49.409704959999964,
+                "minerals": 62.659999999999854,
+                "food": 80.30799999999999,
+                "alloys": 1551.792,
+                "consumer_goods": 59.144000000000005,
+                "volatile_motes": 27.719999999999985,
+                "exotic_gases": 76.72000000000004,
+                "rare_crystals": 82.32,
                 "sr_living_metal": 0.0,
-                "sr_zro": 68.0,
-                "sr_dark_matter": 116.71999999999997
+                "sr_zro": 0.0,
+                "sr_dark_matter": 36.0
             },
-            "total_inflows": 25230.86910741454,
-            "total_outflows": 19946.4907929562,
-            "total_net": 5284.378314458341
+            "stockpile_values": {
+                "minerals": 6289.60156,
+                "food": 34992.612,
+                "alloys": 30845.7656,
+                "consumer_goods": 36511.4196,
+                "volatile_motes": 8467.377199999999,
+                "exotic_gases": 5649.6901,
+                "rare_crystals": 12527.6732,
+                "sr_living_metal": 0.0,
+                "sr_zro": 0.0,
+                "sr_dark_matter": 42320.0
+            },
+            "total_inflows": 14555.224149999998,
+            "total_outflows": 9192.138,
+            "total_net": 5363.086149999999,
+            "total_stockpile_value": 192987.0872
         }
     },
     "construction": {
-        "queue_count": 728,
-        "queued_items": 17,
-        "avg_queue_size": 0.024113475177304965,
-        "max_queue_size": 8,
+        "queue_count": 311,
+        "queued_items": 69,
+        "avg_queue_size": 0.22186495176848875,
+        "max_queue_size": 20,
         "breakdown": {
             "planet": {
-                "queue_count": 302,
-                "queued_items": 0,
-                "avg_queue_size": 0.0,
-                "max_queue_size": 0
+                "queue_count": 133,
+                "queued_items": 1,
+                "avg_queue_size": 0.007518796992481203,
+                "max_queue_size": 1
             },
             "army": {
-                "queue_count": 302,
+                "queue_count": 133,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
             },
             "starbase": {
-                "queue_count": 98,
-                "queued_items": 17,
-                "avg_queue_size": 0.17346938775510204,
-                "max_queue_size": 8
-            },
-            "shipyard": {
-                "queue_count": 26,
+                "queue_count": 39,
                 "queued_items": 0,
                 "avg_queue_size": 0.0,
                 "max_queue_size": 0
+            },
+            "shipyard": {
+                "queue_count": 6,
+                "queued_items": 68,
+                "avg_queue_size": 11.333333333333334,
+                "max_queue_size": 20
             }
         }
     },
     "tech": {
         "output": {
-            "society": 2023.582,
-            "physics": 1936.988,
-            "engineering": 1772.8780000000002,
-            "total": 5733.448
+            "society": 1813.4329999999998,
+            "physics": 1903.009,
+            "engineering": 1907.473,
+            "total": 5623.915
         },
-        "completed_techs": 332,
+        "completed_techs": 309,
         "available_techs": {
-            "society": 6,
+            "society": 5,
             "physics": 5,
-            "engineering": 6
+            "engineering": 5
         }
     },
     "planets": {
-        "total": 28,
+        "total": 15,
         "list": {
-            "2": {
-                "name": "The Great Tank",
-                "size": 5,
-                "population": 195,
-                "districts": 5,
-                "armies": 8,
-                "stability": 73.7704,
-                "amenities": 375,
-                "free_amenities": 177,
-                "amenities_usage": 198,
-                "free_housing": 3,
-                "total_housing": 193
-            },
-            "291": {
-                "name": "Tank Delta",
-                "size": 12,
-                "population": 94,
-                "districts": 13,
-                "armies": 33,
-                "stability": 68.1356,
-                "amenities": 288,
-                "free_amenities": 170,
-                "amenities_usage": 118,
-                "free_housing": 0,
-                "total_housing": 91
-            },
-            "419": {
-                "name": "Tank Beta",
-                "size": 14,
-                "population": 121,
-                "districts": 15,
-                "armies": 6,
-                "stability": 67.8122,
-                "amenities": 244,
-                "free_amenities": 107,
-                "amenities_usage": 137,
-                "free_housing": 2,
-                "total_housing": 122
-            },
-            "1048": {
-                "name": "Tank Charlie",
-                "size": 10,
-                "population": 104,
-                "districts": 11,
-                "armies": 15,
-                "stability": 65.2274,
-                "amenities": 231,
-                "free_amenities": 98,
-                "amenities_usage": 133,
-                "free_housing": 0,
-                "total_housing": 101
-            },
-            "3611": {
-                "name": "Tank Foxtrot",
-                "size": 24,
-                "population": 173,
-                "districts": 25,
-                "armies": 6,
-                "stability": 63.9692,
-                "amenities": 352,
-                "free_amenities": 137,
-                "amenities_usage": 215,
-                "free_housing": 0,
-                "total_housing": 171
-            },
-            "6753": {
-                "name": "Tank Igloo",
-                "size": 10,
-                "population": 78,
-                "districts": 11,
-                "armies": 31,
-                "stability": 65.9864,
-                "amenities": 161,
-                "free_amenities": 63,
-                "amenities_usage": 98,
-                "free_housing": 0,
-                "total_housing": 76
-            },
-            "7781": {
-                "name": "Tank Juliet",
-                "size": 17,
-                "population": 97,
-                "districts": 18,
-                "armies": 15,
-                "stability": 58.5614,
-                "amenities": 113,
-                "free_amenities": 6,
-                "amenities_usage": 107,
-                "free_housing": 1,
-                "total_housing": 88
-            },
-            "7782": {
-                "name": "Tank Golf",
-                "size": 14,
-                "population": 65,
-                "districts": 15,
+            "3": {
+                "name": "Vulpecula",
+                "size": 16,
+                "population": 90,
+                "districts": 17,
                 "armies": 4,
-                "stability": 59.4572,
-                "amenities": 123,
-                "free_amenities": 39,
-                "amenities_usage": 84,
-                "free_housing": 1,
-                "total_housing": 63
+                "stability": 69.6556,
+                "amenities": 102,
+                "free_amenities": 19,
+                "amenities_usage": 83,
+                "free_housing": 7,
+                "total_housing": 83
             },
-            "7783": {
-                "name": "Tank Hotel",
-                "size": 12,
-                "population": 86,
-                "districts": 13,
-                "armies": 15,
-                "stability": 67.574,
-                "amenities": 205,
-                "free_amenities": 105,
-                "amenities_usage": 100,
-                "free_housing": 2,
+            "5": {
+                "name": "Mars",
+                "size": 13,
+                "population": 42,
+                "districts": 8,
+                "armies": 4,
+                "stability": 68.4424,
+                "amenities": 70,
+                "free_amenities": 16,
+                "amenities_usage": 54,
+                "free_housing": 7,
+                "total_housing": 49
+            },
+            "255": {
+                "name": "Alpha Centauri Prime",
+                "size": 17,
+                "population": 80,
+                "districts": 18,
+                "armies": 4,
+                "stability": 51.4898,
+                "amenities": 75,
+                "free_amenities": -24.0,
+                "amenities_usage": 99,
+                "free_housing": 6,
+                "total_housing": 85
+            },
+            "356": {
+                "name": "Sirius Prime",
+                "size": 18,
+                "population": 102,
+                "districts": 19,
+                "armies": 6,
+                "stability": 67.7082,
+                "amenities": 141,
+                "free_amenities": 10,
+                "amenities_usage": 131,
+                "free_housing": 5,
+                "total_housing": 107
+            },
+            "443": {
+                "name": "Pobbnic Tymcrix",
+                "size": 24,
+                "population": 84,
+                "districts": 20,
+                "armies": 14,
+                "stability": 58.935,
+                "amenities": 72,
+                "free_amenities": -19.0,
+                "amenities_usage": 91,
+                "free_housing": 1,
                 "total_housing": 79
             },
-            "7988": {
-                "name": "Tank Echo",
-                "size": 22,
-                "population": 133,
-                "districts": 23,
-                "armies": 6,
-                "stability": 63.5564,
-                "amenities": 259,
-                "free_amenities": 92,
-                "amenities_usage": 167,
-                "free_housing": 0,
-                "total_housing": 131
+            "3351": {
+                "name": "Amastes Prime",
+                "size": 23,
+                "population": 75,
+                "districts": 18,
+                "armies": 4,
+                "stability": 53.925,
+                "amenities": 64,
+                "free_amenities": -25.0,
+                "amenities_usage": 89,
+                "free_housing": 2,
+                "total_housing": 75
             },
-            "8137": {
-                "name": "Artificial Tank Alpha",
-                "size": 8,
-                "population": 53,
-                "districts": 8,
-                "armies": 11,
-                "stability": 69.9656,
-                "amenities": 122,
-                "free_amenities": 60,
-                "amenities_usage": 62,
+            "3604": {
+                "name": "Mareenius Secundus",
+                "size": 13,
+                "population": 72,
+                "districts": 14,
+                "armies": 4,
+                "stability": 49.387,
+                "amenities": 77,
+                "free_amenities": -26.0,
+                "amenities_usage": 103,
                 "free_housing": 0,
-                "total_housing": 52
+                "total_housing": 73
             },
-            "8138": {
-                "name": "Artificial Tank Beta",
-                "size": 8,
-                "population": 69,
-                "districts": 8,
-                "armies": 29,
-                "stability": 64.385,
-                "amenities": 292,
-                "free_amenities": 213,
-                "amenities_usage": 79,
-                "free_housing": 0,
-                "total_housing": 67
+            "3605": {
+                "name": "Mareenius Prime",
+                "size": 14,
+                "population": 80,
+                "districts": 15,
+                "armies": 4,
+                "stability": 55.0538,
+                "amenities": 94,
+                "free_amenities": -14.0,
+                "amenities_usage": 108,
+                "free_housing": 7,
+                "total_housing": 86
             },
-            "8142": {
-                "name": "Artificial Tank Charlie",
-                "size": 8,
-                "population": 73,
-                "districts": 8,
-                "armies": 38,
-                "stability": 69.4418,
-                "amenities": 173,
-                "free_amenities": 89,
-                "amenities_usage": 84,
-                "free_housing": 0,
+            "3665": {
+                "name": "Kochab Prime",
+                "size": 18,
+                "population": 79,
+                "districts": 18,
+                "armies": 4,
+                "stability": 68.7664,
+                "amenities": 124,
+                "free_amenities": 25,
+                "amenities_usage": 99,
+                "free_housing": 8,
+                "total_housing": 87
+            },
+            "6289": {
+                "name": "Deteenal Secundus",
+                "size": 12,
+                "population": 65,
+                "districts": 13,
+                "armies": 4,
+                "stability": 76.399,
+                "amenities": 145,
+                "free_amenities": 70,
+                "amenities_usage": 75,
+                "free_housing": 9,
                 "total_housing": 71
             },
-            "8143": {
-                "name": "Artificial Tank Delta",
-                "size": 8,
-                "population": 78,
-                "districts": 8,
-                "armies": 47,
-                "stability": 69.95,
-                "amenities": 195,
-                "free_amenities": 106,
-                "amenities_usage": 89,
-                "free_housing": 0,
-                "total_housing": 76
-            },
-            "8145": {
-                "name": "Artificial Tank Echo",
-                "size": 6,
-                "population": 70,
-                "districts": 6,
-                "armies": 29,
-                "stability": 67.7894,
-                "amenities": 246,
-                "free_amenities": 166,
-                "amenities_usage": 80,
-                "free_housing": 2,
-                "total_housing": 70
-            },
-            "8158": {
-                "name": "The Great Tank 2",
-                "size": 5,
-                "population": 222,
-                "districts": 5,
-                "armies": 17,
-                "stability": 75.6408,
-                "amenities": 522,
-                "free_amenities": 314,
-                "amenities_usage": 208,
-                "free_housing": -1.0,
-                "total_housing": 196
-            },
-            "8251": {
-                "name": "Eastern Border Habitat",
-                "size": 8,
-                "population": 67,
-                "districts": 8,
-                "armies": 83,
-                "stability": 56.1896,
-                "amenities": 93,
-                "free_amenities": 16,
-                "amenities_usage": 77,
-                "free_housing": 0,
-                "total_housing": 66
-            },
-            "8252": {
-                "name": "Southern Border Habitat",
-                "size": 8,
-                "population": 62,
-                "districts": 8,
-                "armies": 56,
-                "stability": 64.6796,
-                "amenities": 122,
-                "free_amenities": 50,
-                "amenities_usage": 72,
-                "free_housing": 2,
-                "total_housing": 63
-            },
-            "8256": {
-                "name": "The Great Tank 3",
-                "size": 5,
-                "population": 196,
-                "districts": 5,
-                "armies": 8,
-                "stability": 75.6508,
-                "amenities": 474,
-                "free_amenities": 288,
-                "amenities_usage": 186,
-                "free_housing": 17,
-                "total_housing": 193
-            },
-            "8266": {
-                "name": "Northern Border Habitat",
-                "size": 8,
-                "population": 65,
-                "districts": 8,
-                "armies": 60,
-                "stability": 64.7666,
-                "amenities": 133,
-                "free_amenities": 58,
-                "amenities_usage": 75,
-                "free_housing": 0,
-                "total_housing": 63
-            },
-            "16785498": {
-                "name": "Heat Lamp Echo I Habitat",
-                "size": 8,
-                "population": 58,
-                "districts": 8,
-                "armies": 29,
-                "stability": 60.8882,
-                "amenities": 88,
-                "free_amenities": 23,
-                "amenities_usage": 65,
-                "free_housing": 0,
-                "total_housing": 57
-            },
-            "8333": {
-                "name": "Mining Hab 1",
-                "size": 8,
-                "population": 53,
-                "districts": 8,
-                "armies": 20,
-                "stability": 62.9288,
-                "amenities": 94,
-                "free_amenities": 33,
-                "amenities_usage": 61,
-                "free_housing": 0,
-                "total_housing": 52
-            },
-            "8335": {
-                "name": "Mining Hab 2",
-                "size": 8,
-                "population": 66,
-                "districts": 8,
-                "armies": 65,
-                "stability": 63.8104,
-                "amenities": 82,
-                "free_amenities": 8,
-                "amenities_usage": 74,
-                "free_housing": 1,
-                "total_housing": 65
-            },
-            "8337": {
-                "name": "Mining Hab 3",
-                "size": 8,
-                "population": 53,
-                "districts": 8,
-                "armies": 20,
-                "stability": 59.4638,
-                "amenities": 82,
-                "free_amenities": 21,
-                "amenities_usage": 61,
-                "free_housing": 4,
-                "total_housing": 55
-            },
-            "8340": {
-                "name": "Firam IV Habitat",
-                "size": 8,
-                "population": 62,
-                "districts": 8,
-                "armies": 29,
-                "stability": 66.5888,
-                "amenities": 122,
-                "free_amenities": 52,
-                "amenities_usage": 70,
-                "free_housing": 0,
-                "total_housing": 60
-            },
-            "8345": {
-                "name": "Firam III Habitat",
-                "size": 8,
-                "population": 66,
-                "districts": 8,
-                "armies": 65,
-                "stability": 61.4902,
-                "amenities": 82,
-                "free_amenities": 8,
-                "amenities_usage": 74,
-                "free_housing": 1,
-                "total_housing": 65
-            },
-            "8348": {
-                "name": "Gemma III Habitat",
-                "size": 8,
-                "population": 68,
-                "districts": 8,
-                "armies": 56,
-                "stability": 62.5076,
-                "amenities": 116,
-                "free_amenities": 40,
-                "amenities_usage": 76,
-                "free_housing": 0,
-                "total_housing": 66
-            },
-            "8351": {
-                "name": "Khiram I Habitat",
-                "size": 8,
-                "population": 57,
-                "districts": 8,
-                "armies": 47,
-                "stability": 65.9158,
-                "amenities": 88,
-                "free_amenities": 24,
-                "amenities_usage": 64,
+            "6290": {
+                "name": "Deteenal Prime",
+                "size": 10,
+                "population": 64,
+                "districts": 11,
+                "armies": 4,
+                "stability": 68.029,
+                "amenities": 98,
+                "free_amenities": 19,
+                "amenities_usage": 79,
                 "free_housing": 3,
-                "total_housing": 58
+                "total_housing": 67
+            },
+            "6316": {
+                "name": "Mosthavon Prime",
+                "size": 24,
+                "population": 75,
+                "districts": 19,
+                "armies": 4,
+                "stability": 65.7508,
+                "amenities": 101,
+                "free_amenities": 7,
+                "amenities_usage": 94,
+                "free_housing": 2,
+                "total_housing": 77
+            },
+            "6431": {
+                "name": "Fen Habbanis III",
+                "size": 25,
+                "population": 86,
+                "districts": 17,
+                "armies": 6,
+                "stability": 68.6512,
+                "amenities": 127,
+                "free_amenities": 32,
+                "amenities_usage": 95,
+                "free_housing": 8,
+                "total_housing": 95
+            },
+            "6443": {
+                "name": "Neptune Habitat",
+                "size": 6,
+                "population": 29,
+                "districts": 6,
+                "armies": 2,
+                "stability": 70.9376,
+                "amenities": 79,
+                "free_amenities": 44,
+                "amenities_usage": 35,
+                "free_housing": -1.0,
+                "total_housing": 28
+            },
+            "6473": {
+                "name": "Mareenius II Habitat",
+                "size": 6,
+                "population": 31,
+                "districts": 6,
+                "armies": 2,
+                "stability": 77.9704,
+                "amenities": 82,
+                "free_amenities": 44,
+                "amenities_usage": 38,
+                "free_housing": 2,
+                "total_housing": 33
             }
         },
         "types": {
-            "Ring World Section": 3,
-            "Arid": 9,
-            "Habitat": 16
+            "Arid": 8,
+            "Savannah": 1,
+            "Continental": 1,
+            "Desert": 1,
+            "Tundra": 1,
+            "Relic": 1,
+            "Habitat": 2
         },
         "districts": {
-            "avg": 10.178571428571429,
-            "min": 5,
-            "max": 25,
-            "total": 285
+            "avg": 14.6,
+            "min": 6,
+            "max": 20,
+            "total": 219
         },
         "buildings": {
-            "avg": 15.392857142857142,
-            "min": 13,
+            "avg": 13.666666666666666,
+            "min": 6,
             "max": 16,
-            "total": 431
+            "total": 205
         },
         "sizes": {
-            "avg": 9.857142857142858,
-            "min": 5,
-            "max": 24,
-            "total": 276
+            "avg": 15.933333333333334,
+            "min": 6,
+            "max": 25,
+            "total": 239
         },
         "stability": {
-            "avg": 65.57510714285714,
-            "min": 56.1896,
-            "max": 75.6508,
-            "total": 1836.1029999999998
+            "avg": 64.74008,
+            "min": 49.387,
+            "max": 77.9704,
+            "total": 971.1012000000002
         },
         "amenities": {
-            "avg": 91.53571428571429,
-            "min": 6,
-            "max": 314,
-            "total": 2563
+            "avg": 11.866666666666667,
+            "min": -26.0,
+            "max": 70,
+            "total": 178.0
         },
         "housing": {
-            "avg": 1.3571428571428572,
+            "avg": 4.4,
             "min": -1.0,
-            "max": 17,
-            "total": 38.0
+            "max": 9,
+            "total": 66.0
         },
         "crime": {
-            "avg": 0.030357142857142857,
+            "avg": 0.0,
             "min": 0,
-            "max": 0.85,
-            "total": 0.85
+            "max": 0,
+            "total": 0
         },
         "pops": {
-            "avg": 92.28571428571429,
-            "min": 53,
-            "max": 222,
-            "total": 2584
+            "avg": 70.26666666666667,
+            "min": 29,
+            "max": 102,
+            "total": 1054
         },
         "age_days": {
-            "avg": 66446.0,
-            "min": 22796,
-            "max": 119126,
-            "total": 1860488
+            "avg": 64613.0,
+            "min": 17527,
+            "max": 96217,
+            "total": 969195
         },
         "age": {
-            "avg": 184.57222222222214,
-            "min": 63.32222222222222,
-            "max": 330.90555555555557,
-            "total": 5168.02222222222
+            "avg": 179.48055555555553,
+            "min": 48.68611111111111,
+            "max": 267.26944444444445,
+            "total": 2692.208333333333
         }
     },
     "pops": {
-        "total": 2584,
+        "total": 1054,
         "jobs": {
-            "Merchant": 186,
-            "Administrator": 44,
+            "Clerk": 208,
+            "Miner": 79,
+            "Head Researcher": 30,
+            "Administrator": 32,
+            "Bureaucrat": 42,
+            "Artisan": 100,
+            "Enforcer": 37,
+            "Foundry": 108,
             "Researcher": 132,
-            "Artisan": 25,
-            "Enforcer": 55,
-            "Foundry": 277,
-            "Head Researcher": 3,
-            "Translucer": 34,
-            "Clerk": 855,
-            "Culture Worker": 8,
-            "Entertainer": 55,
-            "Gas Refiner": 5,
-            "Healthcare": 60,
-            "Farmer": 128,
-            "Chemist": 51,
-            "Priest": 94,
-            "Soldier": 246,
-            "Bureaucrat": 75,
-            "Technician": 64,
-            "Miner": 175,
-            "Gas Extractor": 2,
-            "Dimensional Portal Researcher": 2,
-            "Gas Plant Engineer": 5,
-            "Crystal Miner": 1,
-            "High Priest": 2
+            "Merchant": 58,
+            "Chemist": 10,
+            "Gas Refiner": 16,
+            "Technician": 72,
+            "Translucer": 24,
+            "Crystal Miner": 4,
+            "Dimensional Portal Researcher": 3,
+            "Farmer": 82,
+            "Mote Harvester": 1,
+            "Odd Factory Worker": 1,
+            "Pre Sapient": 3,
+            "Gas Extractor": 3,
+            "Entertainer": 5,
+            "Culture Worker": 2
         },
         "species": {
-            "Geck": 270,
-            "Zum": 194,
-            "Hiran": 130,
-            "Havarigga": 126,
-            "Dima'Xanian": 38,
-            "Jhoolian": 83,
-            "Half-Zum": 104,
-            "Half-Dima'Xanian": 35,
-            "Karabnar": 229,
-            "Fiiral": 53,
-            "Qvefoz": 29,
-            "Lagin'Chuuz": 89,
-            "Shantari": 20,
-            "Elaaminid": 132,
-            "The Most Sexual Grob": 50,
-            "Provalguvor": 34,
-            "Robot": 103,
-            "Pobelin": 43,
-            "Xanyr": 36,
-            "Qell'Nudar": 27,
-            "Half-Karabnar": 241,
-            "Yalon": 69,
-            "Entheri": 22,
-            "Half-Entheri": 17,
-            "Half-Elaaminid": 115,
-            "Half-Hiran": 43,
-            "Half-Qvefoz": 79,
-            "Dorbolan": 10,
-            "Half-Slithery Devil": 21,
-            "Half-Provalguvor": 27,
-            "Half-Havarigga": 86,
-            "Half-Fiiral": 22,
-            "Velutarian": 7
+            "Robot": 44,
+            "Zum": 344,
+            "Natfankan": 136,
+            "Ozkox": 110,
+            "Moij-Huxgan": 54,
+            "Dethakkan": 50,
+            "Kraxroz": 66,
+            "Gagassi": 13,
+            "Saiiban": 11,
+            "Malwegoll": 20,
+            "Bessadon": 12,
+            "Mishar": 16,
+            "Themlar": 25,
+            "Ytrellan": 3,
+            "Mesh'Ben": 26,
+            "Keerim": 28,
+            "Athanebian": 10,
+            "Tezhnid": 5,
+            "Photecian Mutatis": 6,
+            "Korinth": 39,
+            "Photecian": 35,
+            "Pithok": 1
         },
         "categories": {
-            "ruler": 235,
-            "specialist": 837,
-            "worker": 1409,
-            "robot_servant": 103
+            "robot_servant": 44,
+            "ruler": 120,
+            "specialist": 457,
+            "worker": 430,
+            "pre_sapients": 3
         },
         "ethics": {
-            "Spiritualist": 246,
-            "Xenophile": 991,
-            "Militarist": 233,
-            "Authoritarian": 724,
-            "Materialist": 298,
-            "Xenophobe": 92
+            "Xenophobe": 115,
+            "Xenophile": 298,
+            "Militarist": 100,
+            "Authoritarian": 131,
+            "Pacifist": 30,
+            "Materialist": 181,
+            "Egalitarian": 23,
+            "Spiritualist": 129
         }
     },
     "fleets": {
-        "total": 15,
+        "total": 14,
         "fleet_power": {
-            "avg": 142934.09347571427,
-            "min": 10070.38119,
-            "max": 195385.44174,
-            "total": 2001077.3086599996
+            "avg": 14647.156828461542,
+            "min": 433.77157,
+            "max": 60648.82455,
+            "total": 190413.03877000004
         },
         "ships": {
-            "avg": 42.93333333333333,
+            "avg": 11.071428571428571,
             "min": 1,
-            "max": 80,
-            "total": 644
+            "max": 48,
+            "total": 155
         },
         "ship_types": {
-            "Destroyer": 90,
-            "Corvette": 299,
-            "Cruiser": 103,
-            "Battleship": 134,
-            "Titan": 15,
-            "Colossus": 1,
-            "Npc_warship_01": 1,
-            "Juggernaut": 1
+            "Destroyer": 28,
+            "Corvette": 75,
+            "Cruiser": 29,
+            "Titan": 2,
+            "Battleship": 20,
+            "Colossus": 1
         },
-        "avg_ship_exp": 377.74860248447027,
+        "avg_ship_exp": 330.9258064516129,
         "fleets": {
-            "268435564": {
-                "id": 268435564,
-                "power": 178693.06661,
-                "ship_count": 80,
+            "3": {
+                "id": 3,
+                "power": 46995.85961,
+                "ship_count": 25,
                 "experience": {
-                    "avg": 7040.050000000006,
-                    "min": 99.6,
-                    "max": 14068.000000000018,
-                    "total": 563204.0000000005
+                    "avg": 8195.855999999998,
+                    "min": 1481.7,
+                    "max": 15343.8,
+                    "total": 204896.39999999997
                 }
             },
-            "67109072": {
-                "id": 67109072,
-                "power": 61239.63198,
-                "ship_count": 9,
+            "33554533": {
+                "id": 33554533,
+                "power": 60648.82455,
+                "ship_count": 48,
                 "experience": {
-                    "avg": 18818.088888888906,
-                    "min": 15172.600000000019,
-                    "max": 22569.80000000001,
-                    "total": 169362.80000000016
+                    "avg": 16059.231250000006,
+                    "min": 15518.9,
+                    "max": 16958.800000000007,
+                    "total": 770843.1000000003
                 }
             },
-            "16777570": {
-                "id": 16777570,
-                "power": 139947.88455,
-                "ship_count": 38,
-                "experience": {
-                    "avg": 27389.331578947407,
-                    "min": 22840.20000000001,
-                    "max": 31434.200000000063,
-                    "total": 1040794.6000000015
-                }
-            },
-            "50332193": {
-                "id": 50332193,
+            "33554541": {
+                "id": 33554541,
                 "power": 0.0,
                 "ship_count": 1,
                 "experience": {
-                    "avg": 31434.200000000063,
-                    "min": 31434.200000000063,
-                    "max": 31434.200000000063,
-                    "total": 31434.200000000063
+                    "avg": 16958.800000000007,
+                    "min": 16958.800000000007,
+                    "max": 16958.800000000007,
+                    "total": 16958.800000000007
                 }
             },
-            "50332331": {
-                "id": 50332331,
-                "power": 160831.98822,
-                "ship_count": 48,
+            "134218289": {
+                "id": 134218289,
+                "power": 33132.3077,
+                "ship_count": 25,
                 "experience": {
-                    "avg": 36456.166666666766,
-                    "min": 31668.600000000064,
-                    "max": 41385.40000000013,
-                    "total": 1749896.000000005
+                    "avg": 18073.272000000008,
+                    "min": 17123.300000000007,
+                    "max": 19763.100000000002,
+                    "total": 451831.80000000016
                 }
             },
-            "33555594": {
-                "id": 33555594,
-                "power": 152126.79248,
-                "ship_count": 24,
+            "100664221": {
+                "id": 100664221,
+                "power": 33474.24713,
+                "ship_count": 25,
                 "experience": {
-                    "avg": 50899.40833333345,
-                    "min": 42256.50000000013,
-                    "max": 59775.5000000001,
-                    "total": 1221585.8000000028
+                    "avg": 20283.89999999999,
+                    "min": 19823.100000000002,
+                    "max": 20783.100000000002,
+                    "total": 507097.49999999977
                 }
             },
-            "234882500": {
-                "id": 234882500,
-                "power": 10070.38119,
-                "ship_count": 14,
-                "experience": {
-                    "avg": 62304.67857142868,
-                    "min": 60070.0000000001,
-                    "max": 64384.5000000001,
-                    "total": 872265.5000000015
-                }
-            },
-            "251659922": {
-                "id": 251659922,
-                "power": 167897.15908,
-                "ship_count": 56,
-                "experience": {
-                    "avg": 86047.51249999997,
-                    "min": 65180.9000000001,
-                    "max": 105873.19999999981,
-                    "total": 4818660.699999998
-                }
-            },
-            "134219531": {
-                "id": 134219531,
-                "power": 183159.28479,
-                "ship_count": 79,
-                "experience": {
-                    "avg": 132138.779746835,
-                    "min": 106559.5999999998,
-                    "max": 156946.79999999938,
-                    "total": 10438963.599999964
-                }
-            },
-            "83888239": {
-                "id": 83888239,
-                "power": 191151.14215,
-                "ship_count": 80,
-                "experience": {
-                    "avg": 164503.2624999993,
-                    "min": 157152.79999999938,
-                    "max": 171324.79999999938,
-                    "total": 13160260.999999946
-                }
-            },
-            "2258": {
-                "id": 2258,
-                "power": 172732.61315,
-                "ship_count": 31,
-                "experience": {
-                    "avg": 186049.0709677413,
-                    "min": 171866.19999999937,
-                    "max": 204124.8999999995,
-                    "total": 5767521.199999981
-                }
-            },
-            "100665690": {
-                "id": 100665690,
-                "power": 195385.44174,
-                "ship_count": 72,
-                "experience": {
-                    "avg": 211042.3305555554,
-                    "min": 204230.8999999995,
-                    "max": 217255.8999999995,
-                    "total": 15195047.79999999
-                }
-            },
-            "117442957": {
-                "id": 117442957,
-                "power": 148617.60565,
-                "ship_count": 37,
-                "experience": {
-                    "avg": 221980.4999999994,
-                    "min": 217526.2999999995,
-                    "max": 226455.2999999993,
-                    "total": 8213278.499999978
-                }
-            },
-            "83889170": {
-                "id": 83889170,
-                "power": 53365.1607,
+            "16779252": {
+                "id": 16779252,
+                "power": 433.77157,
                 "ship_count": 1,
                 "experience": {
-                    "avg": 226455.2999999993,
-                    "min": 226455.2999999993,
-                    "max": 226455.2999999993,
-                    "total": 226455.2999999993
+                    "avg": 20783.100000000002,
+                    "min": 20783.100000000002,
+                    "max": 20783.100000000002,
+                    "total": 20783.100000000002
                 }
             },
-            "100666447": {
-                "id": 100666447,
-                "power": 185859.15637,
-                "ship_count": 74,
+            "50333699": {
+                "id": 50333699,
+                "power": 3318.59417,
+                "ship_count": 8,
                 "experience": {
-                    "avg": 235126.2972972963,
-                    "min": 226704.19999999928,
-                    "max": 243270.09999999887,
-                    "total": 17399345.999999925
+                    "avg": 27132.437500000004,
+                    "min": 22401.300000000003,
+                    "max": 31097.9,
+                    "total": 217059.50000000003
+                }
+            },
+            "150997026": {
+                "id": 150997026,
+                "power": 1486.70684,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 31106.800000000003,
+                    "min": 31106.800000000003,
+                    "max": 31106.800000000003,
+                    "total": 31106.800000000003
+                }
+            },
+            "2236": {
+                "id": 2236,
+                "power": 7923.69784,
+                "ship_count": 16,
+                "experience": {
+                    "avg": 43570.68749999999,
+                    "min": 33562.3,
+                    "max": 51185.1,
+                    "total": 697130.9999999999
+                }
+            },
+            "201328862": {
+                "id": 201328862,
+                "power": 433.77157,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 51185.1,
+                    "min": 51185.1,
+                    "max": 51185.1,
+                    "total": 51185.1
+                }
+            },
+            "33556815": {
+                "id": 33556815,
+                "power": 509.74005,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 51293.5,
+                    "min": 51293.5,
+                    "max": 51293.5,
+                    "total": 51293.5
+                }
+            },
+            "117442911": {
+                "id": 117442911,
+                "power": 433.77157,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 51293.5,
+                    "min": 51293.5,
+                    "max": 51293.5,
+                    "total": 51293.5
+                }
+            },
+            "16779679": {
+                "id": 16779679,
+                "power": 433.77157,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 51293.5,
+                    "min": 51293.5,
+                    "max": 51293.5,
+                    "total": 51293.5
+                }
+            },
+            "2476": {
+                "id": 2476,
+                "power": 1187.9746,
+                "ship_count": 1,
+                "experience": {
+                    "avg": 51293.5,
+                    "min": 51293.5,
+                    "max": 51293.5,
+                    "total": 51293.5
                 }
             }
         }
     },
     "armies": {
-        "total": 848,
+        "total": 70,
         "types": {
-            "Defense Army": 848
+            "Defense Army": 70
+        }
+    },
+    "comparisons": {
+        "names": {
+            "0": "Great Zum Technocracy",
+            "1": "The Church of Jesus Christ, Scientist",
+            "2": "Autocracy of Mishri",
+            "3": "Gagassi Compact",
+            "6": "Sacrosanct Vailon Covenant",
+            "7": "Bessadon Confederacy",
+            "8": "Allied Uv-Xantt Suns",
+            "9": "Jhoolian Combine",
+            "10": "Commissariat of Athas",
+            "11": "Natfankan Clans",
+            "12": "Husko Regulators",
+            "13": "Glebsig Arbitrators",
+            "150994959": "United Jhoolian Alliance",
+            "33554450": "Chimm Nation",
+            "50331667": "New Photecian Khanate",
+            "100663316": "Gorf Council",
+            "24": "Boki Civilization",
+            "25": "Cevanti Civilization",
+            "100663322": "Tezhnid Commissariat",
+            "33554461": "Sovereign Zum Stars",
+            "167772190": "Hann'Felir Confederation of Worlds",
+            "31": "Neborite Theocracy",
+            "134217760": "United Tezhnid Warrior Clans",
+            "167772195": "Inari Galactic Union",
+            "50331684": "Yapathi StarCorp",
+            "83886117": "Kirillian Interplanetary Hegemony",
+            "67108902": "Ul-Tur Sovereignty",
+            "33554473": "Bothrian Republican Planets"
+        },
+        "economy": {
+            "0": 14555.224149999998,
+            "1": 7762.575739999999,
+            "2": 7483.6782,
+            "3": 2626.79887,
+            "6": 2881.3509400000003,
+            "7": 7722.28358,
+            "8": 2276.4767100000004,
+            "9": 3976.73776,
+            "10": 2834.08741,
+            "11": 1277.3408,
+            "12": 8437.256,
+            "13": 7719.58,
+            "150994959": 476.61821000000003,
+            "33554450": 1095.78412,
+            "50331667": 2625.9842799999997,
+            "100663316": 245.3625,
+            "100663322": 504.3504,
+            "33554461": 548.39963,
+            "167772190": 405.93199999999996,
+            "31": 753.6327799999999,
+            "134217760": 785.85436,
+            "167772195": 743.23113,
+            "50331684": 798.9687200000001,
+            "83886117": 666.2130999999999,
+            "67108902": 274.8423,
+            "33554473": 998.56934
+        },
+        "tech": {
+            "0": 5623.915,
+            "1": 2932.61,
+            "2": 1377.346,
+            "3": 543.7239999999999,
+            "6": 257.336,
+            "7": 1251.554,
+            "8": 313.258,
+            "9": 396.179,
+            "10": 314.996,
+            "11": 81.952,
+            "12": 1051.81468,
+            "13": 6,
+            "150994959": 105.55999999999999,
+            "33554450": 141.8,
+            "50331667": 250.76,
+            "100663316": 42.4,
+            "100663322": 30,
+            "33554461": 70.544,
+            "167772190": 121.39999999999999,
+            "31": 58.900000000000006,
+            "134217760": 119.58000000000001,
+            "167772195": 30,
+            "50331684": 73.2,
+            "83886117": 102.94399999999999,
+            "67108902": 30,
+            "33554473": 33.4
+        },
+        "victory_points": {
+            "0": 42546.822508,
+            "1": 25334.4194245,
+            "2": 18139.784083,
+            "3": 8163.2055,
+            "6": 9009.30463,
+            "7": 24095.7156475,
+            "8": 8158.59736,
+            "9": 11388.356188000002,
+            "10": 7189.8875100000005,
+            "11": 10670.8614985,
+            "12": 55077.426225,
+            "13": 47327.57989,
+            "150994959": 2339.69726,
+            "33554450": 3323.79943,
+            "50331667": 15217.3266625,
+            "100663316": 2035.86257,
+            "100663322": 3218.85037,
+            "33554461": 1599.76458,
+            "167772190": 2213.43203,
+            "31": 4719.000175000001,
+            "134217760": 2660.82614,
+            "167772195": 3243.73117,
+            "50331684": 2977.06613,
+            "83886117": 3144.7131600000002,
+            "67108902": 1090.09225,
+            "33554473": 3627.62094
+        },
+        "military": {
+            "1": 67.95575969789455,
+            "2": 67.2533448797499,
+            "3": 14.244501828870213,
+            "6": 13.638909245794602,
+            "7": 36.81427437050297,
+            "8": 9.460120859558504,
+            "9": 35.77744119838773,
+            "10": 15.553268505825654,
+            "11": 4.338775345095554,
+            "12": 400.99710615001175,
+            "13": 403.8097966225738,
+            "150994959": 0.0,
+            "33554450": 0.0,
+            "50331667": 23.053545646641954,
+            "100663316": 0.0,
+            "100663322": 0.4025884020085165,
+            "33554461": 1.413765888822173,
+            "167772190": 0.44839017617448834,
+            "31": 2.3365894314486284,
+            "134217760": 0.0,
+            "167772195": 0.0,
+            "50331684": 7.390573923353178,
+            "83886117": 0.0,
+            "67108902": 0.3309578766615888,
+            "33554473": 0.0
         }
     }
 }
