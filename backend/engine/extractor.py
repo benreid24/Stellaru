@@ -4,25 +4,6 @@ from engine import parser
 from engine import extraction
 
 
-def _empire_valid(state, empire):
-    if 'victory_rank' not in state['country'][empire]:
-        return False
-    if 'modules' not in state['country'][empire]:
-        return False
-    if 'standard_economy_module' not in state['country'][empire]['modules']:
-        return False
-    if 'owned_planets' not in state['country'][empire]:
-        return False
-    return len(state['country'][empire]['owned_planets']) > 0
-
-
-def get_empires(state):
-    return {
-        cid: empire['name'] 
-        for cid, empire in state['country'].items() if isinstance(empire, dict) and _empire_valid(state, cid)
-    }
-
-
 def _build_empire_snapshot(state, empire):
     snap = {}
     try:
@@ -70,21 +51,16 @@ def _add_comparisons(state, empire_snaps):
             continue
 
 
-def build_snapshot(state):
-    empires = get_empires(state)
+def build_snapshot(watcher):
+    meta, state = parser.parse_save(watcher.get_file(True))
     snapshot = {
         'date': state['date'],
         'date_components': extraction.util.parse_date(state['date']),
         'date_days': extraction.util.date_days(state['date']),
         'empires': {
             empire_id: _build_empire_snapshot(state, empire_id)
-            for empire_id in empires
+            for empire_id in extraction.get_empires(state)
         }
     }
     _add_comparisons(state, snapshot['empires'])
     return snapshot
-
-
-def build_snapshot_from_watcher(watcher):
-    meta, state = parser.parse_save(watcher.get_file(True))
-    return build_snapshot(state)

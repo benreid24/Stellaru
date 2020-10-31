@@ -1,6 +1,6 @@
 import random
 
-from engine import snapper
+from engine import extraction
 
 
 def _fake_field(date, date_str, name, value):
@@ -30,7 +30,7 @@ def _fake_dict(date, date_str, snap):
 
 
 def fake_snap(snap):
-    date = snapper.parse_date(snap['date'])
+    date = extraction.parse_date(snap['date'])
     date['m'] += 1
     if date['m'] >= 13:
         date['m'] = 1

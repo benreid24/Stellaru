@@ -5,7 +5,7 @@ import traceback
 from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
-from engine import snapper
+from engine import extractor
 from engine import sessions
 from engine import finder
 from engine.util import fake_snap
@@ -41,7 +41,7 @@ def _load_save(watcher, session_id):
                 snaps = pickle.loads(f.read())
     except:
         snaps = []
-    snap = snapper.build_snapshot_from_watcher(watcher)
+    snap = extractor.build_snapshot(watcher)
     insert_snap(snaps, snap)
     return {
         'watcher': watcher,
@@ -129,7 +129,7 @@ def _watcher_update(save):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
         _send_to_sessions(save, LOADING_MESSAGE)
-        snap = snapper.build_snapshot_from_watcher(save['watcher'])
+        snap = extractor.build_snapshot(save['watcher'])
         append_save(save['watcher'], snap)
         _send_to_sessions(save, snap)
 
