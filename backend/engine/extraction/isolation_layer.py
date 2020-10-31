@@ -329,3 +329,52 @@ def get_tech(state, empire):
         'completed_techs': completed,
         'available_techs': options
     }
+
+
+def get_fleets(state, empire):
+    fleets = [
+        {'id': fid, **fleet} for fid, fleet in state['fleet'].items()
+        if isinstance(fleet, dict) and
+        'owner' in fleet and
+        fleet['owner'] == empire and
+        ('civilian' not in fleet or fleet['civilian'] == 'no') and
+        ('station' not in fleet or fleet['station'] == 'no') and
+        not _is_transport_fleet(state, fleet)
+    ]
+
+    fleet_list = {}
+    total_exp = 0
+    total_ships = 0
+    for fleet in fleets:
+        if 'ships' in fleet:
+            fleet_item = {
+                'id': fleet['id'],
+                'power': fleet['military_power'],
+                'ship_count': len(fleet['ships']),
+            }
+            exps = []
+            ship_types = {}
+            for ship_id in fleet['ships']:
+                stype = 'Unknown'
+                if ship_id in state['ships']:
+                    ship = state['ships'][ship_id]
+                    ship_exp = ship['experience'] if 'experience' in ship else 0
+                    exps.append(ship_exp)
+                    total_exp += ship_exp
+                    total_ships += 1
+                    if ship['ship_design'] in state['ship_design']:
+                        design = state['ship_design'][ship['ship_design']]
+                        stype = design['ship_size'].capitalize()
+                        if stype not in ship_types:
+                            ship_types[stype] = 1
+                        else:
+                            ship_types[stype] += 1
+            fleet_item['experience'] = _basic_stats(exps)
+            fleet_item['ships'] = ship_types
+            fleet_list[fleet['id']] = fleet_item
+    
+    return {
+        'fleets': fleet_list,
+        'total_exp': total_exp,
+        'total_ships': total_ships
+    }
