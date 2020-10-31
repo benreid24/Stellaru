@@ -170,12 +170,18 @@ def get_planets(state, empire):
 
 def get_pops(state, pop_ids):
     pops = [state['pop'][pid] for pid in pop_ids if pid in state['pop'] and isinstance(state['pop'][pid], dict)]
+
+    def _get_ethos(pop):
+        if 'ethos' not in pop:
+            return []
+        return [ethic.split('_')[-1].capitalize() for ethic in pop['ethos'].values()]
+
     return [
         {
             'species': state['species'][pop['species_index']]['name'] if pop['species_index'] < len(state['species']) else 'Unknown',
             'job': ' '.join([word.capitalize() for word in pop['job'].split('_')]) if 'job' in pop else 'Unemployed',
             'category': pop['category'] if 'category' in pop else 'Unknown',
-            'ethos': [ethic.split('_')[-1].capitalize() for _, ethic in pop['ethos'].items()]
+            'ethos': [ethic.split('_')[-1].capitalize() for ethic in pop['ethos'].values()] if 'ethos' in pop else []
         } for pop in pops
     ]
 
