@@ -1,6 +1,6 @@
 import traceback
 
-from . import parser
+from engine import parser
 
 DAYS_PER_MONTH = 30
 DAYS_PER_YEAR = DAYS_PER_MONTH * 12

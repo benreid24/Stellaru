@@ -1,7 +1,7 @@
 import os
 
 from engine import finder, parser
-from engine.file_watcher import FileWatcher
+from engine.watchers.file_watcher import FileWatcher
 
 SAVE_FILE = 'stellaru.zip'
 

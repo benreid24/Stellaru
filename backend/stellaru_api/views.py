@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from engine import sessions
 from engine import finder
 from engine import parser
-from engine.file_watcher import FileWatcher
+from engine.watchers.file_watcher import FileWatcher
 from engine import engine
 
 

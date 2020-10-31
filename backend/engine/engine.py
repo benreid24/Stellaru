@@ -5,11 +5,11 @@ import traceback
 from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
-from . import snapper
-from . import sessions
-from . import finder
-from . import faker
-from .file_watcher import FileWatcher
+from engine import snapper
+from engine import sessions
+from engine import finder
+from engine.util import fake_snap
+from engine.watchers.file_watcher import FileWatcher
 
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
@@ -119,7 +119,7 @@ def _debug_watcher_update(save):
     _send_to_sessions(save, LOADING_MESSAGE)
     time.sleep(5)
     last_snap = save['snaps'][-1]
-    fake = faker.fake_snap(last_snap)
+    fake = fake_snap(last_snap)
     print('Faked')
     append_save(save['watcher'], fake)
     _send_to_sessions(save, fake)
