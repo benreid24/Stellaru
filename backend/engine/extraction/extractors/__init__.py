@@ -11,6 +11,7 @@ from .tech_extractor import TechExtractor
 from .planet_extractor import PlanetExtractor
 from .pop_extractor import PopExtractor
 from .fleet_extractor import FleetExtractor
+from .army_extractor import ArmyExtractor
 
 
 def build_extractor_list(isolation_layer):
@@ -27,5 +28,6 @@ def build_extractor_list(isolation_layer):
         TechExtractor(isolation_layer),
         PlanetExtractor(isolation_layer),
         PopExtractor(isolation_layer),
-        FleetExtractor(isolation_layer)
+        FleetExtractor(isolation_layer),
+        ArmyExtractor(isolation_layer)
     ]

@@ -378,3 +378,15 @@ def get_fleets(state, empire):
         'total_exp': total_exp,
         'total_ships': total_ships
     }
+
+
+def get_armies(state, empire):
+    armies = [
+        army for aid, army in state['army'].items()
+        if isinstance(army, dict) and army['owner'] == empire
+    ]
+    return [
+        {
+            'type': ' '.join([word.capitalize() for word in army['type'].split('_')])
+        } for army in armies
+    ]
