@@ -12,7 +12,7 @@ import {selectNested, findKeysOverSeries} from '../Util';
 import {translate} from '../../../Translator';
 import {getResourceName, nonNull} from './Util';
 
-const Name = 'Total Economy Value';
+const Name = 'Resource Values';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
