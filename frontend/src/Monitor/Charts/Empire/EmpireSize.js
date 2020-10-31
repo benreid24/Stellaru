@@ -45,7 +45,7 @@ function EmpireSize(props) {
                 allowIsolation={true}
                 lines={lines}
                 yAxisLabel={translate('Count')}
-                rightYLabel={translate('Sprawl &amp; Pops')}
+                rightYLabel={translate('Sprawl & Pops')}
             />
         </Chart>
     );

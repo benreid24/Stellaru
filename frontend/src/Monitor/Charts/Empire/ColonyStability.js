@@ -25,7 +25,7 @@ function ColonyStability(props) {
     };
 
     return (
-        <Chart name={Name} overlay={props.overlay} title={translate('Colony Stability &amp; Crime')} titleColor='#96d636'>
+        <Chart name={Name} overlay={props.overlay} title={translate('Colony Stability & Crime')} titleColor='#96d636'>
             <StatsChart
                 name={name}
                 data={data}
