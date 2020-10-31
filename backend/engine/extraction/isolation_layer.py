@@ -178,3 +178,19 @@ def get_federation(state, fed):
     return {
         'members': fed['members']
     }
+
+
+def get_wars(state):
+    wars = [
+        war for wid, war in state['war'].items()
+        if isinstance(war, dict)
+    ] if isinstance(state['war'], dict) else []
+    attackers = [fighter['country'] for war in wars for fighter in war['attackers']]
+    defenders = [fighter['country'] for war in wars for fighter in war['defenders']]
+    all_participants = set([*attackers, *defenders])
+    return {
+        'total': len(wars),
+        'all_participants': all_participants,
+        'attackers': attackers,
+        'defenders': defenders,
+    }
