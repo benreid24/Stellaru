@@ -177,7 +177,12 @@ def get_federation(state, fed):
         return None
     fed = state['federation'][fed]
     return {
-        'members': fed['members']
+        'name': fed['name'],
+        'members': fed['members'],
+        'cohesion': fed['federation_progression']['cohesion'],
+        'xp': fed['federation_progression']['experience'],
+        'level': fed['federation_progression']['levels'],
+        'leader': fed['leader']
     }
 
 

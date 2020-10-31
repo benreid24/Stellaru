@@ -3,6 +3,7 @@ from .leader_extractor import LeaderExtractor
 from .standing_extractor import StandngExtractor
 from .war_extractor import WarExtractor
 from .system_extractor import SystemExtractor
+from .federation_extractor import FederationExtractor
 
 
 def build_extractor_list(isolation_layer):
@@ -11,5 +12,6 @@ def build_extractor_list(isolation_layer):
         LeaderExtractor(isolation_layer),
         StandngExtractor(isolation_layer),
         WarExtractor(isolation_layer),
-        SystemExtractor(isolation_layer)
+        SystemExtractor(isolation_layer),
+        FederationExtractor(isolation_layer)
     ]
