@@ -8,6 +8,7 @@ from .unity_extractor import UnityExtractor
 from .economy_extractor import EconomyExtractor
 from .construction_extractor import ConstructionExtractor
 from .tech_extractor import TechExtractor
+from .planet_extractor import PlanetExtractor
 
 
 def build_extractor_list(isolation_layer):
@@ -21,5 +22,6 @@ def build_extractor_list(isolation_layer):
         UnityExtractor(isolation_layer),
         EconomyExtractor(isolation_layer),
         ConstructionExtractor(isolation_layer),
-        TechExtractor(isolation_layer)
+        TechExtractor(isolation_layer),
+        PlanetExtractor(isolation_layer)
     ]
