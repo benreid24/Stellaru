@@ -173,8 +173,8 @@ def get_pops(state, pop_ids):
     return [
         {
             'species': state['species'][pop['species_index']]['name'] if pop['species_index'] < len(state['species']) else 'Unknown',
-            'job': ' '.join([word.capitalize() for word in pop['job'].split('_')]),
-            'category': pop['category'],
+            'job': ' '.join([word.capitalize() for word in pop['job'].split('_')]) if 'job' in pop else 'Unemployed',
+            'category': pop['category'] if 'category' in pop else 'Unknown',
             'ethos': [ethic.split('_')[-1].capitalize() for _, ethic in pop['ethos'].items()]
         }
     ]
