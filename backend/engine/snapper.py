@@ -2,6 +2,8 @@ import traceback
 
 from engine import parser
 
+from engine import extraction
+
 DAYS_PER_MONTH = 30
 DAYS_PER_YEAR = DAYS_PER_MONTH * 12
 
@@ -161,6 +163,13 @@ def get_player_name(state, empire):
 def _build_empire_snapshot(state, empire):
     if empire not in state['country']:
         print(f'Invalid empire: {empire}')
+
+    try:
+        snap = {}
+        for extractor in extraction.extractor_list:
+            snap = {**snap, **extractor.extract_data(state, empire)}
+    except:
+        print(traceback.format_exc())
 
     try:
         planets, pops = _get_planets_and_pops(state, empire)
