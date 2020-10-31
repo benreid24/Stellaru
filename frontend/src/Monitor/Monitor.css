@@ -171,3 +171,25 @@
     font-size: 110%;
     font-weight: bold;
 }
+
+.chartAdderHidden {
+    height: 3%;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.chartAdderHiddenInner {
+    position: relative;
+    left: 5%;
+    top: 0;
+    text-align: center;
+    border: 1px solid rgba(200, 200, 200, 250);
+    border-radius: 3px;
+    width: 4%;
+    height: 1.8vh;
+}
+
+.chartAdderText {
+    color: rgba(200, 200, 200, 250);
+    font-size: 0.5vw;
+}
