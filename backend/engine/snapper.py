@@ -167,7 +167,10 @@ def _build_empire_snapshot(state, empire):
     try:
         snap = {}
         for extractor in extraction.extractor_list:
-            snap = {**snap, **extractor.extract_data(state, empire)}
+            if not extractor.data_key():
+                snap = {**snap, **extractor.extract_data(state, empire)}
+            else:
+                snap[extractor.data_key()] = extractor.extract_data(state, empire)
     except:
         print(traceback.format_exc())
 

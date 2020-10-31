@@ -111,7 +111,8 @@ def get_empire(state, empire):
         'relic_points': relic_points,
         'federation': data['federation'] if 'federation' in data else None,
         'subjects': data['subjects'] if 'subjects' in data else [],
-        'owned_systems': len([base for bid, base in state['starbase_mgr']['starbases'].items() if isinstance(base, dict) and base['owner'] == empire])
+        'owned_systems': len([base for bid, base in state['starbase_mgr']['starbases'].items() if isinstance(base, dict) and base['owner'] == empire]),
+        'starbases': data['num_upgraded_starbase']
     }
 
 
@@ -193,4 +194,16 @@ def get_wars(state):
         'all_participants': all_participants,
         'attackers': attackers,
         'defenders': defenders,
+    }
+
+
+def get_surveyed_objects(state, empire):
+    surveyed_ids = state['country'][empire]['surveyed'] if 'surveyed' in state['country'][empire] else []
+    surveyed_stars = sum([
+        1 for sid in surveyed_ids
+        if sid in state['galactic_object'] and state['galactic_object'][sid]['type'] == 'star'
+    ])
+    return {
+        'objects': len(surveyed_ids),
+        'stars': surveyed_stars
     }

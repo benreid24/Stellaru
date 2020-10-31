@@ -4,6 +4,9 @@ from .extractor import Extractor
 class MetadataExtractor(Extractor):
     def __init__(self, isolation_layer):
         super().__init__(isolation_layer)
+
+    def data_key(self):
+        return None
     
     def extract_data(self, state, empire):
         game_md = self.isolation_layer.get_metadata(state)

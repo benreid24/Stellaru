@@ -5,6 +5,9 @@ class WarExtractor(Extractor):
     def __init__(self, isolation_layer):
         super().__init__(isolation_layer)
 
+    def data_key(self):
+        return 'war'
+
     def extract_data(self, state, empire):
         war = self.isolation_layer.get_wars(state)
         offense_wars = sum([1 for eid in war['attackers'] if empire == eid])
