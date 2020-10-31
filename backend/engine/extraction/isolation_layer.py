@@ -212,3 +212,29 @@ def get_surveyed_objects(state, empire):
         'objects': len(surveyed_ids),
         'stars': surveyed_stars
     }
+
+
+def get_unity(state, empire):
+    ap_count = len(state['country'][empire]['ascension_perks'] if 'ascension_perks' in state['country'][empire] else [])
+    unity_income = sum([
+        iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
+        if 'unity' in iset
+    ])
+    adopted_trees = 0
+    finished_trees = 0
+    traditions = 0
+    tradition_list = state['country'][empire]['traditions'] if 'traditions' in state['country'][empire] else []
+    for trad in tradition_list:
+        if 'adopt' in trad:
+            adopted_trees += 1
+        elif 'finish' in trad:
+            finished_trees += 1
+        else:
+            traditions += 1
+    return {
+        'adopted_trees': adopted_trees,
+        'finished_trees': finished_trees,
+        'traditions': traditions,
+        'acension_perks': ap_count,
+        'unity': unity_income
+    }
