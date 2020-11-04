@@ -18,12 +18,12 @@ class PostprocessorData:
             'static': {},
             'dynamic': {}
         }
-        if len(snap_history) > 0 and KEY in self.snap_history[-1] and empire in self.snap_history[-1][KEY]:
+        if len(self.snap_history) > 0 and KEY in self.snap_history[-1] and empire in self.snap_history[-1][KEY]:
             self.snapshot[KEY][empire]['static'] = self.snap_history[-1][KEY][empire]['static']
         self.current_empire = empire
 
     def setup_postprocessor(self, processor_name):
-        if not self.current_empire:
+        if self.current_empire == None:
             raise Exception('current_empire not set, call setup_empire() before setup_postprocessor()')
         data = self.snapshot[KEY][self.current_empire]
         if processor_name not in data['static']:
@@ -35,7 +35,7 @@ class PostprocessorData:
             if self.current_empire in snap['empires']:
                 snap_hist.append(snap)
             if KEY in snap and self.current_empire in snap[KEY]:
-                if processor_name in snap[KEY][empire]['dynamic']:
+                if processor_name in snap[KEY][self.current_empire]['dynamic']:
                     custom_hist.append(snap[KEY][self.current_empire]['dynamic'][processor_name])
         self.empire_snapshot_list = snap_hist
         self.empire_processor_history = custom_hist
@@ -57,7 +57,10 @@ class PostprocessorData:
         self._check()
         return self.empire_snapshot_list
 
-    def get_current_snapshot(self):
+    def get_full_snapshot(self):
+        return self.snapshot
+
+    def get_empire_snapshot(self):
         self._check()
         return self.snapshot['empires'][self.current_empire]
 
@@ -69,5 +72,5 @@ class PostprocessorData:
         return self.current_empire
 
     def _check(self):
-        if not self.current_empire or not self.current_processor:
+        if self.current_empire == None or not self.current_processor:
             raise Exception('setup_empire() and setup_postprocessor() must both be called before data access')
