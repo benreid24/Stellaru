@@ -129,7 +129,7 @@ def _watcher_update(save):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
         _send_to_sessions(save, LOADING_MESSAGE)
-        snap = extractor.build_snapshot(save['watcher'])
+        snap = extractor.build_snapshot(save['watcher'], save['snaps'])
         append_save(save['watcher'], snap)
         _send_to_sessions(save, snap)
 
