@@ -63,7 +63,7 @@ def empire_valid(state, empire):
         return False
     if 'modules' not in state['country'][empire]:
         return False
-    if 'standard_economy_module' not in state['country'][empire]:
+    if 'standard_economy_module' not in state['country'][empire]['modules']:
         return False
     if 'owned_planets' not in state['country'][empire]:
         return False
