@@ -101,7 +101,7 @@ def get_empires(request):
         if not save_watcher or not save_watcher.valid():
             return _make_error(f'Invalid save file: {save_file}')
 
-        save = engine.load_and_add_save(save_watcher, request.session['id'])
+        save = engine.add_save(save_watcher, request.session['id'])
         empires = [{
             'id': empire_id,
             'name': save['snaps'][-1]['empires'][empire_id]['name'],
