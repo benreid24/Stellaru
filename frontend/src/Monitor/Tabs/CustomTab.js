@@ -9,8 +9,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts, getAddedCharts, clearAdded} from '../ChartRegistry';
-import {randomString} from '../Charts/Util';
-import {translate} from '../../Translator';
+import {randomString} from 'Monitor/Charts/Util';
+import {translate} from 'Translator';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {

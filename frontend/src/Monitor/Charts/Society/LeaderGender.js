@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Chart from '../Chart';
-import AreaChart from '../AreaChart';
+import Chart from 'Monitor/Charts/Chart';
+import AreaChart from 'Monitor/Charts/AreaChart';
 import PieChart from '../PieChart';
 import {selectNested, percentValueFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 import './Society.css';
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {translate} from '../../Translator';
+import {translate} from 'Translator';
 
 function ChartOverlay(props) {
     const settings = props.settings;

@@ -9,8 +9,8 @@ import ComposedChart from '../ComposedChart';
 import {selectNested, findKeysOverSeries, renderArea, renderLine} from '../Util';
 import {getResourceName} from './Util';
 import {registerChart} from '../../ChartRegistry';
-import Chart from '../Chart';
-import {translate} from '../../../Translator';
+import Chart from 'Monitor/Charts/Chart';
+import {translate} from 'Translator';
 
 const Name = 'Resource Production Breakdown';
 

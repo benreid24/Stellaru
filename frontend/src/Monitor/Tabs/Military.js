@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Armies from '../Charts/Military/Armies';
-import Ships from '../Charts/Military/Ships';
-import FleetShips from '../Charts/Military/FleetShips';
-import FleetPower from '../Charts/Military/FleetPower';
+import Armies from 'Monitor/Charts/Military/Armies';
+import Ships from 'Monitor/Charts/Military/Ships';
+import FleetShips from 'Monitor/Charts/Military/FleetShips';
+import FleetPower from 'Monitor/Charts/Military/FleetPower';
 
 function Military(props) {
     const data = props.data;

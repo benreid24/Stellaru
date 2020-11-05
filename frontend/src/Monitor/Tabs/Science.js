@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ScienceOutput from '../Charts/Science/ScienceOutput';
-import Technologies from '../Charts/Science/Technologies';
-import Unity from '../Charts/Science/Unity';
-import Exploration from '../Charts/Science/Exploration';
+import ScienceOutput from 'Monitor/Charts/Science/ScienceOutput';
+import Technologies from 'Monitor/Charts/Science/Technologies';
+import Unity from 'Monitor/Charts/Science/Unity';
+import Exploration from 'Monitor/Charts/Science/Exploration';
 
 function Science(props) {
     const data = props.data;

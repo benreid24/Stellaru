@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Chart from '../Chart';
+import Chart from 'Monitor/Charts/Chart';
 import ComposedChart from '../ComposedChart';
 import {selectNested, valueTickFormat, renderArea, renderLine} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 import './Military.css';
 

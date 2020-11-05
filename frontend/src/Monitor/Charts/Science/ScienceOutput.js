@@ -5,12 +5,12 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import Chart from '../Chart';
-import AreaChart from '../AreaChart';
-import LineChart from '../LineChart';
+import Chart from 'Monitor/Charts/Chart';
+import AreaChart from 'Monitor/Charts/AreaChart';
+import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested, valueTickFormat} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 import './Science.css';
 

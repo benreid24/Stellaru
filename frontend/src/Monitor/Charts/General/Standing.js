@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Chart from '../Chart';
-import LineChart from '../LineChart';
-import AreaChart from '../AreaChart';
+import Chart from 'Monitor/Charts/Chart';
+import LineChart from 'Monitor/Charts/LineChart';
+import AreaChart from 'Monitor/Charts/AreaChart';
 import {selectNested, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 import './General.css';
 

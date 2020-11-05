@@ -10,7 +10,7 @@ import SaveChooser from './SaveChooser/SaveChooser';
 import EmpireChooser from './EmpireChooser/EmpireChooser';
 import Monitor from './Monitor/Monitor';
 
-import {init as initTranslator, getAllLangs, setLang as setGlobalLang, LanguagePicker} from './Translator';
+import {init as initTranslator, getAllLangs, setLang as setGlobalLang, LanguagePicker} from 'Translator';
 
 const State = Object.freeze({
     chooseSave: 0,

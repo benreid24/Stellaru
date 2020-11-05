@@ -2,8 +2,8 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import EmpireCard from './EmpireCard';
-import LoadingDots from '../LoadingDots';
-import {translate} from '../Translator';
+import LoadingDots from 'LoadingDots';
+import {translate} from 'Translator';
 
 import './EmpireChooser.css';
 

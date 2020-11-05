@@ -1,11 +1,11 @@
 import React from 'react';
 
-import AllResourceIncomes from '../Charts/Economy/AllResourceIncomes';
-import Stockpiles from '../Charts/Economy/Stockpiles';
-import MegaBreakdown from '../Charts/Economy/MegaBreakdown';
-import Gdp from '../Charts/Economy/Gdp';
-import MarketPrices from '../Charts/Economy/MarketPrices';
-import ResourceValues from '../Charts/Economy/ResourceValues';
+import AllResourceIncomes from 'Monitor/Charts/Economy/AllResourceIncomes';
+import Stockpiles from 'Monitor/Charts/Economy/Stockpiles';
+import MegaBreakdown from 'Monitor/Charts/Economy/MegaBreakdown';
+import Gdp from 'Monitor/Charts/Economy/Gdp';
+import MarketPrices from 'Monitor/Charts/Economy/MarketPrices';
+import ResourceValues from 'Monitor/Charts/Economy/ResourceValues';
 
 function Economy(props) {
     const data = props.data;

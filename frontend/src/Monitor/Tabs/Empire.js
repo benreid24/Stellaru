@@ -1,11 +1,11 @@
 import React from 'react';
 
-import EmpireSize from '../Charts/Empire/EmpireSize';
-import ColonyAges from '../Charts/Empire/ColonyAges';
-import Colonies from '../Charts/Empire/Colonies';
-import ColonySizes from '../Charts/Empire/ColonySizes';
-import ColonyStability from '../Charts/Empire/ColonyStability';
-import ColonyTypes from '../Charts/Empire/ColonyTypes';
+import EmpireSize from 'Monitor/Charts/Empire/EmpireSize';
+import ColonyAges from 'Monitor/Charts/Empire/ColonyAges';
+import Colonies from 'Monitor/Charts/Empire/Colonies';
+import ColonySizes from 'Monitor/Charts/Empire/ColonySizes';
+import ColonyStability from 'Monitor/Charts/Empire/ColonyStability';
+import ColonyTypes from 'Monitor/Charts/Empire/ColonyTypes';
 
 function Empire(props) {
     const data = props.data;

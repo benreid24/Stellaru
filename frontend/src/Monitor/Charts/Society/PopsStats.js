@@ -5,11 +5,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import Chart from '../Chart';
-import AreaChart from '../AreaChart';
+import Chart from 'Monitor/Charts/Chart';
+import AreaChart from 'Monitor/Charts/AreaChart';
 import {selectNested, findKeysOverSeries, capitalize} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 const Name = 'Pops';
 

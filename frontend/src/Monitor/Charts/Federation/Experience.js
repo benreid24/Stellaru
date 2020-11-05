@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Chart from '../Chart';
-import LineChart from '../LineChart';
+import Chart from 'Monitor/Charts/Chart';
+import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 const Name = 'Federation Experience';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Chart from '../Chart';
-import LineChart from '../LineChart';
+import Chart from 'Monitor/Charts/Chart';
+import LineChart from 'Monitor/Charts/LineChart';
 import {registerChart} from '../../ChartRegistry';
 import {findKeysOverSeries, selectNested} from '../Util';
 import {getResourceName, filterResources} from './Util';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 const Name = 'All Resource Net Incomes';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Standing from '../Charts/General/Standing';
-import NetResourceIncome from '../Charts/Economy/NetResourceIncome';
-import ScienceOutput from '../Charts/Science/ScienceOutput';
-import FancyBreakdown from '../Charts/Economy/FancyBreakdown';
-import WarOveriview from '../Charts/Military/WarOverview';
-import Comparisons from '../Charts/General/Comparisons';
+import Standing from 'Monitor/Charts/General/Standing';
+import NetResourceIncome from 'Monitor/Charts/Economy/NetResourceIncome';
+import ScienceOutput from 'Monitor/Charts/Science/ScienceOutput';
+import FancyBreakdown from 'Monitor/Charts/Economy/FancyBreakdown';
+import WarOveriview from 'Monitor/Charts/Military/WarOverview';
+import Comparisons from 'Monitor/Charts/General/Comparisons';
 
 function Overview(props) {
     const data = props.data;

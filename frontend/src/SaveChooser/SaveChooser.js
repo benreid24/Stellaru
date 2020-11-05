@@ -4,7 +4,7 @@ import {MethodChooser, Methods} from './MethodChooser';
 import SaveSelector from './SaveSelector';
 import SaveWaiter from './SaveWaiter';
 
-import {translate} from '../Translator';
+import {translate} from 'Translator';
 
 import './SaveChooser.css';
 

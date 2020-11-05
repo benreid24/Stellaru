@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Pops from '../Charts/Society/PopsStats';
-import Jobs from '../Charts/Society/Jobs';
-import Leaders from '../Charts/Society/Leaders';
-import LeaderStats from '../Charts/Society/LeaderStats';
-import LeaderGender from '../Charts/Society/LeaderGender';
+import Pops from 'Monitor/Charts/Society/PopsStats';
+import Jobs from 'Monitor/Charts/Society/Jobs';
+import Leaders from 'Monitor/Charts/Society/Leaders';
+import LeaderStats from 'Monitor/Charts/Society/LeaderStats';
+import LeaderGender from 'Monitor/Charts/Society/LeaderGender';
 
 function Society(props) {
     const data = props.data;

@@ -9,7 +9,7 @@ import {ResponsiveContainer} from 'recharts';
 import {YAxis, XAxis} from 'recharts';
 import {Scrollbars} from 'react-custom-scrollbars';
 
-import {getCurrentTab} from '../Tabs/CurrentTab';
+import {getCurrentTab} from 'Monitor/Tabs/CurrentTab';
 import {getDataColors, valueTickFormat, selectNested, dateTickFormat, makeId} from './Util';
 
 const AxisLabel = ({axisType, x, y, width, height, stroke, children, offset}) => {

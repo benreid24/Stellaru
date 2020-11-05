@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import ChartOverlay from './ChartOverlay';
 import {addChart} from '../ChartRegistry';
-import {translate} from '../../Translator';
+import {translate} from 'Translator';
 
 import './Charts.css';
 

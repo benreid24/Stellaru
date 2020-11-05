@@ -5,11 +5,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import Chart from '../Chart';
-import AreaChart from '../AreaChart';
+import Chart from 'Monitor/Charts/Chart';
+import AreaChart from 'Monitor/Charts/AreaChart';
 import {registerChart} from '../../ChartRegistry';
 import {selectNested, findKeysOverSeries} from '../Util';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 import {getResourceName, nonNull} from './Util';
 
 const Name = 'Resource Values';

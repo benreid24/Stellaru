@@ -5,11 +5,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import AreaChart from '../AreaChart';
+import AreaChart from 'Monitor/Charts/AreaChart';
 import {selectNested, findKeysOverSeries, getDataColors} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import Chart from '../Chart';
-import {translate} from '../../../Translator';
+import Chart from 'Monitor/Charts/Chart';
+import {translate} from 'Translator';
 
 import './Economy.css';
 

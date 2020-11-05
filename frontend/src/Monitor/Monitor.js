@@ -19,7 +19,7 @@ import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
-import {translate} from '../Translator';
+import {translate} from 'Translator';
 
 import './Monitor.css';
 

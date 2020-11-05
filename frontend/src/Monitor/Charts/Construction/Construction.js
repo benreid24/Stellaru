@@ -5,11 +5,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import Chart from '../Chart';
-import LineChart from '../LineChart';
+import Chart from 'Monitor/Charts/Chart';
+import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested, capitalize, findKeysOverSeries} from '../Util';
 import {registerChart} from '../../ChartRegistry';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 import './Construction.css';
 

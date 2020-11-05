@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Chart from '../Chart';
+import Chart from 'Monitor/Charts/Chart';
 import StatsChart from '../StatsChart';
 import {registerChart} from '../../ChartRegistry';
 import {selectNested} from '../Util';
-import {translate} from '../../../Translator';
+import {translate} from 'Translator';
 
 const Name = 'Fleet Ship Stats';
 
