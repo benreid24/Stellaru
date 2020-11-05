@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
-import ComposedChart from '../../Charts/ComposedChart';
-import {selectNested, renderLine, renderArea} from '../../Charts/Util';
+import ComposedChart from 'Monitor/Charts/ComposedChart';
+import {selectNested, renderLine, renderArea} from 'Monitor/Charts/Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

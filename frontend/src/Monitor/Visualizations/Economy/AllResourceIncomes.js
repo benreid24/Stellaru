@@ -3,7 +3,7 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {findKeysOverSeries, selectNested} from '../../Charts/Util';
+import {findKeysOverSeries, selectNested} from 'Monitor/Charts/Util';
 import {getResourceName, filterResources} from './Util';
 import {translate} from 'Translator';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
 import AreaChart from 'Monitor/Charts/AreaChart';
-import {selectNested, findKeysOverSeries} from '../../Charts/Util';
+import {selectNested, findKeysOverSeries} from 'Monitor/Charts/Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {findKeysOverSeries, findNested, selectNested, valueTickFormat} from '../../Charts/Util';
+import {findKeysOverSeries, findNested, selectNested, valueTickFormat} from 'Monitor/Charts/Util';
 import {translate} from 'Translator';
 
 const Name = 'Galactic Comparisons';

@@ -5,7 +5,7 @@ import AreaChart from 'Monitor/Charts/AreaChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 
-import {selectNested, findKeysOverSeries, findNested} from '../../Charts/Util';
+import {selectNested, findKeysOverSeries, findNested} from 'Monitor/Charts/Util';
 
 const Name = 'Colony Sizes';
 

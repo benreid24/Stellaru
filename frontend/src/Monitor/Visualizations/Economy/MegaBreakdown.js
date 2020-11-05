@@ -5,8 +5,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import ComposedChart from '../../Charts/ComposedChart';
-import {selectNested, findKeysOverSeries, renderArea, renderLine} from '../../Charts/Util';
+import ComposedChart from 'Monitor/Charts/ComposedChart';
+import {selectNested, findKeysOverSeries, renderArea, renderLine} from 'Monitor/Charts/Util';
 import {getResourceName} from './Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import Chart from 'Monitor/Charts/Chart';

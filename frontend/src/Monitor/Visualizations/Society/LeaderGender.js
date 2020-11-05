@@ -2,8 +2,8 @@ import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
 import AreaChart from 'Monitor/Charts/AreaChart';
-import PieChart from '../../Charts/PieChart';
-import {selectNested, percentValueFormat} from '../../Charts/Util';
+import PieChart from 'Monitor/Charts/PieChart';
+import {selectNested, percentValueFormat} from 'Monitor/Charts/Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
-import StatsChart from '../../Charts/StatsChart';
+import StatsChart from 'Monitor/Charts/StatsChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

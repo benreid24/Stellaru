@@ -1,4 +1,4 @@
-import {capitalize} from '../../Charts/Util';
+import {capitalize} from 'Helpers';
 
 const resourceNames = Object.freeze({
     sr_dark_matter: 'Dark Matter',

@@ -7,7 +7,8 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
-import {selectNested, capitalize, findKeysOverSeries} from '../../Charts/Util';
+import {selectNested, findKeysOverSeries} from 'Monitor/Charts/Util';
+import {capitalize} from 'Helpers';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

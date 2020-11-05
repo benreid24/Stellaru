@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-import {shuffle} from './Charts/Util';
+import {shuffle} from 'Helpers';
 import {translate} from 'Translator';
 
 const TipList = [

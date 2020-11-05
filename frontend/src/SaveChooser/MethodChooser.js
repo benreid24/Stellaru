@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import {objectKeys} from 'Monitor/Charts/Util';
+import {objectKeys} from 'Helpers';
 import {translate} from 'Translator';
 
 const Methods = Object.freeze({

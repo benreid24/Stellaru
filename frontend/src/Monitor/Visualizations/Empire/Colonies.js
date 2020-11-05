@@ -8,7 +8,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {findKeysOverSeries, capitalize, findNested, selectNested} from '../../Charts/Util';
+import {findKeysOverSeries, findNested, selectNested} from 'Monitor/Charts/Util';
+import {capitalize} from 'Helpers';
 import {translate} from 'Translator';
 
 const Name = 'Colony Stats';

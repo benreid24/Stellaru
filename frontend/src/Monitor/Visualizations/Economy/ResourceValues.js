@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Chart from 'Monitor/Charts/Chart';
 import AreaChart from 'Monitor/Charts/AreaChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {selectNested, findKeysOverSeries} from '../../Charts/Util';
+import {selectNested, findKeysOverSeries} from 'Monitor/Charts/Util';
 import {translate} from 'Translator';
 import {getResourceName, nonNull} from './Util';
 

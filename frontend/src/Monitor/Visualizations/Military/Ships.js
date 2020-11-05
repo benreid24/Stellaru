@@ -3,7 +3,8 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import AreaChart from 'Monitor/Charts/AreaChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {findKeysOverSeries, selectNested, capitalize} from '../../Charts/Util';
+import {findKeysOverSeries, selectNested} from 'Monitor/Charts/Util';
+import {capitalize} from 'Helpers';
 import {translate} from 'Translator';
 
 const Name = 'Ship Types';

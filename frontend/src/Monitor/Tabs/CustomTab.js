@@ -9,7 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {getChart, getAllCharts, getAddedCharts, clearAdded} from 'Monitor/Charts/ChartRegistry';
-import {randomString} from 'Monitor/Charts/Util';
+import {randomString} from 'Helpers';
 import {translate} from 'Translator';
 
 const useStyles = makeStyles((theme) => ({

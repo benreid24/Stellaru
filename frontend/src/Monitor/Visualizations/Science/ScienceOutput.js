@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Chart from 'Monitor/Charts/Chart';
 import AreaChart from 'Monitor/Charts/AreaChart';
 import LineChart from 'Monitor/Charts/LineChart';
-import {selectNested, valueTickFormat} from '../../Charts/Util';
+import {selectNested, valueTickFormat} from 'Monitor/Charts/Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {translate} from 'Translator';
 

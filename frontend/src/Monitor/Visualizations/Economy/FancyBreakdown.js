@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 import AreaChart from 'Monitor/Charts/AreaChart';
-import {selectNested, findKeysOverSeries, getDataColors} from '../../Charts/Util';
+import {selectNested, findKeysOverSeries, getDataColors} from 'Monitor/Charts/Util';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import Chart from 'Monitor/Charts/Chart';
 import {translate} from 'Translator';

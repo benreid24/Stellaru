@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
-import StatsChart from '../../Charts/StatsChart';
+import StatsChart from 'Monitor/Charts/StatsChart';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
-import {selectNested} from '../../Charts/Util';
+import {selectNested} from 'Monitor/Charts/Util';
 import {translate} from 'Translator';
 
 const Name = 'Fleet Ship Stats';
