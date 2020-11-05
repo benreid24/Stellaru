@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AllConstruction from 'Monitor/Charts/Construction/AllConstruction';
-import ConstructionQueues from 'Monitor/Charts/Construction/ConstructionQueues';
-import ConstructionBreakdown from 'Monitor/Charts/Construction/Construction';
-import ConstructionQueueStats from 'Monitor/Charts/Construction/ConstructionQueueStats';
+import AllConstruction from 'Monitor/Visualizations/Construction/AllConstruction';
+import ConstructionQueues from 'Monitor/Visualizations/Construction/ConstructionQueues';
+import ConstructionBreakdown from 'Monitor/Visualizations/Construction/Construction';
+import ConstructionQueueStats from 'Monitor/Visualizations/Construction/ConstructionQueueStats';
 
 function Construction(props) {
     const data = props.data;
