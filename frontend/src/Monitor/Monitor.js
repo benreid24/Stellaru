@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 
 import {Tabs, Tab} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
-import LoadingDots from '../LoadingDots';
+import LoadingDots from 'LoadingDots';
 import Tips from './Tips';
 
 import Overview from './Tabs/Overview';
