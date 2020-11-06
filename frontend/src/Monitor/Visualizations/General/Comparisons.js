@@ -60,6 +60,12 @@ function Comparisons(props) {
     }, []);
 
     const names = findNested('comparisons/names', data, null);
+    if (!names) {
+        return (
+            <Chart name={Name} overlay={props.overlay} title={translate('Galactic Comparisons')} titleColor='#96d636'/>
+        );
+    }
+
     const me = Object.keys(names)[0];
     const subkeys = findKeysOverSeries(data, `comparisons/${key}`);
     const lines = subkeys.map(eid => {

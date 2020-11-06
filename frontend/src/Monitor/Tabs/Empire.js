@@ -1,11 +1,11 @@
 import React from 'react';
 
 import EmpireSize from 'Monitor/Visualizations/Empire/EmpireSize';
-import ColonyAges from 'Monitor/Visualizations/Empire/ColonyAges';
 import Colonies from 'Monitor/Visualizations/Empire/Colonies';
 import ColonySizes from 'Monitor/Visualizations/Empire/ColonySizes';
 import ColonyStability from 'Monitor/Visualizations/Empire/ColonyStability';
 import ColonyTypes from 'Monitor/Visualizations/Empire/ColonyTypes';
+import ColonyScatter from 'Monitor/Visualizations/Empire/ColonyScatter';
 
 function Empire(props) {
     const data = props.data;
@@ -20,7 +20,7 @@ function Empire(props) {
                     <ColonyTypes data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3 presetChart'>
-                    <ColonyAges data={data}/>
+                    <ColonyScatter data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 presetChart'>
                     <Colonies data={data}/>

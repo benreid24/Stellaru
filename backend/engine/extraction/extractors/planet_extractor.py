@@ -12,8 +12,11 @@ class PlanetExtractor(Extractor):
     def extract_data(self, state, empire):
         planets = self.isolation_layer.get_planets(state, empire)
 
+        pop_stats = util.basic_stats([len(planet['pops']) for planet in planets])
         type_sums = {}
         for planet in planets:
+            planet['population'] = len(planet['pops'])
+            planet.pop('pops')
             if planet['type'] not in type_sums:
                 type_sums[planet['type']] = 1
             else:
@@ -30,7 +33,7 @@ class PlanetExtractor(Extractor):
             'amenities': util.basic_stats([planet['free_amenities'] for planet in planets]),
             'housing': util.basic_stats([planet['free_housing'] for planet in planets]),
             'crime': util.basic_stats([planet['crime'] for planet in planets]),
-            'pops': util.basic_stats([len(planet['pops']) for planet in planets]),
+            'pops': pop_stats,
             'age_days': util.basic_stats([planet['age_days'] for planet in planets]),
             'age': util.basic_stats([planet['age'] for planet in planets])
         }
