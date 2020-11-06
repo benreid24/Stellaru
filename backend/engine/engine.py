@@ -5,11 +5,11 @@ import traceback
 from zipfile import ZipFile, ZIP_BZIP2
 from threading import Thread, Lock
 
-from . import snapper
-from . import sessions
-from . import finder
-from . import faker
-from .file_watcher import FileWatcher
+from engine import extractor
+from engine import sessions
+from engine import finder
+from engine.util import fake_snap
+from engine.watchers.file_watcher import FileWatcher
 
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
@@ -19,39 +19,7 @@ monitored_saves = {}
 save_lock = Lock()
 
 
-def insert_snap(snaps, snap):
-    for i in range(0, len(snaps)):
-        oldsnap = snaps[i]
-        if oldsnap['date_days'] < snap['date_days']:
-            continue
-        if snap['date_days'] == oldsnap['date_days']:
-            return False
-        snaps = snaps[:i+1]
-        break
-    snaps.append(snap)     
-    return True
-
-
-def _load_save(watcher, session_id):
-    data_file = watcher.get_data_file()
-    snaps = []
-    try:
-        with ZipFile(data_file, 'r') as zip:
-            with zip.open(SAVE_FILE, 'r') as f:
-                snaps = pickle.loads(f.read())
-    except:
-        snaps = []
-    snap = snapper.build_snapshot_from_watcher(watcher)
-    insert_snap(snaps, snap)
-    return {
-        'watcher': watcher,
-        'sessions': [session_id],
-        'snaps': snaps,
-        'updater': Thread(target=_watch_save, args=[watcher])
-    }
-
-
-def load_and_add_save(watcher, session_id):
+def add_save(watcher, session_id):
     global monitored_saves
     folder = watcher.name()
     if folder not in monitored_saves:
@@ -62,16 +30,6 @@ def load_and_add_save(watcher, session_id):
     else:
         add_save_watcher(watcher, session_id)
     return monitored_saves[folder]
-
-
-def append_save(watcher, snapshot):
-    global monitored_saves
-    folder = watcher.name()
-    if folder in monitored_saves:
-        insert_snap(monitored_saves[folder]['snaps'], snapshot)
-        _flush_save(monitored_saves[folder])
-        return True
-    return False
 
 
 def add_save_watcher(watcher, session_id):
@@ -87,19 +45,61 @@ def add_save_watcher(watcher, session_id):
 def session_reconnected(session_id, file):
     save_watcher = finder.get_save(file)
     if save_watcher:
-        load_and_add_save(save_watcher, session_id)
+        add_save(save_watcher, session_id)
 
 
 def get_save(watcher, session_id, load=False):
     if watcher.name() in monitored_saves:
         return monitored_saves[watcher.name()]
     if load:
-        return load_and_add_save(watcher, session_id)
+        return add_save(watcher, session_id)
     return None
 
 
 def save_active(save_name):
     return save_name in monitored_saves
+
+
+def _load_save(watcher, session_id):
+    data_file = watcher.get_data_file()
+    snaps = []
+    try:
+        with ZipFile(data_file, 'r') as zip:
+            with zip.open(SAVE_FILE, 'r') as f:
+                snaps = pickle.loads(f.read())
+    except:
+        snaps = []
+    snap = extractor.build_snapshot(watcher)
+    _insert_snapshot(snaps, snap)
+    return {
+        'watcher': watcher,
+        'sessions': [session_id],
+        'snaps': snaps,
+        'updater': Thread(target=_watch_save, args=[watcher])
+    }
+
+
+def _add_snapshot(watcher, snapshot):
+    global monitored_saves
+    folder = watcher.name()
+    if folder in monitored_saves:
+        _insert_snapshot(monitored_saves[folder]['snaps'], snapshot)
+        _flush_save(monitored_saves[folder])
+        return True
+    return False
+
+
+def _insert_snapshot(snaps, snap):
+    for i in range(0, len(snaps)):
+        oldsnap = snaps[i]
+        if oldsnap['date_days'] < snap['date_days']:
+            continue
+        if snap['date_days'] == oldsnap['date_days']:
+            return False
+        snaps = snaps[:i+1]
+        break
+    snaps.append(snap)     
+    return True
 
 
 def _flush_save(save):
@@ -119,9 +119,9 @@ def _debug_watcher_update(save):
     _send_to_sessions(save, LOADING_MESSAGE)
     time.sleep(5)
     last_snap = save['snaps'][-1]
-    fake = faker.fake_snap(last_snap)
+    fake = fake_snap(last_snap)
     print('Faked')
-    append_save(save['watcher'], fake)
+    _add_snapshot(save['watcher'], fake)
     _send_to_sessions(save, fake)
 
 
@@ -129,8 +129,8 @@ def _watcher_update(save):
     save['watcher'].refresh()
     if save['watcher'].new_data_available():
         _send_to_sessions(save, LOADING_MESSAGE)
-        snap = snapper.build_snapshot_from_watcher(save['watcher'])
-        append_save(save['watcher'], snap)
+        snap = extractor.build_snapshot(save['watcher'], save['snaps'])
+        _add_snapshot(save['watcher'], snap)
         _send_to_sessions(save, snap)
 
 

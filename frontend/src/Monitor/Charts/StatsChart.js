@@ -3,7 +3,7 @@ import React from 'react';
 import LineChart from './LineChart';
 
 import {selectNested} from './Util';
-import {translate} from '../../Translator';
+import {translate} from 'Translator';
 
 function StatsChart(props) {
     const name = props.name;

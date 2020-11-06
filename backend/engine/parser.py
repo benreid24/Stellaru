@@ -2,15 +2,15 @@ from zipfile import ZipFile
 import io
 import traceback
 
-from .file import File
+from engine.util import InMemoryFile
 
 WHITESPACE = '\n \t'
 
 
 def _open_save(file):
     with ZipFile(file) as zipped:
-        meta = File(zipped.read('meta').decode('utf-8'))
-        gamestate = File(zipped.read('gamestate').decode('utf-8'))
+        meta = InMemoryFile(zipped.read('meta').decode('utf-8'))
+        gamestate = InMemoryFile(zipped.read('gamestate').decode('utf-8'))
         return meta, gamestate
 
 

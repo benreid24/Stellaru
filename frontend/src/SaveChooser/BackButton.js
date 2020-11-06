@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {translate} from '../Translator';
+import {translate} from 'Translator';
 
 function BackButton(props) {
     const onClick = props.onClick;

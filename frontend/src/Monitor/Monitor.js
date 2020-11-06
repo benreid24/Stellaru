@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 
 import {Tabs, Tab} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
-import LoadingDots from '../LoadingDots';
+import LoadingDots from 'LoadingDots';
 import Tips from './Tips';
 
 import Overview from './Tabs/Overview';
@@ -19,7 +19,7 @@ import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
-import {translate} from '../Translator';
+import {translate} from 'Translator';
 
 import './Monitor.css';
 

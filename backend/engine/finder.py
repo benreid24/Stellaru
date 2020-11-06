@@ -2,15 +2,15 @@ import time
 import os
 import sys
 
-from .save_watcher import SaveWatcher
+from engine.watchers.save_watcher import SaveWatcher
+from engine.watchers.file_watcher import FileWatcher
 
-from .file_watcher import FileWatcher
 if sys.platform == 'win32':
-    from . import windows_finder as os_finder
+    from engine.finders import windows_finder as os_finder
 elif sys.platform == 'darwin':
-    from . import osx_finder as os_finder
+    from engine.finders import osx_finder as os_finder
 elif sys.platform == 'linux':
-    from . import linux_finder as os_finder
+    from engine.finders import linux_finder as os_finder
 else:
     raise Exception(f'Unsupported operating system: {sys.platform}')
 

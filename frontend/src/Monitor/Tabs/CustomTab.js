@@ -8,9 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
-import {getChart, getAllCharts, getAddedCharts, clearAdded} from '../ChartRegistry';
-import {randomString} from '../Charts/Util';
-import {translate} from '../../Translator';
+import {getChart, getAllCharts, getAddedCharts, clearAdded} from 'Monitor/Charts/ChartRegistry';
+import {randomString} from 'Helpers';
+import {translate} from 'Translator';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {

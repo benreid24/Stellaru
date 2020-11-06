@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 import BackButton from './BackButton';
-import LoadingDots from '../LoadingDots';
-import {translate} from '../Translator';
+import LoadingDots from 'LoadingDots';
+import {translate} from 'Translator';
 
 const State = Object.freeze({Waiting: 0, Prompted: 1});
 

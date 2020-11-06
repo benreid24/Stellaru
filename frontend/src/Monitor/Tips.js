@@ -1,8 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-import {shuffle} from './Charts/Util';
-import {translate} from '../Translator';
+import {shuffle} from 'Helpers';
+import {translate} from 'Translator';
 
 const TipList = [
     'The slider in the top right can be moved to adjust the dates of data shown',

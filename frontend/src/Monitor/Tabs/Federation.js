@@ -1,8 +1,8 @@
 import React from 'react';
 
-import LeadingFederation from '../Charts/Federation/Leader';
-import FederationMembers from '../Charts/Federation/Members';
-import FederationExperience from '../Charts/Federation/Experience';
+import LeadingFederation from 'Monitor/Visualizations/Federation/Leader';
+import FederationMembers from 'Monitor/Visualizations/Federation/Members';
+import FederationExperience from 'Monitor/Visualizations/Federation/Experience';
 
 function Federation(props) {
     const data = props.data;

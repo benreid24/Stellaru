@@ -3,9 +3,9 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import BackButton from './BackButton';
-import LoadingDots from '../LoadingDots';
+import LoadingDots from 'LoadingDots';
 
-import {translate} from '../Translator';
+import {translate} from 'Translator';
 
 const TimeConfig = Object.freeze({hour: 'numeric', minute: 'numeric', hour12: true});
 

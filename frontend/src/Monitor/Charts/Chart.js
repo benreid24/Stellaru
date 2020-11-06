@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
 import ChartOverlay from './ChartOverlay';
-import {addChart} from '../ChartRegistry';
-import {translate} from '../../Translator';
+import {addChart} from 'Monitor/Charts/ChartRegistry';
+import {translate} from 'Translator';
 
 import './Charts.css';
 
