@@ -1,0 +1,31 @@
+.empireChartForm {
+    height: 10%;
+    text-align: left;
+}
+
+.empireChartFormInner {
+    position: absolute;
+    top: 2%;
+    left: 3%;
+    z-index: 1000;
+    height: 15%;
+    width: 85%;
+    display: flex;
+}
+
+.empireChart {
+    height: 90%;
+}
+
+.empireChartLabel {
+    padding: 0px;
+    margin-bottom: -10px;
+    padding-left: 7px;
+    color: #dadada;
+}
+
+.empireChartRightInput {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

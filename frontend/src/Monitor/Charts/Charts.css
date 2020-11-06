@@ -93,6 +93,7 @@
     border: 1px solid white;
     text-align: left;
     padding: 5px;
+    z-index: 10000;
 }
 
 .tooltipRow {

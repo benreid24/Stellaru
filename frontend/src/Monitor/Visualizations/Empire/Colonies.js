@@ -54,8 +54,8 @@ function Colonies(props) {
 
     return (
         <Chart name={Name} overlay={props.overlay} title={translate('Colony') + ' ' +  capitalize(stat, '_')} titleColor='#96d636'>
-            <div className='fancyChartForm'>
-                <div className='fancyChartInner'>
+            <div className='empireChartForm'>
+                <div className='empireChartFormInner'>
                     <FormControl className={classes.formControl}>
                         <Select value={stat} onChange={onStatChange}>
                             {renderedMenuItems}
@@ -63,7 +63,7 @@ function Colonies(props) {
                     </FormControl>
                 </div>
             </div>
-            <div className='fancyBreakdownChart'>
+            <div className='empireChart'>
                 <LineChart
                     name={name}
                     data={data}
