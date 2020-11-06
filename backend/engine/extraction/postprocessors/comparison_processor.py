@@ -5,9 +5,6 @@ class ComparisonProcessor(PostProcessor):
     def __init__(self, isolation_layer):
         super().__init__(isolation_layer)
 
-    def name(self):
-        return 'ComparisonProcessor'
-
     def postprocess(self, data):
         eid = data.get_empire()
         empire = data.get_empire_snapshot()
