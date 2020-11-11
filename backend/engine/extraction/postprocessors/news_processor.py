@@ -10,19 +10,15 @@ class NewsProcessor(PostProcessor):
     def postprocess(self, data: PostprocessorData):
         events = {}
         for generator in news.generator_list:
-            meta_hist = [item[generator.name()] for item in data.get_processor_history() if generator.name() in item else {}]
-            data.get_processor_current_data()[generator.name()] = {}
-            if generator.name() not in data.get_processor_static_data():
-                data.get_processor_static_data()[generator.name()] = {}
+            if generator.name() not in data.get_processor_data():
+                data.get_processor_data()[generator.name()] = {}
 
             new_events = generator.generate(
                 data.get_gamestate(),
                 data.get_empire(),
                 data.get_empire_snapshot(),
                 data.get_empire_snapshots(),
-                meta_hist,
-                data.get_processor_current_data()[generator.name()],
-                data.get_processor_static_data()[generator.name()]
+                data.get_processor_data()[generator.name()]
             )
             for event in new_events:
                 if event['type'] in events:

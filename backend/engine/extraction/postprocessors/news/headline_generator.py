@@ -8,15 +8,15 @@ class HeadlineGenerator:
     def name(self):
         return type(self).__name__
 
-    def create_headline(self, title, description, snap, meta={}):
+    def create_headline(self, title, description, snap, meta={}, headline_type=None):
         return {
             'title': title,
             'description': description,
             'date': snap['date'],
             'date_days': snap['date_days'],
-            'type': self.name(),
+            'type': self.name() if not headline_type else headline_type,
             'meta': meta
         }
 
-    def generate(self, state, empire, snapshot, snapshot_hist, meta_hist, current_meta, static_meta):
+    def generate(self, state, empire, snapshot, snapshot_hist, static_meta):
         raise Exception(f'generate() not implemented in {self.name()}')

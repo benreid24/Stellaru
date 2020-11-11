@@ -1,3 +1,5 @@
+import math
+
 DAYS_PER_MONTH = 30
 DAYS_PER_YEAR = DAYS_PER_MONTH * 12
 
@@ -23,6 +25,16 @@ def parse_date(date_str):
         'm': int(comps[1]),
         'd': int(comps[2])
     }
+
+
+def construct_date(days):
+    if isinstance(days, dict):
+        return f"{days['y']}.{days['m']:02}.{days['d']:02}"
+    y = math.floor(days / DAYS_PER_YEAR)
+    days -= y * DAYS_PER_YEAR
+    m = math.floor(days / DAYS_PER_MONTH)
+    days -= m * DAYS_PER_MONTH
+    return f'{y}.{m+1:02}.{days:02}'
 
 
 def basic_stats(values):
