@@ -24,7 +24,7 @@ CREATION_HEADLINE_TEMPLATES = [
 CREATION_BODY_TEMPLATE = (
     '{war} ended with the signing of the {treaty} on {start_date}. Hostilities have ceased for now '
     'but only time will tell if peace will last. The {treaty} will last for {length} years '
-    'and will expire on {end_date}'
+    'and will expire on {end_date}.'
 )
 
 EXPIRATION_HEADLINE_TEMPLATES = [
@@ -34,6 +34,7 @@ EXPIRATION_HEADLINE_TEMPLATES = [
     'Peace Upheld by the {name} Jeopardized by Expiration of Deal',
     '{name} Ends'
 ]
+
 EXPIRATION_BODY_TEMPLATE = (
     'The {name} which upheld peace between the {attacker} and the {defender} has reached '
     'its end date on {end_date}. With nothing left standing between conflict and harmony '

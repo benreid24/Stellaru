@@ -10,7 +10,7 @@ def get_known_empires(state, empire):
     try:
         relations = []
         for relation in state['country'][empire]['relations_manager']['relation']:
-            if relation['contact'] == 'yes':
+            if 'contact' in relation and relation['contact'] == 'yes':
                 relations.append(relation['country'])
         return relations
     except:
@@ -33,10 +33,10 @@ def get_system_name(state, system_id):
 
 def get_wars(state):
     def _make_participant_list(plist):
-        return [{
-            'id': participant['country'],
-            'type': 'Main' if participant['call_type'] == 'primary' else 'Ally'
-        } for participant in plist]
+        return {
+            participant['country']: 'Main' if participant['call_type'] == 'primary' else 'Ally'
+            for participant in plist
+        } 
 
     def _make_battle_list(battles):
         try:
@@ -64,7 +64,7 @@ def get_wars(state):
                 'start_date_days': date_days(war['start_date']),
                 'attackers': _make_participant_list(war['attackers']),
                 'defenders': _make_participant_list(war['defenders']),
-                'battles': _make_battle_list(war['battles'])
+                'battles': _make_battle_list(war['battles']) if 'battles' in war else []
             })
         except:
             continue
