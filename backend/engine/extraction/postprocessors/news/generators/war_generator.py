@@ -89,7 +89,6 @@ class WarGenerator(HeadlineGenerator):
         wars = self.isolation_layer.get_wars(state)
         headlines = []
         for war in wars:
-            print('war')
             if war['id'] in static_meta[DATA_KEY]:
                 continue
 
