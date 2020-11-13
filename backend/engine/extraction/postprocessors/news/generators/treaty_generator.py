@@ -1,7 +1,7 @@
 import random
 
 from ..headline_generator import HeadlineGenerator
-from ..common import ensure_exists, TREATY_CREATION, TREATY_EXPIRATION
+from ..common import ensure_exists
 
 DATA_KEY = 'handled_treaties'
 
@@ -37,7 +37,7 @@ EXPIRATION_HEADLINE_TEMPLATES = [
 
 EXPIRATION_BODY_TEMPLATE = (
     'The {name} which upheld peace between the {attacker} and the {defender} has reached '
-    'its end date on {end_date}. With nothing left standing between conflict and harmony '
+    'its end date on {end_date}. with nothing left standing between conflict and harmony '
     'the galaxy stands waiting, ready for hostilities to breakout again.'    
 )
 
@@ -70,7 +70,7 @@ class TreatyGenerator(HeadlineGenerator):
                 end_date=treaty['end_date'],
                 length=self.isolation_layer.TREATY_LENGTH_YEARS
             )
-            headlines.append(self.create_headline(headline, body, snapshot, headline_type=TREATY_CREATION))
+            headlines.append(self.create_headline(headline, body, snapshot, {'type': 'create'}))
             static_meta[DATA_KEY][treaty['id']] = {
                 'name': treaty_name,
                 'attacker': attacker_name,
@@ -86,7 +86,7 @@ class TreatyGenerator(HeadlineGenerator):
                 expired.append(tid)
                 headline = random.choice(EXPIRATION_HEADLINE_TEMPLATES).format(name=info['name'])
                 body = EXPIRATION_BODY_TEMPLATE.format(**info)
-                headline = self.create_headline(headline, body, snapshot, headline_type=TREATY_EXPIRATION)
+                headline = self.create_headline(headline, body, snapshot, {'type': 'expire'})
                 headlines.append(headline)
         
         # Delete expired

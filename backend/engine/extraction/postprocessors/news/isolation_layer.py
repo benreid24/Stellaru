@@ -118,3 +118,30 @@ def get_treaties(state):
             traceback.print_exc()
             continue
     return treaties
+
+
+def get_relations(state, empire):
+    def _get_bool(obj, key, value, default_value):
+        return obj[key] == value if key in obj else default_value
+
+    relations = {}
+    try:
+        for relation in state['country'][empire]['relations_manager']['relation']:
+            try:
+                if relation['contact'] != 'yes':
+                    continue
+                relations[relation['country']] = {
+                    'score': relation['relation_current'] if 'relation_current' in relation else 0,
+                    'open_borders': _get_bool(relation, 'closed_borders', 'no', True),
+                    'research_agreement': _get_bool(relation, 'research_agreement', 'yes', False),
+                    'commercial_pact': _get_bool(relation, 'commercial_pact', 'yes', False),
+                    'migration_treaty': _get_bool(relation, 'migration_access', 'yes', False),
+                    'alliance': _get_bool(relation, 'alliance', 'yes', False),
+                    'rival': _get_bool(relation, 'is_rival', 'yes', False),
+                    'trust': relation['trust'] if 'trust' in relation else 0,
+                }
+            except:
+                continue
+    except:
+        pass
+    return relations

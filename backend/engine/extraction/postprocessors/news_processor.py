@@ -1,3 +1,5 @@
+import traceback
+
 from .postprocessor import PostProcessor
 from .postprocessor_data import PostprocessorData
 from . import news
@@ -10,24 +12,32 @@ class NewsProcessor(PostProcessor):
     def postprocess(self, data: PostprocessorData):
         events = {}
         for generator in news.generator_list:
-            if generator.name() not in data.get_processor_data():
-                data.get_processor_data()[generator.name()] = {}
+            try:
+                if generator.name() not in data.get_processor_data():
+                    data.get_processor_data()[generator.name()] = {}
 
-            new_events = generator.generate(
-                data.get_gamestate(),
-                data.get_empire(),
-                data.get_empire_snapshot(),
-                data.get_empire_snapshots(),
-                data.get_processor_data()[generator.name()]
-            )
-            for event in new_events:
-                if event['type'] in events:
-                    events[event['type']].append(event)
-                else:
-                    events[event['type']] = [event]
+                new_events = generator.generate(
+                    data.get_gamestate(),
+                    data.get_empire(),
+                    data.get_empire_snapshot(),
+                    data.get_empire_snapshots(),
+                    data.get_processor_data()[generator.name()]
+                )
+                for event in new_events:
+                    if event['type'] in events:
+                        events[event['type']].append(event)
+                    else:
+                        events[event['type']] = [event]
+            except:
+                traceback.print_exc()
+                continue
         
         for combiner in news.combiner_list:
-            events = combiner.combine(events)
+            try:
+                events = combiner.combine(events)
+            except:
+                traceback.print_exc()
+                continue
         
         event_list = []
         for event_queue in events.values():
