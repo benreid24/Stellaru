@@ -70,7 +70,7 @@ def _parse_data(file):
 
         elif PARSING_LIST == states[-1]:
             # Check if read value needs to be appended
-            if not isinstance(current_object[-1], list):
+            if not isinstance(current_object[-1], list) or states[-2] == PARSING_LIST:
                 value = current_object.pop(-1)
                 current_object[-1].append(value)
             
