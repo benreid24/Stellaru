@@ -124,6 +124,16 @@ def get_relations(state, empire):
     def _get_bool(obj, key, value, default_value):
         return obj[key] == value if key in obj else default_value
 
+    def _rivaled(state, empire, other):
+        try:
+            for relation in state['country'][other]['relations_manager']['relation']:
+                if relation['country'] != empire:
+                    continue
+                return _get_bool(relation, 'is_rival', 'yes', False)
+        except:
+            pass
+        return False
+
     relations = {}
     try:
         for relation in state['country'][empire]['relations_manager']['relation']:
@@ -138,6 +148,7 @@ def get_relations(state, empire):
                     'migration_treaty': _get_bool(relation, 'migration_access', 'yes', False),
                     'alliance': _get_bool(relation, 'alliance', 'yes', False),
                     'rival': _get_bool(relation, 'is_rival', 'yes', False),
+                    'rivaled': _rivaled(state, empire, relation['country']),
                     'trust': relation['trust'] if 'trust' in relation else 0,
                 }
             except:
