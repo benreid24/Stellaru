@@ -156,3 +156,23 @@ def get_relations(state, empire):
     except:
         pass
     return relations
+
+
+def get_federations(state):
+    try:
+        feds = {}
+        for fid, federation in state['federation'].items():
+            if not isinstance(federation, dict):
+                continue
+            try:
+                feds[fid] = {
+                    'name': federation['name'],
+                    'members': federation['members'],
+                    'start_date': date_days(federation['start_date']),
+                    'leader': federation['leader']
+                }
+            except:
+                continue
+        return feds
+    except:
+        return {}
