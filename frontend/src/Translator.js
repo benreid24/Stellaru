@@ -5,8 +5,6 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-import {objectKeys} from 'Helpers';
-
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -52,8 +50,8 @@ function setLang(lang) {
 
 function getAllLangs() {
     let langs = [];
-    for (const [_, subLangs] of Object.entries(translations)) {
-        for (const [lang, _] of Object.entries(subLangs)) {
+    for (const [, subLangs] of Object.entries(translations)) {
+        for (const [lang,] of Object.entries(subLangs)) {
             if (langs.indexOf(lang) < 0)
                 langs.push(lang);
         }
