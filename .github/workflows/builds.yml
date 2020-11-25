@@ -38,6 +38,7 @@ jobs:
           cd backend
           python manage.py collectstatic
           mv static dist/Stellaru
+          mv resources dist/Stellaru
           cd dist
           Compress-Archive -Path Stellaru -DestinationPath Windows.zip
           mv Windows.zip ../../
@@ -85,6 +86,7 @@ jobs:
           cd backend
           python manage.py collectstatic
           mv static dist/Stellaru
+          mv resources dist/Stellaru
           mkdir Stellaru.app
           mkdir Stellaru.app/Contents
           mkdir Stellaru.app/Contents/Resources
@@ -138,6 +140,7 @@ jobs:
           cd backend
           python manage.py collectstatic
           mv static dist/Stellaru
+          mv resources dist/Stellaru
           cd dist
           zip -r Linux.zip Stellaru
           mv Linux.zip ../../

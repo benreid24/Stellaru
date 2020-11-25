@@ -1,0 +1,1350 @@
+{
+    "": {
+        "english": ""
+    },
+    "Average Hire Age": {
+        "english": "Average Hire Age",
+        "spanish": "Promedio de empleo"
+    },
+    "The slider in the top right can be moved to adjust the dates of data shown": {
+        "english": "The slider in the top right can be moved to adjust the dates of data shown",
+        "spanish": "El deslizador en la parte superior derecha se puede mover para cambiar las fechas mostradas"
+    },
+    "unity": {
+        "english": "unity",
+        "spanish": "unidad"
+    },
+    "Starbase": {
+        "english": "Starbase",
+        "spanish": "Estacion"
+    },
+    "Army": {
+        "english": "Army",
+        "spanish": "Ejercito"
+    },
+    "Give your friends the LAN Link if they are on your network, or the Internet Link if they are not": {
+        "english": "Give your friends the LAN Link if they are on your network, or the Internet Link if they are not",
+        "spanish": "Dale a tus amigos el link LAN si ellos estan en tu red, o el link de internet si no lo estan"
+    },
+    "Experience": {
+        "english": "Experience",
+        "spanish": "Experiencia"
+    },
+    "Displays number of ships by type over time": {
+        "english": "Displays number of ships by type over time",
+        "spanish": "Muestra el numero de naves en el tiempo"
+    },
+    "Shows size of the empire over time": {
+        "english": "Shows size of the empire over time",
+        "spanish": "Muestra el tamaño del imperio en el tiempo"
+    },
+    "Envoy": {
+        "english": "Envoy",
+        "spanish": "Enviados"
+    },
+    "Shows completed and available technologies over time": {
+        "english": "Shows completed and available technologies over time",
+        "spanish": "Muestra las tecnologias completadas y disponibles en el tiempo"
+    },
+    "Legend": {
+        "english": "Legend",
+        "spanish": "legenda"
+    },
+    "Max Level": {
+        "english": "Max Level",
+        "spanish": "Nivel maximo"
+    },
+    "Count": {
+        "english": "Count",
+        "spanish": "Conteo"
+    },
+    "M": {
+        "english": "M",
+        "spanish": "M"
+    },
+    "Researched Techs": {
+        "english": "Researched Techs",
+        "spanish": "tecnologias investigadas"
+    },
+    "Colony": {
+        "english": "Colony",
+        "spanish": "Colonia"
+    },
+    "sr_zro": {
+        "english": "sr_zro"
+    },
+    "Ascension Perks": {
+        "english": "Ascension Perks",
+        "spanish": "tradiciones"
+    },
+    "Entertainer": {
+        "english": "Entertainer",
+        "spanish": "animadores"
+    },
+    "Shows number of surveyed ojects and systems over time": {
+        "english": "Shows number of surveyed ojects and systems over time",
+        "spanish": "Muestra el numero de objetos sondeados"
+    },
+    "Standing": {
+        "english": "Standing",
+        "spanish": "Rango"
+    },
+    "Society Research": {
+        "english": "Society Research",
+        "spanish": "Investigacion en sociedad"
+    },
+    "Stockpiles of all resources over time": {
+        "english": "Stockpiles of all resources over time",
+        "spanish": "Reservas de todos los recursos en el tiempo"
+    },
+    "Farmer": {
+        "english": "Farmer",
+        "spanish": "Granjeros"
+    },
+    "Corvette": {
+        "english": "Corvette",
+        "spanish": "Corvetas"
+    },
+    "Loading save": {
+        "english": "Loading save",
+        "spanish": "Cargando partida"
+    },
+    "Percent Male": {
+        "english": "Percent Male",
+        "spanish": "Porcentaje masculino"
+    },
+    "Victory Rank": {
+        "english": "Victory Rank",
+        "spanish": "Rango de victoria"
+    },
+    "Choose Game Save": {
+        "english": "Choose Game Save",
+        "spanish": "Escoger partida"
+    },
+    "Average Power/Fleet": {
+        "english": "Average Power/Fleet",
+        "spanish": "Poder militar promedio"
+    },
+    "Average Age": {
+        "english": "Average Age",
+        "spanish": "Edad promedio"
+    },
+    "Subjects": {
+        "english": "Subjects",
+        "spanish": "vasallos"
+    },
+    "Unity": {
+        "english": "Unity",
+        "spanish": "Unidad"
+    },
+    "Colony Types": {
+        "english": "Colony Types",
+        "spanish": "Tipos de colonia"
+    },
+    "Shows saves that have been previously loaded in Stellaru": {
+        "english": "Shows saves that have been previously loaded in Stellaru",
+        "spanish": "Muestra partidas que han sido cargadas en Stellaru previamente"
+    },
+    "Max Age": {
+        "english": "Max Age",
+        "spanish": "Edad maxima"
+    },
+    "Exotic Gas": {
+        "english": "Exotic Gas",
+        "spanish": "Gases exoticos"
+    },
+    "Selects the most recent save file": {
+        "english": "Selects the most recent save file",
+        "spanish": "Selecciona la partida mas reciente"
+    },
+    "Min Colony Age": {
+        "english": "Min Colony Age",
+        "spanish": "Edad minima de colonia"
+    },
+    "Volatile Mote": {
+        "english": "Volatile Mote",
+        "spanish": "Motas volatiles"
+    },
+    "Colony Stats": {
+        "english": "Colony Stats",
+        "spanish": "Estadisticas de colonia"
+    },
+    "Xenophile": {
+        "english": "Xenophile",
+        "spanish": "Xenofilo"
+    },
+    "Owned Systems": {
+        "english": "Owned Systems",
+        "spanish": "Sistemas poseidos"
+    },
+    "Admiral": {
+        "english": "Admiral",
+        "spanish": "Almirante"
+    },
+    "Colony Stability & Crime": {
+        "english": "Colony Stability & Crime",
+        "spanish": "Estabilidad y crimen de Colonia"
+    },
+    "Bureaucrat": {
+        "english": "Bureaucrat",
+        "spanish": "Burocrata"
+    },
+    "Breaks down fleet stats over time": {
+        "english": "Breaks down fleet stats over time",
+        "spanish": "Analisis de estadisticas de flota en el tiempo"
+    },
+    "Net Income": {
+        "english": "Net Income",
+        "spanish": "Ingresos netos"
+    },
+    "Free Housing": {
+        "english": "Free Housing",
+        "spanish": "Alojamiento disponible"
+    },
+    "Minerals": {
+        "english": "Minerals",
+        "spanish": "Minerales"
+    },
+    "Surveyed Systems": {
+        "english": "Surveyed Systems",
+        "spanish": "Sistemas sondeados"
+    },
+    "Culture Worker": {
+        "english": "Culture Worker",
+        "spanish": "Trbajadores culturales"
+    },
+    "Local IP": {
+        "english": "Local IP",
+        "spanish": "IP local"
+    },
+    "Pops": {
+        "english": "Pops",
+        "spanish": "poblacion"
+    },
+    "minerals": {
+        "english": "minerals",
+        "spanish": "minerales"
+    },
+    "Science Output": {
+        "english": "Science Output",
+        "spanish": "Investigacion cientifica"
+    },
+    "Average Planet Crime": {
+        "english": "Average Planet Crime",
+        "spanish": "Promedio de crimen planetario"
+    },
+    "society_research": {
+        "english": "society_research",
+        "spanish": "Investigacion en sociedad"
+    },
+    "Construction Breakdowns": {
+        "english": "Construction Breakdowns",
+        "spanish": "Analisis de construccion"
+    },
+    "Empire": {
+        "english": "Empire",
+        "spanish": "Imperio"
+    },
+    "Cohesion": {
+        "english": "Cohesion",
+        "spanish": "Cohesion"
+    },
+    "consumer_goods": {
+        "english": "consumer_goods",
+        "spanish": "Bienes de consumo"
+    },
+    "Administrator": {
+        "english": "Administrator",
+        "spanish": "Administrador"
+    },
+    "Average": {
+        "english": "Average",
+        "spanish": "Promedio"
+    },
+    "All Resource Stockpiles": {
+        "english": "All Resource Stockpiles",
+        "spanish": "Todas las reservas de recursos"
+    },
+    "Shows federation experience and level over time": {
+        "english": "Shows federation experience and level over time",
+        "spanish": "Muestra la experiencia y el nivel de la federacion en el timepo"
+    },
+    "Spending": {
+        "english": "Spending",
+        "spanish": "Gastos"
+    },
+    "Go back to save selection": {
+        "english": "Go back to save selection",
+        "spanish": "Regresar para guaradar seleccion"
+    },
+    "Agri Drone": {
+        "english": "Agri Drone",
+        "spanish": "Drones agricolas"
+    },
+    "Select Empire to Monitor": {
+        "english": "Select Empire to Monitor",
+        "spanish": "Seleccionar imperio a monitorear"
+
+    },
+    "Sprawl &amp; Pops": {
+        "english": "Sprawl &amp; Pops",
+        "spanish": "Extencion; poblacion"
+    },
+    "Back": {
+        "english": "Back",
+        "spanish": "Atras"
+    },
+    "Alloy": {
+        "english": "Alloy",
+        "spanish": "Aleaciones"
+    },
+    "Shows federation member count and cohesion over time": {
+        "english": "Shows federation member count and cohesion over time",
+        "spanish": "Muestra conteo de miembros de la federacion y cohesion"
+    },
+    "Stacked Area": {
+        "english": "Stacked Area",
+        "spanish": "Area sumada"
+    },
+    "Lines": {
+        "english": "Lines",
+        "spanish": "Lineas"
+    },
+    "Total Fleet Power": {
+        "english": "Total Fleet Power",
+        "spanish": "Poder militar"
+    },
+    "Starbases": {
+        "english": "Starbases",
+        "spanish": "Estaciones"
+    },
+    "Net incomes of all resources over time": {
+        "english": "Net incomes of all resources over time",
+        "spanish": "Entradas netas de todos los recursos en el tiempo"
+    },
+    "Colony Sizes": {
+        "english": "Colony Sizes",
+        "spanish": "Tamaño de colonias"
+    },
+    "Colonies": {
+        "english": "Colonies",
+        "spanish": "Colonias"
+    },
+    "Other": {
+        "english": "Other",
+        "spanish": "Otros"
+    },
+    "Min Planet Stability": {
+        "english": "Min Planet Stability",
+        "spanish": "Esta Min del planea"
+    },
+    "Energy Credits": {
+        "english": "Energy Credits",
+        "spanish": "Creditos energeticos"
+    },
+    "Shows colony sizes stacked together time": {
+        "english": "Shows colony sizes stacked together time",
+        "spanish": "Muestra los tamaños de las colonias sumados en el tiempo"
+    },
+    "Shows gender breakdown over time": {
+        "english": "Shows gender breakdown over time",
+        "spanish": "Muestra analisis de genero en el tiempo"
+    },
+    "Size": {
+        "english": "Size",
+        "spanish": "Tamaño"
+    },
+    "Population": {
+        "english": "Population",
+        "spanish": "Poblacion"
+    },
+    "Create a custom dashboard by adding charts": {
+        "english": "Create a custom dashboard by adding charts",
+        "spanish": "Crea una pantalla personalizada añadiendo graficas"
+    },
+    "Head Researcher": {
+        "english": "Head Researcher",
+        "spanish": "Cabeza de investigacion"
+    },
+    "Custom": {
+        "english": "Custom",
+        "spanish": "personalizada"
+    },
+    "Navigate to your routers administration page. Likely something like": {
+        "english": "Navigate to your routers administration page. Likely something like",
+        "spanish": "Navega a la pagina de administracion de tu router. algo como..."
+    },
+    "Sometimes charts will render a little funny. Click a legend item twice to fix them": {
+        "english": "Sometimes charts will render a little funny. Click a legend item twice to fix them",
+        "spanish": "Alguna veces las graficas se haran mal. Haz doble click en la leyenda para arreglarlo"
+    },
+    "Choose Save Manually": {
+        "english": "Choose Save Manually",
+        "spanish": "Escoger guardado manualmente"
+    },
+    "Average Ship Experience": {
+        "english": "Average Ship Experience",
+        "spanish": "Experiencia promedio de nave"
+    },
+    "Members": {
+        "english": "Members",
+        "spanish": "Miembros"
+    },
+    "Click legend to drill down": {
+        "english": "Click legend to drill down",
+        "spanish": "Click en la leyenda para más"
+    },
+    "Waiting For New Save": {
+        "english": "Waiting For New Save",
+        "spanish": "Esperando nuevo guardado"
+    },
+    "Resource Production Breakdown": {
+        "english": "Resource Production Breakdown",
+        "spanish": "Analisis de produccion de recursos"
+    },
+    "Base": {
+        "english": "Base",
+        "spanish": "Base"
+    },
+    "Machine Defense": {
+        "english": "Machine Defense",
+        "spanish": "Defensa de maquina"
+    },
+    "Shows a breakdown of spending and income for an individual resource, overlayed with net income": {
+        "english": "Shows a breakdown of spending and income for an individual resource, overlayed with net income",
+        "spanish":"Muestra un analisis de los gastos de un recurso individual, encima de la entrada neta"
+    },
+    "Governor": {
+        "english": "Governor",
+        "spanish": "Governador"
+    },
+    "Max Colony Age": {
+        "english": "Max Colony Age",
+        "spanish": "edad de colonia maxima"
+    },
+    "Method for Save Selection": {
+        "english": "Method for Save Selection",
+        "spanish": "Metodo para guardar seleccion"
+    },
+    "Create a custom dashboard with your favorite charts in the \"Custom\" tab": {
+        "english": "Create a custom dashboard with your favorite charts in the \"Custom\" tab",
+        "spanish": "Crea una pantalla personalizada con tus graficas favoritas en el aprtado \"Custom\""
+    },
+    "Max Ship Count": {
+        "english": "Max Ship Count",
+        "spanish": "Conteo maximo de naves"
+    },
+    "Priest": {
+        "english": "Priest",
+        "spanish": "Clerigo"
+    },
+    "Wait for New Save": {
+        "english": "Wait for New Save",
+        "spanish": "Espera por nuevo guardado"
+    },
+    "Coordinator": {
+        "english": "Coordinator",
+        "spanish": "Coordinador"
+    },
+    "Researcher": {
+        "english": "Researcher",
+        "spanish": "Investigador"
+    },
+    "Unity Stockpile": {
+        "english": "Unity Stockpile",
+        "spanish": "Unidad almacenada"
+    },
+    "Leader Gender Breakdown": {
+        "english": "Leader Gender Breakdown"
+    },
+    "Ruler": {
+        "english": "Ruler",
+        "spanish": "Gobernante"
+    },
+    "Ships": {
+        "english": "Ships",
+        "spanish": "Naves"
+    },
+    "Queued Items": {
+        "english": "Queued Items",
+        "spanish": "Items en fila"
+    },
+    "Shows pop metrics over time, such as species, category, and ethics": {
+        "english": "Shows pop metrics over time, such as species, category, and ethics",
+        "spanish": "Muestra metricas de la poblacion en el tiempo, como especie, etica y categotia"
+    },
+    "Enforcer": {
+        "english": "Enforcer",
+        "spanish": "Ejecutor"
+    },
+    "Average Ship Count": {
+        "english": "Average Ship Count",
+        "spanish": "Conteo promedio de naves"
+    },
+    "Stations": {
+        "english": "Stations",
+        "spanish": "Estaciones"
+    },
+    "All Wars": {
+        "english": "All Wars",
+        "spanish": "Todas las guerras"
+    },
+    "alloys": {
+        "english": "alloys",
+        "spanish": "Aleaciones"
+    },
+    "Shows leader count and breakdown over time": {
+        "english": "Shows leader count and breakdown over time",
+        "spanish": "Muestra el conteo de lideres en el tiempo"
+    },
+    "Available Engineering Techs": {
+        "english": "Available Engineering Techs",
+        "spanish": "Investigaciones disponibles de ingenieria"
+    },
+    "Choose From Currently Loaded Saves": {
+        "english": "Choose From Currently Loaded Saves",
+        "spanish": "Escoger de los guardados cargados"
+    },
+    "Multiplayer": {
+        "english": "Multiplayer",
+        "spanish": "Multijugador"
+    },
+    "Empire Size": {
+        "english": "Empire Size",
+        "spanish": "Tamaño del imperio"
+    },
+    "Production Breakdown": {
+        "english": "Production Breakdown",
+        "spanish": "Desglose de produccion"
+    },
+    "Healthcare": {
+        "english": "Healthcare",
+        "spanish": "Salud"
+    },
+    "Construction": {
+        "english": "Construction",
+        "spanish": "Construccion"
+    },
+    "Available Physics Techs": {
+        "english": "Available Physics Techs",
+        "spanish": "Investigaciones disponibles de fisica"
+    },
+    "Crisis Ships Killed": {
+        "english": "Crisis Ships Killed",
+        "spanish": "Naves de crisis matadas"
+    },
+    "Leading Federation": {
+        "english": "Leading Federation",
+        "spanish": "Federacion en la cabeza"
+    },
+    "Defensive Wars": {
+        "english": "Defensive Wars",
+        "spanish": "Guerras defensivas"
+    },
+    "Net incomes of primary resources over time": {
+        "english": "Net incomes of primary resources over time",
+        "spanish": "Entradas netas de recursos primarios en el tiempo"
+    },
+    "Max Planet Stability": {
+        "english": "Max Planet Stability",
+        "spanish": "Estabilidad maxima de planeta"
+    },
+    "Rank": {
+        "english": "Rank",
+        "spanish": "Rango"
+    },
+    "Dimensional Portal Researcher": {
+        "english": "Dimensional Portal Researcher",
+        "spanish": "Investigador de portal dimensional"
+    },
+    "Patrol Drone": {
+        "english": "Patrol Drone",
+        "spanish": "Dron patrulla"
+    },
+    "Human": {
+        "english": "Human",
+        "spanish": "Humano"
+    },
+    "Shows construction queue comparisons by type over time": {
+        "english": "Shows construction queue comparisons by type over time",
+        "spanish": "Muestra la comparacion de la fila por tipo en el tiempo"
+    },
+    "Stability": {
+        "english": "Stability",
+        "spanish": "Estabilidad"
+    },
+    "All your changes to charts will persist, so everything will be as you left it when you reopen Stellaru": {
+        "english": "All your changes to charts will persist, so everything will be as you left it when you reopen Stellaru",
+        "spanish": "Todos tus cambios a las graficas se guardan, asi que cuando vuelvas todo va a estar como lo dejaste"
+    },
+    "Total Power": {
+        "english": "Total Power",
+        "spanish": "Poder total"
+    },
+    "War Overview": {
+        "english": "War Overview",
+        "spanish": "Resumen de guerra"
+    },
+    "Federation Members": {
+        "english": "Federation Members",
+        "spanish": "Miembros de la federacion"
+    },
+    "Displays number of armies by type over time": {
+        "english": "Displays number of armies by type over time",
+        "spanish": "Muestra el numero de ejercitos en el tiempo"
+    },
+    "Shows total fleet power over time with fleet stats": {
+        "english": "Shows total fleet power over time with fleet stats",
+        "spanish": "Muestra el poder total de la flota con stats"
+    },
+    "Free Amenities": {
+        "english": "Free Amenities",
+        "spanish": "Comodidades libres"
+    },
+    "Income": {
+        "english": "Income",
+        "spanish": "Ganancias"
+    },
+    "Technician Drone": {
+        "english": "Technician Drone",
+        "spanish": "Dron tecnico"
+    },
+    "Fleet Power": {
+        "english": "Fleet Power",
+        "spanish": "Poder de flota"
+    },
+    "Previously Loaded Save": {
+        "english": "Previously Loaded Save",
+        "spanish": "Guardado previamente cargado"
+    },
+    "Chemist": {
+        "english": "Chemist",
+        "spanish": "Quimico"
+    },
+    "Total Housing": {
+        "english": "Total Housing",
+        "spanish": "Alojamiento total"
+    },
+    "Replicator": {
+        "english": "Replicator",
+        "spanish": "Replicador"
+    },
+    "Average Planet Stability": {
+        "english": "Average Planet Stability",
+        "spanish": "Estabilidad de planeta promedio"
+    },
+    "Adopted Trees": {
+        "english": "Adopted Trees",
+        "spanish": "Arboles adoptados"
+    },
+    "Technologies": {
+        "english": "Technologies",
+        "spanish": "Tecnologias"
+    },
+    "Shows when currently leading a federation": {
+        "english": "Shows when currently leading a federation",
+        "spanish": "Muestra cuando actualmente esta liderando una federacion"
+    },
+    "Monthly Research": {
+        "english": "Monthly Research",
+        "spanish": "Investigacion mensual"
+    },
+    "Custodian": {
+        "english": "Custodian",
+        "spanish": "Guardian"
+    },
+    "Available Techs": {
+        "english": "Available Techs",
+        "spanish": "Tecnologias disponibles"
+    },
+    "sr_dark_matter": {
+        "english": "sr_dark_matter",
+        "spanish": "Materia oscura"
+    },
+    "energy": {
+        "english": "energy",
+        "spanish": "Energia"
+    },
+    "Leader Stats": {
+        "english": "Leader Stats",
+        "spanish": "Stas de lider"
+    },
+    "Age": {
+        "english": "Age",
+        "spanish": "Edad"
+    },
+    "Level": {
+        "english": "Level",
+        "spanish": "Nivel"
+    },
+    "Currently Leader": {
+        "english": "Currently Leader",
+        "spanish": "Lider actual"
+    },
+    "Categories": {
+        "english": "Categories",
+        "spanish": "Categorias"
+    },
+    "Detailed breakdown of income or spending of any resource with multiple drilldown levels": {
+        "english": "Detailed breakdown of income or spending of any resource with multiple drilldown levels",
+        "spanish": "Analisis detallado de entrada y gastos de culaquier recurso con multiples niveles de profundidas"
+    },
+    "Technician": {
+        "english": "Technician",
+        "spanish": "Tecnicos"
+    },
+    "Species": {
+        "english": "Species",
+        "spanish": "Especies"
+    },
+    "Districts": {
+        "english": "Districts",
+        "spanish": "Distritos"
+    },
+    "Find the port forwarding page": {
+        "english": "Find the port forwarding page",
+        "spanish": "Encuentra el puerto en la pagina adelante"
+    },
+    "Science": {
+        "english": "Science",
+        "spanish": "Ciencia"
+    },
+    "Ship Types": {
+        "english": "Ship Types",
+        "spanish": "Tipos de naves"
+    },
+    "Amenities": {
+        "english": "Amenities",
+        "spanish": "Comodidades"
+    },
+    "food": {
+        "english": "food",
+        "spanish": "Comida"
+    },
+    "Fleet Count": {
+        "english": "Fleet Count",
+        "spanish": "Conteo de flota"
+    },
+    "Empire Count": {
+        "english": "Empire Count",
+        "spanish": "Conteo de imperios"
+    },
+    "Translucer": {
+        "english": "Translucer",
+        "spanish": "Productor de cristales"
+    },
+    "Fleet Ship Stats": {
+        "english": "Fleet Ship Stats",
+        "spanish": "Stats de naves de flota"
+    },
+    "Mineral": {
+        "english": "Mineral",
+        "spanish": "Mineral"
+    },
+    "Gives stats on empire wide construction queues and capability": {
+        "english": "Gives stats on empire wide construction queues and capability",
+        "spanish": "Da stats de las filas de construccion en todo el imperio y capacidad"
+    },
+    "Shows the number of construction queues by type over time": {
+        "english": "Shows the number of construction queues by type over time",
+        "spanish": "Muestra el numero de filas por tipo en el timepo"
+    },
+    "Total Queued Items": {
+        "english": "Total Queued Items",
+        "spanish": "Items totales en fila"
+    },
+    "Armies": {
+        "english": "Armies",
+        "spanish": "Ejercitos"
+    },
+    "Calculator": {
+        "english": "Calculator",
+        "spanish": "Calculador"
+    },
+    "Available Society Techs": {
+        "english": "Available Society Techs"
+    },
+    "Net Core Resource Incomes": {
+        "english": "Net Core Resource Incomes",
+        "spanish": "Ganancias de recursos base"
+    },
+    "Waiting (connected)": {
+        "english": "Waiting (connected)",
+        "spanish": "Esperando (conectado)"
+    },
+    "Average Queue Size": {
+        "english": "Average Queue Size",
+        "spanish": "Tamañano promedio de fila"
+    },
+    "Shows leader ages and levels over time": {
+        "english": "Shows leader ages and levels over time",
+        "spanish": "Muestra edades de lideres y sus niveles en el tiempo"
+    },
+    "Shows colony stability and crime over time": {
+        "english": "Shows colony stability and crime over time",
+        "spanish": "Muestra estabilidad de colonia y crimen en el tiempo"
+    },
+    "Amenities Usage": {
+        "english": "Amenities Usage",
+        "spanish": "Uso de comodidades"
+    },
+    "Percent Female": {
+        "english": "Percent Female",
+        "spanish": "Porcentaje femenino"
+    },
+    "Buildings": {
+        "english": "Buildings",
+        "spanish": "Edificios"
+    },
+    "Internet Link": {
+        "english": "Internet Link",
+        "spanish": "Enlace a internet"
+    },
+    "Stellaru works for multiplayer as well, visit the Help tab to learn how": {
+        "english": "Stellaru works for multiplayer as well, visit the Help tab to learn how",
+        "spanish": "Stellaru tambien funciona para multijugador, visita la pantalla de ayuda para aprender como"
+    },
+    "Dark Matter": {
+        "english": "Dark Matter",
+        "spanish": "Materia oscura"
+    },
+    "Army Breakdown": {
+        "english": "Army Breakdown",
+        "spanish": "Analisis del ejercito"
+    },
+    "Xenophobe": {
+        "english": "Xenophobe",
+        "spanish": "Xenofobo"
+    },
+    "Consumer Goods": {
+        "english": "Consumer Goods",
+        "spanish": "Bienes de consumo"
+    },
+    "Technology": {
+        "english": "Technology",
+        "spanish": "Tecnologia"
+    },
+    "Materialist": {
+        "english": "Materialist",
+        "spanish": "Materialista"
+    },
+    "influence": {
+        "english": "influence",
+        "spanish": "Influencia"
+    },
+    "Megastructures": {
+        "english": "Megastructures",
+        "spanish": "Megastructuras"
+    },
+    "Resource Spending/Income Drilldowns": {
+        "english": "Resource Spending/Income Drilldowns",
+        "spanish": "Gasto/Ganancias de recursos detallado"
+    },
+    "Shows Unity income and stockpile alongside adopted traditions over time": {
+        "english": "Shows Unity income and stockpile alongside adopted traditions over time",
+        "spanish": "Muestra las ganancias de unidad y las almacenadas junto a tus tradiciones en el timepo"
+    },
+    "General": {
+        "english": "General",
+        "spanish": "General"
+    },
+    "Gas Refiner": {
+        "english": "Gas Refiner",
+        "spanish": "Refinador de gas"
+    },
+    "Total": {
+        "english": "Total",
+        "spanish": "Total"
+    },
+    "Engineering Research": {
+        "english": "Engineering Research"
+    },
+    "Colony Age Stats": {
+        "english": "Colony Age Stats",
+        "spanish": "Stas de edad de colonia"
+    },
+    "Regular Save": {
+        "english": "Regular Save",
+        "spanish": "esclavo normal"
+    },
+    "Militarist": {
+        "english": "Militarist",
+        "spanish": "Militarist"
+    },
+    "Max Power/Fleet": {
+        "english": "Max Power/Fleet",
+        "spanish": "Poder maximo/flota"
+    },
+    "Queue Count": {
+        "english": "Queue Count",
+        "spanish": "Conteo de filas"
+    },
+    "Total Construction Queues": {
+        "english": "Total Construction Queues",
+        "spanish": "Filas de construccion totales"
+    },
+    "Consumer Good": {
+        "english": "Consumer Good",
+        "spanish": "Bien de consumo"
+    },
+    "Shows all found saves and allows manual selection": {
+        "english": "Shows all found saves and allows manual selection",
+        "spanish": "Muestra todos los guardados y permite seleccion manual"
+    },
+    "Military": {
+        "english": "Military",
+        "spanish": "Militar"
+    },
+    "exotic_gases": {
+        "english": "exotic_gases",
+        "spanish": "Gases exoticos"
+    },
+    "Relics": {
+        "english": "Relics",
+        "spanish": "Reliquias"
+    },
+    "Min Planet Crime": {
+        "english": "Min Planet Crime",
+        "spanish": "Crimen minimo de planeta"
+    },
+    "Click this tip box to cycle through the tip list": {
+        "english": "Click this tip box to cycle through the tip list",
+        "spanish": "Haz click en este boton para ver pistas"
+    },
+    "Federation": {
+        "english": "Federation",
+        "spanish": "Federacion"
+    },
+    "Add to custom dashboard": {
+        "english": "Add to custom dashboard",
+        "spanish": "Añadir a tablero personalizado"
+    },
+    "Warring Empires": {
+        "english": "Warring Empires",
+        "spanish": "Imperios en guerra"
+    },
+    "Simple Drone": {
+        "english": "Simple Drone",
+        "spanish": "Dron simple"
+    },
+    "Merchant": {
+        "english": "Merchant",
+        "spanish": "Mercante"
+    },
+    "Researched Technologies": {
+        "english": "Researched Technologies",
+        "spanish": "tecnologias investigadas"
+    },
+    "Member Count": {
+        "english": "Member Count",
+        "spanish": "Conteo de miembros"
+    },
+    "Gives lower level view into construction queues and items by queue type over time": {
+        "english": "Gives lower level view into construction queues and items by queue type over time",
+        "spanish": "Muestra las filas de construccion a un menor nivel y los items por tipo de fila en el tiempo"
+    },
+    "Victory Points": {
+        "english": "Victory Points",
+        "spanish": "Puntos de victoria"
+    },
+    "Empire Wide Construction Overview": {
+        "english": "Empire Wide Construction Overview",
+        "spanish": "Resumen de construccion en todo el imperio"
+    },
+    "engineering_research": {
+        "english": "engineering_research",
+        "spanish": "Investigacion de ingenieria"
+    },
+    "Min Ship Count": {
+        "english": "Min Ship Count",
+        "spanish": "Conteo minimo de naves"
+    },
+    "Pop Ethics Breakdown": {
+        "english": "Pop Ethics Breakdown",
+        "spanish": "Analisis de eticas de poblacion"
+    },
+    "Jobs": {
+        "english": "Jobs",
+        "spanish": "Trabajos"
+    },
+    "Max Queue Size": {
+        "english": "Max Queue Size",
+        "spanish": "Tamañano maximo de fila"
+    },
+    "Help": {
+        "english": "Help",
+        "spanish": "Ayuda"
+    },
+    "Offensive Wars": {
+        "english": "Offensive Wars",
+        "spanish": "Guerras ofensivas"
+    },
+    "Active Empires": {
+        "english": "Active Empires",
+        "spanish": "Imperios activos"
+    },
+    "Adopted Traditions": {
+        "english": "Adopted Traditions",
+        "spanish": "Tradiciones adoptadas"
+    },
+    "Max Planet Crime": {
+        "english": "Max Planet Crime",
+        "spanish": "Crimen maximo de planeta"
+    },
+    "Planet": {
+        "english": "Planet",
+        "spanish": "Planeta"
+    },
+    "Shows available jobs by type over time": {
+        "english": "Shows available jobs by type over time",
+        "spanish": "Muestra los trabajos disponibles por tipo en el tiempo"
+    },
+    "Surveyed Objects": {
+        "english": "Surveyed Objects",
+        "spanish": "Objetos sondeados"
+    },
+    "Unity Income": {
+        "english": "Unity Income",
+        "spanish": "Entrada de unidad"
+    },
+    "Miner": {
+        "english": "Miner",
+        "spanish": "Minero"
+    },
+    "Waits for a new save file to be created then selects it. Also works for resuming existing saves once an autosave occurs": {
+        "english": "Waits for a new save file to be created then selects it. Also works for resuming existing saves once an autosave occurs",
+        "spanish": "Espera a que un nuevo guardado sea creado y lo selecciona. Tambien funciona para continuar con guaradados existentes una vez ocurre un autoguaradado"
+
+    },
+    "Fabricator": {
+        "english": "Fabricator",
+        "spanish": "Fabricador"
+    },
+    "Colony Stability &amp; Crime": {
+        "english": "Colony Stability &amp; Crime",
+        "spanish": "Estabilidad de colonia &amp; "
+    },
+    "Average Level": {
+        "english": "Average Level",
+        "spanish": "Nivel promedio"
+    },
+    "Resource Stockpiles": {
+        "english": "Resource Stockpiles",
+        "spanish": "Almacenamiento de recursos"
+    },
+    "Select Most Recent Save": {
+        "english": "Select Most Recent Save",
+        "spanish": "Seleciona el guardado mas reciente"
+    },
+    "volatile_motes": {
+        "english": "volatile_motes",
+        "spanish": "Motas volatiles"
+    },
+    "Systems": {
+        "english": "Systems",
+        "spanish": "Sistemas"
+    },
+    "Society": {
+        "english": "Society",
+        "spanish": "Sociedad"
+    },
+    "Spawl": {
+        "english": "Spawl",
+        "spanish": "Extencion"
+    },
+    "Gas Plant Engineer": {
+        "english": "Gas Plant Engineer",
+        "spanish": "Ingniero de planta de gas"
+    },
+    "Bio Trophy": {
+        "english": "Bio Trophy",
+        "spanish": "Bio trofeos"
+    },
+    "physics_research": {
+        "english": "physics_research",
+        "spanish": "Investigacion de fisica"
+    },
+    "Completed Techs": {
+        "english": "Completed Techs",
+        "spanish": "Tecnologias completadas"
+    },
+    "Displays the number of concurrent wars over time, as well as offensive and defensive wars. Includes a breakdown of the current fleet as well": {
+        "english": "Displays the number of concurrent wars over time, as well as offensive and defensive wars. Includes a breakdown of the current fleet as well",
+        "spanish": "Muestra el numero de guerras concurrentes en el tiemo, tambien las ofensivas y defensivas. Incluye un desglose de las flotas actuales"
+    },
+    "Shows saves that are currently running in Stellaru": {
+        "english": "Shows saves that are currently running in Stellaru",
+        "spanish": "Muestra los guardados que estan actualmente en Stellaru"
+    },
+    "Exploration": {
+        "english": "Exploration",
+        "spanish": "Exploracion"
+    },
+    "Food": {
+        "english": "Food",
+        "spanish": "Comida"
+    },
+    "Instructions": {
+        "english": "Instructions",
+        "spanish": "Instrucciones"
+    },
+    "rare_crystals": {
+        "english": "rare_crystals",
+        "spanish": "Cristales raros"
+    },
+    "Federation Experience": {
+        "english": "Federation Experience",
+        "spanish": "Experiencia de la federacion"
+    },
+    "Zro": {
+        "english": "Zro",
+        "spanish": "Zro"
+    },
+    "Choose From Previously Loaded Saves": {
+        "english": "Choose From Previously Loaded Saves",
+        "spanish": "Escoge uno de los guardados previamente cargados"
+    },
+    "Scientist": {
+        "english": "Scientist",
+        "spanish": "Cientifico"
+    },
+    "Add Chart": {
+        "english": "Add Chart",
+        "spanish": "Añadir grafica"
+    },
+    "Continental": {
+        "english": "Continental",
+        "spanish": "Continental"
+    },
+    "Max Hire Age": {
+        "english": "Max Hire Age",
+        "spanish": "Edad maxima de reclutamiento"
+    },
+    "Gas Extractor": {
+        "english": "Gas Extractor",
+        "spanish": "Extractor de gas"
+    },
+    "Shipyard": {
+        "english": "Shipyard",
+        "spanish": "Astillero"
+    },
+    "Exotic Gases": {
+        "english": "Exotic Gases",
+        "spanish": "Gases exoticos"
+    },
+    "P": {
+        "english": "P",
+        "spanish": "P"
+    },
+    "Completed Trees": {
+        "english": "Completed Trees",
+        "spanish": "Arobles completados"
+    },
+    "Energy Credit": {
+        "english": "Energy Credit",
+        "spanish": "Creditos de energia"
+    },
+    "Crystal Miner": {
+        "english": "Crystal Miner",
+        "spanish": "Minero de cristales"
+    },
+    "Shows various statistics per colony over time": {
+        "english": "Shows various statistics per colony over time",
+        "spanish": "Muestra varios stats por colonia en el tiempo"
+    },
+    "Construction Queue Breakdowns": {
+        "english": "Construction Queue Breakdowns",
+        "spanish": "Analisis de fila de construccion"
+    },
+    "Mining Drone": {
+        "english": "Mining Drone",
+        "spanish": "Drones mineros"
+    },
+    "Rare Crystal": {
+        "english": "Rare Crystal",
+        "spanish": "Cristales raros"
+    },
+    "Pop  Breakdown": {
+        "english": "Pop  Breakdown",
+        "spanish": "Analisis de poblacion"
+    },
+    "Forward external port": {
+        "english": "Forward external port",
+        "spanish": "Avance de puerto externo"
+    },
+    "Stockpile": {
+        "english": "Stockpile",
+        "spanish": "Almacenamiento"
+    },
+    "Physics Research": {
+        "english": "Physics Research",
+        "spanish": "Investigacion de fisica"
+    },
+    "Construction Queue Counts": {
+        "english": "Construction Queue Counts",
+        "spanish": "Conteo de filas de Construccion"
+    },
+    "Added": {
+        "english": "Added",
+        "spanish": "Añadido"
+    },
+    "General Game Standing": {
+        "english": "General Game Standing",
+        "spanish": "Situacion general del juego"
+    },
+    "Rare Crystals": {
+        "english": "Rare Crystals",
+        "spanish": "Cristales raros"
+    },
+    "Trade": {
+        "english": "Trade",
+        "spanish": "Comercio"
+    },
+    "Average Colony Age": {
+        "english": "Average Colony Age",
+        "spanish": "Edad promedio de colonia"
+    },
+    "Pop Categories Breakdown": {
+        "english": "Pop Categories Breakdown",
+        "spanish": "Analisis de categorias de poblacion"
+    },
+    "Min Power/Fleet": {
+        "english": "Min Power/Fleet",
+        "spanish": "poder minimo/flota"
+    },
+    "If your friends are not on your local network forward the port 42069 to your machine": {
+        "english": "If your friends are not on your local network forward the port 42069 to your machine",
+        "spanish": "Si tus amigos no estan en tu red local reenviales el puerto 42069 a tu maquina"
+    },
+    "Drilldown:": {
+        "english": "Drilldown:",
+        "spanish": "profundizacion:"
+    },
+    "Artisan": {
+        "english": "Artisan",
+        "spanish": "Artesano"
+    },
+    "Authoritarian": {
+        "english": "Authoritarian",
+        "spanish": "Autoritario"
+    },
+    "Foundry": {
+        "english": "Foundry",
+        "spanish": "Fundicion"
+    },
+    "High Priest": {
+        "english": "High Priest",
+        "spanish": "Gran clerigo"
+    },
+    "LAN Link": {
+        "english": "LAN Link",
+        "spanish": "Enlace LAN"
+    },
+    "Soldier": {
+        "english": "Soldier",
+        "spanish": "Soldado"
+    },
+    "Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs": {
+        "english": "Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs",
+        "spanish": "Muestra tu investigacion en el timepo, separadas por tipo. Tambien muestra el numero de tecnologias investigadas y actualmente disponibles"
+    },
+    "Running Save": {
+        "english": "Running Save",
+        "spanish": "Usando guardado"
+    },
+    "Complex Drone": {
+        "english": "Complex Drone",
+        "spanish": "Dron complejo"
+    },
+    "Construction Queue Comparisons": {
+        "english": "Construction Queue Comparisons",
+        "spanish": "Comparion de filas de construccion"
+    },
+    "Volatile Motes": {
+        "english": "Volatile Motes",
+        "spanish": "Motas volatiles"
+    },
+    "Victory rank and victory points over time": {
+        "english": "Victory rank and victory points over time",
+        "spanish": "Rango y puntuacion de victoria en el tiemo"
+    },
+    "Pop Species Breakdown": {
+        "english": "Pop Species Breakdown",
+        "spanish": "Analisis por especie de poblacion"
+    },
+    "Overview": {
+        "english": "Overview",
+        "spanish": "Resumen"
+    },
+    "Watching Stellaris save directories": {
+        "english": "Watching Stellaris save directories",
+        "spanish": "Viendo a stellaris guardar directorios"
+    },
+    "Clear Dashboard": {
+        "english": "Clear Dashboard",
+        "spanish": "Limpiar tablero"
+    },
+    "Economy": {
+        "english": "Economy",
+        "spanish": "Economia"
+    },
+    "Spiritualist": {
+        "english": "Spiritualist",
+        "spanish": "Espiritualista"
+    },
+    "Stellaru Port": {
+        "english": "Stellaru Port",
+        "spanish": "Porte de Stellaru"
+    },
+    "to the Local IP and Stellaru Port (internal port) from above": {
+        "english": "to the Local IP and Stellaru Port (internal port) from above",
+        "spanish": "A la IP local y el porte de Stellaru (porte interno) de arriba"
+    },
+    "Influence": {
+        "english": "Influence",
+        "spanish": "Influencia"
+    },
+    "Ethics": {
+        "english": "Ethics"
+    },
+    "Shows number of colonies and type breakdown over time": {
+        "english": "Shows number of colonies and type breakdown over time",
+        "spanish": "Muestra el numero de colonias y tipo. Analisis en el tiepo"
+    },
+    "Total Ship Count": {
+        "english": "Total Ship Count",
+        "spanish": "Conteo total de naves"
+    },
+    "Connection Info": {
+        "english": "Connection Info",
+        "spanish": "Info de conexion"
+    },
+    "Maintenance Drone": {
+        "english": "Maintenance Drone",
+        "spanish": "Dron de mantenimiento"
+    },
+    "Ship Count": {
+        "english": "Ship Count",
+        "spanish": "Conteo de naves"
+    },
+    "War Count": {
+        "english": "War Count",
+        "spanish": "Conteo de guerra"
+    },
+    "Leaders": {
+        "english": "Leaders",
+        "spanish": "Lideres"
+    },
+    "Alloys": {
+        "english": "Alloys",
+        "spanish": "Aleaciones"
+    },
+    "Clerk": {
+        "english": "Clerk",
+        "spanish": "Clerigo"
+    },
+    "All Resource Net Incomes": {
+        "english": "All Resource Net Incomes",
+        "spanish": "Entrada neta de todos los recursos"
+    }
+}

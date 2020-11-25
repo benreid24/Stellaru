@@ -22,7 +22,7 @@ def _make_error(error):
 
 def get_translations(request):
     try:
-        with open('data/translations.json', 'r') as data:
+        with open('resources/translations.json', 'r') as data:
             translations = json.loads(data.read())
             return JsonResponse({'translations': translations})
     except Exception as err:
