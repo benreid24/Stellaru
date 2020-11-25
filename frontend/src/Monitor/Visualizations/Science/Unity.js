@@ -37,7 +37,7 @@ function Unity(props) {
         },
         {
             label: translate('Ascension Perks'),
-            selector: snap => selectNested('unity/acension_perks', snap)
+            selector: snap => selectNested('unity/ascension_perks', snap)
         }
     ]
 

@@ -249,7 +249,7 @@ def get_unity(state, empire):
         'adopted_trees': adopted_trees,
         'finished_trees': finished_trees,
         'traditions': traditions,
-        'acension_perks': ap_count,
+        'ascension_perks': ap_count,
         'unity': unity_income
     }
 
@@ -269,12 +269,14 @@ def get_market_prices(state, empire):
         global_index = None
         if 'galactic_market_access' in state['market'] and empire in state['market']['id']:
             global_index = state['market']['id'].index(empire)
-        index = state['market']['internal_market_fluctuations']['country'].index(empire)
         prices = {}
         for resource in MARKET_RESOURCES:
             fluctuation = 0
-            if resource in state['market']['internal_market_fluctuations']['resources'][index]:
-                fluctuation += state['market']['internal_market_fluctuations']['resources'][index][resource]
+            if empire in state['market']['internal_market_fluctuations']['country']:
+                index = state['market']['internal_market_fluctuations']['country'].index(empire)
+                resources = state['market']['internal_market_fluctuations']['resources'][index]
+                if resource in resources:
+                    fluctuation += resources[resource]
             if global_index:
                 if state['market']['galactic_market_access'][global_index] > 0:
                     if 'fluctuations' in state['market']:
