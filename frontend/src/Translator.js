@@ -51,10 +51,14 @@ function setLang(lang) {
 }
 
 function getAllLangs() {
-    const phrases = objectKeys(translations);
-    if (phrases.length > 0)
-        return objectKeys(translations[phrases[0]]);
-    return [];
+    let langs = [];
+    for (const [_, subLangs] of Object.entries(translations)) {
+        for (const [lang, _] of Object.entries(subLangs)) {
+            if (langs.indexOf(lang) < 0)
+                langs.push(lang);
+        }
+    }
+    return langs;
 }
 
 function LanguagePicker(props) {
