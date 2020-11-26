@@ -104,8 +104,8 @@ class WarGenerator(HeadlineGenerator):
             headline = None
             body = None
             meta = {
-                'attackers': war['attackers'].keys(),
-                'defenders': war['defenders'].keys(),
+                'attackers': list(war['attackers'].keys()),
+                'defenders': list(war['defenders'].keys()),
                 'count': count
             }
             if empire in war['attackers']:
