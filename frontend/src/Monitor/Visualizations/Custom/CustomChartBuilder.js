@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import CustomChartProperties from './CustomChartProperties';
+import SeriesCreator from './SeriesCreator';
 
 import './Custom.css';
 
 function CustomChartBuilder(props) {
-    // TODO
+    const data = props.data;
+
+    const [chartProps, setChartProps] = useState({
+        title: 'Chart Title',
+        xAxisLabel: 'X Label',
+        xAxisScaleType: 'X Scale Type',
+        leftAxisLabel: 'Left Y Label',
+        rightYLabel: 'Right Y Label',
+        leftAxisScaleType: 'Left Scale Type', // TODO - dropdown
+        rightAxisScaleType: 'Right Scale Type'
+    });
+
+    const onChartSave = () => {
+        console.log(`Chart saved:`);
+        console.log(chartProps);
+    };
 
     return (
         <div>
@@ -16,13 +34,11 @@ function CustomChartBuilder(props) {
             </div>
             <div className='row chartRow'>
                 <div className='col-6'>
-                    <div className='customPropsArea'>
-                        <p>Chart properties</p>
-                    </div>
+                    <CustomChartProperties chartProps={chartProps} setChartProps={setChartProps} onSave={onChartSave}/>
                 </div>
                 <div className='col-6'>
                     <div className='customSeriesArea'>
-                        <p>Series selectors</p>
+                        <SeriesCreator data={data}/>
                     </div>
                 </div>
             </div>
