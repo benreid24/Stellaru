@@ -15,6 +15,7 @@ import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
 import Construction from './Tabs/Construction';
 import Federation from './Tabs/Federation';
+import ChartBuilder from './Tabs/ChartBuilderTab';
 import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';
@@ -202,6 +203,7 @@ function Monitor(props) {
                             <Tab label={translate('Empire')}/>
                             <Tab label={translate('Federation')}/>
                             <Tab label={translate('Construction')}/>
+                            <Tab label={translate('Chart Builder')}/>
                             <Tab label={translate('Help')}/>
                         </Tabs>
                     </div>
@@ -240,6 +242,9 @@ function Monitor(props) {
                         <Construction data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={9}>
+                        <ChartBuilder data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={10}>
                         <Help connInfo={connInfo}/>
                     </TabPanel>
                 </div>
