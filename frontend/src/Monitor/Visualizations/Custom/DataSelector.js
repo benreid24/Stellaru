@@ -2,6 +2,8 @@ import React from 'react';
 
 import {getNextDataLevel} from './CustomChartRepository';
 
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
@@ -22,6 +24,20 @@ function DataSelector(props) {
     const dataFormat = props.dataFormat;
     const series = props.series;
     const setSeries = props.setSeries;
+
+    const onAxisChange = event => {
+        setSeries({
+            ...series,
+            axis: event.target.value
+        });
+    };
+
+    const onLabelChange = event => {
+        setSeries({
+            ...series,
+            label: event.target.value
+        });
+    };
 
     const onDataChange = (index, newValue) => {
         if (newValue === '*wildcard*') newValue = null;
@@ -62,8 +78,24 @@ function DataSelector(props) {
     let dropdowns = series.data.map(renderDropdown);
     dropdowns.push(renderDropdown('', series.data.length));
 
+    const axisOptions = series.axis === 'x' ?
+        [<MenuItem value='x'>x</MenuItem>] :
+        [<MenuItem value='left'>y (left)</MenuItem>, <MenuItem value='right'>y (right)</MenuItem>];
+
     return (
-        <div className='dataSelectorKeyList'>
+        <div className='dataSelector'>
+            <div className='dataSelectorInputGroup'>
+                <p className='dataSelectorText'>Axis:</p>
+                <Select onChange={onAxisChange} value={series.axis}>
+                    {axisOptions}
+                </Select>
+            </div>
+            { series.axis !== 'x' && 
+                <div className='dataSelectorInputGroup'>
+                    <TextField disabled={!wildcardAvailable} label='Label' value={wildcardAvailable ? series.label : '*wildcard*'} onChange={onLabelChange}/>
+                </div>
+            }
+            <p className='dataSelectorText'>Data:</p>
             {dropdowns}
         </div>
     );

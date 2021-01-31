@@ -13,9 +13,16 @@ function SeriesCreator(props) {
         label: ''
     });
 
+    const [ySeries, setYSeries] = useState({
+        data: [],
+        axis: 'left',
+        label: ''
+    });
+
     return (
         <div className='seriesCreator'>
             <DataSelector dataFormat={dataFormat} series={xSeries} setSeries={setXSeries}/>
+            <DataSelector dataFormat={dataFormat} series={ySeries} setSeries={setYSeries}/>
         </div>
     );
 }
