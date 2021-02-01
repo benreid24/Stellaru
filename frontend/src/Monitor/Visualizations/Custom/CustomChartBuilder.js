@@ -119,7 +119,7 @@ function CustomChartBuilder(props) {
                 </div>
                 <div className='col-6'>
                     <div className='customSeriesArea'>
-                        {chart.type === 'timeseries' && <TimeSeriesCreator data={data}/>}
+                        {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChart}/>}
                     </div>
                 </div>
             </div>
