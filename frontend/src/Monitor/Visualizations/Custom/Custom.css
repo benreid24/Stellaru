@@ -11,8 +11,24 @@
 }
 
 .customPropsArea {
+    justify-content: left;
+    width: 100%;
+}
+
+.customPropsText {
+    margin: 0;
+    padding-right: 8px;
+    padding-top: 1%;
+    text-align: right;
+    min-width: 20%;
+}
+
+.customPropsInputGroup {
     display: flex;
     justify-content: left;
+    align-content: left;
+    padding-left: 4.5%;
+    width: 100%;
 }
 
 .customSeriesArea {
@@ -50,6 +66,7 @@
     margin: 5px;
     background-color: #323232;
     box-shadow: 2px 2px #121212;
+    width: 99%;
 }
 
 .dataSelectorText {
@@ -65,4 +82,16 @@
     display: flex;
     justify-content: left;
     min-width: 10%;
+    padding-right: 8px;
+}
+
+.dataSelectorDeleteButtonArea {
+    position: relative;
+    top: 2px;
+    margin-left: auto;
+    margin-right: 2px;
+}
+
+.customChartSaveArea {
+    padding-top: 10px;
 }

@@ -3,27 +3,20 @@ import React from 'react';
 import {getNextDataLevel} from './CustomChartRepository';
 
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import {makeStyles} from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
-}));
 
 function DataSelector(props) {
-    const classes = useStyles();
-
     const dataFormat = props.dataFormat;
     const series = props.series;
+    const data = props.data;
+    const setData = props.setData;
     const setSeries = props.setSeries;
+    const onDelete = props.onDelete;
+    const axisTypes = props.axisTypes;
+    const canBeArea = props.timeseries;
+    const hasLabel = props.label;
 
     const onAxisChange = event => {
         setSeries({
@@ -39,14 +32,25 @@ function DataSelector(props) {
         });
     };
 
-    const onDataChange = (index, newValue) => {
-        if (newValue === '*wildcard*') newValue = null;
+    const onTypeChange = event => {
         setSeries({
             ...series,
-            data: [...series.data.slice(0, index), newValue]
+            type: event.target.value
         });
     };
-    const wildcardAvailable = !series.data.includes(null);
+
+    const onStackChange = event => {
+        setSeries({
+            ...series,
+            stackId: event.target.value
+        });
+    };
+
+    const onDataChange = (index, newValue) => {
+        if (newValue === '*wildcard*') newValue = null;
+        setData([...data.slice(0, index), newValue]);
+    };
+    const wildcardAvailable = !data.includes(null);
 
     let dropdownData = dataFormat;
     const renderDropdown = (key, index) => {
@@ -75,28 +79,55 @@ function DataSelector(props) {
             </div>
         );
     };
-    let dropdowns = series.data.map(renderDropdown);
-    dropdowns.push(renderDropdown('', series.data.length));
+    let dropdowns = data.map(renderDropdown);
+    dropdowns.push(renderDropdown('', data.length));
 
-    const axisOptions = series.axis === 'x' ?
-        [<MenuItem value='x'>x</MenuItem>] :
-        [<MenuItem value='left'>y (left)</MenuItem>, <MenuItem value='right'>y (right)</MenuItem>];
+    const axisOptions = axisTypes.map(axis => <MenuItem key={axis.value} value={axis.value}>{axis.name}</MenuItem>);
 
     return (
         <div className='dataSelector'>
-            <div className='dataSelectorInputGroup'>
-                <p className='dataSelectorText'>Axis:</p>
-                <Select onChange={onAxisChange} value={series.axis}>
-                    {axisOptions}
-                </Select>
-            </div>
-            { series.axis !== 'x' && 
+            {axisOptions.length > 0 &&
+                <div className='dataSelectorInputGroup'>
+                    <p className='dataSelectorText'>Axis:</p>
+                    <Select onChange={onAxisChange} value={series ? series.axis : 'x'}>
+                        {axisOptions}
+                    </Select>
+                </div>
+            }
+            {hasLabel && 
                 <div className='dataSelectorInputGroup'>
                     <TextField disabled={!wildcardAvailable} label='Label' value={wildcardAvailable ? series.label : '*wildcard*'} onChange={onLabelChange}/>
                 </div>
             }
             <p className='dataSelectorText'>Data:</p>
             {dropdowns}
+            {canBeArea &&
+                <p className='dataSelectorText'>Type</p>
+            }
+            {canBeArea &&
+                <Select onChange={onTypeChange} value={series.type}>
+                    <MenuItem value='line'>Line</MenuItem>
+                    <MenuItem value='area'>Area</MenuItem>
+                </Select>
+            }
+            {canBeArea && series.type === 'area' &&
+                <p className='dataSelectorText'>Stack</p>
+            }
+            {canBeArea && series.type === 'area' &&
+                <Select value={series.stackId} onChange={onStackChange}>
+                    <MenuItem value='none'>None</MenuItem>
+                    <MenuItem value='stack1'>Group 1</MenuItem>
+                    <MenuItem value='stack2'>Group 2</MenuItem>
+                    <MenuItem value='stack3'>Group 3</MenuItem>
+                    <MenuItem value='stack4'>Group 4</MenuItem>
+                    <MenuItem value='stack5'>Group 5</MenuItem>
+                </Select>
+            }
+            {onDelete && 
+                <div className='dataSelectorDeleteButtonArea'>
+                    <Button variant='contained' color='secondary' onClick={onDelete}>Delete</Button>
+                </div>
+            }
         </div>
     );
 }
