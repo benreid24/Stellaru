@@ -54,16 +54,15 @@
 
 .dataSelectorText {
     padding: 2px;
-    padding-right: 5px;
+    padding-right: 8px;
+    padding-top: 10px;
     vertical-align: middle;
     display: table-cell;
     margin: 0px;
-    border: 1px solid red;
 }
 
 .dataSelectorInputGroup {
     display: flex;
     justify-content: left;
     min-width: 10%;
-    border: 1px solid green;
 }
