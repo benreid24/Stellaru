@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import TimeseriesProperties from './TimeseriesProperties';
 import TimeSeriesCreator from './TimeSeriesCreator';
+import CustomChart from './CustomChart';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -41,12 +42,11 @@ const defaultChart = {
     },
     timeseries: {
         xAxisLabel: '',
-        xScale: 'linear', // log | sqrt
         leftAxisLabel: '',
         leftScale: 'linear', // log | sqrt
         rightAxisLabel: '',
         rightScale: 'linear', // log | sqrt
-        x: [], //selector path
+        x: ['date_days'], //selector path
         y: [
             /*{
                 data: ['path'],
@@ -95,8 +95,8 @@ function CustomChartBuilder(props) {
         <div>
             <div className='row chartRow justify-content-center'>
                 <div className='col-xl-6 col-md-8 col-xs-12'>
-                    <div className='placeholder customChartArea'>
-                        <p>Chart preview</p>
+                    <div className='customChartArea'>
+                        <CustomChart data={data} chart={chart}/>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,8 @@ function TimeSeriesCreator(props) {
         data: [],
         axis: 'left',
         type: 'line',
-        label: ''
+        label: '',
+        stackId: 'none'
     };
 
     const setXData = data => {
@@ -98,6 +99,7 @@ function TimeSeriesCreator(props) {
                 axisTypes={yAxisOptions}
                 label
                 timeseries
+                wildcard
                 onDelete={() => onDelete(index)}
             />
         );

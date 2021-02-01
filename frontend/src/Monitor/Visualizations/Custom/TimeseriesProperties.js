@@ -33,12 +33,6 @@ function TimeseriesProperties(props) {
         <div className='customPropsArea'>
             <div className='customPropsInputGroup'>
                 <TextField label="X-Axis Label" value={chart.timeseries.xAxisLabel} onChange={event => onChange('xAxisLabel', event.target.value)} className={classes.textField}/>
-                <p className='customPropsText'>X-Axis Scale</p>
-                <Select value={chart.timeseries.xScale} onChange={event => onChange('xScale', event.target.value)}>
-                    <MenuItem value='linear'>Linear</MenuItem>
-                    <MenuItem value='log'>Log</MenuItem>
-                    <MenuItem value='sqrt'>Square Root</MenuItem>
-                </Select>
             </div>
             <div className='customPropsInputGroup'>
                 <TextField label="Left Y-Axis Label" value={chart.timeseries.leftAxisLabel} onChange={event => onChange('leftAxisLabel', event.target.value)} className={classes.textField}/>

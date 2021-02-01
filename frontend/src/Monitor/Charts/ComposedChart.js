@@ -33,6 +33,9 @@ function ComposedChart(props) {
     const rightDomain = props.rightDomain ? props.rightDomain : [dataMin => dataMin < 0 ? dataMin : 0, 'dataMax+1'];
     const leftScale = props.leftScale ? props.leftScale : 'linear';
     const rightScale = props.rightScale ? props.rightScale : 'linear';
+    const xSelect = props.xSelect ? props.xSelect : snap => selectNested('date_days', snap);
+    const xFormat = props.xFormat ? props.xFormat : dateTickFormat;
+    const xLabel = props.xLabel ? props.xLabel : '';
 
     series.forEach(series => {
         series.labelId = makeId(`${name}_${series.label}`);
@@ -89,10 +92,10 @@ function ComposedChart(props) {
     const seriesVisible = series => isolatedSeries.length === 0 || isolatedSeries.includes(series.label);
     
     const data = rawData.map(snap => {
-        const x = selectNested('date_days', snap);
+        const x = xSelect(snap);
         let datum = {
             x: x,
-            xLabel: dateTickFormat(x)
+            xLabel: xFormat(x)
         };
         series.forEach(line => {
             const y = line.selector(snap);
@@ -166,6 +169,7 @@ function ComposedChart(props) {
                     tickLine={{stroke: '#a0a0a0'}}
                     tickSize={9}
                     axisLine={{stroke: '#a0a0a0'}}
+                    label={{value: xLabel, position: 'insideBottomRight', offset: -5, fill: '#dadada'}}
                 />
                 <YAxis
                     yAxisId='left'

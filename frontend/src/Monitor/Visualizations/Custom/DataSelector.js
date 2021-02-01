@@ -17,6 +17,7 @@ function DataSelector(props) {
     const axisTypes = props.axisTypes;
     const canBeArea = props.timeseries;
     const hasLabel = props.label;
+    const wildcardAllowed = props.wildcard;
 
     const onAxisChange = event => {
         setSeries({
@@ -57,7 +58,7 @@ function DataSelector(props) {
         if (dropdownData === null) return null;
 
         let itemList = dropdownData.map(obj => <MenuItem key={obj.key} value={obj.key}>{obj.key}</MenuItem>);
-        if (wildcardAvailable || key === null) {
+        if ((wildcardAvailable || key === null) && wildcardAllowed) {
             itemList = [
                 <MenuItem key={`wildcard${index}`} value='*wildcard*'>*</MenuItem>,
                 ...itemList
