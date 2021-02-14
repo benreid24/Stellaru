@@ -58,7 +58,8 @@ function Unity(props) {
 registerChart(
     Name,
     'Shows Unity income and stockpile alongside adopted traditions over time',
-    Unity
+    Unity,
+    'Science'
 );
 
 export default Unity;

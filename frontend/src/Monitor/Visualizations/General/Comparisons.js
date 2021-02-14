@@ -106,7 +106,8 @@ function Comparisons(props) {
 registerChart(
     Name,
     'Shows comparisons between your empire and others over time',
-    Comparisons
+    Comparisons,
+    'General'
 );
 
 export default Comparisons;

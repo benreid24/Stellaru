@@ -36,7 +36,8 @@ function ColonyTypes(props) {
 registerChart(
     Name,
     'Shows number of colonies and type breakdown over time',
-    ColonyTypes
+    ColonyTypes,
+    'Empire'
 );
 
 export default ColonyTypes;

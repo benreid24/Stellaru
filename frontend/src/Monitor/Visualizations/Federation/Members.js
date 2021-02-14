@@ -43,7 +43,8 @@ function FederationMembers(props) {
 registerChart(
     Name,
     'Shows federation member count and cohesion over time',
-    FederationMembers
+    FederationMembers,
+    'Federation'
 );
 
 export default FederationMembers;

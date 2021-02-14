@@ -36,7 +36,8 @@ function AllResourceIncomes(props) {
 registerChart(
     Name,
     'Net incomes of all resources over time',
-    AllResourceIncomes
+    AllResourceIncomes,
+    'Economy'
 );
 
 export default AllResourceIncomes;

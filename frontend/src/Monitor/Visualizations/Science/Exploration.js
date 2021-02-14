@@ -42,7 +42,8 @@ function Exploration(props) {
 registerChart(
     Name,
     'Shows number of surveyed ojects and systems over time',
-    Exploration
+    Exploration,
+    'Science'
 );
 
 export default Exploration;

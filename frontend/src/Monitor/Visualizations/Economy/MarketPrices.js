@@ -36,7 +36,8 @@ function MarketPrices(props) {
 registerChart(
     Name,
     'shows market prices of publicly traded commodities over time',
-    MarketPrices
+    MarketPrices,
+    'Economy'
 );
 
 export default MarketPrices;

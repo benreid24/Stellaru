@@ -120,7 +120,8 @@ function ColonyScatter(props) {
 registerChart(
     Name,
     'Customizable scatter chart showing user defined colony stats against one another',
-    ColonyScatter
+    ColonyScatter,
+    'Empire'
 );
 
 export default ColonyScatter;

@@ -37,7 +37,8 @@ function ConstructionQueues(props) {
 registerChart(
     Name,
     'Shows the number of construction queues by type over time',
-    ConstructionQueues
+    ConstructionQueues,
+    'Construction'
 );
 
 export default ConstructionQueues;

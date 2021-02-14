@@ -1,11 +1,12 @@
 let registeredCharts = {};
 let addedCharts = [];
 
-function registerChart(name, description, component) {
+function registerChart(name, description, component, category) {
     registeredCharts[name] = {
         name: name,
         description: description,
-        component: component
+        component: component,
+        category: category
     };
 }
 

@@ -31,7 +31,8 @@ function FleetPower(props) {
 registerChart(
     Name,
     'Shows total fleet power over time with fleet stats',
-    FleetPower
+    FleetPower,
+    'Military'
 );
 
 export default FleetPower;

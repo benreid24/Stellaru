@@ -40,7 +40,8 @@ function ColonyStability(props) {
 registerChart(
     Name,
     'Shows colony stability and crime over time',
-    ColonyStability
+    ColonyStability,
+    'Empire'
 );
 
 export default ColonyStability;

@@ -47,7 +47,8 @@ function FleetShips(props) {
 registerChart(
     Name,
     'Breaks down fleet stats over time',
-    FleetShips
+    FleetShips,
+    'Military'
 );
 
 export default FleetShips;

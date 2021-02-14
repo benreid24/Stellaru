@@ -36,7 +36,8 @@ function Stockpiles(props) {
 registerChart(
     Name,
     'Stockpiles of all resources over time',
-    Stockpiles
+    Stockpiles,
+    'Economy'
 );
 
 export default Stockpiles;

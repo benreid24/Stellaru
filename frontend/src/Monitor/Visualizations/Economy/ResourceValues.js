@@ -135,7 +135,8 @@ function ResourceValues(props) {
 registerChart(
     Name,
     'Shows nominal and market value adjusted resource values over time',
-    ResourceValues
+    ResourceValues,
+    'Economy'
 );
 
 export default ResourceValues;

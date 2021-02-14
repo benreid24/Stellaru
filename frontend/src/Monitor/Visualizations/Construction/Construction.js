@@ -103,7 +103,8 @@ function Construction(props) {
 registerChart(
     Name,
     'Gives lower level view into construction queues and items by queue type over time',
-    Construction
+    Construction,
+    'Construction'
 );
 
 export default Construction;

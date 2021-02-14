@@ -36,7 +36,8 @@ function Jobs(props) {
 registerChart(
     Name,
     'Shows available jobs by type over time',
-    Jobs
+    Jobs,
+    'Society'
 );
 
 export default Jobs;

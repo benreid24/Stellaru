@@ -41,7 +41,8 @@ function LeadingFederation(props) {
 registerChart(
     Name,
     'Shows when currently leading a federation',
-    LeadingFederation
+    LeadingFederation,
+    'Federation'
 );
 
 export default LeadingFederation;

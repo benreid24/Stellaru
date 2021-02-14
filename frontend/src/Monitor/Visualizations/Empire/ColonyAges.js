@@ -27,7 +27,8 @@ function ColonyAges(props) {
 registerChart(
     Name,
     'Breaks down fleet stats over time',
-    ColonyAges
+    ColonyAges,
+    'Empire'
 );
 
 export default ColonyAges;

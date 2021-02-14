@@ -81,7 +81,8 @@ function Pops(props) {
 registerChart(
     Name,
     'Shows pop metrics over time, such as species, category, and ethics',
-    Pops
+    Pops,
+    'Society'
 );
 
 export default Pops;

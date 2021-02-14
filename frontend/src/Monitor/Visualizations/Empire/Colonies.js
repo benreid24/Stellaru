@@ -77,7 +77,8 @@ function Colonies(props) {
 registerChart(
     Name,
     'Shows various statistics per colony over time',
-    Colonies
+    Colonies,
+    'Empire'
 );
 
 export default Colonies;

@@ -80,7 +80,8 @@ function WarOverview(props) {
 registerChart(
     Name,
     'Displays the number of concurrent wars over time, as well as offensive and defensive wars. Includes a breakdown of the current fleet as well',
-    WarOverview
+    WarOverview,
+    'Military'
 );
 
 export default WarOverview;

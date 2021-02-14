@@ -53,7 +53,8 @@ function LeaderGender(props) {
 registerChart(
     Name,
     'Shows gender breakdown over time',
-    LeaderGender
+    LeaderGender,
+    'Society'
 );
 
 export default LeaderGender;

@@ -1,3 +1,5 @@
+import {capitalize} from 'Helpers';
+
 function getSnapshotKeyBreakdown(object) {
     if (typeof object == 'number') return null;
 
@@ -58,8 +60,16 @@ function getNextDataLevel(currentData, key) {
     };
 }
 
+function makeLabelFromKey(key) {
+    let adjKey = key.includes('_') ? capitalize(key, '_') : capitalize(key);
+    if (adjKey === 'Energy')
+        adjKey = 'Energy Credits';
+    return adjKey;
+}
+
 export {
     getSeriesKeyBreakdown,
     findDataKey,
-    getNextDataLevel
+    getNextDataLevel,
+    makeLabelFromKey
 }

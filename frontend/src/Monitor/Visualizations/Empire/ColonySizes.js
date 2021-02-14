@@ -37,7 +37,8 @@ function ColonySizes(props) {
 registerChart(
     Name,
     'Shows colony sizes stacked together time',
-    ColonySizes
+    ColonySizes,
+    'Empire'
 );
 
 export default ColonySizes;

@@ -129,7 +129,8 @@ function ScienceOutput(props) {
 registerChart(
     Name,
     'Displays the science output over time, broken down by type. Also displays the number of researched techs and currently available techs',
-    ScienceOutput
+    ScienceOutput,
+    'Science'
 );
 
 export default ScienceOutput;
