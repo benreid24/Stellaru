@@ -15,7 +15,7 @@ import Society from './Tabs/Society';
 import Empire from './Tabs/Empire';
 import Construction from './Tabs/Construction';
 import Federation from './Tabs/Federation';
-import ChartBuilder from './Tabs/ChartBuilderTab';
+import ChartBuilder from './Tabs/ChartBuilder';
 import Help from './Tabs/Help';
 
 import {dateTickFormat, selectNested} from './Charts/Util';

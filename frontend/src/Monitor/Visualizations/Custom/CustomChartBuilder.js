@@ -18,17 +18,13 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         width: '45%',
     },
-    titleInput: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: '90%'
-    },
     button: {
         width: '20%'
     }
 }));
 
 const defaultChart = {
+    name: '',
     type: 'timeseries', // scatter | pie
     title: '',
     scatter: {
@@ -72,6 +68,13 @@ function CustomChartBuilder(props) {
     // TODO - default to loaded chart if specified
     const [chart, setChart] = useState(defaultChart);
 
+    const onNameChange = event => {
+        setChart({
+            ...chart,
+            name: event.target.value
+        });
+    };
+
     const onTitleChange = event => {
         setChart({
             ...chart,
@@ -108,7 +111,10 @@ function CustomChartBuilder(props) {
                             <MenuItem value='scatter'>Scatter</MenuItem>
                             <MenuItem value='pie'>Pie</MenuItem>
                         </Select>
-                        <TextField label="Chart Title" onChange={onTitleChange} className={classes.titleInput}/>
+                    </div>
+                    <div className='customChartTypeArea'>
+                        <TextField label="Chart Name" onChange={onNameChange} className={classes.textField}/>
+                        <TextField label="Chart Title" onChange={onTitleChange} className={classes.textField}/>
                     </div>
                     <div className='customChartPropsArea'>
                         {chart.type === 'timeseries' && <TimeseriesProperties chart={chart} setChart={setChart}/>}

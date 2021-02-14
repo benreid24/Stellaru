@@ -26,9 +26,12 @@ function TimeseriesChart(props) {
         else {
             const keys = findKeysOverSeries(data, series.data.slice(0, i).join('/'));
             return keys.map(key => {
+                let adjKey = key.includes('_') ? capitalize(key, '_') : capitalize(key);
+                if (adjKey === 'Energy')
+                    adjKey = 'Energy Credits';
                 return {
                     selector: snap => selectNested([...series.data.slice(0, i), key, ...series.data.slice(i + 1)].join('/'), snap),
-                    label: capitalize(key),
+                    label: adjKey,
                     type: series.type,
                     stack: series.stackId,
                     yAxis: series.axis
