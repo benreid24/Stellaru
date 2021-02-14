@@ -81,7 +81,7 @@ function ChartAdder(props) {
                             options={allCharts.sort(chartCompare)}
                             groupBy={chart => chart.category}
                             getOptionLabel={chart => chart.name}
-                            renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined"/>}
+                            renderInput={(params) => <TextField {...params} label="Add Chart..." variant="outlined"/>}
                             renderOption={renderItem}
                             onChange={onAdd}
                             value={value}

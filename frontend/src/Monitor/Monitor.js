@@ -196,6 +196,7 @@ function Monitor(props) {
                         <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
                             <Tab label={translate('Overview')}/>
                             <Tab label={translate('Custom')}/>
+                            <Tab label={translate('Chart Builder')}/>
                             <Tab label={translate('Economy')}/>
                             <Tab label={translate('Military')}/>
                             <Tab label={translate('Science')}/>
@@ -203,7 +204,6 @@ function Monitor(props) {
                             <Tab label={translate('Empire')}/>
                             <Tab label={translate('Federation')}/>
                             <Tab label={translate('Construction')}/>
-                            <Tab label={translate('Chart Builder')}/>
                             <Tab label={translate('Help')}/>
                         </Tabs>
                     </div>
@@ -221,28 +221,28 @@ function Monitor(props) {
                         <CustomTab data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={2}>
-                        <Economy data={slicedData}/>
+                        <ChartBuilder data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={3}>
-                        <Military data={slicedData}/>
+                        <Economy data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={4}>
-                        <Science data={slicedData}/>
+                        <Military data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={5}>
-                        <Society data={slicedData}/>
+                        <Science data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={6}>
-                        <Empire data={slicedData}/>
+                        <Society data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={7}>
-                        <Federation data={slicedData}/>
+                        <Empire data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={8}>
-                        <Construction data={slicedData}/>
+                        <Federation data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={9}>
-                        <ChartBuilder data={slicedData}/>
+                        <Construction data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={10}>
                         <Help connInfo={connInfo}/>

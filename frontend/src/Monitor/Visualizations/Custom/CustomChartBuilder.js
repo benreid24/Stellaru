@@ -124,7 +124,7 @@ function CustomChartBuilder(props) {
                 </div>
             </div>
             <div className='row chartRow'>
-                <div className='col-6'>
+                <div className='col-4'>
                     <div className='customChartTypeArea'>
                         <Select value={chart.type} onChange={onTypeChange}>
                             <MenuItem value='timeseries'>Time Series</MenuItem>
@@ -150,7 +150,7 @@ function CustomChartBuilder(props) {
                         }
                     </div>
                 </div>
-                <div className='col-6'>
+                <div className='col-8'>
                     <div className='customSeriesArea'>
                         {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChart}/>}
                     </div>
