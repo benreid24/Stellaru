@@ -1,5 +1,43 @@
 import {capitalize} from 'Helpers';
 
+let charts = {};
+let loaded = false;
+
+function checkLoaded() {
+    if (!loaded) {
+        const data = window.localStorage.getItem('customChartRepository');
+        if (data) {
+            charts = JSON.parse(data);
+        }
+        loaded = true;
+    }
+}
+
+function getAllCharts() {
+    checkLoaded();
+    return Object.values(charts);
+}
+
+function getChart(name) {
+    return charts[name];
+}
+
+function chartExists(name) {
+    checkLoaded();
+    return name.length > 0 && name in charts;
+}
+
+function addChart(chart) {
+    // TODO - sync with chart repository. have chart repository hit getAllCharts?
+    checkLoaded();
+    charts[chart.name] = chart;
+    window.localStorage.setItem('customChartRepository', JSON.stringify(charts));
+}
+
+function deleteChart(chart) {
+    delete charts[chart.name];
+}
+
 function getSnapshotKeyBreakdown(object) {
     if (typeof object == 'number') return null;
 
@@ -71,5 +109,10 @@ export {
     getSeriesKeyBreakdown,
     findDataKey,
     getNextDataLevel,
-    makeLabelFromKey
+    makeLabelFromKey,
+    getAllCharts,
+    getChart,
+    chartExists,
+    addChart,
+    deleteChart
 }

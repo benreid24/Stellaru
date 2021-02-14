@@ -90,3 +90,14 @@
 .customChartSaveArea {
     padding-top: 10px;
 }
+
+.customChartLoadInputArea {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.customChartLoadLabel {
+    padding-right: 15px;
+    margin-top: 10px;
+}

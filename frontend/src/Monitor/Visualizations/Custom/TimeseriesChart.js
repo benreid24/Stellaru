@@ -37,7 +37,6 @@ function TimeseriesChart(props) {
         }
     };
     const series = ts.y.map(generateSeries).flat();
-    console.log(series);
 
     const renderSeries = (series, labelColors, onClick) => {
         if (series.type === 'line') {
