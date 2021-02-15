@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 import TimeseriesProperties from './TimeseriesProperties';
 import TimeSeriesCreator from './TimeSeriesCreator';
+import ScatterProperties from './ScatterProperties';
+import ScatterCreator from './ScatterCreator';
 import CustomChart from './CustomChart';
 import {chartExists, addChart, deleteChart, getChart} from './CustomChartRepository';
 
@@ -138,6 +140,7 @@ function CustomChartBuilder(props) {
                     </div>
                     <div className='customChartPropsArea'>
                         {chart.type === 'timeseries' && <TimeseriesProperties chart={chart} setChart={setChart}/>}
+                        {chart.type === 'scatter' && <ScatterProperties chart={chart} setChart={setChart}/>}
                     </div>
                     <div className='customChartSaveArea'>
                         {chart.name.length > 0 && 
@@ -153,6 +156,7 @@ function CustomChartBuilder(props) {
                 <div className='col-8'>
                     <div className='customSeriesArea'>
                         {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChart}/>}
+                        {chart.type === 'scatter' && <ScatterCreator data={data} chart={chart} setChart={setChart}/>}
                     </div>
                 </div>
             </div>

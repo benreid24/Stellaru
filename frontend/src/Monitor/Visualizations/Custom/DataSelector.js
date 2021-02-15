@@ -90,7 +90,7 @@ function DataSelector(props) {
             {axisOptions.length > 0 &&
                 <div className='dataSelectorInputGroup'>
                     <p className='dataSelectorText'>Axis:</p>
-                    <Select onChange={onAxisChange} value={series ? series.axis : 'x'}>
+                    <Select onChange={onAxisChange} value={axisTypes.length === 1 ? axisTypes[0].value : (series ? series.axis : 'x')}>
                         {axisOptions}
                     </Select>
                 </div>
