@@ -89,7 +89,8 @@ function Gdp(props) {
 registerChart(
     Name,
     'Shows nominal and market value adjusted total market value over time',
-    Gdp
+    Gdp,
+    'Economy'
 );
 
 export default Gdp;

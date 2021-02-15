@@ -48,7 +48,8 @@ function NetResourceIncome(props) {
 registerChart(
     Name,
     'Net incomes of primary resources over time',
-    NetResourceIncome
+    NetResourceIncome,
+    'Economy'
 );
 
 export default NetResourceIncome;

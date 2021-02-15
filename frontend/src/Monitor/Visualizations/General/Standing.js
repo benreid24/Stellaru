@@ -56,7 +56,8 @@ function Standing(props) {
 registerChart(
     Name,
     'Victory rank and victory points over time',
-    Standing
+    Standing,
+    'General'
 );
 
 export default Standing;

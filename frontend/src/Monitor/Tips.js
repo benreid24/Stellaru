@@ -12,7 +12,10 @@ const TipList = [
     'Stellaru works for multiplayer as well, visit the Help tab to learn how',
     'Sometimes charts will render a little funny. Click a legend item twice to fix them',
     'Click this tip box to cycle through the tip list',
-    'Any chart may be added directly to the custom dashboard using the button in the top right'
+    'Any chart may be added directly to the custom dashboard using the button in the top right',
+    'Custom charts may be built using the Chart Builder tab',
+    'The \'*\' option in the Chart Builder allows multiple data points to be selected by selecting each item in that level',
+    'Custom charts may be added to your Custom dashboard'
 ];
 const makeList = () => {
     let list = [];

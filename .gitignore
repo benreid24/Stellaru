@@ -7,3 +7,4 @@ static
 dist
 Stellaru.spec
 build
+*.log

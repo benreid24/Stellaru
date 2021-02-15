@@ -43,7 +43,8 @@ function FederationExperience(props) {
 registerChart(
     Name,
     'Shows federation experience and level over time',
-    FederationExperience
+    FederationExperience,
+    'Federation'
 );
 
 export default FederationExperience;

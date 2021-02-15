@@ -55,7 +55,8 @@ function Leaders(props) {
 registerChart(
     Name,
     'Shows leader count and breakdown over time',
-    Leaders
+    Leaders,
+    'Society'
 );
 
 export default Leaders;

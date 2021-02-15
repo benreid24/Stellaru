@@ -54,7 +54,8 @@ function EmpireSize(props) {
 registerChart(
     Name,
     'Shows size of the empire over time',
-    EmpireSize
+    EmpireSize,
+    'Empire'
 );
 
 export default EmpireSize;

@@ -55,7 +55,8 @@ function Technologies(props) {
 registerChart(
     Name,
     'Shows completed and available technologies over time',
-    Technologies
+    Technologies,
+    'Science'
 );
 
 export default Technologies;

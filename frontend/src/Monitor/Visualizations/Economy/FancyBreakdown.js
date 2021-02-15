@@ -255,7 +255,8 @@ function FancyBreakdown(props) {
 registerChart(
     Name,
     'Detailed breakdown of income or spending of any resource with multiple drilldown levels',
-    FancyBreakdown
+    FancyBreakdown,
+    'Economy'
 );
 
 export default FancyBreakdown;

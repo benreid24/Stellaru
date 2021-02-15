@@ -142,7 +142,8 @@ function MegaBreakdown(props) {
 registerChart(
     Name,
     'Shows a breakdown of spending and income for an individual resource, overlayed with net income',
-    MegaBreakdown
+    MegaBreakdown,
+    'Economy'
 );
 
 export default MegaBreakdown;

@@ -36,7 +36,8 @@ function Armies(props) {
 registerChart(
     Name,
     'Displays number of armies by type over time',
-    Armies
+    Armies,
+    'Military'
 );
 
 export default Armies;

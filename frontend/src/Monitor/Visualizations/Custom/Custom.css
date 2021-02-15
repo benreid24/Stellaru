@@ -1,0 +1,103 @@
+.customChartArea {
+    width: 100%;
+    height: 50%;
+    min-height: 500px;
+}
+
+.customPropsArea {
+    justify-content: left;
+    width: 100%;
+}
+
+.customPropsText {
+    margin: 0;
+    padding-right: 8px;
+    padding-top: 1%;
+    text-align: right;
+    min-width: 20%;
+}
+
+.customPropsInputGroup {
+    display: flex;
+    justify-content: left;
+    align-content: left;
+    padding-left: 4.5%;
+    width: 100%;
+}
+
+.customSeriesArea {
+    display: flex;
+    justify-content: left;
+}
+
+.seriesCreator {
+    width: 100%;
+    height: 100%;
+    justify-content: left;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: inset 3px 3px #121212;
+}
+
+.seriesSelectorLevel {
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+}
+
+.seriesDataArrow {
+    padding: 2px;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.dataSelector {
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 4px;
+    margin: 5px;
+    background-color: #323232;
+    box-shadow: 2px 2px #121212;
+    width: 99%;
+}
+
+.dataSelectorText {
+    padding: 2px;
+    padding-right: 8px;
+    padding-top: 10px;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0px;
+}
+
+.dataSelectorInputGroup {
+    display: flex;
+    justify-content: left;
+    min-width: 10%;
+    padding-right: 8px;
+}
+
+.dataSelectorDeleteButtonArea {
+    position: relative;
+    top: 2px;
+    margin-left: auto;
+    margin-right: 2px;
+}
+
+.customChartSaveArea {
+    padding-top: 10px;
+}
+
+.customChartLoadInputArea {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.customChartLoadLabel {
+    padding-right: 15px;
+    margin-top: 10px;
+}

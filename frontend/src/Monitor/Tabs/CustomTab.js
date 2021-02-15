@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
 import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import Typography from '@material-ui/core/Typography';
 import Tooltip from "@material-ui/core/Tooltip";
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -26,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
 function ChartAdder(props) {
     const classes = useStyles();
     const added = props.charts.map(chart => chart.name);
-    const onAdd = event => props.onAdd(event.target.value);    
     const [visible, setVisible] = useState(false);
+    const [value, setValue] = useState(null);
+    const [inputValue, setInputValue] = useState('');
 
     if (!visible) {
         return (
@@ -40,26 +41,53 @@ function ChartAdder(props) {
     }
 
     const allCharts = getAllCharts();
-    const makeItem = chart => {
+    const onAdd = (_, value) => {
+        if (allCharts.includes(value)) {
+            props.onAdd(value.name);
+            setInputValue('');
+            setValue(null);
+        }
+    };
+
+    const renderItem = chart => {
         return (
-            <MenuItem key={chart.name} value={chart.name}>
-                <Tooltip title={<span className='chartDesc'>{translate(chart.description)}</span>} placement='right'>
-                    <span>{translate(chart.name)}</span>
-                </Tooltip>
-            </MenuItem>
+            <Tooltip title={<p style={{fontSize: '150%'}}>{chart.description}</p>} placement='right'>
+                <Typography noWrap>{chart.name}</Typography>
+            </Tooltip>
         );
-    }
-    const chartList = allCharts.map(makeItem);
+    };
+    let chartCompare = (left, right) => {
+        if (left.category === right.category) {
+            if (left.name < right.name)
+                return -1;
+            if (right.name < left.name)
+                return 1;
+            return 0;
+        }
+        if (left.category < right.category)
+            return -1;
+        if (right.category < left.category)
+            return 1;
+        return 0;
+    };
 
     return (    
         <div className='container-fluid' onMouseLeave={() => setVisible(false)}>
             <div className='row justify-content-start'>
                 <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-7 align-self-end'>
                     <FormControl className={classes.formControl}>
-                        <InputLabel id='add-chart'>{translate('Add Chart')}...</InputLabel>
-                        <Select value='' onChange={onAdd} labelId='add-chart'>
-                            {chartList}
-                        </Select>
+                        <Autocomplete
+                            id='chartSelect'
+                            options={allCharts.sort(chartCompare)}
+                            groupBy={chart => chart.category}
+                            getOptionLabel={chart => chart.name}
+                            renderInput={(params) => <TextField {...params} label="Add Chart..." variant="outlined"/>}
+                            renderOption={renderItem}
+                            onChange={onAdd}
+                            value={value}
+                            inputValue={inputValue}
+                            onInputChange={(_, value) => setInputValue(value)}
+                        />
                     </FormControl>
                 </div>
                 {added.length > 0 && 
@@ -180,13 +208,18 @@ function CustomTab(props) {
             rowWidth = 0;
             rowHeight = 0;
         };
-        while (toRender.length > 0) {
-            const chart = toRender[0];
+        for (let i = 0; i < toRender.length; i += 1) {
+            const chart = toRender[i];
             if (rowWidth + chart.size > 98) {
                 addRow();
             }
             else {
-                const Chart = getChart(chart.name).component;
+                const fetched = getChart(chart.name);
+                if (fetched === null) {
+                    toRender.splice(i, 1);
+                    continue;
+                }
+                const Chart = fetched.component;
                 currentRow.push(
                     <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
                         <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
@@ -194,9 +227,10 @@ function CustomTab(props) {
                 );
                 if (chart.height > rowHeight) rowHeight = chart.height;
                 rowWidth += chart.size;
-                toRender = toRender.splice(1);
             }
         }
+        if (toRender.length !== charts.length)
+            setCharts(toRender);
         if (currentRow.length > 0)
             addRow();
         setRenderedCharts(rendered);

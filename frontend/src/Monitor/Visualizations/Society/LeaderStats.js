@@ -58,7 +58,8 @@ function LeaderStats(props) {
 registerChart(
     Name,
     'Shows leader ages and levels over time',
-    LeaderStats
+    LeaderStats,
+    'Society'
 );
 
 export default LeaderStats;

@@ -37,7 +37,8 @@ function Ships(props) {
 registerChart(
     Name,
     'Displays number of ships by type over time',
-    Ships
+    Ships,
+    'Military'
 );
 
 export default Ships;

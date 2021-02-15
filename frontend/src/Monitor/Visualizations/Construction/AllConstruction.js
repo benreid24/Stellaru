@@ -49,7 +49,8 @@ function AllConstruction(props) {
 registerChart(
     Name,
     'Gives stats on empire wide construction queues and capability',
-    AllConstruction
+    AllConstruction,
+    'Construction'
 );
 
 export default AllConstruction;
