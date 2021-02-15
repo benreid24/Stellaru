@@ -44,6 +44,7 @@ function AddOverlay(props) {
 function Chart(props) {
     const name = props.name;
     const color = props.titleColor ? props.titleColor : 'white';
+    const noOverlay = props.noOverlay ? props.noOverlay : false;
 
     const renderOverlay = () => {
         return props.overlay ? <ChartOverlay settings={props.overlay}/> : <AddOverlay name={name}/>;
@@ -52,7 +53,7 @@ function Chart(props) {
     return (
         <div className='chart'>
             {props.title && <h2 className='chartTitle' style={{color: color}}>{props.title}</h2>}
-            {renderOverlay()}
+            {noOverlay ? null : renderOverlay()}
             {props.children}
         </div>
     );

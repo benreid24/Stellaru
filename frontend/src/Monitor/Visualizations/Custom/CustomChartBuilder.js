@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     button: {
         width: '20%',
         marginRight: theme.spacing(2)
+    },
+    newButton: {
+        marginRight: '10%',
+        height: '75%'
     }
 }));
 
@@ -80,7 +84,7 @@ function CustomChartBuilder(props) {
     };
 
     const [dirty, setDirty] = useState(false);
-    const [chart, setChart] = useState(props.chart ? getChart(props.chart) : defaultChart);
+    const [chart, setChart] = useState(props.chart && props.chart !== -1 ? getChart(props.chart) : defaultChart);
     useEffect(() => {
         if (props.chart && chartExists(props.chart))
             setChart(getChart(props.chart));
@@ -132,6 +136,11 @@ function CustomChartBuilder(props) {
         refresh();
     };
 
+    const onNew = () => {
+        setDirty(false);
+        setChart(defaultChart);
+    };
+
     return (
         <div>
             <div className='row chartRow justify-content-center'>
@@ -144,6 +153,7 @@ function CustomChartBuilder(props) {
             <div className='row chartRow'>
                 <div className='col-4'>
                     <div className='customChartTypeArea'>
+                        <Button variant="contained" color={dirty ? 'secondary' : 'primary'} className={classes.newButton} onClick={onNew}>New Chart</Button>
                         <Select value={chart.type} onChange={onTypeChange}>
                             <MenuItem value='timeseries'>Time Series</MenuItem>
                             <MenuItem value='scatter'>Scatter</MenuItem>

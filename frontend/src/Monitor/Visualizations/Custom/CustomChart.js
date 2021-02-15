@@ -8,10 +8,11 @@ import PieChart from './PieChart';
 function CustomChart(props) {
     const data = props.data;
     const chart = props.chart;
-    const overlay = props.overlay; // TODO - figure out edit button
+    const overlay = props.overlay;
+    const noOverlay = props.overlay ? false : true;
 
     return (
-        <Chart name={chart.name} overlay={overlay} title={chart.title} titleColor='#c5c5c5'>
+        <Chart name={chart.name} overlay={overlay} title={chart.title} titleColor='#c5c5c5' noOverlay={noOverlay}>
             {chart.type === 'timeseries' && <TimeseriesChart data={data} chart={chart}/>}
             {chart.type === 'scatter' && <ScatterChart data={data} chart={chart}/>}
             {chart.type === 'pie' && <PieChart data={data} chart={chart}/>}

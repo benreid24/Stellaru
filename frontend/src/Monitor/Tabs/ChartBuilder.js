@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     select: {
         minWidth: 200,
         marginBottom: theme.spacing(2),
-    },
+    }
 }));
 
 function ChartBuilder(props) {
