@@ -13,6 +13,10 @@ function checkLoaded() {
     }
 }
 
+function save() {
+    window.localStorage.setItem('customChartRepository', JSON.stringify(charts));
+}
+
 function getAllCharts() {
     checkLoaded();
     return Object.values(charts);
@@ -30,11 +34,12 @@ function chartExists(name) {
 function addChart(chart) {
     checkLoaded();
     charts[chart.name] = chart;
-    window.localStorage.setItem('customChartRepository', JSON.stringify(charts));
+    save();
 }
 
 function deleteChart(chart) {
     delete charts[chart.name];
+    save();
 }
 
 function getSnapshotKeyBreakdown(object, dataType) {
