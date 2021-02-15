@@ -39,6 +39,7 @@ const defaultChart = {
         x: [], //selector path
         y: [], //selector path
         radius: [], //selector path
+        label: [] //selector path
     },
     timeseries: {
         xAxisLabel: '',

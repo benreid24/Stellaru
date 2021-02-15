@@ -20,9 +20,8 @@ function ScatterChart(props) {
     const radiusFormatter = props.radiusFormatter ? props.radiusFormatter : valueTickFormat;
     const xAxisType = props.xAxisType ? props.xAxisType : 'number';
     const yAxisType = props.yAxisType ? props.yAxisType : 'number';
-
-    const labelColors = getDataColors(items.map(item => item.label))[0];
-
+    
+    const labelColors = items.length > 0 ? getDataColors(items.map(item => item.label))[0] : null;
     const renderScatter = item => {
         const point = {
             label: item.label,

@@ -19,6 +19,11 @@ function DataSelector(props) {
     const hasLabel = props.label;
     const wildcardAllowed = props.wildcard;
 
+    if (!data) { // handle data format changes on saved charts
+        setTimeout(() => setData([]), 50);
+        return <div></div>;
+    }
+
     const onAxisChange = event => {
         setSeries({
             ...series,

@@ -28,7 +28,6 @@ function chartExists(name) {
 }
 
 function addChart(chart) {
-    // TODO - sync with chart repository. have chart repository hit getAllCharts?
     checkLoaded();
     charts[chart.name] = chart;
     window.localStorage.setItem('customChartRepository', JSON.stringify(charts));
@@ -38,12 +37,12 @@ function deleteChart(chart) {
     delete charts[chart.name];
 }
 
-function getSnapshotKeyBreakdown(object) {
-    if (typeof object == 'number') return null;
+function getSnapshotKeyBreakdown(object, dataType) {
+    if (typeof object === dataType) return null;
 
     return Object.entries(object)
-        .filter(([_, value]) => typeof value == 'object' || typeof value == 'number')
-        .map(([key, value]) => {return {key: key, value: getSnapshotKeyBreakdown(value)}})
+        .filter(([_, value]) => typeof value === 'object' || typeof value === dataType)
+        .map(([key, value]) => {return {key: key, value: getSnapshotKeyBreakdown(value, dataType)}})
         .sort((left, right) => {
             if (left.key < right.key)
                 return -1;
@@ -75,10 +74,10 @@ const combine = (existingList, newList) => {
     })
 };
 
-function getSeriesKeyBreakdown(data) {
+function getSeriesKeyBreakdown(data, dataType) {
     let result = [];
     data.forEach(snap => {
-        combine(result, getSnapshotKeyBreakdown(snap));
+        combine(result, getSnapshotKeyBreakdown(snap, dataType ? dataType : 'number'));
     });
     return result;
 }

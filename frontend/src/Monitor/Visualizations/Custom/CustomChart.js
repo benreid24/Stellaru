@@ -2,6 +2,7 @@ import React from 'react';
 
 import Chart from 'Monitor/Charts/Chart';
 import TimeseriesChart from './TimeseriesChart';
+import ScatterChart from './ScatterChart';
 
 function CustomChart(props) {
     const data = props.data;
@@ -11,6 +12,7 @@ function CustomChart(props) {
     return (
         <Chart name={chart.name} overlay={overlay} title={chart.title} titleColor='#c5c5c5'>
             {chart.type === 'timeseries' && <TimeseriesChart data={data} chart={chart}/>}
+            {chart.type === 'scatter' && <ScatterChart data={data} chart={chart}/>}
         </Chart>
     );
 }
