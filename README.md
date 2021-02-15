@@ -7,12 +7,13 @@ Stellaru contains a laundry list of functionaility that aims to make it as usefu
 1. Easy to use and cross platform compatible
 2. Works with multiplayer out of the box (though port forwarding is required for players over the internet)
 3. Charts update in real time as you play. Refresh rate depends on autosave frequency
-4. Over thirty different charts and visualizations, organized by category
-5. The ability for each user to build their own custom dashboard using their favorite charts
-6. Each chart is interactive and customizable, time series may be hidden or shown in any chart
-7. Tooltips hover over all charts when any one is moused over, showing all values at a point in time
-8. The date range of shown data may be adjusted in order to zoom in on interesting periods
-9. All changes to each chart and the custom dashboard are persisted for each individual user
+4. Over thirty different prebuilt charts and visualizations, organized by category
+5. Custom charts may be built, allowing players to control exactly what data they see and how it is presented
+6. The ability for each user to build their own custom dashboard using their favorite prebuilt or custom charts
+7. Each chart is interactive and customizable, time series may be hidden or shown in any chart
+8. Tooltips hover over all charts when any one is moused over, showing all values at a point in time
+9. The date range of shown data may be adjusted in order to zoom in on interesting periods
+10. All changes to each chart and the custom dashboard are persisted for each individual user
 
 
 ## Getting Stellaru
@@ -37,7 +38,9 @@ Prebuilt binaries for supported platforms are available as zipped folders and ca
         3. `xattr -rc ./Stellaru.app`
 
 ### Linux
-Coming soon
+1. Download **Linux.xip** from the [releases page](https://github.com/benreid24/Stellaru/releases)
+2. Extract the Stellaru folder to a location of your choosing
+3. Run the binary file **Stellaru** inside of the *Stellaru* directory to start Stellaru
 
 ## Using Stellaru
 Each time you play Stellaris, start Stellaru as documented above. Running Stellaru starts the game save collection process in the background and opens the webpage with all the charts. Note that no historical data is stored in Stellaris game saves, so charts will only have 1 data point the first time you open a save in Stellaru. Data is **only** collected when Stellaru is running and the desired save has been loaded in Stellaru. If you play on a game save without Stellaru running, the data from that time period will not be displayed in any charts.
@@ -65,6 +68,15 @@ There are over 30 different charts available in Stellaru. They are available acr
 
 ### Interactive Charts Allow Showing/Hiding Data
 ![Interactive Chart](docs/screenshots/isolatedChart.png?raw=true)
+
+## Custom Charts
+Custom charts may be built using the new *Chart Builder* tool. Created charts may then be added to your custom dashboard, allowing the full dataset to be thoroughly explored and presented exactly how the player prefers. Some examples of custom charts:
+
+### Create Custom Timeseries Charts with Lines, Areas, and Stacked Areas
+![Timeseries Chart Creator](docs/screenshots/chartBuilderTs.png)
+
+### Scatter Charts and Pie Charts May Be Created As Well
+![Scatter Chart Creator](docs/screenshots/chartBuilderScatter.png)
 
 ## Multiplayer
 Stellaru works by running a lightweight webserver that only supplies the frontend as content. This makes it inherently compatible with multiplayer as the other players can navigate to it via their web browsers. The main barrier is forwarding the proper port on your router to your local computer. The Help tab inside of Stellaru will contain specifics on what port to forward, which IP to forward to, and the URL for multiplayer players to connect to. How to forward ports varies from router to router. The steps are as follows:
