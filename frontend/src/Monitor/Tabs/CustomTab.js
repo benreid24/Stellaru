@@ -208,13 +208,18 @@ function CustomTab(props) {
             rowWidth = 0;
             rowHeight = 0;
         };
-        while (toRender.length > 0) {
-            const chart = toRender[0];
+        for (let i = 0; i < toRender.length; i += 1) {
+            const chart = toRender[i];
             if (rowWidth + chart.size > 98) {
                 addRow();
             }
             else {
-                const Chart = getChart(chart.name).component;
+                const fetched = getChart(chart.name);
+                if (fetched === null) {
+                    toRender.splice(i, 1);
+                    continue;
+                }
+                const Chart = fetched.component;
                 currentRow.push(
                     <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
                         <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
@@ -222,9 +227,10 @@ function CustomTab(props) {
                 );
                 if (chart.height > rowHeight) rowHeight = chart.height;
                 rowWidth += chart.size;
-                toRender = toRender.splice(1);
             }
         }
+        if (toRender.length !== charts.length)
+            setCharts(toRender);
         if (currentRow.length > 0)
             addRow();
         setRenderedCharts(rendered);
