@@ -32,6 +32,7 @@ function ScatterProperties(props) {
             <div className='customPropsInputGroup'>
                 <TextField label="X-Axis Label" value={chart.scatter.xAxisLabel} onChange={event => onChange('xAxisLabel', event.target.value)} className={classes.textField}/>
                 <TextField label="Y-Axis Label" value={chart.scatter.yAxisLabel} onChange={event => onChange('yAxisLabel', event.target.value)} className={classes.textField}/>
+                <TextField label="Radius Label" value={chart.scatter.radiusLabel} onChange={event => onChange('radiusLabel', event.target.value)} className={classes.textField}/>
             </div>
         </div>
     )

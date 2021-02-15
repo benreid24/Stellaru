@@ -62,6 +62,7 @@ function ScatterChart(props) {
             items={items}
             yLabel={sc.yAxisLabel}
             xLabel={sc.xAxisLabel}
+            radiusLabel={sc.radiusLabel}
             xFormatter={xFormat}
             yFormatter={yFormat}
             radiusFormatter={radiusFormat}

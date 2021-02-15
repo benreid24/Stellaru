@@ -39,9 +39,8 @@ const defaultChart = {
     title: '',
     scatter: {
         xAxisLabel: '',
-        xScale: 'linear', // log | sqrt
         yAxisLabel: '',
-        yScale: 'linear', // log | sqrt
+        radiusLabel: '',
         x: [], //selector path
         y: [], //selector path
         radius: [], //selector path
@@ -91,7 +90,7 @@ function CustomChartBuilder(props) {
     }, [props.chart]);
 
     const setChartWrapper = chart => {
-        setDirty(false);
+        setDirty(true);
         setChart(chart);
     }
 
@@ -133,6 +132,7 @@ function CustomChartBuilder(props) {
     const onDelete = () => {
         deleteChart(chart);
         setChart(defaultChart);
+        setDirty(false);
         refresh();
     };
 
