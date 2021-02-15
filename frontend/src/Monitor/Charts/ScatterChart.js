@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {ResponsiveContainer} from 'recharts';
 import {ScatterChart as ReChart, Scatter} from 'recharts';
@@ -8,6 +8,14 @@ import {Tooltip} from 'recharts';
 
 import {getDataColors, valueTickFormat} from './Util';
 import {AxisLabel, ScrollableLegend} from './CustomComponents';
+
+function labelColorsEqual(left, right) {
+    for (const [label, color] of Object.entries(left)) {
+        if (!right.hasOwnProperty(label)) return false;
+        if (color !== right[label]) return false;
+    }
+    return true;
+}
 
 function ScatterChart(props) {
     const data = props.data;
@@ -21,7 +29,25 @@ function ScatterChart(props) {
     const xAxisType = props.xAxisType ? props.xAxisType : 'number';
     const yAxisType = props.yAxisType ? props.yAxisType : 'number';
     
-    const labelColors = items.length > 0 ? getDataColors(items.map(item => item.label))[0] : null;
+    const [initialColors, initialShuffled] = getDataColors(items.map(item => item.label));
+    const [labelColors, setLabelColors] = useState(initialColors);
+    const shuffleOrder = useState(initialShuffled)[0];
+    useEffect(() => {
+        let newLabelColors = getDataColors(items.map(item => item.label), shuffleOrder)[0];
+        if (!labelColorsEqual(newLabelColors, labelColors)) {
+            setLabelColors(newLabelColors);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [items]);
+
+    const [thick, setThick] = useState(null);
+    const onMouseEnter = event => {
+        setThick(event.payload.name);
+    };
+    const onMouseLeave = () => {
+        setThick(null);
+    };
+
     const renderScatter = item => {
         const point = {
             label: item.label,
@@ -29,7 +55,16 @@ function ScatterChart(props) {
             y: item.ySelector(data[data.length-1]),
             z: item.radiusSelector(data[data.length-1]),
         };
-        return <Scatter key={item.label} data={[point]} name={item.label} fill={labelColors[item.label]}/>;
+        return (
+            <Scatter
+                key={item.label}
+                data={[point]}
+                name={item.label}
+                fill={labelColors[item.label]}
+                stroke='white'
+                strokeWidth={item.label === thick ? 4 : 0}
+            />
+        );
     };
     const renderedScatters = data.length > 0 ? items.map(renderScatter) : [];
 
@@ -88,7 +123,7 @@ function ScatterChart(props) {
                     label={radiusLabel}
                     range={[60, 600]}
                 />
-                <Legend content={ScrollableLegend}/>
+                <Legend content={ScrollableLegend} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter}/>
                 <Tooltip content={<RenderTooltip/>}/>
                 {renderedScatters}
             </ReChart>

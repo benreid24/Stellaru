@@ -47,7 +47,6 @@ function PieChart(props) {
                 key={section.label}
                 fill={labelColors[section.label]}
                 strokeWidth={section.label === thick ? 6 : 1}
-                stroke={section.label === thick ? '#ededed' : 'white'}
             />
         );
     };
