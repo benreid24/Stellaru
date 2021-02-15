@@ -79,11 +79,17 @@ function CustomChartBuilder(props) {
             props.refresh(name);
     };
 
+    const [dirty, setDirty] = useState(false);
     const [chart, setChart] = useState(props.chart ? getChart(props.chart) : defaultChart);
     useEffect(() => {
         if (props.chart && chartExists(props.chart))
             setChart(getChart(props.chart));
     }, [props.chart]);
+
+    const setChartWrapper = chart => {
+        setDirty(false);
+        setChart(chart);
+    }
 
     const onNameChange = event => {
         setChart({
@@ -91,6 +97,7 @@ function CustomChartBuilder(props) {
             name: event.target.value
         });
         refresh(event.target.value);
+        setDirty(true);
     };
 
     const onTitleChange = event => {
@@ -98,6 +105,7 @@ function CustomChartBuilder(props) {
             ...chart,
             title: event.target.value
         });
+        setDirty(true);
     };
 
     const onTypeChange = event => {
@@ -105,11 +113,13 @@ function CustomChartBuilder(props) {
             ...chart,
             type: event.target.value
         });
+        setDirty(true);
     };
 
     const onSave = () => {
         addChart(chart);
         refresh(chart.name);
+        setDirty(false);
         setChart({
             ...chart,
             name: chart.name
@@ -145,12 +155,12 @@ function CustomChartBuilder(props) {
                         <TextField label="Chart Title" onChange={onTitleChange} value={chart.title} className={classes.textField}/>
                     </div>
                     <div className='customChartPropsArea'>
-                        {chart.type === 'timeseries' && <TimeseriesProperties chart={chart} setChart={setChart}/>}
-                        {chart.type === 'scatter' && <ScatterProperties chart={chart} setChart={setChart}/>}
-                        {chart.type === 'pie' && <PieProperties chart={chart} setChart={setChart}/>}
+                        {chart.type === 'timeseries' && <TimeseriesProperties chart={chart} setChart={setChartWrapper}/>}
+                        {chart.type === 'scatter' && <ScatterProperties chart={chart} setChart={setChartWrapper}/>}
+                        {chart.type === 'pie' && <PieProperties chart={chart} setChart={setChartWrapper}/>}
                     </div>
                     <div className='customChartSaveArea'>
-                        {chart.name.length > 0 && 
+                        {chart.name.length > 0 && dirty && 
                             <Button variant="contained" color="primary" className={classes.button} onClick={onSave}>
                                 {chartExists(chart.name) ? 'Overwrite' : 'Create'}
                             </Button>
@@ -162,9 +172,9 @@ function CustomChartBuilder(props) {
                 </div>
                 <div className='col-8'>
                     <div className='customSeriesArea'>
-                        {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChart}/>}
-                        {chart.type === 'scatter' && <ScatterCreator data={data} chart={chart} setChart={setChart}/>}
-                        {chart.type === 'pie' && <PieCreator data={data} chart={chart} setChart={setChart}/>}
+                        {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChartWrapper}/>}
+                        {chart.type === 'scatter' && <ScatterCreator data={data} chart={chart} setChart={setChartWrapper}/>}
+                        {chart.type === 'pie' && <PieCreator data={data} chart={chart} setChart={setChartWrapper}/>}
                     </div>
                 </div>
             </div>
