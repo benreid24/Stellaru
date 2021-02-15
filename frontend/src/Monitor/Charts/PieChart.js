@@ -10,9 +10,12 @@ import {getDataColors, valueTickFormat} from './Util';
 
 function PieChart(props) {
     const sections = props.sections;
-    const label = props.label ? props.label : true;
+    const label = props.label;
     const formatter = props.formatter ? props.formatter : valueTickFormat;
     const labelColors = props.labelColors ? props.labelColors : getDataColors(sections.map(section => section.label))[0];
+
+    // TODO - onMouseEnter/Leave change stroke thickness
+    // TODO - preserve label colors in state like ComposedChart. Do same in scatter
 
     return (
         <ResponsiveContainer>
@@ -22,7 +25,7 @@ function PieChart(props) {
                     dataKey='value'
                     nameKey='label'
                     formatter={formatter}
-                    label={label ? data => formatter(data.payload.value) : false}
+                    label={label !== undefined ? label : data => formatter(data.payload.value)}
                     labelLine={true}
                     startAngle={90}
                     endAngle={450}

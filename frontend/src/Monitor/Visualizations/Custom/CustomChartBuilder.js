@@ -4,6 +4,8 @@ import TimeseriesProperties from './TimeseriesProperties';
 import TimeSeriesCreator from './TimeSeriesCreator';
 import ScatterProperties from './ScatterProperties';
 import ScatterCreator from './ScatterCreator';
+import PieProperties from './PieProperties';
+import PieCreator from './PieCreator';
 import CustomChart from './CustomChart';
 import {chartExists, addChart, deleteChart, getChart} from './CustomChartRepository';
 
@@ -57,13 +59,16 @@ const defaultChart = {
             // etc
         ]
     },
-    pie: [
-        /*{
-            data: ['path'],
-            label: 'label'
-        },*/
-        // etc
-    ]
+    pie: {
+        label: 'label', // label | value | none
+        sections: [
+            /*{
+                data: ['path'],
+                label: 'label'
+            },*/
+            // etc
+        ]
+    }
 };
 
 function CustomChartBuilder(props) {
@@ -142,6 +147,7 @@ function CustomChartBuilder(props) {
                     <div className='customChartPropsArea'>
                         {chart.type === 'timeseries' && <TimeseriesProperties chart={chart} setChart={setChart}/>}
                         {chart.type === 'scatter' && <ScatterProperties chart={chart} setChart={setChart}/>}
+                        {chart.type === 'pie' && <PieProperties chart={chart} setChart={setChart}/>}
                     </div>
                     <div className='customChartSaveArea'>
                         {chart.name.length > 0 && 
@@ -158,6 +164,7 @@ function CustomChartBuilder(props) {
                     <div className='customSeriesArea'>
                         {chart.type === 'timeseries' && <TimeSeriesCreator data={data} chart={chart} setChart={setChart}/>}
                         {chart.type === 'scatter' && <ScatterCreator data={data} chart={chart} setChart={setChart}/>}
+                        {chart.type === 'pie' && <PieCreator data={data} chart={chart} setChart={setChart}/>}
                     </div>
                 </div>
             </div>
