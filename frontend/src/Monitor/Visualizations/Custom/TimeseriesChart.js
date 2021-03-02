@@ -26,9 +26,10 @@ function TimeseriesChart(props) {
         else {
             const keys = findKeysOverSeries(data, series.data.slice(0, i).join('/'));
             return keys.map(key => {
+                const path = [...series.data.slice(0, i), key, ...series.data.slice(i + 1)].join('/');
                 return {
-                    selector: snap => selectNested([...series.data.slice(0, i), key, ...series.data.slice(i + 1)].join('/'), snap),
-                    label: makeLabelFromKey(key),
+                    selector: snap => selectNested(path, snap),
+                    label: makeLabelFromKey(key, path, data[data.length-1]),
                     type: series.type,
                     stack: series.stackId,
                     yAxis: series.axis

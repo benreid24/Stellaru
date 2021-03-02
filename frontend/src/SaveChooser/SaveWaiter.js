@@ -7,7 +7,7 @@ import {translate} from 'Translator';
 const State = Object.freeze({Waiting: 0, Prompted: 1});
 
 function waitSave(onResult) {
-    fetch('api/wait_save')
+    fetch(window.location.pathname + 'api/wait_save')
         .then(response => response.json())
         .then(data => {
             onResult(data);

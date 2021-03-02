@@ -15,13 +15,11 @@ const PollInterval = 30000;
 function getSubscriptionUrl() {
     if (process.env.NODE_ENV === 'development')
         return 'ws://localhost:8000/api/subscribe';
-    let url;
+    let url = 'ws:';
     const location = window.location;
     if (location.protocol === 'https:')
         url = 'wss:';
-    else
-        url = 'ws:';
-    url += `//${location.host}/api/subscribe`;
+    url += `//${location.host}${location.pathname}api/subscribe`;
     return url;
 }
 
@@ -79,7 +77,7 @@ class DataSubscription {
         if (this.save && !isNaN(this.empire)) {
             try {
                 fetch(
-                    'api/latest_snap', {
+                    window.location.pathname + 'api/latest_snap', {
                         method: 'post',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({file: this.save, empire: this.empire})

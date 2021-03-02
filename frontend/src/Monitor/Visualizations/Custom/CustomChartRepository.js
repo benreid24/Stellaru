@@ -1,4 +1,5 @@
 import {capitalize} from 'Helpers';
+import {selectNested} from 'Monitor/Charts/Util';
 
 let charts = {};
 let loaded = false;
@@ -102,7 +103,17 @@ function getNextDataLevel(currentData, key) {
     };
 }
 
-function makeLabelFromKey(key) {
+function makeLabelFromKey(key, path, snap) {
+    const planetMatch = path.match(/planets\/list\/[\d+]/);
+    if (planetMatch) {
+        return selectNested(planetMatch[0] + '/name', snap);
+    }
+    
+    const compareMatch = path.match(/comparisons\/[a-z]+\/([\d+])/);
+    if (compareMatch) {
+        return selectNested('comparisons/names/' + compareMatch[1], snap);
+    }
+
     let adjKey = key.includes('_') ? capitalize(key, '_') : capitalize(key);
     if (adjKey === 'Energy')
         adjKey = 'Energy Credits';
