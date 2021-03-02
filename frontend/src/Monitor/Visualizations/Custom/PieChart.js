@@ -20,9 +20,10 @@ function PieChart(props) {
         else {
             const keys = findKeysOverSeries(data, series.data.slice(0, i).join('/'));
             return keys.map(key => {
+                const path = [...series.data.slice(0, i), key, ...series.data.slice(i + 1)].join('/');
                 return {
-                    value: selectNested([...series.data.slice(0, i), key, ...series.data.slice(i + 1)].join('/'), data[data.length-1]),
-                    label: makeLabelFromKey(key)
+                    value: selectNested(path, data[data.length-1]),
+                    label: makeLabelFromKey(key, path, data[data.length-1])
                 };
             });
         }
