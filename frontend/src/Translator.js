@@ -20,7 +20,7 @@ let currentLang = 'english';
 let keys = [];
 
 function init(doneCb) {
-    fetch('api/translations')
+    fetch(window.location.pathname + 'api/translations')
         .then(response => response.json())
         .then(data => {
             if ('translations' in data) {

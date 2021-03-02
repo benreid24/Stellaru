@@ -31,7 +31,7 @@ function SaveChooser(props) {
     const [selectedLatest, setSelectedLatest] = useState(false);
 
     const fetchSaves = () => {
-        fetch('api/saves')
+        fetch(window.location.pathname + 'api/saves')
             .then(response => response.json())
             .then(data => {
                 if ('saves' in data) {

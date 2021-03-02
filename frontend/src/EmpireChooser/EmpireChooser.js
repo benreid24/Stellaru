@@ -13,7 +13,7 @@ function EmpireChooser(props) {
 
     useEffect(() => {
         fetch(
-            'api/empires', {
+            window.location.pathname + 'api/empires', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({file: props.file})

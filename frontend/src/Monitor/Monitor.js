@@ -146,14 +146,14 @@ function Monitor(props) {
     subscription.onStatus = setStatus;
 
     useEffect(() => {
-        fetch('api/conn_info', {method: 'get'}).then(
+        fetch(window.location.pathname + 'api/conn_info', {method: 'get'}).then(
             response => response.json()
         ).then(data => setConnInfo(data));
     }, []);
 
     useEffect(() => {
         fetch(
-            'api/data', {
+            window.location.pathname + 'api/data', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({empire: empire.id, file: save.file})
