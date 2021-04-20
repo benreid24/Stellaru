@@ -40,6 +40,9 @@
 
 .statusIndicator {
     padding: 30px;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
 }
 
 .statusIndicatorGood {
