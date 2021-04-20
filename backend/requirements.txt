@@ -1,7 +1,7 @@
 altgraph==0.17
 asgiref==3.2.10
 attrs==19.3.0
-autobahn==20.7.1
+autobahn==20.12.3
 Automat==20.2.0
 certifi==2020.6.20
 cffi==1.14.1
@@ -10,7 +10,7 @@ chardet==3.0.4
 constantly==15.1.0
 cryptography==3.3.2
 daphne==2.5.0
-Django==3.0.8
+Django==3.0.14
 future==0.18.2
 hyperlink==20.0.1
 idna==2.10
