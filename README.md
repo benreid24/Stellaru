@@ -1,9 +1,9 @@
 # Stellaru
-Stellaru is a data visualization suite for the game Stellaris. It runs alongside the game and provides realtime snapshots and historical data from the game. The dashboards are viewable as a web page. It works by monitoring and parsing the autosaves while you play, then sending the data to the webpage to keep the charts updated. The historical data is saved in zipped pickle files inside of the folder of the game save that is being monitored, which ensures they get deleted if a game save is deleted. It currently runs on Windows and MacOS with Linux support coming soon. It also works in muliplayer games out of the box.
+Stellaru is a data visualization suite for the game Stellaris. It runs alongside the game and provides realtime snapshots and historical data from the game. The dashboards are viewable as a web page. It works by monitoring and parsing the autosaves while you play, then sending the data to the webpage to keep the charts updated. The historical data is saved in zipped pickle files inside of the folder of the game save that is being monitored, which ensures they get deleted if a game save is deleted. It runs on Windows and MacOS and Linux. It also works in multiplayer games out of the box.
 
 
 ## Features
-Stellaru contains a laundry list of functionaility that aims to make it as useful to as many people as possible. Key features include:
+Stellaru contains a laundry list of functionality that aims to make it as useful to as many people as possible. Key features include:
 1. Easy to use and cross platform compatible
 2. Works with multiplayer out of the box (though port forwarding is required for players over the internet)
 3. Charts update in real time as you play. Refresh rate depends on autosave frequency
