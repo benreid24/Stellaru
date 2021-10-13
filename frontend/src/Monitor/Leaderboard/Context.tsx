@@ -7,7 +7,8 @@ export enum GroupType {
 }
 
 export type Group = {
-    groupId: number; // federation id or generated id for custom groups
+    id: number; // federation id or generated id for custom groups
+    name: string;
     members: number[];
 }
 
@@ -27,7 +28,7 @@ export type LeaderboardContextValue = {
     onPlayerConnect: (player: ConnectedPlayer) => void;
     onPlayerDisconnect: (player: ConnectedPlayer) => void;
     setGroupingType: (groupType: GroupType) => void;
-    createGroup: () => number;
+    createGroup: (name: string) => number;
     addEmpireToGroup: (groupId: number, empireId: number) => void;
     removeEmpireFromGroup: (groupId: number, empireId: number) => void;
 }
@@ -72,7 +73,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                     groups: {
                         ...groupState.groups,
                         [groupId]: {
-                            groupId: group.groupId,
+                            id: group.id,
+                            name: group.name,
                             members: [
                                 ...group.members,
                                 empireId
@@ -92,7 +94,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                 groups: {
                     ...groupState.groups,
                     [groupId]: {
-                        groupId: group.groupId,
+                        id: group.id,
+                        name: group.name,
                         members: group.members.filter(eid => eid !== empireId)
                     }
                 }
@@ -100,7 +103,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         }
     }, [groupState, setGroupState]);
 
-    const createGroup = React.useCallback(() => {
+    const createGroup = React.useCallback((name: string) => {
         if (groupState.groupType === GroupType.Custom) {
             let gid = 1234;
             do {
@@ -111,7 +114,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                 groups: {
                     ...groupState.groups,
                     [gid]: {
-                        groupId: gid,
+                        id: gid,
+                        name: name,
                         members: []
                     }
                 }
