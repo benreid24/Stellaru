@@ -196,3 +196,14 @@
     color: rgba(200, 200, 200, 250);
     font-size: 0.5vw;
 }
+
+.leaderBoardText {
+    animation: color-change 4s infinite;
+    font-weight: 1000;
+}
+
+@keyframes color-change {
+    0% { color: rgb(209, 14, 14); }
+    50% { color: rgb(124, 124, 255); }
+    100% { color: rgb(209, 14, 14); }
+}
