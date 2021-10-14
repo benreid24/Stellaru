@@ -12,7 +12,7 @@ class MetadataExtractor(Extractor):
         game_md = self.isolation_layer.get_metadata(state)
         empire = self.isolation_layer.get_empire(state, empire)
 
-        empire_keys = ['name', 'player_name', 'edict_count', 'sprawl']
+        empire_keys = ['name', 'player_name', 'edict_count', 'sprawl', 'type']
         return {
             **game_md,
             **{key: empire[key] for key in empire_keys}

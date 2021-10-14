@@ -112,7 +112,7 @@ class EconomyExtractor(Extractor):
             if 'district' in name:
                 return [EC_PLANETS_DISTRICTS]
             if 'pop' in name:
-                return [EC_PLANETS_POPS, name.split('_')[-1].capitalize()]
+                return [EC_PLANET_POPS, name.split('_')[-1].capitalize()]
             return [EC_PLANETS_JOBS, name.split('_')[-1].capitalize()]
         if 'orbital' in name:
             return [EC_STATIONS]

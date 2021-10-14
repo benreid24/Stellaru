@@ -4,6 +4,7 @@ from .standing_extractor import StandngExtractor
 from .war_extractor import WarExtractor
 from .system_extractor import SystemExtractor
 from .federation_extractor import FederationExtractor
+from .federations_extractor import FederationsExtractor
 from .unity_extractor import UnityExtractor
 from .economy_extractor import EconomyExtractor
 from .construction_extractor import ConstructionExtractor
@@ -22,6 +23,7 @@ def build_extractor_list(isolation_layer):
         WarExtractor(isolation_layer),
         SystemExtractor(isolation_layer),
         FederationExtractor(isolation_layer),
+        FederationsExtractor(isolation_layer),
         UnityExtractor(isolation_layer),
         EconomyExtractor(isolation_layer),
         ConstructionExtractor(isolation_layer),

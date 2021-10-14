@@ -7,6 +7,7 @@ import LoadingDots from 'LoadingDots';
 import Tips from './Tips';
 
 import Overview from './Tabs/Overview';
+import Leaderboard from './Tabs/Leaderboard';
 import CustomTab from './Tabs/CustomTab';
 import Economy from './Tabs/Economy';
 import Military from './Tabs/Military';
@@ -192,9 +193,10 @@ function Monitor(props) {
                     <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
                 <div className='row tabRow'>
-                    <div className='col-9'>
-                        <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto'>
+                    <div className='col-10'>
+                        <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto' TabIndicatorProps={{style: {background:'blue'}}}>
                             <Tab label={translate('Overview')}/>
+                            <Tab label={translate('Leaderboard')} className='leaderBoardText'/>
                             <Tab label={translate('Custom')}/>
                             <Tab label={translate('Chart Builder')}/>
                             <Tab label={translate('Economy')}/>
@@ -207,7 +209,7 @@ function Monitor(props) {
                             <Tab label={translate('Help')}/>
                         </Tabs>
                     </div>
-                    <div className='col-3'>
+                    <div className='col-2'>
                         <Tips/>
                     </div>
                 </div>
@@ -218,33 +220,36 @@ function Monitor(props) {
                         <Overview data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={1}>
-                        <CustomTab data={slicedData}/>
+                        <Leaderboard data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={2}>
-                        <ChartBuilder data={slicedData}/>
+                        <CustomTab data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={3}>
-                        <Economy data={slicedData}/>
+                        <ChartBuilder data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={4}>
-                        <Military data={slicedData}/>
+                        <Economy data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={5}>
-                        <Science data={slicedData}/>
+                        <Military data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={6}>
-                        <Society data={slicedData}/>
+                        <Science data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={7}>
-                        <Empire data={slicedData}/>
+                        <Society data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={8}>
-                        <Federation data={slicedData}/>
+                        <Empire data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={9}>
-                        <Construction data={slicedData}/>
+                        <Federation data={slicedData}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={10}>
+                        <Construction data={slicedData}/>
+                    </TabPanel>
+                    <TabPanel value={currentTab} index={11}>
                         <Help connInfo={connInfo}/>
                     </TabPanel>
                 </div>
