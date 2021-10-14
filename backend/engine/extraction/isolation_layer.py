@@ -200,6 +200,15 @@ def get_federation(state, fed):
     }
 
 
+def get_federations(state):
+    return [{
+        'id': fid,
+        'name': f['name'],
+        'members': f['members'],
+        'leader': f['leader']
+    } for fid, f in state['federation'].items() if isinstance(f, dict)]
+
+
 def get_wars(state):
     wars = [
         war for wid, war in state['war'].items()
