@@ -40,7 +40,7 @@ type LeaderboardContextProviderProps = {
 export const LeaderboardContext = React.createContext<LeaderboardContextValue | null>(null);
 
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
-    const {children, data} = props;
+    const {children} = props;
 
     const [groupState, setGroupState] = React.useState<GroupState>({
         groupType: GroupType.Empires,
