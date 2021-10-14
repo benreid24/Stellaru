@@ -96,6 +96,10 @@ def get_empire(state, empire):
     if player_name == 'unknown':
         player_name = 'Player'
 
+    empire_type = 'player'
+    if player_name == 'AI':
+        empire_type = 'fallen_empire' if 'fallen_empire' in data['personality'] else 'regular_ai'
+
     relic_points = 0
     if 'relics' in data:
         for relic in data['relics']:
@@ -106,6 +110,7 @@ def get_empire(state, empire):
 
     return {
         'name': data['name'],
+        'type': empire_type,
         'player_name': player_name,
         'edict_count': len(data['edicts'] if 'edicts' in data else []),
         'sprawl': data['empire_size'] if 'empire_size' in data else 0,
@@ -171,14 +176,9 @@ def get_planets(state, empire):
 def get_pops(state, pop_ids):
     pops = [state['pop'][pid] for pid in pop_ids if pid in state['pop'] and isinstance(state['pop'][pid], dict)]
 
-    def _get_ethos(pop):
-        if 'ethos' not in pop:
-            return []
-        return [ethic.split('_')[-1].capitalize() for ethic in pop['ethos'].values()]
-
     return [
         {
-            'species': state['species'][pop['species_index']]['name'] if pop['species_index'] < len(state['species']) else 'Unknown',
+            'species': state['species_db'][pop['species']]['name'] if pop['species'] in state['species_db'] else 'Unknown',
             'job': ' '.join([word.capitalize() for word in pop['job'].split('_')]) if 'job' in pop else 'Unemployed',
             'category': pop['category'] if 'category' in pop else 'Unknown',
             'ethos': [ethic.split('_')[-1].capitalize() for ethic in pop['ethos'].values()] if 'ethos' in pop else []
