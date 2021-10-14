@@ -140,12 +140,10 @@ def get_data(request):
 
         sessions.set_session_empire(request.session['id'], empire)
         snaps = [snap['empires'][empire] for snap in save['snaps']]
-        common = [snap['common'] for snap in save['snaps']]
         return JsonResponse({
             'file': save_watcher.name(),
             'empire': empire,
-            'snaps': snaps,
-            'common': common
+            'snaps': snaps
         })
     except Exception as err:
         return _make_error(f'Bad request body: {repr(err)}')
