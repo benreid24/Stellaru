@@ -1,9 +1,11 @@
 import React from 'react';
-import {findKeysOverSeries, findValuesOverSeries} from 'Monitor/Charts/Util';
+import {findKeysOverSeries} from 'Monitor/Charts/Util';
+import { objectKeys } from 'Helpers';
 
 export enum GroupType {
     Empires,
     Federations,
+    FederationsWithEmpires,
     Custom
 }
 
@@ -11,6 +13,7 @@ export type Group = {
     id: number; // federation id or generated id for custom groups
     name: string;
     members: number[];
+    isFederation: boolean;
 }
 
 export type GroupState = {
@@ -62,6 +65,43 @@ const findFederationName = (fid: number, data: any[]) => {
     return 'Unknown Federation';
 }
 
+const findFederations = (data: any[]): number[] => {
+    const fids = data.reduce((fids, snap) => {
+        const feds = snap['federations'] as any[];
+        feds.forEach(fed => fids[fed['id']] = true);
+        return fids;
+    }, {});
+    return objectKeys(fids).map(Number);
+}
+
+const empiresToGroups = (data: any[], eids: number[]): Group[] => {
+    return eids.map(eid => {
+        return {
+            id: eid,
+            name: findEmpireName(eid, data),
+            members: [eid],
+            isFederation: false
+        } as Group;
+    });
+}
+
+const getEmpiresNotInFederation = (data: any[]): number[] => {
+    if (data.length === 0) return [];
+    
+    const snap = data[data.length-1];
+    const feds = snap['federations'] as any[];
+    const eids = findKeysOverSeries([snap], 'leaderboard/empire_summaries').map(Number);
+
+    const notInFed = (eid: number): boolean => {
+        for (let i = 0; i < feds.length; i += 1) {
+            const members = (feds[i]['members'] as string[]).map(Number);
+            if (members.indexOf(eid) >= 0) return false;
+        }
+        return true;
+    }
+    return eids.filter(notInFed);
+}
+
 const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => Group[] = (
     groupState, gtype, data
 ) => {
@@ -74,25 +114,33 @@ const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => 
         const lg = localStorage.getItem(CUSTOM_KEY);
         return lg ? JSON.parse(lg) as Group[] : [];
     }
-    if (gtype === GroupType.Federations) {
-        const fids = findValuesOverSeries(data, 'federations/id').map(Number);
-        return fids.map(fid => {
+    if (gtype === GroupType.Federations || gtype === GroupType.FederationsWithEmpires) {
+        const fids = findFederations(data);
+        let groups = fids.map(fid => {
             return {
                 id: fid,
                 name: findFederationName(fid, data),
-                members: [] // members are determined at extraction time
+                members: [], // members are determined at extraction time
+                isFederation: true
             } as Group;
         });
+        if (gtype === GroupType.FederationsWithEmpires) {
+            // we only chart empires not in a federation at present. We may want to make this
+            // behavior more sophisticated going forward
+            const eids = getEmpiresNotInFederation(data);
+            groups = [...groups, ...empiresToGroups(data, eids)];
+        }
+        return groups;
     }
     const eids = findKeysOverSeries(data, 'leaderboard/empire_summaries').map(Number);
-    return eids.map(eid => {return {id: eid, name: findEmpireName(eid, data), members: [eid]} as Group;});
+    return empiresToGroups(data, eids);
 };
 
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
     const {children, data} = props;
 
     const [groupState, setGroupState] = React.useState<GroupState>({
-        groupType: GroupType.Empires,
+        groupType: GroupType.FederationsWithEmpires,
         groups: []
     });
 
@@ -124,7 +172,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                             members: [
                                 ...group.members,
                                 empireId
-                            ]
+                            ],
+                            isFederation: group.isFederation
                         }
                     }
                 });
@@ -142,7 +191,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                     [groupId]: {
                         id: group.id,
                         name: group.name,
-                        members: group.members.filter(eid => eid !== empireId)
+                        members: group.members.filter(eid => eid !== empireId),
+                        isFederation: group.isFederation
                     }
                 }
             });
@@ -162,7 +212,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                     [gid]: {
                         id: gid,
                         name: name,
-                        members: []
+                        members: [],
+                        isFederation: false
                     }
                 }
             });

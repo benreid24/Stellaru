@@ -1,4 +1,4 @@
-import {Group, GroupType, LeaderboardContextValue} from './Context';
+import {Group, GroupState} from './Context';
 
 export type GroupTimeseries = {
     group: Group;
@@ -6,11 +6,6 @@ export type GroupTimeseries = {
         label: string;
         selector: (data: any) => number;
     }
-};
-
-export type TimeseriesExtractionProps = {
-    context: LeaderboardContextValue;
-    empireSelector: (data: any, empireId: number) => number;
 };
 
 const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) => {
@@ -23,10 +18,11 @@ const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) =
     return [];
 }
 
-export const getTimeseries: (props: TimeseriesExtractionProps) => GroupTimeseries[] = (
-    {context, empireSelector}
-) => {
-    const groups = context.groupState.groups;
+export const getTimeseries = (
+    groupState: GroupState,
+    empireSelector: (snap: any, empireId: number) => number
+): GroupTimeseries[] => {
+    const groups = groupState.groups;
     return Object.keys(groups).map(Number).map(gid => {
         const g = groups[gid];
         return {
@@ -34,7 +30,7 @@ export const getTimeseries: (props: TimeseriesExtractionProps) => GroupTimeserie
             timeseries: {
                 label: g.name,
                 selector: snap => {
-                    const members = context.groupState.groupType === GroupType.Federations ?
+                    const members = g.isFederation ?
                         getFederationMembers(snap, g.id)
                         : g.members;
                     return members.reduce((value: number, eid: number) => {

@@ -137,14 +137,6 @@ function findKeysOverSeries(data, topKey) {
     return objectKeys(keys);
 }
 
-function findValuesOverSeries(data, key) {
-    const values = data.reduce((values, snap) => {
-        const v = selectNested(key, snap);
-        return v ? {...values, v: true} : values;
-    }, {});
-    return objectKeys(values);
-}
-
 const makeId = label => label.replace(/[\s()]/g, '');
 
 function renderLine(line, labelColor, onClick, strokeWidth=1) {
@@ -195,7 +187,6 @@ export {
     findNested,
     getDataColors,
     findKeysOverSeries,
-    findValuesOverSeries,
     renderLine,
     renderArea,
     makeId
