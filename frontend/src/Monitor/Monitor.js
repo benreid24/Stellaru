@@ -23,6 +23,8 @@ import {dateTickFormat, selectNested} from './Charts/Util';
 import {setCurrentTab as setSyncId} from './Tabs/CurrentTab';
 import {translate} from 'Translator';
 
+import {LeaderboardContextProvider} from './Leaderboard/Context';
+
 import './Monitor.css';
 
 const MaxDataPoints = 300;
@@ -179,82 +181,84 @@ function Monitor(props) {
     useEffect(updateZoom, [gameData, dateRange]);
 
     return (
-        <div className='container-fluid monitor'>
-            <div className='monitorHeader'>
-                <div className='row' style={{paddingBottom: '0px'}}>
-                    <div className='col-auto align-self-center'>
-                        <h1 className='empireName noselect' onClick={onBack} title={translate('Go back to save selection')}>
-                            {empire.name}<span className='playerName'>({empire.player})</span>
-                        </h1>
+        <LeaderboardContextProvider data={gameData}>
+            <div className='container-fluid monitor'>
+                <div className='monitorHeader'>
+                    <div className='row' style={{paddingBottom: '0px'}}>
+                        <div className='col-auto align-self-center'>
+                            <h1 className='empireName noselect' onClick={onBack} title={translate('Go back to save selection')}>
+                                {empire.name}<span className='playerName'>({empire.player})</span>
+                            </h1>
+                        </div>
+                        <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
+                            <StatusIndicator status={status}/>
+                        </div>
+                        <DateSlider data={gameData} onChange={setDateRange}/>
                     </div>
-                    <div className='col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-6 align-self-end'>
-                        <StatusIndicator status={status}/>
+                    <div className='row tabRow'>
+                        <div className='col-10'>
+                            <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto' TabIndicatorProps={{style: {background:'blue'}}}>
+                                <Tab label={translate('Overview')}/>
+                                <Tab label={translate('Leaderboard')} className='leaderBoardText'/>
+                                <Tab label={translate('Custom')}/>
+                                <Tab label={translate('Chart Builder')}/>
+                                <Tab label={translate('Economy')}/>
+                                <Tab label={translate('Military')}/>
+                                <Tab label={translate('Science')}/>
+                                <Tab label={translate('Society')}/>
+                                <Tab label={translate('Empire')}/>
+                                <Tab label={translate('Federation')}/>
+                                <Tab label={translate('Construction')}/>
+                                <Tab label={translate('Help')}/>
+                            </Tabs>
+                        </div>
+                        <div className='col-2'>
+                            <Tips/>
+                        </div>
                     </div>
-                    <DateSlider data={gameData} onChange={setDateRange}/>
                 </div>
-                <div className='row tabRow'>
-                    <div className='col-10'>
-                        <Tabs value={currentTab} onChange={onTabChange} variant='scrollable' scrollButtons='auto' TabIndicatorProps={{style: {background:'blue'}}}>
-                            <Tab label={translate('Overview')}/>
-                            <Tab label={translate('Leaderboard')} className='leaderBoardText'/>
-                            <Tab label={translate('Custom')}/>
-                            <Tab label={translate('Chart Builder')}/>
-                            <Tab label={translate('Economy')}/>
-                            <Tab label={translate('Military')}/>
-                            <Tab label={translate('Science')}/>
-                            <Tab label={translate('Society')}/>
-                            <Tab label={translate('Empire')}/>
-                            <Tab label={translate('Federation')}/>
-                            <Tab label={translate('Construction')}/>
-                            <Tab label={translate('Help')}/>
-                        </Tabs>
+                {slicedData.length > 0 && 
+                    <div className='monitorContent'>
+                        <TabPanel value={currentTab} index={0}>
+                            <Overview data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={1}>
+                            <Leaderboard data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={2}>
+                            <CustomTab data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={3}>
+                            <ChartBuilder data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={4}>
+                            <Economy data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={5}>
+                            <Military data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={6}>
+                            <Science data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={7}>
+                            <Society data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={8}>
+                            <Empire data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={9}>
+                            <Federation data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={10}>
+                            <Construction data={slicedData}/>
+                        </TabPanel>
+                        <TabPanel value={currentTab} index={11}>
+                            <Help connInfo={connInfo}/>
+                        </TabPanel>
                     </div>
-                    <div className='col-2'>
-                        <Tips/>
-                    </div>
-                </div>
+                }
             </div>
-            {slicedData.length > 0 && 
-                <div className='monitorContent'>
-                    <TabPanel value={currentTab} index={0}>
-                        <Overview data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={1}>
-                        <Leaderboard data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={2}>
-                        <CustomTab data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={3}>
-                        <ChartBuilder data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={4}>
-                        <Economy data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={5}>
-                        <Military data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={6}>
-                        <Science data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={7}>
-                        <Society data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={8}>
-                        <Empire data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={9}>
-                        <Federation data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={10}>
-                        <Construction data={slicedData}/>
-                    </TabPanel>
-                    <TabPanel value={currentTab} index={11}>
-                        <Help connInfo={connInfo}/>
-                    </TabPanel>
-                </div>
-            }
-        </div>
+        </LeaderboardContextProvider>
     );
 }
 
