@@ -1,4 +1,5 @@
 import React from 'react';
+import {findKeysOverSeries, findValuesOverSeries} from 'Monitor/Charts/Util';
 
 export enum GroupType {
     Empires,
@@ -14,7 +15,7 @@ export type Group = {
 
 export type GroupState = {
     groupType: GroupType;
-    groups: Record<number, Group>;
+    groups: Group[];
 }
 
 export type ConnectedPlayer = {
@@ -39,12 +40,60 @@ type LeaderboardContextProviderProps = {
 
 export const LeaderboardContext = React.createContext<LeaderboardContextValue | null>(null);
 
+const findEmpireName = (eid: number, data: any[]) => {
+    for (let i = data.length - 1; i >= 0; i -= 1) {
+        const summaries = data[i]['leaderboard']['empire_summaries'];
+        if (eid in summaries) {
+            return summaries[eid]['name'];
+        }
+    }
+    return 'Unknown Empire';
+}
+
+const findFederationName = (fid: number, data: any[]) => {
+    for (let i = data.length - 1; i >= 0; i -= 1) {
+        const feds = data[i]['federations'];
+        for (let j = 0; j < feds.length; j += 1) {
+            if (feds[j]['id'] === fid) {
+                return feds[j]['name'] as string;
+            }
+        }
+    }
+    return 'Unknown Federation';
+}
+
+const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => Group[] = (
+    groupState, gtype, data
+) => {
+    const CUSTOM_KEY = 'leaderboard.custom_groups';
+    if (groupState.groupType === GroupType.Custom) {
+        localStorage.setItem(CUSTOM_KEY, JSON.stringify(groupState.groups));
+    }
+
+    if (gtype === GroupType.Custom) {
+        const lg = localStorage.getItem(CUSTOM_KEY);
+        return lg ? JSON.parse(lg) as Group[] : [];
+    }
+    if (gtype === GroupType.Federations) {
+        const fids = findValuesOverSeries(data, 'federations/id').map(Number);
+        return fids.map(fid => {
+            return {
+                id: fid,
+                name: findFederationName(fid, data),
+                members: [] // members are determined at extraction time
+            } as Group;
+        });
+    }
+    const eids = findKeysOverSeries(data, 'leaderboard/empire_summaries').map(Number);
+    return eids.map(eid => {return {id: eid, name: findEmpireName(eid, data), members: [eid]} as Group;});
+};
+
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
-    const {children} = props;
+    const {children, data} = props;
 
     const [groupState, setGroupState] = React.useState<GroupState>({
         groupType: GroupType.Empires,
-        groups: {}
+        groups: []
     });
 
     const [connectedPlayers, setConnectedPlayers] = React.useState<ConnectedPlayer[]>([]);
@@ -58,11 +107,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     }, [connectedPlayers, setConnectedPlayers]);
 
     const setGroupingType = React.useCallback((groupType: GroupType) => {
-        setGroupState({...groupState, groupType: groupType});
-        if (groupType === GroupType.Federations) {
-            // TODO - regenerate groups from federations in data
-        }
-    }, [groupState, setGroupState]);
+        setGroupState({groups: updatedGroups(groupState, groupType, data), groupType: groupType});
+    }, [groupState, setGroupState, data]);
 
     const addEmpireToGroup = React.useCallback((groupId: number, empireId: number) => {
         const group = groupState.groups[groupId];
@@ -124,6 +170,15 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         }
         return -1;
     }, [groupState, setGroupState]);
+
+    React.useEffect(() => {
+        setGroupState(g => {
+            return {
+                groupType: g.groupType,
+                groups: updatedGroups(g, g.groupType, data)
+            };
+        });
+    }, [data]);
 
     const contextValue = React.useMemo<LeaderboardContextValue>(
         () => ({
