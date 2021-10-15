@@ -1,0 +1,67 @@
+.statusBoard {
+    width: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.groupControls {
+    display: flex;
+    flex-direction: row;
+}
+
+.groupText {
+    color: #5858f5;
+    padding-top: 4px;
+}
+
+.editGroupButton {
+    background-color: #5858f5;
+    border-radius: 3px;
+    padding: 4px;
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.editGroupButtonText {
+    margin: 0px;
+    padding: 0px;
+}
+
+.editGroupButton:hover {
+    background-color: #8484f8;
+}
+
+.editGroupButton:active {
+    background-color: #2e2eaa;
+}
+
+.groupEditorOverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20000;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.groupEditorModal {
+    margin-top: 10%;
+    background-color: rgb(26, 30, 43);
+    border-radius: 6px;
+    width: 50%;
+    max-width: 800px;
+    max-height: 70%;
+}
