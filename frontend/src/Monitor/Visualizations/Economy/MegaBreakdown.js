@@ -57,10 +57,10 @@ function MegaBreakdown(props) {
         setDataAbsMax(0);
     }
 
-    const resourceTypes = [...new Set([
+    const resourceTypes = React.useMemo(()=> [...new Set([
         ...findKeysOverSeries(data, 'economy/income'),
         ...findKeysOverSeries(data, 'economy/spending')
-    ])];
+    ])], [data]);
     const renderResourceType = type => <MenuItem key={type} value={type}>{translate(getResourceName(type))}</MenuItem>;
     const renderedResourceTypes = resourceTypes.map(renderResourceType);
 

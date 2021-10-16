@@ -48,7 +48,7 @@ function SaveChooser(props) {
                     });
                     setSaves(saves);
                     if (saves.length === 0) {
-                        setTimeout(fetchSaves, 5000);
+                        setTimeout(fetchSaves, 3000);
                     }
                 }
                 else {
@@ -56,6 +56,7 @@ function SaveChooser(props) {
                 }
             });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(fetchSaves, []);
 
     const methodChose = (method) => {

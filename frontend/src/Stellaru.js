@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {createMuiTheme} from '@material-ui/core'
-import {ThemeProvider} from '@material-ui/core'
+import {createTheme} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core';
 
 import './Stellaru.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +18,7 @@ const State = Object.freeze({
     monitor: 2
 });
 
-const darkTheme = createMuiTheme({
+const darkTheme = createTheme({
     palette: {
         type: 'dark',
     },

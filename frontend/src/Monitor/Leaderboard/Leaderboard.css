@@ -1,0 +1,134 @@
+.statusBoard {
+    width: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.groupControls {
+    display: flex;
+    flex-direction: row;
+}
+
+.groupText {
+    color: #5858f5;
+    padding-top: 4px;
+}
+
+.editGroupButton {
+    background-color: #5858f5;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4px;
+}
+
+.editGroupButtonText {
+    margin: 0px;
+    padding: 0px;
+}
+
+.editGroupButton:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+}
+
+.editGroupButton:active {
+    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.2);
+}
+
+.groupEditorOverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20000;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.groupEditorModal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    background-color: rgb(26, 30, 43);
+    width: 50%;
+    height: 50%;
+    max-width: 800px;
+    max-height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.groupEditorTitle {
+    margin-top: 12px;
+}
+
+.groupEditorGroupArea {
+    background-color: rgb(45, 52, 77);
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.groupEditorRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    max-height: 80px;
+    background-color: rgb(89, 91, 99);
+    padding: 4px;
+}
+
+.groupEditorMemberList {
+    background-color: rgb(55, 59, 75);
+    width: 40%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.groupEditorAddEmpireArea {
+    margin-left: 12px;
+}
+
+.groupEditorRemoveArea {
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+.groupEditorEmpire {
+    cursor: pointer;
+    color: rgb(214, 27, 27);
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.groupEditorListTitle {
+    text-align: center;
+    transform: translateX(10%);
+    padding: 0px;
+    margin: 0px;
+}
+
+.groupEditorListHint {
+    color:rgb(161, 167, 172);
+    font-size: 8pt;
+    margin-left: 4px;
+}

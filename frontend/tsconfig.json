@@ -18,7 +18,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src"

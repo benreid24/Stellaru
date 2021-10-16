@@ -84,7 +84,7 @@
 
 .presetChart {
     height: 49%;
-    min-height: 45%;
+    min-height: 35vh;
 }
 
 .dateSlider {
@@ -143,8 +143,13 @@
     padding: 5px;
     margin-bottom: -12px;
     border-radius: 3px;
-    transform: translateY(-10px);
     cursor: pointer;
+    max-height: 200%;
+    overflow: auto;
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    width: 100%;
 }
 
 .tip {
