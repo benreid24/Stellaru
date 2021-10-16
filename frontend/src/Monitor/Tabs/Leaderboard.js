@@ -7,7 +7,7 @@ function Leaderboard(props) {
 
     return (
         <div className='customTab'>
-            <StatusBoard/>
+            <StatusBoard data={data}/>
             <div className='row chartRow'>
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
                     <TestChart data={data}/>

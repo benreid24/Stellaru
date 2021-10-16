@@ -1,6 +1,9 @@
 import React from 'react';
 import {findKeysOverSeries} from 'Monitor/Charts/Util';
-import { objectKeys } from 'Helpers';
+import {objectKeys} from 'Helpers';
+import {findEmpireName} from './Selectors';
+
+const CUSTOM_KEY = 'leaderboard.custom_groups';
 
 export enum GroupType {
     Empires,
@@ -18,7 +21,7 @@ export type Group = {
 
 export type GroupState = {
     groupType: GroupType;
-    groups: Group[];
+    groups: Record<number, Group>;
 }
 
 export type ConnectedPlayer = {
@@ -32,9 +35,11 @@ export type LeaderboardContextValue = {
     onPlayerConnect: (player: ConnectedPlayer) => void;
     onPlayerDisconnect: (player: ConnectedPlayer) => void;
     setGroupingType: (groupType: GroupType) => void;
-    createGroup: (name: string) => number;
+    createGroup: (name: string) => void;
     addEmpireToGroup: (groupId: number, empireId: number) => void;
     removeEmpireFromGroup: (groupId: number, empireId: number) => void;
+    setGroupLabel: (groupId: number, label: string) => void;
+    removeGroup: (groupId: number) => void;
 }
 
 type LeaderboardContextProviderProps = {
@@ -42,16 +47,6 @@ type LeaderboardContextProviderProps = {
 }
 
 export const LeaderboardContext = React.createContext<LeaderboardContextValue | null>(null);
-
-const findEmpireName = (eid: number, data: any[]) => {
-    for (let i = data.length - 1; i >= 0; i -= 1) {
-        const summaries = data[i]['leaderboard']['empire_summaries'];
-        if (eid in summaries) {
-            return summaries[eid]['name'];
-        }
-    }
-    return 'Unknown Empire';
-}
 
 const findFederationName = (fid: number, data: any[]) => {
     for (let i = data.length - 1; i >= 0; i -= 1) {
@@ -102,14 +97,9 @@ const getEmpiresNotInFederation = (data: any[]): number[] => {
     return eids.filter(notInFed);
 }
 
-const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => Group[] = (
-    groupState, gtype, data
+const updatedGroups: (gtype: GroupType, data: any[]) => Group[] = (
+    gtype, data
 ) => {
-    const CUSTOM_KEY = 'leaderboard.custom_groups';
-    if (groupState.groupType === GroupType.Custom) {
-        localStorage.setItem(CUSTOM_KEY, JSON.stringify(groupState.groups));
-    }
-
     if (gtype === GroupType.Custom) {
         const lg = localStorage.getItem(CUSTOM_KEY);
         return lg ? JSON.parse(lg) as Group[] : [];
@@ -144,10 +134,17 @@ const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => 
 
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
     const {children, data} = props;
+    const GROUP_TYPE_KEY = 'leaderboard.group_type';
 
-    const [groupState, setGroupState] = React.useState<GroupState>({
-        groupType: GroupType.FederationsWithEmpires,
-        groups: []
+    const [groupState, setGroupState] = React.useState<GroupState>(() => {
+        const stored = localStorage.getItem(GROUP_TYPE_KEY);
+        const gt = stored ? JSON.parse(stored) as GroupType : GroupType.Empires;
+        const lg = localStorage.getItem(CUSTOM_KEY);
+        const gs = gt === GroupType.Custom && lg ? JSON.parse(lg) as Group[] : [];
+        return {
+            groupType: gt,
+            groups: gs
+        };
     });
 
     const [connectedPlayers, setConnectedPlayers] = React.useState<ConnectedPlayer[]>([]);
@@ -161,8 +158,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     }, [connectedPlayers, setConnectedPlayers]);
 
     const setGroupingType = React.useCallback((groupType: GroupType) => {
-        setGroupState({groups: updatedGroups(groupState, groupType, data), groupType: groupType});
-    }, [groupState, setGroupState, data]);
+        setGroupState({groups: updatedGroups(groupType, data), groupType: groupType});
+    }, [setGroupState, data]);
 
     const addEmpireToGroup = React.useCallback((groupId: number, empireId: number) => {
         const group = groupState.groups[groupId];
@@ -228,14 +225,53 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         return -1;
     }, [groupState, setGroupState]);
 
+    const setGroupLabel = React.useCallback((groupId: number, label: string) => {
+        if (groupState.groupType === GroupType.Custom) {
+            const group = groupState.groups[groupId];
+            if (group) {
+                setGroupState({
+                    groupType: groupState.groupType,
+                    groups: {
+                        ...groupState.groups,
+                        [groupId]: {
+                            ...group,
+                            name: label
+                        }
+                    }
+                });
+            }
+        }
+    }, [groupState, setGroupState]);
+
+    const removeGroup = React.useCallback((groupId: number) => {
+        if (groupState.groupType === GroupType.Custom) {
+            const groups = groupState.groups
+            delete groups[groupId];
+            setGroupState({
+                groupType: groupState.groupType,
+                groups: groups
+            });
+        }
+    }, [groupState, setGroupState]);
+
     React.useEffect(() => {
-        setGroupState(g => {
-            return {
-                groupType: g.groupType,
-                groups: updatedGroups(g, g.groupType, data)
-            };
-        });
+        if (groupState.groupType !== GroupType.Custom) {
+            setGroupState(g => {
+                return {
+                    groupType: g.groupType,
+                    groups: updatedGroups(g.groupType, data)
+                };
+            });
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
+
+    React.useEffect(() => {
+        localStorage.setItem(GROUP_TYPE_KEY, JSON.stringify(groupState.groupType));
+        if (groupState.groupType === GroupType.Custom) {
+            localStorage.setItem(CUSTOM_KEY, JSON.stringify(groupState.groups));
+        }
+    }, [groupState]);
 
     const contextValue = React.useMemo<LeaderboardContextValue>(
         () => ({
@@ -246,7 +282,9 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
-            createGroup
+            createGroup,
+            setGroupLabel,
+            removeGroup
         }),
         [
             groupState,
@@ -256,7 +294,9 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
-            createGroup
+            createGroup,
+            setGroupLabel,
+            removeGroup
         ]
     );
 
