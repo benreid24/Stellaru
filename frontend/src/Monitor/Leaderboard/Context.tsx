@@ -128,7 +128,13 @@ const updatedGroups: (groupState: GroupState, gtype: GroupType, data: any[]) => 
             // we only chart empires not in a federation at present. We may want to make this
             // behavior more sophisticated going forward
             const eids = getEmpiresNotInFederation(data);
-            groups = [...groups, ...empiresToGroups(data, eids)];
+            const empireGroups = empiresToGroups(data, eids).map(group => {
+                return {
+                    ...group,
+                    label: `${group.name} (Empire)`
+                };
+            });
+            groups = [...groups, ...empireGroups];
         }
         return groups;
     }

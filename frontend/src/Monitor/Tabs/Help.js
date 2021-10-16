@@ -9,7 +9,7 @@ function Help(props) {
     const port = connInfo.port ? connInfo.port : '?';
 
     const lanLink = connInfo ? `http://${localIp}:${port}` : '';
-    const internetLink = connInfo ? `http://${externalIp}:${port}` : '';
+    const internetLink = connInfo ? `http://${externalIp}:42069` : '';
 
     return (
         <div className='monitorTab helpPage'>
