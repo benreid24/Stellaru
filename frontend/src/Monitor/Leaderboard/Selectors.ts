@@ -8,6 +8,8 @@ export type GroupTimeseries = {
     }
 };
 
+export type GroupReducer = (currentValue: number, nextValue: number, memberCount: number) => number;
+
 const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) => {
     const feds = snap['federations'] as any[];
     for (let i = 0; i < feds.length; i += 1) {
@@ -28,9 +30,22 @@ export const findEmpireName = (eid: number, data: any[]) => {
     return 'Unknown Empire';
 }
 
+export const sumReducer: GroupReducer = (currentValue: number, nextValue: number) => {
+    return currentValue + nextValue;
+}
+
+export const maxValReducer: GroupReducer = (currentValue: number, nextValue: number) => {
+    return currentValue > nextValue ? currentValue : nextValue;
+}
+
+export const avgReducer: GroupReducer = (currentValue: number, nextValue: number, memberCount: number) => {
+    return currentValue + nextValue / memberCount;
+}
+
 export const getTimeseries = (
     groupState: GroupState,
-    empireSelector: (snap: any, empireId: number) => number
+    empireSelector: (snap: any, empireId: number) => number,
+    reducer: GroupReducer = sumReducer
 ): GroupTimeseries[] => {
     const groups = groupState.groups;
     return Object.keys(groups).map(Number).map(gid => {
@@ -44,7 +59,7 @@ export const getTimeseries = (
                         getFederationMembers(snap, g.id)
                         : g.members;
                     return members.reduce((value: number, eid: number) => {
-                        return value + empireSelector(snap, eid);
+                        return reducer(value, empireSelector(snap, eid), members.length);
                     }, 0);
                 }
             }

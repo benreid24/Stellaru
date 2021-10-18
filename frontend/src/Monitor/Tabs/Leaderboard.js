@@ -1,5 +1,5 @@
 import React from 'react';
-import {TestChart} from '../Leaderboard/Charts/TestChart';
+import {TechProgressChart} from '../Leaderboard/Charts/TechProgress';
 import {StatusBoard} from '../Leaderboard/StatusBoard';
 
 function Leaderboard(props) {
@@ -10,7 +10,7 @@ function Leaderboard(props) {
             <StatusBoard data={data}/>
             <div className='row chartRow'>
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 presetChart'>
-                    <TestChart data={data}/>
+                    <TechProgressChart data={data}/>
                 </div>
             </div>
         </div>
