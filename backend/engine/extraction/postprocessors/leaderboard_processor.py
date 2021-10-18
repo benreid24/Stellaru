@@ -38,7 +38,7 @@ class LeaderboardProcessor(PostProcessor):
                 'base': empire_snapshot['economy']['base_gdp'],
                 'adjusted': empire_snapshot['economy']['adjusted_gdp']
             },
-            'tech': empire_snapshot['tech']['output'],
+            'tech': empire_snapshot['tech'],
             'planets': {
                 'count': empire_snapshot['planets']['total'],
                 'total_size': empire_snapshot['planets']['sizes']['total'],

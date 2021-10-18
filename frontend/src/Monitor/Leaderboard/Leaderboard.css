@@ -132,3 +132,13 @@
     font-size: 8pt;
     margin-left: 4px;
 }
+
+.leaderboardChartForm {
+    text-align: left;
+    height: 7%;
+}
+
+.leaderboardFormChartContent {
+    width: 100%;
+    height: 93%;
+}
