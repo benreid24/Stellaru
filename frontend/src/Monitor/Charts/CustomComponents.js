@@ -56,17 +56,18 @@ function RenderTooltip(props) {
 
 const ScrollableLegend = (props) => {
     delete props.content;
-    const newProps = {...props};
-    newProps.layout = 'horizontal';
+
     return (
         <Scrollbars
             style={{
-                width: '100%',
+                width: '100%'
             }}
             autoHeight
             autoHeightMax={100}
+            renderTrackHorizontal={() => <div/>}
+            renderThumbHorizontal={() => <div/>}
         >
-            <DefaultLegendContent {...newProps} />
+            <DefaultLegendContent {...props} layout='horizontal' />
         </Scrollbars>
     );
 };
