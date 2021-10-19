@@ -28,6 +28,10 @@ def register_session(session):
     return session_id
 
 
+def get_session(session_id):
+    return sessions[session_id] if session_id in sessions else None
+
+
 def reconnect_session(session_id, empire, socket):
     if session_id in sessions:
         sessions.pop(session_id)

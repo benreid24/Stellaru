@@ -7,6 +7,7 @@ from engine import engine
 
 class Subscription(JsonWebsocketConsumer):
     def connect(self):
+        self.file = ''
         if 'id' not in self.scope['session']:
             self.id = sessions.register_session(self.scope['session'])
         else:
@@ -21,9 +22,11 @@ class Subscription(JsonWebsocketConsumer):
         if 'subscribe' in content:
             info = content['subscribe']
             if 'file' in info and 'empire' in info:
+                self.file = info['file']
                 sessions.reconnect_session(self.id, info['empire'], self)
                 engine.session_reconnected(self.id, info['file'])
 
     def disconnect(self, code):
         print(f'Client {self.id} disconnected with code {code}')
         sessions.clear_session(self.id)
+        engine.session_disconnected(self.id, self.file)

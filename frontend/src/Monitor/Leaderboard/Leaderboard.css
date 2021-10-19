@@ -15,10 +15,11 @@
     justify-content: left;
 }
 
-.statusBoardLeftSide {
+.statusBoardRightSide {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: left;
+    flex-grow: 1;
 }
 
 .groupControls {
@@ -28,7 +29,7 @@
 
 .groupText {
     color: #5858f5;
-    padding-top: 4px;
+    margin-top: auto;
 }
 
 .editGroupButton {
@@ -159,4 +160,28 @@
     display: flex;
     flex-direction: row;
     margin-left: 8px;
+}
+
+.playerListArea {
+    display: flex;
+    flex-direction: row;
+}
+
+.playerList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 8px;
+}
+
+.connectedPlayer {
+    margin-top: auto;
+    font-size: 14pt;
+    margin-left: 8px;
+}
+
+.connectedPlayerEmpire {
+    color: #09bdba;
+    margin-left: 4px;
+    font-size: 10pt;
 }

@@ -9,7 +9,6 @@ from engine import extractor
 from engine import sessions
 from engine import finder
 from engine.util import fake_snap
-from engine.watchers.file_watcher import FileWatcher
 
 SAVE_FILE = 'stellaru.pickle'
 WAITING_MESSAGE = {'status': 'WAITING'}
@@ -17,6 +16,24 @@ LOADING_MESSAGE = {'status': 'LOADING'}
 
 monitored_saves = {}
 save_lock = Lock()
+
+
+def _make_connect_status_message(session_id, empire_id, connected):
+    return {
+        'session_event': {
+            'session_id': session_id,
+            'empire_id': empire_id,
+            'status': 'CONNECTED' if connected else 'DISCONNECTED'
+        }
+    }
+
+
+def _notify_connect_event(watcher, session_id, connected):
+    if watcher.name() in monitored_saves:
+        save = monitored_saves[watcher.name()]
+        session = sessions.get_session(session_id)
+        empire = session['empire'] if session else 0
+        _send_to_sessions(save, _make_connect_status_message(session_id, empire, connected))
 
 
 def add_save(watcher, session_id):
@@ -45,7 +62,31 @@ def add_save_watcher(watcher, session_id):
 def session_reconnected(session_id, file):
     save_watcher = finder.get_save(file)
     if save_watcher:
+        _notify_connect_event(save_watcher, session_id, True)
         add_save(save_watcher, session_id)
+
+
+def session_disconnected(session_id, file):
+    save_watcher = finder.get_save(file)
+    if save_watcher:
+        print('Send session disconnect')
+        _notify_connect_event(save_watcher, session_id, False)
+
+
+def get_sessions(file):
+    save_watcher = finder.get_save(file)
+    if save_watcher and save_watcher.name() in monitored_saves:
+        sids = monitored_saves[save_watcher.name()]['sessions']
+        session_list = []
+        for sid in sids:
+            session = sessions.get_session(sid)
+            if session and isinstance(session['empire'], int):
+                session_list.append({
+                    'session_id': sid,
+                    'empire_id': session['empire'] 
+                })
+        return session_list
+    return []
 
 
 def get_save(watcher, session_id, load=False):

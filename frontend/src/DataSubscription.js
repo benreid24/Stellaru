@@ -45,6 +45,16 @@ class DataSubscription {
         else {
             this.setupPolling();
         }
+        this.eventSubscriptions = {}
+    }
+
+    subscribe(eventKey, handler) {
+        if (eventKey in this.eventSubscriptions) {
+            this.eventSubscriptions[eventKey].push(handler);
+        }
+        else {
+            this.eventSubscriptions[eventKey] = [handler];
+        }
     }
 
     checkHeartbeat(me) {
@@ -59,6 +69,7 @@ class DataSubscription {
     setChosenInfo(save, empire) {
         this.save = save;
         this.empire = empire;
+        this.resubscribe(this);
     }
 
     setupPolling() {
@@ -162,11 +173,41 @@ class DataSubscription {
                 this.setStatus(payload['status']);
             }
         }
+
+        const keys = Object.keys(payload);
+        if (keys.length === 1) {
+            const handlers = this.eventSubscriptions[keys[0]];
+            if (handlers) {
+                const event = payload[keys[0]];
+                handlers.forEach(handler => handler(event));
+            }
+        }
     }
 
     onData(me, event) {
         me.heartbeatTime = Date.now();
         me.processData(JSON.parse(event.data));
+    }
+
+    async getConnectedSessions() {
+        try {
+            const response = await fetch(
+                window.location.pathname + 'api/connected_sessions', {
+                    method: 'post',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({file: this.save})
+                }
+            );
+            const data = response.ok ? await response.json() : null;
+            if (data) {
+                return data.sessions;
+            }
+            else {
+                return [];
+            }
+        } catch (_) {
+            return [];
+        }
     }
 }
 

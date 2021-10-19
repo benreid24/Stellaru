@@ -181,7 +181,7 @@ function Monitor(props) {
     useEffect(updateZoom, [gameData, dateRange]);
 
     return (
-        <LeaderboardContextProvider data={gameData}>
+        <LeaderboardContextProvider data={gameData} dataSubscription={subscription}>
             <div className='container-fluid monitor'>
                 <div className='monitorHeader'>
                     <div className='row' style={{paddingBottom: '0px'}}>
