@@ -27,7 +27,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState} = useLeaderboardContext();
+    const {groupState, filterState} = useLeaderboardContext();
 
     const [mode, setMode] = React.useState<'max' | 'avg'>('max');
     const onModeChange = (event: any) => setMode(event.target.value);
@@ -36,7 +36,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
     const selector = (snap: any, eid: number) => {
         return selectNested(`leaderboard/empire_summaries/${eid}/tech/completed_techs`, snap);
     };
-    const series = getTimeseries(groupState, selector, reducer);
+    const series = getTimeseries(data, groupState, filterState, selector, reducer);
 
     return (
         <Chart name={name} title={Name} titleColor='#6666cd' overlay={overlay}>
