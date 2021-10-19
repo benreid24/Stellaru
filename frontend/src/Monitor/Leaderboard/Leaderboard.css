@@ -1,3 +1,11 @@
+.leaderboardTab {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 .statusBoard {
     width: calc(100%-32px);
     margin-left: 16px;
@@ -20,6 +28,7 @@
     flex-direction: row;
     justify-content: left;
     flex-grow: 1;
+    margin-left: 24px;
 }
 
 .groupControls {
@@ -171,7 +180,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-left: 8px;
 }
 
 .connectedPlayer {
@@ -184,4 +192,9 @@
     color: #09bdba;
     margin-left: 4px;
     font-size: 10pt;
+}
+
+.leaderboardChart {
+    height: 46%;
+    min-height: 30vh;
 }
