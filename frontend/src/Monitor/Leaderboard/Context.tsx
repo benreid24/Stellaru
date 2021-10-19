@@ -1,7 +1,8 @@
 import React from 'react';
 import {findKeysOverSeries} from 'Monitor/Charts/Util';
 import {objectKeys} from 'Helpers';
-import {findEmpireName} from './Selectors';
+import {findEmpireName, findPlayerName} from './Selectors';
+import DataSubscription from 'DataSubscription';
 
 const CUSTOM_KEY = 'leaderboard.custom_groups';
 
@@ -25,6 +26,7 @@ export type GroupState = {
 }
 
 export type ConnectedPlayer = {
+    id: string;
     playerName: string;
     playerEmpire: number;
 }
@@ -37,7 +39,7 @@ export type FilterState = {
 
 export type LeaderboardContextValue = {
     groupState: GroupState;
-    connectedPlayers: ConnectedPlayer[];
+    connectedPlayers: Record<string, ConnectedPlayer>;
     filterState: FilterState;
     onPlayerConnect: (player: ConnectedPlayer) => void;
     onPlayerDisconnect: (player: ConnectedPlayer) => void;
@@ -54,6 +56,7 @@ export type LeaderboardContextValue = {
 
 type LeaderboardContextProviderProps = {
     data: any[]; // TODO - we may want to type this
+    dataSubscription: DataSubscription;
 }
 
 export const LeaderboardContext = React.createContext<LeaderboardContextValue | null>(null);
@@ -143,7 +146,7 @@ const updatedGroups: (gtype: GroupType, data: any[]) => Group[] = (
 };
 
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
-    const {children, data} = props;
+    const {children, data, dataSubscription} = props;
     const GROUP_TYPE_KEY = 'leaderboard.group_type';
 
     const [groupState, setGroupState] = React.useState<GroupState>(() => {
@@ -157,7 +160,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         };
     });
 
-    const [connectedPlayers, setConnectedPlayers] = React.useState<ConnectedPlayer[]>([]);
+    const [connectedPlayers, setConnectedPlayers] = React.useState<Record<string, ConnectedPlayer>>({});
 
     const [filterState, setFilterState] = React.useState<FilterState>({
         showPlayers: true,
@@ -166,11 +169,16 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     });
 
     const onPlayerConnect = React.useCallback((player: ConnectedPlayer) => {
-        setConnectedPlayers([...connectedPlayers, player]);
+        setConnectedPlayers({
+            ...connectedPlayers,
+            [player.id]: player
+        });
     }, [connectedPlayers, setConnectedPlayers]);
 
     const onPlayerDisconnect = React.useCallback((player: ConnectedPlayer) => {
-        setConnectedPlayers(connectedPlayers.filter(p => p.playerEmpire !== player.playerEmpire));
+        const players = {...connectedPlayers};
+        delete connectedPlayers[player.id];
+        setConnectedPlayers(players);
     }, [connectedPlayers, setConnectedPlayers]);
 
     const setGroupingType = React.useCallback((groupType: GroupType) => {
@@ -261,7 +269,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
 
     const removeGroup = React.useCallback((groupId: number) => {
         if (groupState.groupType === GroupType.Custom) {
-            const groups = groupState.groups
+            const groups = {...groupState.groups};
             delete groups[groupId];
             setGroupState({
                 groupType: groupState.groupType,
@@ -315,6 +323,53 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             localStorage.setItem(CUSTOM_KEY, JSON.stringify(groupState.groups));
         }
     }, [groupState]);
+
+    React.useEffect(() => {
+        dataSubscription.subscribe('session_event', (event: any) => {
+            const eid = Number(event['empire_id']);
+            if (event['status'] === 'CONNECTED') {
+                onPlayerConnect({
+                    id: event['session_id'],
+                    playerEmpire: eid,
+                    playerName: findPlayerName(eid, data)
+                });
+            }
+            else if (event['status'] === 'DISCONNECTED') {
+                onPlayerDisconnect({
+                    id: event['session_id'],
+                    playerEmpire: eid,
+                    playerName: findPlayerName(eid, data)
+                });
+            }
+        });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const [playersLoaded, setPlayersLoaded] = React.useState<boolean>(false);
+    React.useEffect(() => {
+        if (data && data.length > 0 && !playersLoaded) {
+            setPlayersLoaded(true);
+
+            dataSubscription.getConnectedSessions().then(connected => {
+                const players = connected.reduce((all: Record<string, ConnectedPlayer>, session: any) => {
+                    return {
+                        ...all,
+                        [session.session_id]: {
+                            id: session.session_id,
+                            playerEmpire: session.empire_id,
+                            playerName: findPlayerName(session.empire_id, data)
+                        } as ConnectedPlayer
+                    };
+                }, {});
+                setConnectedPlayers(c => {
+                    return {
+                        ...players,
+                        ...c
+                    };
+                });
+            });
+        }
+    }, [data, playersLoaded, setPlayersLoaded, dataSubscription]);
 
     const contextValue = React.useMemo<LeaderboardContextValue>(
         () => ({
