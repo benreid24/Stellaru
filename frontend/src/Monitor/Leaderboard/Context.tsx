@@ -72,7 +72,7 @@ const findFederationName = (fid: number, data: any[]) => {
 
 const findFederations = (data: any[]): number[] => {
     const fids = data.reduce((fids, snap) => {
-        const feds = snap['federations'] as any[];
+        const feds = snap['federations'] ? snap['federations'] as any[] : [];
         feds.forEach(fed => fids[fed['id']] = true);
         return fids;
     }, {});
@@ -94,7 +94,7 @@ const getEmpiresNotInFederation = (data: any[]): number[] => {
     if (data.length === 0) return [];
     
     const snap = data[data.length-1];
-    const feds = snap['federations'] as any[];
+    const feds = snap['federations'] ? snap['federations'] as any[] : [];
     const eids = findKeysOverSeries([snap], 'leaderboard/empire_summaries').map(Number);
 
     const notInFed = (eid: number): boolean => {
