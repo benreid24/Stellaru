@@ -1,9 +1,11 @@
 import React from 'react';
 import {Group, GroupType, useLeaderboardContext} from './Context';
 import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
 import {makeStyles} from '@material-ui/core/styles';
 import {findEmpireName} from './Selectors';
 
@@ -238,9 +240,47 @@ const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
 }
 
 const FilterControls: React.FC = (props) => {
+    const classes = useStyles();
+
+    const {
+        filterState,
+        setFilterPlayers,
+        setFilterRegularAi,
+        setFilterFallenEmpires
+    } = useLeaderboardContext();
+
     return (
         <div className='filterControls'>
-            Filtering by:
+            <p className="groupText">Showing:</p>
+            <FormControl className={classes.formControl}>
+                <FormControlLabel
+                    label="Players"
+                    control={
+                        <Checkbox
+                            checked={filterState.showPlayers}
+                            onChange={() => setFilterPlayers(!filterState.showPlayers)}
+                        />
+                    }
+                />
+                <FormControlLabel
+                    label="Regular AI"
+                    control={
+                        <Checkbox
+                            checked={filterState.showRegularAi}
+                            onChange={() => setFilterRegularAi(!filterState.showRegularAi)}
+                        />
+                    }
+                />
+                <FormControlLabel
+                    label="Fallen Empires"
+                    control={
+                        <Checkbox
+                            checked={filterState.showFallenEmpires}
+                            onChange={() => setFilterFallenEmpires(!filterState.showFallenEmpires)}
+                        />
+                    }
+                />
+            </FormControl>
         </div>
     );
 }
