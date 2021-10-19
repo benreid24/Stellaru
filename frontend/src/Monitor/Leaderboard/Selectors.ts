@@ -54,6 +54,16 @@ export const findEmpireName = (eid: number, data: any[]) => {
     return 'Unknown Empire';
 }
 
+export const findPlayerName = (eid: number, data: any[]) => {
+    for (let i = data.length - 1; i >= 0; i -= 1) {
+        const summaries = data[i]['leaderboard']['empire_summaries'];
+        if (eid in summaries) {
+            return summaries[eid]['player_name'];
+        }
+    }
+    return 'Unknown Player';
+}
+
 export const sumReducer: GroupReducer = (currentValue: number, nextValue: number) => {
     return currentValue + nextValue;
 }

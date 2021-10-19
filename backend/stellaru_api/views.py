@@ -179,6 +179,20 @@ def get_latest_snap(request):
         return _make_error(f'Bad request body: {repr(err)}')
 
 
+@csrf_exempt
+def connected_sessions(request):
+    try:
+        parsed = json.loads(request.body)
+        if 'file' not in parsed:
+            return _make_error('"file" parameter not set in POST')
+        session_list = engine.get_sessions(parsed['file'])
+        return JsonResponse({
+            'sessions': session_list
+        })
+    except Exception as err:
+        return _make_error(f'Bad request: {repr(err)}')
+
+
 def get_connection_info(request):
     try:
         local_ip = socket.gethostbyname(socket.gethostname())
