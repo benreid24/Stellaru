@@ -52,7 +52,8 @@ class LeaderboardProcessor(PostProcessor):
             'fleets': {
                 'total_strength': empire_snapshot['fleets']['fleet_power']['total'],
                 'ship_count': empire_snapshot['fleets']['ships']['total'],
-                'avg_ship_exp': empire_snapshot['fleets']['avg_ship_exp']
+                'avg_ship_exp': empire_snapshot['fleets']['avg_ship_exp'],
+                'total_size': empire_snapshot['fleets']['total_size']
             },
             'army_count': empire_snapshot['armies']['total']
         }
