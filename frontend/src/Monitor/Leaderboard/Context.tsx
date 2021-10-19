@@ -4,7 +4,9 @@ import {objectKeys} from 'Helpers';
 import {findEmpireName} from './Selectors';
 import DataSubscription from 'DataSubscription';
 
-const CUSTOM_KEY = 'leaderboard.custom_groups';
+const GROUP_TYPE_KEY = 'leaderboard.group_type';
+const GROUP_STORAGE_KEY = 'leaderboard.custom_groups';
+const FILTER_STORAGE_KEY = 'leaderboard.filter';
 
 export enum GroupType {
     Empires,
@@ -111,7 +113,7 @@ const updatedGroups: (gtype: GroupType, data: any[]) => Group[] = (
     gtype, data
 ) => {
     if (gtype === GroupType.Custom) {
-        const lg = localStorage.getItem(CUSTOM_KEY);
+        const lg = localStorage.getItem(GROUP_STORAGE_KEY);
         return lg ? JSON.parse(lg) as Group[] : [];
     }
     if (gtype === GroupType.Federations || gtype === GroupType.FederationsWithEmpires) {
@@ -144,12 +146,11 @@ const updatedGroups: (gtype: GroupType, data: any[]) => Group[] = (
 
 export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProps> = (props) => {
     const {children, data, dataSubscription} = props;
-    const GROUP_TYPE_KEY = 'leaderboard.group_type';
 
     const [groupState, setGroupState] = React.useState<GroupState>(() => {
         const stored = localStorage.getItem(GROUP_TYPE_KEY);
         const gt = stored ? JSON.parse(stored) as GroupType : GroupType.Empires;
-        const lg = localStorage.getItem(CUSTOM_KEY);
+        const lg = localStorage.getItem(GROUP_STORAGE_KEY);
         const gs = gt === GroupType.Custom && lg ? JSON.parse(lg) as Group[] : [];
         return {
             groupType: gt,
@@ -159,10 +160,16 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
 
     const [connectedPlayers, setConnectedPlayers] = React.useState<Record<string, ConnectedPlayer>>({});
 
-    const [filterState, setFilterState] = React.useState<FilterState>({
-        showPlayers: true,
-        showRegularAi: true,
-        showFallenEmpires: false
+    const [filterState, setFilterState] = React.useState<FilterState>(() => {
+        const stored = localStorage.getItem(FILTER_STORAGE_KEY);
+        if (stored) {
+            return JSON.parse(stored) as FilterState;
+        }
+        return {
+            showPlayers: true,
+            showRegularAi: true,
+            showFallenEmpires: false
+        };
     });
 
     const onPlayerConnect = React.useCallback((player: ConnectedPlayer) => {
@@ -321,9 +328,13 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     React.useEffect(() => {
         localStorage.setItem(GROUP_TYPE_KEY, JSON.stringify(groupState.groupType));
         if (groupState.groupType === GroupType.Custom) {
-            localStorage.setItem(CUSTOM_KEY, JSON.stringify(groupState.groups));
+            localStorage.setItem(GROUP_STORAGE_KEY, JSON.stringify(groupState.groups));
         }
     }, [groupState]);
+
+    React.useEffect(() => {
+        localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify(filterState));
+    }, [filterState]);
 
     React.useEffect(() => {
         dataSubscription.subscribe('session_event', (event: any) => {

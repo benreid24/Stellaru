@@ -36,7 +36,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
 
     return (
-        <Chart name={name} title={Name} titleColor='#6666cd' overlay={overlay}>
+        <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>

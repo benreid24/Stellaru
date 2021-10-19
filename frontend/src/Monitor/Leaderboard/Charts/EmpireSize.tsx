@@ -11,14 +11,14 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-type ChartedValue = 'fleet_power' | 'ship_count' | 'fleet_size';
+type ChartedValue = 'pops' | 'planets' | 'systems';
 const Labels: Record<ChartedValue, string> = {
-    'fleet_power': 'Total Fleet Strength',
-    'ship_count': 'Total Ship Count',
-    'fleet_size': 'Total Fleet Size'
+    'pops': 'Total Pops',
+    'planets': 'Total Colonies',
+    'systems': 'Total Systems'
 }
 
-const Name = 'Fleet Power';
+const Name = 'Aggregate Size';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -27,23 +27,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
+export const EmpireSize: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
 
     const name = n ? n : Name;
     const {groupState, filterState} = useLeaderboardContext();
 
-    const [chartedValue, setChartedValue] = React.useState<ChartedValue>('fleet_power');
+    const [chartedValue, setChartedValue] = React.useState<ChartedValue>('systems');
     const onChartChange = (event: any) => setChartedValue(event.target.value);
 
     const selector = (snap: any, eid: number) => {
         switch (chartedValue) {
-            case 'fleet_power':
-                return selectNested(`leaderboard/empire_summaries/${eid}/fleets/total_strength`, snap);
-            case 'ship_count':
-                return selectNested(`leaderboard/empire_summaries/${eid}/fleets/ship_count`, snap);
-            case 'fleet_size':
-                return selectNested(`leaderboard/empire_summaries/${eid}/fleets/total_size`, snap);
+            case 'systems':
+                return selectNested(`leaderboard/empire_summaries/${eid}/system_count`, snap);
+            case 'planets':
+                return selectNested(`leaderboard/empire_summaries/${eid}/planets/count`, snap);
+            case 'pops':
+                return selectNested(`leaderboard/empire_summaries/${eid}/pop_count`, snap);
             default:
                 return 0;
         }
@@ -56,9 +56,9 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={chartedValue} onChange={onChartChange}>
-                        <MenuItem value='fleet_power'>{Labels['fleet_power']}</MenuItem>
-                        <MenuItem value='ship_count'>{Labels['ship_count']}</MenuItem>
-                        <MenuItem value='fleet_size'>{Labels['fleet_size']}</MenuItem>
+                        <MenuItem value='systems'>{Labels['systems']}</MenuItem>
+                        <MenuItem value='planets'>{Labels['planets']}</MenuItem>
+                        <MenuItem value='pops'>{Labels['pops']}</MenuItem>
                     </Select>
                 </FormControl>
             </div>
@@ -77,7 +77,7 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
 
 registerChart(
     Name,
-    'Compare fleet strength between empires and federations',
-    FleetPowerChart,
+    'Compare empire or federation populations, colony counts, and number of systems',
+    EmpireSize,
     'Leaderboard'
 )
