@@ -69,6 +69,7 @@ class DataSubscription {
     setChosenInfo(save, empire) {
         this.save = save;
         this.empire = empire;
+        this.resubscribe(this);
     }
 
     setupPolling() {

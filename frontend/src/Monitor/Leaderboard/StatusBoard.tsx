@@ -1,5 +1,5 @@
 import React from 'react';
-import {Group, GroupType, useLeaderboardContext} from './Context';
+import {ConnectedPlayer, Group, GroupType, useLeaderboardContext} from './Context';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
@@ -7,9 +7,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import {makeStyles} from '@material-ui/core/styles';
-import {findEmpireName} from './Selectors';
+import {findEmpireName, findPlayerName} from './Selectors';
 
 import './Leaderboard.css';
+import { getDataColors } from 'Monitor/Charts/Util';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -285,6 +286,53 @@ const FilterControls: React.FC = (props) => {
     );
 }
 
+type PlayerListProps = {
+    data: any[];
+}
+
+const PlayerList: React.FC<PlayerListProps> = ({data}) => {
+    const {connectedPlayers} = useLeaderboardContext();
+
+    const pl = Object.values(connectedPlayers);
+    const playerIds = pl.map(player => player.id);
+    const [initialColors, initialHues] = getDataColors(playerIds);
+    const [playerColors, setPlayerColors] = React.useState<Record<string, string>>(initialColors);
+    const labelHues = React.useState<number[]>(initialHues)[0];
+
+    React.useEffect(() => {
+        const pl = Object.values(connectedPlayers);
+        const pids = pl.map(player => player.id);
+        setPlayerColors(getDataColors(pids, labelHues)[0]);
+    }, [data, connectedPlayers, labelHues, setPlayerColors]);
+
+    const renderPlayers = React.useCallback(
+        (playerList: ConnectedPlayer[]) => playerList.map(player => {
+            return (
+                <p className='connectedPlayer' key={player.id} style={{color: playerColors[player.id]}}>
+                    {findPlayerName(player.playerEmpire, data)}
+                    <span className='connectedPlayerEmpire'>
+                        ({findEmpireName(player.playerEmpire, data)})
+                    </span>
+                </p>
+            )
+        }
+    ), [data, playerColors]);
+
+    const [renderedPlayers, setRenderedPlayers] = React.useState<React.ReactElement[]>(renderPlayers(pl));
+    React.useEffect(() => {
+        setRenderedPlayers(renderPlayers(Object.values(connectedPlayers)));
+    }, [connectedPlayers, setRenderedPlayers, renderPlayers]);
+
+    return (
+        <div className='playerListArea'>
+            <p className='groupText'>Currently Watching:</p>
+            <div className='playerList'>
+                {renderedPlayers}
+            </div>
+        </div>
+    );
+}
+
 export type StatusBoardProps = {
     data: any[];
 }
@@ -296,7 +344,9 @@ export const StatusBoard: React.FC<StatusBoardProps> = ({data}) => {
                 <GroupControls data={data}/>
                 <FilterControls/>
             </div>
-            <div className='statusBoardRightSide'/>
+            <div className='statusBoardRightSide'>
+                <PlayerList data={data}/>
+            </div>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {findKeysOverSeries} from 'Monitor/Charts/Util';
 import {objectKeys} from 'Helpers';
-import {findEmpireName, findPlayerName} from './Selectors';
+import {findEmpireName} from './Selectors';
 import DataSubscription from 'DataSubscription';
 
 const CUSTOM_KEY = 'leaderboard.custom_groups';
@@ -27,7 +27,6 @@ export type GroupState = {
 
 export type ConnectedPlayer = {
     id: string;
-    playerName: string;
     playerEmpire: number;
 }
 
@@ -41,8 +40,6 @@ export type LeaderboardContextValue = {
     groupState: GroupState;
     connectedPlayers: Record<string, ConnectedPlayer>;
     filterState: FilterState;
-    onPlayerConnect: (player: ConnectedPlayer) => void;
-    onPlayerDisconnect: (player: ConnectedPlayer) => void;
     setGroupingType: (groupType: GroupType) => void;
     createGroup: (name: string) => void;
     addEmpireToGroup: (groupId: number, empireId: number) => void;
@@ -169,17 +166,21 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     });
 
     const onPlayerConnect = React.useCallback((player: ConnectedPlayer) => {
-        setConnectedPlayers({
-            ...connectedPlayers,
-            [player.id]: player
+        setConnectedPlayers(c => {
+            return {
+                ...c,
+                [player.id]: player
+            };
         });
-    }, [connectedPlayers, setConnectedPlayers]);
+    }, [setConnectedPlayers]);
 
     const onPlayerDisconnect = React.useCallback((player: ConnectedPlayer) => {
-        const players = {...connectedPlayers};
-        delete connectedPlayers[player.id];
-        setConnectedPlayers(players);
-    }, [connectedPlayers, setConnectedPlayers]);
+        setConnectedPlayers(c => {
+            const players = {...c};
+            delete players[player.id];
+            return players;
+        });
+    }, [setConnectedPlayers]);
 
     const setGroupingType = React.useCallback((groupType: GroupType) => {
         setGroupState({groups: updatedGroups(groupType, data), groupType: groupType});
@@ -326,19 +327,18 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
 
     React.useEffect(() => {
         dataSubscription.subscribe('session_event', (event: any) => {
+            console.log(`Connect event: ${JSON.stringify(event)}`);
             const eid = Number(event['empire_id']);
             if (event['status'] === 'CONNECTED') {
                 onPlayerConnect({
                     id: event['session_id'],
                     playerEmpire: eid,
-                    playerName: findPlayerName(eid, data)
                 });
             }
             else if (event['status'] === 'DISCONNECTED') {
                 onPlayerDisconnect({
                     id: event['session_id'],
                     playerEmpire: eid,
-                    playerName: findPlayerName(eid, data)
                 });
             }
         });
@@ -356,8 +356,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
                         ...all,
                         [session.session_id]: {
                             id: session.session_id,
-                            playerEmpire: session.empire_id,
-                            playerName: findPlayerName(session.empire_id, data)
+                            playerEmpire: session.empire_id
                         } as ConnectedPlayer
                     };
                 }, {});
@@ -376,8 +375,6 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupState,
             connectedPlayers,
             filterState,
-            onPlayerConnect,
-            onPlayerDisconnect,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
@@ -392,8 +389,6 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupState,
             connectedPlayers,
             filterState,
-            onPlayerConnect,
-            onPlayerDisconnect,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
