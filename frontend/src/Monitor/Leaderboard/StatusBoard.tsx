@@ -292,8 +292,11 @@ export type StatusBoardProps = {
 export const StatusBoard: React.FC<StatusBoardProps> = ({data}) => {
     return (
         <div className='statusBoard'>
-            <GroupControls data={data}/>
-            <FilterControls/>
+            <div className='statusBoardLeftSide'>
+                <GroupControls data={data}/>
+                <FilterControls/>
+            </div>
+            <div className='statusBoardRightSide'/>
         </div>
     );
 }

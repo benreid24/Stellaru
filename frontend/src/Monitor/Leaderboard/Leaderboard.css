@@ -9,6 +9,18 @@
     justify-content: space-between;
 }
 
+.statusBoardLeftSide {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.statusBoardLeftSide {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
 .groupControls {
     display: flex;
     flex-direction: row;

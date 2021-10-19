@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: n}) => {
+export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
 
     const name = n ? n : Name;
@@ -39,7 +39,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
     const series = getTimeseries(groupState, selector, reducer);
 
     return (
-        <Chart name={name} title={name} titleColor='#6666cd'>
+        <Chart name={name} title={Name} titleColor='#6666cd' overlay={overlay}>
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
