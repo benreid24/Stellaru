@@ -29,9 +29,16 @@ export type ConnectedPlayer = {
     playerEmpire: number;
 }
 
+export type FilterState = {
+    showPlayers: boolean;
+    showRegularAi: boolean;
+    showFallenEmpires: boolean;
+}
+
 export type LeaderboardContextValue = {
     groupState: GroupState;
     connectedPlayers: ConnectedPlayer[];
+    filterState: FilterState;
     onPlayerConnect: (player: ConnectedPlayer) => void;
     onPlayerDisconnect: (player: ConnectedPlayer) => void;
     setGroupingType: (groupType: GroupType) => void;
@@ -40,6 +47,9 @@ export type LeaderboardContextValue = {
     removeEmpireFromGroup: (groupId: number, empireId: number) => void;
     setGroupLabel: (groupId: number, label: string) => void;
     removeGroup: (groupId: number) => void;
+    setFilterPlayers: (showPlayers: boolean) => void;
+    setFilterRegularAi: (showRegularAi: boolean) => void;
+    setFilterFallenEmpires: (showFallenEmpires: boolean) => void;
 }
 
 type LeaderboardContextProviderProps = {
@@ -149,6 +159,12 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
 
     const [connectedPlayers, setConnectedPlayers] = React.useState<ConnectedPlayer[]>([]);
 
+    const [filterState, setFilterState] = React.useState<FilterState>({
+        showPlayers: true,
+        showRegularAi: true,
+        showFallenEmpires: false
+    });
+
     const onPlayerConnect = React.useCallback((player: ConnectedPlayer) => {
         setConnectedPlayers([...connectedPlayers, player]);
     }, [connectedPlayers, setConnectedPlayers]);
@@ -254,6 +270,33 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         }
     }, [groupState, setGroupState]);
 
+    const setFilterPlayers = React.useCallback((show: boolean) => {
+        setFilterState(fs => {
+            return {
+                ...fs,
+                showPlayers: show
+            };
+        });
+    }, [setFilterState]);
+
+    const setFilterRegularAi = React.useCallback((show: boolean) => {
+        setFilterState(fs => {
+            return {
+                ...fs,
+                showRegularAi: show
+            };
+        });
+    }, [setFilterState]);
+
+    const setFilterFallenEmpires = React.useCallback((show: boolean) => {
+        setFilterState(fs => {
+            return {
+                ...fs,
+                showFallenEmpires: show
+            };
+        });
+    }, [setFilterState]);
+
     React.useEffect(() => {
         if (groupState.groupType !== GroupType.Custom) {
             setGroupState(g => {
@@ -277,6 +320,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
         () => ({
             groupState,
             connectedPlayers,
+            filterState,
             onPlayerConnect,
             onPlayerDisconnect,
             setGroupingType,
@@ -284,11 +328,15 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             removeEmpireFromGroup,
             createGroup,
             setGroupLabel,
-            removeGroup
+            removeGroup,
+            setFilterPlayers,
+            setFilterRegularAi,
+            setFilterFallenEmpires
         }),
         [
             groupState,
             connectedPlayers,
+            filterState,
             onPlayerConnect,
             onPlayerDisconnect,
             setGroupingType,
@@ -296,7 +344,10 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             removeEmpireFromGroup,
             createGroup,
             setGroupLabel,
-            removeGroup
+            removeGroup,
+            setFilterPlayers,
+            setFilterRegularAi,
+            setFilterFallenEmpires
         ]
     );
 
