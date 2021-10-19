@@ -31,7 +31,6 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
 
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
-        if(Math.random() > 0.95) console.log(snap)
         return selectNested(`leaderboard/empire_summaries/${eid}/gdp/base/total_net`, snap);
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
