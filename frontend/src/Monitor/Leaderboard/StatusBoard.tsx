@@ -237,6 +237,14 @@ const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
     );
 }
 
+const FilterControls: React.FC = (props) => {
+    return (
+        <div className='filterControls'>
+            Filtering by:
+        </div>
+    );
+}
+
 export type StatusBoardProps = {
     data: any[];
 }
@@ -245,6 +253,7 @@ export const StatusBoard: React.FC<StatusBoardProps> = ({data}) => {
     return (
         <div className='statusBoard'>
             <GroupControls data={data}/>
+            <FilterControls/>
         </div>
     );
 }

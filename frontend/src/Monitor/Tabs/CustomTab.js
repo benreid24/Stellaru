@@ -213,21 +213,19 @@ function CustomTab(props) {
             if (rowWidth + chart.size > 98) {
                 addRow();
             }
-            else {
-                const fetched = getChart(chart.name);
-                if (fetched === null) {
-                    toRender.splice(i, 1);
-                    continue;
-                }
-                const Chart = fetched.component;
-                currentRow.push(
-                    <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
-                        <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
-                    </div>
-                );
-                if (chart.height > rowHeight) rowHeight = chart.height;
-                rowWidth += chart.size;
+            const fetched = getChart(chart.name);
+            if (fetched === null) {
+                toRender.splice(i, 1);
+                continue;
             }
+            const Chart = fetched.component;
+            currentRow.push(
+                <div key={chart.saveName} className={`customColumn`} style={{width: `${chart.size}%`}}>
+                    <Chart name={chart.saveName} data={data} overlay={makeOverlay(chart.saveName)}/>
+                </div>
+            );
+            if (chart.height > rowHeight) rowHeight = chart.height;
+            rowWidth += chart.size;
         }
         if (toRender.length !== charts.length)
             setCharts(toRender);
