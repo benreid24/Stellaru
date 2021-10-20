@@ -75,8 +75,6 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
                         <MenuItem value='sum'>Total Victory Points</MenuItem>
                     </Select>
                 </FormControl>
-            </div>
-            <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select
                         multiple
