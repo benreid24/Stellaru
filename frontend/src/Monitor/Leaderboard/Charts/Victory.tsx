@@ -67,8 +67,8 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average GDP</MenuItem>
-                        <MenuItem value='sum'>Total GDP</MenuItem>
+                        <MenuItem value='avg'>Average Victory Points</MenuItem>
+                        <MenuItem value='sum'>Total Victory Points</MenuItem>
                     </Select>
                 </FormControl>
             </div>
