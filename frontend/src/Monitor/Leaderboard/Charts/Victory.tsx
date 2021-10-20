@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
+import { Checkbox, ListItemText } from '@material-ui/core';
 
 // Like `Object.keys` but typed. TODO: move to reusable commons?
 type KeyValue<T extends Record<string, unknown>, K extends keyof T = keyof T> = [K, T[K]]
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        maxWidth: 240,
     },
 }));
 
@@ -57,7 +59,9 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         const obj = selectNested(`leaderboard/empire_summaries/${eid}/victory_points`, snap);
-        const sum = parts.map((part) => obj[part]).reduce(sumReducer)
+        const sum = parts.length > 0
+            ? parts.map((part) => obj[part]).reduce(sumReducer)
+            : recordValues(VICTORY_PARTS).map((part) => obj[part]).reduce(sumReducer)
         return sum
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
@@ -74,9 +78,22 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
             </div>
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
-                    <Select multiple value={parts} onChange={onPartsChange}>
+                    <Select
+                        multiple
+                        value={parts}
+                        onChange={onPartsChange}
+                        renderValue={(_selected) => {
+                            const selected = (_selected as string[])
+                            return selected.length === recordValues(VICTORY_PARTS).length
+                                ? "Total Victory Points"
+                                : `Custom (${selected.length}/${recordValues(VICTORY_PARTS).length})`
+                        }}
+                    >
                         {recordValues(VICTORY_PARTS).map((part) => (
-                            <MenuItem key={part} value={part}>{part}</MenuItem>
+                            <MenuItem key={part} value={part}>
+                                <Checkbox checked={parts.includes(part)} />
+                                <ListItemText primary={part} />
+                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>
