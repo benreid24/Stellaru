@@ -89,10 +89,10 @@
 }
 
 .tooltipBox {
-    background-color: #303030;
-    border: 1px solid white;
+    background-color: #303030D0;
+    border: 1px solid #606060D0;
     text-align: left;
-    padding: 5px;
+    padding: 4px;
     z-index: 10000;
 }
 
@@ -101,9 +101,10 @@
 }
 
 .tooltipLabel {
-    font-size: 1vw;
+    font-size: 1em;
     text-align: center;
     color: white;
+    margin-bottom: 0;
 }
 
 .tooltipItem {
