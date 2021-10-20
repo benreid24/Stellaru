@@ -30,6 +30,7 @@ class LeaderboardProcessor(PostProcessor):
             'name': empire_snapshot['name'],
             'player_name': empire_snapshot['player_name'],
             'type': empire_snapshot['type'],
+            'colors': empire_snapshot['colors'],
             'sprawl': empire_snapshot['sprawl'],
             'victory_points': empire_snapshot['standing']['victory_points'],
             'system_count': empire_snapshot['systems']['owned'],

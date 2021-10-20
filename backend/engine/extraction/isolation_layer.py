@@ -418,3 +418,7 @@ def get_armies(state, empire):
             'type': ' '.join([word.capitalize() for word in army['type'].split('_')])
         } for army in armies
     ]
+
+
+def get_colors(state, empire):
+    return state['country'][empire]['flag']['colors'][0:2]
