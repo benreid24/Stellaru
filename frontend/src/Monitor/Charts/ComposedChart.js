@@ -148,7 +148,7 @@ function ComposedChart(props) {
         let weight = 300;
         if (isolatedSeries.includes(value))
             weight = 500;
-        return <span style={{fontWeight: weight, cursor: 'pointer'}}>{value}</span>;
+        return <span title={value} style={{fontWeight: weight, cursor: 'pointer', fontSize: 10, display: 'inline-block', verticalAlign: 'middle', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth:80}}>{value}</span>;
     };
     const legendPayload = series.map(series => {
         return {
@@ -165,9 +165,9 @@ function ComposedChart(props) {
             <ReChart data={data} syncId={getCurrentTab()} margin={{top: 45, right: 15, left: 15, bottom: 5}}>
                 <XAxis
                     dataKey='xLabel'
-                    tick={{fill: '#a0a0a0'}}
+                    tick={{fill: '#a0a0a0', fontSize: 12}}
                     tickLine={{stroke: '#a0a0a0'}}
-                    tickSize={9}
+                    tickSize={8}
                     axisLine={{stroke: '#a0a0a0'}}
                     label={{value: xLabel, position: 'insideBottomRight', offset: -5, fill: '#dadada'}}
                 />
@@ -175,9 +175,9 @@ function ComposedChart(props) {
                     yAxisId='left'
                     tickFormatter={formatter}
                     domain={leftDomain}
-                    tick={{fill: '#a0a0a0'}}
+                    tick={{fill: '#a0a0a0', fontSize: 12}}
                     tickLine={{stroke: '#a0a0a0'}}
-                    tickSize={9}
+                    tickSize={8}
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale={leftScale}
@@ -191,7 +191,7 @@ function ComposedChart(props) {
                     domain={rightDomain}
                     tick={{fill: '#a0a0a0'}}
                     tickLine={{stroke: '#a0a0a0'}}
-                    tickSize={9}
+                    tickSize={8}
                     axisLine={{stroke: '#a0a0a0'}}
                     interval='preserveStartEnd'
                     scale={rightScale}

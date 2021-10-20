@@ -101,7 +101,7 @@ function valueToString(value) {
 
 function valueTickFormat(value) {
     const sign = value >= 0 ? 1 : -1;
-    value = Math.abs(value);
+    value = Math.abs(value.toPrecision(3)*1);
     for (let i in NumberSuffixes) {
         const suffix = NumberSuffixes[i];
         if (value >= suffix.value)
@@ -116,7 +116,7 @@ function dateTickFormat(date_days) {
     let month = Math.floor(date_days / 30);
     date_days -= month * 30;
     if (month === 0) month = 12;
-    return `${year}.${String(month).padStart(2, '0')}.${String(date_days).padStart(2, '0')}`;
+    return `${year}.${String(month).padStart(2, '0')}${date_days === 1 ? '' : `.${String(date_days).padStart(2, '0')}`}`;
 }
 
 function percentValueFormat(percent) {

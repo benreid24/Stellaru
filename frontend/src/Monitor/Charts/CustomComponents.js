@@ -25,13 +25,13 @@ function RenderTooltip(props) {
             <p
                 key={item.dataKey}
                 className='tooltipItem'
-                style={{color: item.color}}
+                style={{color: item.color, fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 120}}
             >
-                {`${item.name}: ${formatter(item.value)}`}
+                <strong>{formatter(item.value)}</strong>: {item.name}
             </p>
         );
     };
-    const renderedItems = payload ? payload.map(renderItem) : [];
+    const renderedItems = payload ? payload.sort((a, b) => b.value - a.value).map(renderItem) : [];
 
     const MaxRows = 12;
     const columnCount = Math.ceil(renderedItems.length / MaxRows);
@@ -43,7 +43,7 @@ function RenderTooltip(props) {
             </div>
         );
     }
-    
+
     return (
         <div className='tooltipBox'>
             <p className='tooltipLabel'>{label}</p>
