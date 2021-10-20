@@ -14,19 +14,19 @@ function Leaderboard(props) {
             <StatusBoard data={data}/>
             <div className='row chartRow'>
                 <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                    <VictoryChart data={data}/>
+                </div>
+                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <FleetPowerChart data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <TechProgressChart data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <GDPChart data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <EmpireSize data={data}/>
-                </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
-                    <VictoryChart data={data}/>
                 </div>
             </div>
         </div>
