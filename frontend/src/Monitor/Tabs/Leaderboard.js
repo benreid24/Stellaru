@@ -1,7 +1,7 @@
 import React from 'react';
 import {TechProgressChart} from '../Leaderboard/Charts/TechProgress';
 import {FleetPowerChart} from '../Leaderboard/Charts/FleetPower';
-import {GDPChart} from '../Leaderboard/Charts/GDP';
+import {ResourceProductionChart} from '../Leaderboard/Charts/ResourceProduction';
 import {EmpireSize} from '../Leaderboard/Charts/EmpireSize';
 import {StatusBoard} from '../Leaderboard/StatusBoard';
 import { VictoryChart } from 'Monitor/Leaderboard/Charts/Victory';
@@ -23,7 +23,7 @@ function Leaderboard(props) {
                     <TechProgressChart data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
-                    <GDPChart data={data}/>
+                    <ResourceProductionChart data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <EmpireSize data={data}/>
