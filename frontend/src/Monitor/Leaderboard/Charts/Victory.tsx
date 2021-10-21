@@ -2,8 +2,8 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
-import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
-import {getTimeseries, sumReducer} from '../Selectors';
+import {useLeaderboardContext} from '../Context';
+import {getTimeseries, avgReducer, sumReducer} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
 import FormControl from '@material-ui/core/FormControl';
@@ -45,7 +45,10 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState, groupReducer} = useLeaderboardContext();
+    const {groupState, filterState} = useLeaderboardContext();
+
+    const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
+    const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
 
     const [parts, setParts] = React.useState<VICTORY_PARTS[]>(recordValues(VICTORY_PARTS));
     const onPartsChange = (event: React.ChangeEvent<{value: unknown}>) => {
@@ -53,6 +56,7 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
         setParts(event.target.value as VICTORY_PARTS[])
     };
 
+    const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         const obj = selectNested(`leaderboard/empire_summaries/${eid}/victory_points`, snap);
         const sum = parts.length > 0
@@ -60,11 +64,17 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
             : recordValues(VICTORY_PARTS).map((part) => obj[part]).reduce(sumReducer)
         return sum
     };
-    const series = getTimeseries(data, groupState, filterState, selector, GROUP_REDUCER[groupReducer]);
+    const series = getTimeseries(data, groupState, filterState, selector, reducer);
 
     return (
         <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>
             <div className='leaderboardChartForm'>
+                <FormControl className={classes.formControl}>
+                    <Select value={mode} onChange={onModeChange}>
+                        <MenuItem value='avg'>Average Victory Points</MenuItem>
+                        <MenuItem value='sum'>Total Victory Points</MenuItem>
+                    </Select>
+                </FormControl>
                 <FormControl className={classes.formControl}>
                     <Select
                         multiple
@@ -78,8 +88,8 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
                         }}
                     >
                         {recordValues(VICTORY_PARTS).map((part) => (
-                            <MenuItem dense key={part} value={part}>
-                                <Checkbox size='small' checked={parts.includes(part)} />
+                            <MenuItem key={part} value={part}>
+                                <Checkbox checked={parts.includes(part)} />
                                 <ListItemText primary={part} />
                             </MenuItem>
                         ))}

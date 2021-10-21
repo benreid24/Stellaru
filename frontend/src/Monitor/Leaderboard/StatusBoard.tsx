@@ -1,5 +1,5 @@
 import React from 'react';
-import {ConnectedPlayer, FilterState, Group, GroupReducerType, GroupType, useLeaderboardContext} from './Context';
+import {ConnectedPlayer, FilterState, Group, GroupType, useLeaderboardContext} from './Context';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -35,19 +35,6 @@ const groupTypeToText = (groupType: GroupType) => {
             return "Federations & Independant Empires";
         case GroupType.Custom:
             return "Custom Groups";
-        default:
-            return "Error";
-    }
-}
-
-const groupReducerTypeToText = (groupType: GroupReducerType) => {
-    switch (groupType) {
-        case GroupReducerType.Avg:
-            return "Average Score";
-        case GroupReducerType.Sum:
-            return "Total Score";
-        case GroupReducerType.MaxVal:
-            return "Best Member's Score";
         default:
             return "Error";
     }
@@ -226,15 +213,11 @@ type GroupControlsProps = {
 }
 
 const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
-    const {groupState, setGroupingType, groupReducer, setGroupReducer} = useLeaderboardContext();
+    const {groupState, setGroupingType} = useLeaderboardContext();
     const [editorOpen, setEditorOpen] = React.useState<boolean>(false);
 
     const onGroupChange = (event: any) => {
         setGroupingType(event.target.value);
-    };
-
-    const onReducerChange = (event: any) => {
-        setGroupReducer(event.target.value);
     };
 
     return (
@@ -246,13 +229,6 @@ const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
                 <MenuItem value={GroupType.FederationsWithEmpires}>{groupTypeToText(GroupType.FederationsWithEmpires)}</MenuItem>
                 <MenuItem value={GroupType.Custom}>{groupTypeToText(GroupType.Custom)}</MenuItem>
             </Select>
-            {(groupState.groupType === GroupType.Federations || groupState.groupType === GroupType.FederationsWithEmpires) &&
-                <Select value={groupReducer} onChange={onReducerChange} label='Group Type'>
-                    <MenuItem value={GroupReducerType.Avg}>{groupReducerTypeToText(GroupReducerType.Avg)}</MenuItem>
-                    <MenuItem value={GroupReducerType.Sum}>{groupReducerTypeToText(GroupReducerType.Sum)}</MenuItem>
-                    <MenuItem value={GroupReducerType.MaxVal}>{groupReducerTypeToText(GroupReducerType.MaxVal)}</MenuItem>
-                </Select>
-            }
             {groupState.groupType === GroupType.Custom &&
                 <Button
                     onClick={() => setEditorOpen(true)}
