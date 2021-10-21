@@ -11,7 +11,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
-const Name = 'GDP';
+const Name = 'Resource Production';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
+export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
 
     const name = n ? n : Name;
@@ -40,8 +40,8 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average GDP</MenuItem>
-                        <MenuItem value='sum'>Total GDP</MenuItem>
+                        <MenuItem value='avg'>Average Resource Production</MenuItem>
+                        <MenuItem value='sum'>Total Resource Production</MenuItem>
                     </Select>
                 </FormControl>
             </div>
@@ -51,7 +51,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
                     data={data}
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
-                    yAxisLabel='Net GDP (base)'
+                    yAxisLabel='Net Resource Production (base)'
                 />
             </div>
         </Chart>
@@ -60,7 +60,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
 
 registerChart(
     Name,
-    'Compare GDP of each empire or federation',
-    GDPChart,
+    'Compare Resource Production of each empire or federation',
+    ResourceProductionChart,
     'Leaderboard'
 )
