@@ -1,7 +1,5 @@
 import React from 'react';
 import {ConnectedPlayer, FilterState, Group, GroupReducerType, GroupType, useLeaderboardContext} from './Context';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +9,7 @@ import {findEmpireName, findPlayerName} from './Selectors';
 
 import './Leaderboard.css';
 import { getDataColors } from 'Monitor/Charts/Util';
-import { FormLabel, Grid, ListItemText, Typography } from '@material-ui/core';
+import { Grid, ListItemText, Typography } from '@material-ui/core';
 
 // Like `Object.keys` but typed. TODO: move to reusable commons?
 type KeyValue<T extends Record<string, unknown>, K extends keyof T = keyof T> = [K, T[K]]

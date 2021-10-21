@@ -3,7 +3,7 @@ import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
 import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
-import {getTimeseries, sumReducer} from '../Selectors';
+import {getTimeseries} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
 import FormControl from '@material-ui/core/FormControl';

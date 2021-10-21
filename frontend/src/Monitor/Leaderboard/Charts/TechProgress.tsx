@@ -6,19 +6,10 @@ import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
 import {getTimeseries} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
-import {makeStyles} from '@material-ui/core/styles';
 
 const Name = 'Tech Progress';
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-}));
-
 export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
-    const classes = useStyles();
 
     const name = n ? n : Name;
     const {groupState, filterState, groupReducer} = useLeaderboardContext();
