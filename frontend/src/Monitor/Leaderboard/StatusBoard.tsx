@@ -1,5 +1,5 @@
 import React from 'react';
-import {ConnectedPlayer, Group, GroupReducerType, GroupType, useLeaderboardContext} from './Context';
+import {ConnectedPlayer, FilterState, Group, GroupReducerType, GroupType, useLeaderboardContext} from './Context';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
@@ -11,19 +11,13 @@ import {findEmpireName, findPlayerName} from './Selectors';
 
 import './Leaderboard.css';
 import { getDataColors } from 'Monitor/Charts/Util';
+import { FormLabel, Grid, ListItemText, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: 0,
-        marginLeft: '8px',
-        minWidth: 120,
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    selectEmpty: {
-        marginTop: 0,
-    },
-}));
+// Like `Object.keys` but typed. TODO: move to reusable commons?
+type KeyValue<T extends Record<string, unknown>, K extends keyof T = keyof T> = [K, T[K]]
+export const recordEntries = <T extends Record<string, unknown>>(o: T) => Object.entries(o) as KeyValue<T>[];
+export const recordKeys = <T extends Record<string, unknown>>(o: T) => Object.keys(o) as (keyof T)[];
+export const recordValues = <T extends Record<string, unknown>>(o: T) => Object.values(o) as T[keyof T][];
 
 const useStyles2 = makeStyles((theme) => ({
     selectEmpty: {
@@ -56,6 +50,19 @@ const groupReducerTypeToText = (groupType: GroupReducerType) => {
             return "Total Score";
         case GroupReducerType.MaxVal:
             return "Best Member's Score";
+        default:
+            return "Error";
+    }
+}
+
+const filterToText = (filterKey: keyof FilterState) => {
+    switch (filterKey) {
+        case 'showPlayers':
+            return "Players";
+        case 'showRegularAi':
+            return "AIs";
+        case 'showFallenEmpires':
+            return "Fallen Empires";
         default:
             return "Error";
     }
@@ -221,8 +228,6 @@ type GroupControlsProps = {
 }
 
 const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
-    const classes = useStyles();
-
     const {groupState, setGroupingType, groupReducer, setGroupReducer} = useLeaderboardContext();
     const [editorOpen, setEditorOpen] = React.useState<boolean>(false);
 
@@ -235,40 +240,34 @@ const GroupControls: React.FC<GroupControlsProps> = ({data}) => {
     };
 
     return (
-        <div className="groupControls">
-            <p className="groupText">Grouping by:</p>
-            <FormControl className={classes.formControl}>
-                <Select value={groupState.groupType} onChange={onGroupChange} label='Group Type'>
-                    <MenuItem value={GroupType.Empires}>{groupTypeToText(GroupType.Empires)}</MenuItem>
-                    <MenuItem value={GroupType.Federations}>{groupTypeToText(GroupType.Federations)}</MenuItem>
-                    <MenuItem value={GroupType.FederationsWithEmpires}>{groupTypeToText(GroupType.FederationsWithEmpires)}</MenuItem>
-                    <MenuItem value={GroupType.Custom}>{groupTypeToText(GroupType.Custom)}</MenuItem>
+        <Grid container wrap='nowrap' alignItems='center'>
+            <Typography className="groupText">Group by:&nbsp;</Typography>
+            <Select value={groupState.groupType} onChange={onGroupChange} label='Group Type'>
+                <MenuItem value={GroupType.Empires}>{groupTypeToText(GroupType.Empires)}</MenuItem>
+                <MenuItem value={GroupType.Federations}>{groupTypeToText(GroupType.Federations)}</MenuItem>
+                <MenuItem value={GroupType.FederationsWithEmpires}>{groupTypeToText(GroupType.FederationsWithEmpires)}</MenuItem>
+                <MenuItem value={GroupType.Custom}>{groupTypeToText(GroupType.Custom)}</MenuItem>
+            </Select>
+            {(groupState.groupType === GroupType.Federations || groupState.groupType === GroupType.FederationsWithEmpires) &&
+                <Select value={groupReducer} onChange={onReducerChange} label='Group Type'>
+                    <MenuItem value={GroupReducerType.Avg}>{groupReducerTypeToText(GroupReducerType.Avg)}</MenuItem>
+                    <MenuItem value={GroupReducerType.Sum}>{groupReducerTypeToText(GroupReducerType.Sum)}</MenuItem>
+                    <MenuItem value={GroupReducerType.MaxVal}>{groupReducerTypeToText(GroupReducerType.MaxVal)}</MenuItem>
                 </Select>
-                {groupState.groupType === GroupType.Custom &&
-                    <Button
-                        onClick={() => setEditorOpen(true)}
-                        text='Edit Groups'
-                        style={{marginLeft: '8px', marginTop: '4px'}}
-                    />
-                }
-            </FormControl>
-            {groupState.groupType !== GroupType.Empires &&
-                <FormControl className={classes.formControl}>
-                    <Select value={groupReducer} onChange={onReducerChange} label='Group Type'>
-                        <MenuItem value={GroupReducerType.Avg}>{groupReducerTypeToText(GroupReducerType.Avg)}</MenuItem>
-                        <MenuItem value={GroupReducerType.Sum}>{groupReducerTypeToText(GroupReducerType.Sum)}</MenuItem>
-                        <MenuItem value={GroupReducerType.MaxVal}>{groupReducerTypeToText(GroupReducerType.MaxVal)}</MenuItem>
-                    </Select>
-                </FormControl>
+            }
+            {groupState.groupType === GroupType.Custom &&
+                <Button
+                    onClick={() => setEditorOpen(true)}
+                    text='Edit Groups'
+                    style={{marginLeft: '8px', marginTop: '4px'}}
+                />
             }
             <GroupEditor open={editorOpen} onRequestClose={() => setEditorOpen(false)} data={data}/>
-        </div>
+        </Grid>
     );
 }
 
 const FilterControls: React.FC = (props) => {
-    const classes = useStyles();
-
     const {
         filterState,
         setFilterPlayers,
@@ -276,39 +275,33 @@ const FilterControls: React.FC = (props) => {
         setFilterFallenEmpires
     } = useLeaderboardContext();
 
+    const onFilterChange = (event: any) => {
+        const selected = event.target.value as (keyof FilterState)[]  // Weird that <Select> is not properly typed.
+        if(filterState.showPlayers !== selected.includes('showPlayers')) setFilterPlayers(!filterState.showPlayers)
+        if(filterState.showRegularAi !== selected.includes('showRegularAi')) setFilterRegularAi(!filterState.showRegularAi)
+        if(filterState.showFallenEmpires !== selected.includes('showFallenEmpires')) setFilterFallenEmpires(!filterState.showFallenEmpires)
+    }
+
     return (
-        <div className='filterControls'>
-            <p className="groupText">Showing:</p>
-            <FormControl className={classes.formControl}>
-                <FormControlLabel
-                    label="Players"
-                    control={
-                        <Checkbox
-                            checked={filterState.showPlayers}
-                            onChange={() => setFilterPlayers(!filterState.showPlayers)}
-                        />
-                    }
-                />
-                <FormControlLabel
-                    label="Regular AI"
-                    control={
-                        <Checkbox
-                            checked={filterState.showRegularAi}
-                            onChange={() => setFilterRegularAi(!filterState.showRegularAi)}
-                        />
-                    }
-                />
-                <FormControlLabel
-                    label="Fallen Empires"
-                    control={
-                        <Checkbox
-                            checked={filterState.showFallenEmpires}
-                            onChange={() => setFilterFallenEmpires(!filterState.showFallenEmpires)}
-                        />
-                    }
-                />
-            </FormControl>
-        </div>
+        <Grid container wrap='nowrap' alignItems='center'>
+            <Typography className="groupText">Filter:&nbsp;</Typography>
+            <TextField
+                select
+                value={recordEntries(filterState).filter(([,checked]) => checked).map(([key]) => key)}
+                onChange={onFilterChange}
+                SelectProps={{
+                    multiple: true,
+                    renderValue: (selected) => (selected as (keyof FilterState)[]).map(filterToText).join(', '),
+                }}
+            >
+                {recordEntries(filterState).map(([filter, checked]) => (
+                    <MenuItem dense key={filter} value={filter}>
+                        <Checkbox size='small' checked={checked} />
+                        <ListItemText primary={filterToText(filter)} />
+                    </MenuItem>
+                ))}
+            </TextField>
+        </Grid>
     );
 }
 
@@ -365,14 +358,17 @@ export type StatusBoardProps = {
 
 export const StatusBoard: React.FC<StatusBoardProps> = ({data}) => {
     return (
-        <div className='statusBoard'>
-            <div className='statusBoardLeftSide'>
-                <GroupControls data={data}/>
-                <FilterControls/>
-            </div>
-            <div className='statusBoardRightSide'>
+        <Grid container className='statusBoard' wrap='nowrap' spacing={2}>
+            <Grid item>
+                <GroupControls data={data} />
+            </Grid>
+            <Grid item>
+                <FilterControls />
+            </Grid>
+            <Grid item xs />
+            <Grid item>
                 <PlayerList data={data}/>
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     );
 }
