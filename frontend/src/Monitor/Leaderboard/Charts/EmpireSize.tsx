@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
-import {useLeaderboardContext} from '../Context';
+import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
 import {getTimeseries, sumReducer} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
@@ -31,7 +31,7 @@ export const EmpireSize: React.FC<LeaderboardChartProps> = ({data, name: n, over
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, groupReducer} = useLeaderboardContext();
 
     const [chartedValue, setChartedValue] = React.useState<ChartedValue>('systems');
     const onChartChange = (event: any) => setChartedValue(event.target.value);
@@ -49,7 +49,7 @@ export const EmpireSize: React.FC<LeaderboardChartProps> = ({data, name: n, over
         }
     };
 
-    const series = getTimeseries(data, groupState, filterState, selector, sumReducer);
+    const series = getTimeseries(data, groupState, filterState, selector, GROUP_REDUCER[groupReducer]);
 
     return (
         <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>

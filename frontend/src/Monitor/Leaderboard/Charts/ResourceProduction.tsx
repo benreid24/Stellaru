@@ -2,8 +2,8 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
-import {useLeaderboardContext} from '../Context';
-import {getTimeseries, avgReducer, sumReducer} from '../Selectors';
+import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
+import {getTimeseries, sumReducer} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
 import FormControl from '@material-ui/core/FormControl';
@@ -59,10 +59,7 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
-
-    const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
-    const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
+    const {groupState, filterState, groupReducer} = useLeaderboardContext();
 
     const [variant, setVariant] = React.useState<'net' | 'inflows' | 'outflows' | 'stockpile_values'>('net');
     const onVariantChange = (event: React.ChangeEvent<{value: unknown}>) => setVariant(event.target.value as 'net' | 'inflows' | 'outflows' | 'stockpile_values');
@@ -72,23 +69,16 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
         setParts(event.target.value as RESOURCE_PART[])
     };
 
-    const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         return (parts.length > 0 ? parts : recordValues(RESOURCE_PART))
             .map((part) => selectNested(`leaderboard/empire_summaries/${eid}/gdp/base/${variant}/${RESOURCE_SOURCE[part]}`, snap))
             .reduce(sumReducer)
     };
-    const series = getTimeseries(data, groupState, filterState, selector, reducer);
+    const series = getTimeseries(data, groupState, filterState, selector, GROUP_REDUCER[groupReducer]);
 
     return (
         <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>
             <div className='leaderboardChartForm'>
-                <FormControl className={classes.formControl}>
-                    <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average Resource Production</MenuItem>
-                        <MenuItem value='sum'>Total Resource Production</MenuItem>
-                    </Select>
-                </FormControl>
                 <FormControl className={classes.formControl}>
                     <Select value={variant} onChange={onVariantChange}>
                         <MenuItem value='net'>Net</MenuItem>

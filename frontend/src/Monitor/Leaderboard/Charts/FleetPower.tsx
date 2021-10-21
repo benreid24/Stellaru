@@ -2,8 +2,8 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
-import {useLeaderboardContext} from '../Context';
-import {getTimeseries, sumReducer} from '../Selectors';
+import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
+import {getTimeseries} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
 import FormControl from '@material-ui/core/FormControl';
@@ -31,7 +31,7 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, groupReducer} = useLeaderboardContext();
 
     const [chartedValue, setChartedValue] = React.useState<ChartedValue>('fleet_power');
     const onChartChange = (event: any) => setChartedValue(event.target.value);
@@ -49,7 +49,7 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
         }
     };
 
-    const series = getTimeseries(data, groupState, filterState, selector, sumReducer);
+    const series = getTimeseries(data, groupState, filterState, selector, GROUP_REDUCER[groupReducer]);
 
     return (
         <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>

@@ -2,13 +2,10 @@ import React from 'react';
 import Chart from 'Monitor/Charts/Chart';
 import LineChart from 'Monitor/Charts/LineChart';
 import {selectNested} from 'Monitor/Charts/Util';
-import {useLeaderboardContext} from '../Context';
-import {getTimeseries, avgReducer, maxValReducer} from '../Selectors';
+import {GROUP_REDUCER, useLeaderboardContext} from '../Context';
+import {getTimeseries} from '../Selectors';
 import {registerChart} from 'Monitor/Charts/ChartRegistry';
 import {LeaderboardChartProps} from './Types';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from '@material-ui/core/styles';
 
 const Name = 'Tech Progress';
@@ -24,26 +21,16 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, groupReducer} = useLeaderboardContext();
 
-    const [mode, setMode] = React.useState<'max' | 'avg'>('max');
-    const onModeChange = (event: any) => setMode(event.target.value);
-
-    const reducer = mode === 'max' ? maxValReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         return selectNested(`leaderboard/empire_summaries/${eid}/tech/completed_techs`, snap);
     };
-    const series = getTimeseries(data, groupState, filterState, selector, reducer);
+    const series = getTimeseries(data, groupState, filterState, selector, GROUP_REDUCER[groupReducer]);
 
     return (
         <Chart name={name} title={Name} titleColor='#f50057' overlay={overlay}>
             <div className='leaderboardChartForm'>
-                <FormControl className={classes.formControl}>
-                    <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average Progress</MenuItem>
-                        <MenuItem value='max'>Most Advanced Member</MenuItem>
-                    </Select>
-                </FormControl>
             </div>
             <div className='leaderboardFormChartContent'>
                 <LineChart

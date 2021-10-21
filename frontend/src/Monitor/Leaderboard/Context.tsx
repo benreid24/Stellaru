@@ -1,10 +1,11 @@
 import React from 'react';
 import {findKeysOverSeries} from 'Monitor/Charts/Util';
 import {objectKeys} from 'Helpers';
-import {findEmpireName} from './Selectors';
+import {avgReducer, findEmpireName, maxValReducer, sumReducer} from './Selectors';
 import DataSubscription from 'DataSubscription';
 
 const GROUP_TYPE_KEY = 'leaderboard.group_type';
+const GROUP_REDUCER_KEY = 'leaderboard.group_reducer';
 const GROUP_STORAGE_KEY = 'leaderboard.custom_groups';
 const FILTER_STORAGE_KEY = 'leaderboard.filter';
 
@@ -13,6 +14,18 @@ export enum GroupType {
     Federations,
     FederationsWithEmpires,
     Custom
+}
+
+export enum GroupReducerType {
+    Sum = "sum",
+    Avg = "avg",
+    MaxVal = "max",
+}
+
+export const GROUP_REDUCER = {
+    [GroupReducerType.Sum]: sumReducer,
+    [GroupReducerType.Avg]: avgReducer,
+    [GroupReducerType.MaxVal]: maxValReducer,
 }
 
 export type Group = {
@@ -42,6 +55,7 @@ export type LeaderboardContextValue = {
     groupState: GroupState;
     connectedPlayers: Record<string, ConnectedPlayer>;
     filterState: FilterState;
+    groupReducer: GroupReducerType,
     setGroupingType: (groupType: GroupType) => void;
     createGroup: (name: string) => void;
     addEmpireToGroup: (groupId: number, empireId: number) => void;
@@ -51,6 +65,7 @@ export type LeaderboardContextValue = {
     setFilterPlayers: (showPlayers: boolean) => void;
     setFilterRegularAi: (showRegularAi: boolean) => void;
     setFilterFallenEmpires: (showFallenEmpires: boolean) => void;
+    setGroupReducer: (groupReducer: GroupReducerType) => void;
 }
 
 type LeaderboardContextProviderProps = {
@@ -156,6 +171,11 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupType: gt,
             groups: gs
         };
+    });
+
+    const [groupReducer, setGroupReducer] = React.useState<GroupReducerType>(() => {
+        const stored = localStorage.getItem(GROUP_REDUCER_KEY);
+        return stored ? JSON.parse(stored) as GroupReducerType : GroupReducerType.Avg
     });
 
     const [connectedPlayers, setConnectedPlayers] = React.useState<Record<string, ConnectedPlayer>>({});
@@ -333,6 +353,10 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
     }, [groupState]);
 
     React.useEffect(() => {
+        localStorage.setItem(GROUP_REDUCER_KEY, JSON.stringify(groupReducer));
+    }, [groupReducer]);
+
+    React.useEffect(() => {
         localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify(filterState));
     }, [filterState]);
 
@@ -386,6 +410,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupState,
             connectedPlayers,
             filterState,
+            groupReducer,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
@@ -394,12 +419,14 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             removeGroup,
             setFilterPlayers,
             setFilterRegularAi,
-            setFilterFallenEmpires
+            setFilterFallenEmpires,
+            setGroupReducer,
         }),
         [
             groupState,
             connectedPlayers,
             filterState,
+            groupReducer,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
