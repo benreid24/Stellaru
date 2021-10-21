@@ -22,8 +22,9 @@ const Name = 'Resource Production';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
+        fontSize: 12,
         margin: theme.spacing(1),
-        minWidth: 120,
+        maxWidth: '25%',
     },
 }));
 
@@ -85,8 +86,8 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average Resource Production</MenuItem>
-                        <MenuItem value='sum'>Total Resource Production</MenuItem>
+                        <MenuItem value='avg'>Avg. Res. Prod.</MenuItem>
+                        <MenuItem value='sum'>Total Res. Prod.</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
@@ -106,7 +107,7 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
                             const selected = (_selected as string[])
                             return selected.length === recordValues(RESOURCE_PART).length
                                 ? "Total Production"
-                                : `Custom (${selected.length}/${recordValues(RESOURCE_PART).length})`
+                                : `${selected.length}/${recordValues(RESOURCE_PART).length}`
                         }}
                     >
                         {recordValues(RESOURCE_PART).map((part) => (

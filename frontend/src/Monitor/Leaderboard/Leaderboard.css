@@ -173,3 +173,13 @@
     height: 46%;
     min-height: 30vh;
 }
+
+.recharts-default-legend {
+    line-height: 1;
+}
+
+.recharts-legend-item {
+    display: inline-flex !important;
+    line-height: 1;
+    align-content: end;
+}
