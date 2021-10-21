@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 enum RESOURCE_PART {
+    // Energy = "Energy",  // TODO: data from BE
     Minerals = "Minerals",
     Food = "Food",
     Alloys = "Alloys",
@@ -41,16 +42,16 @@ enum RESOURCE_PART {
 }
 
 const RESOURCE_SOURCE = {
-    [RESOURCE_PART.Minerals]: 'gdp/base/net/minerals',
-    [RESOURCE_PART.Food]: 'gdp/base/net/food',
-    [RESOURCE_PART.Alloys]: 'gdp/base/net/alloys',
-    [RESOURCE_PART.ConsumerGoods]: 'gdp/base/net/consumer_goods',
-    [RESOURCE_PART.VolatileMotes]: 'gdp/base/net/volatile_motes',
-    [RESOURCE_PART.ExoticGases]: 'gdp/base/net/exotic_gases',
-    [RESOURCE_PART.RareCrystals]: 'gdp/base/net/rare_crystals',
-    [RESOURCE_PART.LivingMetal]: 'gdp/base/net/sr_living_metal',
-    [RESOURCE_PART.Zro]: 'gdp/base/net/sr_zro',
-    [RESOURCE_PART.DarkMatter]: 'gdp/base/net/sr_dark_matter',
+    [RESOURCE_PART.Minerals]: 'minerals',
+    [RESOURCE_PART.Food]: 'food',
+    [RESOURCE_PART.Alloys]: 'alloys',
+    [RESOURCE_PART.ConsumerGoods]: 'consumer_goods',
+    [RESOURCE_PART.VolatileMotes]: 'volatile_motes',
+    [RESOURCE_PART.ExoticGases]: 'exotic_gases',
+    [RESOURCE_PART.RareCrystals]: 'rare_crystals',
+    [RESOURCE_PART.LivingMetal]: 'sr_living_metal',
+    [RESOURCE_PART.Zro]: 'sr_zro',
+    [RESOURCE_PART.DarkMatter]: 'sr_dark_matter',
 }
 
 export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
@@ -62,6 +63,9 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
     const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
     const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
 
+    const [variant, setVariant] = React.useState<'net' | 'inflows' | 'outflows' | 'stockpile_values'>('net');
+    const onVariantChange = (event: React.ChangeEvent<{value: unknown}>) => setVariant(event.target.value as 'net' | 'inflows' | 'outflows' | 'stockpile_values');
+
     const [parts, setParts] = React.useState<RESOURCE_PART[]>(recordValues(RESOURCE_PART));
     const onPartsChange = (event: React.ChangeEvent<{value: unknown}>) => {
         setParts(event.target.value as RESOURCE_PART[])
@@ -70,7 +74,7 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         return (parts.length > 0 ? parts : recordValues(RESOURCE_PART))
-            .map((part) => selectNested(`leaderboard/empire_summaries/${eid}/${RESOURCE_SOURCE[part]}`, snap))
+            .map((part) => selectNested(`leaderboard/empire_summaries/${eid}/gdp/base/${variant}/${RESOURCE_SOURCE[part]}`, snap))
             .reduce(sumReducer)
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
@@ -82,6 +86,14 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
                     <Select value={mode} onChange={onModeChange}>
                         <MenuItem value='avg'>Average Resource Production</MenuItem>
                         <MenuItem value='sum'>Total Resource Production</MenuItem>
+                    </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                    <Select value={variant} onChange={onVariantChange}>
+                        <MenuItem value='net'>Net</MenuItem>
+                        <MenuItem value='inflows'>Inflows</MenuItem>
+                        <MenuItem value='outflows'>Outflows</MenuItem>
+                        <MenuItem value='stockpile_values'>Stockpile</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
