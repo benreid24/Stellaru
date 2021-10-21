@@ -5,6 +5,7 @@ import {ResourceValueChart} from '../Leaderboard/Charts/ResourceValue';
 import {EmpireSize} from '../Leaderboard/Charts/EmpireSize';
 import {StatusBoard} from '../Leaderboard/StatusBoard';
 import { VictoryChart } from 'Monitor/Leaderboard/Charts/Victory';
+import { GDPChart } from 'Monitor/Leaderboard/Charts/GDP';
 
 function Leaderboard(props) {
     const data = props.data;
@@ -13,10 +14,10 @@ function Leaderboard(props) {
         <div className='leaderboardTab'>
             <StatusBoard data={data}/>
             <div className='row chartRow'>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <VictoryChart data={data}/>
                 </div>
-                <div className='col-xl-6 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <FleetPowerChart data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
@@ -24,6 +25,9 @@ function Leaderboard(props) {
                 </div>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <ResourceValueChart data={data}/>
+                </div>
+                <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
+                    <GDPChart data={data}/>
                 </div>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <EmpireSize data={data}/>
