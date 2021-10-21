@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 enum RESOURCE_PART {
-    // Energy = "Energy",  // TODO: data from BE
+    Energy = "Energy",
     Minerals = "Minerals",
     Food = "Food",
     Alloys = "Alloys",
@@ -42,6 +42,7 @@ enum RESOURCE_PART {
 }
 
 const RESOURCE_SOURCE = {
+    [RESOURCE_PART.Energy]: 'energy',
     [RESOURCE_PART.Minerals]: 'minerals',
     [RESOURCE_PART.Food]: 'food',
     [RESOURCE_PART.Alloys]: 'alloys',

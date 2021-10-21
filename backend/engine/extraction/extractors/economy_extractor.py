@@ -155,6 +155,7 @@ class EconomyExtractor(Extractor):
         gross_spending = {}
         net_gdp = {}
         stockpile_value = {}
+
         for resource in self.isolation_layer.MARKET_RESOURCES:
             i = income[resource]['total'] if resource in income else 0
             gross_income[resource] = prices[resource] * i
@@ -165,18 +166,18 @@ class EconomyExtractor(Extractor):
             v = stockpile[resource] if resource in stockpile else 0
             stockpile_value[resource] = v * prices[resource]
 
-        energy_in = income['energy']['total'] if 'energy' in income else 0
-        energy_out = spending['energy']['total'] if 'energy' in spending else 0
-        energy_net = net['energy'] if 'energy' in net else 0
-        energy_stockpile = stockpile['energy'] if 'energy' in stockpile else 0
-        
+        gross_income['energy'] = income['energy']['total'] if 'energy' in income else 0
+        gross_spending['energy'] = spending['energy']['total'] if 'energy' in spending else 0
+        net_gdp['energy'] = net['energy'] if 'energy' in net else 0
+        stockpile_value['energy'] = stockpile['energy'] if 'energy' in stockpile else 0
+
         return {
             'inflows': gross_income,
             'outflows': gross_spending,
             'net': net_gdp,
             'stockpile_values': stockpile_value,
-            'total_inflows': sum([val for r, val in gross_income.items()]) + energy_in,
-            'total_outflows': sum([val for r, val in gross_spending.items()]) + energy_out,
-            'total_net': sum([val for r, val in net_gdp.items()]) + energy_net,
-            'total_stockpile_value': sum([v for r, v in stockpile_value.items()]) + energy_stockpile
+            'total_inflows': sum([val for r, val in gross_income.items()]),
+            'total_outflows': sum([val for r, val in gross_spending.items()]),
+            'total_net': sum([val for r, val in net_gdp.items()]),
+            'total_stockpile_value': sum([v for r, v in stockpile_value.items()])
         }
