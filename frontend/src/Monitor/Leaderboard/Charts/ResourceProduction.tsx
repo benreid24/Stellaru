@@ -53,19 +53,6 @@ const RESOURCE_SOURCE = {
     [RESOURCE_PART.DarkMatter]: 'gdp/base/net/sr_dark_matter',
 }
 
-const RESOURCE_WEIGHT = {
-    [RESOURCE_PART.Minerals]: 1,
-    [RESOURCE_PART.Food]: 1,
-    [RESOURCE_PART.Alloys]: 4,
-    [RESOURCE_PART.ConsumerGoods]: 2,
-    [RESOURCE_PART.VolatileMotes]: 10,
-    [RESOURCE_PART.ExoticGases]: 10,
-    [RESOURCE_PART.RareCrystals]: 10,
-    [RESOURCE_PART.LivingMetal]: 20,
-    [RESOURCE_PART.Zro]: 20,
-    [RESOURCE_PART.DarkMatter]: 20
-}
-
 export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
 
@@ -83,7 +70,7 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         return (parts.length > 0 ? parts : recordValues(RESOURCE_PART))
-            .map((part) => RESOURCE_WEIGHT[part] * selectNested(`leaderboard/empire_summaries/${eid}/${RESOURCE_SOURCE[part]}`, snap))
+            .map((part) => selectNested(`leaderboard/empire_summaries/${eid}/${RESOURCE_SOURCE[part]}`, snap))
             .reduce(sumReducer)
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
