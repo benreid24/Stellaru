@@ -21,7 +21,7 @@ const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) =
 }
 
 const empireNotFiltered: (snap: any, eid: number, filter: FilterState) => boolean = (snap, eid, filter) => {
-    const t = snap['leaderboard']['empire_summaries'][eid]['type'];
+    const t = snap['leaderboard']['empire_summaries'][eid]?.['type'];
     if (t === 'player') {
         return filter.showPlayers;
     }
