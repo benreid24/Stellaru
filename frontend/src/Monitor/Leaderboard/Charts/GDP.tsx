@@ -29,25 +29,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 enum GDP_PART {
-    Resources = "Resources",
-    Research = "Research",
-    Unity = "Unity",
+    ResourcesBasic = "Basic Resources (x1)",
+    ResourcesAdvanced = "Advanced Resources (x2-4)",
+    ResourcesStrategic = "Strategic Resources (x10-20)",
+    Research = "Research (x1)",
+    Unity = "Unity (x3)",
     // NavalCap = "NavalCap",
     // AdminCap = "AdminCap",
     // PopGrowth = "PopGrowth",
 }
 
 const GDP_SOURCE = {
-    [GDP_PART.Resources]: 'gdp/base/total_net',
-    [GDP_PART.Research]: 'tech/output/total',
-    [GDP_PART.Unity]: 'unity/unity',
+    [GDP_PART.ResourcesBasic]: [
+        'gdp/base/net/energy',
+        'gdp/base/net/minerals',
+        'gdp/base/net/food',
+    ],
+    [GDP_PART.ResourcesAdvanced]: [
+        'gdp/base/net/alloys',
+        'gdp/base/net/consumer_goods',
+    ],
+    [GDP_PART.ResourcesStrategic]: [
+        'gdp/base/net/volatile_motes',
+        'gdp/base/net/exotic_gases',
+        'gdp/base/net/rare_crystals',
+        'gdp/base/net/sr_living_metal',
+        'gdp/base/net/sr_zro',
+        'gdp/base/net/sr_dark_matter',
+    ],
+    [GDP_PART.Research]: ['tech/output/total'],
+    [GDP_PART.Unity]: ['unity/unity'],
     // [GDP_PART.NavalCap]: '',  // TODO: data from BE
     // [GDP_PART.AdminCap]: '',  // TODO: data from BE
     // [GDP_PART.PopGrowth]: '',  // TODO: data from BE
 }
 
 const GDP_WEIGHT = {
-    [GDP_PART.Resources]: 1,
+    [GDP_PART.ResourcesBasic]: 1,  // Already weighted from BE.
+    [GDP_PART.ResourcesAdvanced]: 1,  // Already weighted from BE.
+    [GDP_PART.ResourcesStrategic]: 1,  // Already weighted from BE.
     [GDP_PART.Research]: 1,
     [GDP_PART.Unity]: 3,
     // [GDP_PART.NavalCap]: 1,
@@ -72,7 +92,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         return (parts.length > 0 ? parts : recordValues(GDP_PART))
-            .map((part) => GDP_WEIGHT[part] * selectNested(`leaderboard/empire_summaries/${eid}/${GDP_SOURCE[part]}`, snap))
+            .map((part) => GDP_WEIGHT[part] * GDP_SOURCE[part].map((source) => selectNested(`leaderboard/empire_summaries/${eid}/${source}`, snap)).reduce(sumReducer))
             .reduce(sumReducer)
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
