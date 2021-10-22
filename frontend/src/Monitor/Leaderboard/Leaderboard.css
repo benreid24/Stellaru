@@ -17,25 +17,6 @@
     justify-content: space-between;
 }
 
-.statusBoardLeftSide {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-}
-
-.statusBoardRightSide {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    flex-grow: 1;
-    margin-left: 24px;
-}
-
-.groupControls {
-    display: flex;
-    flex-direction: row;
-}
-
 .groupText {
     color: #5858f5;
     margin-top: auto;
@@ -165,12 +146,6 @@
     height: 93%;
 }
 
-.filterControls {
-    display: flex;
-    flex-direction: row;
-    margin-left: 8px;
-}
-
 .playerListArea {
     display: flex;
     flex-direction: row;
@@ -197,4 +172,14 @@
 .leaderboardChart {
     height: 46%;
     min-height: 30vh;
+}
+
+.recharts-default-legend {
+    line-height: 1;
+}
+
+.recharts-legend-item {
+    display: inline-flex !important;
+    line-height: 1;
+    align-content: end;
 }

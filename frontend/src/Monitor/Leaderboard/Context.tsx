@@ -394,7 +394,7 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             removeGroup,
             setFilterPlayers,
             setFilterRegularAi,
-            setFilterFallenEmpires
+            setFilterFallenEmpires,
         }),
         [
             groupState,

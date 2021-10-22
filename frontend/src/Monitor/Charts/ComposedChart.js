@@ -148,8 +148,11 @@ function ComposedChart(props) {
         let weight = 300;
         if (isolatedSeries.includes(value))
             weight = 500;
-        return <span title={value} style={{fontWeight: weight, cursor: 'pointer', fontSize: 10, display: 'inline-block', verticalAlign: 'middle', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth:80}}>{value}</span>;
+        return <span title={value} style={{fontWeight: weight, cursor: 'pointer', fontSize: 10, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 80 }}>
+            {value}
+            </span>;
     };
+
     const legendPayload = series.map(series => {
         return {
             value: series.label,
