@@ -40,6 +40,21 @@ enum VICTORY_PARTS {
     "Systems" = "Systems",
     "Technology" = "Technology",
 }
+const getLabel = (parts: VICTORY_PARTS[]) => {
+    if(parts.length === 0 || parts.length === recordValues(VICTORY_PARTS).length) {
+        return `Victory Points`
+    }
+
+    if(parts.length === 1
+        && parts.includes(VICTORY_PARTS['Crisis Ships Killed'])
+    ) {
+        return `Crisis Victory Points`
+    }
+
+    if(parts.length === 1) return `${parts[0]} Victory Points`
+
+    return `${parts.length}/${recordValues(VICTORY_PARTS).length} Victory Points`
+}
 
 export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
@@ -102,7 +117,7 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
                     data={data}
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
-                    yAxisLabel='Victory Points'
+                    yAxisLabel={getLabel(parts)}
                 />
             </div>
         </Chart>
