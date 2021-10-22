@@ -56,6 +56,7 @@ const GDP_SOURCE = {
         'gdp/base/net/sr_living_metal',
         'gdp/base/net/sr_zro',
         'gdp/base/net/sr_dark_matter',
+        'gdp/base/net/nanites',
     ],
     [GDP_PART.Research]: ['tech/output/total'],
     [GDP_PART.Unity]: ['unity/unity'],
