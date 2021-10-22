@@ -101,7 +101,7 @@ function valueToString(value) {
 
 function valueTickFormat(value) {
     const sign = value >= 0 ? 1 : -1;
-    value = Math.abs(value.toPrecision(3)*1);
+    value = Math.abs((Number(value || 0) || 0).toPrecision(3)*1);
     for (let i in NumberSuffixes) {
         const suffix = NumberSuffixes[i];
         if (value >= suffix.value)
