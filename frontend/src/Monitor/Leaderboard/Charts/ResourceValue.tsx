@@ -56,7 +56,7 @@ const RESOURCE_SOURCE = {
     [RESOURCE_PART.DarkMatter]: 'sr_dark_matter',
 }
 
-export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
+export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
     const classes = useStyles();
 
     const name = n ? n : Name;
@@ -135,6 +135,6 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
 registerChart(
     Name,
     'Compare Resource Production of each empire or federation',
-    ResourceProductionChart,
+    ResourceValueChart,
     'Leaderboard'
 )
