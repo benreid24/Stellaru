@@ -86,8 +86,8 @@ export const ResourceProductionChart: React.FC<LeaderboardChartProps> = ({data, 
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Avg. Res. Prod.</MenuItem>
-                        <MenuItem value='sum'>Total Res. Prod.</MenuItem>
+                        <MenuItem value='avg'>Average</MenuItem>
+                        <MenuItem value='sum'>Total</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
