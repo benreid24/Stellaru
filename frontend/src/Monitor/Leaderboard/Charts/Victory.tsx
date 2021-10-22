@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-enum VICTORY_PARTS {
+enum VICTORY_PART {
     "Colonies" = "Colonies",
     "Crisis Ships Killed" = "Crisis Ships Killed",
     "Economy" = "Economy",
@@ -40,20 +40,20 @@ enum VICTORY_PARTS {
     "Systems" = "Systems",
     "Technology" = "Technology",
 }
-const getLabel = (parts: VICTORY_PARTS[]) => {
-    if(parts.length === 0 || parts.length === recordValues(VICTORY_PARTS).length) {
+const getLabel = (parts: VICTORY_PART[]) => {
+    if(parts.length === 0 || parts.length === recordValues(VICTORY_PART).length) {
         return `Victory Points`
     }
 
     if(parts.length === 1
-        && parts.includes(VICTORY_PARTS['Crisis Ships Killed'])
+        && parts.includes(VICTORY_PART['Crisis Ships Killed'])
     ) {
         return `Crisis Victory Points`
     }
 
     if(parts.length === 1) return `${parts[0]} Victory Points`
 
-    return `${parts.length}/${recordValues(VICTORY_PARTS).length} Victory Points`
+    return `${parts.length}/${recordValues(VICTORY_PART).length} Victory Points`
 }
 
 export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
@@ -65,19 +65,17 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
     const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
     const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
 
-    const [parts, setParts] = React.useState<VICTORY_PARTS[]>(recordValues(VICTORY_PARTS));
+    const [parts, setParts] = React.useState<VICTORY_PART[]>(recordValues(VICTORY_PART));
     const onPartsChange = (event: React.ChangeEvent<{value: unknown}>) => {
-        console.log(event.target.value)
-        setParts(event.target.value as VICTORY_PARTS[])
+        setParts(event.target.value as VICTORY_PART[])
     };
 
     const reducer = mode === 'sum' ? sumReducer : avgReducer;
     const selector = (snap: any, eid: number) => {
         const obj = selectNested(`leaderboard/empire_summaries/${eid}/victory_points`, snap);
-        const sum = parts.length > 0
-            ? parts.map((part) => obj[part]).reduce(sumReducer)
-            : recordValues(VICTORY_PARTS).map((part) => obj[part]).reduce(sumReducer)
-        return sum
+        return (parts.length > 0 ? parts : recordValues(VICTORY_PART))
+            .map((part) => obj[part])
+            .reduce(sumReducer)
     };
     const series = getTimeseries(data, groupState, filterState, selector, reducer);
 
@@ -97,12 +95,12 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
                         onChange={onPartsChange}
                         renderValue={(_selected) => {
                             const selected = (_selected as string[])
-                            return selected.length === recordValues(VICTORY_PARTS).length
+                            return (selected.length === 0 || selected.length === recordValues(VICTORY_PART).length)
                                 ? "Total Victory Points"
-                                : `Custom (${selected.length}/${recordValues(VICTORY_PARTS).length})`
+                                : `Custom (${selected.length}/${recordValues(VICTORY_PART).length})`
                         }}
                     >
-                        {recordValues(VICTORY_PARTS).map((part) => (
+                        {recordValues(VICTORY_PART).map((part) => (
                             <MenuItem key={part} value={part}>
                                 <Checkbox checked={parts.includes(part)} />
                                 <ListItemText primary={part} />
