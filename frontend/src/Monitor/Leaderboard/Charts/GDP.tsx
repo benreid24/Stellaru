@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 enum GDP_PART {
     Resources = "Resources",
     Research = "Research",
-    // Unity = "Unity",
+    Unity = "Unity",
     // NavalCap = "NavalCap",
     // AdminCap = "AdminCap",
     // PopGrowth = "PopGrowth",
@@ -40,7 +40,7 @@ enum GDP_PART {
 const GDP_SOURCE = {
     [GDP_PART.Resources]: 'gdp/base/total_net',
     [GDP_PART.Research]: 'tech/output/total',
-    // [GDP_PART.Unity]: '',  // TODO: data from BE
+    [GDP_PART.Unity]: 'unity/unity',
     // [GDP_PART.NavalCap]: '',  // TODO: data from BE
     // [GDP_PART.AdminCap]: '',  // TODO: data from BE
     // [GDP_PART.PopGrowth]: '',  // TODO: data from BE
@@ -49,7 +49,7 @@ const GDP_SOURCE = {
 const GDP_WEIGHT = {
     [GDP_PART.Resources]: 1,
     [GDP_PART.Research]: 1,
-    // [GDP_PART.Unity]: 3,
+    [GDP_PART.Unity]: 3,
     // [GDP_PART.NavalCap]: 1,
     // [GDP_PART.AdminCap]: 1,
     // [GDP_PART.PopGrowth]: 42,
