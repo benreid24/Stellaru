@@ -47,6 +47,7 @@ enum RESOURCE_PART {
     LivingMetal = "LivingMetal (x20)",
     Zro = "Zro (x20)",
     DarkMatter = "DarkMatter (x20)",
+    Nanites = "Nanites (x20)",
 }
 
 
@@ -86,13 +87,14 @@ const getLabel = (variant: VARIANT, parts: RESOURCE_PART[]) => {
         return `${VARIANT_LABEL[variant]} Value of Basic+Adv. Resources`
     }
 
-    if(parts.length === 6
+    if(parts.length === 7
         && parts.includes(RESOURCE_PART.VolatileMotes)
         && parts.includes(RESOURCE_PART.ExoticGases)
         && parts.includes(RESOURCE_PART.RareCrystals)
         && parts.includes(RESOURCE_PART.LivingMetal)
         && parts.includes(RESOURCE_PART.Zro)
         && parts.includes(RESOURCE_PART.DarkMatter)
+        && parts.includes(RESOURCE_PART.Nanites)
     ) {
         return `${VARIANT_LABEL[variant]} Value of Strategic Resources`
     }
@@ -116,6 +118,7 @@ const RESOURCE_SOURCE = {
     [RESOURCE_PART.LivingMetal]: 'sr_living_metal',
     [RESOURCE_PART.Zro]: 'sr_zro',
     [RESOURCE_PART.DarkMatter]: 'sr_dark_matter',
+    [RESOURCE_PART.Nanites]: 'nanites',
 }
 
 export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name: n, overlay}) => {
