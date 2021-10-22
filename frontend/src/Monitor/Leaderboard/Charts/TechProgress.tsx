@@ -51,7 +51,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
                     data={data}
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
-                    yAxisLabel='Technological Progress'
+                    yAxisLabel='Technologies Researched'
                 />
             </div>
         </Chart>
