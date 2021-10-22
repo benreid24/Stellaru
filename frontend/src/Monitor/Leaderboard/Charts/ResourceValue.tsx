@@ -18,7 +18,7 @@ export const recordEntries = <T extends Record<string, unknown>>(o: T) => Object
 export const recordKeys = <T extends Record<string, unknown>>(o: T) => Object.keys(o) as (keyof T)[];
 export const recordValues = <T extends Record<string, unknown>>(o: T) => Object.values(o) as T[keyof T][];
 
-const Name = 'Resource Production';
+const Name = 'Resources';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -28,18 +28,80 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+enum VARIANT {
+    Net = 'net',
+    Inflows = 'inflows',
+    Outflows = 'outflows',
+    Stockpile = 'stockpile_values',
+}
+
 enum RESOURCE_PART {
     Energy = "Energy",
     Minerals = "Minerals",
     Food = "Food",
-    Alloys = "Alloys",
-    ConsumerGoods = "ConsumerGoods",
-    VolatileMotes = "VolatileMotes",
-    ExoticGases = "ExoticGases",
-    RareCrystals = "RareCrystals",
-    LivingMetal = "LivingMetal",
-    Zro = "Zro",
-    DarkMatter = "DarkMatter",
+    ConsumerGoods = "Consumer Goods (x2)",
+    Alloys = "Alloys (x4)",
+    VolatileMotes = "Volatile Motes (x10)",
+    ExoticGases = "Exotic Gases (x10)",
+    RareCrystals = "Rare Crystals (x10)",
+    LivingMetal = "LivingMetal (x20)",
+    Zro = "Zro (x20)",
+    DarkMatter = "DarkMatter (x20)",
+}
+
+
+const VARIANT_LABEL: Record<VARIANT, string> = {
+    [VARIANT.Net]: 'Net',
+    [VARIANT.Inflows]: 'Inflow',
+    [VARIANT.Outflows]: 'Outflow',
+    [VARIANT.Stockpile]: 'Stockpiled',
+}
+const getLabel = (variant: VARIANT, parts: RESOURCE_PART[]) => {
+    if(parts.length === 0 || parts.length === recordValues(RESOURCE_PART).length) {
+        return `${VARIANT_LABEL[variant]} Value of All Resources`
+    }
+
+    if(parts.length === 3
+        && parts.includes(RESOURCE_PART.Energy)
+        && parts.includes(RESOURCE_PART.Minerals)
+        && parts.includes(RESOURCE_PART.Food)
+    ) {
+        return `${VARIANT_LABEL[variant]} Value of Basic Resources`
+    }
+
+    if(parts.length === 2
+        && parts.includes(RESOURCE_PART.Alloys)
+        && parts.includes(RESOURCE_PART.ConsumerGoods)
+    ) {
+        return `${VARIANT_LABEL[variant]} Value of Advanced Resources`
+    }
+
+    if(parts.length === 5
+        && parts.includes(RESOURCE_PART.Energy)
+        && parts.includes(RESOURCE_PART.Minerals)
+        && parts.includes(RESOURCE_PART.Food)
+        && parts.includes(RESOURCE_PART.Alloys)
+        && parts.includes(RESOURCE_PART.ConsumerGoods)
+    ) {
+        return `${VARIANT_LABEL[variant]} Value of Basic+Adv. Resources`
+    }
+
+    if(parts.length === 6
+        && parts.includes(RESOURCE_PART.VolatileMotes)
+        && parts.includes(RESOURCE_PART.ExoticGases)
+        && parts.includes(RESOURCE_PART.RareCrystals)
+        && parts.includes(RESOURCE_PART.LivingMetal)
+        && parts.includes(RESOURCE_PART.Zro)
+        && parts.includes(RESOURCE_PART.DarkMatter)
+    ) {
+        return `${VARIANT_LABEL[variant]} Value of Strategic Resources`
+    }
+
+    if(parts.length === 1) {
+        return `${VARIANT_LABEL[variant]} Value of ${parts[0].replace(/\(.*\)/, '').trim()}`
+    }
+
+    return `${VARIANT_LABEL[variant]} Value of ${parts.length}/${recordValues(RESOURCE_PART).length} Resources`
 }
 
 const RESOURCE_SOURCE = {
@@ -65,8 +127,8 @@ export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name:
     const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
     const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
 
-    const [variant, setVariant] = React.useState<'net' | 'inflows' | 'outflows' | 'stockpile_values'>('net');
-    const onVariantChange = (event: React.ChangeEvent<{value: unknown}>) => setVariant(event.target.value as 'net' | 'inflows' | 'outflows' | 'stockpile_values');
+    const [variant, setVariant] = React.useState<VARIANT>(VARIANT.Net);
+    const onVariantChange = (event: React.ChangeEvent<{value: unknown}>) => setVariant(event.target.value as VARIANT);
 
     const [parts, setParts] = React.useState<RESOURCE_PART[]>(recordValues(RESOURCE_PART));
     const onPartsChange = (event: React.ChangeEvent<{value: unknown}>) => {
@@ -86,16 +148,16 @@ export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name:
             <div className='leaderboardChartForm'>
                 <FormControl className={classes.formControl}>
                     <Select value={mode} onChange={onModeChange}>
-                        <MenuItem value='avg'>Average</MenuItem>
-                        <MenuItem value='sum'>Total</MenuItem>
+                        <MenuItem dense value='avg'>Average</MenuItem>
+                        <MenuItem dense value='sum'>Total</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
                     <Select value={variant} onChange={onVariantChange}>
-                        <MenuItem value='net'>Net</MenuItem>
-                        <MenuItem value='inflows'>Inflows</MenuItem>
-                        <MenuItem value='outflows'>Outflows</MenuItem>
-                        <MenuItem value='stockpile_values'>Stockpile</MenuItem>
+                        <MenuItem dense value='net'>Net</MenuItem>
+                        <MenuItem dense value='inflows'>Inflows</MenuItem>
+                        <MenuItem dense value='outflows'>Outflows</MenuItem>
+                        <MenuItem dense value='stockpile_values'>Stockpile</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
@@ -105,14 +167,14 @@ export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name:
                         onChange={onPartsChange}
                         renderValue={(_selected) => {
                             const selected = (_selected as string[])
-                            return selected.length === recordValues(RESOURCE_PART).length
-                                ? "Total Production"
+                            return (selected.length === 0 || selected.length === recordValues(RESOURCE_PART).length)
+                                ? "All Resources"
                                 : `${selected.length}/${recordValues(RESOURCE_PART).length}`
                         }}
                     >
                         {recordValues(RESOURCE_PART).map((part) => (
-                            <MenuItem key={part} value={part}>
-                                <Checkbox checked={parts.includes(part)} />
+                            <MenuItem dense key={part} value={part}>
+                                <Checkbox size='small' style={{padding: 4}} checked={parts.includes(part)} />
                                 <ListItemText primary={part} />
                             </MenuItem>
                         ))}
@@ -125,7 +187,7 @@ export const ResourceValueChart: React.FC<LeaderboardChartProps> = ({data, name:
                     data={data}
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
-                    yAxisLabel='Net Resource Production (base)'
+                    yAxisLabel={getLabel(variant, parts)}
                 />
             </div>
         </Chart>
