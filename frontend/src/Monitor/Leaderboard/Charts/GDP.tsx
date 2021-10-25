@@ -24,7 +24,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, labelColors} = useLeaderboardContext();
 
     const [mode, setMode] = React.useState<'sum' | 'avg'>('avg');
     const onModeChange = (event: React.ChangeEvent<{value: unknown}>) => setMode(event.target.value as 'sum' | 'avg');
@@ -52,6 +52,7 @@ export const GDPChart: React.FC<LeaderboardChartProps> = ({data, name: n, overla
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
                     yAxisLabel='Net GDP (base)'
+                    labelColors={labelColors}
                 />
             </div>
         </Chart>

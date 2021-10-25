@@ -31,7 +31,7 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, labelColors} = useLeaderboardContext();
 
     const [chartedValue, setChartedValue] = React.useState<ChartedValue>('fleet_power');
     const onChartChange = (event: any) => setChartedValue(event.target.value);
@@ -69,6 +69,7 @@ export const FleetPowerChart: React.FC<LeaderboardChartProps> = ({data, name: n,
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
                     yAxisLabel={Labels[chartedValue]}
+                    labelColors={labelColors}
                 />
             </div>
         </Chart>

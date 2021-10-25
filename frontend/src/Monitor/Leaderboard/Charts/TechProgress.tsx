@@ -24,7 +24,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
     const classes = useStyles();
 
     const name = n ? n : Name;
-    const {groupState, filterState} = useLeaderboardContext();
+    const {groupState, filterState, labelColors} = useLeaderboardContext();
 
     const [mode, setMode] = React.useState<'max' | 'avg'>('max');
     const onModeChange = (event: any) => setMode(event.target.value);
@@ -52,6 +52,7 @@ export const TechProgressChart: React.FC<LeaderboardChartProps> = ({data, name: 
                     lines={series.map(gts => gts.timeseries)}
                     allowIsolation={false}
                     yAxisLabel='Technological Progress'
+                    labelColors={labelColors}
                 />
             </div>
         </Chart>

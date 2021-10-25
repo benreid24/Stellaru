@@ -1,7 +1,7 @@
 import React from 'react';
 import {findKeysOverSeries} from 'Monitor/Charts/Util';
 import {objectKeys} from 'Helpers';
-import {findEmpireName} from './Selectors';
+import {findEmpireColor, findEmpireName} from './Selectors';
 import DataSubscription from 'DataSubscription';
 
 const GROUP_TYPE_KEY = 'leaderboard.group_type';
@@ -42,6 +42,8 @@ export type LeaderboardContextValue = {
     groupState: GroupState;
     connectedPlayers: Record<string, ConnectedPlayer>;
     filterState: FilterState;
+    empireColors: Record<number, string>;
+    labelColors: Record<string, string>; // kept in sync with above
     setGroupingType: (groupType: GroupType) => void;
     createGroup: (name: string) => void;
     addEmpireToGroup: (groupId: number, empireId: number) => void;
@@ -171,6 +173,25 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             showFallenEmpires: false
         };
     });
+
+    const [empireColors, setEmpireColors] = React.useState<Record<number, string>>({});
+    const [labelColors, setLabelColors] = React.useState<Record<string, string>>({});
+
+    React.useEffect(() => {
+        if (!data || data.length === 0) return;
+
+        const eids = findKeysOverSeries(data, 'leaderboard/empire_summaries').map(Number);
+        let colors: Record<number, string> = {};
+        let labels: Record<string, string> = {};
+        eids.forEach(eid => {
+            const color = findEmpireColor(eid, data);
+            const name = findEmpireName(eid, data);
+            colors[eid] = color;
+            labels[name] = color;
+        });
+        setEmpireColors(colors);
+        setLabelColors(labels);
+    }, [data, setEmpireColors, setLabelColors]);
 
     const onPlayerConnect = React.useCallback((player: ConnectedPlayer) => {
         setConnectedPlayers(c => {
@@ -386,6 +407,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupState,
             connectedPlayers,
             filterState,
+            empireColors,
+            labelColors,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,
@@ -400,6 +423,8 @@ export const LeaderboardContextProvider: React.FC<LeaderboardContextProviderProp
             groupState,
             connectedPlayers,
             filterState,
+            empireColors,
+            labelColors,
             setGroupingType,
             addEmpireToGroup,
             removeEmpireFromGroup,

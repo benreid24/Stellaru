@@ -85,6 +85,6 @@ class ColorExtractor(Extractor):
     def extract_data(self, state, empire):
         colors = self.isolation_layer.get_colors(state, empire)
         return [
-            COLORS[colors[0]] if colors[0] in COLORS else COLORS['dark_cyan'],
+            COLORS[colors[0]] if colors[0] in COLORS else COLORS['orange'],
 			COLORS[colors[1]] if colors[1] in COLORS else COLORS['bright_green']
         ]
