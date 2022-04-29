@@ -11,7 +11,7 @@ export type GroupTimeseries = {
 export type GroupReducer = (currentValue: number, nextValue: number, memberCount: number) => number;
 
 const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) => {
-    const feds = snap['federations'] as any[];
+    const feds = (snap['federations'] ?? []) as any[];
     for (let i = 0; i < feds.length; i += 1) {
         if (feds[i]['id'] === fid) {
             return feds[i]['members'].map(Number);
@@ -21,7 +21,7 @@ const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) =
 }
 
 const empireNotFiltered: (snap: any, eid: number, filter: FilterState) => boolean = (snap, eid, filter) => {
-    const t = snap['leaderboard']['empire_summaries'][eid]?.['type'];
+    const t = snap['leaderboard']?.['empire_summaries']?.[eid]?.['type'];
     if (t === 'player') {
         return filter.showPlayers;
     }
@@ -46,7 +46,7 @@ const filterEmpires: (snap: any, group: Group, filter: FilterState) => number[] 
 
 export const findEmpireName = (eid: number, data: any[]) => {
     for (let i = data.length - 1; i >= 0; i -= 1) {
-        const summaries = data[i]['leaderboard']['empire_summaries'];
+        const summaries = data[i]?.['leaderboard']?.['empire_summaries'] ?? {};
         if (eid in summaries) {
             return summaries[eid]['name'];
         }
