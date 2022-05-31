@@ -1,5 +1,5 @@
 from .extractor import Extractor
-from engine.extraction import util
+from engine.extraction.isolation import util
 
 SHIP_SIZES = {
     'Corvette': 1,
