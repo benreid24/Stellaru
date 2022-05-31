@@ -1,3 +1,3 @@
-from . import v1
+from . import v1, v2
 
-VERSIONS = [v1]
+VERSIONS = [v1, v2]
