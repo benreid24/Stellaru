@@ -412,12 +412,15 @@ def get_fleets(state, empire):
             pass
         return False
 
+    fleet_ids = [
+        of['fleet'] for of in state['country'][empire]['fleets_manager']['owned_fleets']
+        if isinstance(of, dict)
+    ]
+    fleet_data = [(fid, state['fleet'][fid]) for fid in fleet_ids]
+
     fleets = [
-        {'id': fid, **fleet} for fid, fleet in state['fleet'].items()
-        if isinstance(fleet, dict) and
-        'owner' in fleet and
-        fleet['owner'] == empire and # TODO - owner was removed here as well
-        ('civilian' not in fleet or fleet['civilian'] == 'no') and
+        {'id': fid, **fleet} for fid, fleet in fleet_data
+        if ('civilian' not in fleet or fleet['civilian'] == 'no') and
         ('station' not in fleet or fleet['station'] == 'no') and
         not _is_transport_fleet(state, fleet)
     ]
