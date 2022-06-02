@@ -11,7 +11,7 @@ charset-normalizer==2.0.7
 constantly==15.1.0
 cryptography==3.3.2
 daphne==2.5.0
-Django==3.2.8
+Django==3.2.12
 future==0.18.2
 hyperlink==20.0.1
 idna==2.10
@@ -21,7 +21,7 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
 PyHamcrest==2.0.2
-pyinstaller==4.0
+pyinstaller==4.4
 pyinstaller-hooks-contrib==2020.9
 pyOpenSSL==19.1.0
 pytz==2020.1

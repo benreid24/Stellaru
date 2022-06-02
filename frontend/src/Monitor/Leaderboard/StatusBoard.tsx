@@ -185,7 +185,7 @@ const GroupEditor: React.FC<GroupEditorProps> = ({open, onRequestClose, data}) =
     ));
 
     return (
-        <div className="groupEditorOverlay" style={{visibility: open ? 'visible' : 'hidden'}} onClick={onRequestClose}>
+        <div className="groupEditorOverlay" style={{visibility: open ? 'visible' : 'hidden'}}>
             <div className='groupEditorModal'>
                 <h2 className='groupEditorTitle'>Edit Custom Groups</h2>
                 <Button

@@ -54,7 +54,9 @@ function Chart(props) {
         <div className='chart'>
             {props.title && <h2 className='chartTitle' style={{color: color}}>{props.title}</h2>}
             {noOverlay ? null : renderOverlay()}
-            {props.children}
+            <div className='chartContent'>
+                {props.children}
+            </div>
         </div>
     );
 }
