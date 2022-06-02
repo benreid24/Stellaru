@@ -10,12 +10,20 @@
 
 .chartTitle {
     left: 50%;
-    top: 12%;
+    top: 1%;
     transform: translateX(-50%);
     position: absolute;
     font-size: 1.2vw;
     width: 90%;
  }
+
+ .chartContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
 
 .verticaalFlex {
     display: flex;
