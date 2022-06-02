@@ -31,6 +31,7 @@ jobs:
         run: |
           cd backend
           python -m pip install --upgrade pip
+          pip install setuptools==60.6.0
           pip install -r requirements.txt
           pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm --icon=./data/icon.ico main.py
       - name: Package Project
