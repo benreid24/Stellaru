@@ -143,6 +143,17 @@ def get_empire(state, empire):
             else:
                 print(f'Relic {relic} not configured in RELIC_SCORES')
 
+    # starbases now in fleets
+    fleet_ids = [
+        of['fleet'] for of in state['country'][empire]['fleets_manager']['owned_fleets']
+        if isinstance(of, dict)
+    ]
+    fleet_data = [(fid, state['fleet'][fid]) for fid in fleet_ids]
+    starbase_count = 0
+    for _, fleet in fleet_data:
+        if fleet['name']['key'] == 'shipclass_starbase_name':
+            starbase_count += 1
+
     return {
         'name': _gen_name(data['name']),
         'type': empire_type,
@@ -157,7 +168,7 @@ def get_empire(state, empire):
         'relic_points': relic_points,
         'federation': data['federation'] if 'federation' in data else None,
         'subjects': data['subjects'] if 'subjects' in data else [],
-        'owned_systems': 0, # TODO - where did this move?
+        'owned_systems': starbase_count,
         'starbases': data['num_upgraded_starbase']
     }
 
