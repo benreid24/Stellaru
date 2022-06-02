@@ -7,7 +7,7 @@ from stellaru_api.subscription import Subscription
 application = ProtocolTypeRouter({
     'websocket': SessionMiddlewareStack(
         URLRouter([
-            path('api/subscribe', Subscription)
+            path('api/subscribe', Subscription.as_asgi())
         ])
     ),
 })

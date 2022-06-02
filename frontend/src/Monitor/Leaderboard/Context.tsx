@@ -56,6 +56,7 @@ export type LeaderboardContextValue = {
 type LeaderboardContextProviderProps = {
     data: any[]; // TODO - we may want to type this
     dataSubscription: DataSubscription;
+    children: any[];
 }
 
 export const LeaderboardContext = React.createContext<LeaderboardContextValue | null>(null);

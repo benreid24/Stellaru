@@ -356,7 +356,7 @@ def get_market_prices(state, empire):
             prices[resource] = BASE_PRICES[resource] + fluctuation * BASE_PRICES[resource] / 100
         return prices
     except:
-        name = state['country'][empire]['name']
+        name = _gen_name(state['country'][empire]['name'])
         print(f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
         return BASE_PRICES
 
