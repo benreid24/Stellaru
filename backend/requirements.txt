@@ -11,7 +11,7 @@ charset-normalizer==2.0.7
 constantly==15.1.0
 cryptography==3.3.2
 daphne==2.5.0
-Django==3.2.12
+Django==3.2.13
 future==0.18.2
 hyperlink==20.0.1
 idna==2.10
