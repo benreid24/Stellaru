@@ -20,6 +20,11 @@ jobs:
       run: |
         cd backend
         python -m pip install --upgrade pip
-        pip install setuptools==59.4.0
         pip install -r requirements.txt
         pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm main.py
+    - name: Check Output
+      run: |
+        cd backend
+        if [ ! -f ./dist/Stellaru/Stellaru.exe]; then
+          exit 1
+        fi
