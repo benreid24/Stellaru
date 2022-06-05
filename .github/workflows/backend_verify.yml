@@ -25,6 +25,4 @@ jobs:
     - name: Check Output
       run: |
         cd backend
-        if [ ! -f ./build/Stellaru.exe ]; then
-          exit 1
-        fi
+        if (-Not (Test-Path .\build\Stellaru.exe -PathType Leaf)) { exit 1 }
