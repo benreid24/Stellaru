@@ -25,6 +25,6 @@ jobs:
     - name: Check Output
       run: |
         cd backend
-        if [ ! -f ./build/Stellaru.exe]; then
+        if [ ! -f ./build/Stellaru.exe ]; then
           exit 1
         fi
