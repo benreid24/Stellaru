@@ -39,6 +39,8 @@ jobs:
           python manage.py collectstatic
           mv static ./build
           mv resources ./build
+          mv stellaru poop
+          mkdir Stellaru
           mv build Stellaru
           Compress-Archive -Path Stellaru -DestinationPath Windows.zip
           mv Windows.zip ../
@@ -142,6 +144,7 @@ jobs:
           mv static build
           mv resources build
           mv stellaru poop
+          mkdir Stellaru
           mv build Stellaru
           zip -r Linux.zip Stellaru
           mv Linux.zip ../
