@@ -21,10 +21,10 @@ jobs:
         cd backend
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm main.py
+        python compile.py build
     - name: Check Output
       run: |
         cd backend
-        if [ ! -f ./dist/Stellaru/Stellaru.exe]; then
+        if [ ! -f ./build/Stellaru.exe]; then
           exit 1
         fi
