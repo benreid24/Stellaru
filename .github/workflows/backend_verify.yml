@@ -21,4 +21,8 @@ jobs:
         cd backend
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pyinstaller --name=Stellaru --exclude-module tkinter --noconfirm main.py
+        python compile.py build
+    - name: Check Output
+      run: |
+        cd backend
+        if (-Not (Test-Path .\build\Stellaru.exe -PathType Leaf)) { exit 1 }
