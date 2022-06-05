@@ -141,6 +141,7 @@ jobs:
           python manage.py collectstatic
           mv static build
           mv resources build
+          mv stellaru poop
           mv build Stellaru
           zip -r Linux.zip Stellaru
           mv Linux.zip ../
