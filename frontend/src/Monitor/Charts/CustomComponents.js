@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DefaultLegendContent from 'recharts/lib/component/DefaultLegendContent';
+import {DefaultLegendContent} from 'recharts/lib/component/DefaultLegendContent';
 import {Scrollbars} from 'react-custom-scrollbars';
 
 const AxisLabel = ({axisType, x, y, width, height, stroke, children, offset}) => {
@@ -54,9 +54,7 @@ function RenderTooltip(props) {
     );
 }
 
-const ScrollableLegend = (props) => {
-    delete props.content;
-
+const ScrollableLegend = ({content, ...props}) => {
     return (
         <Scrollbars
             style={{
