@@ -36,12 +36,6 @@ function ResourceValues(props) {
         net: 'Net Income',
         stockpile_values: 'Stockpile'
     };
-    const ecKeys = {
-        inflows: 'economy/income/energy/total',
-        outflows: 'economy/spending/energy/total',
-        net: 'economy/net_income/energy',
-        stockpile_values: 'economy/stockpile/energy'
-    };
 
     const [key, setKey] = useState('');
     const onKeyChange = event => {
@@ -95,12 +89,7 @@ function ResourceValues(props) {
             ...lines,
             ...line
         ]
-    }, [
-        {
-            label: translate(`${getResourceName('energy_credits')} ${translate(typeLabels[type])}`),
-            selector: snap => selectNested(ecKeys[key], snap)
-        }
-    ]);
+    }, []);
 
     const renderedOptions = keys.map(key => <MenuItem key={key} value={key}>{translate(keyLabels[key])}</MenuItem>);
     return (
