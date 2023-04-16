@@ -160,16 +160,11 @@ const GroupEditor: React.FC<GroupEditorProps> = ({open, onRequestClose, data}) =
         removeGroup
     } = useLeaderboardContext();
 
-    const eids = data && data.length > 0 ? 
-        Object.keys(data[data.length-1]['leaderboard']['empire_summaries']).map(Number)
-        : [];
-    const empireList = eids.map(eid => {
-        const empire = data[data.length-1]['leaderboard']['empire_summaries'][eid];
-        return {
-            id: eid,
-            label: `${empire['name']} (${empire['type']})`
-        } as LabeledEmpire;
-    });
+    const eids = Object.entries(data?.[data?.length-1]?.['leaderboard']?.['empire_summaries'] ?? [])
+    const empireList = eids.map(([eid, empire]) => ({
+        id: Number(eid),
+        label: `${(empire as any)?.name} (${(empire as any)?.type})`
+    } as LabeledEmpire));
 
     const renderedGroups = Object.values(groupState.groups).map(g => (
         <GroupRow

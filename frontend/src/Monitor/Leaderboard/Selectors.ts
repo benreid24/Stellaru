@@ -55,8 +55,8 @@ export const findEmpireName = (eid: number, data: any[]) => {
 }
 
 export const findPlayerName = (eid: number, data: any[]) => {
-    for (let i = data.length - 1; i >= 0; i -= 1) {
-        const summaries = data[i]['leaderboard']['empire_summaries'];
+    for (const datum of data) {
+        const summaries = datum?.['leaderboard']?.['empire_summaries'];
         if (eid in summaries) {
             return summaries[eid]['player_name'];
         }

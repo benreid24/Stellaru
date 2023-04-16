@@ -102,10 +102,12 @@ def get_empires(request):
             return _make_error(f'Invalid save file: {save_file}')
 
         save = engine.add_save(save_watcher, request.session['id'])
+        if not save:
+            return _make_error(f'Invalid save: {save_watcher.name()}')
         empires = [{
             'id': empire_id,
-            'name': save['snaps'][-1]['empires'][empire_id]['name'],
-            'player': save['snaps'][-1]['empires'][empire_id]['player_name']
+            'name': save['snaps'][-1]['empires'][empire_id].get('name', 'Unknown name'),
+            'player': save['snaps'][-1]['empires'][empire_id].get('player_name', 'Unknown player name'),
         } for empire_id in save['snaps'][-1]['empires']]
 
         return JsonResponse({

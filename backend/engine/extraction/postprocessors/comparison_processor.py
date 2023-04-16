@@ -21,7 +21,7 @@ class ComparisonProcessor(PostProcessor):
         str_comp = {}
         fleet_strength = empire['fleets']['fleet_power']['total']
         for oid, oempire in data.get_full_snapshot()['empires'].items():
-            names[oid] = oempire['name']
+            names[oid] = oempire.get('name', 'Unknown Name')
             try:
                 if oid == eid or not self.isolation_layer.empire_valid(data.get_gamestate(), oid):
                     continue

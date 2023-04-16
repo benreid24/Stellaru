@@ -133,7 +133,7 @@ def get_empire(state, empire):
 
     empire_type = 'player'
     if player_name == 'AI':
-        empire_type = 'fallen_empire' if 'fallen_empire' in data['personality'] else 'regular_ai'
+        empire_type = 'fallen_empire' if 'personality' in data and 'fallen_empire' in data['personality'] else 'regular_ai'
 
     relic_points = 0
     if 'relics' in data:
