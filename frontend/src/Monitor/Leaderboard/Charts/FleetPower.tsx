@@ -18,7 +18,7 @@ const Labels: Record<ChartedValue, string> = {
     'fleet_size': 'Total Fleet Size'
 }
 
-const Name = 'Fleet Power';
+const Name = 'Fleet Power Leaderboard';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
