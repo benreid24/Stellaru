@@ -1,5 +1,4 @@
 from zipfile import ZipFile
-import io
 import traceback
 
 from engine.util import InMemoryFile
