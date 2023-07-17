@@ -60,10 +60,10 @@ MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]
 
 
 def _try_versions(fn, state, *args):
-    if isinstance(state['country'][0]['name'], dict):
-        return getattr(v2, fn)(state, *args)
-    else:
+    if 'version' in state and 'v2.' in state['version']:
         return getattr(v1, fn)(state, *args)
+    else:
+        return getattr(v2, fn)(state, *args)
 
 
 def empire_valid(state, empire):

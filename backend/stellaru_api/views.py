@@ -5,14 +5,12 @@ import traceback
 import socket
 from requests import get
 
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from engine import sessions
 from engine import finder
 from engine import parser
-from engine.watchers.file_watcher import FileWatcher
 from engine import engine
 
 

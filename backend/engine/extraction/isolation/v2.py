@@ -27,7 +27,11 @@ RELIC_SCORES = {
     'r_reality_perforator': 5000,
     'r_pox_sample': 5000,
     'r_cryo_core': 5000,
-    'r_war_forge': 5000
+    'r_war_forge': 5000,
+    'r_the_radiance': 1000,
+    'r_toxic_god': 3000,
+    'r_odryskan_crystal': 3000,
+    'r_wormhole_key': 2500
 }
 
 RESOURCE_INDICES = {
@@ -107,7 +111,7 @@ def empire_valid(state, empire):
 
 def get_empires(state):
     return {
-        cid: _gen_name(empire['name']) 
+        cid: _gen_name(empire['name'])
         for cid, empire in state['country'].items() if isinstance(empire, dict) and empire_valid(state, cid)
     }
 
@@ -126,14 +130,16 @@ def get_empire(state, empire):
 
     players = {}
     if 'player' in state:
-        players = {player['country']: player['name'] for player in state['player']}
+        players = {player['country']: player['name']
+                   for player in state['player']}
     player_name = players[empire] if empire in players else 'AI'
     if player_name == 'unknown':
         player_name = 'Player'
 
     empire_type = 'player'
     if player_name == 'AI':
-        empire_type = 'fallen_empire' if 'personality' in data and 'fallen_empire' in data['personality'] else 'regular_ai'
+        empire_type = 'fallen_empire' if 'personality' in data and 'fallen_empire' in data[
+            'personality'] else 'regular_ai'
 
     relic_points = 0
     if 'relics' in data:
@@ -148,7 +154,8 @@ def get_empire(state, empire):
         of['fleet'] for of in state['country'][empire]['fleets_manager']['owned_fleets']
         if isinstance(of, dict)
     ]
-    fleet_data = [(fid, state['fleet'][fid]) for fid in fleet_ids]
+    fleet_data = [(fid, state['fleet'][fid])
+                  for fid in fleet_ids if fid in state['fleet']]
     starbase_count = 0
     for _, fleet in fleet_data:
         if fleet['name']['key'] == 'shipclass_starbase_name':
@@ -237,7 +244,8 @@ def get_planets(state, empire):
 
 
 def get_pops(state, pop_ids):
-    pops = [state['pop'][pid] for pid in pop_ids if pid in state['pop'] and isinstance(state['pop'][pid], dict)]
+    pops = [state['pop'][pid] for pid in pop_ids if pid in state['pop']
+            and isinstance(state['pop'][pid], dict)]
 
     return [
         {
@@ -277,8 +285,10 @@ def get_wars(state):
         war for wid, war in state['war'].items()
         if isinstance(war, dict)
     ] if isinstance(state['war'], dict) else []
-    attackers = [fighter['country'] for war in wars for fighter in war['attackers']]
-    defenders = [fighter['country'] for war in wars for fighter in war['defenders']]
+    attackers = [fighter['country']
+                 for war in wars for fighter in war['attackers']]
+    defenders = [fighter['country']
+                 for war in wars for fighter in war['defenders']]
     all_participants = set([*attackers, *defenders])
     return {
         'total': len(wars),
@@ -301,7 +311,8 @@ def get_surveyed_objects(state, empire):
 
 
 def get_unity(state, empire):
-    ap_count = len(state['country'][empire]['ascension_perks'] if 'ascension_perks' in state['country'][empire] else [])
+    ap_count = len(state['country'][empire]['ascension_perks']
+                   if 'ascension_perks' in state['country'][empire] else [])
     unity_income = sum([
         iset['unity'] for k, iset in state['country'][empire]['budget']['current_month']['income'].items()
         if 'unity' in iset
@@ -345,7 +356,8 @@ def get_market_prices(state, empire):
         for resource in MARKET_RESOURCES:
             fluctuation = 0
             if empire in state['market']['internal_market_fluctuations']['country']:
-                index = state['market']['internal_market_fluctuations']['country'].index(empire)
+                index = state['market']['internal_market_fluctuations']['country'].index(
+                    empire)
                 resources = state['market']['internal_market_fluctuations']['resources'][index]
                 if resource in resources:
                     fluctuation += resources[resource]
@@ -353,11 +365,13 @@ def get_market_prices(state, empire):
                 if state['market']['galactic_market_access'][global_index] > 0:
                     if 'fluctuations' in state['market']:
                         fluctuation += state['market']['fluctuations'][RESOURCE_INDICES[resource]]
-            prices[resource] = BASE_PRICES[resource] + fluctuation * BASE_PRICES[resource] / 100
+            prices[resource] = BASE_PRICES[resource] + \
+                fluctuation * BASE_PRICES[resource] / 100
         return prices
     except:
         name = _gen_name(state['country'][empire]['name'])
-        print(f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
+        print(
+            f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
         return BASE_PRICES
 
 
@@ -399,9 +413,11 @@ def get_tech(state, empire):
             if isinstance(prod, dict) and 'engineering_research' in prod
         ])
     }
-    completed = len(state['country'][empire]['tech_status']['technology'] if 'technology' in state['country'][empire]['tech_status'] else [])
+    completed = len(state['country'][empire]['tech_status']['technology']
+                    if 'technology' in state['country'][empire]['tech_status'] else [])
     options = {
-        stype: len(state['country'][empire]['tech_status']['alternatives'][stype])
+        stype: len(state['country'][empire]
+                   ['tech_status']['alternatives'][stype])
         for stype in research.keys()
     }
     return {
@@ -466,7 +482,7 @@ def get_fleets(state, empire):
             fleet_item['experience'] = util.basic_stats(exps)
             fleet_item['ships'] = ship_types
             fleet_list[fleet['id']] = fleet_item
-    
+
     return {
         'fleets': fleet_list,
         'total_exp': total_exp,

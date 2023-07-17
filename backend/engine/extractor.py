@@ -31,8 +31,7 @@ def _postprocess(snapshot, history, state):
                 traceback.print_exc()
 
 
-def build_snapshot(watcher, history=[]):
-    meta, state = parser.parse_save(watcher.get_file(True))
+def build_snapshot_from_loaded(state, history=[]):
     snapshot = {
         'date': state['date'],
         'date_components': extraction.util.parse_date(state['date']),
@@ -44,3 +43,8 @@ def build_snapshot(watcher, history=[]):
     }
     _postprocess(snapshot, history, state)
     return snapshot
+
+
+def build_snapshot(watcher, history=[]):
+    meta, state = parser.parse_save(watcher.get_file(True))
+    return build_snapshot_from_loaded(state, history)
