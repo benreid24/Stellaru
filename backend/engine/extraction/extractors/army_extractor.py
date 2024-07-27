@@ -22,3 +22,9 @@ class ArmyExtractor(Extractor):
             'total': len(armies),
             'types': types
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'types': {}
+        }

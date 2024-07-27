@@ -10,7 +10,7 @@ chardet==3.0.4
 charset-normalizer==2.0.7
 constantly==15.1.0
 cryptography==37.0.2
-cx-Freeze==6.11.0
+cx-Freeze==6.11.1
 cx-Logging==3.0
 daphne==3.0.2
 Django==3.2.12

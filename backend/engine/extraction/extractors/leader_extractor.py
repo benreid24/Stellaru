@@ -44,3 +44,17 @@ class LeaderExtractor(Extractor):
             'percent_ungendered': 1 - percent_female - percent_male,
             **type_breakdown
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'max_age': 0,
+            'avg_age': 0,
+            'avg_hire_age': 0,
+            'max_hire_age': 0,
+            'avg_level': 0,
+            'max_level': 0,
+            'percent_male': 0,
+            'percent_female': 0,
+            'percent_ungendered': 0,
+        }

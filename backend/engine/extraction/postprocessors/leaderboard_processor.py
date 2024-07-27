@@ -1,5 +1,7 @@
 from .postprocessor import PostProcessor
 
+import traceback
+
 
 class LeaderboardProcessor(PostProcessor):
     def __init__(self, isolation_layer):
@@ -17,6 +19,7 @@ class LeaderboardProcessor(PostProcessor):
         summaries = {
             eid: LeaderboardProcessor._summarize_empire(eid, empire)
             for eid, empire in data.get_full_snapshot()['empires'].items()
+            if self.isolation_layer.empire_valid(data.get_gamestate(), eid)
         }
 
         empire['leaderboard'] = {
@@ -25,36 +28,40 @@ class LeaderboardProcessor(PostProcessor):
 
     @staticmethod
     def _summarize_empire(empire_id, empire_snapshot):
-        return {
-            'id': empire_id,
-            'name': empire_snapshot['name'],
-            'player_name': empire_snapshot['player_name'],
-            'type': empire_snapshot['type'],
-            'sprawl': empire_snapshot['sprawl'],
-            'victory_points': empire_snapshot['standing']['victory_points'],
-            'system_count': empire_snapshot['systems']['owned'],
-            'starbase_count': empire_snapshot['systems']['starbases'],
-            'gdp': {
-                'base': empire_snapshot['economy']['base_gdp'],
-                'adjusted': empire_snapshot['economy']['adjusted_gdp']
-            },
-            'unity': empire_snapshot['unity'],
-            'tech': empire_snapshot['tech'],
-            'planets': {
-                'count': empire_snapshot['planets']['total'],
-                'total_size': empire_snapshot['planets']['sizes']['total'],
-                'building_count': empire_snapshot['planets']['buildings']['total'],
-                'district_count': empire_snapshot['planets']['districts']['total'],
-                'avg_amenities': empire_snapshot['planets']['amenities']['avg'],
-                'avg_crime': empire_snapshot['planets']['crime']['avg'],
-                'avg_stability': empire_snapshot['planets']['stability']['avg']
-            },
-            'pop_count': empire_snapshot['pops']['total'],
-            'fleets': {
-                'total_strength': empire_snapshot['fleets']['fleet_power']['total'],
-                'ship_count': empire_snapshot['fleets']['ships']['total'],
-                'avg_ship_exp': empire_snapshot['fleets']['avg_ship_exp'],
-                'total_size': empire_snapshot['fleets']['total_size']
-            },
-            'army_count': empire_snapshot['armies']['total']
-        }
+        try:
+            return {
+                'id': empire_id,
+                'name': empire_snapshot['name'],
+                'player_name': empire_snapshot['player_name'],
+                'type': empire_snapshot['type'],
+                'sprawl': empire_snapshot['sprawl'],
+                'victory_points': empire_snapshot['standing']['victory_points'],
+                'system_count': empire_snapshot['systems']['owned'],
+                'starbase_count': empire_snapshot['systems']['starbases'],
+                'gdp': {
+                    'base': empire_snapshot['economy']['base_gdp'],
+                    'adjusted': empire_snapshot['economy']['adjusted_gdp']
+                },
+                'unity': empire_snapshot['unity'],
+                'tech': empire_snapshot['tech'],
+                'planets': {
+                    'count': empire_snapshot['planets']['total'],
+                    'total_size': empire_snapshot['planets']['sizes']['total'],
+                    'building_count': empire_snapshot['planets']['buildings']['total'],
+                    'district_count': empire_snapshot['planets']['districts']['total'],
+                    'avg_amenities': empire_snapshot['planets']['amenities']['avg'],
+                    'avg_crime': empire_snapshot['planets']['crime']['avg'],
+                    'avg_stability': empire_snapshot['planets']['stability']['avg']
+                },
+                'pop_count': empire_snapshot['pops']['total'],
+                'fleets': {
+                    'total_strength': empire_snapshot['fleets']['fleet_power']['total'],
+                    'ship_count': empire_snapshot['fleets']['ships']['total'],
+                    'avg_ship_exp': empire_snapshot['fleets']['avg_ship_exp'],
+                    'total_size': empire_snapshot['fleets']['total_size']
+                },
+                'army_count': empire_snapshot['armies']['total']
+            }
+        except:
+            print(f'Failed to process empire: {empire_id}')
+            print(traceback.format_exc())

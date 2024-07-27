@@ -50,3 +50,19 @@ class StandngExtractor(Extractor):
             'Crisis Ships Killed': md['crisis_kills'] * 10,
             'Relics': md['relic_points']
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'victory_rank': 0,
+            'victory_points': {
+                'Economy': 0,
+                'Technology': 0,
+                'Systems': 0,
+                'Colonies': 0,
+                'Pops': 0,
+                'Subjects': 0,
+                'Federation': 0,
+                'Crisis Ships Killed': 0,
+                'Relics': 0
+            }
+        }

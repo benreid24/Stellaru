@@ -44,3 +44,12 @@ class ConstructionExtractor(Extractor):
             'max_queue_size': max_size,
             'breakdown': breakdown
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'queue_count': 0,
+            'queued_items': 0,
+            'avg_queue_size': 0,
+            'max_queue_size': 0,
+            'breakdown': {},
+        }

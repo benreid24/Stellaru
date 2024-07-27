@@ -1,4 +1,6 @@
 # This file loads saves for versions 3.x.x
+import traceback
+
 from . import util
 
 START_DATE = {
@@ -31,7 +33,19 @@ RELIC_SCORES = {
     'r_the_radiance': 1000,
     'r_toxic_god': 3000,
     'r_odryskan_crystal': 3000,
-    'r_wormhole_key': 2500
+    'r_wormhole_key_fragment_1': 0,
+    'r_wormhole_key_fragment_2': 0,
+    'r_wormhole_key_fragment_3': 0,
+    'r_wormhole_key_fragment_4': 0,
+    'r_wormhole_key': 2500,
+    'r_ever_spinning_top': 3000,
+    'r_celestial_tear': 3000,
+    'r_plasmic_core': 3000,
+    'r_infinity_root': 3000,
+    'r_time_crystal': 3000,
+    'r_daedalus_seal': 3000,
+    'r_continuum': 3000,
+    'r_eternal_throne': 3000
 }
 
 RESOURCE_INDICES = {
@@ -57,8 +71,7 @@ BASE_PRICES = {
     'rare_crystals': 10,
     'sr_living_metal': 20,
     'sr_zro': 20,
-    'sr_dark_matter': 20,
-    'nanites': 20
+    'sr_dark_matter': 20
 }
 
 MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]
@@ -150,15 +163,18 @@ def get_empire(state, empire):
                 print(f'Relic {relic} not configured in RELIC_SCORES')
 
     # starbases now in fleets
-    fleet_ids = [
-        of['fleet'] for of in state['country'][empire]['fleets_manager']['owned_fleets']
-        if isinstance(of, dict)
-    ]
+    fleet_ids = []
+    fm = state['country'][empire]['fleets_manager']
+    if isinstance(fm, dict) and 'owned_fleets' in fm:
+        fleet_ids = [
+            of['fleet'] for of in state['country'][empire]['fleets_manager']['owned_fleets']
+            if isinstance(of, dict)
+        ]
     fleet_data = [(fid, state['fleet'][fid])
                   for fid in fleet_ids if fid in state['fleet']]
     starbase_count = 0
     for _, fleet in fleet_data:
-        if fleet['name']['key'] == 'shipclass_starbase_name':
+        if 'name' in fleet and 'key' in fleet['name'] and fleet['name']['key'] == 'shipclass_starbase_name':
             starbase_count += 1
 
     return {
@@ -372,6 +388,7 @@ def get_market_prices(state, empire):
         name = _gen_name(state['country'][empire]['name'])
         print(
             f'Warning: Failed to get market prices for {empire} ({name}), using base prices')
+        print(traceback.format_exc())
         return BASE_PRICES
 
 

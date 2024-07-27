@@ -3,7 +3,10 @@ class Extractor:
         self.isolation_layer = isolation_layer
 
     def data_key(self):
-        raise Exception(f'data_key() method not implemented on extractor: {type(self).__name__}')
+        raise NotImplemented(f'data_key() method not implemented on extractor: {type(self).__name__}')
 
     def extract_data(self, state, empire):
-        raise Exception(f'extract_data() method not implemented on extractor: {type(self).__name__}')
+        raise NotImplemented(f'extract_data() method not implemented on extractor: {type(self).__name__}')
+    
+    def make_default(self, state, empire):
+        raise NotImplemented(f'make_default() not implemented on extractor: {type(self).__name__}')

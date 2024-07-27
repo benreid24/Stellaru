@@ -19,3 +19,12 @@ class WarExtractor(Extractor):
             'attacker': offense_wars,
             'defender': defense_wars
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'all_participants': 0,
+            'participation': 0,
+            'attacker': 0,
+            'defender': 0
+        }

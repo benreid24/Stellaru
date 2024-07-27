@@ -47,3 +47,14 @@ class FleetExtractor(Extractor):
     @staticmethod
     def _get_ship_size(stype):
         return SHIP_SIZES[stype] if stype in SHIP_SIZES else 0
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'fleet_power': util.basic_stats([0]),
+            'ships': util.basic_stats([0]),
+            'ship_types': {},
+            'avg_ship_exp': 0,
+            'fleets': [],
+            'total_size': 0
+        }
