@@ -37,3 +37,20 @@ class PlanetExtractor(Extractor):
             'age_days': util.basic_stats([planet['age_days'] for planet in planets]),
             'age': util.basic_stats([planet['age'] for planet in planets])
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'list': [],
+            'types': {},
+            'districts': util.basic_stats([0]),
+            'buildings': util.basic_stats([0]),
+            'sizes': util.basic_stats([0]),
+            'stability': util.basic_stats([0]),
+            'amenities': util.basic_stats([0]),
+            'housing': util.basic_stats([0]),
+            'crime': util.basic_stats([0]),
+            'pops': util.basic_stats([0]),
+            'age_days': util.basic_stats([0]),
+            'age': util.basic_stats([0])
+        }

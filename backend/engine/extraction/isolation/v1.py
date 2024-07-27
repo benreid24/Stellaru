@@ -53,8 +53,7 @@ BASE_PRICES = {
     'rare_crystals': 10,
     'sr_living_metal': 20,
     'sr_zro': 20,
-    'sr_dark_matter': 20,
-    'nanites': 20
+    'sr_dark_matter': 20
 }
 
 MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]

@@ -7,14 +7,20 @@ from engine.extraction.postprocessors.postprocessor_data import PostprocessorDat
 
 def _build_empire_snapshot(state, empire):
     snap = {}
+
+    def add_data(snap, extractor, data):
+        if not extractor.data_key():
+            snap.update(data)
+        else:
+            snap[extractor.data_key()] = data
+
     for extractor in extraction.extractor_list:
         try:
-            if not extractor.data_key():
-                snap = {**snap, **extractor.extract_data(state, empire)}
-            else:
-                snap[extractor.data_key()] = extractor.extract_data(state, empire)
+            add_data(snap, extractor, extractor.extract_data(state, empire))
         except:
+            print(f'Extractor {type(extractor).__name__} failed to run')
             print(traceback.format_exc())
+            add_data(snap, extractor, extractor.make_default(state, empire))
     return snap
 
 

@@ -16,3 +16,11 @@ class SystemExtractor(Extractor):
             'owned': md['owned_systems'],
             'starbases': md['starbases']
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'surveyed_objects': 0,
+            'surveyed_systems': 0,
+            'owned': 0,
+            'starbases': 0
+        }

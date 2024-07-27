@@ -6,57 +6,13 @@ START_DATE = {
     'y': 2200
 }
 
-RELIC_SCORES = {
-    'r_dragon_trophy': 1000,
-    'r_khans_throne': 3000,
-    'r_worm_scales': 1000,
-    'r_rubricator': 1000,
-    'r_galaxy': 2000,
-    'r_omnicodex': 500,
-    'r_surveyor': 200,
-    'r_galatron': 20000,
-    'r_ancient_sword': 200,
-    'r_severed_head': 200,
-    'r_prethoryn_queen': 5000,
-    'r_unbidden_warlock': 5000,
-    'r_contingency_core': 5000,
-    'r_zro_crystal': 1000,
-    'r_the_last_baol': 1000,
-    'r_the_defragmentor': 1000,
-    'r_reality_perforator': 5000,
-    'r_pox_sample': 5000,
-    'r_cryo_core': 5000,
-    'r_war_forge': 5000
-}
+RELIC_SCORES = v2.RELIC_SCORES
 
-RESOURCE_INDICES = {
-    'minerals': 2,
-    'food': 3,
-    'alloys': 9,
-    'consumer_goods': 10,
-    'volatile_motes': 11,
-    'exotic_gases': 12,
-    'rare_crystals': 13,
-    'sr_living_metal': 14,
-    'sr_zro': 15,
-    'sr_dark_matter': 16
-}
+RESOURCE_INDICES = v2.RESOURCE_INDICES
 
-BASE_PRICES = {
-    'minerals': 1,
-    'food': 1,
-    'alloys': 4,
-    'consumer_goods': 2,
-    'volatile_motes': 10,
-    'exotic_gases': 10,
-    'rare_crystals': 10,
-    'sr_living_metal': 20,
-    'sr_zro': 20,
-    'sr_dark_matter': 20,
-    'nanites': 20
-}
+BASE_PRICES = v2.BASE_PRICES
 
-MARKET_RESOURCES = [resource for resource, p in BASE_PRICES.items()]
+MARKET_RESOURCES = v2.MARKET_RESOURCES
 
 
 def _try_versions(fn, state, *args):

@@ -47,3 +47,12 @@ class PopExtractor(Extractor):
             'categories': cat_sums,
             'ethics': ethic_sums
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'total': 0,
+            'jobs': {},
+            'species': {},
+            'categories': {},
+            'ethics': {}
+        }

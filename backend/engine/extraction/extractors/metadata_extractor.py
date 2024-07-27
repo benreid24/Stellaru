@@ -17,3 +17,20 @@ class MetadataExtractor(Extractor):
             **game_md,
             **{key: empire[key] for key in empire_keys}
         }
+    
+    def make_default(self, state, empire):
+        return {
+            'name': '<ERROR EXTRACTING SAVE>',
+            'player_name': 'AI',
+            'edict_count': 0,
+            'sprawl': 0,
+            'type': 'regular_ai',
+            'date': '2200.1.1',
+            'date_days': 0,
+            'date_components': {
+                'y': 2200,
+                'm': 1,
+                'd': 1,
+                'active_empires': 0,
+            }
+        }

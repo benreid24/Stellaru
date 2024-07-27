@@ -14,3 +14,19 @@ class TechExtractor(Extractor):
             output for output in tech['output'].values()
         ])
         return tech
+    
+    def make_default(self, state, empire):
+        return {
+            'output': {
+                'physics': 0,
+                'society': 0,
+                'engineering': 0,
+                'total': 0
+            },
+            'completed_techs': 0,
+            'available_techs': {
+                'physics': 0,
+                'society': 0,
+                'engineering': 0
+            }
+        }

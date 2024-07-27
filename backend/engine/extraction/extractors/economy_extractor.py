@@ -158,13 +158,13 @@ class EconomyExtractor(Extractor):
 
         for resource in self.isolation_layer.MARKET_RESOURCES:
             i = income[resource]['total'] if resource in income else 0
-            gross_income[resource] = prices[resource] * i
+            gross_income[resource] = prices[resource] * i if resource in prices else 0
             s = spending[resource]['total'] if resource in spending else 0
-            gross_spending[resource] = prices[resource] * s
+            gross_spending[resource] = prices[resource] * s if resource in prices else 0
             n = net[resource] if resource in net else 0
-            net_gdp[resource] = prices[resource] * n
+            net_gdp[resource] = prices[resource] * n if resource in prices else 0
             v = stockpile[resource] if resource in stockpile else 0
-            stockpile_value[resource] = v * prices[resource]
+            stockpile_value[resource] = v * prices[resource] if resource in prices else 0
 
         gross_income['energy'] = income['energy']['total'] if 'energy' in income else 0
         gross_spending['energy'] = spending['energy']['total'] if 'energy' in spending else 0
@@ -180,4 +180,15 @@ class EconomyExtractor(Extractor):
             'total_outflows': sum([val for r, val in gross_spending.items()]),
             'total_net': sum([val for r, val in net_gdp.items()]),
             'total_stockpile_value': sum([v for r, v in stockpile_value.items()])
+        }
+    
+    def make_default(self, state, empire):
+        return {
+            'stockpile': {},
+            'net_income': {},
+            'income': {},
+            'spending': {},
+            'market_prices': {},
+            'base_gdp': {},
+            'adjusted_gdp': {}
         }

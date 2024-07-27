@@ -11,3 +11,6 @@ class FederationsExtractor(Extractor):
     def extract_data(self, state, empire):
         return self.isolation_layer.get_federations(state)
     
+    def make_default(self, state, empire):
+        return []
+    
