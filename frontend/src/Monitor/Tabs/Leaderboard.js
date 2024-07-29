@@ -14,7 +14,7 @@ function Leaderboard(props) {
     return (
         <div className='leaderboardTab'>
             <StatusBoard data={data}/>
-            <div className='row chartRow'>
+            <div className='row chartRow leaderboardChartContainer'>
                 <div className='col-xl-4 col-lg-6 col-md-12 mb-3 leaderboardChart'>
                     <VictoryChart data={data}/>
                 </div>
