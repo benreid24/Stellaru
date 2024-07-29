@@ -14,7 +14,7 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools
+        python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
@@ -33,7 +33,7 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools
+        python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
@@ -52,7 +52,7 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools
+        python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
