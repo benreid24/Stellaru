@@ -3,8 +3,7 @@ name: Backend Build Verify
 on: [pull_request]
 
 jobs:
-  build:
-
+  build-windows:
     runs-on: windows-latest
     strategy:
       matrix:
@@ -26,3 +25,49 @@ jobs:
       run: |
         cd backend
         if (-Not (Test-Path .\build\Stellaru.exe -PathType Leaf)) { exit 1 }
+
+  build-macos:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: [3.10.12]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Verify build
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python compile.py build
+    - name: Check Output
+      run: |
+        cd backend
+        test -f ".\build\Stellaru" || exit 1
+
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.10.12]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Verify build
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python compile.py build
+    - name: Check Output
+      run: |
+        cd backend
+        test -f ".\build\Stellaru" || exit 1
