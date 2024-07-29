@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.10.12]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '18.x'
       - name: Build Frontend
         run: |
           cd frontend
@@ -59,7 +59,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.10.12]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -70,7 +70,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '18.x'
       - name: Build Frontend
         run: |
           cd frontend
@@ -113,7 +113,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [3.10.12]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -124,7 +124,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '18.x'
       - name: Build Frontend
         run: |
           cd frontend

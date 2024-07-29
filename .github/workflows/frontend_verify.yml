@@ -11,7 +11,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '18.x'
     - run: cd frontend && npm install
     - run: cd frontend && npm run build --if-present
       env:
