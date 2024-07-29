@@ -37,6 +37,7 @@ jobs:
       - name: Package Project
         run: |
           cd backend
+          venv/Scripts/activate.ps1
           python manage.py collectstatic
           mv static ./build
           mv resources ./build
@@ -87,6 +88,7 @@ jobs:
       - name: Package Project
         run: |
           cd backend
+          source venv/bin/activate
           python manage.py collectstatic
           mv static build
           mv resources build
@@ -142,6 +144,7 @@ jobs:
       - name: Package Project
         run: |
           cd backend
+          source venv/bin/activate
           python manage.py collectstatic
           mv static build
           mv resources build
