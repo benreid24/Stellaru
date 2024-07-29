@@ -5,16 +5,12 @@ on: [pull_request]
 jobs:
   build-windows:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
-
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.10
     - name: Verify build
       run: |
         cd backend
@@ -28,16 +24,12 @@ jobs:
 
   build-macos:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
-
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.10
     - name: Verify build
       run: |
         cd backend
@@ -51,16 +43,12 @@ jobs:
 
   build-linux:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
-
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.10
     - name: Verify build
       run: |
         cd backend
