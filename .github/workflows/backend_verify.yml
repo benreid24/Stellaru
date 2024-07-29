@@ -22,7 +22,7 @@ jobs:
     - name: Check Output
       run: |
         cd backend
-        if (-Not (Test-Path .\build\Stellaru.exe -PathType Leaf)) { exit 1 }
+        if (-Not (Test-Path ./build/Stellaru.exe -PathType Leaf)) { exit 1 }
 
   build-macos:
     runs-on: macos-latest
@@ -43,7 +43,7 @@ jobs:
     - name: Check Output
       run: |
         cd backend
-        test -f ".\build\Stellaru" || exit 1
+        test -f "./build/Stellaru" || exit 1
 
   build-linux:
     runs-on: ubuntu-latest
@@ -64,4 +64,4 @@ jobs:
     - name: Check Output
       run: |
         cd backend
-        test -f ".\build\Stellaru" || exit 1
+        test -f "./build/Stellaru" || exit 1
