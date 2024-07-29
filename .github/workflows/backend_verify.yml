@@ -14,7 +14,9 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade pip setuptools wheel virtualenv
+        virtualenv venv
+        source venv/Scripts/activate
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
@@ -33,7 +35,9 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade pip setuptools wheel virtualenv
+        virtualenv venv
+        source venv/Scripts/activate
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
@@ -52,7 +56,9 @@ jobs:
     - name: Verify build
       run: |
         cd backend
-        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade pip setuptools wheel virtualenv
+        virtualenv venv
+        source venv/Scripts/activate
         pip install -r requirements.txt
         python compile.py build
     - name: Check Output
