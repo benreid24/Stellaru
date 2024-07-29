@@ -24,6 +24,8 @@ jobs:
           cd frontend
           npm install
           npm run build
+        env:
+          CI: false
       - name: Build Backend
         run: |
           cd backend
@@ -47,7 +49,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./Windows.zip
@@ -73,6 +74,8 @@ jobs:
           cd frontend
           npm install
           npm run build
+        env:
+          CI: false
       - name: Build Backend
         run: |
           cd backend
@@ -101,7 +104,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./MacOS.zip
@@ -127,6 +129,8 @@ jobs:
           cd frontend
           npm install
           npm run build
+        env:
+          CI: false
       - name: Build Backend
         run: |
           cd backend
@@ -150,7 +154,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./Linux.zip
