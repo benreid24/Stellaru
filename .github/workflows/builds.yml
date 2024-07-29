@@ -8,16 +8,13 @@ jobs:
   windows_build:
     name: Windows Build
     runs-on: windows-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.10.11"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,7 +27,9 @@ jobs:
       - name: Build Backend
         run: |
           cd backend
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel virtualenv
+          virtualenv venv
+          venv/Scripts/activate.ps1
           pip install -r requirements.txt
           python compile.py build
       - name: Package Project
@@ -48,6 +47,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./Windows.zip
@@ -57,16 +57,13 @@ jobs:
   osx_build:
     name: OS X Build
     runs-on: macos-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.10.11"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -79,7 +76,9 @@ jobs:
       - name: Build Backend
         run: |
           cd backend
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel virtualenv
+          virtualenv venv
+          source venv/bin/activate
           pip install -r requirements.txt
           python compile.py build
       - name: Package Project
@@ -102,6 +101,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./MacOS.zip
@@ -111,16 +111,13 @@ jobs:
   linux_build:
     name: Linux Build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.10]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.10.11"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -133,7 +130,9 @@ jobs:
       - name: Build Backend
         run: |
           cd backend
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel virtualenv
+          virtualenv venv
+          source venv/bin/activate
           pip install -r requirements.txt
           python compile.py build
       - name: Package Project
@@ -151,6 +150,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: false
         with:
           upload_url: ${{ github.event.client_payload.release_url }}
           asset_path: ./Linux.zip
