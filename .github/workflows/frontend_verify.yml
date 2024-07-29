@@ -14,6 +14,8 @@ jobs:
         node-version: '18.x'
     - run: cd frontend && npm install
     - run: cd frontend && npm run build --if-present
+    env:
+      CI: false
 
   build-windows:
     runs-on: windows-latest
@@ -26,6 +28,8 @@ jobs:
         node-version: '18.x'
     - run: cd frontend && npm install
     - run: cd frontend && npm run build --if-present
+    env:
+      CI: false
 
   build-macos:
     runs-on: macos-latest
@@ -38,3 +42,5 @@ jobs:
         node-version: '18.x'
     - run: cd frontend && npm install
     - run: cd frontend && npm run build --if-present
+    env:
+      CI: false
