@@ -11,7 +11,6 @@ charset-normalizer==3.3.2
 constantly==23.10.4
 cryptography==43.0.0
 cx_Freeze==7.2.0
-cx_Logging==3.2.0
 daphne==4.1.2
 Django==4.2.14
 future==1.0.0
