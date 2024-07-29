@@ -19,7 +19,7 @@ export const recordKeys = <T extends Record<string, unknown>>(o: T) => Object.ke
 export const recordValues = <T extends Record<string, unknown>>(o: T) => Object.values(o) as T[keyof T][];
 
 
-const Name = 'GDP (Total Empire Output)';
+const Name = 'GDP';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {

@@ -169,8 +169,12 @@
     font-size: 10pt;
 }
 
+.leaderboardChartContainer {
+    height: 100%;
+}
+
 .leaderboardChart {
-    height: 46%;
+    height: 50%;
     min-height: 30vh;
 }
 

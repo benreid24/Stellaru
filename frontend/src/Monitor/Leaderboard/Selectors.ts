@@ -10,7 +10,7 @@ export type GroupTimeseries = {
 
 export type GroupReducer = (currentValue: number, nextValue: number, memberCount: number) => number;
 
-const getFederationMembers: (snap: any, fid: number) => number[] = (snap, fid) => {
+const getFederationMembers = (snap: any, fid: number): number[] => {
     const feds = (snap['federations'] ?? []) as any[];
     for (let i = 0; i < feds.length; i += 1) {
         if (feds[i]['id'] === fid) {

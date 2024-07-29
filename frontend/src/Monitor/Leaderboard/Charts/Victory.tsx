@@ -96,7 +96,7 @@ export const VictoryChart: React.FC<LeaderboardChartProps> = ({data, name: n, ov
                         renderValue={(_selected) => {
                             const selected = (_selected as string[])
                             return (selected.length === 0 || selected.length === recordValues(VICTORY_PART).length)
-                                ? "Total Victory Points"
+                                ? "All sources"
                                 : `Custom (${selected.length}/${recordValues(VICTORY_PART).length})`
                         }}
                     >

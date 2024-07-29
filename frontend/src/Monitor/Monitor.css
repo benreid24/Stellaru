@@ -19,6 +19,7 @@
     margin-right: -15px;
     padding-left: 15px;
     padding-right: 15px;
+    flex-grow: 1;
 }
 
 .monitorTab {
