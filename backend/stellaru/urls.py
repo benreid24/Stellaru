@@ -14,12 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('stellaru_api.urls')),
-    path('', views.index, name="react_app")
+    path('', views.index, name="react_app"),
+    re_path(r'^static\/(.*)$', views.static_file)
 ]

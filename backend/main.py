@@ -13,7 +13,6 @@ from contextlib import closing
 from daphne.server import Server
 import django
 from daphne.endpoints import build_endpoint_description_strings
-from channels.staticfiles import StaticFilesWrapper
 
 from stellaru import settings_release
 
@@ -49,7 +48,7 @@ def main():
 
     port = find_port()
     from stellaru import routing as stellaru_app
-    application = StaticFilesWrapper(stellaru_app.application)
+    application = stellaru_app.application
     endpoints = build_endpoint_description_strings(
         host=DEFAULT_HOST,
         port=port,
