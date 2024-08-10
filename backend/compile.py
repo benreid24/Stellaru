@@ -21,7 +21,6 @@ packages = [
     'chardet',
     'constantly',
     'cryptography',
-    'cx_Freeze',
     'daphne',
     'django',
     'future',
