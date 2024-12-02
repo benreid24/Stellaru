@@ -135,12 +135,9 @@ def _insert_snapshot(snaps, snap):
         oldsnap = snaps[i]
         if oldsnap['date_days'] < snap['date_days']:
             continue
-        if snap['date_days'] == oldsnap['date_days']:
-            return False
         snaps = snaps[:i+1]
         break
-    snaps.append(snap)     
-    return True
+    snaps.append(snap)
 
 
 def _flush_save(save):
