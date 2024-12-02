@@ -141,9 +141,7 @@ function Monitor(props) {
     };
 
     const onNewData = snap => {
-        if (gameData.length === 0 || gameData[gameData.length - 1]['date_days'] < snap['date_days']) {
-            setGameData([...gameData, snap]);
-        }
+        setGameData([...gameData.filter(past => past['date_days'] < snap['date_days']), snap]);
     };
     subscription.onSnap = onNewData;
     subscription.onStatus = setStatus;
